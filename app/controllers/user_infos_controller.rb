@@ -43,6 +43,7 @@ class UserInfosController < ApplicationController
         redirect_to(user_info_path)
       end
     elsif %w(show edit).include?(action_name)
+      flash[:notice] = "Page will be available after filling in your information."
       redirect_to(new_user_info_path)
     end
   end
