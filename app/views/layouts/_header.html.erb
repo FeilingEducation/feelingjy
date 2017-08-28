@@ -1,6 +1,10 @@
-<h1>Welcome to Feelingjy</h1>
+<h1>Feelingjy</h1>
+<%= link_to('Home', root_path) %>
 <% if user_signed_in? %>
-<%= link_to('Profile', user_path(current_user)) %>
+<%= link_to('Profile', users_profile_path(current_user)) %>
+<%= link_to('Dashboard', user_info_path) %>
+<%= link_to('Manage', edit_user_info_path) %>
+<%= link_to('Security', edit_user_registration_path) %>
 <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
 <% else %>
 <%= link_to('Login', new_user_session_path) %>

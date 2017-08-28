@@ -1,0 +1,25 @@
+<div>
+  <h3>User Profile</h3>
+  <table summary="User information fields">
+    <tr>
+      <th><%= label_tag('first_name') %></th>
+      <td><%= @user_info.first_name %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag('last_name') %></th>
+      <td><%= @user_info.last_name %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag('gender') %></th>
+      <td><%= @user_info.gender %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag('city') %></th>
+      <td><%= @user_info.city %></td>
+    </tr>
+    <tr>
+      <th><%= label_tag('about') %></th>
+      <td><p><%= @user_info.about %></p></td>
+    </tr>
+  </table>
+</div>

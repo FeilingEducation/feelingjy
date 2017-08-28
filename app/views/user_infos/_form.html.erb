@@ -1,0 +1,25 @@
+<%= error_messages_for(f.object) %>
+
+<table summary="User information fields">
+  <tr>
+    <th><%= f.label(:first_name) %></th>
+    <td><%= f.text_field(:first_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:last_name) %></th>
+    <td><%= f.text_field(:last_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:gender) %></th>
+    <td><%= f.select(:gender, options_for_select([
+      ['Gender', ''], ['Male', 'male'], ['Female', 'female'], ['Other', 'other']], f.object.gender)) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:city) %></th>
+    <td><%= f.text_field(:city) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:about) %></th>
+    <td><%= f.text_area(:about) %></td>
+  </tr>
+</table>

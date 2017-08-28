@@ -1,0 +1,11 @@
+<div>
+  <h3>Edit Profile</h3>
+  <%= form_for(@user_info, url: user_info_path, method: 'patch') do |f| %>
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Update Profile") %>
+    </div>
+
+  <% end %>
+</div>
