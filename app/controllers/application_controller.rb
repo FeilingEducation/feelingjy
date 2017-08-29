@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError.new('Not Found')
   end
 
+  def restrict_to_development
+    not_found unless Rails.env.development?
+  end
+
   def after_sign_out_path_for(resource_or_scope)
     # path before sign out request
     "#{URI(request.referer).path}?logged_out=1"

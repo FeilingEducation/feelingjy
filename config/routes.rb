@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  get 'debug', to: 'debug#index'
+
   namespace :users do
     resources :profiles, only: [:show]
   end

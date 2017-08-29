@@ -1,0 +1,15 @@
+<h2>Debug Infomation</h2>
+<table>
+  <tr>
+    <% DebugHelper::TABLE_HEADERS.each do |header| %>
+    <th><%= header %></th>
+    <% end %>
+  </tr>
+  <% @user_infos.each do |user_info| %>
+  <tr>
+    <% row_data(user_info).each do |data| %>
+    <td><%= data %></td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
