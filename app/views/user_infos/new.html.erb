@@ -1,12 +1,5 @@
 <h2>Thanks for your registration and welcome to Feelingjy!</h2>
 <div>
   <p>Please fill out the following form to before proceeding</p>
-  <%= form_for(@user_info, url: user_info_path, method: 'post') do |f| %>
-    <%= render(partial: 'form', locals: {f: f}) %>
-
-    <div class="form-buttons">
-      <%= f.submit("Save Profile") %>
-    </div>
-
-  <% end %>
+  <%= render(partial: 'form', locals: { user_info: @user_info, method: 'post' }) %>
 </div>

@@ -1,5 +1,7 @@
 class UserInfo < ApplicationRecord
 
+  mount_uploader :avatar, AvatarUploader
+
   belongs_to :user, foreign_key: 'id'
 
   GENDERS = ['', 'male', 'female', 'other']
