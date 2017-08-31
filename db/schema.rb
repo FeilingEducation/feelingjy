@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831045754) do
+ActiveRecord::Schema.define(version: 20170831182254) do
 
   create_table "instructor_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "consult_experience"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20170831045754) do
     t.integer "price_min"
     t.integer "price_max"
     t.integer "price_base"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
