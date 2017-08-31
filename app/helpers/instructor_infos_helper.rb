@@ -1,0 +1,2 @@
+module InstructorInfosHelper
+end

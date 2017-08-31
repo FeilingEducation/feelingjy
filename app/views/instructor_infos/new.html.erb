@@ -1,0 +1,5 @@
+<div>
+  <p>Please fill out the following form to be registered as an instructor</p>
+  <%= render(partial: 'form',
+  locals: { instructor_info: @instructor_info, method: 'post' }) %>
+</div>

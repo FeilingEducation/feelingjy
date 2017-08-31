@@ -2,7 +2,7 @@ class UserInfosController < ApplicationController
 
   before_action :check_logged_out
   before_action :authenticate_user!
-  before_action :check_initialized
+  before_action :check_user_info_initialized
 
   def show
     @user_info = UserInfo.find(current_user.id)
@@ -37,27 +37,10 @@ class UserInfosController < ApplicationController
 
   private
 
-  def check_initialized
-    if UserInfo.exists?(current_user.id)
-      if action_name == 'new'
-        redirect_to(user_info_path)
-      end
-    elsif %w(show edit).include?(action_name)
-      flash[:notice] = "Page will be available after filling in your information."
-      redirect_to(new_user_info_path)
-    end
-  end
-
   def user_info_params
     params.require(:user_info).permit(:avatar, :avatar_cache, :first_name,
     :last_name, :gender, :current_city, :home_town, :current_institute,
     :highest_education, :major, :other_majors, :years_in_program)
-  end
-
-  def check_logged_out
-    if !user_signed_in? && params[:logged_out] == "1"
-      redirect_to root_path
-    end
   end
 
 end

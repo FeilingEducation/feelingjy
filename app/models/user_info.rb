@@ -5,6 +5,7 @@ class UserInfo < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :user, foreign_key: 'id'
+  has_one :instructor_info, foreign_key: 'id'
 
   validates_presence_of :id
   validates_presence_of :gender

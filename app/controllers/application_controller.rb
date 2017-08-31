@@ -24,4 +24,31 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_logged_out
+    if !user_signed_in? && params[:logged_out] == "1"
+      redirect_to root_path
+    end
+  end
+
+  def check_user_info_initialized
+    exists = UserInfo.exists?(current_user.id)
+    create = controller_name == 'user_infos' && %w(new create).include?(action_name)
+    if exists && create
+      redirect_to(user_info_path)
+    elsif !exists && !create
+      flash[:notice] = "Page will be available after filling in your information."
+      redirect_to(new_user_info_path)
+    end
+  end
+
+  def check_instructor_info_initialized
+    exists = InstructorInfo.exists?(current_user.id)
+    create = controller_name == 'instructor_infos' && %w(new create).include?(action_name)
+    if exists && create
+      redirect_to(instructor_info_path)
+    elsif !exists && !create
+      flash[:notice] = "Page will be available after filling in your information."
+      redirect_to(new_instructor_info_path)
+    end
+  end
 end

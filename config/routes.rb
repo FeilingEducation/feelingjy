@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resource :user_info, path: 'account', except: [:destroy]
+  resource :instructor_info, path: 'instructor'
 
   devise_for :users, path: 'users/security', controllers: {
     passwords: 'users/security/passwords',
