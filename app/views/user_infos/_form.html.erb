@@ -18,16 +18,35 @@
     </tr>
     <tr>
       <th><%= f.label(:gender) %></th>
-      <td><%= f.select(:gender, options_for_select([
-        ['Gender', nil], ['Male', 0], ['Female', 1], ['Other', 2]], f.object.gender)) %></td>
+      <td><%= f.select(:gender, UserInfo.genders.keys, { include_blank: 'gender' }) %></td>
     </tr>
     <tr>
-      <th><%= f.label(:city) %></th>
-      <td><%= f.text_field(:city) %></td>
+      <th><%= f.label(:current_city) %></th>
+      <td><%= f.text_field(:current_city) %></td>
     </tr>
     <tr>
-      <th><%= f.label(:about) %></th>
-      <td><%= f.text_area(:about) %></td>
+      <th><%= f.label(:home_town) %></th>
+      <td><%= f.text_field(:home_town) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:current_institute) %></th>
+      <td><%= f.text_field(:current_institute) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:highest_education) %></th>
+      <td><%= f.text_field(:highest_education) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:major) %></th>
+      <td><%= f.text_field(:major) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:other_majors) %></th>
+      <td><%= f.text_field(:other_majors) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:years_in_program) %></th>
+      <td><%= f.select(:years_in_program, [["graduated", 0], *(1..6).collect{|y| [y.to_s, y]}, ["other", nil]]) %></td>
     </tr>
   </table>
   <div class="form-buttons">

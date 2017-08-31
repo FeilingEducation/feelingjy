@@ -49,7 +49,9 @@ class UserInfosController < ApplicationController
   end
 
   def user_info_params
-    params.require(:user_info).permit(:first_name, :last_name, :gender, :city, :about, :avatar, :avatar_cache)
+    params.require(:user_info).permit(:avatar, :avatar_cache, :first_name,
+    :last_name, :gender, :current_city, :home_town, :current_institute,
+    :highest_education, :major, :other_majors, :years_in_program)
   end
 
   def check_logged_out
