@@ -1,6 +1,6 @@
 module DebugHelper
 
-  TABLE_HEADERS = [:me, :id, :email, :first_name, :last_name, :gender, :city, :about]
+  TABLE_HEADERS = [:me, :id, :email, :first_name, :last_name, :created_at, :updated_at]
 
   def row_data(user_info)
     [
@@ -9,9 +9,8 @@ module DebugHelper
       user_info.user.email,
       user_info.first_name,
       user_info.last_name,
-      user_info.gender,
-      user_info.city,
-      user_info.about
+      user_info.user.created_at,
+      user_info.updated_at
     ]
   end
 end
