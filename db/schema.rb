@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831182254) do
+ActiveRecord::Schema.define(version: 20170831182500) do
+
+  create_table "consult_transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "instructor_id", null: false
+    t.integer "student_id", null: false
+    t.text "privacy_policy"
+    t.integer "hourly_price"
+    t.integer "status"
+    t.integer "rating"
+    t.text "feed_back"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instructor_id"], name: "index_consult_transactions_on_instructor_id"
+    t.index ["student_id"], name: "index_consult_transactions_on_student_id"
+  end
 
   create_table "instructor_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "consult_experience"
