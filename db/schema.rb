@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831025816) do
+ActiveRecord::Schema.define(version: 20170831045754) do
+
+  create_table "instructor_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "consult_experience"
+    t.text "previous_applications"
+    t.text "previous_offers"
+    t.string "gpa"
+    t.string "gre_score"
+    t.text "suggestions_to_students"
+    t.string "specialties"
+    t.string "page_title"
+    t.text "available_time_slots"
+    t.text "busy_events"
+    t.boolean "is_early_consult", default: false, null: false
+    t.boolean "is_brainstorm_consult", default: false, null: false
+    t.boolean "is_essay_consult", default: false, null: false
+    t.boolean "is_visa_consult", default: false, null: false
+    t.integer "consult_capacity_min"
+    t.integer "consult_capacity_max"
+    t.integer "consult_term_min"
+    t.integer "consult_term_max"
+    t.integer "consult_duration_min"
+    t.integer "consult_duration_max"
+    t.integer "consult_reserve_earliest"
+    t.integer "consult_reserve_latest"
+    t.string "consult_frequency"
+    t.text "privacy_policy_template"
+    t.string "pricing_strategy"
+    t.integer "price_min"
+    t.integer "price_max"
+    t.integer "price_base"
+  end
 
   create_table "user_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "first_name", default: "", null: false
