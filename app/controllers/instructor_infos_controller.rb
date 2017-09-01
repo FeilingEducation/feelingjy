@@ -1,7 +1,5 @@
-class InstructorInfosController < ApplicationController
+class InstructorInfosController < AuthenticatedResourcesController
 
-  before_action :check_logged_out
-  before_action :authenticate_user!
   before_action :check_user_info_initialized
   before_action :check_instructor_info_initialized
 

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  NotAuthorized = Class.new(StandardError)
+
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   end
@@ -21,12 +23,6 @@ class ApplicationController < ActionController::Base
       user_info_path
     else
       stored_location_for(resource_or_scope) || signed_in_root_path(resource_or_scope)
-    end
-  end
-
-  def check_logged_out
-    if !user_signed_in? && params[:logged_out] == "1"
-      redirect_to root_path
     end
   end
 
