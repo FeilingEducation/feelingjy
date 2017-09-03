@@ -1,4 +1,4 @@
-<h1>Feelingjy</h1>
+<!-- <h1>Feelingjy</h1>
 <%= link_to('Home', root_path) %>
 <% if user_signed_in? %>
 <%= link_to('Profile', users_profile_path(current_user)) %>
@@ -9,4 +9,59 @@
 <% else %>
 <%= link_to('Login', new_user_session_path) %>
 <%= link_to('Sign up', new_user_registration_path) %>
-<% end %>
+<% end %> -->
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag "logo.png", width: "45px", height: "45px", class: "d-inline-block" %>
+    飞灵教育
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#instructor" id="dropdown01"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">导师</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#become-instructor">成为导师</a>
+          <a class="dropdown-item" href="#instructor-rating">导师评分</a>
+          <a class="dropdown-item" href="#match-result">match结果</a>
+          <a class="dropdown-item" href="#early-consult">前期咨询</a>
+          <a class="dropdown-item" href="#brainstorm">头脑风暴</a>
+          <a class="dropdown-item" href="#essay-consult">文书改写</a>
+          <a class="dropdown-item" href="#visa-consult">签证咨询</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#service">服务</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#fees">费用</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#team">团队</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#shopping">购物</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#community">社区</a>
+      </li>
+    </ul>
+    <div class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+      <%= link_to user_info_path do %>
+        <%= image_tag current_user.user_info.avatar, class: "rounded d-inline-block", width: "45px", height: "45px" %>
+      <% end %>
+      <%= link_to "管理", edit_user_info_path, class: "btn" %>
+      <%= link_to "安全", edit_user_registration_path, class: "btn" %>
+      <%= link_to "退出", destroy_user_session_path, class: "btn", method: "delete" %>
+      <% else %>
+      <%= link_to "登录", new_user_session_path, class: "btn btn-outline-success" %>
+      <%= link_to "注册", new_user_registration_path, class: "btn" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

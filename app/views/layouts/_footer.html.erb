@@ -1,3 +1,41 @@
-<div>
-  <p>2017 by Feelingjy Co.<p>
+<div class="row footer">
+  <div class="col-md-3">
+    <p>
+      <span class="font-weight-bold text-green">飞灵教育有限责任公司</span>
+    </p>
+    <p class="small">
+      <spans>地址：中国广东省深圳市科园南路高新区</span><br>
+      <span>电话：123-456-7890</span><br>
+      <span>传真：123-456-7890</span>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <p><span class="font-weight-bold text-green">联系我们</span></p>
+    <form>
+      <div class="row">
+        <div class="col-md-4 small-col">
+          <input type="text" class="form-control small" id="name" name="name" placeholder="姓名" required>
+          <input type="text" class="form-control small" id="email" name="email" placeholder="邮箱" required>
+          <input type="text" class="form-control small" id="mobile" name="mobile" placeholder="电话" required>
+          <input type="text" class="form-control small" id="subject" name="subject" placeholder="主题" required>
+        </div>
+        <div class="col-md-8 small-col">
+          <textarea class="form-control small" type="textarea" id="message" placeholder="信息" maxlength="140" rows="5"></textarea>
+          <div class="text-right">
+            <button type="button" id="submit" name="submit" class="small btn btn-primary">提交</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-3">
+    <p>
+      <span class="font-weight-bold text-green">加入我们</span>
+    </p>
+    <div class="d-flex justify-content-around">
+      <%= image_tag "facebook_logo.png" %>
+      <%= image_tag "twitter_logo.png" %>
+      <%= image_tag "youtube_logo.png" %>
+    </div>
+  </div>
 </div>
