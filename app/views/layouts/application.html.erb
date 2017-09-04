@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>飞灵教育 | 共享留学 | 成为导师</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <title>飞灵教育 | 共享留学 | 成为导师</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <div class="container">
-      <%= render(:partial => 'layouts/header') %>
-      <div class="row main-content"
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%= yield %>
-      </div>
-      <%= render(:partial => 'layouts/footer') %>
+<body>
+  <div class="container">
+    <%= render(:partial => 'layouts/header') %>
+    <% flash[:success] ||= flash[:notice] %>
+    <% flash[:danger] ||= flash[:alert] %>
+    <% for type in [:success, :info, :warning, :danger] %>
+    <% if flash[type] %>
+    <div class="row alert alert-<%= type %>" role="alert">
+      <span><%= flash[type] %></span>
     </div>
-  </body>
+    <% end %>
+    <% end %>
+    <main>
+      <%= yield %>
+    </main>
+    <%= render(:partial => 'layouts/footer') %>
+  </div>
+  <%= render partial: 'layouts/dialog' %>
+</body>
 </html>

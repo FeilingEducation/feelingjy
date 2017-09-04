@@ -13,12 +13,27 @@
 
 @import "bootstrap";
 
+.btn-signup {
+  @include button-variant(#fff, $red);
+  color: $red;
+}
+
+.btn-wechat {
+  background-color: $green;//#3cb034;
+  color: $white;
+  padding: 0 0.75rem;
+  text-decoration: none;
+  &:hover {
+    color: $white;
+  }
+}
+
 body {
   padding-top: 7rem;
   background-color: #F0F0F0;
 }
 
-.main-content {
+main {
   background-color: #FFFFFF;
 }
 
@@ -27,8 +42,9 @@ body {
 }
 
 .small {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   padding: 0.3rem 0.45rem;
+  margin-bottom: 0rem;
 }
 
 .small-col {
@@ -38,4 +54,23 @@ body {
 
 .footer {
   padding-top: 3rem;
+}
+
+.divider {
+  text-align: center;
+  height: 34px;
+  hr {
+    margin: -13px auto 10px;
+    width: 100%;
+  }
+  span {
+    background-color: #fff;
+    display: inline-block;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+.tight-form {
+  margin-bottom: 0.25rem;
 }

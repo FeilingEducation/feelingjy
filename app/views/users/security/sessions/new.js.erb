@@ -1,0 +1,9 @@
+$('#dialog .modal-title').html("帐号登录");
+
+$('.modal-body').html('<%= j render(partial: 'sign_up') %>');
+
+$('#dialog').modal("show");
+
+$('#dialog').on('shown.bs.modal', function() {
+  $('.first-input').focus();
+});
