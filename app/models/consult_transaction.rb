@@ -2,10 +2,11 @@ class ConsultTransaction < ApplicationRecord
 
   enum status: {
     initiated: 0,
-    confirmed: 1,
-    canceled: 2,
-    completed: 3,
-    aborted: 4
+    modified: 1,
+    confirmed: 2,
+    canceled: 3,
+    completed: 4,
+    aborted: 5
   }
 
   belongs_to :instructor, class_name: 'instructor_info'

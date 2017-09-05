@@ -11,20 +11,12 @@ class InstructorInfosController < AuthenticatedResourcesController
     @instructor_info = InstructorInfo.new(instructor_info_params)
     @instructor_info.id = current_user.id
     if @instructor_info.save
-      user_info = UserInfo.find(current_user.id)
-      user_info.is_instructor = true
-      if user_info.save
-        flash[:notice] = 'Instructor profile created successfully.'
-        redirect_to(instructor_info_path)
-        return
-      else
-        @instructor_info.destroy
-        flash[:notice] = 'Failed to update user_info.'
-      end
+      flash[:notice] = 'Instructor profile created successfully.'
+      redirect_to(instructor_info_path)
     else
       falsh[:notice] = 'Failed to create instructor info.'
+      render('new')
     end
-    render('new')
   end
 
   def show
@@ -45,7 +37,6 @@ class InstructorInfosController < AuthenticatedResourcesController
 
   def destroy
     InstructorInfo.destroy(current_user.id)
-    UserInfo.find(current_user.id).update_attribute(:is_instructor, false)
     flash[:notice] = 'Instructor account closed successfully'
     redirect_to(user_info_path)
   end

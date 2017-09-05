@@ -3,9 +3,9 @@
   <%= render(partial: 'form', locals: { user_info: @user_info, method: 'patch' }) %>
 
   <br>
-  <% if @user_info.is_instructor %>
-  <%= button_to('Edit Instructor Profile', { action: 'edit', controller: 'instructor_infos'}, method: 'get') %>
+  <% if @user_info.instructor_info.nil? %>
+    <%= button_to('Become an Instructor', { action: 'new', controller: 'instructor_infos'}, method: 'get') %>
   <% else %>
-  <%= button_to('Become an Instructor', { action: 'new', controller: 'instructor_infos'}, method: 'get') %>
+    <%= button_to('Edit Instructor Profile', { action: 'edit', controller: 'instructor_infos'}, method: 'get') %>
   <% end %>
 </div>
