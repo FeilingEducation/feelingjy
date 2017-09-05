@@ -1,9 +1,10 @@
 class UserInfosController < AuthenticatedResourcesController
 
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :check_user_info_initialized
 
   def show
-    @user_info = UserInfo.find(current_user.id)
+    @user_info = UserInfo.find(params.permit(:id))
   end
 
   def new

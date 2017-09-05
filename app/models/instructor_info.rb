@@ -4,6 +4,7 @@ class InstructorInfo < ApplicationRecord
 
   has_many :consult_transactions, foreign_key: 'instructor_id'
   has_many :students, through: 'consult_transactions'
+  has_many :private_policies, foreign_key: 'instructor_id'
 
   validates_presence_of :id
 

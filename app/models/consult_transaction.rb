@@ -9,16 +9,14 @@ class ConsultTransaction < ApplicationRecord
     aborted: 5
   }
 
-  belongs_to :instructor, class_name: 'instructor_info'
-  belongs_to :student, class_name: 'user_info'
+  belongs_to :instructor, class_name: 'InstructorInfo'
+  belongs_to :student, class_name: 'UserInfo'
+
+  has_one :chat
 
   validates_presence_of :instructor_id
   validates_presence_of :student_id
-  validates :disallow_self_consult
-
-  private
-
-  def disallow_self_consult
-    errors.add(:base, "Consulting yourself is not allowed") if :instructor_id == :student_id
+  validate do
+    errors.add(:base, "Consulting yourself is not allowed") if instructor_id == student_id
   end
 end
