@@ -16,3 +16,15 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+function show_or_update(modal) {
+  if ((modal.data('bs.modal') || {_isShown: false})._isShown) {
+    modal.modal("handleUpdate");
+    modal.find(".first_input").focus();
+  } else {
+    modal.modal("show");
+    modal.on("shown.bs.modal", function() {
+      modal.find(".first-input").focus();
+    });
+  }
+}

@@ -56,7 +56,7 @@ main {
   padding-top: 3rem;
 }
 
-.divider {
+.text-divider {
   text-align: center;
   height: 34px;
   hr {
@@ -71,6 +71,11 @@ main {
   }
 }
 
-.tight-form {
+.tight-bottom {
   margin-bottom: 0.25rem;
+}
+
+.profile-thumbnail {
+  @extend .rounded-circle;
+  border: 3px solid $gray-300;
 }
