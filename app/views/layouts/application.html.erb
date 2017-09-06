@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <title>飞灵教育 | 共享留学 | 成为导师</title>
   <meta charset="utf-8">
@@ -7,7 +7,6 @@
 
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
@@ -22,11 +21,12 @@
     </div>
     <% end %>
     <% end %>
-    <main>
+    <section class="main">
       <%= yield %>
-    </main>
+    </section>
     <%= render(:partial => 'layouts/footer') %>
   </div>
   <%= render partial: 'layouts/dialog' %>
 </body>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </html>

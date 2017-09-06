@@ -1,5 +1,72 @@
-<h2>Thanks for your registration and welcome to Feelingjy!</h2>
-<div>
-  <p>Please fill out the following form to before proceeding</p>
-  <%= render(partial: 'form', locals: { user_info: @user_info, method: 'post' }) %>
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <h4 class="text-green "><strong>欢迎加入飞灵教育！请填写个人信息以完成注册</strong></h4><br>
+    <%= form_for @user_info, url: new_user_info_path, remote: true, method: 'post', role: 'form', id: 'step1' do |f| %>
+    <div class="form-header">
+      <h5>基本信息</h5>
+      <hr>
+    </div>
+    <div class="form-group row">
+      <%= f.label :last_name, '姓氏 *', class: 'col-md-2 col-form-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :last_name, class: 'form-control', placeholder: '“张”', required: true %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :first_name, '名称 *', class: 'col-md-2 col-form-label' %>
+      <div class="col-md-4">
+        <%= f.text_field :first_name, class: 'form-control', placeholder: '“三”', required: true %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :gender, '性别 *', class: 'col-md-2 col-form-label' %>
+      <div class="col-md-2">
+        <%= f.select :gender, ['男', '女', '其他'].zip(UserInfo.genders.keys),
+        { include_blank: true, selected: nil }, class: 'custom-select', required: true %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :current_city, '所在城市', class: 'col-md-2 col-form-label' %>
+      <div class="col-md-5">
+        <%= f.text_field :current_city, class: 'form-control', placeholder: '“三藩市 美国”' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :home_town, "来自城市", class: 'col-md-2 col-form-label' %>
+      <div class="col-md-5">
+        <%= f.text_field :home_town, class: 'form-control', placeholder: '“上海”' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-12">
+        <%= f.submit "保存并继续", class: 'btn btn-outline-success float-right' %>
+      </div>
+    </div>
+    <% end %>
+    <%= form_for @user_info, url: new_user_info_path, remote: true, method: 'patch', role: 'form', id: 'step2' do |f| %>
+    <div class="form-header">
+      <h5>上传头像</h5>
+      <hr>
+    </div>
+    <div class="form-group row">
+      <%= f.label :avatar, "个人照片", class: "col-md-2 col-form-label" %>
+      <%= f.file_field :avatar %>
+      <%= f.hidden_field :avatar_cache %>
+    </div>
+    <div class="form-group row upload-preview">
+      <div class="col-md-11 ml-md-auto">
+        <div class="row">
+          <label class="col-md-2 col-form-label">小图标</label>
+          <img class="profile-thumbnail">
+        </div>
+        <div class="row">
+          <label class="col-md-2 col-form-label">完整尺寸</label>
+          <img class="profile-full">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row upload-preview">
+    </div>
+    <% end %>
+  </div>
 </div>
