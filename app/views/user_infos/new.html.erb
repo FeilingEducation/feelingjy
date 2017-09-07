@@ -45,7 +45,7 @@
     <%= render partial: 'form_submit', locals: { f: f, text: '保存并继续' } %>
     <% end %>
 
-    <%= form_for @user_info, url: user_info_path, remote: true, method: 'patch',
+    <%= form_for @user_info, url: user_info_path, method: 'patch',
     html: { class: 'multi-step-form', role: 'form', id: 'step3', :'data-type' => 'json' } do |f| %>
     <%= render partial: 'form_title', locals: { text: '教育信息' } %>
     <%= render partial: 'form_text_field', locals: { f: f, field: :highest_education, text: '学历', placeholder: '（含在读）' } %>

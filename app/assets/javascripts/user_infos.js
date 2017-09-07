@@ -7,8 +7,9 @@ $(document).on('change', '#user_info_avatar', function() {
     }
     reader.readAsDataURL(this.files[0]);
   } else {
-    $('.upload-preview').find('.profile-image-thumbnail').attr('src', default_profile.png);
-    $('.upload-preview').find('.profile-image-full').attr('src', default_profile.png);
+    let default_profile_image = $(this).data('default-profile-image');
+    $('.upload-preview').find('.profile-image-thumbnail').attr('src', default_profile_image);
+    $('.upload-preview').find('.profile-image-full').attr('src', default_profile_image);
   }
 });
 
