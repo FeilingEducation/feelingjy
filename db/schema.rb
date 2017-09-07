@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905052754) do
+ActiveRecord::Schema.define(version: 20170907063023) do
 
   create_table "chat_lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -81,19 +81,19 @@ ActiveRecord::Schema.define(version: 20170905052754) do
   end
 
   create_table "user_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.string "current_city", default: "", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "current_city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
-    t.integer "gender", default: 0, null: false
-    t.string "home_town", default: "", null: false
-    t.string "current_institute", default: "", null: false
-    t.string "highest_education", default: "", null: false
-    t.string "major", default: "", null: false
-    t.string "other_majors", default: "", null: false
-    t.integer "years_in_program"
+    t.integer "gender", null: false
+    t.string "home_town"
+    t.string "current_institute"
+    t.string "highest_education"
+    t.string "major"
+    t.string "other_majors"
+    t.integer "program_year"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

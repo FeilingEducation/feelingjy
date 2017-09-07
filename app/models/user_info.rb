@@ -1,6 +1,15 @@
 class UserInfo < ApplicationRecord
 
   enum gender: { male: 0, female: 1, other: 2 }
+  enum program_year: {
+    graduated: -1,
+    admitted: 0,
+    freshman: 1,
+    sophomore: 2,
+    junior: 3,
+    senior: 4,
+    fifth_or_above: 5
+  }
 
   mount_uploader :avatar, AvatarUploader
 

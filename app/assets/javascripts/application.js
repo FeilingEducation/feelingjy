@@ -31,3 +31,36 @@ function show_or_update(modal) {
     });
   }
 }
+
+function isObject(obj) {
+  return obj === Object(obj);
+}
+
+// handle custom file inputs
+$(document).on('change', '.custom-file input[type="file"]', function () {
+
+  const $input = $(this);
+  const target = $input.data('target');
+  const $target = $(target);
+
+  if (!$target.length)
+    return console.error('Invalid target for custom file', $input);
+
+  if (!$target.attr('data-content'))
+    return console.error('Invalid `data-content` for custom file target', $input);
+
+  // set original content so we can revert if user deselects file
+  if (!$target.attr('data-original-content'))
+    $target.attr('data-original-content', $target.attr('data-content'));
+
+  const input = $input.get(0);
+
+  let name = isObject(input) && isObject(input.files) && isObject(input.files[0])
+    && typeof input.files[0].name === "string" ? input.files[0].name : $input.val();
+
+  if (!name)
+    name = $target.attr('data-original-content');
+
+  $target.attr('data-content', name);
+
+});
