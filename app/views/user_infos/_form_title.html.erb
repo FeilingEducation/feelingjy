@@ -1,4 +1,7 @@
-<div class="form-title">
-  <h5><%= text %></h5>
+<div class="form-group rows">
+  <h4><%= title %></h4>
   <hr>
+  <% unless local_assigns[:sub_title].nil? %>
+    <h5><%= sub_title %></h5>
+  <% end %>
 </div>

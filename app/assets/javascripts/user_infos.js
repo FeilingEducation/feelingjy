@@ -13,9 +13,17 @@ $(document).on('change', '#user_info_avatar', function() {
   }
 });
 
-$(document).on('ajax:success', '.current-form', function() {
+$(document).on('click', '.multi-step-form .step-navigate', function() {
   const $this = $(this);
-  const $next_form = $($this.data('next-form'));
-  $this.toggleClass('current-form');
-  $next_form.toggleClass('current-form');
-});
+  const $curr_form = $this.closest('.multi-step-form');
+  const $target_form = $($this.data('target'));
+  $curr_form.toggleClass('current-step');
+  $target_form.toggleClass('current-step');
+})
+
+// $(document).on('ajax:success', '.current-form', function() {
+//   const $this = $(this);
+//   const $next_form = $($this.data('next-form'));
+//   $this.toggleClass('current-form');
+//   $next_form.toggleClass('current-form');
+// });
