@@ -2,7 +2,9 @@
 <% options = {} if local_assigns[:options].nil? %>
 
 <div class="form-group row">
-  <%= f.label field, text, class: 'col-md-3 col-form-label' %>
+  <% unless local_assigns[:text].nil? %>
+    <%= f.label field, text, class: 'col-md-3 col-form-label' %>
+  <% end %>
   <div class="col-md">
     <%= f.select field, choices, options, { class: 'custom-select', required: required } %>
   </div>

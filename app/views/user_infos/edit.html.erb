@@ -48,7 +48,7 @@
     <% if @user_info.instructor_info.nil? %>
       <%= button_to('申请成为导师', { action: 'new', controller: 'instructor_infos'}, { method: 'get', class: 'btn btn-outline-success' }) %>
     <% else %>
-      <%= button_to('Edit Instructor Profile', { action: 'edit', controller: 'instructor_infos'}, { method: 'get', class: 'btn btn-outline-success' }) %>
+      <%= button_to('编辑导师信息', { action: 'edit', controller: 'instructor_infos'}, { method: 'get', class: 'btn btn-outline-success' }) %>
     <% end %>
   </div>
 </div>

@@ -12,17 +12,3 @@ $(document).on('change', '#user_info_avatar', function() {
     $('.upload-preview').find('.profile-image-full').attr('src', default_profile_image);
   }
 });
-
-$(document).on('click', '.multi-step-form .step-navigate', function() {
-  const $this = $(this);
-  const $curr_form = $this.closest('.multi-step-form');
-  const $target_form = $($this.data('target'));
-  $curr_form.toggleClass('current-step');
-  $target_form.toggleClass('current-step');
-  $target_form.first('input').focus();
-});
-
-$(window).on('keypress', function(e) {
-  // need to do validation here
-  $('.current-step .main-btn').click();
-})

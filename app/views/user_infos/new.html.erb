@@ -25,7 +25,7 @@
       </fieldset>
 
       <fieldset class="multi-step-form", id="step3">
-        <%= render partial: 'form_title', locals: { title: '第1步： 基本信息', sub_title: '你的家乡是？' } %>
+        <%= render partial: 'form_title', locals: { title: '第1步： 基本信息', sub_title: '您来自什么地方？' } %>
         <%= render partial: 'form_text_field', locals: { f: f, field: :current_city, text: '来自城市', placeholder: '“上海”' } %>
         <%= render partial: 'form_submit', locals: { next_step: '#step4', prev_step: '#step2' } %>
       </fieldset>
@@ -82,7 +82,7 @@
             </div>
           </div>
         </div>
-        <%= render partial: 'form_submit', locals: { next_step_text: '完成', prev_step: '#step6' } %>
+        <%= render partial: 'form_submit', locals: { next_step_text: '完成', prev_step: '#step7' } %>
       </fieldset>
     <% end %>
   </div>

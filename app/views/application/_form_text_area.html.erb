@@ -1,0 +1,9 @@
+<% required = false if local_assigns[:required].nil? %>
+<% placeholder = '' if local_assigns[:placeholder].nil? %>
+
+<div class="form-group row">
+  <%= f.label field, text, class: 'col-md-3 col-form-label' %>
+  <div class="col-md">
+    <%= f.text_area field, rows: 5, class: 'form-control', placeholder: placeholder, required: required %>
+  </div>
+</div>
