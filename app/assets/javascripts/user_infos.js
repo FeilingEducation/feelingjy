@@ -19,11 +19,10 @@ $(document).on('click', '.multi-step-form .step-navigate', function() {
   const $target_form = $($this.data('target'));
   $curr_form.toggleClass('current-step');
   $target_form.toggleClass('current-step');
-})
+  $target_form.first('input').focus();
+});
 
-// $(document).on('ajax:success', '.current-form', function() {
-//   const $this = $(this);
-//   const $next_form = $($this.data('next-form'));
-//   $this.toggleClass('current-form');
-//   $next_form.toggleClass('current-form');
-// });
+$(window).on('keypress', function(e) {
+  // need to do validation here
+  $('.current-step .main-btn').click();
+})

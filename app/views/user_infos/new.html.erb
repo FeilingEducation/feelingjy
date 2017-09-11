@@ -1,63 +1,62 @@
 <div class="row justify-content-center">
   <div class="col-md-6">
 
-    <%= form_for @user_info, url: user_info_path, remote: true, method: 'post',
-    html: { role: 'form', :'data-type' => 'json' } do |f| %>
+    <%= form_for @user_info, url: user_info_path, method: 'post', html: { role: 'form' } do |f| %>
 
-      <div class="multi-step-form current-step", id="step0">
+      <fieldset class="multi-step-form current-step", id="step0">
         <h4 class="text-green "><strong>欢迎加入飞灵教育！</strong></h4><br>
         <h6 class="text-green">请填写个人信息以完成注册</h6>
-        <%= render partial: 'form_submit', locals: { text: '开始', next_step: '#step1' } %>
-      </div>
+        <%= render partial: 'form_submit', locals: { next_step_text: '开始', next_step: '#step1' } %>
+      </fieldset>
 
-      <div class="multi-step-form", id="step1">
+      <fieldset class="multi-step-form", id="step1">
         <%= render partial: 'form_title', locals: { title: '第1步： 基本信息' } %>
         <%= render partial: 'form_text_field', locals: { f: f, field: :last_name, text: '姓氏 *', required: true } %>
         <%= render partial: 'form_text_field', locals: { f: f, field: :first_name, text: '名称 *', required: true } %>
         <% gender_text = ['男', '女', '其他'].zip(UserInfo.genders.keys) %>
         <%= render partial: 'form_select', locals: { f: f, field: :gender, text: '性别 *', required: true, choices: gender_text, options: { include_blank: true, selected: @user_info.gender } } %>
-        <%= render partial: 'form_submit', locals: { text: '下一步', next_step: '#step2' } %>
-      </div>
+        <%= render partial: 'form_submit', locals: { next_step: '#step2' } %>
+      </fieldset>
 
-      <div class="multi-step-form", id="step2">
+      <fieldset class="multi-step-form", id="step2">
         <%= render partial: 'form_title', locals: { title: '第1步： 基本信息', sub_title: '您现在所在的城市是？' } %>
         <%= render partial: 'form_text_field', locals: { f: f, field: :current_city, text: '所在城市', placeholder: '“三藩市 美国”' } %>
-        <%= render partial: 'form_submit', locals: { text: '下一步', next_step: '#step3', prev_step: '#step1' } %>
-      </div>
+        <%= render partial: 'form_submit', locals: { next_step: '#step3', prev_step: '#step1' } %>
+      </fieldset>
 
-      <div class="multi-step-form", id="step3">
+      <fieldset class="multi-step-form", id="step3">
         <%= render partial: 'form_title', locals: { title: '第1步： 基本信息', sub_title: '你的家乡是？' } %>
         <%= render partial: 'form_text_field', locals: { f: f, field: :current_city, text: '来自城市', placeholder: '“上海”' } %>
-        <%= render partial: 'form_submit', locals: { text: '下一步', next_step: '#step4', prev_step: '#step2' } %>
-      </div>
+        <%= render partial: 'form_submit', locals: { next_step: '#step4', prev_step: '#step2' } %>
+      </fieldset>
 
-      <div class="multi-step-form", id="step4">
+      <fieldset class="multi-step-form", id="step4">
         <%= render partial: 'form_title', locals: { title: '第2步： 教育信息', sub_title: '您的学历是（含在读）？' } %>
         <%= render partial: 'form_text_field', locals: { f: f, field: :highest_education, text: '学历', placeholder: '“高中”' } %>
-        <%= render partial: 'form_submit', locals: { text: '下一步', next_step: '#step5', prev_step: '#step3' } %>
-      </div>
+        <%= render partial: 'form_submit', locals: { next_step: '#step5', prev_step: '#step3' } %>
+      </fieldset>
 
-      <div class="multi-step-form", id="step5">
+      <fieldset class="multi-step-form", id="step5">
         <%= render partial: 'form_title', locals: { title: '第2步： 教育信息', sub_title: '您现在是第几学年？' } %>
         <% program_years_text = ['已毕业', '准备入学', '第一年', '第二年', '第三年', '第四年', '第五年或以上'].zip(UserInfo.program_years.keys) %>
         <%= render partial: 'form_select', locals: { f: f, field: :program_year, text: '学年', choices: program_years_text, options: { include_blank: true, selected: @user_info.program_year } } %>
-        <%= render partial: 'form_submit', locals: { text: '下一步', next_step: '#step6', prev_step: '#step4' } %>
-      </div>
+        <%= render partial: 'form_submit', locals: { next_step: '#step6', prev_step: '#step4' } %>
+      </fieldset>
 
-      <div class="multi-step-form", id="step6">
+      <fieldset class="multi-step-form", id="step6">
         <%= render partial: 'form_title', locals: { title: '第2步： 教育信息', sub_title: '您在什么院校就读（或毕业）？' } %>
         <%= render partial: 'form_text_field', locals: { f: f, field: :current_institute, text: '所在院校', placeholder: '“北京人大附中”' } %>
-        <%= render partial: 'form_submit', locals: { text: '下一步', next_step: '#step7', prev_step: '#step5' } %>
-      </div>
+        <%= render partial: 'form_submit', locals: { next_step: '#step7', prev_step: '#step5' } %>
+      </fieldset>
 
-      <div class="multi-step-form", id="step7">
+      <fieldset class="multi-step-form", id="step7">
         <%= render partial: 'form_title', locals: { title: '第2步： 教育信息', sub_title: '您的专业是？' } %>
         <%= render partial: 'form_text_field', locals: { f: f, field: :major, text: '专业' } %>
         <%= render partial: 'form_text_field', locals: { f: f, field: :other_majors, text: '其他专业' } %>
-        <%= render partial: 'form_submit', locals: { text: '下一步', next_step: '#step8', prev_step: '#step6' } %>
-      </div>
+        <%= render partial: 'form_submit', locals: { next_step: '#step8', prev_step: '#step6' } %>
+      </fieldset>
 
-      <div class="multi-step-form", id="step8">
+      <fieldset class="multi-step-form", id="step8">
         <%= render partial: 'form_title', locals: { title: '第3步： 上传头像', sub_title: '上传头像方便大家认识你吧' } %>
         <div class="form-group row">
           <%= f.label :avatar, "个人照片", class: "col-md-2 col-form-label" %>
@@ -83,8 +82,8 @@
             </div>
           </div>
         </div>
-        <%= render partial: 'form_submit', locals: { text: '保存', prev_step: '#step6' } %>
-      </div>
+        <%= render partial: 'form_submit', locals: { next_step_text: '完成', prev_step: '#step6' } %>
+      </fieldset>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,17 @@
+<% prev_step_text = "上一步" if local_assigns[:prev_step_text].nil? %>
+<% next_step_text = "下一步" if local_assigns[:next_step_text].nil? %>
+
+<div class="form-group row">
+  <% unless local_assigns[:prev_step].nil? %>
+  <div class="col-md">
+    <button type="button" class="btn btn-link step-navigate" data-target="<%= prev_step %>"><%= prev_step_text %></button>
+  </div>
+  <% end %>
+  <div class="col-md">
+  <% unless local_assigns[:next_step].nil? %>
+    <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="<%= next_step %>"><%= next_step_text %></button>
+  <% else %>
+    <button type="button" class="btn btn-outline-success float-right submit main-btn"><%= next_step_text %></button>
+  <% end %>
+  </div>
+</div>
