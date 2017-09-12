@@ -2,7 +2,7 @@ class Users::Security::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  respond_to :js
+  respond_to :js, only: [:new]
 
   # GET /resource/sign_up
   # def new
@@ -10,9 +10,13 @@ class Users::Security::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do |resource|
+      attributes = params.require(:user_info).permit(:first_name, :last_name)
+      attributes[id: resource.id]
+      resource.create_user_info(attributes)
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -38,11 +42,10 @@ class Users::Security::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
 
   # If you have extra params to permit, append them to the sanitizer.

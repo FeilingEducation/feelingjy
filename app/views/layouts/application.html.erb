@@ -11,7 +11,7 @@
 
 <body>
   <div class="container">
-    <%= render(:partial => 'layouts/header') %>
+    <%= render partial: 'header' %>
     <% flash[:success] ||= flash[:notice] %>
     <% flash[:danger] ||= flash[:alert] %>
     <% for type in [:success, :info, :warning, :danger] %>
@@ -24,9 +24,9 @@
     <section class="main">
       <%= yield %>
     </section>
-    <%= render(:partial => 'layouts/footer') %>
+    <%= render partial: 'footer' %>
   </div>
-  <%= render partial: 'layouts/dialog' %>
+  <%= render partial: 'dialog' %>
 </body>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </html>

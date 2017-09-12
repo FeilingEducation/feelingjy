@@ -19,7 +19,6 @@ class UserInfo < ApplicationRecord
   has_many :instructors, through: 'consult_transactions'
 
   validates_presence_of :id
-  validates_presence_of :gender
 
   validates :first_name, :presence => true,
                          :length => { :maximum => 20 }

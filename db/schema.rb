@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907063023) do
+ActiveRecord::Schema.define(version: 20170912063009) do
 
   create_table "chat_lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20170907063023) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar"
-    t.integer "gender", null: false
+    t.integer "gender"
     t.string "home_town"
     t.string "current_institute"
     t.string "highest_education"

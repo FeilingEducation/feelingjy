@@ -1,6 +1,6 @@
 class Users::Security::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  respond_to :js
+  respond_to :js, only: [:new]
 
   # GET /resource/sign_in
   # def new

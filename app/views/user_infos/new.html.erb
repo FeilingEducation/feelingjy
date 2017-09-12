@@ -14,7 +14,7 @@
         <%= render partial: 'form_text_field', locals: { f: f, field: :last_name, text: '姓氏 *', required: true } %>
         <%= render partial: 'form_text_field', locals: { f: f, field: :first_name, text: '名称 *', required: true } %>
         <% gender_text = ['男', '女', '其他'].zip(UserInfo.genders.keys) %>
-        <%= render partial: 'form_select', locals: { f: f, field: :gender, text: '性别 *', required: true, choices: gender_text, options: { include_blank: true, selected: @user_info.gender } } %>
+        <%= render partial: 'form_select', locals: { f: f, field: :gender, text: '性别', choices: gender_text, options: { include_blank: true, selected: @user_info.gender } } %>
         <%= render partial: 'form_submit', locals: { next_step: '#step2' } %>
       </fieldset>
 

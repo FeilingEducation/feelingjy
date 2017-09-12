@@ -9,4 +9,9 @@ module ApplicationHelper
     avatar.to_s.empty? ? 'default_profile.png' : avatar
   end
 
+  # assume signed in
+  def user_is_instructor?
+    !InstructorInfo.find_by_id(current_user.id).nil?
+  end
+
 end
