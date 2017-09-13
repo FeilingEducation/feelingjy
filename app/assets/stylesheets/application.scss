@@ -120,3 +120,35 @@ body {
 .current-step {
   display: block !important;
 }
+
+.convertible {
+  @at-root input[type="text"]#{&} {
+    box-sizing: content-box;
+    border: none;
+    &:focus {
+      @extend .form-control;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+  @at-root textarea#{&} {
+    border: none;
+    padding: 0;
+    &:focus {
+      @extend .form-control;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.large {
+  font-size: 2rem;
+}
+
+.widget {
+  padding: 1.25rem 1.25rem 0 1.25rem;
+  margin-top: 1rem;
+  height: 100%;
+  border: 1px solid #dbdbdb;
+}

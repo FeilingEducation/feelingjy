@@ -62,9 +62,7 @@ $(document).on('change', '.custom-file input[type="file"]', function () {
     name = $target.attr('data-original-content');
 
   $target.attr('data-content', name);
-
 });
-
 
 $(document).on('click', '.multi-step-form .step-navigate', function() {
   const $this = $(this);
@@ -87,4 +85,20 @@ $(document).on('keypress', function(e) {
     // need to do validation here
     $('.current-step .main-btn').click();
   }
+});
+
+$.fn.textWidth = function(text, font) {
+  if (!$.fn.textWidth.helper)
+    $.fn.textWidth.helper = $('<pre>').hide().appendTo(document.body);
+  $.fn.textWidth.helper.text(text || this.val() || this.text() || this.attr('placeholder')).css('font', font || this.css('font'));
+  return $.fn.textWidth.helper.width();
+}
+
+$(document).on('input', 'input[type="text"].convertible', function() {
+  const $this = $(this);
+  $this.css('width', Math.min(Math.max(5, $this.textWidth()), 200));
+});
+
+$(document).ready(function() {
+  $('input[type="text"].convertible').trigger('input');
 })

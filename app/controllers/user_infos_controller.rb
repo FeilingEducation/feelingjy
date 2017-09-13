@@ -48,7 +48,7 @@ class UserInfosController < AuthenticatedResourcesController
   def user_info_params
     params.require(:user_info).permit(:avatar, :avatar_cache, :first_name,
     :last_name, :gender, :current_city, :home_town, :current_institute,
-    :highest_education, :major, :other_majors, :program_year)
+    :highest_education, :major, :other_majors, :program_year, :statement)
   end
 
 end
