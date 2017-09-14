@@ -129,6 +129,7 @@ body {
       @extend .form-control;
       margin-left: 0.5rem;
       margin-right: 0.5rem;
+      margin-bottom: 1rem;
     }
   }
   @at-root textarea#{&} {
@@ -143,7 +144,7 @@ body {
 }
 
 .large {
-  font-size: 2rem;
+  font-size: 2rem !important;
 }
 
 .widget {

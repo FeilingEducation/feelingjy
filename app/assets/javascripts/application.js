@@ -87,10 +87,12 @@ $(document).on('keypress', function(e) {
   }
 });
 
-$.fn.textWidth = function(text, font) {
+$.fn.textWidth = function(text, font, font_size) {
   if (!$.fn.textWidth.helper)
     $.fn.textWidth.helper = $('<pre>').hide().appendTo(document.body);
-  $.fn.textWidth.helper.text(text || this.val() || this.text() || this.attr('placeholder')).css('font', font || this.css('font'));
+  $.fn.textWidth.helper.text(text || this.val() || this.text() || this.attr('placeholder'))
+  .css('font', font || this.css('font'))
+  .css('font-size', font_size || this.css('font-size'));
   return $.fn.textWidth.helper.width();
 }
 

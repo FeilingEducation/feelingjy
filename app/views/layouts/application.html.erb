@@ -12,15 +12,9 @@
 <body>
   <div class="container">
     <%= render partial: 'header' %>
-    <% flash[:success] ||= flash[:notice] %>
-    <% flash[:danger] ||= flash[:alert] %>
-    <% for type in [:success, :info, :warning, :danger] %>
-    <% if flash[type] %>
-    <div class="row alert alert-<%= type %>" role="alert">
-      <span><%= flash[type] %></span>
+    <div id="flash">
+      <%= render partial: 'flash' %>
     </div>
-    <% end %>
-    <% end %>
     <section class="main">
       <%= yield %>
     </section>

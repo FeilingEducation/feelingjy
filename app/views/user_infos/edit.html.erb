@@ -1,54 +1,139 @@
-<div class="row justify-content-center">
-  <div class="col-md-10">
-    <h3>我的信息</h3>
-    <hr>
-    <%= form_for @user_info, url: user_info_path, method: 'patch',
-    html: { :'data-type' => 'json' } do |f| %>
-    <div class="form-group row">
-      <%= f.label :avatar, "个人照片", class: "col-md-2 col-form-label" %>
-      <div class="custom-file d-block" >
-        <%= f.file_field :avatar, class: "custom-file-input image-input", :'data-target' => '#profile-img-name', accept: 'image/*' %>
-        <%= f.hidden_field :avatar_cache %>
-        <span id="profile-img-name" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>
+<%= form_for @user_info, url: user_info_path, method: 'patch', remote: true, html: { role: 'form' } do |f| %>
+  <div class="row">
+    <div class="form-group col-md-4 px-3 pb-3">
+      <div class="widget">
+        <%= image_tag user_profile_image, alt: 'Profile image', class: 'profile-image-full m-auto d-block' %>
       </div>
     </div>
-    <% default_profile_image = @user_info.avatar.blank? ? 'default_profile.png' : @user_info.avatar %>
-    <div class="form-group row upload-preview" data-default-profile-image="<%= default_profile_image %>">
-      <div class="col-md-11 ml-md-auto">
-        <div class="row">
-          <label class="col-md-1 col-form-label small">小图标</label>
-          <div class="col-md-8 pb-2">
-            <%= image_tag default_profile_image, class: "profile-image-thumbnail" %>
-          </div>
+    <div class="form-group col-md-8 px-3 pb-3">
+      <div class="widget">
+        <div style="font-size: 0;">
+          <%= f.text_field :last_name, class: 'convertible d-inline-block large', placeholder: '姓' %>
+          <%= f.text_field :first_name, class: 'convertible d-inline-block large', placeholder: '名' %>
         </div>
-        <div class="row">
-          <label class="col-md-1 col-form-label small">完整尺寸</label>
-          <div class="col-md-8 pb-2">
-            <%= image_tag default_profile_image, class: "profile-image-full" %>
-          </div>
+        <div class="pb-2">
+          <%= f.text_field :current_city, class: 'convertible', placeholder: '来自城市' %>
+        </div>
+        <div>
+          <%= f.text_area :statement, class: 'convertible', placeholder: '我的目标', rows: 4 %>
         </div>
       </div>
     </div>
-    <%= render partial: 'form_text_field', locals: { f: f, field: :last_name, text: '姓氏 *', placeholder: '“张”', required: true } %>
-    <%= render partial: 'form_text_field', locals: { f: f, field: :first_name, text: '名称 *', placeholder: '“三”', required: true } %>
-    <% gender_text = ['男', '女', '其他'].zip(UserInfo.genders.keys) %>
-    <%= render partial: 'form_select', locals: { f: f, field: :gender, text: '性别', choices: gender_text, options: { include_blank: true, selected: @user_info.gender } } %>
-    <%= render partial: 'form_text_field', locals: { f: f, field: :current_city, text: '所在城市', placeholder: '“三藩市 美国”' } %>
-    <%= render partial: 'form_text_field', locals: { f: f, field: :home_town, text: '来自城市', placeholder: '“上海”' } %>
-    <%= render partial: 'form_text_field', locals: { f: f, field: :highest_education, text: '学历', placeholder: '（含在读）' } %>
-    <%= render partial: 'form_text_field', locals: { f: f, field: :current_institute, text: '所在院校', placeholder: '“北京人大附中”' } %>
-    <% program_years_text = ['已毕业', '准备入学', '第一年', '第二年', '第三年', '第四年', '第五年或以上'].zip(UserInfo.program_years.keys) %>
-    <%= render partial: 'form_select', locals: { f: f, field: :program_year, text: '学年', choices: program_years_text, options: { include_blank: true, selected: @user_info.program_year } } %>
-    <%= render partial: 'form_text_field', locals: { f: f, field: :major, text: '专业', placeholder: '（可选）' } %>
-    <%= render partial: 'form_text_field', locals: { f: f, field: :other_majors, text: '其他专业', placeholder: '（可选）' } %>
-    <%= render partial: 'form_submit', locals: { f: f, text: '保存修改' } %>
-    <% end %>
-
-    <br>
-    <% if @user_info.instructor_info.nil? %>
-      <%= button_to('申请成为导师', { action: 'new', controller: 'instructor_infos'}, { method: 'get', class: 'btn btn-outline-success' }) %>
-    <% else %>
-      <%= button_to('编辑导师信息', { action: 'edit', controller: 'instructor_infos'}, { method: 'get', class: 'btn btn-outline-success' }) %>
-    <% end %>
   </div>
-</div>
+  <div class="row">
+    <div class="form-group col-md-4 px-3 pb-3">
+      <div class="widget">
+        <h5>联系方式</h5>
+        <hr>
+        <div class="form-group row">
+          <label class="col-md-5 col-form-label">邮箱地址</label>
+          <div class="col-md-7 d-flex align-items-center">
+            <span><%= current_user.email %></span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :phone_number, '电话号码', class: 'col-md-5 col-form-label' %>
+          <div class="col-md-7 d-flex align-items-center">
+            <%= f.text_field :phone_number, class: 'convertible', placeholder: '手机/固话' %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :wechat_id, '微信账号', class: 'col-md-5 col-form-label' %>
+          <div class="col-md-7 d-flex align-items-center">
+            <%= f.text_field :wechat_id, class: 'convertible', placeholder: '微信' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-4 px-3 pb-3">
+      <div class="widget">
+        <h5>服务需求</h5>
+        <hr>
+        <div class="form-group row">
+          <label class="col-md-4 col-form-label">申请类型</label>
+          <div class="col-md-8 d-flex align-items-center">
+            <%= select_tag :application_country, options_for_select(["美国", "英国", "澳大利亚", "加拿大"]), class: 'custom-select' %>
+            <%= select_tag :application_degree, options_for_select(["高中", "本科", "硕士", "博士"]), class: 'custom-select' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <label>我可能需要的帮助有:</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <%= f.check_box :need_early_consult %><%= f.label :need_early_consult, "早期咨询" %>
+          </div>
+          <div class="col-md">
+            <%= f.check_box :need_essay_consult %><%= f.label :need_essay_consult, "文书改写" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <%= f.check_box :need_brainstorm_consult %><%= f.label :need_brainstorm_consult, "头脑风暴" %>
+          </div>
+          <div class="col-md">
+            <%= f.check_box :need_visa_consult %><%= f.label :need_visa_consult, "签证咨询" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-4 px-3 pb-3">
+      <div class="widget">
+        <h5>学校信息</h5>
+        <hr>
+        <div class="form-group row">
+          <%= label_tag :high_school, '高中', class: 'col-md-5 col-form-label' %>
+          <div class="col-md-7 d-flex align-items-center">
+            <%= text_field_tag :high_school, nil, class: 'convertible', placeholder: '高中学校' %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= label_tag :undergrad_school, '本科', class: 'col-md-5 col-form-label' %>
+          <div class="col-md-7 d-flex align-items-center">
+            <%= text_field_tag :undergrad_school, nil, class: 'convertible', placeholder: '本科学校' %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :grad_school, '研究生', class: 'col-md-5 col-form-label' %>
+          <div class="col-md-7 d-flex align-items-center">
+            <%= text_field_tag :grad_school, nil, class: 'convertible', placeholder: '研究生学校' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4 px-3 pb-3">
+      <div class="widget">
+        <h5>我喜爱的</h5>
+        <hr>
+        <div class="form-group row">
+          <%= label_tag :high_school, '音乐', class: 'col-md-5 col-form-label' %>
+          <div class="col-md-7 d-flex align-items-center">
+            <%= text_field_tag :high_school, nil, class: 'convertible', placeholder: '风格/歌曲/...' %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= label_tag :undergrad_school, '运动', class: 'col-md-5 col-form-label' %>
+          <div class="col-md-7 d-flex align-items-center">
+            <%= text_field_tag :undergrad_school, nil, class: 'convertible', placeholder: '参加的/观看的/...' %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :grad_school, '电影', class: 'col-md-5 col-form-label' %>
+          <div class="col-md-7 d-flex align-items-center">
+            <%= text_field_tag :grad_school, nil, class: 'convertible', placeholder: '风格/导演/...' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to "申请成为导师", new_instructor_info_path, class: 'btn-lg btn-warning' %>
+      <%= f.submit "保存", class: 'btn-lg btn-outline-success float-right' %>
+    </div>
+  </div>
+<% end %>

@@ -28,6 +28,7 @@ class UserInfosController < AuthenticatedResourcesController
   end
 
   def edit
+    puts flash.inspect
     @user_info = UserInfo.find(current_user.id)
   end
 
@@ -35,11 +36,16 @@ class UserInfosController < AuthenticatedResourcesController
     @user_info = UserInfo.find(current_user.id)
     respond_to do |format|
       if @user_info.update_attributes(user_info_params)
-        format.json { return }
-        flash[:notice] = "Profile updated successfully."
+        format.js {
+          flash.now[:notice] = "Profile updated successfully."
+        }
+        format.html {
+          flash[:notice] = "Profile updated successfully."
+        }
+      else
+        format.json { render json: { error: @user_info.errors.full_messages }, status: 422 }
+        format.html { render('edit') }
       end
-      format.json { render json: { error: @user_info.errors.full_messages }, status: 422 }
-      format.html { render('edit') }
     end
   end
 
