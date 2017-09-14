@@ -87,18 +87,17 @@ $(document).on('keypress', function(e) {
   }
 });
 
-$.fn.textWidth = function(text, font, font_size) {
+$.fn.textWidth = function(text, font) {
   if (!$.fn.textWidth.helper)
-    $.fn.textWidth.helper = $('<pre>').hide().appendTo(document.body);
+    $.fn.textWidth.helper = $('<pre>').css({visibility: "hidden", display: "inline"}).appendTo(document.body);
   $.fn.textWidth.helper.text(text || this.val() || this.text() || this.attr('placeholder'))
-  .css('font', font || this.css('font'))
-  .css('font-size', font_size || this.css('font-size'));
+  .css('font', font || this.css('font'));
   return $.fn.textWidth.helper.width();
 }
 
-$(document).on('input', 'input[type="text"].convertible', function() {
+$(document).on('input focus focusout', 'input[type="text"].convertible', function() {
   const $this = $(this);
-  $this.css('width', Math.min(Math.max(5, $this.textWidth()), 200));
+  $this.css('width', Math.min(Math.max(10, $this.textWidth())));
 });
 
 $(document).ready(function() {

@@ -1,4 +1,76 @@
-<div>
-  <h3>Instructor Dash Board</h3>
-  <p>Nothing yet.</p>
+<%= render partial: 'menu_bar' %>
+<div class="mb-4">
+  <%= image_tag 'campus.jpeg', width: '100%' %>
+  <%= image_tag user_profile_image, class: 'd-block mx-auto', style: 'margin-top: -5rem;' %>
+</div>
+<div class="card float-right sticky-top mx-5" style="top:100px;width:280px;">
+  <div class="bg-dark p-3">
+    <span class="text-light">最低 <strong class="h5">￥788</strong> 每小时</span>
+  </div>
+  <div class="card-body">
+    <%= form_tag '', method: 'post' do %>
+      <div class="form-group">
+        <label>合作日期</label>
+        <%= date_field_tag :consult_date, nil, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <label>合作项目</label>
+        <%= select_tag :consult_type, options_for_select(["前期咨询", "文书改写", "头脑风暴", "签证咨询"], nil), include_blank: true, class: 'custom-select d-block w-100' %>
+      </div>
+      <div class="form-group">
+        <%= submit_tag '申请预定', class: 'btn btn-danger btn-block' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div>
+      <%= text_field_tag :home_page_title, nil, class: 'convertible font-weight-bold h1', placeholder: '主页标题' %>
+      <div class="mb-4">
+        <span class="mr-3">文书改写 | 签证咨询</span>
+        <span class="mr-3">斯坦福大学</span>
+        <span class="mr-3">142 条评论</span>
+        <%= image_tag 'five_stars.png', height: '20', class: 'mr-3' %>
+      </div>
+    </div>
+    <div class="mb-4">
+      <h5>导师可安排时间</h5>
+      <span><strong>工作日: </strong>北京时间早8点到晚8点</span><br>
+      <span><strong>周末: </strong>北京时间早9点到晚10点</span>
+    </div>
+    <div class="mb-4">
+      <h5>关于导师</h5>
+      <p>
+        大家好！我是来自斯坦福的硕士第二年学生，我的专业是机械工程，自己曾经有过两次申请学校的经历，所以对留学申请方面还是有自己独到的见解。希望在我们的共同努力下，申请到满意的学校。我本人喜欢把事情简单化，所以我们肯定是最大限度地利用我们的每一分每一秒！
+      </p>
+      <p>
+        展示右侧移动窗口
+      </p>
+      <p>
+        展示右侧移动窗口
+      </p>
+      <p>
+        展示右侧移动窗口
+      </p>
+      <p>
+        展示右侧移动窗口
+      </p>
+      <p>
+        展示右侧移动窗口
+      </p>
+      <p>
+        展示右侧移动窗口
+      </p>
+      <p>
+        展示右侧移动窗口
+      </p>
+      <p>
+        展示右侧移动窗口
+      </p>
+      <p>
+        展示右侧移动窗口
+      </p>
+    </div>
+  </div>
 </div>

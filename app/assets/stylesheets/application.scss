@@ -12,12 +12,12 @@
 */
 
 $custom-file-text: (
-placeholder: (
-zh-CN: "选择文件"
-),
-button-label: (
-zh-CN: "浏览"
-)
+  placeholder: (
+    zh-CN: "选择文件"
+  ),
+  button-label: (
+    zh-CN: "浏览"
+  )
 );
 
 @import "bootstrap";
@@ -111,24 +111,19 @@ body {
 }
 
 .convertible {
+  border: none;
+  &:focus {
+    @extend .form-control;
+    margin: 0 0.5rem 0rem 0.5rem;
+  }
+  &:hover:not(:focus) {
+    color: $gray-600;
+  }
   @at-root input[type="text"]#{&} {
     box-sizing: content-box;
-    border: none;
-    &:focus {
-      @extend .form-control;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      margin-bottom: 1rem;
-    }
   }
   @at-root textarea#{&} {
-    border: none;
     padding: 0;
-    &:focus {
-      @extend .form-control;
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-    }
   }
 }
 

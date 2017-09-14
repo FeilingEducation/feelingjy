@@ -8,8 +8,8 @@
     <div class="form-group col-xl-8 col-lg-6 px-3 pb-3">
       <div class="widget">
         <div style="font-size: 0;">
-          <%= f.text_field :last_name, class: 'convertible d-inline-block large', placeholder: '姓' %>
-          <%= f.text_field :first_name, class: 'convertible d-inline-block large', placeholder: '名' %>
+          <%= f.text_field :last_name, class: 'convertible d-inline-block h2', placeholder: '姓' %>
+          <%= f.text_field :first_name, class: 'convertible d-inline-block h2', placeholder: '名' %>
         </div>
         <div class="pb-2">
           <%= f.text_field :current_city, class: 'convertible', placeholder: '来自城市' %>
@@ -128,7 +128,11 @@
   </div>
   <div class="row">
     <div class="col">
-      <%= link_to "申请成为导师", new_instructor_info_path, class: 'btn-lg btn-warning' %>
+      <% if user_is_instructor? %>
+        <%= link_to "我的导师页面", instructor_info_path, class: 'btn btn-lg btn-primary' %>
+      <% else %>
+        <%= link_to "申请成为导师", new_instructor_info_path, class: 'btn btn-lg btn-warning' %>
+      <% end %>
       <%= f.submit "保存", class: 'btn-lg btn-outline-success float-right' %>
     </div>
   </div>
