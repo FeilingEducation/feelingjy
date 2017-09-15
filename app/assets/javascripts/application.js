@@ -14,10 +14,10 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
-//= require turbolinks
 //= require react
 //= require react_ujs
 //= require components
+//= require turbolinks
 //= require_tree .
 
 function show_or_update(modal) {
@@ -89,7 +89,9 @@ $(document).on('keypress', function(e) {
 
 $.fn.textWidth = function(text, font) {
   if (!$.fn.textWidth.helper)
-    $.fn.textWidth.helper = $('<pre>').css({visibility: "hidden", display: "inline"}).appendTo(document.body);
+    $.fn.textWidth.helper = $('<pre>').css({visibility: "hidden", display: "inline"});
+  if ($.fn.textWidth.helper.parent()[0] !== document.body)
+    $.fn.textWidth.helper.appendTo(document.body);
   $.fn.textWidth.helper.text(text || this.val() || this.text() || this.attr('placeholder'))
   .css('font', font || this.css('font'));
   return $.fn.textWidth.helper.width();
@@ -100,6 +102,6 @@ $(document).on('input focus focusout', 'input[type="text"].convertible', functio
   $this.css('width', Math.min(Math.max(10, $this.textWidth())));
 });
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('input[type="text"].convertible').trigger('input');
 })
