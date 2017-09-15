@@ -1,3 +1,20 @@
 // Place all the styles related to the InstructorInfos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.timeline-bar {
+  $border-width: 2px;
+  width: 0;
+  height: 75px;
+  border: $border-width solid $green;
+  margin: 0 1rem 1rem calc(1rem - #{$border-width});
+}
+
+.timeline-dot {
+  $border-width: 5px;
+  width: 0;
+  height: 0;
+  border: $border-width solid $green;
+  border-radius: $border-width;
+  margin: 0 1rem 1rem calc(1rem - #{$border-width});
+}

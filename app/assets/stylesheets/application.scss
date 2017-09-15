@@ -23,6 +23,7 @@ $custom-file-text: (
 @import "bootstrap";
 
 @import "user_infos";
+@import "instructor_infos";
 
 .btn-signup {
   @include button-variant(#fff, $red);

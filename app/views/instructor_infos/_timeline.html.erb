@@ -1,0 +1,12 @@
+<h5><%= title %></h5>
+<div class="timeline-bar"></div>
+<% for event in events do %>
+  <div class="d-flex">
+    <div class="timeline-dot"></div>
+    <div style="height:0;">
+      <span><%= event[:time] %></span><br>
+      <span><%= event[:text] %></span>
+    </div>
+  </div>
+  <div class="timeline-bar"></div>
+<% end %>

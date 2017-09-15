@@ -24,7 +24,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-12">
+  <div class="col-11">
     <div>
       <%= text_field_tag :home_page_title, nil, class: 'convertible font-weight-bold h1', placeholder: '主页标题' %>
       <div class="mb-4">
@@ -44,33 +44,196 @@
       <p>
         大家好！我是来自斯坦福的硕士第二年学生，我的专业是机械工程，自己曾经有过两次申请学校的经历，所以对留学申请方面还是有自己独到的见解。希望在我们的共同努力下，申请到满意的学校。我本人喜欢把事情简单化，所以我们肯定是最大限度地利用我们的每一分每一秒！
       </p>
-      <p>
-        展示右侧移动窗口
-      </p>
-      <p>
-        展示右侧移动窗口
-      </p>
-      <p>
-        展示右侧移动窗口
-      </p>
-      <p>
-        展示右侧移动窗口
-      </p>
-      <p>
-        展示右侧移动窗口
-      </p>
-      <p>
-        展示右侧移动窗口
-      </p>
-      <p>
-        展示右侧移动窗口
-      </p>
-      <p>
-        展示右侧移动窗口
-      </p>
-      <p>
-        展示右侧移动窗口
-      </p>
+    </div>
+    <div class="row mb-4">
+      <div class="col-4">
+        <h5>录取学校</p>
+      </div>
+      <div class="col-8 d-flex flex-wrap justify-content-around">
+        <div class="text-center mx-3 mb-3">
+          <%= image_tag 'harvard.png', class: 'd-block' %>
+          <span>哈佛大学</span>
+        </div>
+        <div class="text-center mx-3 mb-3">
+          <%= image_tag 'university_of_pennsylvania.png', class: 'd-block' %>
+          <span>哈佛大学</span>
+        </div>
+        <div class="text-center mx-3 mb-3">
+          <%= image_tag 'yale.png', class: 'd-block' %>
+          <span>哈佛大学</span>
+        </div>
+        <div class="text-center mx-3 mb-3">
+          <%= image_tag 'columbia.png', class: 'd-block' %>
+          <span>哈佛大学</span>
+        </div>
+        <div class="text-center mx-3 mb-3">
+          <%= image_tag 'stanford.png', class: 'd-block' %>
+          <span>哈佛大学</span>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-4">
+        <h5>相关收费</h5>
+      </div>
+      <div class="col-8">
+        <p>
+          <span class="mr-2"><%= "文书改写" %> <strong class="h5">￥<%= 888 %></strong> 每小时</span>
+          <span><%= "2小时立减10%" %></span>
+        </p>
+        <p>
+          <span class="mr-2"><%= "签证咨询" %> <strong class="h5">￥<%= 788 %></strong> 每小时</span>
+          <span><%= "(可多人一起)" %></span>
+        </p>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-4">
+        <h5>最多帮助学生</h5>
+      </div>
+      <div class="col-8">
+        <p>
+          <span><%= 3 %> 名学生</span><span class="float-right">剩余位置 <%= 1 %> 名学生</span>
+        </p>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-4">
+        <h5>我擅长申请</h5>
+      </div>
+      <div class="col-8">
+        <p>
+          <span><%= "美国前 10 名的本科大学" %></span>
+        </p>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-4">
+        <h5>《隐私条款》</h5>
+      </div>
+      <div class="col-8">
+        <p>
+          <span><%= "​​允许分享改好的文书" %></span>
+        </p>
+        <p>
+          <span><%= "​​允许分享个人信息" %></span>
+        </p>
+        <p>
+          <span><%= "​​允许面对面见面" %></span>
+        </p>
+        <p>
+          <span><%= "​允许为学生免费答疑问题" %></span>
+        </p>
+        <p>
+          <span><%= "允许探讨私人问题" %></span>
+        </p>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-4">
+        <h5>预定取消政策</h5>
+      </div>
+      <div class="col-8">
+        <p>
+          <span><%= "前10分钟试听环节免费，试听环节结束后费用按小时计算，如若中途取消合作，将退回全额费用的 70%。" %></span>
+        </p>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-4">
+        <h5>个人简历</h5>
+      </div>
+      <div class="col-8 d-flex flex-wrap justified-content-around">
+        <%= image_tag 'linkedin.png', class: 'mx-3 mb-3' %>
+        <%= image_tag 'pdf.png', class: 'mx-3 mb-3' %>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-12 mb-3">
+        <hr>
+      </div>
+      <div class="col-6">
+        <div class="ml-5">
+          <%= render partial: 'timeline', locals: { title: '教育时间轴', events: [
+            { time: '2009年9月-2012年7月', text: '大连枫叶国际学校(高中)' },
+            { time: '​2012年9月-2016年6月', text: '​威斯康辛大学麦迪逊（本科）' },
+            { time: '​2016年9月-2018年7月', text: '斯坦福大学（硕士）' }] } %>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="ml-5">
+          <%= render partial: 'timeline', locals: { title: '实习时间轴', events: [
+            { time: '2009年9月-2012年7月', text: '亚马逊实习' },
+            { time: '​2012年9月-2016年6月', text: '微软实习' },
+            { time: '​2016年9月-2018年7月', text: '飞灵教育实习' }] } %>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-12 mb-2">
+        <hr>
+        <span class="h5"><%= 142 %> 条评论</span>
+        <%= image_tag 'five_stars.png' %>
+      </div>
+      <div class="col-6">
+        <label>申请结果</label>
+        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
+      </div>
+      <div class="col-6">
+        <label>服务态度</label>
+        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
+      </div>
+      <div class="col-6">
+        <label>沟通交流</label>
+        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
+      </div>
+      <div class="col-6">
+        <label>服务效率</label>
+        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
+      </div>
+      <div class="col-6">
+        <label>如实描述</label>
+        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
+      </div>
+      <div class="col-6">
+        <label>性价比</label>
+        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mb-2">
+        <hr>
+      </div>
+      <div class="col-12 mb-5">
+        <%= image_tag 'profile0.png', class: 'mr-4' %>
+        <div class="d-inline-block">
+          <h5>学生一</h5>
+          <h6 class="small"><%= "城市" %></h6>
+          <p>
+            ​​老师咨询工作做得不错，但是改文书时回复不太及时
+          </p>
+        </div>
+      </div>
+      <div class="col-12 mb-5">
+        <%= image_tag 'profile1.png', class: 'mr-4' %>
+        <div class="d-inline-block">
+          <h5>学生二</h5>
+          <h6 class="small"><%= "城市" %></h6>
+          <p>
+            ​​老师咨询工作做得不错，但是改文书时回复不太及时
+          </p>
+        </div>
+      </div>
+      <div class="col-12 mb-5">
+        <%= image_tag 'profile2.png', class: 'mr-4' %>
+        <div class="d-inline-block">
+          <h5>学生三</h5>
+          <h6 class="small"><%= "城市" %></h6>
+          <p>
+            ​​老师咨询工作做得不错，但是改文书时回复不太及时
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
