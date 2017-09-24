@@ -1,6 +1,7 @@
 class Update < ActiveRecord::Migration[5.1]
   def change
-    add_column :chat_lines, :content, :text
+    remove_column :chat_lines, :chat_id
+    remove_column :chat_lines, :user_info_id
     add_reference :chat_lines, :chat
     add_reference :chat_lines, :user_info
   end
