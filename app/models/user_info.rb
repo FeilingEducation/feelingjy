@@ -25,4 +25,8 @@ class UserInfo < ApplicationRecord
   validates :last_name, :presence => true,
                         :length => { :maximum => 20 }
 
+  def full_name
+    self[:last_name] + self[:first_name]
+  end
+
 end

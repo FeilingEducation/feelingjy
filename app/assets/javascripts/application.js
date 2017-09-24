@@ -14,8 +14,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
-//= require react
-//= require react_ujs
+//= require bootstrap-slider
 //= require components
 //= require turbolinks
 //= require_tree .
@@ -97,6 +96,50 @@ $.fn.textWidth = function(text, font) {
   return $.fn.textWidth.helper.width();
 }
 
+$(document).on('change', '.image-input', function() {
+  const $this = $(this);
+  if (this.files && this.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $($this.data('target')).attr('src', e.target.result);
+    }
+    reader.readAsDataURL(this.files[0]);
+  }
+});
+
+function custom_file_input(name, target, classes) {
+  return `<div class="custom-file ${classes}" >` +
+        `   <input type="file" name="${name}" class="custom-file-input image-input", data-target="${target}" accept="image/*">` +
+        `   <span id="profile-img-name" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>` +
+        ` </div>`;
+}
+
+$(document).on('click', '.editable', function() {
+  const $this = $(this);
+  const name = $this.data('name');
+  const action = $this.data('action');
+  switch($this.data('type')) {
+    case 'image':
+    $('#dialog .modal-title').html($this.prop('alt'));
+    if ($this.data('size') == 'large') {
+      $('#dialog .modal-dialog').removeClass('modal-sm').addClass('modal-lg');
+    } else {
+      $('#dialog .modal-dialog').removeClass('modal-lg').addClass('modal-sm');
+    }
+    $('#dialog .modal-body').html(
+      ` <form action="${action}" method="post">` +
+      `   <img id="preview" class="editable-image-preview mb-3" src="${$this.prop('src')}">` +
+          custom_file_input(name, "#preview", "mb-3") +
+      ` <input type="submit" class="btn btn-success float-right mb-3" value="保存">` +
+      ` </form>`
+    );
+    show_or_update($('#dialog'));
+    break;
+    default:
+    break;
+  }
+});
+
 $(document).on('input focus focusout', 'input[type="text"].convertible', function() {
   const $this = $(this);
   $this.css('width', Math.min(Math.max(10, $this.textWidth())));
@@ -104,4 +147,10 @@ $(document).on('input focus focusout', 'input[type="text"].convertible', functio
 
 $(document).on('turbolinks:load', function() {
   $('input[type="text"].convertible').trigger('input');
+  $('.slider').slider({
+    formatter: function(args) {
+      console.log(args);
+      return "xxxx";
+    }
+  });
 })

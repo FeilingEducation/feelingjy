@@ -1,12 +1,8 @@
 class InstructorInfosController < AuthenticatedResourcesController
 
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :check_user_info_initialized
   before_action :check_instructor_info_initialized
-
-  def index
-    @instructor_infos = InstructorInfo.find(:all, id: 'desc', limit: 50)
-  end
 
   def new
     @instructor_info = InstructorInfo.new

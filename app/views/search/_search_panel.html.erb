@@ -1,22 +1,25 @@
-<%= form_tag '#' do %>
-  <div class="row search-panel">
-    <div class="col-lg-2">
-      <%= select_tag :major, options_for_select(["工程", "金融", "文学"]), {include_blank: "专业", class: 'custom-select w-100'} %>
+<div class="search-panel mb-5">
+  <%= form_tag '#' do %>
+    <div class="row">
+      <div class="col-lg-2">
+        <%= select_tag :major, options_for_select(["工程", "金融", "文学"]), {include_blank: "专业", class: 'custom-select w-100'} %>
+      </div>
+      <div class="col-lg-2">
+        <%= select_tag :rating, options_for_select((5.downto(1)).to_a), {include_blank: "评分", class: 'custom-select w-100'} %>
+      </div>
+      <div class="col-lg-2">
+        <%= select_tag :service, options_for_select(["早期咨询", "头脑风暴", "文书改写", "签证咨询"]), {include_blank: "服务项目", class: 'custom-select w-100'} %>
+      </div>
+      <div class="col-lg-2">
+        <%= select_tag :time, options_for_select(["早上", "中午", "晚上"]), {include_blank: "时间", class: 'custom-select w-100'} %>
+      </div>
+      <div class="col-lg-2">
+        <%= select_tag :join, options_for_select(["半年内", "半年到一年", "一年以上"]), {include_blank: "加入时间", class: 'custom-select w-100'} %>
+      </div>
+      <div class="col-lg-2">
+        <input class="slider" name="price-range" data-slider-min="1" data-slider-max="1000" data-slider-step="1"
+        data-slider-value="[1,1000]">
+      </div>
     </div>
-    <div class="col-lg-2">
-      <%= select_tag :rating, options_for_select((5.downto(1)).to_a), {include_blank: "评分", class: 'custom-select w-100'} %>
-    </div>
-    <div class="col-lg-2">
-      <%= select_tag :service, options_for_select(["早期咨询", "头脑风暴", "文书改写", "签证咨询"]), {include_blank: "服务项目", class: 'custom-select w-100'} %>
-    </div>
-    <div class="col-lg-2">
-      <%= select_tag :time, options_for_select(["早上", "中午", "晚上"]), {include_blank: "时间", class: 'custom-select w-100'} %>
-    </div>
-    <div class="col-lg-2">
-      <%= select_tag :join, options_for_select(["半年内", "半年到一年", "一年以上"]), {include_blank: "加入时间", class: 'custom-select w-100'} %>
-    </div>
-    <div class="col-lg-2">
-
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

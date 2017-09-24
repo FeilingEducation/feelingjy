@@ -42,7 +42,7 @@
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to user_info_path, class: "btn" do %>
-            <%= image_tag user_profile_image, class: "profile-image-thumbnail" %>
+            <%= image_tag profile_image_of, class: "profile-image-thumbnail" %>
           <% end %>
         </li>
         <% unless user_is_instructor? %>

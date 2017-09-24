@@ -1,14 +1,14 @@
-<%= render partial: 'menu_bar' %>
 <div class="mb-4">
-  <%= image_tag 'campus.jpeg', width: '100%', class: 'editable', alt: '背景图片', data: { name: 'profile_background', type: 'image', size: 'large', action: instructor_info_path } %>
-  <%= image_tag profile_image_of, class: 'd-block mx-auto editable', style: 'margin-top: -5rem;', alt: '个人头像', data: { name: 'profile_image', type: 'image', action: instructor_info_path } %>
+  <%= image_tag 'campus.jpeg', width: '100%' %>
+  <%= image_tag profile_image_of(@instructor), class: 'd-block mx-auto', style: 'margin-top: -5rem;' %>
 </div>
-<div class="card float-right sticky-top mx-5 pr-0" style="top:100px;width:280px;">
+<div class="card float-right sticky-top mx-5" style="top:100px;width:280px;">
   <div class="bg-dark p-3">
     <span class="text-light">最低 <strong class="h5">￥788</strong> 每小时</span>
   </div>
   <div class="card-body">
-    <%= form_tag '', method: 'post' do %>
+    <%= form_with model: @transaction, method: 'post', local: true do |f| %>
+      <%= f.hidden_field :instructor_id, value: @instructor.id %>
       <div class="form-group">
         <label>合作日期</label>
         <%= date_field_tag :consult_date, nil, class: 'form-control' %>
@@ -26,7 +26,7 @@
 <div class="row">
   <div class="col-11">
     <div>
-      <%= text_field_tag :home_page_title, nil, class: 'convertible font-weight-bold h1', placeholder: '主页标题' %>
+      <h1 class="font-weight-bold h1"><%= '主页标题' %></h1>
       <div class="mb-4">
         <span class="mr-3">文书改写 | 签证咨询</span>
         <span class="mr-3">斯坦福大学</span>

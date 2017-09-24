@@ -1,0 +1,23 @@
+<div class="row mb-4">
+  <div class="col-4">
+    <%= link_to profile_path(instructor) do %>
+      <%= image_tag profile_image_of(instructor), class: 'mx-auto my-auto d-block' %>
+    <% end %>
+  </div>
+  <div class="col-8">
+    <div class="row">
+      <div class="col-7">
+        <h4><%= instructor.user_info.full_name %></h4>
+        <h6><%= services_of(instructor) %></h6>
+        <span><%= 850 %> ￥/小时</span><%= image_tag 'five_stars.png' %><span><%= 3 %> 个评价</span>
+      </div>
+      <div class="col-5">
+        <h6 class="float-right small"><%= '2012-2017 斯坦福大学历史本科' %></h6>
+        <h6 class="float-right small"><%= '2017-2020 斯坦福大学历史博士' %></h6>
+      </div>
+    </div>
+    <p class="small mt-2">
+      大家好！我是来自斯坦福的硕士第二年学生，我的专业是机械工程，自己曾经有过两次申请学校的经历，所以对留学申请方面还是有自己独到的见解。希望在我们的共同努力下，申请到满意的学校。我本人喜欢把事情简单化，所以我们肯定是最大限度地利用我们的每一分每一秒！
+    </p>
+  </div>
+</div>

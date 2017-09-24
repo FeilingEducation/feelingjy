@@ -4,8 +4,8 @@ module ApplicationHelper
     render(:partial => 'application/error_messages', :locals => {:object => object})
   end
 
-  def user_profile_image
-    avatar = current_user.user_info&.avatar
+  def profile_image_of(user=current_user)
+    avatar = user.user_info&.avatar
     avatar.to_s.empty? ? 'default_profile.png' : avatar
   end
 

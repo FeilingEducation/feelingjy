@@ -1,2 +1,36 @@
-<h1>ConsultTransactions#show</h1>
-<p>Find me in app/views/consult_transactions/show.html.erb</p>
+<% instructor = @transaction.instructor %>
+<div class="row mb-4">
+  <div class="col-3 px-5">
+    <%= image_tag profile_image_of(instructor), class: 'd-block mb-3' %>
+    <h5><%= '服务类别' %></h5>
+    <div>
+      <span class="mr-3">状态:</span><span>未确认</span>
+    </div>
+    <div>
+      <span class="mr-3">订单创建日期:</span><br>
+      <span><%= @transaction.created_at %></span>
+    </div>
+    <div>
+      <span class="mr-3">订单更新日期:</span><br>
+      <span><%= @transaction.updated_at %></span>
+    </div>
+  </div>
+  <div class="col-9 d-flex flex-column px-4">
+    <div class="chat-box" data-chat-id="<%= @transaction.chat.id %>">
+      <div class="chat-lines" style="flex:1;background-color:#DDDDDD;height:500px;overflow-y:scroll;">
+        <% for chat_line in @transaction.chat.chat_lines do %>
+        <div>
+          <span><%= chat_line.content %></span>
+        </div>
+        <% end %>
+      </div>
+      <div class="chat-input">
+        <%= form_with model: @chat_line, class: 'd-flex' do |f| %>
+          <%= f.hidden_field :chat_id, value: @transaction.chat.id %>
+          <%= f.text_area :content, style: 'flex:1' %>
+          <%= f.submit "发送" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 class ConsultTransaction < ApplicationRecord
 
+  after_create :build_chat
+
   enum status: {
     initiated: 0,
     modified: 1,
@@ -19,4 +21,11 @@ class ConsultTransaction < ApplicationRecord
   validate do
     errors.add(:base, "Consulting yourself is not allowed") if instructor_id == student_id
   end
+
+  private
+
+  def build_chat
+    Chat.create([consult_transaction_id: self.id])
+  end
+
 end
