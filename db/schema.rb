@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922062036) do
+ActiveRecord::Schema.define(version: 20170925062352) do
 
   create_table "chat_lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170922062036) do
     t.text "feed_back"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "service"
     t.index ["instructor_id"], name: "index_consult_transactions_on_instructor_id"
     t.index ["student_id"], name: "index_consult_transactions_on_student_id"
   end

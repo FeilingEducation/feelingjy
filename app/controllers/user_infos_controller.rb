@@ -4,6 +4,10 @@ class UserInfosController < AuthenticatedResourcesController
 
   def show
     @user_info = UserInfo.find(current_user.id)
+    if !@user_info.instructor_info.nil?
+      @instructor_info = @user_info.instructor_info
+      render 'show_instructor'
+    end
   end
 
   def new

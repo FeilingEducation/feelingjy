@@ -28,7 +28,7 @@ class ConsultTransactionsController < AuthenticatedResourcesController
   end
 
   def show
-    @role = set_transaction_and_role
+    set_transaction_and_role
     @chat_line = ChatLine.new
   end
 
@@ -61,9 +61,11 @@ class ConsultTransactionsController < AuthenticatedResourcesController
   def set_transaction_and_role
     @transaction = ConsultTransaction.find_by(params.permit(:id))
     if @transaction.student_id == current_user.id
-      'student'
+      @self = @transaction.student
+      @other = @transaction.instructor
     elsif @transaction.instructor_id == current_user.id
-      'instructor'
+      @self = @transaction.instructor
+      @other = @transaction.student
     else
       raise ApplicationController::NotAuthorized
     end

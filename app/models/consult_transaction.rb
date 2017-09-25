@@ -4,7 +4,7 @@ class ConsultTransaction < ApplicationRecord
 
   enum status: {
     initiated: 0,
-    modified: 1,
+    payment_pending: 1,
     confirmed: 2,
     canceled: 3,
     completed: 4,

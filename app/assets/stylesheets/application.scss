@@ -26,6 +26,7 @@ $custom-file-text: (
 @import "user_infos";
 @import "instructor_infos";
 @import "search";
+@import "chat_lines";
 
 .btn-signup {
   @include button-variant(#fff, $red);

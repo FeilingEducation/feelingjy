@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
+//= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
@@ -154,3 +155,7 @@ $(document).on('turbolinks:load', function() {
     }
   });
 })
+
+function sanitize(html) {
+  return html.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}

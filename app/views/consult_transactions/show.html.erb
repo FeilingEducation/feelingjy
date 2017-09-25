@@ -1,36 +1,34 @@
-<% instructor = @transaction.instructor %>
 <div class="row mb-4">
   <div class="col-3 px-5">
-    <%= image_tag profile_image_of(instructor), class: 'd-block mb-3' %>
-    <h5><%= '服务类别' %></h5>
+    <%= image_tag profile_image_of(@other), class: 'd-block mb-3' %>
+    <h4 class="ml-3"><%= @other.full_name %></h4>
+    <h5><%= @transaction.service || "未确定服务" %></h5>
     <div>
-      <span class="mr-3">状态:</span><span>未确认</span>
+      <span class="mr-3">状态:</span><span><%= status_text_of @transaction %></span>
     </div>
     <div>
       <span class="mr-3">订单创建日期:</span><br>
-      <span><%= @transaction.created_at %></span>
+      <span><%= @transaction.created_at.strftime('%Y/%m/%d') %></span>
     </div>
     <div>
       <span class="mr-3">订单更新日期:</span><br>
-      <span><%= @transaction.updated_at %></span>
+      <span><%= @transaction.updated_at.strftime('%Y/%m/%d') %></span>
     </div>
   </div>
-  <div class="col-9 d-flex flex-column px-4">
-    <div class="chat-box" data-chat-id="<%= @transaction.chat.id %>">
-      <div class="chat-lines" style="flex:1;background-color:#DDDDDD;height:500px;overflow-y:scroll;">
+  <div class="col-6 d-flex flex-column px-4">
+    <div class="chat-box" data-chat-id="<%= @transaction.chat.id %>" data-user-id="<%= current_user.id %>">
+      <div class="chat-lines px-4" style="flex:1;background-color:#eeeeee;height:500px;overflow-y:scroll;border:8px solid #cccccc;">
         <% for chat_line in @transaction.chat.chat_lines do %>
-        <div>
-          <span><%= chat_line.content %></span>
+        <div class="<%= 'my-chat-line' if chat_line.user_info_id == current_user.id %>">
+          <pre><%= chat_line.content %></pre>
         </div>
         <% end %>
       </div>
-      <div class="chat-input">
-        <%= form_with model: @chat_line, class: 'd-flex' do |f| %>
-          <%= f.hidden_field :chat_id, value: @transaction.chat.id %>
-          <%= f.text_area :content, style: 'flex:1' %>
-          <%= f.submit "发送" %>
-        <% end %>
-      </div>
+      <%= form_with model: @chat_line, class: 'chat-input d-flex' do |f| %>
+        <%= f.hidden_field :chat_id, value: @transaction.chat.id %>
+        <%= f.text_area :content, style: 'flex:1' %>
+        <%= f.submit "发送" %>
+      <% end %>
     </div>
   </div>
 </div>

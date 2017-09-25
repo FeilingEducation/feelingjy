@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def profile_image_of(user=current_user)
-    avatar = user.user_info&.avatar
+    avatar = UserInfo.find_by_id(user.id).avatar
     avatar.to_s.empty? ? 'default_profile.png' : avatar
   end
 
@@ -23,6 +23,11 @@ module ApplicationHelper
         tag
       end
     end
+  end
+
+  def can_apply_for_instructor?
+    user_info = current_user.user_info
+    user_info.instructor_info.nil? && user_info.consult_transactions.where(status: 'confirmed').empty?
   end
 
 end

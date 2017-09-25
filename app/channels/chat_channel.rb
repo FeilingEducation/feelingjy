@@ -3,13 +3,9 @@ class ChatChannel < ApplicationCable::Channel
   # become a subscriber of this channel.
   def subscribed
     @chat = Chat.find_by(id: params[:chat_id])
-    if @chat.nil?
-      reject
-    end
+    reject if @chat.nil?
     transaction = @chat.consult_transaction
-    if transaction.student_id != current_user.id && transaction.instructor_id != current_user.# IDEA:
-      reject
-    end
+    reject if transaction.student_id != current_user.id && transaction.instructor_id != current_user.id
     stream_for @chat
   end
 end

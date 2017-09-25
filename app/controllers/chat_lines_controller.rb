@@ -4,7 +4,7 @@ class ChatLinesController < AuthenticatedResourcesController
     chat_line = ChatLine.new(chat_line_params)
     chat_line.user_info_id = current_user.id
     if chat_line.save
-      ChatChannel.broadcast_to chat_line.chat, content: chat_line.content, user_info_id: chat_line.user_info_id
+      ChatChannel.broadcast_to chat_line.chat, content: chat_line.content, user_id: chat_line.user_info_id
       head :ok
     else
       puts "************* failed to save chat_line: #{chat_line.errors.full_messages}"
