@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require bootstrap-slider
+//= require bootstrap-multiselect
 //= require components
 //= require turbolinks
 //= require_tree .
@@ -148,12 +149,6 @@ $(document).on('input focus focusout', 'input[type="text"].convertible', functio
 
 $(document).on('turbolinks:load', function() {
   $('input[type="text"].convertible').trigger('input');
-  $('.slider').slider({
-    formatter: function(args) {
-      console.log(args);
-      return "xxxx";
-    }
-  });
 })
 
 function sanitize(html) {

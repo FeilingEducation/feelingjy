@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   get 'search', to: 'search#index'
+  post 'search', to: 'search#search'
   get 'debug', to: 'debug#index'
 
   resources :profiles, only: [:show]

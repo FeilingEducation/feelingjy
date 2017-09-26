@@ -1,24 +1,28 @@
 <div class="search-panel mb-5">
-  <%= form_tag '#' do %>
+  <%= form_with url: search_path, method: 'get', local: true do |f| %>
     <div class="row">
       <div class="col-lg-2">
-        <%= select_tag :major, options_for_select(["工程", "金融", "文学"]), {include_blank: "专业", class: 'custom-select w-100'} %>
+        <%= f.select :major, options_for_select(["工程", "金融", "文学"], @search[:select]), {include_blank: "专业"}, class: 'search-input custom-select w-100' %>
       </div>
       <div class="col-lg-2">
-        <%= select_tag :rating, options_for_select((5.downto(1)).to_a), {include_blank: "评分", class: 'custom-select w-100'} %>
+        <%= f.select :min_rating, options_for_select(['5','4+','3+','2+','1+'], @search[:major]), {include_blank: "评分"}, class: 'search-input custom-select w-100' %>
       </div>
       <div class="col-lg-2">
-        <%= select_tag :service, options_for_select(["早期咨询", "头脑风暴", "文书改写", "签证咨询"]), {include_blank: "服务项目", class: 'custom-select w-100'} %>
+        <%= f.select :service, options_for_select(["早期咨询", "头脑风暴", "文书改写", "签证咨询"], @search[:service]), {}, data: {'non-selected-text': "服务项目"}, multiple: true, class: 'search-input w-100' %>
       </div>
       <div class="col-lg-2">
-        <%= select_tag :time, options_for_select(["早上", "中午", "晚上"]), {include_blank: "时间", class: 'custom-select w-100'} %>
+        <%= f.select :available_time, options_for_select(["早上", "下午", "晚上"], @search[:available_time]), {}, data: {'non-selected-text': "时间"}, multiple: true, class: 'search-input w-100' %>
       </div>
       <div class="col-lg-2">
-        <%= select_tag :join, options_for_select(["半年内", "半年到一年", "一年以上"]), {include_blank: "加入时间", class: 'custom-select w-100'} %>
+        <%= f.select :join_at, options_for_select(["半年内", "半年到一年", "一年以上"], @search[:join_at]), {include_blank: "加入时间"}, class: 'search-input custom-select w-100' %>
       </div>
       <div class="col-lg-2">
-        <input class="slider" name="price-range" data-slider-min="1" data-slider-max="1000" data-slider-step="1"
-        data-slider-value="[1,1000]">
+        <%= f.hidden_field :price_range, class: 'search-input slider-base', data: {slider_min: 0, slider_max: 1000, slider_step: 1, slider_value: "[#{@search[:price_range]}]"}, value: @search[:price_range] %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col float-right">
+        <%= f.submit "搜索", name: '', class: 'btn btn-primary float-right mt-auto' %>
       </div>
     </div>
   <% end %>
