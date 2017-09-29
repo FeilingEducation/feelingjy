@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     exists = InstructorInfo.exists?(current_user.id)
     create = controller_name == 'instructor_infos' && %w(new create).include?(action_name)
     if exists && create
-      redirect_to(instructor_info_path)
+      redirect_to(profile_path)
     elsif !exists && !create
       flash[:notice] = "Page will be available after filling in your information."
       redirect_to(new_instructor_info_path)

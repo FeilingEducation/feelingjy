@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root 'search#index'
 
   mount ActionCable.server => '/cable'
 
   get 'search', to: 'search#index'
-  post 'search', to: 'search#search'
   get 'debug', to: 'debug#index'
 
-  resources :profiles, only: [:show]
-
   resource :user_info, path: 'account', except: [:destroy]
-  resource :instructor_info, path: 'instructor'
+  resource :instructor_info, path: 'instructor', only: [:new, :create, :show, :update, :destroy]
+  get 'profiles/:id', to: 'instructor_infos#profile', as: 'profile'
   resources :consult_transactions, path: 'transactions', except: [:edit]
+  post 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
+  post 'transactions/:id/pay', to: 'consult_transactions#pay', as: 'pay_consult_transaction'
   resources :chat_lines, only: [:create]
+  resources :payments, only: [:show, :update]
 
   devise_for :users, path: 'users/security', controllers: {
     passwords: 'users/security/passwords',

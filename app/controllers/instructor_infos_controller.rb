@@ -1,8 +1,10 @@
 class InstructorInfosController < AuthenticatedResourcesController
 
-  skip_before_action :authenticate_user!, only: [:show]
   before_action :check_user_info_initialized
   before_action :check_instructor_info_initialized
+  skip_before_action :authenticate_user!, only: [:profile]
+  skip_before_action :check_user_info_initialized, only: [:profile]
+  skip_before_action :check_instructor_info_initialized, only: [:profile]
 
   def new
     @instructor_info = InstructorInfo.new
@@ -13,7 +15,7 @@ class InstructorInfosController < AuthenticatedResourcesController
     @instructor_info.id = current_user.id
     if @instructor_info.save
       flash[:notice] = 'Instructor profile created successfully.'
-      redirect_to(instructor_info_path)
+      redirect_to(profile_path)
     else
       falsh[:notice] = 'Failed to create instructor info.'
       render('new')
@@ -21,11 +23,20 @@ class InstructorInfosController < AuthenticatedResourcesController
   end
 
   def show
-    @instructor_info = InstructorInfo.find(current_user.id)
+    @instructor_info = InstructorInfo.find_by_id(current_user.id)
+    if @instructor_info.nil?
+      flash[:notice] = 'You are not an instructor.'
+      redirect_to '/search'
+    end
   end
 
-  def edit
-    @instructor_info = InstructorInfo.find(current_user.id)
+  def profile
+    @instructor_info = InstructorInfo.find_by_id(params[:id])
+    if @instructor_info.nil?
+      not_found
+    else
+      @transaction = ConsultTransaction.new(instructor_id: @instructor_info.id)
+    end
   end
 
   def update

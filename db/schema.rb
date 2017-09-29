@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926210904) do
+ActiveRecord::Schema.define(version: 20170928061659) do
 
   create_table "chat_lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170926210904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "service"
+    t.date "scheduled_date"
     t.index ["instructor_id"], name: "index_consult_transactions_on_instructor_id"
     t.index ["student_id"], name: "index_consult_transactions_on_student_id"
   end
@@ -76,6 +77,17 @@ ActiveRecord::Schema.define(version: 20170926210904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "avg_rating", limit: 24
+  end
+
+  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "payable_type"
+    t.bigint "payable_id"
+    t.integer "method"
+    t.string "external_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payable_type", "payable_id"], name: "index_payments_on_payable_type_and_payable_id"
   end
 
   create_table "private_policies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

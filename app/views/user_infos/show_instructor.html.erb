@@ -51,7 +51,7 @@
       <hr>
       <% updated_transactions = @instructor_info.consult_transactions.joins(:chat).order('chats.updated_at') %>
       <% for transaction in updated_transactions do %>
-        <% continue if transaction.chat.chat_lines.empty? %>
+        <% next if transaction.chat.chat_lines.empty? %>
         <% student = transaction.student %>
         <div class="row mb-3">
           <div class="col-2">

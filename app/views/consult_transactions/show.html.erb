@@ -14,9 +14,27 @@
       <span class="mr-3">订单更新日期:</span><br>
       <span><%= @transaction.updated_at.strftime('%Y/%m/%d') %></span>
     </div>
+    <div>
+      <% case @self %>
+      <% when @transaction.student %>
+        <% case @transaction.status %>
+        <% when "initiated" %>
+          <%= button_to "前往付款", pay_consult_transaction_path, disabled: true, class: 'btn btn-outline-secondary mt-3' %>
+        <% when "payment_pending" %>
+          <%= button_to "前往付款", pay_consult_transaction_path, class: 'btn btn-outline-success mt-3' %>
+        <% end %>
+      <% when @transaction.instructor %>
+        <% case @transaction.status %>
+        <% when "initiated" %>
+          <%= button_to "确认订单", confirm_consult_transaction_path, method: 'post', class: 'btn mt-3' %>
+        <% when "payment_pending" %>
+          <%= button_to "取消确认", confirm_consult_transaction_path(cancel: true), method: 'post', class: 'btn btn-outline-danger mt-3' %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-  <div class="col-6 d-flex flex-column px-4">
-    <div class="chat-box" data-chat-id="<%= @transaction.chat.id %>" data-user-id="<%= current_user.id %>">
+  <div class="consult-comm col-6 d-flex flex-column px-4" data-transaction-id="<%= @transaction.id %>" data-user-id="<%= current_user.id %>">
+    <div class="chat-box">
       <div class="chat-lines px-4" style="flex:1;background-color:#eeeeee;height:500px;overflow-y:scroll;border:8px solid #cccccc;">
         <% for chat_line in @transaction.chat.chat_lines do %>
         <div class="<%= 'my-chat-line' if chat_line.user_info_id == current_user.id %>">
@@ -24,11 +42,14 @@
         </div>
         <% end %>
       </div>
-      <%= form_with model: @chat_line, class: 'chat-input d-flex' do |f| %>
-        <%= f.hidden_field :chat_id, value: @transaction.chat.id %>
-        <%= f.text_area :content, style: 'flex:1' %>
-        <%= f.submit "发送" %>
+      <%= form_tag nil, class: 'chat-input d-flex' do %>
+        <%= hidden_field_tag :transaction_id, @transaction.id %>
+        <%= text_area_tag :content, '', style: 'flex:1' %>
+        <%= submit_tag "发送" %>
       <% end %>
     </div>
+    <audio class="remote" autoplay controls></audio>
+    <audio class="local" autoplay controls></audio>
+    <button class="voice-chat-init">开始语音通话</button>
   </div>
 </div>

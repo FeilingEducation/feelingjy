@@ -1,7 +1,0 @@
-<div>
-  <h3>Edit Instructor Profile</h3>
-  <%= render(partial: 'form', locals: { instructor_info: @instructor_info, method: 'patch' }) %>
-  <br>
-  <%= button_to('Close Instructor Account', { action: 'destroy' },
-      method: 'delete', data: { confirm: "Are you sure to close your instructor account? (your user account would not be affected)" }) %>
-</div>

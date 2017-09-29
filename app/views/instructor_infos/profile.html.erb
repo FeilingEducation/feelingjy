@@ -1,6 +1,6 @@
 <div class="mb-4">
   <%= image_tag 'campus.jpeg', width: '100%' %>
-  <%= image_tag profile_image_of(@instructor), class: 'd-block mx-auto', style: 'margin-top: -5rem;' %>
+  <%= image_tag profile_image_of(@instructor_info), class: 'd-block mx-auto', style: 'margin-top: -5rem;' %>
 </div>
 <div class="card float-right sticky-top mx-5" style="top:100px;width:280px;">
   <div class="bg-dark p-3">
@@ -8,14 +8,14 @@
   </div>
   <div class="card-body">
     <%= form_with model: @transaction, method: 'post', local: true do |f| %>
-      <%= f.hidden_field :instructor_id, value: @instructor.id %>
+      <%= f.hidden_field :instructor_id, value: @instructor_info.id %>
       <div class="form-group">
         <label>合作日期</label>
-        <%= date_field_tag :consult_date, nil, class: 'form-control' %>
+        <%= f.date_field :scheduled_date, value: 1.week.after.strftime('%Y-%m-%d'), class: 'form-control' %>
       </div>
       <div class="form-group">
         <label>合作项目</label>
-        <%= select_tag :consult_type, options_for_select(["前期咨询", "文书改写", "头脑风暴", "签证咨询"], nil), include_blank: true, class: 'custom-select d-block w-100' %>
+        <%= f.select :service, service_options_for(@instructor_info), {include_blank: true}, class: 'custom-select d-block w-100' %>
       </div>
       <div class="form-group">
         <%= submit_tag '申请预定', class: 'btn btn-danger btn-block' %>

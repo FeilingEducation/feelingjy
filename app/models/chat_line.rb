@@ -1,7 +1,6 @@
 class ChatLine < ApplicationRecord
-  belongs_to :chat
+  belongs_to :chat, touch: true
   belongs_to :user_info
-  after_create :touch_chat
 
   validates_presence_of :chat_id
 
@@ -12,9 +11,5 @@ class ChatLine < ApplicationRecord
     end
   end
 
-  protected
-
-  def touch_chat
-    self.chat.touch
-  end
+  private
 end

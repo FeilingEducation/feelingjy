@@ -37,6 +37,24 @@ function isObject(obj) {
   return obj === Object(obj);
 }
 
+(function($){
+  $.fn.getFormData = function() {
+    return $(this).serializeArray().reduce(function (obj, item) {
+      if (obj[item.name]) {
+        if ($.isArray(obj[item.name])) {
+          obj[item.name].push(item.value);
+        } else {
+          var previousValue = obj[item.name];
+          obj[item.name] = [previousValue, item.value];
+        }
+      } else {
+        obj[item.name] = item.value;
+      }
+      return obj;
+    }, {});
+  };
+})(jQuery);
+
 // handle custom file inputs
 $(document).on('change', '.custom-file input[type="file"]', function () {
 

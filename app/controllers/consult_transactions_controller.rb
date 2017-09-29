@@ -29,7 +29,6 @@ class ConsultTransactionsController < AuthenticatedResourcesController
 
   def show
     set_transaction_and_role
-    @chat_line = ChatLine.new
   end
 
   def update
@@ -40,6 +39,52 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     else
       render('show')
     end
+  end
+
+  def confirm
+    set_transaction_and_role
+    puts params
+    if @self == @transaction.instructor
+      if @transaction.status == "initiated"
+        if @transaction.update(status: :payment_pending)
+          flash[:notice] = 'Transaction confirmed. Waiting for student payment.'
+        else
+          flash[:notice] = 'Failed to confirm transaction. Please try again later'
+        end
+      elsif params.permit(:cancel)
+        if @transaction.update(status: :initiated)
+          flash[:notice] = 'Transaction confirmation canceled.'
+        else
+          flash[:notice] = 'Failed to cancel confirmation. Please try again later'
+        end
+      else
+        flash[:notice] = 'Cannot confirm transaction at the current status.'
+      end
+    else
+      flash[:notice] = 'Invalid operation.'
+    end
+    redirect_to @transaction
+  end
+
+  def pay
+    set_transaction_and_role
+    if @self != @transaction.student
+      flash[:notice] = 'Invalid role'
+      redirect_to @transaction
+      return
+    end
+    if @transaction.status != "payment_pending"
+      flash[:notice] = 'Cannot pay at current status'
+      redirect_to @transaction
+      return
+    end
+    payment = @transaction.build_payment
+    if payment.save
+      redirect_to payment
+      return
+    end
+    flash[:notice] = 'Cannot create payment. Please try again later.'
+    redirect_to @transaction
   end
 
   def destroy
@@ -59,7 +104,8 @@ class ConsultTransactionsController < AuthenticatedResourcesController
   end
 
   def set_transaction_and_role
-    @transaction = ConsultTransaction.find_by(params.permit(:id))
+    @transaction = ConsultTransaction.find_by_id(params[:id])
+    not_found if @transaction.nil?
     if @transaction.student_id == current_user.id
       @self = @transaction.student
       @other = @transaction.instructor
