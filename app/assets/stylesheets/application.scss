@@ -115,29 +115,12 @@ body {
   display: block !important;
 }
 
-.convertible {
-  border: none;
-  &:focus {
-    @extend .form-control;
-    margin: 0 0.5rem 0rem 0.5rem;
-  }
-  &:hover:not(:focus) {
-    color: $gray-600;
-  }
-  @at-root input[type="text"]#{&} {
-    box-sizing: content-box;
-  }
-  @at-root textarea#{&} {
-    padding: 0;
-  }
-}
-
 .large {
   font-size: 2rem !important;
 }
 
 .widget {
-  padding: 1.25rem;
+  padding: 1.25rem 1.25rem 0 1.25rem;
   margin-top: 1rem;
   height: 100%;
   border: 1px solid #dbdbdb;

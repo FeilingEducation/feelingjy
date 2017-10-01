@@ -5,17 +5,26 @@
         <%= image_tag profile_image_of, alt: 'Profile image', class: 'profile-image-full m-auto d-block' %>
       </div>
     </div>
-    <div class="form-group col-xl-8 col-lg-6 px-3 pb-3">
+    <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
       <div class="widget">
-        <div style="font-size: 0;">
-          <%= f.text_field :last_name, class: 'convertible d-inline-block h2', placeholder: '姓' %>
-          <%= f.text_field :first_name, class: 'convertible d-inline-block h2', placeholder: '名' %>
+        <h5>基本信息</h5>
+        <hr>
+        <div class="row">
+          <div class="form-group col-6">
+            <%= f.label :last_name, '姓', class: "mb-0" %>
+            <%= f.text_field :last_name, class: 'form-control' %>
+          </div>
+          <div class="form-group col-6">
+            <%= f.label :first_name, '名', class: "mb-0" %>
+            <%= f.text_field :first_name, class: 'form-control' %>
+          </div>
         </div>
-        <div class="pb-2">
-          <%= f.text_field :current_city, class: 'convertible', placeholder: '来自城市' %>
+        <div class="form-group">
+          <%= f.label :current_city, '所在城市', class: 'mb-0' %>
+          <%= f.text_field :current_city, class: 'form-control' %>
         </div>
         <div>
-          <%= f.text_area :statement, class: 'convertible', placeholder: '我的目标', rows: 4 %>
+          <%= f.text_area :statement, class: 'form-control', placeholder: '我的目标', rows: 5, style: 'resize:none;' %>
         </div>
       </div>
     </div>
@@ -23,23 +32,19 @@
       <div class="widget">
         <h5>联系方式</h5>
         <hr>
-        <div class="form-group row">
-          <label class="col-md-5 col-form-label">邮箱地址</label>
-          <div class="col-md-7 d-flex align-items-center">
-            <span><%= current_user.email %></span>
-          </div>
+        <div class="form-group">
+          <label class="mb-0">邮箱地址</label>
+          <%= fields_for :email, current_user do |f| %>
+            <%= f.text_field :email, class: 'form-control', readonly: true %>
+          <% end %>
         </div>
-        <div class="form-group row">
-          <%= f.label :phone_number, '电话号码', class: 'col-md-5 col-form-label' %>
-          <div class="col-md-7 d-flex align-items-center">
-            <%= f.text_field :phone_number, class: 'convertible', placeholder: '手机/固话' %>
-          </div>
+        <div class="form-group">
+          <%= f.label :phone_number, '电话号码', class: 'mb-0' %>
+          <%= f.text_field :phone_number, class: 'form-control', placeholder: '手机/固话' %>
         </div>
-        <div class="form-group row">
-          <%= f.label :wechat_id, '微信账号', class: 'col-md-5 col-form-label' %>
-          <div class="col-md-7 d-flex align-items-center">
-            <%= f.text_field :wechat_id, class: 'convertible', placeholder: '微信' %>
-          </div>
+        <div class="form-group">
+          <%= f.label :wechat_id, '微信账号', class: 'mb-0' %>
+          <%= f.text_field :wechat_id, class: 'form-control', placeholder: '微信' %>
         </div>
       </div>
     </div>
@@ -47,31 +52,27 @@
       <div class="widget">
         <h5>服务需求</h5>
         <hr>
-        <div class="form-group row">
-          <label class="col-md-4 col-form-label">申请类型</label>
-          <div class="col-md-8 d-flex align-items-center">
+        <div class="form-group">
+          <label class="mb-0">申请类型</label>
+          <div>
             <%= select_tag :application_country, options_for_select(["美国", "英国", "澳大利亚", "加拿大"]), class: 'custom-select' %>
             <%= select_tag :application_degree, options_for_select(["高中", "本科", "硕士", "博士"]), class: 'custom-select' %>
           </div>
         </div>
         <div class="row">
-          <div class="col-md">
-            <label>我可能需要的帮助有:</span>
+          <div class="col-12">
+            <label>我可能需要的帮助有</span>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md">
+          <div class="col-6">
             <%= f.check_box :need_early_consult %><%= f.label :need_early_consult, "早期咨询" %>
           </div>
-          <div class="col-md">
+          <div class="col-6">
             <%= f.check_box :need_essay_consult %><%= f.label :need_essay_consult, "文书改写" %>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md">
+          <div class="col-6">
             <%= f.check_box :need_brainstorm_consult %><%= f.label :need_brainstorm_consult, "头脑风暴" %>
           </div>
-          <div class="col-md">
+          <div class="col-6">
             <%= f.check_box :need_visa_consult %><%= f.label :need_visa_consult, "签证咨询" %>
           </div>
         </div>
@@ -81,23 +82,17 @@
       <div class="widget">
         <h5>学校信息</h5>
         <hr>
-        <div class="form-group row">
-          <%= label_tag :high_school, '高中', class: 'col-md-5 col-form-label' %>
-          <div class="col-md-7 d-flex align-items-center">
-            <%= text_field_tag :high_school, nil, class: 'convertible', placeholder: '高中学校' %>
-          </div>
+        <div class="form-group">
+          <%= label_tag :high_school, '高中', class: 'mb-0' %>
+          <%= text_field_tag :high_school, nil, class: 'form-control', placeholder: '高中学校' %>
         </div>
-        <div class="form-group row">
-          <%= label_tag :undergrad_school, '本科', class: 'col-md-5 col-form-label' %>
-          <div class="col-md-7 d-flex align-items-center">
-            <%= text_field_tag :undergrad_school, nil, class: 'convertible', placeholder: '本科学校' %>
-          </div>
+        <div class="form-group">
+          <%= label_tag :undergrad_school, '本科', class: 'mb-0' %>
+          <%= text_field_tag :undergrad_school, nil, class: 'form-control', placeholder: '本科学校' %>
         </div>
-        <div class="form-group row">
-          <%= f.label :grad_school, '研究生', class: 'col-md-5 col-form-label' %>
-          <div class="col-md-7 d-flex align-items-center">
-            <%= text_field_tag :grad_school, nil, class: 'convertible', placeholder: '研究生学校' %>
-          </div>
+        <div class="form-group">
+          <%= label_tag :grad_school, '研究生', class: 'mb-0' %>
+          <%= text_field_tag :grad_school, nil, class: 'form-control', placeholder: '研究生学校' %>
         </div>
       </div>
     </div>
@@ -105,23 +100,17 @@
       <div class="widget">
         <h5>我喜爱的</h5>
         <hr>
-        <div class="form-group row">
-          <%= label_tag :high_school, '音乐', class: 'col-md-5 col-form-label' %>
-          <div class="col-md-7 d-flex align-items-center">
-            <%= text_field_tag :high_school, nil, class: 'convertible', placeholder: '风格/歌曲/...' %>
-          </div>
+        <div class="form-group">
+          <%= label_tag :high_school, '音乐', class: 'mb-0' %>
+          <%= text_field_tag :high_school, nil, class: 'form-control', placeholder: '风格/歌曲/...' %>
         </div>
-        <div class="form-group row">
-          <%= label_tag :undergrad_school, '运动', class: 'col-md-5 col-form-label' %>
-          <div class="col-md-7 d-flex align-items-center">
-            <%= text_field_tag :undergrad_school, nil, class: 'convertible', placeholder: '参加的/观看的/...' %>
-          </div>
+        <div class="form-group">
+          <%= label_tag :undergrad_school, '运动', class: 'mb-0' %>
+          <%= text_field_tag :undergrad_school, nil, class: 'form-control', placeholder: '参加的/观看的/...' %>
         </div>
-        <div class="form-group row">
-          <%= f.label :grad_school, '电影', class: 'col-md-5 col-form-label' %>
-          <div class="col-md-7 d-flex align-items-center">
-            <%= text_field_tag :grad_school, nil, class: 'convertible', placeholder: '风格/导演/...' %>
-          </div>
+        <div class="form-group">
+          <%= f.label :grad_school, '电影', class: 'mb-0' %>
+          <%= text_field_tag :grad_school, nil, class: 'form-control', placeholder: '风格/导演/...' %>
         </div>
       </div>
     </div>

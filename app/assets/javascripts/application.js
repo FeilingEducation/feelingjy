@@ -160,11 +160,6 @@ $(document).on('click', '.editable', function() {
   }
 });
 
-$(document).on('input focus focusout', 'input[type="text"].convertible', function() {
-  const $this = $(this);
-  $this.css('width', Math.min(Math.max(10, $this.textWidth())));
-});
-
 $(document).on('turbolinks:load', function() {
   $('input[type="text"].convertible').trigger('input');
 })
