@@ -10,7 +10,7 @@
   <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#instructor" id="dropdown01"
+        <a class="nav-link dropdown-toggle" href="#instructor"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">导师</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="#become-instructor">成为导师</a>
@@ -41,23 +41,36 @@
     <ul class="navbar-nav navbar-right d-flex align-items-center">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to user_info_path, class: "btn" do %>
-            <%= image_tag profile_image_of, class: "profile-image-thumbnail" %>
-          <% end %>
         </li>
         <% if can_apply_for_instructor? %>
           <li class="nav-item">
             <%= link_to "申请成为导师", new_instructor_info_path, remote: true, class: "btn" %>
           </li>
         <% end %>
-        <li class="nav-item">
-          <%= link_to "管理", edit_user_info_path, class: "btn" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "安全", edit_user_registration_path, class: "btn" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "退出", destroy_user_session_path, class: "btn", method: "delete" %>
+        <% if user_is_instructor? %>
+          <li class="nav-item">
+            <%= link_to "订单", consult_transactions_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "学生", '#', class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "消息", '#', class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "评分", '#', class: 'nav-link' %>
+          </li>
+        <% end %>
+        <li class="nav-item dropdown">
+          <%= link_to user_info_path, class: "nav-link dropdown-toggle no-caret", data: {toggle: 'dropdown'} do %>
+            <%= image_tag profile_image_of, class: "profile-image-thumbnail" %>
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-right">
+            <%= link_to '我的主页', user_info_path, class: 'dropdown-item' %>
+            <%= link_to '个人信息', edit_user_info_path, class: 'dropdown-item' %>
+            <%= link_to '安全中心', edit_user_registration_path, class: 'dropdown-item' %>
+            <%= link_to "退出", destroy_user_session_path, class: "dropdown-item", method: "delete" %>
+          </div>
         </li>
       <% else %>
         <li class="nav-item">

@@ -11,7 +11,8 @@ module ApplicationHelper
 
   # assume signed in
   def user_is_instructor?
-    !InstructorInfo.find_by_id(current_user.id).nil?
+    @instructor = InstructorInfo.find_by_id(current_user.id)
+    !@instructor.nil?
   end
 
   def editable_image_tag(editable, source, options={})
