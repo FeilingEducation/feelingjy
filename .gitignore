@@ -19,3 +19,4 @@
 .byebug_history
 
 /public/uploads/*
+/public/.well-known/*
