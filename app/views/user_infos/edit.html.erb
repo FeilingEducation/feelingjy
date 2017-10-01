@@ -1,4 +1,4 @@
-<%= form_for @user_info, url: user_info_path, method: 'patch', html: { role: 'form' } do |f| %>
+<%= form_for @user_info, url: user_info_path, method: 'patch', html: { role: 'form', multipart: true } do |f| %>
   <div class="row">
     <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
       <div class="widget">
@@ -59,6 +59,21 @@
               <%= f.text_field :url_linked_in, class: 'form-control' %>
             </div>
           <% end %>
+        </div>
+      </div>
+      <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
+        <div class="widget">
+          <h5>我的文档</h5>
+          <hr>
+          <%= label_tag :resume, '个人简历', class: 'mb-0' %>
+          <% unless @user_info.resume.nil? %>
+            <%= link_to '删除', @user_info.resume, method: 'delete', class: 'mx-1 float-right', data: { confirm: '确定删除简历吗?' } %>
+            <%= link_to '查看', @user_info.resume.file.url, target: '_blank', class: 'mx-1 float-right' %>
+          <% end %>
+          <div class="custom-file d-block">
+            <%= file_field_tag :resume, class: "custom-file-input", data: { target: '#resume-name' }, accept: 'application/pdf' %>
+            <span id="resume-name" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>
+          </div>
         </div>
       </div>
     <% else %>

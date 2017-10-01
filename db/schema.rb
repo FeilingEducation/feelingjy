@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171001081809) do
+ActiveRecord::Schema.define(version: 20171001174825) do
 
   create_table "chat_lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -98,6 +98,16 @@ ActiveRecord::Schema.define(version: 20171001081809) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["instructor_id"], name: "index_private_policies_on_instructor_id"
+  end
+
+  create_table "user_documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "file"
+    t.string "md5"
+    t.string "doc_type"
+    t.bigint "user_info_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_info_id"], name: "index_user_documents_on_user_info_id"
   end
 
   create_table "user_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

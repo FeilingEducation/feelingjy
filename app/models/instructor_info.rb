@@ -7,6 +7,8 @@ class InstructorInfo < ApplicationRecord
   has_many :students, through: 'consult_transactions'
   has_many :private_policies, foreign_key: 'instructor_id'
 
+  has_one :resume, -> { where(doc_type: 'resume') }, class_name: 'UserDocument', foreign_key: 'user_info_id'
+
   validates_presence_of :id
 
 end

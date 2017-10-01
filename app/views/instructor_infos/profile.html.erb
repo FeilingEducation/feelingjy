@@ -149,7 +149,11 @@
             <%= image_tag 'linkedin.png', class: 'mx-3 mb-3' %>
           <% end %>
         <% end %>
-        <%= image_tag 'pdf.png', class: 'mx-3 mb-3' %>
+        <% unless @instructor_info.resume.nil? %>
+          <%= link_to @instructor_info.resume.file.url, target: '_blank' do %>
+            <%= image_tag 'pdf.png', class: 'mx-3 mb-3' %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="row mb-4">

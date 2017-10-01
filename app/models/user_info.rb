@@ -15,8 +15,11 @@ class UserInfo < ApplicationRecord
 
   belongs_to :user, foreign_key: 'id'
   has_one :instructor_info, foreign_key: 'id'
+
   has_many :consult_transactions, foreign_key: 'student_id'
   has_many :instructors, through: 'consult_transactions'
+
+  delegate :resume, to: :instructor_info
 
   validates_presence_of :id
 

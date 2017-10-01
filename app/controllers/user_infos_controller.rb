@@ -42,6 +42,11 @@ class UserInfosController < AuthenticatedResourcesController
     respond_to do |format|
       unless @instructor_info.nil?
         @instructor_info.update_attributes(instructor_info_params)
+        file = params[:resume]
+        unless file.nil?
+          resume = @instructor_info.resume || @instructor_info.build_resume(doc_type: 'resume')
+          resume.update_attributes(file: file)
+        end
       end
       if @user_info.update_attributes(user_info_params)
         format.js {
