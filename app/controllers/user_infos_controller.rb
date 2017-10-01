@@ -38,7 +38,11 @@ class UserInfosController < AuthenticatedResourcesController
 
   def update
     @user_info = UserInfo.find(current_user.id)
+    @instructor_info = InstructorInfo.find_by_id(current_user.id)
     respond_to do |format|
+      unless @instructor_info.nil?
+        @instructor_info.update_attributes(instructor_info_params)
+      end
       if @user_info.update_attributes(user_info_params)
         format.js {
           flash.now[:notice] = "Profile updated successfully."
@@ -51,6 +55,7 @@ class UserInfosController < AuthenticatedResourcesController
         format.html { render('edit') }
       end
     end
+    redirect_to action: 'edit'
   end
 
   private
@@ -59,6 +64,10 @@ class UserInfosController < AuthenticatedResourcesController
     params.require(:user_info).permit(:avatar, :avatar_cache, :first_name,
     :last_name, :gender, :current_city, :home_town, :current_institute,
     :highest_education, :major, :other_majors, :program_year, :statement)
+  end
+
+  def instructor_info_params
+    params.require(:instructor_info).permit(:url_linked_in)
   end
 
 end

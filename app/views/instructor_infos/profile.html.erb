@@ -144,7 +144,11 @@
         <h5>个人简历</h5>
       </div>
       <div class="col-8 d-flex flex-wrap justified-content-around">
-        <%= image_tag 'linkedin.png', class: 'mx-3 mb-3' %>
+        <% unless @instructor_info.url_linked_in.empty? %>
+          <%= link_to @instructor_info.url_linked_in, target: '_blank' do %>
+            <%= image_tag 'linkedin.png', class: 'mx-3 mb-3' %>
+          <% end %>
+        <% end %>
         <%= image_tag 'pdf.png', class: 'mx-3 mb-3' %>
       </div>
     </div>

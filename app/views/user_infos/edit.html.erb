@@ -1,4 +1,4 @@
-<%= form_for @user_info, url: user_info_path, method: 'patch', remote: true, html: { role: 'form' } do |f| %>
+<%= form_for @user_info, url: user_info_path, method: 'patch', html: { role: 'form' } do |f| %>
   <div class="row">
     <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
       <div class="widget">
@@ -48,36 +48,51 @@
         </div>
       </div>
     </div>
-    <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
-      <div class="widget">
-        <h5>服务需求</h5>
-        <hr>
-        <div class="form-group">
-          <label class="mb-0">申请类型</label>
-          <div>
-            <%= select_tag :application_country, options_for_select(["美国", "英国", "澳大利亚", "加拿大"]), class: 'custom-select' %>
-            <%= select_tag :application_degree, options_for_select(["高中", "本科", "硕士", "博士"]), class: 'custom-select' %>
-          </div>
+    <% if user_is_instructor? %>
+      <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
+        <div class="widget">
+          <h5>外部链接</h5>
+          <hr>
+          <%= fields_for :instructor_info, @instructor do |f| %>
+            <div class="form-group">
+              <%= f.label :url_linked_in, '领英主页', class: 'mb-0' %>
+              <%= f.text_field :url_linked_in, class: 'form-control' %>
+            </div>
+          <% end %>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <label>我可能需要的帮助有</span>
+      </div>
+    <% else %>
+      <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
+        <div class="widget">
+          <h5>服务需求</h5>
+          <hr>
+          <div class="form-group">
+            <label class="mb-0">申请类型</label>
+            <div>
+              <%= select_tag :application_country, options_for_select(["美国", "英国", "澳大利亚", "加拿大"]), class: 'custom-select' %>
+              <%= select_tag :application_degree, options_for_select(["高中", "本科", "硕士", "博士"]), class: 'custom-select' %>
+            </div>
           </div>
-          <div class="col-6">
-            <%= f.check_box :need_early_consult %><%= f.label :need_early_consult, "早期咨询" %>
-          </div>
-          <div class="col-6">
-            <%= f.check_box :need_essay_consult %><%= f.label :need_essay_consult, "文书改写" %>
-          </div>
-          <div class="col-6">
-            <%= f.check_box :need_brainstorm_consult %><%= f.label :need_brainstorm_consult, "头脑风暴" %>
-          </div>
-          <div class="col-6">
-            <%= f.check_box :need_visa_consult %><%= f.label :need_visa_consult, "签证咨询" %>
+          <div class="row">
+            <div class="col-12">
+              <label>我可能需要的帮助有</span>
+            </div>
+            <div class="col-6">
+              <%= f.check_box :need_early_consult %><%= f.label :need_early_consult, "早期咨询" %>
+            </div>
+            <div class="col-6">
+              <%= f.check_box :need_essay_consult %><%= f.label :need_essay_consult, "文书改写" %>
+            </div>
+            <div class="col-6">
+              <%= f.check_box :need_brainstorm_consult %><%= f.label :need_brainstorm_consult, "头脑风暴" %>
+            </div>
+            <div class="col-6">
+              <%= f.check_box :need_visa_consult %><%= f.label :need_visa_consult, "签证咨询" %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
     <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
       <div class="widget">
         <h5>学校信息</h5>
