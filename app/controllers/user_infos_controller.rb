@@ -38,8 +38,8 @@ class UserInfosController < AuthenticatedResourcesController
 
   def update
     @user_info = UserInfo.find(current_user.id)
-    @instructor_info = InstructorInfo.find_by_id(current_user.id)
-    respond_to do |format|
+    if params.has_key? :instructor_info
+      @instructor_info = InstructorInfo.find_by_id(current_user.id)
       unless @instructor_info.nil?
         @instructor_info.update_attributes(instructor_info_params)
         file = params[:resume]
@@ -48,6 +48,8 @@ class UserInfosController < AuthenticatedResourcesController
           resume.update_attributes(file: file)
         end
       end
+    end
+    respond_to do |format|
       if @user_info.update_attributes(user_info_params)
         format.js {
           flash.now[:notice] = "Profile updated successfully."
@@ -60,7 +62,7 @@ class UserInfosController < AuthenticatedResourcesController
         format.html { render('edit') }
       end
     end
-    redirect_to action: 'edit'
+    redirect_to request.referer || 'edit'
   end
 
   private

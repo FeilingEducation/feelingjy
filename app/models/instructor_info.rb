@@ -9,6 +9,8 @@ class InstructorInfo < ApplicationRecord
 
   has_one :resume, -> { where(doc_type: 'resume') }, class_name: 'UserDocument', foreign_key: 'user_info_id'
 
-  validates_presence_of :id
+  mount_uploader :page_background, PageBackgroundUploader
+
+  validates_presence_of :id, on: [:create]
 
 end

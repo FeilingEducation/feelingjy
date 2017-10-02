@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'debug', to: 'debug#index'
 
   resource :user_info, path: 'account', except: [:destroy]
-  resource :instructor_info, path: 'instructor', only: [:new, :create, :show, :update, :destroy]
-  get 'profiles/:id', to: 'instructor_infos#profile', as: 'profile'
+  resource :instructor_info, path: 'instructor', only: [:new, :create, :edit, :update, :destroy]
+  resources :profiles, only: [:show]
   resources :consult_transactions, path: 'transactions', except: [:edit]
   post 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
   post 'transactions/:id/pay', to: 'consult_transactions#pay', as: 'pay_consult_transaction'

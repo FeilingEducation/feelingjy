@@ -2,9 +2,6 @@ class InstructorInfosController < AuthenticatedResourcesController
 
   before_action :check_user_info_initialized
   before_action :check_instructor_info_initialized
-  skip_before_action :authenticate_user!, only: [:profile]
-  skip_before_action :check_user_info_initialized, only: [:profile]
-  skip_before_action :check_instructor_info_initialized, only: [:profile]
 
   def new
     @instructor_info = InstructorInfo.new
@@ -22,20 +19,11 @@ class InstructorInfosController < AuthenticatedResourcesController
     end
   end
 
-  def show
+  def edit
     @instructor_info = InstructorInfo.find_by_id(current_user.id)
     if @instructor_info.nil?
       flash[:notice] = 'You are not an instructor.'
       redirect_to '/search'
-    end
-  end
-
-  def profile
-    @instructor_info = InstructorInfo.find_by_id(params[:id])
-    if @instructor_info.nil?
-      not_found
-    else
-      @transaction = ConsultTransaction.new(instructor_id: @instructor_info.id)
     end
   end
 
@@ -44,7 +32,7 @@ class InstructorInfosController < AuthenticatedResourcesController
     if @instructor_info.update_attributes(instructor_info_params)
       flash[:notice] = 'Instructor profile updated successfully'
     end
-    render('edit')
+    redirect_to request.referer || edit_instructor_info_path
   end
 
   def destroy
@@ -63,7 +51,6 @@ class InstructorInfosController < AuthenticatedResourcesController
     :gre_score,
     :suggestions_to_students,
     :specialties,
-    :page_title,
     :available_time_slots,
     :busy_events,
     :is_early_consult,
@@ -83,7 +70,9 @@ class InstructorInfosController < AuthenticatedResourcesController
     :pricing_strategy,
     :price_min,
     :price_max,
-    :price_base)
+    :price_base,
+    :page_title,
+    :page_background,
+    :about_me)
   end
-
 end

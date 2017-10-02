@@ -120,16 +120,17 @@ $(document).on('change', '.image-input', function() {
   if (this.files && this.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
-      $($this.data('target')).attr('src', e.target.result);
+      $($this.data('image-input-target')).attr('src', e.target.result);
     }
     reader.readAsDataURL(this.files[0]);
   }
 });
 
-function custom_file_input(name, target, classes) {
+function custom_image_input(name, target, classes) {
   return `<div class="custom-file ${classes}" >` +
-        `   <input type="file" name="${name}" class="custom-file-input image-input", data-target="${target}" accept="image/*">` +
-        `   <span id="profile-img-name" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>` +
+        `   <input type="file" name="${name}" class="custom-file-input image-input"` +
+        `     data-image-input-target="${target}" data-target="#filename-span" accept="image/*">` +
+        `   <span id="filename-span" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>` +
         ` </div>`;
 }
 
@@ -137,26 +138,46 @@ $(document).on('click', '.editable', function() {
   const $this = $(this);
   const name = $this.data('name');
   const action = $this.data('action');
+  let $dialog = $('#dialog');
+  let $form = $('#template-form').clone().removeAttr('id').css('display', 'block');
+  if ($this.data('action')) {
+    $form.attr('action', $this.data('action'));
+  }
+  if ($this.data('size') == 'large') {
+    $('#dialog .modal-dialog').removeClass('modal-sm').addClass('modal-lg');
+  } else {
+    $('#dialog .modal-dialog').removeClass('modal-lg').addClass('modal-sm');
+  }
+  let $text;
   switch($this.data('type')) {
     case 'image':
-    $('#dialog .modal-title').html($this.prop('alt'));
-    if ($this.data('size') == 'large') {
-      $('#dialog .modal-dialog').removeClass('modal-sm').addClass('modal-lg');
-    } else {
-      $('#dialog .modal-dialog').removeClass('modal-lg').addClass('modal-sm');
-    }
-    $('#dialog .modal-body').html(
-      ` <form action="${action}" method="post">` +
-      `   <img id="preview" class="editable-image-preview mb-3" src="${$this.prop('src')}">` +
-          custom_file_input(name, "#preview", "mb-3") +
-      ` <input type="submit" class="btn btn-success float-right mb-3" value="保存">` +
-      ` </form>`
-    );
-    show_or_update($('#dialog'));
-    break;
+      $img = $this.find('img');
+      $dialog.find('.modal-title').html($img.prop('alt'));
+      $form.attr('enctype', 'multipart/form-data');
+      $form.append($(`<img id="preview" class="editable-image-preview mb-3" src="${$img.prop('src')}">`));
+      $form.append($(custom_image_input(name, '#preview', 'mb-3')));
+      break;
+    case 'textfield':
+      $dialog.find('.modal-title').html($this.data('label'));
+      $text = $this.find('span');
+      $form.append($(`<input type="text" name="${$this.data('name')}" class="form-control mb-3 autofocus autoselect" value="${$text.html()}">`));
+      break;
+    case 'textarea':
+      $dialog.find('.modal-title').html($this.data('label'));
+      $text = $this.find('p');
+      $form.append($(`<textarea name="${$this.data('name')}" class="form-control mb-3  autofocus autoselect" rows="10" style="resize:none">`).val($text.text()));
+      break;
     default:
-    break;
+      return;
   }
+  $form.append($(`<input type="submit" class="btn btn-success float-right mb-3" value="保存">`));
+  $dialog.find('.modal-body').empty().append($form);
+  show_or_update($dialog);
+});
+
+$(document).on('shown.bs.modal', '#dialog', function() {
+  $(this).find('.autofocus').focus();
+  $(this).find('.autoselect').select();
 });
 
 $(document).on('turbolinks:load', function() {

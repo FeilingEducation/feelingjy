@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171001174825) do
+ActiveRecord::Schema.define(version: 20171002073254) do
 
   create_table "chat_lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20171001174825) do
     t.datetime "updated_at", null: false
     t.float "avg_rating", limit: 24
     t.string "url_linked_in"
+    t.string "page_background"
+    t.text "about_me"
   end
 
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -1,6 +1,12 @@
 <div class="mb-4">
-  <%= image_tag 'campus.jpeg', width: '100%', class: 'editable', alt: '背景图片', data: { name: 'profile_background', type: 'image', size: 'large', action: instructor_info_path } %>
-  <%= image_tag profile_image_of, class: 'd-block mx-auto editable', style: 'margin-top: -5rem;', alt: '个人头像', data: { name: 'profile_image', type: 'image', action: instructor_info_path } %>
+  <%= content_tag :div, class: "editable", data: { name: 'instructor_info[page_background]', type: 'image', size: 'large' } do %>
+    <%= image_tag @instructor_info.page_background, width: '100%', alt: '背景图片' %>
+  <% end %>
+  <div class="d-flex justify-content-center">
+    <%= content_tag :div, class: "editable d-inline-block", style: 'margin-top:-105px;', data: { name: 'user_info[avatar]', type: 'image', action: user_info_path } do %>
+      <%= image_tag profile_image_of, alt: '个人头像' %>
+    <% end %>
+  </div>
 </div>
 <div class="card float-right sticky-top mx-5 pr-0" style="top:100px;width:280px;">
   <div class="bg-dark p-3">
@@ -10,7 +16,7 @@
     <%= form_with model: @transaction, method: 'post', local: true do |f| %>
       <div class="form-group">
         <label>合作日期</label>
-        <%= f.date_field :scheduled_date, value: 1.week.after, class: 'form-control' %>
+        <%= f.date_field :scheduled_date, value: 1.week.after.strftime('%Y-%m-%d'), class: 'form-control' %>
       </div>
       <div class="form-group">
         <label>合作项目</label>
@@ -25,7 +31,9 @@
 <div class="row">
   <div class="col-11">
     <div>
-      <%= text_field_tag :home_page_title, nil, class: 'convertible font-weight-bold h1', placeholder: '主页标题' %>
+      <%= content_tag :div, class: 'editable', data: { name: 'instructor_info[page_title]', type: 'textfield', label: '主页标题' } do %>
+        <span class="font-weight-bold h1"><%= @instructor_info.page_title || '我的主页' %></span>
+      <% end %>
       <div class="mb-4">
         <span class="mr-3">文书改写 | 签证咨询</span>
         <span class="mr-3">斯坦福大学</span>
@@ -40,9 +48,9 @@
     </div>
     <div class="mb-4">
       <h5>关于导师</h5>
-      <p>
-        大家好！我是来自斯坦福的硕士第二年学生，我的专业是机械工程，自己曾经有过两次申请学校的经历，所以对留学申请方面还是有自己独到的见解。希望在我们的共同努力下，申请到满意的学校。我本人喜欢把事情简单化，所以我们肯定是最大限度地利用我们的每一分每一秒！
-      </p>
+      <%= content_tag :div, class: 'editable', data: { name: 'instructor_info[about_me]', type: 'textarea', label: '关于导师' } do %>
+        <p><%= @instructor_info.about_me || '有关导师的信息' %></p>
+      <% end %>
     </div>
     <div class="row mb-4">
       <div class="col-4">
@@ -236,3 +244,5 @@
     </div>
   </div>
 </div>
+<%= form_with model: @instructor_info, method: 'patch', id: 'template-form', style: 'display:hidden', local: true do |f| %>
+<% end %>
