@@ -35,9 +35,9 @@
   </div>
   <div class="consult-comm col-6 d-flex flex-column px-4" data-transaction-id="<%= @transaction.id %>" data-user-id="<%= current_user.id %>">
     <div class="chat-box">
-      <div class="chat-lines px-4" style="flex:1;background-color:#eeeeee;height:500px;overflow-y:scroll;border:8px solid #cccccc;">
+      <div class="chat-lines">
         <% for chat_line in @transaction.chat.chat_lines do %>
-        <div class="<%= 'my-chat-line' if chat_line.user_info_id == current_user.id %>">
+        <div class="chat-line<%= ' chat-line-right' if chat_line.user_info_id == current_user.id %>">
           <pre><%= chat_line.content %></pre>
         </div>
         <% end %>
@@ -45,7 +45,7 @@
       <%= form_tag nil, class: 'chat-input d-flex' do %>
         <%= hidden_field_tag :transaction_id, @transaction.id %>
         <%= text_area_tag :content, '', style: 'flex:1' %>
-        <%= submit_tag "发送" %>
+        <%= submit_tag "发送", data: { disable_with: false } %>
       <% end %>
     </div>
     <audio class="remote" autoplay controls></audio>

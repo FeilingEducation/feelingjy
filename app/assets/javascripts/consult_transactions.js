@@ -6,7 +6,12 @@ $(document).on('keypress', 'form.chat-input textarea', function(e) {
 });
 
 $(document).on('submit', 'form.chat-input', function(e) {
-  App.consult_comm.create_chat_line($(e.target).getFormData());
+  let data = $(e.target).getFormData();
+  if (data.content == "") {
+    return false;
+  }
+  $(this).find('input[type="submit"]').prop('disabled', true);
+  App.consult_comm.create_chat_line(data);
   $(this).find('textarea').select();
   return false;
 });

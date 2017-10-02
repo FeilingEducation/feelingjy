@@ -16,7 +16,10 @@ class ConsultCommChannel < ApplicationCable::Channel
   end
 
   def create_chat_line(data)
-    return if data['content'].empty?
+    if data['content'].empty?
+      transmit type: 'chat_line', comm_data: nil
+      return
+    end
     chat_line = ChatLine.new(content: data['content'], user_info_id: current_user.id, chat_id: @transaction.chat.id)
     if chat_line.save
       ConsultCommChannel.broadcast_to @transaction, type: 'chat_line', comm_data: {content: data['content'], user_id: current_user.id}

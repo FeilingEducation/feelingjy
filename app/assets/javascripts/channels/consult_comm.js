@@ -16,10 +16,12 @@ $(document).on('turbolinks:load', function() {
       let comm = data.comm_data;
       switch (data.type) {
         case 'chat_line':
-          let $chat_line = $(`<div><pre>${sanitize(comm.content)}</pre></div>`);
-          if (user_id == data.user_id)
-            $chat_line.addClass('my-chat-line');
-          $chat_lines.append($chat_line).prop('scrollTop', $chat_lines.prop('scrollHeight'));
+          if (comm) {
+            let $chat_line = $(`<div class="chat-line"><pre>${sanitize(comm.content)}</pre></div>`);
+            if (user_id == comm.user_id)
+            $chat_line.addClass('chat-line-right');
+            $chat_lines.append($chat_line).prop('scrollTop', $chat_lines.prop('scrollHeight'));
+          }
           $('.chat-input input[type="submit"]').prop('disabled', false);
           break;
         case 'voice_chat':
