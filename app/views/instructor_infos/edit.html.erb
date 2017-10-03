@@ -1,9 +1,13 @@
 <div class="mb-4">
-  <%= content_tag :div, class: "editable", data: { name: 'instructor_info[page_background]', type: 'image', size: 'large' } do %>
+  <%= content_tag :div, class: "editable", data: { scope: 'instructor_info',
+    name: 'page_background', type: 'image', target: 'img', attr: 'src', size: 'large',
+    label: '背景图片', action: instructor_info_path, method: 'patch' } do %>
     <%= image_tag @instructor_info.page_background, width: '100%', alt: '背景图片' %>
   <% end %>
   <div class="d-flex justify-content-center">
-    <%= content_tag :div, class: "editable d-inline-block", style: 'margin-top:-105px;', data: { name: 'user_info[avatar]', type: 'image', action: user_info_path } do %>
+    <%= content_tag :div, class: "editable d-inline-block", style: 'margin-top:-105px;',
+    data: { scope: 'user_info', name: 'avatar', type: 'image', target: 'img', attr: 'src',
+      label: '背景图片', action: user_info_path, method: 'patch' } do %>
       <%= image_tag profile_image_of, alt: '个人头像' %>
     <% end %>
   </div>
@@ -31,7 +35,9 @@
 <div class="row">
   <div class="col-11">
     <div>
-      <%= content_tag :div, class: 'editable', data: { name: 'instructor_info[page_title]', type: 'textfield', label: '主页标题' } do %>
+      <%= content_tag :div, class: 'editable', data: { scope: 'instructor_info',
+        name: 'page_title', type: 'text', target: 'span', label: '主页标题',
+        action: instructor_info_path, method: 'patch' } do %>
         <span class="font-weight-bold h1"><%= @instructor_info.page_title || '我的主页' %></span>
       <% end %>
       <div class="mb-4">
@@ -48,7 +54,9 @@
     </div>
     <div class="mb-4">
       <h5>关于导师</h5>
-      <%= content_tag :div, class: 'editable', data: { name: 'instructor_info[about_me]', type: 'textarea', label: '关于导师' } do %>
+      <%= content_tag :div, class: 'editable', data: { scope: 'instructor_info',
+        name: 'about_me', type: 'paragraph', target: 'p', label: '关于导师',
+        action: instructor_info_path, method: 'patch' } do %>
         <p><%= @instructor_info.about_me || '有关导师的信息' %></p>
       <% end %>
     </div>
@@ -151,8 +159,36 @@
         <h5>个人简历</h5>
       </div>
       <div class="col-8 d-flex flex-wrap justified-content-around">
-        <%= image_tag 'linkedin.png', class: 'mx-3 mb-3' %>
-        <%= image_tag 'pdf.png', class: 'mx-3 mb-3' %>
+        <% for resume in @instructor_info.resumes do %>
+          <%= content_tag :div, class: 'clickable hover-btn-container', data: { scope: 'user_document',
+            name: 'file', type: 'user_document', doc_type: 'resume', label: '个人简历' } do %>
+            <%= link_to resume.file.url, target: '_blank' do %>
+              <%= image_tag 'pdf.png' %>
+            <% end %>
+            <%= link_to resume, method: 'delete', class: 'hover-btn pos-tr', data: { confirm: '确定删除简历吗?' } do %>
+              <i class="fa fa-times"></i>
+            <% end %>
+          <% end %>
+        <% end %>
+        <%= content_tag :div, class: 'editable align-self-center', data: { scope: 'user_document',
+          name: 'file', type: 'user_document', 'doc-type': 'resume', label: '个人简历' },
+          style: 'border:5px dash;border-radius:5px;' do %>
+          <i class="fa fa-plus" style="font-size:3rem;text-align:center;color:#777"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-4">
+        <h5>领英主页</h5>
+      </div>
+      <div class="col-8 d-flex flex-wrap justified-content-around">
+        <%= content_tag :div, class: 'editable', data: { scope: 'instructor_info',
+          name: 'url_linked_in', type: 'text', target: 'a', attr: 'href', label: '领英主页',
+          action: instructor_info_path, method: 'patch' } do %>
+          <%= link_to @instructor_info.url_linked_in, target: '_blank' do %>
+            <%= image_tag 'linkedin.png' %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="row mb-4">
@@ -244,5 +280,3 @@
     </div>
   </div>
 </div>
-<%= form_with model: @instructor_info, method: 'patch', id: 'template-form', style: 'display:hidden', local: true do |f| %>
-<% end %>

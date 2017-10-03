@@ -182,17 +182,17 @@ body {
   }
 }
 
-.editable {
+.clickable {
   position: relative;
-  padding: 5px;
+  border: 5px solid transparent;
+  border-radius: 5px;
 }
 
-.editable:hover {
-  border: 5px solid lighten($theme-blue, 30%);
-  border-radius: 5px;
-  padding: 0;
+.clickable:hover {
+  border-color: lighten($theme-blue, 30%);
   &:after {
     content: "\A";
+    pointer-events: none;
     width: 100%;
     height: 100%;
     background: rgba(255,255,255,0.2);
@@ -200,4 +200,26 @@ body {
     top: 0;
     left: 0;
   }
+}
+
+.editable {
+  @extend .clickable;
+}
+
+.hover-btn-container {
+  position: relative;
+}
+
+.hover-btn-container .hover-btn {
+  display: none;
+}
+
+.hover-btn-container:hover .hover-btn {
+  display: block;
+}
+
+.pos-tr {
+  position: absolute;
+  right: 0;
+  top: 0;
 }

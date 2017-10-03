@@ -32,23 +32,11 @@ class UserInfosController < AuthenticatedResourcesController
   end
 
   def edit
-    puts flash.inspect
     @user_info = UserInfo.find(current_user.id)
   end
 
   def update
     @user_info = UserInfo.find(current_user.id)
-    if params.has_key? :instructor_info
-      @instructor_info = InstructorInfo.find_by_id(current_user.id)
-      unless @instructor_info.nil?
-        @instructor_info.update_attributes(instructor_info_params)
-        file = params[:resume]
-        unless file.nil?
-          resume = @instructor_info.resume || @instructor_info.build_resume(doc_type: 'resume')
-          resume.update_attributes(file: file)
-        end
-      end
-    end
     respond_to do |format|
       if @user_info.update_attributes(user_info_params)
         format.js {

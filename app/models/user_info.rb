@@ -18,8 +18,7 @@ class UserInfo < ApplicationRecord
 
   has_many :consult_transactions, foreign_key: 'student_id'
   has_many :instructors, through: 'consult_transactions'
-
-  delegate :resume, to: :instructor_info
+  has_many :user_documents
 
   validates_presence_of :id
 

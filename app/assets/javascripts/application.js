@@ -126,18 +126,17 @@ $(document).on('change', '.image-input', function() {
   }
 });
 
-function custom_image_input(name, target, classes) {
+function custom_file_input(name, classes, accept) {
   return `<div class="custom-file ${classes}" >` +
         `   <input type="file" name="${name}" class="custom-file-input image-input"` +
-        `     data-image-input-target="${target}" data-target="#filename-span" accept="image/*">` +
+        `     data-target="#filename-span" accept="${accept}">` +
         `   <span id="filename-span" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>` +
         ` </div>`;
 }
 
 $(document).on('click', '.editable', function() {
   const $this = $(this);
-  const name = $this.data('name');
-  const action = $this.data('action');
+  const scoped_name = $this.data('scope') ? `${$this.data('scope')}[${$this.data('name')}]` : $this.data('name');
   let $dialog = $('#dialog');
   let $form = $('#template-form').clone().removeAttr('id').css('display', 'block');
   if ($this.data('action')) {
@@ -148,24 +147,37 @@ $(document).on('click', '.editable', function() {
   } else {
     $('#dialog .modal-dialog').removeClass('modal-lg').addClass('modal-sm');
   }
-  let $text;
+  $dialog.find('.modal-title').html($this.data('label'));
+  let value = '';
+  if ($this.data('value')) {
+    value = $this.value;
+  } else if ($this.data('target')) {
+    let $target = $this.find($this.data('target'));
+    if ($this.data('attr')) {
+      value = $target.attr($this.data('attr'));
+    } else {
+      value = $target.text();
+    }
+  }
   switch($this.data('type')) {
     case 'image':
-      $img = $this.find('img');
-      $dialog.find('.modal-title').html($img.prop('alt'));
       $form.attr('enctype', 'multipart/form-data');
-      $form.append($(`<img id="preview" class="editable-image-preview mb-3" src="${$img.prop('src')}">`));
-      $form.append($(custom_image_input(name, '#preview', 'mb-3')));
+      $form.append($(`<img id="preview" class="editable-image-preview mb-3" src="${value}">`));
+      var $file_input = $(custom_file_input(scoped_name, 'mb-3', 'image/*'));
+      $file_input.find('input').data('image-input-target', '#preview');
+      $form.append($file_input);
       break;
-    case 'textfield':
-      $dialog.find('.modal-title').html($this.data('label'));
-      $text = $this.find('span');
-      $form.append($(`<input type="text" name="${$this.data('name')}" class="form-control mb-3 autofocus autoselect" value="${$text.html()}">`));
+    case 'text':
+      $form.append($(`<input type="text" name="${scoped_name}" class="form-control mb-3 autofocus autoselect" value="${value}">`));
       break;
-    case 'textarea':
-      $dialog.find('.modal-title').html($this.data('label'));
-      $text = $this.find('p');
-      $form.append($(`<textarea name="${$this.data('name')}" class="form-control mb-3  autofocus autoselect" rows="10" style="resize:none">`).val($text.text()));
+    case 'paragraph':
+      $form.append($(`<textarea name="${scoped_name}" class="form-control mb-3  autofocus autoselect" rows="10" style="resize:none">`).val(value));
+      break;
+    case 'user_document':
+      $form.attr('action', '/user_documents');
+      $form.attr('enctype', 'multipart/form-data');
+      $form.append($(`<input type="hidden" name="${$this.data('scope')}[doc_type]" value="${$this.data('doc-type')}">`));
+      $form.append($(custom_file_input(scoped_name, 'mb-3', 'application/pdf')));
       break;
     default:
       return;

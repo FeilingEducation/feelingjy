@@ -73,6 +73,7 @@ class InstructorInfosController < AuthenticatedResourcesController
     :price_base,
     :page_title,
     :page_background,
-    :about_me)
+    :about_me,
+    :url_linked_in)
   end
 end

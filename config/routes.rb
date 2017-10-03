@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'transactions/:id/pay', to: 'consult_transactions#pay', as: 'pay_consult_transaction'
   resources :chat_lines, only: [:create]
   resources :payments, only: [:show, :update]
-  resources :user_documents, only: [:destroy]
+  resources :user_documents, only: [:create, :destroy]
 
   devise_for :users, path: 'users/security', controllers: {
     passwords: 'users/security/passwords',
