@@ -7,5 +7,6 @@ class ProfilesController < ApplicationController
     else
       @transaction = ConsultTransaction.new(instructor_id: @instructor_info.id)
     end
+    render template: 'instructor_infos/edit'
   end
 end

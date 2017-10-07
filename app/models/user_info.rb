@@ -18,7 +18,9 @@ class UserInfo < ApplicationRecord
 
   has_many :consult_transactions, foreign_key: 'student_id'
   has_many :instructors, through: 'consult_transactions'
-  has_many :user_documents
+  has_many :attachments, as: :attachable
+  has_many :sent_messages, class_name: :Message, foreign_key: :sender_id
+  has_many :received_messages, class_name: :Message, foreign_key: :receiver_id
 
   validates_presence_of :id
 
@@ -29,6 +31,10 @@ class UserInfo < ApplicationRecord
 
   def full_name
     self[:last_name] + self[:first_name]
+  end
+
+  def authorized_by(user)
+    user.id == self.id
   end
 
 end

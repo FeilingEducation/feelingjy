@@ -155,6 +155,20 @@ body {
   }
 }
 
+.thin-scrollbar {
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #000000;
+  }
+}
+
 .chat-lines {
   flex:1;
   background-color: $gray-200;
@@ -162,17 +176,7 @@ body {
   border: 8px solid $gray-300;
   padding: 0.5rem 1rem;
   overflow-y: auto;
-  &::-webkit-scrollbar-track {
-  	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  	background-color: #F5F5F5;
-  }
-  &::-webkit-scrollbar {
-  	width: 6px;
-  	background-color: #F5F5F5;
-  }
-  &::-webkit-scrollbar-thumb {
-  	background-color: #000000;
-  }
+  @extend .thin-scrollbar;
 }
 
 .chat-input {
@@ -202,6 +206,10 @@ body {
   }
 }
 
+.nonclickable:hover:after {
+  pointer-events: all;
+}
+
 .editable {
   @extend .clickable;
 }
@@ -222,4 +230,102 @@ body {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.fs-120 {
+  font-size: 1.2rem;
+}
+
+.fs-100 {
+  font-size: 1rem;
+}
+
+.fs-80 {
+  font-size: 0.8rem;
+}
+
+.fs-60 {
+  font-size: 0.6rem;
+}
+
+.fs-40 {
+  font-size: 0.4rem;
+}
+
+.fs-20 {
+  font-size: 0.2rem;
+}
+
+.hidden {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.attachments-btn {
+  cursor: pointer;
+  @extend .btn;
+  @extend .btn-secondary;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.attachments-input {
+  @extend .hidden;
+  &:focus + .attachments-btn {
+    @extend .attachments-btn:focus;
+  }
+}
+
+.attachments-container {
+  flex-grow: 1;
+  margin-right: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.attachment {
+  background: $gray-300;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 2px 8px;
+  align-self: start;
+  margin: 2px;
+}
+
+.attachment-remove {
+  cursor: pointer;
+}
+
+.attachment-name {
+}
+
+.attachment-progress {
+  width: 4rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.attachment-progress .bar {
+  width: 50%;
+  height: 18px;
+  background: $theme-green;
+}
+
+.message-history {
+  overflow-y: auto;
+  @extend .thin-scrollbar;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1rem;
+}
+
+.message {
+  background-color: lighten($theme-blue, 40%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 5px;
 }

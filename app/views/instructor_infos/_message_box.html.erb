@@ -1,0 +1,54 @@
+<div class="message-box">
+  <div class="row" style="height:300px;">
+    <div class="col-3">
+      <div>
+        <%= image_tag profile_image_of(instructor_info), class: 'w-100' %>
+        <div style="text-align:center">
+          <h5><%= instructor_info.full_name %></h5>
+        </div>
+      </div>
+      <div class="fs-80">
+        <strong>请提供以下信息:</strong>
+        <ul>
+          <li>
+            申请目标
+          </li>
+          <li>
+            可安排时间(包含时区)
+          </li>
+          <li>
+            相关文件
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="message-history">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-9 ml-auto">
+      <% msg = Message.new(receiver_id: @instructor_info.id) %>
+      <%= form_with model: msg, class: 'message-form', data: { type: 'json' } do |f| %>
+        <div class="form-group">
+          <%= f.hidden_field :receiver_id %>
+          <%= f.text_area :content, class: 'form-control', rows: 8, style: 'resize:none' %>
+        </div>
+        <div class="form-group d-flex">
+          <div class="attachments-container">
+          </div>
+          <div class="d-flex">
+            <%= file_field_tag '', id: 'attachments-input', class: 'attachments-input', multiple: true,
+            data: { url: attachments_path, param_name: 'attachment[file]',
+              form_data: { 'attachment[file_type]': 'attachment' }, data_type: 'json' } %>
+            <label for="attachments-input" class="attachments-btn"><i class="fa fa-paperclip"></i></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.submit '发送', class: 'btn btn-success float-right' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
