@@ -10,8 +10,6 @@ $(document).on('turbolinks:load', function() {
     return;
   let $chat = $consult_comm.find('.chat-box');
   let $chat_lines = $chat.find('.chat-lines');
-  // scroll the chat lines to bottom at the beginning
-  $chat_lines.prop('scrollTop', $chat_lines.prop('scrollHeight'));
   let user_id = $consult_comm.data('user-id');
 
 
