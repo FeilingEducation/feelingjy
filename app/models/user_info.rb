@@ -33,6 +33,8 @@ class UserInfo < ApplicationRecord
     self[:last_name] + self[:first_name]
   end
 
+  # implemented for "attachable" object so that we can check if a user is authorized
+  # to modify an attachment, which contains no user information (attachable is the owner)
   def authorized_by(user)
     user.id == self.id
   end

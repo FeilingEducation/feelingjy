@@ -1,3 +1,14 @@
 // Place all the styles related to the UserInfos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// a bordered group for user_info fields.
+.widget {
+  & .widget-body {
+    border: 1px solid #dbdbdb;
+    height: 100%;
+    padding: 1.25rem;
+  }
+  margin-bottom: 1.25rem;
+  @extend .col-lg-6;
+}

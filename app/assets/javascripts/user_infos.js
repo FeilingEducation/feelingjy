@@ -1,3 +1,6 @@
+// image preview for user_info avatar change
+// Only used in /views/user_infos/new.html.erb and no existing link to that page
+// Could be replaced by .image-input (See application.js)
 $(document).on('change', '#user_info_avatar', function() {
   if (this.files && this.files[0]) {
     let reader = new FileReader();

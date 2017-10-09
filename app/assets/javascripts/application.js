@@ -16,53 +16,13 @@
 //= require rails-ujs
 //= require bootstrap-slider
 //= require bootstrap-multiselect
-//= require components
 //= require jquery.ui.widget
 //= require jquery.fileupload
 //= require turbolinks
 //= require_tree .
 
-$(document).on('turbolinks:load', function() {
-  $('.attachments-input').data('count', 0);
-  $('.attachments-input').fileupload({
-    done: function(e, data) {
-      const $attachment = $(`#attachment-${data.id}`);
-      $attachment.data('result', data.result.files[0]);
-      $attachment.append($(`<input type="hidden" name="attachment_ids[]" value="${data.result.files[0].id}">`));
-      $attachment.find('.attachment-progress').remove();
-    }
-  }).bind('fileuploadadd', function(e, data) {
-    const count = $(this).data('count');
-    data.id = count;
-    $(this).closest('.form-group').find('.attachments-container').append($(
-      ` <div id="attachment-${count}" class="attachment">` +
-      `   <span class="attachment-name">${data.files[0].name}</span>` +
-      `   <div class="attachment-progress"><div class="bar""></div></div>` +
-      `   <i class="fa fa-times attachment-remove"></i>` +
-      ` </div>`
-    ));
-    $(this).data('count', count+1);
-  }).bind('fileuploadprogress', function(e, data) {
-    $('.attachment-progress bar').css('width', `${parseInt(data.loaded/data.total*100,10)}%`);
-  });
-});
-
-function show_or_update(modal) {
-  if ((modal.data('bs.modal') || {_isShown: false})._isShown) {
-    modal.modal("handleUpdate");
-    modal.find(".first_input").focus();
-  } else {
-    modal.modal("show");
-    modal.on("shown.bs.modal", function() {
-      modal.find(".first-input").focus();
-    });
-  }
-}
-
-function isObject(obj) {
-  return obj === Object(obj);
-}
-
+// convert the formdata into an object
+// adapting from multiple answers on https://stackoverflow.com/questions/2276463/how-can-i-get-form-data-with-javascript-jquery
 (function($){
   $.fn.getFormData = function() {
     return $(this).serializeArray().reduce(function (obj, item) {
@@ -81,7 +41,18 @@ function isObject(obj) {
   };
 })(jQuery);
 
-// handle custom file inputs
+// escape some HTML characters to prevent script injection into the page
+function sanitize(html) {
+  return html.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function isObject(obj) {
+  return obj === Object(obj);
+}
+
+// handle custom file inputs of bootstrap, which does not update filename on the
+// file input when a file is selected.
+// adapted from https://github.com/twbs/bootstrap/issues/20813
 $(document).on('change', '.custom-file input[type="file"]', function () {
 
   const $input = $(this);
@@ -107,39 +78,8 @@ $(document).on('change', '.custom-file input[type="file"]', function () {
   $target.attr('data-content', name);
 });
 
-$(document).on('click', '.multi-step-form .step-navigate', function() {
-  const $this = $(this);
-  if ($this.is('.submit')) {
-    $this.closest('form').submit();
-    return;
-  }
-  const $curr_form = $this.closest('.multi-step-form');
-  const $target_form = $($this.data('target'));
-  $curr_form.toggleClass('current-step');
-  $target_form.toggleClass('current-step');
-  $target_form.find('input, select').filter(':first').focus();
-});
-
-$(document).on('keypress', function(e) {
-  if (e.keyCode !== 13) {
-    return;
-  }
-  if ($(e.target).is('body, input[type="text"]')) {
-    // need to do validation here
-    $('.current-step .main-btn').click();
-  }
-});
-
-$.fn.textWidth = function(text, font) {
-  if (!$.fn.textWidth.helper)
-    $.fn.textWidth.helper = $('<pre>').css({visibility: "hidden", display: "inline"});
-  if ($.fn.textWidth.helper.parent()[0] !== document.body)
-    $.fn.textWidth.helper.appendTo(document.body);
-  $.fn.textWidth.helper.text(text || this.val() || this.text() || this.attr('placeholder'))
-  .css('font', font || this.css('font'));
-  return $.fn.textWidth.helper.width();
-}
-
+// .image-input is a special file input, which has an .image-input-target for
+// displaying the preview of the selected image before uploading.
 $(document).on('change', '.image-input', function() {
   const $this = $(this);
   if (this.files && this.files[0]) {
@@ -151,6 +91,7 @@ $(document).on('change', '.image-input', function() {
   }
 });
 
+// JS template for a bootstrap custom file input
 function custom_file_input(name, classes, accept) {
   return `<div class="custom-file ${classes}" >` +
         `   <input type="file" name="${name}" class="custom-file-input image-input"` +
@@ -159,27 +100,30 @@ function custom_file_input(name, classes, accept) {
         ` </div>`;
 }
 
-function dynamic_modal(body, title, size) {
-  title = title || '';
-  size = size == 'large' ? 'lg' : 'sm';
-  const $dialog = $('#dialog');
-  $dialog.find('.modal-title').html(title);
-  $dialog.find('.modal-dialog').removeClass('modal-sm').removeClass('modal-lg').addClass(`modal-${size}`);
-  $dialog.find('.modal-body').empty().append(body);
-  show_or_update($dialog);
-}
-
+// .editable together with "scoped" and "scoped_tree" in /app/helpers/application_helper.rb
+// make it possible that an element is displayed on general user side, but will
+// prompt a modal for edition on the side of the page owner.
+//
+// It uses ujs data fields to specify what should the modal prompt look like,
+// and what action should be taken when the form inside is submitted.
 $(document).on('click', '.editable', function() {
   const $this = $(this);
-  const scoped_name = $this.data('scope') ? `${$this.data('scope')}[${$this.data('name')}]` : $this.data('name');
+  // Rails expects model_name[field_name] as the "name" field of a form input for
+  // fields with a model.
+  const model_name = $this.data('model') ? `${$this.data('model')}[${$this.data('name')}]` : $this.data('name');
+  // The form in the modal is cloned from a hidden #template-form rendered at the
+  // bottom of the page so the authentication token is automatically managed.
+  // However, authentication problem still occurs in some cases which needs investigation.
   const $form = $('#template-form').clone().removeAttr('id').css('display', 'block');
   if ($this.data('action')) {
     $form.attr('action', $this.data('action'));
   }
+  // default value of the field in the modal form.
   let value = '';
   if ($this.data('value')) {
     value = $this.value;
   } else if ($this.data('target')) {
+    // the target element and its attribute to extract the default value
     const $target = $this.find($this.data('target'));
     if ($this.data('attr')) {
       value = $target.attr($this.data('attr'));
@@ -187,74 +131,40 @@ $(document).on('click', '.editable', function() {
       value = $target.text();
     }
   }
+  // A hidden field with name "_method" is appended if special method is needed (PATCH, DELETE, etc.)
+  if ($this.data('method')) {
+    $form.append($(`<input type="hidden" name="_method" value="${$this.data('method')}">`));
+  }
+  // construct different types of modal forms
   switch($this.data('type')) {
+    // file input for images
     case 'image':
       $form.attr('enctype', 'multipart/form-data');
+      // preview selected image without uploading
       $form.append($(`<img id="preview" class="editable-image-preview mb-3" src="${value}">`));
-      var $file_input = $(custom_file_input(scoped_name, 'mb-3', 'image/*'));
+      var $file_input = $(custom_file_input(model_name, 'mb-3', 'image/*'));
       $file_input.find('input').data('image-input-target', '#preview');
       $form.append($file_input);
       break;
+    // text input
     case 'text':
-      $form.append($(`<input type="text" name="${scoped_name}" class="form-control mb-3 autofocus autoselect" value="${value}">`));
+      $form.append($(`<input type="text" name="${model_name}" class="form-control mb-3 autofocus autoselect" value="${value}">`));
       break;
+    // paragraph input (use textarea element)
     case 'paragraph':
-      $form.append($(`<textarea name="${scoped_name}" class="form-control mb-3  autofocus autoselect" rows="10" style="resize:none">`).val(value));
+      $form.append($(`<textarea name="${model_name}" class="form-control mb-3  autofocus autoselect" rows="10" style="resize:none">`).val(value));
       break;
+    // PDF files input
     case 'attachment':
       $form.attr('action', '/attachments');
       $form.attr('enctype', 'multipart/form-data');
-      $form.append($(`<input type="hidden" name="${$this.data('scope')}[file_type]" value="${$this.data('file-type')}">`));
-      $form.append($(custom_file_input(scoped_name, 'mb-3', 'application/pdf')));
+      $form.append($(`<input type="hidden" name="${$this.data('model')}[file_type]" value="${$this.data('file-type')}">`));
+      $form.append($(custom_file_input(model_name, 'mb-3', 'application/pdf')));
       break;
     default:
       return;
   }
+  // append the form to the modal and show
   $form.append($(`<input type="submit" class="btn btn-success float-right mb-3" value="保存">`));
   dynamic_modal($form, $this.data('label'), $this.data('size'));
-});
-
-$(document).on('shown.bs.modal', '#dialog', function() {
-  $(this).find('.autofocus').focus();
-  $(this).find('.autoselect').select();
-});
-
-$(document).on('click', '.modal-toggle', function() {
-  show_or_update($($(this).data('target')))
-});
-
-function sanitize(html) {
-  return html.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-}
-
-$(document).on('click', '.attachment-remove', function() {
-  const $attachment = $(this).closest('.attachment');
-  $.ajax({
-    url: $attachment.data('result').delete_url,
-    type: 'POST',
-    dataType: 'json',
-    data: {"_method": "DELETE"}
-  }).done(function(data) {
-    $attachment.remove();
-  });
-});
-
-$(document).on('ajax:success', '.message-form', function(e) {
-  const data = e.detail[0];
-  const $this = $(this);
-  const $history = $('.message-history');
-  $history.append($(
-    `<div class="message">` +
-    ` <span class="fs-120 d-block"><strong>${data.sender}</strong></span>` +
-    ` <span class="fs-80 d-block">Posted on: ${data.timestamp}</span>` +
-    ` <p class="mb-1">${data.content}</p>` +
-    data.attachments.reduce((cat, att) => {
-      return cat +
-        `<div class="attachment">` +
-        ` <a href="${att.url}" target="_blank">${att.name}</a>` +
-        `</div>`;
-    }, '') +
-    `</div>`
-  )).prop('scrollTop', $history.prop('scrollHeight'));
-  $this.find('.attachments-container').empty();
 });

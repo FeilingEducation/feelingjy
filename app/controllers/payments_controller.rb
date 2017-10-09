@@ -1,5 +1,7 @@
 class PaymentsController < ApplicationController
 
+  # TODO: Currently payment is automatically completed.
+  # TODO: Update transaction status when payment is completed.
   def show
     @payment = Payment.find_by(params.permit(:id))
     @payment.completed!

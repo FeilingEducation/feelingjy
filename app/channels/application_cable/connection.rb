@@ -1,3 +1,4 @@
+# See http://guides.rubyonrails.org/action_cable_overview.html#connection-setup
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
     identified_by :current_user

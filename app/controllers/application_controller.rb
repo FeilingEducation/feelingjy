@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
     not_found unless Rails.env.development?
   end
 
+  # use logged_out=1 query to distinguish unauthorized page access and log out
+  # from privileged page: the first one goes to sign in page while the second
+  # goes to home
   def after_sign_out_path_for(resource_or_scope)
     # path before sign out request
     "#{URI(request.referer).path}?logged_out=1"
@@ -26,6 +29,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # no longer used as user_info will always created at registration.
   def check_user_info_initialized
     exists = UserInfo.exists?(current_user.id)
     create = controller_name == 'user_infos' && %w(new create).include?(action_name)
@@ -37,6 +41,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # if instructor_info not initialized and user tries to access instructor pages
+  # other than create and new, go to new, vise versa.
   def check_instructor_info_initialized
     exists = InstructorInfo.exists?(current_user.id)
     create = controller_name == 'instructor_infos' && %w(new create).include?(action_name)
@@ -46,21 +52,5 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "Page will be available after filling in your information."
       redirect_to(new_instructor_info_path)
     end
-  end
-
-  def profile_image_of(user=current_user)
-    avatar = UserInfo.find_by_id(user.id).avatar
-    avatar.to_s.empty? ? 'default_profile.png' : avatar
-  end
-
-  # assume signed in
-  def user_is_instructor?
-    @instructor_info = InstructorInfo.find_by_id(current_user.id)
-    !@instructor_info.nil?
-  end
-
-  def can_apply_for_instructor?
-    user_info = current_user.user_info
-    user_info.instructor_info.nil? && user_info.consult_transactions.where(status: 'confirmed').empty?
   end
 end

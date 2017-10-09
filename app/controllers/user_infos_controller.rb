@@ -1,12 +1,17 @@
 class UserInfosController < AuthenticatedResourcesController
-
+  # See /views/layouts/user_info.html.erb
+  # A layout with basic user infomation on the left and a menu bar
+  layout 'user_info'
   before_action :check_user_info_initialized
 
   def show
     @user_info = UserInfo.find(current_user.id)
-    if !@user_info.instructor_info.nil?
-      @instructor_info = @user_info.instructor_info
-      render 'show_instructor'
+    @self = InstructorInfo.find_by_id(current_user.id)
+    if @self.nil?
+      @self = @user_info
+      @other_role = 'instructor'
+    else
+      @other_role = 'student'
     end
   end
 
@@ -51,6 +56,11 @@ class UserInfosController < AuthenticatedResourcesController
       end
     end
     redirect_to request.referer || 'edit'
+  end
+
+  def messages
+    @user_info = current_user.user_info
+    @latest_messages = Message.where(receiver_id: current_user.id).order(created_at: :desc).limit(10)
   end
 
   private

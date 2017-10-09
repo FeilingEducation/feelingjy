@@ -3,6 +3,10 @@ class InstructorInfosController < AuthenticatedResourcesController
   before_action :check_user_info_initialized
   before_action :check_instructor_info_initialized
 
+  # Notice that there is no index or show action for this controller.
+  # Those are handled by the user_info controller depending on if the current_user
+  # is an instructor.
+
   def new
     @instructor_info = InstructorInfo.new
   end

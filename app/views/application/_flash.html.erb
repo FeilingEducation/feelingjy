@@ -1,4 +1,5 @@
 <% for type in [:notice, :info, :warning, :alert] %>
+  <% # handle the inconsistency between bootstrap and rails %>
   <% css_class = { notice: :success, alert: :danger }[type] || type %>
   <% if flash[type] %>
     <div class="row">

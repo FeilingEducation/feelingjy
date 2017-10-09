@@ -1,81 +1,59 @@
-<%= render partial: 'menu_bar' %>
-<div class="row mt-4 mx-3">
-  <div class="col-3">
-    <div class="text-center d-inline-block">
-      <%= image_tag profile_image_of, class: 'profile-image-full card-img-top' %>
-      <h4 class="mt-3 mb-0"><%= @user_info.full_name %></h4>
-      <%= link_to "修改资料", edit_user_info_path, class: 'btn btn-sm' %>
-    </div>
-    <div class="mt-3">
-      <h5>关联账号:</h5>
-      <div class="d-flex flex-wrap ">
-        <%= image_tag 'facebook_logo.png', class: 'm-1' %>
-        <%= image_tag 'twitter_logo.png', class: 'm-1' %>
-      </div>
-    </div>
-    <div class="mt-3">
-      <h5>常用链接:</h5>
-      <div class="ml-2">
-        <%= link_to "联系导师", '#', class: 'd-block' %>
-        <%= link_to "价格计算器", '#', class: 'd-block' %>
-        <%= link_to "学校排名", '#', class: 'd-block' %>
-        <%= link_to "申诉", '#', class: 'd-block' %>
-      </div>
-    </div>
-  </div>
-  <div class="col-9">
-    <div class="mb-4">
-      <h5>我的导师</h5>
-      <hr>
-      <% if @user_info.consult_transactions.empty? %>
-        <p>
-          还没找到合适的导师? 来<%= link_to "搜索", search_path %>一下吧!
-        </p>
-      <% else %>
-        <% for transaction in @user_info.consult_transactions do %>
-          <div class="d-inline-block">
-            <% instructor = transaction.instructor %>
-            <%= link_to transaction do %>
-              <%= image_tag profile_image_of(instructor), class: 'mb-2' %>
-            <% end %>
-            <div class="text-center">
-              <h6 class="small"><%= instructor.user_info.full_name %></h6>
-              <h6 class="small"><%= transaction.service || "未确定服务" %></h6>
-            </div>
-          </div>
+<div class="mb-4">
+  <h5>我的<%= {'instructor' => '导师', 'student' => '学生'}[@other_role] %></h5>
+  <hr>
+  <% if @self.consult_transactions.empty? %>
+    <% if @other_role == 'instructor' %>
+      <p>
+        还没找到合适的导师? 来<%= link_to "搜索", search_path %>一下吧!
+      </p>
+    <% else %>
+      <p>
+        暂时没有学生? 来丰富<%= link_to "我的主页", instructor_info_path %>吸引更多学生吧!
+      </p>
+    <% end %>
+  <% else %>
+    <% for transaction in @self.consult_transactions do %>
+      <div class="d-inline-block">
+        <% other = transaction.send(@other_role) %>
+        <%= link_to transaction do %>
+          <%= image_tag profile_image_of(other), class: 'mb-2' %>
         <% end %>
-      <% end %>
-    </div>
-    <div>
-      <h5>我的消息</h5>
-      <hr>
-      <% updated_transactions = @user_info.consult_transactions.joins(:chat).order('chats.updated_at') %>
-      <% for transaction in updated_transactions do %>
-        <% next if transaction.chat.chat_lines.empty? %>
-        <% instructor = transaction.instructor %>
-        <div class="row mb-3">
-          <div class="col-2">
-            <%= link_to transaction do %>
-              <%= image_tag profile_image_of(instructor), class: 'w-100' %>
-            <% end %>
-          </div>
-          <div class="col-2 d-flex align-items-center justify-content-center">
-            <div class="text-center">
-              <h6 class="mb-0"><%= instructor.user_info.full_name %></h6>
-              <h6 class="mb-0"><%= transaction.chat.updated_at.strftime('%Y/%m/%d') %></h6>
-            </div>
-          </div>
-          <div class="col-6 d-flex align-items-center">
-            <span><%= transaction.chat.chat_lines.last.content %></span>
-          </div>
-          <div class="col-2 d-flex align-items-center justify-content-center">
-            <div class="text-center">
-              <h6 class="mb-0">1小时</h6>
-              <h6 class="mb-0"><%= transaction.hourly_price || "?" %> 元</h6>
-            </div>
-          </div>
+        <div class="text-center">
+          <h6 class="small"><%= other.full_name %></h6>
+          <h6 class="small"><%= transaction.service || "未确定服务" %></h6>
         </div>
-      <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <h5>我的消息</h5>
+  <hr>
+  <% updated_transactions = @self.consult_transactions.joins(:chat).order('chats.updated_at') %>
+  <% for transaction in updated_transactions do %>
+    <% next if transaction.chat.chat_lines.empty? %>
+    <% other = transaction.send(@other_role) %>
+    <div class="row mb-3">
+      <div class="col-2">
+        <%= link_to transaction do %>
+          <%= image_tag profile_image_of(other), class: 'w-100' %>
+        <% end %>
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-center">
+        <div class="text-center">
+          <h6 class="mb-0"><%= other.full_name %></h6>
+          <h6 class="mb-0"><%= transaction.chat.updated_at.strftime('%Y/%m/%d') %></h6>
+        </div>
+      </div>
+      <div class="col-6 d-flex align-items-center">
+        <span><%= transaction.chat.chat_lines.last.content %></span>
+      </div>
+      <div class="col-2 d-flex align-items-center justify-content-center">
+        <div class="text-center">
+          <h6 class="mb-0">1小时</h6>
+          <h6 class="mb-0"><%= transaction.hourly_price || "?" %> 元</h6>
+        </div>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

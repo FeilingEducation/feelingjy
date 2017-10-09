@@ -23,7 +23,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process resize_to_fit: [200, 200]
+  process :convert
 
   # def scale(width, height)
   #   # do something
@@ -36,14 +36,25 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  def extension_whitelists
-    %w(jpg jpeg gif png)
-  end
+  # def extension_whitelists
+  #   %w(jpg jpeg gif png)
+  # end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    'profile.png'
+  end
+
+  private
+
+  def convert
+    manipulate! do |img|
+      img.format('png') do |c|
+        c.resize "200x200>"
+        c.resize "200x200<"
+      end
+    end
+  end
 
 end

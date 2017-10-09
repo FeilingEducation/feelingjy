@@ -2,6 +2,7 @@ class ConsultCommChannel < ApplicationCable::Channel
   # Called when the consumer has successfully
   # become a subscriber of this channel.
   def subscribed
+    # ensure the transaction exists, and the current is either the student or the instructor
     @transaction = ConsultTransaction.find_by_id(params[:transaction_id])
     reject if @transaction.nil?
     if @transaction.student_id == current_user.id
@@ -12,10 +13,13 @@ class ConsultCommChannel < ApplicationCable::Channel
       reject
     end
     stream_for @transaction
+    # also subscribe by the current_user object so one user can send direct message
+    # to the other without broadcasting it
     stream_for current_user
   end
 
   def create_chat_line(data)
+    # don't write empty chat-line to DB
     if data['content'].empty?
       transmit type: 'chat_line', comm_data: nil
       return
@@ -29,7 +33,7 @@ class ConsultCommChannel < ApplicationCable::Channel
   end
 
   def setup_voice_chat(data)
-    logger.info("data is #{data} and slice is #{data.slice("type", "payload")}")
+    # send voice chat metadata to the other user
     ConsultCommChannel.broadcast_to @other, type: 'voice_chat', comm_data: data.slice("type", "payload")
   end
 end

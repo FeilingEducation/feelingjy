@@ -49,13 +49,10 @@
         <% end %>
         <% if user_is_instructor? %>
           <li class="nav-item">
-            <%= link_to "订单", consult_transactions_path, class: 'nav-link' %>
+            <%= link_to "学生", consult_transactions_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to "学生", '#', class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "消息", '#', class: 'nav-link' %>
+            <%= link_to "消息", messages_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
             <%= link_to "评分", '#', class: 'nav-link' %>
@@ -66,7 +63,9 @@
             <%= image_tag profile_image_of, class: "profile-image-thumbnail" %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to '我的主页', edit_instructor_info_path, class: 'dropdown-item' %>
+            <% if user_is_instructor? %>
+              <%= link_to '我的主页', edit_instructor_info_path, class: 'dropdown-item' %>
+            <% end %>
             <%= link_to '个人中心', user_info_path, class: 'dropdown-item' %>
             <%= link_to '个人信息', edit_user_info_path, class: 'dropdown-item' %>
             <%= link_to '安全中心', edit_user_registration_path, class: 'dropdown-item' %>

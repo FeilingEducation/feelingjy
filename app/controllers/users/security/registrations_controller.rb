@@ -2,6 +2,7 @@ class Users::Security::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  # show registration page on modal
   respond_to :js, only: [:new]
 
   # GET /resource/sign_up
@@ -12,6 +13,8 @@ class Users::Security::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super do |resource|
+      # create user_info at registration
+      # May be better to register only with email and enter more information later
       attributes = params.require(:user_info).permit(:first_name, :last_name)
       attributes[id: resource.id]
       resource.create_user_info(attributes)

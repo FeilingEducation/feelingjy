@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
 
+  # TODO: better field design and searching queries
   def index
     @search = search_params
     @results = InstructorInfo.all

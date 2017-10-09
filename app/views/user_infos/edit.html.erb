@@ -1,16 +1,16 @@
 <%= form_for @user_info, url: user_info_path, method: 'patch', html: { multipart: true } do |f| %>
   <div class="row">
-    <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
-      <div class="widget d-flex">
+    <div class="widget">
+      <div class="widget-body d-flex">
         <%= content_tag :div, class: "editable m-auto",
-        data: { scope: 'user_info', name: 'avatar', type: 'image', target: 'img', attr: 'src',
+        data: { model: 'user_info', name: 'avatar', type: 'image', target: 'img', attr: 'src',
           label: '背景图片', action: user_info_path, method: 'patch' } do %>
           <%= image_tag profile_image_of, alt: 'Profile image', class: 'profile-image-full' %>
         <% end %>
       </div>
     </div>
-    <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
-      <div class="widget">
+    <div class="widget">
+      <div class="widget-body">
         <h5>基本信息</h5>
         <hr>
         <div class="row">
@@ -32,8 +32,8 @@
         </div>
       </div>
     </div>
-    <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
-      <div class="widget">
+    <div class="widget">
+      <div class="widget-body">
         <h5>联系方式</h5>
         <hr>
         <div class="form-group">
@@ -53,8 +53,8 @@
       </div>
     </div>
     <% if user_is_instructor? %>
-      <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
-        <div class="widget">
+      <div class="widget">
+        <div class="widget-body">
           <h5>外部链接</h5>
           <hr>
           <%= fields_for :instructor_info, @instructor_info do |f| %>
@@ -65,12 +65,12 @@
           <% end %>
         </div>
       </div>
-      <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
-        <div class="widget">
+      <div class="widget">
+        <div class="widget-body">
           <h5>我的文档</h5>
           <hr>
           <h6 class="d-inline-block">个人简历</h6>
-          <%= content_tag :div, class: 'editable d-inline-block', data: { scope: 'attachment',
+          <%= content_tag :div, class: 'editable d-inline-block', data: { model: 'attachment',
             name: 'file', type: 'attachment', file_type: 'resume', label: '个人简历' },
             style: 'border:5px dash;border-radius:5px;' do %>
             <i class="fa fa-plus"></i>
@@ -86,8 +86,8 @@
         </div>
       </div>
     <% else %>
-      <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
-        <div class="widget">
+      <div class="widget">
+        <div class="widget-body">
           <h5>服务需求</h5>
           <hr>
           <div class="form-group">
@@ -117,8 +117,8 @@
         </div>
       </div>
     <% end %>
-    <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
-      <div class="widget">
+    <div class="widget">
+      <div class="widget-body">
         <h5>学校信息</h5>
         <hr>
         <div class="form-group">
@@ -135,8 +135,8 @@
         </div>
       </div>
     </div>
-    <div class="form-group col-xl-4 col-lg-6 px-3 pb-3">
-      <div class="widget">
+    <div class="widget">
+      <div class="widget-body">
         <h5>我喜爱的</h5>
         <hr>
         <div class="form-group">
@@ -159,7 +159,7 @@
       <% if user_is_instructor? %>
         <%= link_to "我的导师页面", profile_path(current_user.id), class: 'btn btn-lg btn-primary' %>
       <% else %>
-        <%= link_to "申请成为导师", new_instructor_infos_path, class: 'btn btn-lg btn-warning' %>
+        <%= link_to "申请成为导师", new_instructor_info_path, class: 'btn btn-lg btn-warning' %>
       <% end %>
       <%= f.submit "保存", class: 'btn-lg btn-outline-success float-right' %>
     </div>

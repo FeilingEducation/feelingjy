@@ -5,6 +5,7 @@
 //= require_self
 //= require_tree ./channels
 
+// Default script for setting up cable (Channel) connection with Rails backend.
 (function() {
   this.App || (this.App = {});
 

@@ -1,15 +1,15 @@
 class ConsultTransactionsController < AuthenticatedResourcesController
+
+  # show all transaction on the perspective of "role"
   def index
+    # currently the "role" is a reserved query parameter allowing instructor
+    # to view transactions where he is a student.
     @role = params.permit(:role)[:role]
     if !%w(student instructor).include? @role
       @role = InstructorInfo.exists?(current_user.id) ? 'instructor' : 'student'
     end
+    @other_role = @role == 'instructor' ? 'student' : 'instructor'
     @transactions = ConsultTransaction.where("#{@role}_id": current_user.id)
-    render "index_#{@role}"
-  end
-
-  def new
-    @transaction = ConsultTransaction.new
   end
 
   def create
@@ -35,15 +35,19 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     set_transaction_and_role
     if @transaction.update_attributes(transaction_params)
       flash[:notice] = 'Transaction updated successfully.'
-      redirect_to(consult_transaction_path())
+      redirect_to(consult_transaction_path)
     else
       render('show')
     end
   end
 
+  # confirm the transaction depending on what state it is on.
+  # transaction is "initiated" when created
+  # "initiated" + instructor confirm => "payment_pending"
+  # "payment_pending" + instructor confirm (cancel = true) => "initiated"
+  # TODO: more state transfer logic should be added
   def confirm
     set_transaction_and_role
-    puts params
     if @self == @transaction.instructor
       if @transaction.status == "initiated"
         if @transaction.update(status: :payment_pending)
@@ -66,6 +70,10 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     redirect_to @transaction
   end
 
+  # Pay for a transaction when current user if the student and the transaction
+  # state is "payment_pending"
+  # Once the payment has been completed, the transaction state will be updated
+  # See payment_controller.rb
   def pay
     set_transaction_and_role
     if @self != @transaction.student

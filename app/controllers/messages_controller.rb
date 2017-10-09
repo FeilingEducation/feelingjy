@@ -1,5 +1,11 @@
 class MessagesController < AuthenticatedResourcesController
 
+  # Create a message and associate all attachments with itself.
+  # Attachments are uploaded associated only with the user. Once the message is
+  # created, all attachments identified by the attachments_id[] field will have
+  # their "attachable" field changed from a user_info model to this message.
+  #
+  # TODO: use ActiveRecord.transaction to avoid intermediate state at failure
   def create
     msg = Message.new(message_params)
     msg.sender_id = current_user.id
@@ -13,6 +19,7 @@ class MessagesController < AuthenticatedResourcesController
             unless attachment.update_attributes(attachable: msg)
               logger.warn "Failed to update attachment: #{attachment_id}"
             else
+              # for JSON respond
               attachments << { name: attachment.read_attribute(:file), url: attachment.file.url }
             end
           else

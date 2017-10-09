@@ -1,14 +1,16 @@
 <% in_scope = "#{controller_name}/#{action_name}" == 'instructor_infos/edit' %>
 <div class="mb-4">
-  <%= scoped in_scope, :content_tag, :div, class: "editable", data: { scope: 'instructor_info',
+  <%= scoped in_scope, :content_tag, :div, class: "editable", data: { model: 'instructor_info',
     name: 'page_background', type: 'image', target: 'img', attr: 'src', size: 'large',
     label: '背景图片', action: instructor_info_path, method: 'patch' } do %>
-    <%= image_tag @instructor_info.page_background, width: '100%', alt: '背景图片' %>
+    <div class="col-12">
+      <%= image_tag @instructor_info.page_background, width: '100%', alt: '背景图片' %>
+    </div>
   <% end %>
   <div class="d-flex justify-content-center">
     <div class="d-inline-block" style="margin-top:-105px;">
       <%= scoped in_scope, :content_tag, :div, class: "editable",
-      data: { scope: 'user_info', name: 'avatar', type: 'image', target: 'img', attr: 'src',
+      data: { model: 'user_info', name: 'avatar', type: 'image', target: 'img', attr: 'src',
         label: '背景图片', action: user_info_path, method: 'patch' } do %>
         <%= image_tag profile_image_of(@instructor_info), alt: '个人头像' %>
         <% end %>
@@ -21,13 +23,14 @@
   </div>
   <div class="card-body">
     <%= form_with model: @transaction, method: 'post', local: true do |f| %>
+      <%= f.hidden_field :instructor_id %>
       <div class="form-group">
         <label>合作日期</label>
         <%= f.date_field :scheduled_date, min: Date.today.to_s(:db), class: 'form-control' %>
       </div>
       <div class="form-group">
         <label>合作项目</label>
-        <%= f.select :service, service_options_for(@instructor_info), {include_blank: true}, class: 'custom-select d-block w-100' %>
+        <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {include_blank: true}, class: 'custom-select d-block w-100' %>
       </div>
       <div class="form-group">
         <%= scoped !in_scope, :button_tag, '与我联系', type: 'button', class: 'btn btn-outline-success btn-block modal-toggle',
@@ -43,7 +46,7 @@
 <div class="row">
   <div class="col-11">
     <div>
-      <%= scoped in_scope, :content_tag, :div, class: 'editable', data: { scope: 'instructor_info',
+      <%= scoped in_scope, :content_tag, :div, class: 'editable', data: { model: 'instructor_info',
         name: 'page_title', type: 'text', target: 'span', label: '主页标题',
         action: instructor_info_path, method: 'patch' } do %>
         <span class="font-weight-bold h1"><%= @instructor_info.page_title || '我的主页' %></span>
@@ -62,7 +65,7 @@
     </div>
     <div class="mb-4">
       <h5>关于导师</h5>
-      <%= scoped in_scope, :content_tag, :div, class: 'editable', data: { scope: 'instructor_info',
+      <%= scoped in_scope, :content_tag, :div, class: 'editable', data: { model: 'instructor_info',
         name: 'about_me', type: 'paragraph', target: 'p', label: '关于导师',
         action: instructor_info_path, method: 'patch' } do %>
         <p><%= @instructor_info.about_me || '有关导师的信息' %></p>
@@ -177,7 +180,7 @@
             <% end %>
           <% end %>
         <% end %>
-        <%= scoped_tree in_scope, :content_tag, :div, class: 'editable align-self-center', data: { scope: 'attachment',
+        <%= scoped_tree in_scope, :content_tag, :div, class: 'editable align-self-center', data: { model: 'attachment',
           name: 'file', type: 'attachment', file_type: 'resume', label: '个人简历' },
           style: 'border:5px dash;border-radius:5px;' do %>
           <i class="fa fa-plus" style="font-size:3rem;text-align:center;color:#777"></i>
@@ -189,7 +192,7 @@
         <h5>领英主页</h5>
       </div>
       <div class="col-8 d-flex flex-wrap justified-content-around">
-        <%= scoped in_scope, :content_tag, :div, class: 'editable nonclickable', data: { scope: 'instructor_info',
+        <%= scoped in_scope, :content_tag, :div, class: 'editable nonclickable', data: { model: 'instructor_info',
           name: 'url_linked_in', type: 'text', target: 'a', attr: 'href', label: '领英主页',
           action: instructor_info_path, method: 'patch' } do %>
           <%= link_to @instructor_info.url_linked_in, target: '_blank' do %>

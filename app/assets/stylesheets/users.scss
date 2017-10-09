@@ -1,3 +1,31 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-signup {
+  @include button-variant(#fff, $red);
+  color: $red;
+}
+.btn-wechat {
+  background-color: $green;//#3cb034;
+  color: $white;
+  padding: 0 0.75rem;
+  text-decoration: none;
+  &:hover {
+    color: $white;
+  }
+}
+.text-divider {
+  text-align: center;
+  height: 34px;
+  hr {
+    margin: -13px auto 10px;
+    width: 100%;
+  }
+  span {
+    background-color: #fff;
+    display: inline-block;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    font-size: 0.8rem;
+  }
+}

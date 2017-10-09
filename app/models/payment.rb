@@ -1,4 +1,5 @@
 class Payment < ApplicationRecord
+  # TODO: barely implemented
   belongs_to :payable, polymorphic: true
 
   enum status: {

@@ -6,58 +6,129 @@
       <fieldset class="multi-step-form current-step", id="step0">
         <h4 class="text-green "><strong>欢迎加入飞灵教育！</strong></h4><br>
         <h6 class="text-green">请填写个人信息以完成注册</h6>
-        <%= render partial: 'form_submit', locals: { next_step_text: '开始', next_step: '#step1' } %>
+        <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step1">开始</button>
       </fieldset>
 
       <fieldset class="multi-step-form", id="step1">
-        <%= render partial: 'form_title', locals: { title: '第1步： 基本信息' } %>
-        <%= render partial: 'form_text_field', locals: { f: f, field: :last_name, text: '姓氏 *', required: true } %>
-        <%= render partial: 'form_text_field', locals: { f: f, field: :first_name, text: '名称 *', required: true } %>
+        <h4>第1步： 基本信息</h4>
+        <hr>
+        <div class="form-group row">
+          <%= f.label :last_name, "姓氏 *", class: 'col-md-3 col-form-label' %>
+          <div class="col-md-4">
+            <%= f.text_field :last_name, class: 'form-control', required: true %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :first_name, "名称 *", class: 'col-md-3 col-form-label' %>
+          <div class="col-md-4">
+            <%= f.text_field :first_name, class: 'form-control', required: true %>
+          </div>
+        </div>
         <% gender_text = ['男', '女', '其他'].zip(UserInfo.genders.keys) %>
-        <%= render partial: 'form_select', locals: { f: f, field: :gender, text: '性别', choices: gender_text, options: { include_blank: true, selected: @user_info.gender } } %>
-        <%= render partial: 'form_submit', locals: { next_step: '#step2' } %>
+        <div class="form-group row">
+          <%= f.label :gender, "北京时间", class: 'col-md-3 col-form-label' %>
+          <div class="col-md">
+            <%= f.select :gender, gender_text, { include_blank: true, selected: @user_info.gender }, { class: 'custom-select' } %>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step2">下一步</button>
       </fieldset>
 
       <fieldset class="multi-step-form", id="step2">
-        <%= render partial: 'form_title', locals: { title: '第1步： 基本信息', sub_title: '您现在所在的城市是？' } %>
-        <%= render partial: 'form_text_field', locals: { f: f, field: :current_city, text: '所在城市', placeholder: '“三藩市 美国”' } %>
-        <%= render partial: 'form_submit', locals: { next_step: '#step3', prev_step: '#step1' } %>
+        <h4>第1步： 基本信息</h4>
+        <hr>
+        <h5>您现在所在的城市是？</h5>
+        <div class="form-group row">
+          <%= f.label :current_city, "所在城市", class: 'col-md-3 col-form-label' %>
+          <div class="col-md-4">
+            <%= f.text_field :current_city, class: 'form-control', placeholder: '“三藩市 美国”' %>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step3">下一步</button>
+        <button type="button" class="btn btn-link step-navigate" data-target="#step1">上一步</button>
       </fieldset>
 
       <fieldset class="multi-step-form", id="step3">
-        <%= render partial: 'form_title', locals: { title: '第1步： 基本信息', sub_title: '您来自什么地方？' } %>
-        <%= render partial: 'form_text_field', locals: { f: f, field: :current_city, text: '来自城市', placeholder: '“上海”' } %>
-        <%= render partial: 'form_submit', locals: { next_step: '#step4', prev_step: '#step2' } %>
+        <h4>第1步： 基本信息</h4>
+        <hr>
+        <h5>您来自什么地方？</h5>
+        <div class="form-group row">
+          <%= f.label :home_town, "来自城市", class: 'col-md-3 col-form-label' %>
+          <div class="col-md-4">
+            <%= f.text_field :home_town, class: 'form-control', placeholder: '“上海”' %>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step4">下一步</button>
+        <button type="button" class="btn btn-link step-navigate" data-target="#step2">上一步</button>
       </fieldset>
 
       <fieldset class="multi-step-form", id="step4">
-        <%= render partial: 'form_title', locals: { title: '第2步： 教育信息', sub_title: '您的学历是（含在读）？' } %>
-        <%= render partial: 'form_text_field', locals: { f: f, field: :highest_education, text: '学历', placeholder: '“高中”' } %>
-        <%= render partial: 'form_submit', locals: { next_step: '#step5', prev_step: '#step3' } %>
+        <h4>第2步： 教育信息</h4>
+        <hr>
+        <h5>您的学历是（含在读）？</h5>
+        <div class="form-group row">
+          <%= f.label :highest_education, "学历", class: 'col-md-3 col-form-label' %>
+          <div class="col-md-4">
+            <%= f.text_field :highest_education, class: 'form-control', placeholder: '“高中”' %>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step5">下一步</button>
+        <button type="button" class="btn btn-link step-navigate" data-target="#step3">上一步</button>
       </fieldset>
 
       <fieldset class="multi-step-form", id="step5">
-        <%= render partial: 'form_title', locals: { title: '第2步： 教育信息', sub_title: '您现在是第几学年？' } %>
+        <h4>第2步： 教育信息</h4>
+        <hr>
+        <h5>您现在是第几学年？</h5>
         <% program_years_text = ['已毕业', '准备入学', '第一年', '第二年', '第三年', '第四年', '第五年或以上'].zip(UserInfo.program_years.keys) %>
-        <%= render partial: 'form_select', locals: { f: f, field: :program_year, text: '学年', choices: program_years_text, options: { include_blank: true, selected: @user_info.program_year } } %>
-        <%= render partial: 'form_submit', locals: { next_step: '#step6', prev_step: '#step4' } %>
+        <div class="form-group row">
+          <%= f.label :program_year, "学年", class: 'col-md-3 col-form-label' %>
+          <div class="col-md">
+            <%= f.select :program_year, program_years_text, { include_blank: true, selected: @user_info.program_year }, { class: 'custom-select' } %>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step6">下一步</button>
+        <button type="button" class="btn btn-link step-navigate" data-target="#step4">上一步</button>
       </fieldset>
 
       <fieldset class="multi-step-form", id="step6">
-        <%= render partial: 'form_title', locals: { title: '第2步： 教育信息', sub_title: '您在什么院校就读（或毕业）？' } %>
-        <%= render partial: 'form_text_field', locals: { f: f, field: :current_institute, text: '所在院校', placeholder: '“北京人大附中”' } %>
-        <%= render partial: 'form_submit', locals: { next_step: '#step7', prev_step: '#step5' } %>
+        <h4>第2步： 教育信息</h4>
+        <hr>
+        <h5>您在什么院校就读（或毕业）？</h5>
+        <div class="form-group row">
+          <%= f.label :current_institute, "所在院校", class: 'col-md-3 col-form-label' %>
+          <div class="col-md-4">
+            <%= f.text_field :current_institute, class: 'form-control', placeholder: '“北京人大附中”' %>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step7">下一步</button>
+        <button type="button" class="btn btn-link step-navigate" data-target="#step5">上一步</button>
       </fieldset>
 
       <fieldset class="multi-step-form", id="step7">
-        <%= render partial: 'form_title', locals: { title: '第2步： 教育信息', sub_title: '您的专业是？' } %>
-        <%= render partial: 'form_text_field', locals: { f: f, field: :major, text: '专业' } %>
-        <%= render partial: 'form_text_field', locals: { f: f, field: :other_majors, text: '其他专业' } %>
-        <%= render partial: 'form_submit', locals: { next_step: '#step8', prev_step: '#step6' } %>
+        <h4>第2步： 教育信息</h4>
+        <hr>
+        <h5>您的专业是？</h5>
+        <div class="form-group row">
+          <%= f.label :major, "专业", class: 'col-md-3 col-form-label' %>
+          <div class="col-md-4">
+            <%= f.text_field :major, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :other_majors, "其他专业", class: 'col-md-3 col-form-label' %>
+          <div class="col-md-4">
+            <%= f.text_field :other_majors, class: 'form-control' %>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step8">下一步</button>
+        <button type="button" class="btn btn-link step-navigate" data-target="#step6">上一步</button>
       </fieldset>
 
       <fieldset class="multi-step-form", id="step8">
-        <%= render partial: 'form_title', locals: { title: '第3步： 上传头像', sub_title: '上传头像方便大家认识你吧' } %>
+        <h4>第3步： 上传头像</h4>
+        <hr>
+        <h5>上传头像方便大家认识你吧</h5>
         <div class="form-group row">
           <%= f.label :avatar, "个人照片", class: "col-md-2 col-form-label" %>
           <div class="custom-file d-block" >
@@ -82,7 +153,8 @@
             </div>
           </div>
         </div>
-        <%= render partial: 'form_submit', locals: { next_step_text: '完成', prev_step: '#step7' } %>
+          <button type="button" class="btn btn-outline-success float-right step-navigate main-btn submit">完成</button>
+          <button type="button" class="btn btn-link step-navigate" data-target="#step7">上一步</button>
       </fieldset>
     <% end %>
   </div>
