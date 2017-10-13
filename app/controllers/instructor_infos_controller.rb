@@ -16,7 +16,7 @@ class InstructorInfosController < AuthenticatedResourcesController
     @instructor_info.id = current_user.id
     if @instructor_info.save
       flash[:notice] = 'Instructor profile created successfully.'
-      redirect_to(profile_path)
+      redirect_to(profile_path(@instructor_info))
     else
       falsh[:notice] = 'Failed to create instructor info.'
       render('new')
