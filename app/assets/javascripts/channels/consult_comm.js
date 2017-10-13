@@ -87,7 +87,7 @@ $(document).on('turbolinks:load', function() {
     start_rtc_peer_conn: function() {
       this.pc = new RTCPeerConnection({
         iceServers: [{
-          urls: 'stun:feelingjy.me:3478'
+          urls: 'stun:stun.l.google.com:19302'
         }]
       });
 
