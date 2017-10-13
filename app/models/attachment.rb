@@ -3,6 +3,8 @@ class Attachment < ApplicationRecord
   belongs_to :attachable, polymorphic: true
   mount_uploader :file, AttachmentUploader
 
+  storage :fog
+
   before_validation :update_file_attributes
 
   private
