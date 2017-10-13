@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'search', to: 'search#index'
 
   resource :user_info, path: 'account', except: [:destroy]
-  get 'account/messages', to: 'user_infos#messages', as: 'messages'
   resource :instructor_info, path: 'instructor', only: [:new, :create, :edit, :update, :destroy]
   resources :profiles, only: [:show]
   resources :consult_transactions, path: 'transactions', except: [:edit, :new]

@@ -1,5 +1,10 @@
 class MessagesController < AuthenticatedResourcesController
 
+  def index
+    @user_info = current_user.user_info
+    @latest_messages = Message.where(receiver_id: current_user.id).order(created_at: :desc).limit(10)
+  end
+
   # Create a message and associate all attachments with itself.
   # Attachments are uploaded associated only with the user. Once the message is
   # created, all attachments identified by the attachments_id[] field will have
