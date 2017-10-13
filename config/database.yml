@@ -10,12 +10,12 @@
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: feelingjy_admin
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+  password: password
+  host: localhost
 
 development:
   <<: *default
@@ -50,5 +50,4 @@ test:
 production:
   <<: *default
   database: feelingjy_production
-  username: feelingjy
   password: <%= ENV['FEELINGJY_DATABASE_PASSWORD'] %>
