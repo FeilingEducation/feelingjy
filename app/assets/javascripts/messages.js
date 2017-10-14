@@ -11,18 +11,18 @@ $(document).on('ajax:success', '.message-form', function(e) {
   const $this = $(this);
   const $history = $('.message-history');
   $history.append($(
-    `<div class="message">` +
-    ` <span class="fs-120 d-block"><strong>${data.sender}</strong></span>` +
-    ` <span class="fs-80 d-block">Posted on: ${data.timestamp}</span>` +
-    ` <p class="mb-1">${data.content}</p>` +
+    '<div class="message">' +
+    ' <span class="fs-120 d-block"><strong>'+data.sender+'</strong></span>' +
+    ' <span class="fs-80 d-block">Posted on:'+ data.timestamp + '</span>' +
+    ' <p class="mb-1">'+data.content+'</p>' +
     // concatenate all attachment elements
-    data.attachments.reduce((cat, att) => {
+    data.attachments.reduce(function(cat, att){
       return cat +
-        `<div class="attachment">` +
-        ` <a href="${att.url}" target="_blank">${att.name}</a>` +
-        `</div>`;
+        '<div class="attachment">' +
+        ' <a href="'+att.url+'" target="_blank">'+att.name+'</a>' +
+        '</div>';
     }, '') +
-    `</div>`
+    '</div>'
   // scroll to bottom
   )).prop('scrollTop', $history.prop('scrollHeight'));
   // removed all frontend attachment elements

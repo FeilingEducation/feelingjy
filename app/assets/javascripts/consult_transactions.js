@@ -11,7 +11,7 @@ $(document).on('keypress', 'form.chat-input textarea', function(e) {
 $(document).on('submit', 'form.chat-input', function(e) {
   // getFormData is a self defined function in application.js to extract form
   // fields into an Object.
-  let data = $(e.target).getFormData();
+  var data = $(e.target).getFormData();
   // Don't submit if content is empty
   if (data.content == "") {
     return false;
@@ -32,7 +32,7 @@ $(document).on('click', '.voice-chat-init', function(e) {
 
 $(document).on('turbolinks:load', function() {
   // scroll all chat lines to bottom at load
-  for (let chat_lines of $('.chat-lines')) {
+  for (var chat_lines of $('.chat-lines')) {
     const $chat_lines = $(chat_lines);
     $chat_lines.prop('scrollTop', $chat_lines.prop('scrollHeight'));
   }

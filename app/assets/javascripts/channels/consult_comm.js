@@ -5,12 +5,12 @@
 // This functions subscribs with the server backend "Channel" if there exists a
 // .consult-comm in the page
 $(document).on('turbolinks:load', function() {
-  let $consult_comm = $('.consult-comm');
+  var $consult_comm = $('.consult-comm');
   if ($consult_comm.length == 0)
     return;
-  let $chat = $consult_comm.find('.chat-box');
-  let $chat_lines = $chat.find('.chat-lines');
-  let user_id = $consult_comm.data('user-id');
+  var $chat = $consult_comm.find('.chat-box');
+  var $chat_lines = $chat.find('.chat-lines');
+  var user_id = $consult_comm.data('user-id');
 
 
   App.consult_comm = App.cable.subscriptions.create({
@@ -28,13 +28,13 @@ $(document).on('turbolinks:load', function() {
     // type is used for multiplexing chat_line and voice_chat data.
     // comm_data is the actual payload
     received: function(data) {
-      let comm = data.comm_data;
+      var comm = data.comm_data;
       switch (data.type) {
         case 'chat_line':
           // when a chat_line data is received, append the content to the .chat_lines.
           // Content needs to be first sanitized to avoid arbitrary script injection
           if (comm) {
-            let $chat_line = $('<div class="chat-line"><pre>'+sanitize(comm.content)+'</pre></div>');
+            var $chat_line = $('<div class="chat-line"><pre>'+sanitize(comm.content)+'</pre></div>');
             // put the chat-line to the right if it is a self post.
             if (user_id == comm.user_id)
               $chat_line.addClass('chat-line-right');
@@ -52,7 +52,7 @@ $(document).on('turbolinks:load', function() {
           switch (comm.type) {
             case 'sdp':
               console.log('sdp received:', comm.payload);
-              this.pc.setRemoteDescription(new RTCSessionDescription(comm.payload), () => {
+              this.pc.setRemoteDescription(new RTCSessionDescription(comm.payload), function() {
                 if (this.pc.remoteDescription.type == 'offer')
                   this.pc.createAnswer(this.localDescCreated, this.logError);
               }, this.logError);
@@ -91,32 +91,32 @@ $(document).on('turbolinks:load', function() {
         }]
       });
 
-      let pc = this.pc;
+      var pc = this.pc;
 
-      this.logError = (error) => {
+      this.logError = function(error) {
         console.log(error.name + ': ' + error.message);
       };
 
-      this.localDescCreated = (desc) => {
-        pc.setLocalDescription(desc, () => {
+      this.localDescCreated = function(desc) {
+        pc.setLocalDescription(desc, function() {
           this.setup_voice_chat({type: 'sdp', payload: pc.localDescription});
         }, this.logError);
       };
 
-      pc.onicecandidate = (e) => {
+      pc.onicecandidate = function(e) {
         if (e.candidate) {
           console.log("onicecandidate:", e.candidate);
           this.setup_voice_chat({type: 'candidate', payload: e.candidate});
         }
       };
 
-      pc.onnegotiationneeded = () => {
-        console.log(`onnegotiationneeded`);
+      pc.onnegotiationneeded = function() {
+        console.log('onnegotiationneeded');
         pc.createOffer(this.localDescCreated, this.logError);
       };
 
-      pc.onaddstream = (e) => {
-        console.log(`onaddstream: ${e.stream}`);
+      pc.onaddstream = function(e) {
+        console.log("onaddstream:",e.stream);
         $('audio.remote')[0].src = URL.createObjectURL(e.stream);
       };
 

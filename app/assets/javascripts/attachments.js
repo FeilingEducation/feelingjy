@@ -21,11 +21,11 @@ $(document).on('turbolinks:load', function() {
     // data is returned from the backend. See attachments_controller#create when it
     // responds to JSON format
     done: function(e, data) {
-      const $attachment = $(`#attachment-${data.id}`);
+      const $attachment = $("#attachment-"+data.id);
       $attachment.data('result', data.result.files[0]);
       // used to tell the backend what attachments are associated with a message.
       // See messages_controller#create
-      $attachment.append($(`<input type="hidden" name="attachment_ids[]" value="${data.result.files[0].id}">`));
+      $attachment.append($('<input type="hidden" name="attachment_ids[]" value="'+data.result.files[0].id+'">'));
       $attachment.find('.attachment-progress').remove();
     }
   }).bind('fileuploadadd', function(e, data) {
@@ -39,16 +39,16 @@ $(document).on('turbolinks:load', function() {
     // the icon .attachment-remove is clickable and will remove this attachment
     // from both front and back end.
     $(this).closest('.form-group').find('.attachments-container').append($(
-      ` <div id="attachment-${count}" class="attachment">` +
-      `   <span class="attachment-name">${data.files[0].name}</span>` +
-      `   <div class="attachment-progress"><div class="bar""></div></div>` +
-      `   <i class="fa fa-times attachment-remove"></i>` +
-      ` </div>`
+      ' <div id="attachment-'+count+'" class="attachment">' +
+      '   <span class="attachment-name">'+data.files[0].name+'</span>' +
+      '   <div class="attachment-progress"><div class="bar"></div></div>' +
+      '   <i class="fa fa-times attachment-remove"></i>' +
+      ' </div>'
     ));
     $(this).data('count', count+1);
   }).bind('fileuploadprogress', function(e, data) {
     // update the progress bar. See jquery-file-upload official documents for more information.
-    $('.attachment-progress bar').css('width', `${parseInt(data.loaded/data.total*100,10)}%`);
+    $('.attachment-progress bar').css('width', parseInt(data.loaded/data.total*100,10).toString()+"%");
   });
 });
 

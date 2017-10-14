@@ -63,7 +63,7 @@ $(document).on('change', '.custom-file input[type="file"]', function () {
     return console.error('Invalid target for custom file', $input);
 
   if (!$target.attr('data-content'))
-    return console.error('Invalid `data-content` for custom file target', $input);
+    return console.error('Invalid data-content for custom file target', $input);
 
   // set original content so we can revert if user deselects file
   if (!$target.attr('data-original-content'))
@@ -93,11 +93,11 @@ $(document).on('change', '.image-input', function() {
 
 // JS template for a bootstrap custom file input
 function custom_file_input(name, classes, accept) {
-  return `<div class="custom-file ${classes}" >` +
-        `   <input type="file" name="${name}" class="custom-file-input image-input"` +
-        `     data-target="#filename-span" accept="${accept}">` +
-        `   <span id="filename-span" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>` +
-        ` </div>`;
+  return '<div class="custom-file'+ classes + '" >' +
+        '   <input type="file" name="' + name + '" class="custom-file-input image-input"' +
+        '     data-target="#filename-span" accept="'+accept+'s">' +
+        '   <span id="filename-span" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>' +
+        ' </div>';
 }
 
 // .editable together with "scoped" and "scoped_tree" in /app/helpers/application_helper.rb
@@ -110,7 +110,7 @@ $(document).on('click', '.editable', function() {
   const $this = $(this);
   // Rails expects model_name[field_name] as the "name" field of a form input for
   // fields with a model.
-  const model_name = $this.data('model') ? `${$this.data('model')}[${$this.data('name')}]` : $this.data('name');
+  const model_name = $this.data('model') ? $this.data('model')[${$this.data('name')}] : $this.data('name') ;
   // The form in the modal is cloned from a hidden #template-form rendered at the
   // bottom of the page so the authentication token is automatically managed.
   // However, authentication problem still occurs in some cases which needs investigation.
@@ -119,7 +119,7 @@ $(document).on('click', '.editable', function() {
     $form.attr('action', $this.data('action'));
   }
   // default value of the field in the modal form.
-  let value = '';
+  var value = '';
   if ($this.data('value')) {
     value = $this.value;
   } else if ($this.data('target')) {
@@ -133,7 +133,7 @@ $(document).on('click', '.editable', function() {
   }
   // A hidden field with name "_method" is appended if special method is needed (PATCH, DELETE, etc.)
   if ($this.data('method')) {
-    $form.append($(`<input type="hidden" name="_method" value="${$this.data('method')}">`));
+    $form.append($('<input type="hidden" name="_method" value="' + $this.data('method') + '">'));
   }
   // construct different types of modal forms
   switch($this.data('type')) {
@@ -141,30 +141,30 @@ $(document).on('click', '.editable', function() {
     case 'image':
       $form.attr('enctype', 'multipart/form-data');
       // preview selected image without uploading
-      $form.append($(`<img id="preview" class="editable-image-preview mb-3" src="${value}">`));
+      $form.append($('<img id="preview" class="editable-image-preview mb-3" src="' + value + '">'));
       var $file_input = $(custom_file_input(model_name, 'mb-3', 'image/*'));
       $file_input.find('input').data('image-input-target', '#preview');
       $form.append($file_input);
       break;
     // text input
     case 'text':
-      $form.append($(`<input type="text" name="${model_name}" class="form-control mb-3 autofocus autoselect" value="${value}">`));
+      $form.append($('<input type="text" name="' + model_name + '" class="form-control mb-3 autofocus autoselect" value="' + value + '">'));
       break;
     // paragraph input (use textarea element)
     case 'paragraph':
-      $form.append($(`<textarea name="${model_name}" class="form-control mb-3  autofocus autoselect" rows="10" style="resize:none">`).val(value));
+      $form.append($('<textarea name="'+ model_name + '" class="form-control mb-3  autofocus autoselect" rows="10" style="resize:none">').val(value));
       break;
     // PDF files input
     case 'attachment':
       $form.attr('action', '/attachments');
       $form.attr('enctype', 'multipart/form-data');
-      $form.append($(`<input type="hidden" name="${$this.data('model')}[file_type]" value="${$this.data('file-type')}">`));
+      $form.append($('<input type="hidden" name="' + $this.data('model')[file_type] + '" value="' + $this.data('file-type') + '">'));
       $form.append($(custom_file_input(model_name, 'mb-3', 'application/pdf')));
       break;
     default:
       return;
   }
   // append the form to the modal and show
-  $form.append($(`<input type="submit" class="btn btn-success float-right mb-3" value="保存">`));
+  $form.append($('<input type="submit" class="btn btn-success float-right mb-3" value="保存">'));
   dynamic_modal($form, $this.data('label'), $this.data('size'));
 });
