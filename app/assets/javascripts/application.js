@@ -1,3 +1,5 @@
+"use strict";
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -23,8 +25,8 @@
 
 // convert the formdata into an object
 // adapting from multiple answers on https://stackoverflow.com/questions/2276463/how-can-i-get-form-data-with-javascript-jquery
-(function($){
-  $.fn.getFormData = function() {
+(function ($) {
+  $.fn.getFormData = function () {
     return $(this).serializeArray().reduce(function (obj, item) {
       if (obj[item.name]) {
         if ($.isArray(obj[item.name])) {
@@ -55,49 +57,40 @@ function isObject(obj) {
 // adapted from https://github.com/twbs/bootstrap/issues/20813
 $(document).on('change', '.custom-file input[type="file"]', function () {
 
-  const $input = $(this);
-  const target = $input.data('target');
-  const $target = $(target);
+  var $input = $(this);
+  var target = $input.data('target');
+  var $target = $(target);
 
-  if (!$target.length)
-    return console.error('Invalid target for custom file', $input);
+  if (!$target.length) return console.error('Invalid target for custom file', $input);
 
-  if (!$target.attr('data-content'))
-    return console.error('Invalid data-content for custom file target', $input);
+  if (!$target.attr('data-content')) return console.error('Invalid data-content for custom file target', $input);
 
   // set original content so we can revert if user deselects file
-  if (!$target.attr('data-original-content'))
-    $target.attr('data-original-content', $target.attr('data-content'));
+  if (!$target.attr('data-original-content')) $target.attr('data-original-content', $target.attr('data-content'));
 
-  const input = $input.get(0);
+  var input = $input.get(0);
 
-  const name = (isObject(input) && isObject(input.files) && isObject(input.files[0])
-    && typeof input.files[0].name === "string" ? input.files[0].name : $input.val())
-    || $target.attr('data-original-content');
+  var name = (isObject(input) && isObject(input.files) && isObject(input.files[0]) && typeof input.files[0].name === "string" ? input.files[0].name : $input.val()) || $target.attr('data-original-content');
 
   $target.attr('data-content', name);
 });
 
 // .image-input is a special file input, which has an .image-input-target for
 // displaying the preview of the selected image before uploading.
-$(document).on('change', '.image-input', function() {
-  const $this = $(this);
+$(document).on('change', '.image-input', function () {
+  var $this = $(this);
   if (this.files && this.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
       $($this.data('image-input-target')).attr('src', e.target.result);
-    }
+    };
     reader.readAsDataURL(this.files[0]);
   }
 });
 
 // JS template for a bootstrap custom file input
 function custom_file_input(name, classes, accept) {
-  return '<div class="custom-file'+ classes + '" >' +
-        '   <input type="file" name="' + name + '" class="custom-file-input image-input"' +
-        '     data-target="#filename-span" accept="'+accept+'s">' +
-        '   <span id="filename-span" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>' +
-        ' </div>';
+  return '<div class="custom-file' + classes + '" >' + '   <input type="file" name="' + name + '" class="custom-file-input image-input"' + '     data-target="#filename-span" accept="' + accept + 's">' + '   <span id="filename-span" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>' + ' </div>';
 }
 
 // .editable together with "scoped" and "scoped_tree" in /app/helpers/application_helper.rb
@@ -106,15 +99,15 @@ function custom_file_input(name, classes, accept) {
 //
 // It uses ujs data fields to specify what should the modal prompt look like,
 // and what action should be taken when the form inside is submitted.
-$(document).on('click', '.editable', function() {
-  const $this = $(this);
+$(document).on('click', '.editable', function () {
+  var $this = $(this);
   // Rails expects model_name[field_name] as the "name" field of a form input for
   // fields with a model.
-  const model_name = $this.data('model') ? $this.data('model')[${$this.data('name')}] : $this.data('name') ;
+  var model_name = $this.data('model') ? $this.data('model')[$this.data('name')] : $this.data('name');
   // The form in the modal is cloned from a hidden #template-form rendered at the
   // bottom of the page so the authentication token is automatically managed.
   // However, authentication problem still occurs in some cases which needs investigation.
-  const $form = $('#template-form').clone().removeAttr('id').css('display', 'block');
+  var $form = $('#template-form').clone().removeAttr('id').css('display', 'block');
   if ($this.data('action')) {
     $form.attr('action', $this.data('action'));
   }
@@ -124,7 +117,7 @@ $(document).on('click', '.editable', function() {
     value = $this.value;
   } else if ($this.data('target')) {
     // the target element and its attribute to extract the default value
-    const $target = $this.find($this.data('target'));
+    var $target = $this.find($this.data('target'));
     if ($this.data('attr')) {
       value = $target.attr($this.data('attr'));
     } else {
@@ -136,7 +129,7 @@ $(document).on('click', '.editable', function() {
     $form.append($('<input type="hidden" name="_method" value="' + $this.data('method') + '">'));
   }
   // construct different types of modal forms
-  switch($this.data('type')) {
+  switch ($this.data('type')) {
     // file input for images
     case 'image':
       $form.attr('enctype', 'multipart/form-data');
@@ -152,7 +145,7 @@ $(document).on('click', '.editable', function() {
       break;
     // paragraph input (use textarea element)
     case 'paragraph':
-      $form.append($('<textarea name="'+ model_name + '" class="form-control mb-3  autofocus autoselect" rows="10" style="resize:none">').val(value));
+      $form.append($('<textarea name="' + model_name + '" class="form-control mb-3  autofocus autoselect" rows="10" style="resize:none">').val(value));
       break;
     // PDF files input
     case 'attachment':

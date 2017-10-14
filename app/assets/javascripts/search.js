@@ -1,4 +1,6 @@
-$(document).on('change, slideStop', '.search-panel .search-input', function() {
+'use strict';
+
+$(document).on('change, slideStop', '.search-panel .search-input', function () {
   search();
 });
 
@@ -9,7 +11,7 @@ $(document).on('change, slideStop', '.search-panel .search-input', function() {
 // elements for better display. However, since we are using torbolinks, refreshing
 // the page will replace the element repeatedly. Adding the data field "initialized"
 // solves this problem.
-$(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function () {
   $('.slider-base[data-initialized!="1"]').attr('data-initialized', "1").slider();
   $('select[multiple="multiple"][data-initialized!="1"]').attr('data-initialized', "1").multiselect({
     nonSelectedText: $(this).data('non-selected-text'),
@@ -21,5 +23,4 @@ $(document).on('turbolinks:load', function() {
 });
 
 // Actually do the search. Not implemented yet.
-function search() {
-}
+function search() {}
