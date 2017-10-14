@@ -1,4 +1,7 @@
-$('#dialog .modal-title').html("帐号注册");
-$('#dialog .modal-dialog').removeClass('modal-lg').addClass('modal-sm');
+// $('#dialog .modal-title').html("帐号注册");
+$('#dialog .modal-dialog').removeClass('modal-lg');
+$('#dialog .modal-dialog').addClass('signup-card');
+$('#dialog .modal-header').remove();
+
 $('#dialog .modal-body').html('<%= j render(partial: 'sign_up', locals: { is_modal: true }) %>');
 show_or_update($('#dialog'));

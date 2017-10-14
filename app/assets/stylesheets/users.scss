@@ -29,3 +29,174 @@
     font-size: 0.8rem;
   }
 }
+
+.signup-card{
+  width: 500px;
+  max-width: 500px;
+  border: 1px solid #E0DBDB;
+  // padding: 75px;
+
+  .modal-content{
+    border-radius: 0;
+    border: none;
+
+    .modal-body{
+      width: 100%;
+      border-radius: 0;
+      padding: 0px;
+
+      .modal-header{
+        border: none;
+        display: none;
+      }
+    }
+  }
+  .head-sec{
+    h2.main-heading{
+      font-size: 18px;
+      font-family: helvetica;
+      color: #4A4A4A;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    h6.sub-heading{
+      font-family: helvetica;
+      font-size: 14px;
+      color: #717070;
+      line-height: 20px;
+      margin-bottom: 30px;
+    }
+  }
+  h3.dob-heading{
+    font-size: 18px;
+    font-family: helvetica;
+    color: #4A4A4A;
+    margin-top: 25px;
+  }
+
+  h6.dob-sub-heading{
+    font-family: helvetica;
+    font-size: 12px;
+    color: #717070;
+    margin-bottom: 10px;
+    font-weight: lighter;
+  }
+  .form-wrapper{
+    padding: 60px;
+
+    &.modal-wrapper{
+      padding: 75px;
+    }
+  }
+  .submit-btn{
+    height: 43px;
+    background-color: #50BF9F;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 0px;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  .already-login-wrapper{
+    p{
+      font-family: helvetica;
+      font-size: 14px;
+      color: #717070;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 0px;
+    }
+  }
+}
+.modal-cross{
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  cursor: pointer;
+  img{
+    width: 15px;
+  }
+}
+
+// Generic CSS
+input[type="text"],input[type="password"],input[type="email"], select, button{
+  height: 43px;
+  margin-bottom: 12px;
+  border-color: #AAA8A8;
+  border-radius: 6px;
+}
+select{
+  background-color: transparent;
+  color: #B6C1CD;
+  font-size: 15px;
+  font-weight: lighter;
+}
+select#user_dob_1i{
+  margin-right: 5px;
+  width: 90px;
+  display: inline-block;
+}
+select#user_dob_2i{
+  width: 175px;
+  margin-right: 5px;
+  display: inline-block;
+}
+select#user_dob_3i{
+  width: 58px;
+  display: inline-block;
+}
+
+::-webkit-input-placeholder {
+  color: #B6C1CD;
+  font-size: 15px;
+  font-weight: lighter;
+}
+::-moz-placeholder{
+  color: #B6C1CD;
+  font-size: 15px;
+  font-weight: lighter;
+}
+:-ms-input-placeholder{
+  color: #B6C1CD;
+  font-size: 15px;
+  font-weight: lighter;
+}
+:-moz-placeholder{
+  color: #B6C1CD;
+  font-size: 15px;
+  font-weight: lighter;
+}
+.field-with-icon{
+  position: relative;
+  .icon{
+    img{
+      width: 25px;
+      position: absolute;
+      right: 15px;
+      top: 8px;
+    }
+  }
+  i{
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    font-size: 24px;
+    color: #B6C1CD;
+    font-weight: lighter;
+  }
+}
+
+.devise-errors{
+  .error-heading{
+    color: #E25F5F;
+    font-size: 14px;
+  }
+  ul{
+    li{
+      font-size: 12px;
+      color: #E25F5F;
+    }
+  }
+}

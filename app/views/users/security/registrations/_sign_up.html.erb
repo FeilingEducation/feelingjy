@@ -1,49 +1,71 @@
 <% is_modal = false if local_assigns[:is_modal].nil? %>
-<div class="card">
-  <div class="card-body">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), role: "form") do |f| %>
-      <%= devise_error_messages! %>
-      <div class="row">
-        <div class="col-md-12">
-          <%= fields_for :user_info do |user_info| %>
-            <div class="form-group tight-bottom">
-              <%= user_info.text_field :last_name, autofocus: true, class: "form-control", require: true, placeholder: "姓" %>
-            </div>
-            <div class="form-group tight-bottom">
-              <%= user_info.text_field :first_name, autofocus: true, class: "form-control", require: true, placeholder: "名" %>
-            </div>
+
+<% if local_assigns[:is_modal]%>
+  <button type="button" class="close modal-cross"
+        data-dismiss="modal"
+        aria-label="Close">
+        <div ><%= image_tag "multiply"%></div></button>
+<%end%>
+
+<div class="form-wrapper <%= local_assigns[:is_modal] ? 'modal-wrapper' : ''%>">
+  <div class="head-sec">
+    <h2 class="main-heading">Please add information</h2>
+    <h6 class="sub-heading">Please fill in the information correct so that we can finish well.</h6>
+   </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), role: "form") do |f| %>
+    <%= devise_error_messages! %>
+    <div class="row">
+      <div class="col-md-12">
+        <%= fields_for :user_info do |user_info| %>
+          <div class="form-group tight-bottom field-with-icon">
+            <%= user_info.text_field :last_name, autofocus: true, class: "form-control", require: true, placeholder: "姓" %>
+            <div class="icon"><%= image_tag "user-ico"%></div>
+          </div>
+          <div class="form-group tight-bottom field-with-icon">
+            <%= user_info.text_field :first_name, autofocus: true, class: "form-control", require: true, placeholder: "名" %>
+            <div class="icon"><%= image_tag "user-ico"%></div>
+          </div>
+        <% end %>
+        <div class="form-group tight-bottom field-with-icon">
+          <%= f.email_field :email, class: "form-control", require: true, placeholder: "邮箱" %>
+          <div class="icon"><%= image_tag "envelope"%></div>
+        </div>
+        <div class="form-group tight-bottom field-with-icon">
+          <% if @minimum_password_length %>
+            <% notice = "（最少#{@minimum_password_length}位）"%>
           <% end %>
-          <div class="form-group tight-bottom">
-            <%= f.email_field :email, class: "form-control", require: true, placeholder: "邮箱" %>
-          </div>
-          <div class="form-group tight-bottom">
-            <% if @minimum_password_length %>
-              <% notice = "（最少#{@minimum_password_length}位）"%>
-            <% end %>
-            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "密码#{notice}" %>
-          </div>
-          <div class="form-group tight-bottom">
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "确认密码" %>
-          </div>
-          <div class="form-group tight-bottom">
-            <%= f.submit "注册", class: "btn btn-outline-primary btn-block" %>
-          </div>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "密码#{notice}" %>
+          <div class="icon"><%= image_tag "key"%></div>
+        </div>
+        <div class="form-group tight-bottom field-with-icon">
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "确认密码" %>
+          <div class="icon"><%= image_tag "key"%></div>
+        </div>
+        <div class="form-group tight-bottom field-with-icon">
+          <h3 class="dob-heading">Birthday</h3>
+          <h6 class="dob-sub-heading">To sign up, you must be 18 or older.</h6>
+          <%= f.date_select :dob, {start_year: (Date.today.year - 100), end_year: Date.today.year - 18, default: 18.years.ago}, {class: "form-control", placeholder: "Birthdate"} %>
+        </div>
+        <div class="form-group tight-bottom">
+          <%= f.submit "注册", class: "btn btn-block submit-btn" %>
         </div>
       </div>
-    <% end %>
-    <div class="text-divider">
-      <span>或</span>
-      <hr>
     </div>
-    <ul class="list-unstyled">
-      <li>
-        <a href="#" class="btn btn-wechat btn-block">
-          <%= image_tag "wechat_logo.png", width: "36", height: "36" %>
-          <span>使用微信登录</span>
-        </a>
-      </li>
-    </ul>
-    <hr class="tight-bottom">
-    <%= link_to "已有帐号，直接登录", new_session_path(resource_name), remote: is_modal, class: "small float-right" %>
+  <% end %>
+  <!-- <div class="text-divider">
+    <span>或</span>
+    <hr>
+  </div>
+  <ul class="list-unstyled">
+    <li>
+      <a href="#" class="btn btn-wechat btn-block">
+        <%= image_tag "wechat_logo.png", width: "36", height: "36" %>
+        <span>使用微信登录</span>
+      </a>
+    </li>
+  </ul> -->
+  <hr class="tight-bottom">
+  <div class="already-login-wrapper">
+    <p > Already have an account? <%= link_to "Login", new_session_path(resource_name), remote: is_modal, class: "" %></p>
   </div>
 </div>
