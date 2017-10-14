@@ -1,45 +1,57 @@
 <% is_modal = false if local_assigns[:is_modal].nil? %>
-<div class="card">
-  <div class="card-body">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), role: "form") do |f| %>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group tight-bottom">
-            <%= f.email_field :email, autofocus: true, class: "form-control first-input", require: true, placeholder: "邮箱" %>
-          </div>
-          <div class="form-group tight-bottom">
-            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "密码" %>
-          </div>
-          <div class="form-group tight-bottom">
-            <% if devise_mapping.rememberable? %>
-              <%= f.label :remember_me, class: "small" do %>
-                <%= f.check_box :remember_me %>
-                记住我
-              <% end %>
-            <% end %>
-            <%= link_to "忘记密码", new_password_path(resource_name), class: "small float-right" %>
-          </div>
-          <div class="form-group tight-bottom">
-            <%= f.submit "登录", class: "btn btn-outline-success btn-block" %>
-          </div>
-          <!-- <div class="col-md-6">
-          </div> -->
+<% if local_assigns[:is_modal]%>
+  <button type="button" class="close modal-cross" data-dismiss="modal" aria-label="Close">
+    <div ><%= image_tag "multiply.png"%></div>
+  </button>
+<%end%>
+
+<div class="form-wrapper <%= local_assigns[:is_modal] ? 'modal-wrapper' : ''%>">
+  <div class="head-sec">
+    <h2 class="main-heading">Login</h2>
+    <h6 class="sub-heading">Please fill in your account information below to login.</h6>
+   </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), role: "form") do |f| %>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group tight-bottom field-with-icon">
+          <%= f.email_field :email, autofocus: true, class: "form-control first-input", require: true, placeholder: "邮箱" %>
+          <div class="icon"><%= image_tag "envelope.png"%></div>
         </div>
-      </div>
-    <% end %>
-    <div class="text-divider">
-      <span>或</span>
-      <hr>
+        <div class="form-group tight-bottom field-with-icon">
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "密码" %>
+          <div class="icon"><%= image_tag "key.png"%></div>
+        </div>
+        <div class="form-group tight-bottom field-with-icon">
+          <% if devise_mapping.rememberable? %>
+          <%= f.label :remember_me, class: "small" do %>
+          <%= f.check_box :remember_me %>
+          记住我
+          <% end %>
+          <% end %>
+          <%= link_to "忘记密码", new_password_path(resource_name), class: "small float-right" %>
+        </div>
+        <div class="form-group tight-bottom">
+          <%= f.submit "登录", class: "btn submit-btn btn-block" %>
+        </div>
+        <!-- <div class="col-md-6">
+      </div> -->
     </div>
-    <ul class="list-unstyled">
-      <li>
-        <a href="#" class="btn btn-wechat btn-block">
-          <%= image_tag "wechat_logo.png", width: "36", height: "36" %>
-          <span>使用微信登录</span>
-        </a>
-      </li>
-    </ul>
-    <hr class="tight-bottom">
-    <%= link_to "帐号注册", new_registration_path(resource_name), remote: is_modal, class: "small float-right" %>
+  </div>
+  <% end %>
+  <!-- <div class="text-divider">
+    <span>或</span>
+    <hr>
+  </div>
+  <ul class="list-unstyled">
+    <li>
+      <a href="#" class="btn btn-wechat btn-block">
+        <%= image_tag "wechat_logo.png", width: "36", height: "36" %>
+        <span>使用微信登录</span>
+      </a>
+    </li>
+  </ul> -->
+  <hr class="tight-bottom">
+  <div class="already-login-wrapper">
+    <p > Don't have an account? <%= link_to "帐号注册", new_registration_path(resource_name), remote: is_modal, class: "small float-right" %></p>
   </div>
 </div>
