@@ -63,7 +63,7 @@ $(document).on('change', '.custom-file input[type="file"]', function () {
     return console.error('Invalid target for custom file', $input);
 
   if (!$target.attr('data-content'))
-    return console.error('Invalid `data-content` for custom file target', $input);
+    return console.error('Invalid data-content for custom file target', $input);
 
   // set original content so we can revert if user deselects file
   if (!$target.attr('data-original-content'))
@@ -93,11 +93,7 @@ $(document).on('change', '.image-input', function() {
 
 // JS template for a bootstrap custom file input
 function custom_file_input(name, classes, accept) {
-  return `<div class="custom-file ${classes}" >` +
-        `   <input type="file" name="${name}" class="custom-file-input image-input"` +
-        `     data-target="#filename-span" accept="${accept}">` +
-        `   <span id="filename-span" class="custom-file-control custom-file-name" data-content="请选择文件..."></span>` +
-        ` </div>`;
+      return "<div class=\"custom-file " + classes + "\" >" + ("   <input type=\"file\" name=\"" + name + "\" class=\"custom-file-input image-input\"") + ("     data-target=\"#filename-span\" accept=\"" + accept + "\">") + "   <span id=\"filename-span\" class=\"custom-file-control custom-file-name\" data-content=\"请选择文件...\"></span>" + " </div>";
 }
 
 // .editable together with "scoped" and "scoped_tree" in /app/helpers/application_helper.rb
@@ -110,7 +106,7 @@ $(document).on('click', '.editable', function() {
   var $this = $(this);
   // Rails expects model_name[field_name] as the "name" field of a form input for
   // fields with a model.
-  var model_name = $this.data('model') ? `${$this.data('model')}[${$this.data('name')}]` : $this.data('name');
+  var model_name = $this.data('model') ? $this.data('model') + '[' + $this.data('name') + ']' : $this.data('name');
   // The form in the modal is cloned from a hidden #template-form rendered at the
   // bottom of the page so the authentication token is automatically managed.
   // However, authentication problem still occurs in some cases which needs investigation.
@@ -133,7 +129,7 @@ $(document).on('click', '.editable', function() {
   }
   // A hidden field with name "_method" is appended if special method is needed (PATCH, DELETE, etc.)
   if ($this.data('method')) {
-    $form.append($(`<input type="hidden" name="_method" value="${$this.data('method')}">`));
+    $form.append($('<input type="hidden" name="_method" value="' + $this.data('method') + '">'));
   }
   // construct different types of modal forms
   switch($this.data('type')) {
@@ -158,7 +154,7 @@ $(document).on('click', '.editable', function() {
     case 'attachment':
       $form.attr('action', '/attachments');
       $form.attr('enctype', 'multipart/form-data');
-      $form.append($(`<input type="hidden" name="${$this.data('model')}[file_type]" value="${$this.data('file-type')}">`));
+      $form.append($('<input type="hidden" name="' + $this.data('model') + '[file_type]" value="' + $this.data('file-type') + '">'));
       $form.append($(custom_file_input(model_name, 'mb-3', 'application/pdf')));
       break;
     default:
