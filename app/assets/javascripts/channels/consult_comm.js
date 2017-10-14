@@ -34,7 +34,7 @@ $(document).on('turbolinks:load', function() {
           // when a chat_line data is received, append the content to the .chat_lines.
           // Content needs to be first sanitized to avoid arbitrary script injection
           if (comm) {
-            let $chat_line = $(`<div class="chat-line"><pre>${sanitize(comm.content)}</pre></div>`);
+            let $chat_line = $('<div class="chat-line"><pre>'+sanitize(comm.content)+'</pre></div>');
             // put the chat-line to the right if it is a self post.
             if (user_id == comm.user_id)
               $chat_line.addClass('chat-line-right');
@@ -51,14 +51,14 @@ $(document).on('turbolinks:load', function() {
             this.start_rtc_peer_conn();
           switch (comm.type) {
             case 'sdp':
-              console.log(`sdp received: ${comm.payload}`);
+              console.log('sdp received:', comm.payload);
               this.pc.setRemoteDescription(new RTCSessionDescription(comm.payload), () => {
                 if (this.pc.remoteDescription.type == 'offer')
                   this.pc.createAnswer(this.localDescCreated, this.logError);
               }, this.logError);
               break;
             case 'candidate':
-              console.log(`candidated received: ${comm.payload}`);
+              console.log("candidated received:", comm.payload);
               this.pc.addIceCandidate(new RTCIceCandidate(comm.payload));
               break;
             default:
@@ -105,7 +105,7 @@ $(document).on('turbolinks:load', function() {
 
       pc.onicecandidate = (e) => {
         if (e.candidate) {
-          console.log(`onicecandidate: ${e.candidate}`);
+          console.log("onicecandidate:", e.candidate);
           this.setup_voice_chat({type: 'candidate', payload: e.candidate});
         }
       };

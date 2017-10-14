@@ -21,7 +21,7 @@ function dynamic_modal(body, title, size) {
   size = size == 'large' ? 'lg' : 'sm';
   const $dialog = $('#dialog');
   $dialog.find('.modal-title').html(title);
-  $dialog.find('.modal-dialog').removeClass('modal-sm').removeClass('modal-lg').addClass(`modal-${size}`);
+  $dialog.find('.modal-dialog').removeClass('modal-sm').removeClass('modal-lg').addClass("modal-$"+size);
   $dialog.find('.modal-body').empty().append(body);
   show_or_update($dialog);
 }
