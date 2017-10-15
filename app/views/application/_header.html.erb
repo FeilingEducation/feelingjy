@@ -44,7 +44,7 @@
         </li>
         <% if can_apply_for_instructor? %>
           <li class="nav-item">
-            <%= link_to "申请成为导师", new_instructor_info_path, remote: true, class: "btn" %>
+            <%= link_to "申请成为导师", new_instructor_info_path, remote: true, class: "nav-link" %>
           </li>
         <% end %>
         <% if user_is_instructor? %>
@@ -60,7 +60,7 @@
         <% end %>
         <li class="nav-item dropdown">
           <%= link_to user_info_path, class: "nav-link dropdown-toggle no-caret", data: {toggle: 'dropdown'} do %>
-            <%= image_tag profile_image_of, class: "profile-image-thumbnail" %>
+            <%= image_tag (profile_image_of || "user-ico.png" ), class: "profile-image-thumbnail" %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right">
             <% if user_is_instructor? %>

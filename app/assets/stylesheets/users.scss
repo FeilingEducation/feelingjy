@@ -136,16 +136,16 @@ input[type="text"],input[type="password"],input[type="email"], select, button{
 // }
 select#user_dob_1i{
   margin-right: 5px;
-  width: 90px;
+  width: 90px!important;
   display: inline-block;
 }
 select#user_dob_2i{
   width: 175px;
-  margin-right: 5px;
+  margin-right: 5px!important;
   display: inline-block;
 }
 select#user_dob_3i{
-  width: 58px;
+  width: 58px!important;
   display: inline-block;
 }
 

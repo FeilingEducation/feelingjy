@@ -205,7 +205,7 @@ select{
   color: #B6C1CD;
   font-size: 15px;
   font-weight: lighter;
-  min-width: 100%;
+  width: 100%;
   min-height: 43px;
   border-radius: 0px;
   // -webkit-appearance: none;
@@ -232,9 +232,5 @@ select{
     min-height: 43px;
     border-radius: 0px;
     border: 1px solid #AAA8A8;
-
-    &:hover{
-
-    }
   }
 }
