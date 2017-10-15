@@ -200,3 +200,54 @@ select#user_dob_3i{
     }
   }
 }
+
+
+.mentor-survey{
+  .main-heading{
+    margin-bottom: 30px!important;
+  }
+  .sub-heading{
+    margin-bottom: 25px;
+  }
+  .question-block{
+    margin: 25px 0;
+
+    p{
+      color: #717070;
+      font-family: helvetica;
+      line-height: 20px;
+
+      &.survey-question{
+        font-size: 16px;
+      }
+      &.info{
+        font-size: 12px;
+        font-weight: lighter;
+      }
+    }
+    .form-group{
+      margin-bottom: 5px;
+
+      label{
+        font-size: 14px;
+        color: #717070;
+        margin-bottom: 0;
+      }
+
+      select{
+        background-color: transparent;
+        color: #B6C1CD;
+        font-size: 15px;
+        font-weight: lighter;
+        width: 100%;
+      }
+    }
+  }
+  .survey-btn-row{
+    margin-top: 40px;
+  }
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin-right: 10px;
+}

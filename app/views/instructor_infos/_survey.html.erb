@@ -1,30 +1,48 @@
-<div class="card">
-  <div class="card-body">
-    <%= form_with model: @instructor_info, url: instructor_info_path, method: 'post', html: { role: 'form' } do |f| %>
 
-      <fieldset class="multi-step-form current-step", id="step0">
-        <h2 class="text-green "><strong>在注册成为飞灵导师之前</strong></h2><br>
-        <div>
-          <p>
-            因为曾经想去改变世界但发现自己的能力实在有限，所以成立飞灵是带有使命感的。我想作为留学生的您和我们团队的成员都抱着一份改善留学申请生态环境的心在做这样一件伟大的事。
-          </p>
-          <p>
-            不论何时，赚钱都不能与改变一个人的命运相提并论，我们每人多付出的一份力也许就在不经意间改变着这个世界。
-          </p>
-          <p>
-            曾经想去改变世界，但发现原来改变世界就在此时此刻，您愿意一同与我们让留学市场变得更纯洁干净吗？
-          </p>
-        </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step1">我愿意</button>
-          <button type="button" class="btn btn-link step-navigate" data-target="#">我拒绝</button>
-        </div>
-      </fieldset>
+<div class="close modal-cross"  data-dismiss="modal"  aria-label="Close">
+  <%= image_tag "multiply.png"%>
+</div>
+<div class="form-wrapper mentor-survey">
 
-      <fieldset class="multi-step-form", id="step1">
-        <h4>步骤1：基本资料</h4>
-        <hr>
-        <h5>您打算申请什么类型的导师？</h5>
+  <%= form_with model: @instructor_info, url: instructor_info_path, method: 'post', html: { role: 'form' } do |f| %>
+
+    <fieldset class="multi-step-form current-step", id="step0">
+      <div class="head-sec">
+        <h2 class="main-heading">
+          <!-- 在注册成为飞灵导师之前 -->
+          Before Becoming a Tutor on Feiling
+        </h2>
+        <h6 class="sub-heading">
+          <!-- 因为曾经想去改变世界但发现自己的能力实在有限，所以成立飞灵是带有使命感的。我想作为留学生的您和我们团队的成员都抱着一份改善留学申请生态环境的心在做这样一件伟大的事。 -->
+          Feiling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper.
+        </h6>
+        <h6 class="sub-heading">
+          <!-- 不论何时，赚钱都不能与改变一个人的命运相提并论，我们每人多付出的一份力也许就在不经意间改变着这个世界。 -->
+          Making tasteful product is the core principle to develop this platform and the main reason to make it work is to make you, my dear tutors to succeed on the platform. The more successful you are, the more meaningful it is for us.
+        </h6>
+        <h6 class="sub-heading">
+          <!-- 曾经想去改变世界，但发现原来改变世界就在此时此刻，您愿意一同与我们让留学市场变得更纯洁干净吗？ -->
+          We would do our best to give you the best user experience and make money in the easiest way!
+        </h6>
+       </div>
+      <div class="survey-btn-row">
+        <button type="button" class="btn btn-primary float-right step-navigate main-btn" data-target="#step1">
+          <!-- 我愿意 -->
+          I Agree
+        </button>
+        <button type="button" class="btn btn-default step-navigate" data-target="#">
+          <!-- 我拒绝 -->
+          Nope
+        </button>
+      </div>
+    </fieldset>
+
+    <fieldset class="multi-step-form", id="step1">
+      <div class="head-sec">
+        <h2 class="main-heading">步骤1：基本资料</h2>
+       </div>
+       <div class="question-block">
+         <p class="survey-question"> 您打算申请什么类型的导师？</p>
         <div class="form-group">
           <%= f.check_box :is_early_consult %>
           <%= f.label :is_early_consult, "前期咨询导师" %>
@@ -41,15 +59,19 @@
           <%= f.check_box :is_visa_consult %>
           <%= f.label :is_visa_consult, "签证资讯导师" %>
         </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step2">下一步</button>
-        </div>
-      </fieldset>
+      </div>
+      <div class="survey-btn-row">
+        <button type="button" class="btn btn-primary float-right step-navigate main-btn" data-target="#step2">下一步</button>
+        <button type="button" class="btn btn-default step-navigate" data-target="#step0">上一步</button>
+      </div>
+    </fieldset>
 
-      <fieldset class="multi-step-form", id="step2">
-        <h4>步骤1：基本资料</h4>
-        <hr>
-        <h5>您最多可以辅导几名学生？</h5>
+    <fieldset class="multi-step-form", id="step2">
+      <div class="head-sec">
+        <h2 class="main-heading">步骤2：基本资料</h2>
+      </div>
+       <div class="question-block">
+        <p class="survey-question"> 您最多可以辅导几名学生？</p>
         <div class="form-group">
           <label><%= f.radio_button :consult_capacity_max, "1" %> 1名学生</label>
         </div>
@@ -65,17 +87,21 @@
         <div class="form-group">
           <label><%= f.radio_button :consult_capacity_max, "-1" %> 5名学生或以上</label>
         </div>
-        <br>
-        <h5>您辅导学生的时间一般在什么时候？</h5>
+      </div>
+      <hr/>
+      <div class="question-block">
+        <p class="survey-question">您辅导学生的时间一般在什么时候?</p>
         <% choices = [["上午6","中午12"],["上午9","下午3"],["中午12","下午6"],["下午3","晚上9"],["下午6","凌晨0"],["晚上9","凌晨3"],["凌晨0","上午6"],["凌晨3","上午9"]].map { |x| "#{x[0]}点到#{x[1]}点" } %>
         <div class="form-group row">
-          <%= f.label :available_time_slots, "北京时间", class: 'col-md-3 col-form-label' %>
-          <div class="col-md">
-            <%= f.select :available_time_slots, choices, {}, { class: 'custom-select' } %>
+          <%= f.label :available_time_slots, "北京时间", class: 'col-md-6 col-form-label' %>
+          <div class="col-md-6">
+            <%= f.select :available_time_slots, choices, {}, { class: '' } %>
           </div>
         </div>
-        <br>
-        <h5>您周末的时间可以使用吗？</h5>
+      </div>
+      <hr/>
+      <div class="question-block">
+        <p class="survey-question">您周末的时间可以使用吗？</p>
         <div class="form-group">
           <label><%= f.radio_button :weekend_availability, "0" %> 可以使用</label>
         </div>
@@ -85,16 +111,19 @@
         <div class="form-group">
           <label><%= f.radio_button :weekend_availability, "2" %> 偶尔可以使用</label>
         </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step3">下一步</button>
-          <button type="button" class="btn btn-link step-navigate" data-target="#step1">上一步</button>
-        </div>
-      </fieldset>
+      </div>
+      <div class="survey-btn-row">
+        <button type="button" class="btn btn-primary float-right step-navigate main-btn" data-target="#step3">下一步</button>
+        <button type="button" class="btn btn-default step-navigate" data-target="#step1">上一步</button>
+      </div>
+    </fieldset>
 
-      <fieldset class="multi-step-form", id="step3">
-        <h4>步骤1：基本资料</h4>
-        <hr>
-        <h5>您自己申请过几所学校？</h5>
+    <fieldset class="multi-step-form", id="step3">
+      <div class="head-sec">
+        <h2 class="main-heading">步骤3：基本资料</h2>
+      </div>
+      <div class="question-block">
+        <p class="survey-question">您自己申请过几所学校？</p>
         <div class="form-group">
           <label><%= f.radio_button :number_institutes_applied, "1" %> 1所学校</label>
         </div>
@@ -110,24 +139,29 @@
         <div class="form-group">
           <label><%= f.radio_button :number_institutes_applied, "-1" %> 5所学校或以上</label>
         </div>
-        <br>
-        <h5>录取其中多少所学校？</h5>
+      </div>
+      <hr/>
+      <div class="question-block">
+        <p class="survey-question">录取其中多少所学校？</p>
         <% choices = [["1所学校",1],["2所学校",2],["3所学校",3],["4所学校",4],["全部录取",-1]] %>
         <div class="form-group row">
           <div class="col-md">
-            <%= f.select :number_institutes_admitted, choices, {}, { class: 'custom-select' } %>
+            <%= f.select :number_institutes_admitted, choices, {}, { class: '' } %>
           </div>
         </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step4">下一步</button>
-          <button type="button" class="btn btn-link step-navigate" data-target="#step2">上一步</button>
-        </div>
-      </fieldset>
+      </div>
+      <div class="survey-btn-row">
+        <button type="button" class="btn btn-primary float-right step-navigate main-btn" data-target="#step4">下一步</button>
+        <button type="button" class="btn btn-default step-navigate" data-target="#step2">上一步</button>
+      </div>
+    </fieldset>
 
-      <fieldset class="multi-step-form", id="step4">
-        <h4>步骤1：基本资料</h4>
-        <hr>
-        <h5>您能提供的分享信息有哪些？</h5>
+    <fieldset class="multi-step-form", id="step4">
+      <div class="head-sec">
+        <h2 class="main-heading">步骤4：基本资料</h2>
+      </div>
+      <div class="question-block">
+        <p class="survey-question">您能提供的分享信息有哪些？</p>
         <div class="form-group">
           <%= f.check_box :share_resume %>
           <%= f.label :share_resume, "个人简历" %>
@@ -156,16 +190,19 @@
           <%= f.check_box :share_course_essay %>
           <%= f.label :share_course_essay, "课堂文章" %>
         </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step5">下一步</button>
-          <button type="button" class="btn btn-link step-navigate" data-target="#step3">上一步</button>
-        </div>
-      </fieldset>
+      </div>
+      <div class="survey-btn-row">
+        <button type="button" class="btn btn-primary float-right step-navigate main-btn" data-target="#step5">下一步</button>
+        <button type="button" class="btn btn-default step-navigate" data-target="#step3">上一步</button>
+      </div>
+    </fieldset>
 
-      <fieldset class="multi-step-form", id="step5">
-        <h4>步骤1：基本资料</h4>
-        <hr>
-        <h5>学生可以和您联系的方式？</h5>
+    <fieldset class="multi-step-form", id="step5">
+      <div class="head-sec">
+        <h2 class="main-heading">步骤5：基本资料</h2>
+      </div>
+      <div class="question-block">
+        <p class="survey-question">学生可以和您联系的方式？</p>
         <div class="form-group">
           <%= f.check_box :contact_net_phone %>
           <%= f.label :contact_net_phone, "网络电话" %>
@@ -182,37 +219,45 @@
           <%= f.check_box :contact_in_person %>
           <%= f.label :contact_in_person, "当面交流" %>
         </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step6">下一步</button>
-          <button type="button" class="btn btn-link step-navigate" data-target="#step4">上一步</button>
-        </div>
-      </fieldset>
+      </div>
+      <div class="survey-btn-row">
+        <button type="button" class="btn btn-primary float-right step-navigate main-btn" data-target="#step6">下一步</button>
+        <button type="button" class="btn btn-default step-navigate" data-target="#step4">上一步</button>
+      </div>
+    </fieldset>
 
-      <fieldset class="multi-step-form", id="step6">
-        <h4>步骤2：装饰主页</h4>
-        <hr>
-        <h5>向学生展示一下您美丽的校园</h5>
+    <fieldset class="multi-step-form", id="step6">
+      <div class="head-sec">
+        <h2 class="main-heading">步骤6：装饰主页</h2>
+      </div>
+      <div class="question-block">
+        <p class="survey-question">向学生展示一下您美丽的校园</p>
         <p>
           拖拽上传功能还没实现
         </p>
-        <div class="form-group">
-          <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step7">下一步</button>
-          <button type="button" class="btn btn-link step-navigate" data-target="#step5">上一步</button>
-        </div>
-      </fieldset>
+      </div>
+      <div class="survey-btn-row">
+        <button type="button" class="btn btn-primary float-right step-navigate main-btn" data-target="#step7">下一步</button>
+        <button type="button" class="btn btn-default step-navigate" data-target="#step5">上一步</button>
+      </div>
+    </fieldset>
 
-      <fieldset class="multi-step-form", id="step7">
-        <h4>步骤2：装饰主页</h4>
-        <hr>
-        <h5>编辑描述</h5>
+    <fieldset class="multi-step-form", id="step7">
+      <div class="head-sec">
+        <h2 class="main-heading">步骤7：装饰主页</h2>
+      </div>
+      <div class="question-block">
+        <p class="survey-question">编辑描述</p>
         <div class="form-group row">
-          <%= f.label :suggestions_to_students, "简单概要", class: 'col-md-3 col-form-label' %>
-          <div class="col-md">
+          <%= f.label :suggestions_to_students, "简单概要", class: 'col-md-12 col-form-label' %>
+          <div class="col-md-12">
             <%= f.text_area :suggestions_to_students, rows: 5, class: 'form-control', placeholder: "请分享一下您对申请学生的建议，自己的心得等..." %>
           </div>
         </div>
-        <br>
-        <h5>我最适合申请</h5>
+      </div>
+      <hr/>
+      <div class="question-block">
+        <p class="survey-question">我最适合申请</p>
         <div class="form-group">
           <%= f.check_box :special_at_top_10 %>
           <%= f.label :special_at_top_10, "美国前10名大学" %>
@@ -225,28 +270,31 @@
           <%= f.check_box :special_at_top_30 %>
           <%= f.label :special_at_top_30, "美国前30名大学" %>
         </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-outline-success float-right step-navigate main-btn" data-target="#step8">下一步</button>
-          <button type="button" class="btn btn-link step-navigate" data-target="#step6">上一步</button>
-        </div>
-      </fieldset>
+      </div>
+      <div class="survey-btn-row">
+        <button type="button" class="btn btn-primary float-right step-navigate main-btn" data-target="#step8">下一步</button>
+        <button type="button" class="btn btn-default step-navigate" data-target="#step6">上一步</button>
+      </div>
+    </fieldset>
 
-      <fieldset class="multi-step-form", id="step8">
-        <h4>步骤2：装饰主页</h4>
-        <hr>
-        <h5>为自己的主页想个标题</h5>
-        <p>吸引人的标题更加展示自己的特点</p>
+    <fieldset class="multi-step-form", id="step8">
+      <div class="head-sec">
+        <h2 class="main-heading">步骤8：装饰主页</h2>
+      </div>
+      <div class="question-block">
+        <p class="survey-question">为自己的主页想个标题</p>
+        <p class="info">吸引人的标题更加展示自己的特点</p>
         <div class="form-group row">
-          <%= f.label :page_name, "主页名称", class: 'col-md-3 col-form-label' %>
-          <div class="col-md-4">
+          <%= f.label :page_name, "主页名称", class: 'col-md-12 col-form-label' %>
+          <div class="col-md-12">
             <%= f.text_field :page_name, class: 'form-control' %>
           </div>
         </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-outline-success float-right step-navigate main-btn submit">完成</button>
-          <button type="button" class="btn btn-link step-navigate" data-target="#step7">上一步</button>
-        </div>
-      </fieldset>
-    <% end %>
-  </div>
+      </div>
+      <div class="survey-btn-row">
+        <button type="button" class="btn btn-primary float-right step-navigate main-btn submit">完成</button>
+        <button type="button" class="btn btn-default step-navigate" data-target="#step7">上一步</button>
+      </div>
+    </fieldset>
+  <% end %>
 </div>
