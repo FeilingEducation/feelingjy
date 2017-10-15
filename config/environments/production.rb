@@ -66,8 +66,8 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  # config.action_mailer.default_url_options = { :host => 'localhost', :port => 3000 }
-
+  config.action_mailer.default_url_options = { :host => Rails.application.secrets.domain_name }
+  
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
@@ -98,7 +98,6 @@ Rails.application.configure do
       :user_name      => Rails.application.secrets.sendgrid_username,
       :password       => Rails.application.secrets.sendgrid_password,
       :domain         => Rails.application.secrets.domain_name,
-      :host         => Rails.application.secrets.domain_name,
       :enable_starttls_auto => true
   }
 
