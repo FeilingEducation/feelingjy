@@ -46,6 +46,9 @@
           <h6 class="dob-sub-heading">To sign up, you must be 18 or older.</h6>
           <%= f.date_select :dob, {start_year: (Date.today.year - 100), end_year: Date.today.year - 18, default: 18.years.ago}, {class: "form-control", placeholder: "Birthdate"} %>
         </div>
+        <div class="form-group tight-bottom terms-text">
+          <p> By signing up below, you are agreeing to our <%= link_to "terms", new_session_path(resource_name), remote: is_modal, class: "" %> and <%= link_to "privacy policy", new_session_path(resource_name), remote: is_modal, class: "" %></p>
+        </div>
         <div class="form-group tight-bottom">
           <%= f.submit "注册", class: "btn btn-block submit-btn" %>
         </div>
