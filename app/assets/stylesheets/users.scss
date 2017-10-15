@@ -30,7 +30,7 @@
   }
 }
 
-.signup-card{
+.custom-card{
   width: 500px;
   max-width: 500px;
   border: 1px solid #E0DBDB;
@@ -94,8 +94,8 @@
     background-color: #50BF9F;
     color: white;
     margin-bottom: 10px;
-    border-radius: 6px;
-    border: 0px;
+    // border-radius: 6px;
+    border-radius: 0px;
     margin: 10px 0;
     cursor: pointer;
   }
@@ -112,8 +112,8 @@
 }
 .modal-cross{
   position: absolute;
-  top: 5px;
-  left: 15px;
+  top: 10px;
+  right: 15px;
   cursor: pointer;
   img{
     width: 15px;
@@ -124,27 +124,28 @@
 input[type="text"],input[type="password"],input[type="email"], select, button{
   height: 43px;
   margin-bottom: 12px;
-  border-color: #AAA8A8;
-  border-radius: 6px;
+  border: 1px solid #AAA8A8;
+  // border-radius: 6px;
+  border-radius: 0px;
 }
-.signup-card select{
-  background-color: transparent;
-  color: #B6C1CD;
-  font-size: 15px;
-  font-weight: lighter;
-}
+// .signup-card select{
+//   background-color: transparent;
+//   color: #B6C1CD;
+//   font-size: 15px;
+//   font-weight: lighter;
+// }
 select#user_dob_1i{
   margin-right: 5px;
-  width: 90px;
+  width: 90px!important;
   display: inline-block;
 }
 select#user_dob_2i{
   width: 175px;
-  margin-right: 5px;
+  margin-right: 5px!important;
   display: inline-block;
 }
 select#user_dob_3i{
-  width: 58px;
+  width: 58px!important;
   display: inline-block;
 }
 
@@ -199,4 +200,47 @@ select#user_dob_3i{
       color: #E25F5F;
     }
   }
+}
+
+
+.mentor-survey{
+  .main-heading{
+    margin-bottom: 30px!important;
+  }
+  .sub-heading{
+    margin-bottom: 25px;
+  }
+  .question-block{
+    margin: 25px 0;
+
+    p{
+      color: #717070;
+      font-family: helvetica;
+      line-height: 20px;
+
+      &.survey-question{
+        font-size: 16px;
+      }
+      &.info{
+        font-size: 12px;
+        font-weight: lighter;
+      }
+    }
+    .form-group{
+      margin-bottom: 5px;
+
+      label{
+        font-size: 14px;
+        color: #717070;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .survey-btn-row{
+    margin-top: 40px;
+  }
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin-right: 10px;
 }

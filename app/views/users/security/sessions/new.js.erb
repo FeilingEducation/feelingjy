@@ -1,4 +1,5 @@
 $('#dialog .modal-title').html("帐号登录");
-$('#dialog .modal-dialog').removeClass('modal-lg').addClass('modal-sm');
+$('#dialog .modal-dialog').addClass('custom-card');
+$('#dialog .modal-header').remove();
 $('#dialog .modal-body').html('<%= j render(partial: 'sign_in', locals: { is_modal: true }) %>');
 show_or_update($('#dialog'));

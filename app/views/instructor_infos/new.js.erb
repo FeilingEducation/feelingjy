@@ -1,5 +1,7 @@
 <% # for modal only %>
 $('#dialog .modal-title').html("成为导师");
-$('#dialog .modal-dialog').removeClass('modal-sm').addClass('modal-lg');
+// $('#dialog .modal-dialog').removeClass('modal-sm').addClass('modal-lg');
+$('#dialog .modal-dialog').addClass('custom-card');
+$('#dialog .modal-header').remove();
 $('#dialog .modal-body').html('<%= j render(partial: 'survey') %>');
 show_or_update($('#dialog'));

@@ -1,10 +1,10 @@
 <% is_modal = false if local_assigns[:is_modal].nil? %>
 
 <% if local_assigns[:is_modal]%>
-  <button type="button" class="close modal-cross"
+  <div class="close modal-cross"
         data-dismiss="modal"
         aria-label="Close">
-        <div ><%= image_tag "multiply.png"%></div></button>
+        <%= image_tag "multiply.png"%></div>
 <%end%>
 
 <div class="form-wrapper <%= local_assigns[:is_modal] ? 'modal-wrapper' : ''%>">
