@@ -200,3 +200,41 @@ body {
     background-color: rgba(80, 191,159, .05);
   }
 }
+select{
+  background-color: #fff;
+  color: #B6C1CD;
+  font-size: 15px;
+  font-weight: lighter;
+  min-width: 100%;
+  min-height: 43px;
+  border-radius: 0px;
+  // -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  border: 1px solid #AAA8A8;
+}
+
+.multiselect-container > li {
+  &:hover{
+    background-color: rgba(80, 191,159, .05);
+  }
+  & > a > label {
+    padding: 5px 5px;
+    color: #B6C1CD;
+    font-size: 13px;
+    font-weight: lighter;
+  }
+}
+.multiselect{
+  &.btn-default{
+    background-color: #fff;
+    color: #B6C1CD;
+    min-width: 100%;
+    min-height: 43px;
+    border-radius: 0px;
+    border: 1px solid #AAA8A8;
+
+    &:hover{
+
+    }
+  }
+}

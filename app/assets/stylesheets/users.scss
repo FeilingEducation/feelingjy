@@ -94,8 +94,8 @@
     background-color: #50BF9F;
     color: white;
     margin-bottom: 10px;
-    border-radius: 6px;
-    border: 0px;
+    // border-radius: 6px;
+    border-radius: 0px;
     margin: 10px 0;
     cursor: pointer;
   }
@@ -124,15 +124,16 @@
 input[type="text"],input[type="password"],input[type="email"], select, button{
   height: 43px;
   margin-bottom: 12px;
-  border-color: #AAA8A8;
-  border-radius: 6px;
+  border: 1px solid #AAA8A8;
+  // border-radius: 6px;
+  border-radius: 0px;
 }
-.signup-card select{
-  background-color: transparent;
-  color: #B6C1CD;
-  font-size: 15px;
-  font-weight: lighter;
-}
+// .signup-card select{
+//   background-color: transparent;
+//   color: #B6C1CD;
+//   font-size: 15px;
+//   font-weight: lighter;
+// }
 select#user_dob_1i{
   margin-right: 5px;
   width: 90px;
@@ -232,14 +233,6 @@ select#user_dob_3i{
         font-size: 14px;
         color: #717070;
         margin-bottom: 0;
-      }
-
-      select{
-        background-color: transparent;
-        color: #B6C1CD;
-        font-size: 15px;
-        font-weight: lighter;
-        width: 100%;
       }
     }
   }
