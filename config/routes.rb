@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   devise_for :users, path: 'users/security', controllers: {
     passwords: 'users/security/passwords',
     registrations: 'users/security/registrations',
-    sessions: 'users/security/sessions'
+    sessions: 'users/security/sessions',
+    confirmations: 'users/security/confirmations'
   }
 
 end
