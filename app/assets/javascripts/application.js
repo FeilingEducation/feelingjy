@@ -107,10 +107,11 @@ $(document).on('click', '.editable', function() {
   // Rails expects model_name[field_name] as the "name" field of a form input for
   // fields with a model.
   var model_name = $this.data('model') ? $this.data('model') + '[' + $this.data('name') + ']' : $this.data('name');
-  // The form in the modal is cloned from a hidden #template-form rendered at the
-  // bottom of the page so the authentication token is automatically managed.
-  // However, authentication problem still occurs in some cases which needs investigation.
-  var $form = $('#template-form').clone().removeAttr('id').css('display', 'block');
+  var token = $('input[name="authenticity_token"][value][value!=""]').attr('value');
+  var $form = $('<form accept-charset="UTF-8" method="post">'+
+                  '<input name="utf8" type="hidden" value="✓">'+
+                  '<input type="hidden" name="authenticity_token" value="'+token+'">'+
+                '</form>');
   if ($this.data('action')) {
     $form.attr('action', $this.data('action'));
   }
