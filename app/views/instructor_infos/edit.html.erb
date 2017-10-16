@@ -290,5 +290,5 @@
     </div>
   </div>
 </div>
-<% modal = render partial: 'instructor_infos/message_box', locals: { instructor_info: @instructor_info } %>
+<% modal = render partial: 'messages/message_box', locals: { other: @instructor_info.user_info } %>
 <%= render partial: 'dialog', locals: { id: 'message-box', title: '与我联系', body: modal, size: 'lg' } %>

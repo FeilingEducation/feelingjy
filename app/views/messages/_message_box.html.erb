@@ -1,35 +1,51 @@
+<% message_history = [] if local_assigns[:message_history].nil? %>
 <div class="message-box">
   <div class="row" style="height:300px;">
     <div class="col-3">
       <div>
-        <%= image_tag profile_image_of(instructor_info), class: 'w-100' %>
+        <%= image_tag profile_image_of(other), class: 'w-100' %>
         <div style="text-align:center">
-          <h5><%= instructor_info.full_name %></h5>
+          <h5><%= other.full_name %></h5>
         </div>
       </div>
-      <div class="fs-80">
-        <strong>请提供以下信息:</strong>
-        <ul>
-          <li>
-            申请目标
-          </li>
-          <li>
-            可安排时间(包含时区)
-          </li>
-          <li>
-            相关文件
-          </li>
-        </ul>
-      </div>
+      <% unless other.instructor_info.nil? %>
+        <div class="fs-80">
+          <strong>请提供以下信息:</strong>
+          <ul>
+            <li>
+              申请目标
+            </li>
+            <li>
+              可安排时间(包含时区)
+            </li>
+            <li>
+              相关文件
+            </li>
+          </ul>
+        </div>
+      <% end %>
     </div>
     <div class="col-9">
       <div class="message-history">
+        <% for message in message_history do %>
+          <% next if message.content.empty? %>
+          <div class="message">
+            <span class="fs-120 d-block"><strong><%= message.sender.full_name %></strong></span>
+            <span class="fs-80 d-block">Posted on: <%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></span>
+            <p class="mb-1"><%= message.content %></p>
+            <% for attachment in message.attachments do %>
+              <div class="attachment">
+                <a href="<%= attachment.file.url %>" target="_blank"><%= attachment.read_attribute(:file) %></a>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-9 ml-auto">
-      <% msg = Message.new(receiver_id: @instructor_info.id) %>
+      <% msg = Message.new(receiver_id: other.id) %>
       <%= form_with model: msg, class: 'message-form', data: { type: 'json' } do |f| %>
         <div class="form-group">
           <%= f.hidden_field :receiver_id %>

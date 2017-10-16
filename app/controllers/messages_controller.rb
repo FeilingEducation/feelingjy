@@ -2,7 +2,20 @@ class MessagesController < AuthenticatedResourcesController
 
   def index
     @user_info = current_user.user_info
-    @latest_messages = Message.where(receiver_id: current_user.id).order(created_at: :desc).limit(10)
+    received = Message.where(receiver_id: current_user.id)
+    sent_contacts = received.group_by {|m| m.sender}
+    sent = Message.where(sender_id: current_user.id)
+    received_contacts = sent.group_by {|m| m.receiver}
+    @grouped_msgs = sent_contacts
+    for contact, msgs in received_contacts do
+      if @grouped_msgs.key?(contact)
+        @grouped_msgs[contact] += msgs
+      else
+        @grouped_msgs[contact] = msgs
+      end
+      @grouped_msgs[contact].sort_by! {|m| m.created_at}
+    end
+    @contacts = @grouped_msgs.keys.sort_by {|c| @grouped_msgs[c][-1].created_at}.reverse
   end
 
   # Create a message and associate all attachments with itself.
