@@ -19,23 +19,34 @@
 }
 
 .mentor-survey{
-  min-height: 500px;
+  min-height: 800px;
+  color: #717070;
 
   .head-sec{
-    h2.main-heading{
-      font-size: 34px;
-      font-family: helvetica;
-      color: #4A4A4A;
-      // text-align: center;
-      margin-bottom: 25px;
-    }
 
-    h6.sub-heading{
+    h2.main-heading{
+      font-size: 40px;
       font-family: helvetica;
-      font-size: 14px;
       color: #717070;
-      line-height: 20px;
-      margin-bottom: 30px;
+      margin: 30px 0px 60px 0px;
+      line-height: 50px;
     }
+  }
+
+  p{
+    font-family: helvetica;
+    font-size: 17px;
+    color: #717070;
+    line-height: 20px;
+    margin-bottom: 30px;
+  }
+
+  .survey-question{
+    font-size: 24px;
+    color: #717070
+  }
+
+  .survey-btn-row{
+    margin-top: 80px;
   }
 }

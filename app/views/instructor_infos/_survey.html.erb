@@ -3,45 +3,96 @@
   <%= form_with model: @instructor_info, url: instructor_info_path, method: 'post', html: { role: 'form' } do |f| %>
 
   <div class='multi-step-form current-step' id="step0">
-    <div class="col-md-6">
-      <fieldset class="">
-        <div class="head-sec">
-          <h2 class="main-heading">
-            <!-- 在注册成为飞灵导师之前 -->
-            Before Becoming a Tutor on Feiling
-          </h2>
-          <h6 class="sub-heading">
+    <div class="col-md-8">
+      <fieldset class="row">
+        <div class="col-md-12">
+          <div class="head-sec">
+            <h2 class="main-heading">
+              <!-- 在注册成为飞灵导师之前 -->
+              Before Becoming a Tutor on Feiling
+            </h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <p>
             <!-- 因为曾经想去改变世界但发现自己的能力实在有限，所以成立飞灵是带有使命感的。我想作为留学生的您和我们团队的成员都抱着一份改善留学申请生态环境的心在做这样一件伟大的事。 -->
             Feiling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper.
-          </h6>
-          <h6 class="sub-heading">
+          </p>
+          <p>
             <!-- 不论何时，赚钱都不能与改变一个人的命运相提并论，我们每人多付出的一份力也许就在不经意间改变着这个世界。 -->
             Making tasteful product is the core principle to develop this platform and the main reason to make it work is to make you, my dear tutors to succeed on the platform. The more successful you are, the more meaningful it is for us.
-          </h6>
-          <h6 class="sub-heading">
+          </p>
+          <p>
             <!-- 曾经想去改变世界，但发现原来改变世界就在此时此刻，您愿意一同与我们让留学市场变得更纯洁干净吗？ -->
             We would do our best to give you the best user experience and make money in the easiest way!
-          </h6>
-        </div>
-        <div class="survey-btn-row">
-          <button type="button" class="btn btn-primary float-left step-navigate main-btn" data-target="#step1">
-            <!-- 我愿意 -->
-            I Agree
-          </button>
-          <button type="button" class="btn btn-default step-navigate float-right" data-target="#">
-            <!-- 我拒绝 -->
-            Nope
-          </button>
+          </p>
+
+          <div class="survey-btn-row">
+            <button type="button" class="btn btn-primary float-left step-navigate main-btn" data-target="#step1">
+              <!-- 我愿意 -->
+              I Agree
+            </button>
+            <button type="button" class="btn btn-default step-navigate float-right" data-target="#">
+              <!-- 我拒绝 -->
+              Nope
+            </button>
+          </div>
         </div>
       </fieldset>
     </div>
   </div>
 
   <div class='multi-step-form' id="step1">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <fieldset class="">
-        <div class="head-sec">
-          <h2 class="main-heading">步骤1：基本资料</h2>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="head-sec">
+              <h2 class="main-heading">Dear <%= current_user.user_info.first_name%>, let's get started on your profile page.</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="question-block">
+              <p class="survey-question">Which school are you from? </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= f.select :university, InstructorInfo.universities_as_optons, {}, { class: '' } %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= f.select :specialization, InstructorInfo.spcializations_as_optons, {}, { class: '' } %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= f.select :degree_completed, InstructorInfo.degree_as_optons, {}, { class: '' } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="survey-btn-row">
+              <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step0">上一步</button>
+              <button type="button" class="btn btn-primary pull-left step-navigate main-btn" data-target="#step2">下一步</button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class='multi-step-form' id="step11">
+    <div class="col-md-8">
+      <fieldset class="row">
+        <div class="col-md-12">
+          <div class="head-sec">
+            <h2 class="main-heading">步骤1：基本资料</h2>
+          </div>
         </div>
         <div class="question-block">
           <p class="survey-question"> 您打算申请什么类型的导师？</p>
