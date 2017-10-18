@@ -44,7 +44,7 @@
         </li>
         <% if can_apply_for_instructor? %>
           <li class="nav-item">
-            <%= link_to "申请成为导师", new_instructor_info_path, remote: true, class: "nav-link" %>
+            <%= link_to "申请成为导师", new_instructor_info_path, class: "nav-link" %>
           </li>
         <% end %>
         <% if user_is_instructor? %>

@@ -17,3 +17,25 @@
   border-radius: $border-width;
   margin: 0 1rem 1rem calc(1rem - #{$border-width});
 }
+
+.mentor-survey{
+  min-height: 500px;
+
+  .head-sec{
+    h2.main-heading{
+      font-size: 34px;
+      font-family: helvetica;
+      color: #4A4A4A;
+      // text-align: center;
+      margin-bottom: 25px;
+    }
+
+    h6.sub-heading{
+      font-family: helvetica;
+      font-size: 14px;
+      color: #717070;
+      line-height: 20px;
+      margin-bottom: 30px;
+    }
+  }
+}
