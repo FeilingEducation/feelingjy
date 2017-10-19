@@ -1,3 +1,4 @@
+<%lang = 'en'%>
 <div class="form-wrapper mentor-survey">
 
   <%= form_with model: @instructor_info, url: instructor_info_path, method: 'post', html: { role: 'form' } do |f| %>
@@ -60,19 +61,19 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <%= f.select :university, InstructorInfo.universities_as_optons, {}, { class: '' } %>
+                      <%= f.select :university, InstructorInfo.universities_as_optons(lang), {}, { class: '' } %>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <%= f.select :specialization, InstructorInfo.spcializations_as_optons, {}, { class: '' } %>
+                      <%= f.select :specialization, InstructorInfo.spcializations_as_optons(lang), {}, { class: '' } %>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.select :degree_completed, InstructorInfo.degree_as_optons, {}, { class: '' } %>
+                      <%= f.select :degree_completed, InstructorInfo.degree_as_optons(lang), {}, { class: '' } %>
                     </div>
                   </div>
                 </div>
@@ -108,30 +109,30 @@
                   <div class="col-md-8">
                     <div class="form-group">
                       <%= f.label :consulting_tutor, "Become a consulting tutor?" %>
-                      <%= f.select :consulting_tutor, InstructorInfo.tutor_options, {}, { class: '' } %>
+                      <%= f.select :consulting_tutor, InstructorInfo.tutor_options(lang), {}, { class: '' } %>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="form-group">
                       <%= f.label :brainstorming_tutor, "Become a brainstorming tutor?" %>
-                      <%= f.select :brainstorming_tutor, InstructorInfo.tutor_options, {}, { class: '' } %>
+                      <%= f.select :brainstorming_tutor, InstructorInfo.tutor_options(lang), {}, { class: '' } %>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="form-group">
                       <%= f.label :writing_tutor, "Become a writing tutor?" %>
-                      <%= f.select :writing_tutor, InstructorInfo.tutor_options, {}, { class: '' } %>
+                      <%= f.select :writing_tutor, InstructorInfo.tutor_options(lang), {}, { class: '' } %>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="form-group">
                       <%= f.label :visa_consultant, "Become a visa consulting tutor?" %>
-                      <%= f.select :visa_consultant, InstructorInfo.tutor_options, {}, { class: '' } %>
+                      <%= f.select :visa_consultant, InstructorInfo.tutor_options(lang), {}, { class: '' } %>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-8">
                     <label>Have you helped others before?</label>
                     <div class="radio-btns">
                       <label><%= f.radio_button :helped_before, true %>Yes, I have helped others before</label>
@@ -143,8 +144,12 @@
                 </div>
               </div>
               <div class="survey-btn-row">
-                <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step1">上一步</button>
-                <button type="button" class="btn btn-primary step-navigate main-btn pull-left" data-target="#step3">下一步</button>
+                <div class="row">
+                  <div class="col-md-8">
+                    <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step1">上一步</button>
+                    <button type="button" class="btn btn-primary step-navigate main-btn pull-left" data-target="#step3">下一步</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -153,6 +158,54 @@
     </div>
   </div>
 
+
+    <div class='multi-step-form' id="step3">
+      <div class="row">
+        <div class="col-md-6 left-panel">
+          <fieldset class="">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="question-block">
+                  <p class="survey-question">How many schooles have you applied before?</p>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <% InstructorInfo.schools_applied_before_options(lang).each do |option| %>
+                        <div class="radio-btns">
+                          <label><%= f.radio_button :number_institutes_applied, option[1] %> <%= option[0]%></label>
+                        </div>
+                      <%end%>
+                    </div>
+                  </div>
+
+                  <div class="question-block">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <p class="survey-question">How many schools have you been accepted?</p>
+                        <div class="row">
+                          <div class="col-md-7">
+                            <div class="form-group">
+                              <%= f.select :number_institutes_admitted, InstructorInfo.schools_applied_before_options(lang), {}, { class: '' } %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="survey-btn-row">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step1">上一步</button>
+                      <button type="button" class="btn btn-primary step-navigate main-btn pull-left" data-target="#step3">下一步</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
   <div class='multi-step-form' id="step11">
     <div class="col-md-8">
       <fieldset class="row">
@@ -244,7 +297,7 @@
     </div>
   </div>
 
-  <div class='multi-step-form' id="step3">
+  <div class='multi-step-form' id="step13">
     <div class="col-md-8">
       <fieldset class="">
         <div class="head-sec">

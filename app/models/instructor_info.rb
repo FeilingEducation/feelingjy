@@ -23,6 +23,9 @@ class InstructorInfo < ApplicationRecord
   TUTOR_OPTIONS_ENGLISH = ['Yes, I can do this', 'No, I can\'t do this']
   TUTOR_OPTIONS_CHINES = ['Yes, I can do this', 'No, I can\'t do this']
 
+  SCHOOLS_APPLIED_BEFORE_ENGLISH = ['One', 'Two','Three', 'Four', 'Five or more']
+  SCHOOLS_APPLIED_BEFORE_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+
   def resumes
     self.attachments.where(file_type: 'resume')
   end
@@ -41,5 +44,9 @@ class InstructorInfo < ApplicationRecord
 
   def self.tutor_options local='en'
     (local == 'en' ? TUTOR_OPTIONS_ENGLISH : TUTOR_OPTIONS_CHINES).each_with_index.map {|m,i| [m,i]}
+  end
+
+  def self.schools_applied_before_options local='en'
+    (local == 'en' ? SCHOOLS_APPLIED_BEFORE_ENGLISH : SCHOOLS_APPLIED_BEFORE_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 end
