@@ -20,6 +20,9 @@ class InstructorInfo < ApplicationRecord
   DEGREE_COMPLETED_ENGLISH = ['First year graduate student','Second year graduate student', 'Third year graduate student', 'Final year graduate student', 'Complete Degree']
   DEGREE_COMPLETED_CHINESE = ['First year graduate student','Second year graduate student', 'Third year graduate student', 'Final year graduate student', 'Complete Degree']
 
+  TUTOR_OPTIONS_ENGLISH = ['Yes, I can do this', 'No, I can\'t do this']
+  TUTOR_OPTIONS_CHINES = ['Yes, I can do this', 'No, I can\'t do this']
+
   def resumes
     self.attachments.where(file_type: 'resume')
   end
@@ -36,4 +39,7 @@ class InstructorInfo < ApplicationRecord
     (local == 'en' ? DEGREE_COMPLETED_ENGLISH : DEGREE_COMPLETED_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
+  def self.tutor_options local='en'
+    (local == 'en' ? TUTOR_OPTIONS_ENGLISH : TUTOR_OPTIONS_CHINES).each_with_index.map {|m,i| [m,i]}
+  end
 end

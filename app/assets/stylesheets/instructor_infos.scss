@@ -49,6 +49,15 @@
   .survey-btn-row{
     margin-top: 80px;
   }
+  label{
+    font-size: 20px;
+    color: #707171;
+  }
+  .radio-btns{
+    label{
+      font-size: 16px;
+    }
+  }
 
   .right-panel{
     .green-box{
@@ -73,7 +82,7 @@
       &.elepahnt{
         width: 270px;
         margin: 100px auto;
-        padding: 30px;
+        padding: 20px;
         height: 170px;
       }
     }
