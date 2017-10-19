@@ -11,11 +11,11 @@
 #
 default: &default
   adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: feelingjy_admin
-  password: password
-  host: localhost
+  encoding: utf8
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # username: root
+  # password:
+  # socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
@@ -49,5 +49,5 @@ test:
 #
 production:
   <<: *default
-  database: feelingjy_production
-  password: <%= ENV['FEELINGJY_DATABASE_PASSWORD'] %>
+  database: feelingjy_development
+  # password: <%= ENV['FEELINGJY_DATABASE_PASSWORD'] %>
