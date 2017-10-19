@@ -59,3 +59,6 @@ gem 'mini_magick'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'pg'
+
+gem 'city-state'
+gem 'select2-rails'

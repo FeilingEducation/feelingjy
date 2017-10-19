@@ -19,6 +19,7 @@
 //= require jquery.ui.widget
 //= require jquery.fileupload
 //= require turbolinks
+//= require select2
 //= require_tree .
 
 // convert the formdata into an object

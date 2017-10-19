@@ -49,4 +49,16 @@ class InstructorInfo < ApplicationRecord
   def self.schools_applied_before_options local='en'
     (local == 'en' ? SCHOOLS_APPLIED_BEFORE_ENGLISH : SCHOOLS_APPLIED_BEFORE_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
+
+  def self.countries_as_options
+    CS.countries.map {|key, val| [val, key]}
+  end
+
+  def self.default_states_as_options
+    CS.states(:CN).map {|key, val| [val, key]}
+  end
+
+  def self.default_cities_as_options
+    CS.cities(:"11", :CN)
+  end
 end

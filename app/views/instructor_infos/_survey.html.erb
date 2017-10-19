@@ -159,53 +159,104 @@
   </div>
 
 
-    <div class='multi-step-form' id="step3">
-      <div class="row">
-        <div class="col-md-6 left-panel">
-          <fieldset class="">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="question-block">
-                  <p class="survey-question">How many schooles have you applied before?</p>
-                  <div class="row">
-                    <div class="col-md-8">
-                      <% InstructorInfo.schools_applied_before_options(lang).each do |option| %>
-                        <div class="radio-btns">
-                          <label><%= f.radio_button :number_institutes_applied, option[1] %> <%= option[0]%></label>
-                        </div>
-                      <%end%>
-                    </div>
-                  </div>
-
-                  <div class="question-block">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <p class="survey-question">How many schools have you been accepted?</p>
-                        <div class="row">
-                          <div class="col-md-7">
-                            <div class="form-group">
-                              <%= f.select :number_institutes_admitted, InstructorInfo.schools_applied_before_options(lang), {}, { class: '' } %>
-                            </div>
-                          </div>
-                        </div>
+  <div class='multi-step-form' id="step3">
+    <div class="row">
+      <div class="col-md-6 left-panel">
+        <fieldset class="">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="question-block">
+                <p class="survey-question">How many schooles have you applied before?</p>
+                <div class="row">
+                  <div class="col-md-8">
+                    <% InstructorInfo.schools_applied_before_options(lang).each do |option| %>
+                      <div class="radio-btns">
+                        <label><%= f.radio_button :number_institutes_applied, option[1] %> <%= option[0]%></label>
                       </div>
-                    </div>
+                    <%end%>
                   </div>
                 </div>
-                <div class="survey-btn-row">
+              </div>
+
+              <div class="question-block">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <%= f.label :number_institutes_admitted, "How many schools have you been accepted?" %>
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="col-md-7">
-                      <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step1">上一步</button>
-                      <button type="button" class="btn btn-primary step-navigate main-btn pull-left" data-target="#step3">下一步</button>
+                      <%= f.select :number_institutes_admitted, InstructorInfo.schools_applied_before_options(lang), {}, { class: '' } %>
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="survey-btn-row">
+                <div class="row">
+                  <div class="col-md-7">
+                    <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step1">上一步</button>
+                    <button type="button" class="btn btn-primary step-navigate main-btn pull-left" data-target="#step4">下一步</button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </fieldset>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class='multi-step-form' id="step4">
+    <div class="row">
+      <div class="col-md-6 left-panel">
+        <fieldset class="">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="question-block">
+                <p class="survey-question">Where are you from? </p>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.label :country, 'Country' %>
+                      <%= f.select :country, InstructorInfo.countries_as_options, {}, { class: 'select2 country' } %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.label :state, 'State / Province' %>
+                      <%= f.select :state, InstructorInfo.default_states_as_options, {}, { class: 'select2 state' } %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.label :city, 'City' %>
+                      <%= f.select :city, InstructorInfo.default_cities_as_options, {}, { class: 'select2 city' } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="survey-btn-row">
+                <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step0">上一步</button>
+                <button type="button" class="btn btn-primary step-navigate main-btn pull-left" data-target="#step2">下一步</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="col-md-4 right-panel">
+        <div class="green-box elepahnt">
+          <%= image_tag "registration/step7_elephent.png"%>
+          <p>You could earn</p>
+          <p class="bold-text">¥ 688</p>
         </div>
       </div>
     </div>
+  </div>
+
   <div class='multi-step-form' id="step11">
     <div class="col-md-8">
       <fieldset class="row">
@@ -297,49 +348,7 @@
     </div>
   </div>
 
-  <div class='multi-step-form' id="step13">
-    <div class="col-md-8">
-      <fieldset class="">
-        <div class="head-sec">
-          <h2 class="main-heading">步骤3：基本资料</h2>
-        </div>
-        <div class="question-block">
-          <p class="survey-question">您自己申请过几所学校？</p>
-          <div class="form-group">
-            <label><%= f.radio_button :number_institutes_applied, "1" %> 1所学校</label>
-          </div>
-          <div class="form-group">
-            <label><%= f.radio_button :number_institutes_applied, "2" %> 2所学校</label>
-          </div>
-          <div class="form-group">
-            <label><%= f.radio_button :number_institutes_applied, "3" %> 3所学校</label>
-          </div>
-          <div class="form-group">
-            <label><%= f.radio_button :number_institutes_applied, "4" %> 4所学校</label>
-          </div>
-          <div class="form-group">
-            <label><%= f.radio_button :number_institutes_applied, "-1" %> 5所学校或以上</label>
-          </div>
-        </div>
-        <hr/>
-        <div class="question-block">
-          <p class="survey-question">录取其中多少所学校？</p>
-          <% choices = [["1所学校",1],["2所学校",2],["3所学校",3],["4所学校",4],["全部录取",-1]] %>
-          <div class="form-group row">
-            <div class="col-md">
-              <%= f.select :number_institutes_admitted, choices, {}, { class: '' } %>
-            </div>
-          </div>
-        </div>
-        <div class="survey-btn-row">
-          <button type="button" class="btn btn-primary float-right step-navigate main-btn" data-target="#step4">下一步</button>
-          <button type="button" class="btn btn-default step-navigate" data-target="#step2">上一步</button>
-        </div>
-      </fieldset>
-    </div>
-  </div>
-
-  <div class='multi-step-form' id="step4">
+  <div class='multi-step-form' id="step14">
     <div class="col-md-8">
       <fieldset class="">
         <div class="head-sec">

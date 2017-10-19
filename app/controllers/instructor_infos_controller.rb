@@ -1,7 +1,7 @@
 class InstructorInfosController < AuthenticatedResourcesController
 
-  before_action :check_user_info_initialized
-  before_action :check_instructor_info_initialized
+  before_action :check_user_info_initialized, except: [:states, :cities]
+  before_action :check_instructor_info_initialized, except: [:states, :cities]
 
   # Notice that there is no index or show action for this controller.
   # Those are handled by the user_info controller depending on if the current_user
@@ -43,6 +43,14 @@ class InstructorInfosController < AuthenticatedResourcesController
     InstructorInfo.destroy(current_user.id)
     flash[:notice] = 'Instructor account closed successfully'
     redirect_to(user_info_path)
+  end
+
+  def states
+    render json: CS.states(params[:country]).to_json
+  end
+
+  def cities
+    render json: CS.cities(params[:state], params[:country]).to_json
   end
 
   private

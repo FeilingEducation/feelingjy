@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   get 'search', to: 'search#index'
 
   resource :user_info, path: 'account', except: [:destroy]
-  resource :instructor_info, path: 'instructor', only: [:new, :create, :edit, :update, :destroy]
+  resource :instructor_info, path: 'instructor', only: [:new, :create, :edit, :update, :destroy] do
+    collection do
+      get 'states'
+      get 'cities'
+    end
+  end
   resources :profiles, only: [:show]
   resources :consult_transactions, path: 'transactions', except: [:edit, :new]
   post 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
