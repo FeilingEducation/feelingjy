@@ -64,6 +64,13 @@
     margin-bottom: 30px;
   }
 
+  .check_boxes{
+    label{
+      font-size: 16px;
+      color: #717070;
+    }
+  }
+
   .right-panel{
     .green-box{
       background-color: #BCE9DC;
@@ -93,7 +100,7 @@
     }
   }
 }
-
+// Select 2 customizations
 .select2.select2-container{
   width: 100%!important;
 

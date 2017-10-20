@@ -212,7 +212,7 @@
       <div class="col-md-6 left-panel">
         <fieldset class="">
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-8">
               <div class="question-block">
                 <p class="survey-question">Where are you from? </p>
                 <div class="row">
@@ -239,23 +239,90 @@
                 </div>
               </div>
               <div class="survey-btn-row">
-                <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step0">上一步</button>
-                <button type="button" class="btn btn-primary step-navigate main-btn pull-left" data-target="#step2">下一步</button>
+                <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step3">上一步</button>
+                <button type="button" class="btn btn-primary step-navigate main-btn pull-left" data-target="#step5">下一步</button>
               </div>
             </div>
           </div>
         </fieldset>
       </div>
+    </div>
+  </div>
 
-      <div class="col-md-4 right-panel">
-        <div class="green-box elepahnt">
-          <%= image_tag "registration/step7_elephent.png"%>
-          <p>You could earn</p>
-          <p class="bold-text">¥ 688</p>
-        </div>
+  <div class='multi-step-form' id="step5">
+    <div class="row">
+      <div class="col-md-6 left-panel">
+        <fieldset class="">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="question-block check_boxes">
+                <p class="survey-question">What informatin can you share to students?</p>
+                <div class="form-group">
+                  <%= f.check_box :share_resume %>
+                  <%= f.label :share_resume, "Personal CV" %>
+                </div>
+                <div class="form-group">
+                  <%= f.check_box :share_application_essay %>
+                  <%= f.label :share_application_essay, "Application Letter" %>
+                </div>
+                <div class="form-group">
+                  <%= f.check_box :share_offer_letter %>
+                  <%= f.label :share_offer_letter, "Offer Letter" %>
+                </div>
+                <div class="form-group">
+                  <%= f.check_box :share_gpa %>
+                  <%= f.label :share_gpa, "GPA" %>
+                </div>
+                <div class="form-group">
+                  <%= f.check_box :share_gre_score %>
+                  <%= f.label :share_gre_score, "GRE Score" %>
+                </div>
+                <div class="form-group">
+                  <%= f.check_box :share_paper %>
+                  <%= f.label :share_paper, "Published paper" %>
+                </div>
+                <div class="form-group">
+                  <%= f.check_box :share_course_essay %>
+                  <%= f.label :share_course_essay, "Essay from classes" %>
+                </div>
+              </div>
+              <div class="survey-btn-row">
+                <div class="row">
+                  <div class="col-md-7">
+                    <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step4">上一步</button>
+                    <button type="button" class="btn btn-primary step-navigate main-btn pull-left" data-target="#step6">下一步</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
       </div>
     </div>
   </div>
+
+  <div class='multi-step-form' id="step6">
+    <div class="row">
+      <div class="col-md-6 left-panel">
+        <fieldset>
+          <div class="row">
+            <div class="col-md-12">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="col-md-6 right-panel">
+        <fieldset>
+          <div class="row">
+            <div class="col-md-12">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
 
   <div class='multi-step-form' id="step11">
     <div class="col-md-8">
@@ -393,7 +460,7 @@
     </div>
   </div>
 
-  <div class='multi-step-form' id="step5">
+  <div class='multi-step-form' id="step15">
     <div class="col-md-8">
       <fieldset class="">
         <div class="head-sec">
@@ -426,7 +493,7 @@
     </div>
   </div>
 
-  <div class='multi-step-form' id="step6">
+  <div class='multi-step-form' id="step16">
     <div class="col-md-8">
       <fieldset class="">
         <div class="head-sec">
