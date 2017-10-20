@@ -19,7 +19,7 @@
 }
 
 .mentor-survey{
-  min-height: 800px;
+  min-height: 600px;
   color: #717070;
 
   .head-sec{
@@ -68,6 +68,90 @@
     label{
       font-size: 16px;
       color: #717070;
+    }
+  }
+
+  .review-step{
+    hr{
+      margin: 40px 0;
+    }
+    .head-sec{
+      .main-heading{
+        margin-bottom: 25px;
+
+      }
+      .sub-heading{
+        color: #AAA8A8;
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
+    }
+    p.sub-heading{
+      font-size: 16px;
+      color: #4A4A4A;
+      margin-bottom: 20px;
+    }
+    .modify-link{
+      color: #50BF9F;
+      cursor: pointer;
+    }
+    .tick-success{
+      img{
+        width: 37px;
+      }
+    }
+
+    .disable-block{
+      p.sub-heading{
+        color: #AAA8A8;
+        font-size: 16px;
+
+        &.first{
+          font-size: 20px;
+        }
+      }
+      .head-sec{
+        .sub-heading{
+          font-size: 20px;
+        }
+      }
+    }
+
+    .right-panel{
+      .painting-img{
+        width: 450px;
+      }
+      .painting-box{
+        background-color: #F2F2F2;
+        height: 125px;
+        // box-shadow: 0 4px 2px -2px #F2F2F2;
+        background: asset_url("registration/hr-rate-bg.png");
+        background-size: contain;
+        width: 425px;
+        background-repeat: no-repeat;
+        padding: 15px 30px;
+        margin: 0 4px;
+
+        img{
+          max-width: 40px;
+        }
+
+        p{
+          font-size: 16px;
+          margin: 15px 0 5px 0;
+        }
+
+        p.bold-text{
+          font-size: 24px;
+          margin: 10px 0 5px 0;
+          color: #4A4A4A;
+        }
+
+        &.elepahnt{
+          padding: 20px 30px;
+          height: 170px;
+        }
+      }
     }
   }
 
@@ -131,4 +215,16 @@
 .select2-container--default .select2-results__option[aria-selected=true]{
   background-color: rgba(227,95,95,.6)!important;
   color: #fff!important;
+}
+.progress{
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  z-index: 99999;
+  height: 20px;
+
+  .progress-bar{
+    background-color: #50BF9F!important;
+    height: 20px;
+  }
 }

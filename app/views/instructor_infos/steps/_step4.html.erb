@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-6 left-panel">
+    <fieldset class="">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="question-block">
+            <p class="survey-question">Where are you from? </p>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :country, 'Country' %>
+                  <%= f.select :country, InstructorInfo.countries_as_options, {}, { class: 'select2 country' } %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.label :state, 'State / Province' %>
+                  <%= f.select :state, InstructorInfo.default_states_as_options, {}, { class: 'select2 state' } %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.label :city, 'City' %>
+                  <%= f.select :city, InstructorInfo.default_cities_as_options, {}, { class: 'select2 city' } %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="survey-btn-row">
+            <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step3">上一步</button>
+            <button type="button" class="btn btn-primary step-navigate main-btn pull-left next"  data-percentage='75%' data-target="#step5">下一步</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

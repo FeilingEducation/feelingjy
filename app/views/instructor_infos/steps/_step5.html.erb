@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-6 left-panel">
+    <fieldset class="">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="question-block check_boxes">
+            <p class="survey-question">What informatin can you share to students?</p>
+            <div class="">
+              <%= f.check_box :share_resume %>
+              <%= f.label :share_resume, "Personal CV" %>
+            </div>
+            <div class="">
+              <%= f.check_box :share_application_essay %>
+              <%= f.label :share_application_essay, "Application Letter" %>
+            </div>
+            <div class="">
+              <%= f.check_box :share_offer_letter %>
+              <%= f.label :share_offer_letter, "Offer Letter" %>
+            </div>
+            <div class="">
+              <%= f.check_box :share_gpa %>
+              <%= f.label :share_gpa, "GPA" %>
+            </div>
+            <div class="">
+              <%= f.check_box :share_gre_score %>
+              <%= f.label :share_gre_score, "GRE Score" %>
+            </div>
+            <div class="">
+              <%= f.check_box :share_paper %>
+              <%= f.label :share_paper, "Published paper" %>
+            </div>
+            <div class="">
+              <%= f.check_box :share_course_essay %>
+              <%= f.label :share_course_essay, "Essay from classes" %>
+            </div>
+          </div>
+          <div class="survey-btn-row">
+            <div class="row">
+              <div class="col-md-7">
+                <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step4">上一步</button>
+                <button type="button" class="btn btn-primary step-navigate main-btn pull-left next" data-percentage='100%' data-target="#step6">下一步</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
