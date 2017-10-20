@@ -61,19 +61,19 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <%= f.select :university, InstructorInfo.universities_as_optons(lang), {}, { class: '' } %>
+                      <%= f.select :university, InstructorInfo.universities_as_optons(lang), {}, { class: 'select2' } %>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <%= f.select :specialization, InstructorInfo.spcializations_as_optons(lang), {}, { class: '' } %>
+                      <%= f.select :specialization, InstructorInfo.spcializations_as_optons(lang), {}, { class: 'select2' } %>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.select :degree_completed, InstructorInfo.degree_as_optons(lang), {}, { class: '' } %>
+                      <%= f.select :degree_completed, InstructorInfo.degree_as_optons(lang), {}, { class: 'select2' } %>
                     </div>
                   </div>
                 </div>
@@ -109,25 +109,25 @@
                   <div class="col-md-8">
                     <div class="form-group">
                       <%= f.label :consulting_tutor, "Become a consulting tutor?" %>
-                      <%= f.select :consulting_tutor, InstructorInfo.tutor_options(lang), {}, { class: '' } %>
+                      <%= f.select :consulting_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="form-group">
                       <%= f.label :brainstorming_tutor, "Become a brainstorming tutor?" %>
-                      <%= f.select :brainstorming_tutor, InstructorInfo.tutor_options(lang), {}, { class: '' } %>
+                      <%= f.select :brainstorming_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="form-group">
                       <%= f.label :writing_tutor, "Become a writing tutor?" %>
-                      <%= f.select :writing_tutor, InstructorInfo.tutor_options(lang), {}, { class: '' } %>
+                      <%= f.select :writing_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
                     </div>
                   </div>
                   <div class="col-md-8">
                     <div class="form-group">
                       <%= f.label :visa_consultant, "Become a visa consulting tutor?" %>
-                      <%= f.select :visa_consultant, InstructorInfo.tutor_options(lang), {}, { class: '' } %>
+                      <%= f.select :visa_consultant, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
                     </div>
                   </div>
                 </div>
@@ -187,7 +187,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-7">
-                      <%= f.select :number_institutes_admitted, InstructorInfo.schools_applied_before_options(lang), {}, { class: '' } %>
+                      <%= f.select :number_institutes_admitted, InstructorInfo.schools_applied_before_options(lang), {}, { class: 'select2' } %>
                     </div>
                   </div>
                 </div>
@@ -323,7 +323,7 @@
           <div class="form-group row">
             <%= f.label :available_time_slots, "北京时间", class: 'col-md-6 col-form-label' %>
             <div class="col-md-6">
-              <%= f.select :available_time_slots, choices, {}, { class: '' } %>
+              <%= f.select :available_time_slots, choices, {}, { class: 'select2' } %>
             </div>
           </div>
         </div>

@@ -18,6 +18,7 @@ $(document).on('change', '#user_info_avatar', function () {
   }
 });
 $(document).ready(function(){
+  $( ".select2" ).select2({})
   $( ".select2.state" ).select2({}).on('change', function(e){
     $.ajax({
       url: '/instructor/cities.json?state=' + e.target.value + "&country="+ $('.select2.country').val(),
