@@ -26,6 +26,7 @@
     color: $main-text-color;
     font-size: 24px;
     font-weight: 300;
+    margin: 30px 0;
   }
 
   .head-sec{
@@ -189,6 +190,74 @@
       }
     }
   }
+  .bg-upload-wrapper{
+    position: relative;
 
+    .survey-question{
+      margin: 30px 0 20px 0;
+    }
+
+    .school-bg-img-wrapper{
+      padding: 20px;
+      border: 2px dashed #BBB;
+      border-radius: 10px;
+      position: relative;
+
+      .school-bg-img{
+        background-size: 25% 65%!important;
+        height: 400px;
+        background: asset_url("registration/pg-bg-tile.png");
+
+        .custom-file{
+          width: 170px;
+          height: 70px;
+          position: absolute;
+          margin: auto!important;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+
+          .image-input{
+            width: 170px;
+            height: 70px;
+            padding: 5px;
+            cursor: pointer;
+
+            &:focus{
+              outline: none;
+            }
+          }
+
+          .custom-file-control{
+            height: 100%;
+            width: 100%;
+            background-color: $primary-green;
+            color: #fff;
+            border-radius: 10px;
+            border: 0px;
+            z-index: 10;
+            cursor: pointer;
+
+            img{
+              width: 25px;
+              margin-top: 15px;
+            }
+            &:before{
+              display: none;
+            }
+
+            &:after{
+              width: 100%;
+              text-align: center;
+              padding-top: 22px;
+              cursor: pointer;
+              padding-left: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
 
 }
