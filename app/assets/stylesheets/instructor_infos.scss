@@ -90,6 +90,7 @@
       p{
         font-size: 16px;
         margin: 15px 0 5px 0;
+        line-height: inherit;
       }
 
       p.bold-text{
@@ -263,19 +264,27 @@
 
     .green-box{
       height: auto!important;
+      padding: 30px!important;
+      margin: 40px!important;
+
+      p{
+        margin: 20px 0 10px 0!important;
+      }
     }
 
     .tutor-picture-block{
-      text-align: center;
+      // text-align: center;
+      margin-bottom: 200px;
 
       img{
-        width: 200px;
+        width: 150px;
+        margin-left: 40px;
       }
 
       .custom-file{
         width: 170px;
         height: 50px;
-        margin: 40px auto 0 auto;
+        margin: 40px;
 
         .image-input{
           width: 170px;
@@ -304,9 +313,8 @@
           img{
             width: 25px;
             margin-top: 15px;
-            position: absolute;
-            left: 20px;
-            top: 0px;
+            margin-left: 0;
+            margin-top: 7px;
           }
           &:before{
             display: none;
@@ -317,7 +325,6 @@
             text-align: center;
             padding-top: 14px;
             cursor: pointer;
-            // padding-left: 35px;
           }
         }
       }
