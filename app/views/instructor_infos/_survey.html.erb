@@ -3,7 +3,7 @@
 
   <%= form_with model: @instructor_info, url: instructor_info_path, method: 'post', html: { role: 'form' } do |f| %>
 
-  <div class='multi-step-form' id="step0">
+  <div class='multi-step-form current-step' id="step0">
     <%= render partial: 'instructor_infos/steps/step0', locals: {f: f, lang: lang} %>
   </div>
 
@@ -43,11 +43,15 @@
     <%= render partial: 'instructor_infos/steps/step9', locals: {f: f, lang: lang} %>
   </div>
 
-  <div class='multi-step-form current-step' id="step10">
+  <div class='multi-step-form' id="step10">
     <%= render partial: 'instructor_infos/steps/step10', locals: {f: f, lang: lang} %>
   </div>
 
   <div class='multi-step-form' id="step11">
+    <%= render partial: 'instructor_infos/steps/step11', locals: {f: f, lang: lang} %>
+  </div>
+
+  <div class='multi-step-form' id="step111">
     <div class="col-md-8">
       <fieldset class="row">
         <div class="col-md-12">
@@ -82,7 +86,7 @@
     </div>
   </div>
 
-  <div class='multi-step-form' id="step12">
+  <div class='multi-step-form' id="step112">
     <div class="col-md-8">
       <fieldset class="">
         <div class="head-sec">
@@ -138,7 +142,7 @@
     </div>
   </div>
 
-  <div class='multi-step-form' id="step14">
+  <div class='multi-step-form' id="step114">
     <div class="col-md-8">
       <fieldset class="">
         <div class="head-sec">
@@ -183,7 +187,7 @@
     </div>
   </div>
 
-  <div class='multi-step-form' id="step15">
+  <div class='multi-step-form' id="step115">
     <div class="col-md-8">
       <fieldset class="">
         <div class="head-sec">
@@ -216,7 +220,7 @@
     </div>
   </div>
 
-  <div class='multi-step-form' id="step16">
+  <div class='multi-step-form' id="step116">
     <div class="col-md-8">
       <fieldset class="">
         <div class="head-sec">
@@ -236,7 +240,7 @@
     </div>
   </div>
 
-  <div class='multi-step-form' id="step17">
+  <div class='multi-step-form' id="step117">
     <div class="col-md-8">
       <fieldset class="">
         <div class="head-sec">
@@ -275,7 +279,7 @@
     </div>
   </div>
 
-  <div class='multi-step-form' id="step18">
+  <div class='multi-step-form' id="step118">
     <div class="col-md-8">
       <fieldset class="">
         <div class="head-sec">

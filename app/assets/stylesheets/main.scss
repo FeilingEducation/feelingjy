@@ -12,12 +12,12 @@
 */
 
 $custom-file-text: (
-  placeholder: (
-    zh-CN: "选择文件"
-  ),
-  button-label: (
-    zh-CN: "浏览"
-  )
+placeholder: (
+zh-CN: "选择文件"
+),
+button-label: (
+zh-CN: "浏览"
+)
 );
 
 $primary-green: #50BF9F;
@@ -266,16 +266,33 @@ textarea{
   width: 100%;
   z-index: 99999;
   height: 20px;
+  // background-color: rgba(238,248,245,1);
 
   .progress-bar{
     background-color: $primary-green!important;
     height: 20px;
+  }
+  &.sec2{
+    // background-color: rgba(252,239,239,1)!important;
+    .progress-bar{
+      background-color: $primary-red!important;
+    }
+  }
+  &.sec3{
+    // background-color: rgba(252,239,239,1)!important;
+    .progress-bar{
+      background-color: $primary-green!important;
+    }
   }
 }
 
 // Select 2 customizations
 .select2.select2-container{
   width: 100%!important;
+
+  // &:focus{
+  //   outline: none!important;
+  // }
 
   .select2-selection.select2-selection--single{
     height: 43px;
@@ -284,6 +301,9 @@ textarea{
     .select2-selection__rendered{
       line-height: 43px;
       color: #707171;
+    }
+    &:focus{
+      outline: none!important;
     }
   }
   .select2-results__option{

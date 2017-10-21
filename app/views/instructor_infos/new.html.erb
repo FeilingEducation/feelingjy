@@ -11,7 +11,8 @@
     $(window).scrollTop(0)
   })
   $('.initialize-section').on('click', function(){
-    $('.progress').remove()
-    $('.body').prepend('<div class="progress '+ $(this).data('section')+'"><div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div></div>');
+    $('.body .progress').addClass($(this).data('section'))
+    $(window).scrollTop(0)
+    $('.progress .progress-bar').css('width', "1%")
   })
 </script>
