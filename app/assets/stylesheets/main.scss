@@ -20,6 +20,11 @@ $custom-file-text: (
   )
 );
 
+$primary-green: #50BF9F;
+$primary-red: #E35F5F;
+$main-text-color: #717070;
+$question-text: #4A4A4A;
+
 $theme-green: #2dbd90;
 $theme-blue: #588fcc;
 
@@ -181,7 +186,7 @@ body {
 
 // buttons styling
 .btn-primary{
-  background-color: #50BF9F;
+  background-color: $primary-green;
   color: #fff;
   border: 0px;
   border-radius: 0;
@@ -190,15 +195,15 @@ body {
   cursor: pointer;
 
   &:hover{
-    background-color: #50BF9F!important;
+    background-color: $primary-green!important;
     opacity: .8;
   }
 }
 
 .btn-default{
   background-color: #fff;
-  color: #50BF9F;
-  border: 1px solid #50BF9F;
+  color: $primary-green;
+  border: 1px solid $primary-green;
   border-radius: 0;
   padding: 10px 30px;
   min-height: 43px;
@@ -208,6 +213,8 @@ body {
     background-color: rgba(80, 191,159, .05);
   }
 }
+
+// select box styling
 select{
   background-color: #fff;
   color: #B6C1CD;
@@ -221,6 +228,7 @@ select{
   border: 1px solid #AAA8A8;
 }
 
+// multi select box styling
 .multiselect-container > li {
   &:hover{
     background-color: rgba(80, 191,159, .05);
@@ -241,4 +249,51 @@ select{
     border-radius: 0px;
     border: 1px solid #AAA8A8;
   }
+}
+
+// progress bar customizations
+.progress{
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  z-index: 99999;
+  height: 20px;
+
+  .progress-bar{
+    background-color: $primary-green!important;
+    height: 20px;
+  }
+}
+
+// Select 2 customizations
+.select2.select2-container{
+  width: 100%!important;
+
+  .select2-selection.select2-selection--single{
+    height: 43px;
+    border-radius: 1px;
+
+    .select2-selection__rendered{
+      line-height: 43px;
+      color: #707171;
+    }
+  }
+  .select2-results__option{
+
+    &:hover{
+      background-color: $primary-red!important;
+      color: #fff!important;
+    }
+  }
+  .select2-selection__arrow{
+    height: 40px!important;
+  }
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected]{
+  background-color: $primary-red!important;
+  color: #fff!important;
+}
+.select2-container--default .select2-results__option[aria-selected=true]{
+  background-color: rgba(227,95,95,.6)!important;
+  color: #fff!important;
 }
