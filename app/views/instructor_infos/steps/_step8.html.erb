@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="section-header">
+      <h3 >Decorate your profile page</h3>
+    </div>
+  </div>
+
+  <div class="col-md-3"></div>
+  <div class="col-md-6 left-panel">
+    <fieldset class="">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="question-block check_boxes">
+            <p class="survey-question">Description</p>
+            <div class="form-group">
+              <%= f.label :description, "Simply describe yourself please", class: '' %>
+              <%= f.text_area :description, rows: 5, class: 'form-control', placeholder: "Please share what you are good and what your suggestions are about applying for a schools." %>
+            </div>
+            <div class="question-block check_boxes">
+              <p class="survey-question">I am good at applying for</p>
+              <div class="">
+                <%= f.check_box :special_at_top_10 %>
+                <%= f.label :special_at_top_10, "Top 10 American Universities" %>
+              </div>
+              <div class="">
+                <%= f.check_box :special_at_top_20 %>
+                <%= f.label :special_at_top_20, "Top 20 American Universities" %>
+              </div>
+              <div class="">
+                <%= f.check_box :special_at_top_30 %>
+                <%= f.label :special_at_top_30, "Top 30 American Universities" %>
+              </div>
+            </div>
+          </div>
+          <div class="survey-btn-row">
+              <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step4">上一步</button>
+              <button type="button" class="btn btn-primary step-navigate main-btn pull-left next" data-percentage='100%' data-target="#step6">下一步</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
