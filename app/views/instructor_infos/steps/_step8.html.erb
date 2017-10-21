@@ -14,10 +14,11 @@
             <p class="survey-question">Description</p>
             <div class="form-group">
               <%= f.label :description, "Simply describe yourself please", class: '' %>
-              <%= f.text_area :description, rows: 5, class: 'form-control', placeholder: "Please share what you are good and what your suggestions are about applying for a schools." %>
+              <%= f.text_area :description, rows: 5, class: '', placeholder: "Please share what you are good and what your suggestions are about applying for a schools." %>
             </div>
             <div class="question-block check_boxes">
-              <p class="survey-question">I am good at applying for</p>
+              <!-- <p class="survey-question">I am good at applying for</p> -->
+              <label>I am good at applying for</label>
               <div class="">
                 <%= f.check_box :special_at_top_10 %>
                 <%= f.label :special_at_top_10, "Top 10 American Universities" %>

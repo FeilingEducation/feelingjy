@@ -223,9 +223,17 @@ select{
   width: 100%;
   min-height: 43px;
   border-radius: 0px;
-  // -webkit-appearance: none;
   -webkit-border-radius: 0px;
   border: 1px solid #AAA8A8;
+}
+
+// textarea
+textarea{
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border: 1px solid #AAA8A8;
+  width: 100%;
+  padding: 10px;
 }
 
 // multi select box styling
