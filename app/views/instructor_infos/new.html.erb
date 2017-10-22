@@ -15,4 +15,27 @@
     $(window).scrollTop(0)
     $('.progress .progress-bar').css('width', "1%")
   })
+  
+  $("#selected-terms").on('click', function(){
+    $.map($('.question-block.our-terms-agreed').find('input[type=checkbox]'), function(elem, idx){
+      var cls = $(elem).data('class');
+      if($(elem).prop("checked")){
+        $("#our-terms-agreed ."+cls).removeClass('hidden')
+      }
+      else{
+        $("#our-terms-agreed ."+cls).addClass('hidden')
+      }
+    })
+
+    $.map($('.question-block.your-terms-agreed').find('input[type=checkbox]'), function(elem, idx){
+      var cls = $(elem).data('class');
+      if($(elem).prop("checked")){
+        $("#your-terms-agreed ."+cls).removeClass('hidden')
+      }
+      else{
+        $("#your-terms-agreed ."+cls).addClass('hidden')
+      }
+    })
+  })
+
 </script>

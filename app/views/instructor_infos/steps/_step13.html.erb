@@ -1,0 +1,75 @@
+<div class="row student-info-step">
+  <div class="col-md-12">
+    <div class="section-header">
+      <h3 >Prepare for students now</h3>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-5 left-panel">
+    <fieldset class="">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="question-block our-terms-agreed">
+            <p class="survey-question">Privacy terms for students</p>
+            <div class="">
+              <%= f.check_box :share_edited_files, "data-class": "q1" %>
+              <%= f.label :share_edited_files, "Allow to share edited files" %>
+            </div>
+            <div class="">
+              <%= f.check_box :share_info, "data-class": "q2" %>
+              <%= f.label :share_info, "Allow to share my information" %>
+            </div>
+            <div class="">
+              <%= f.check_box :meet_in_person, "data-class": "q3" %>
+              <%= f.label :meet_in_person, "Allow to meet in person" %>
+            </div>
+            <div class="">
+              <%= f.check_box :answer_free, "data-class": "q4" %>
+              <%= f.label :answer_free, "Allow to answer questions for free" %>
+            </div>
+            <div class="">
+              <%= f.check_box :personal_questions, "data-class": "q5" %>
+              <%= f.label :personal_questions, "Allow to ask personal questions" %>
+            </div>
+          </div>
+          <div class="question-block your-terms-agreed">
+            <p class="survey-question">What would you want your students to know about you and the help you provide</p>
+            <div class="">
+              <%= f.check_box :accomplishment, "data-class": "q6" %>
+              <%= f.label :accomplishment, "For a sense of accomplishment" %>
+            </div>
+            <div class="">
+              <%= f.check_box :free_time, "data-class": "q7" %>
+              <%= f.label :free_time, "I want to utilize my free time" %>
+            </div>
+            <div class="">
+              <%= f.check_box :how_to_write, "data-class": "q8" %>
+              <%= f.label :how_to_write, "I don't know how to write actually" %>
+            </div>
+            <div class="">
+              <%= f.check_box :nervous, "data-class": "q9" %>
+              <%= f.label :nervous, "I am more nervous than you when I help you apply" %>
+            </div>
+            <div class="">
+              <%= f.check_box :care_cooperation, "data-class": "q10" %>
+              <%= f.label :care_cooperation, "I care about your cooperation very much" %>
+            </div>
+          </div>
+
+          <div class="survey-btn-row">
+            <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step12">上一步</button>
+            <button type="button" class="btn btn-primary step-navigate next main-btn pull-left next" data-percentage='100%' data-target="#step14" id="selected-terms">下一步</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="col-md-4 right-panel">
+    <div class="green-box elepahnt">
+      <%= image_tag "registration/step7_elephent.png"%>
+      <p>Besides agreeing with our terms, studens also need to agree with your terms.</p>
+      <p>If you feel upset of insecure about the interaction with student, you cancel before setting a time to avoid panelty</p>
+    </div>
+  </div>
+</div>

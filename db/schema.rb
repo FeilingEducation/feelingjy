@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021070821) do
+ActiveRecord::Schema.define(version: 20171021130430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,16 @@ ActiveRecord::Schema.define(version: 20171021070821) do
     t.string "state"
     t.string "city"
     t.text "description"
+    t.boolean "share_edited_files"
+    t.boolean "share_info"
+    t.boolean "meet_in_person"
+    t.boolean "answer_free"
+    t.boolean "personal_questions"
+    t.boolean "accomplishment"
+    t.boolean "free_time"
+    t.boolean "how_to_write"
+    t.boolean "nervous"
+    t.boolean "care_cooperation"
   end
 
   create_table "messages", force: :cascade do |t|
