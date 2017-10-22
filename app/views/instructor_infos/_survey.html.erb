@@ -3,7 +3,7 @@
 
   <%= form_with model: @instructor_info, url: instructor_info_path, method: 'post', html: { role: 'form' } do |f| %>
 
-  <div class='multi-step-form' id="step0">
+  <div class='multi-step-form current-step' id="step0">
     <%= render partial: 'instructor_infos/steps/step0', locals: {f: f, lang: lang} %>
   </div>
 
@@ -95,8 +95,12 @@
     <%= render partial: 'instructor_infos/steps/step23', locals: {f: f, lang: lang} %>
   </div>
 
-  <div class='multi-step-form current-step' id="step24">
+  <div class='multi-step-form' id="step24">
     <%= render partial: 'instructor_infos/steps/step24', locals: {f: f, lang: lang} %>
+  </div>
+
+  <div class='multi-step-form' id="step26">
+    <%= render partial: 'instructor_infos/steps/step26', locals: {f: f, lang: lang} %>
   </div>
 
   <div class='multi-step-form' id="step111">
