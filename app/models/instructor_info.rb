@@ -32,6 +32,9 @@ class InstructorInfo < ApplicationRecord
   MAX_STUDENTS_ENGLISH = ['I want to focus on one student', 'I can work with two students','I can work with three students', 'I can manage 5+ students']
   MAX_STUDENTS_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
 
+  ADVANCE_NOTIFY_ENGLISH = ['At least one day', 'At least two days','At least three days', 'At least a week']
+  ADVANCE_NOTIFY_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+
   def resumes
     self.attachments.where(file_type: 'resume')
   end
@@ -62,6 +65,10 @@ class InstructorInfo < ApplicationRecord
 
   def self.max_std_before_options local='en'
     (local == 'en' ? MAX_STUDENTS_ENGLISH : MAX_STUDENTS_CHINESE).each_with_index.map {|m,i| [m,i]}
+  end
+
+  def self.advance_notify_options local='en'
+    (local == 'en' ? ADVANCE_NOTIFY_ENGLISH : ADVANCE_NOTIFY_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.countries_as_options
