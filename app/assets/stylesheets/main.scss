@@ -266,7 +266,7 @@ textarea{
   position: fixed;
   top: 70px;
   width: 100%;
-  z-index: 99999;
+  z-index: 9;
   height: 20px;
   // background-color: rgba(238,248,245,1);
 
@@ -326,4 +326,8 @@ textarea{
 .select2-container--default .select2-results__option[aria-selected=true]{
   background-color: rgba(227,95,95,.6)!important;
   color: #fff!important;
+}
+
+*:focus{
+  outline: none!important;
 }
