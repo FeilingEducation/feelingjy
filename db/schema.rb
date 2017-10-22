@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171015183126) do
+ActiveRecord::Schema.define(version: 20171022140648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,41 @@ ActiveRecord::Schema.define(version: 20171015183126) do
     t.string "url_linked_in"
     t.string "page_background"
     t.text "about_me"
+    t.string "university"
+    t.string "specialization"
+    t.string "degree_completed"
+    t.integer "consulting_tutor"
+    t.integer "brainstorming_tutor"
+    t.integer "writing_tutor"
+    t.integer "visa_consultant"
+    t.boolean "helped_before"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.text "description"
+    t.boolean "share_edited_files"
+    t.boolean "share_info"
+    t.boolean "meet_in_person"
+    t.boolean "answer_free"
+    t.boolean "personal_questions"
+    t.boolean "accomplishment"
+    t.boolean "free_time"
+    t.boolean "how_to_write"
+    t.boolean "nervous"
+    t.boolean "care_cooperation"
+    t.boolean "ensure_accurate_time"
+    t.integer "max_std_count"
+    t.integer "tutor_before"
+    t.integer "min_work_days", default: 2
+    t.integer "max_work_days", default: 2
+    t.integer "advance_notify"
+    t.integer "reserve_advance"
+    t.boolean "recommended_price", default: true
+    t.integer "min_price"
+    t.integer "max_price"
+    t.integer "fix_price"
+    t.string "work_frequency"
+    t.boolean "first_std_discount", default: true
   end
 
   create_table "messages", force: :cascade do |t|

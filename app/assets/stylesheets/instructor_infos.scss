@@ -17,3 +17,458 @@
   border-radius: $border-width;
   margin: 0 1rem 1rem calc(1rem - #{$border-width});
 }
+
+.mentor-survey{
+  min-height: 600px;
+  color: $main-text-color;
+
+  .section-header h3{
+    color: $main-text-color;
+    font-size: 24px;
+    font-weight: 300;
+    margin: 30px 0;
+  }
+
+  .head-sec{
+
+    h2.main-heading{
+      font-size: 40px;
+      font-family: helvetica;
+      color: $main-text-color;
+      margin: 30px 0px 60px 0px;
+      line-height: 50px;
+    }
+  }
+
+  p{
+    font-family: helvetica;
+    font-size: 17px;
+    color: $main-text-color;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  .survey-question{
+    font-size: 24px;
+    line-height: inherit;
+    color: $question-text;
+    margin: 30px 0;
+  }
+
+  .survey-btn-row{
+    margin-top: 80px;
+  }
+  label{
+    font-size: 20px;
+    color: $main-text-color;
+  }
+  .radio-btns{
+    label{
+      font-size: 16px;
+    }
+  }
+  .question-block{
+    margin-bottom: 30px;
+  }
+
+  .check_boxes{
+    label{
+      font-size: 16px;
+      color: $main-text-color;
+    }
+  }
+
+  .right-panel{
+    .green-box{
+      background-color: #BCE9DC;
+      border: 1px solid #96D4C2;
+
+      img{
+        max-width: 50px;
+      }
+
+      p{
+        font-size: 16px;
+        margin: 15px 0 5px 0;
+        line-height: inherit;
+      }
+
+      p.bold-text{
+        font-size: 24px;
+        margin: 10px 0 5px 0;
+        color: $question-text;
+      }
+
+      &.elepahnt{
+        width: 270px;
+        margin: 100px auto;
+        padding: 20px;
+        // height: 170px;
+      }
+    }
+  }
+
+  .review-step{
+    hr{
+      margin: 40px 0;
+    }
+    .head-sec{
+      .main-heading{
+        margin-bottom: 25px;
+
+      }
+      .sub-heading{
+        color: #AAA8A8;
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
+    }
+    p.sub-heading{
+      font-size: 16px;
+      color: $question-text;
+      margin-bottom: 20px;
+    }
+    .modify-link{
+      color: $primary-green;
+      cursor: pointer;
+    }
+    .tick-success{
+      img{
+        width: 37px;
+      }
+    }
+
+    .disable-block{
+      p.sub-heading{
+        color: #AAA8A8;
+        font-size: 16px;
+
+        &.first{
+          font-size: 20px;
+        }
+      }
+      .head-sec{
+        .sub-heading{
+          font-size: 20px;
+        }
+      }
+    }
+
+    .right-panel{
+      .painting-img{
+        width: 450px;
+      }
+      .painting-box{
+        // background-color: #F2F2F2;
+        // height: 125px;
+        // box-shadow: 0 4px 2px -2px #F2F2F2;
+        background: asset_url("registration/hr-rate-bg.png");
+        background-size: contain;
+        width: 425px;
+        background-repeat: no-repeat;
+        padding: 15px 30px;
+        margin: 0 4px;
+
+        img{
+          max-width: 40px;
+        }
+
+        p{
+          font-size: 16px;
+          margin: 15px 0 5px 0;
+        }
+
+        p.bold-text{
+          font-size: 24px;
+          margin: 10px 0 5px 0;
+          color: $question-text;
+        }
+
+        &.elepahnt{
+          padding: 20px 30px;
+          height: 170px;
+        }
+        &.last{
+          border-radius: 10px;
+          box-shadow: 0px 3px 16px 1px #aaa;
+          background: none;
+          height: 145px!important;
+          margin: 0 13px;
+          width: 410px;
+          padding: 15px 20px;
+          margin-top: 10px;
+
+          img{
+            width: 165px;
+            max-width: 180px;
+            position: absolute;
+            margin: auto;
+            top: 10px;
+            bottom:0;
+            right: 40px;
+          }
+        }
+      }
+    }
+  }
+  .bg-upload-wrapper{
+    position: relative;
+
+    .survey-question{
+      margin: 30px 0 20px 0;
+    }
+
+    .school-bg-img-wrapper{
+      padding: 20px;
+      border: 2px dashed #BBB;
+      border-radius: 10px;
+      position: relative;
+
+      .school-bg-img{
+        background-size: 25% 65%!important;
+        height: 400px;
+        background: asset_url("registration/pg-bg-tile.png");
+
+        .custom-file{
+          width: 170px;
+          height: 70px;
+          position: absolute;
+          margin: auto!important;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+
+          .image-input{
+            width: 170px;
+            height: 70px;
+            padding: 5px;
+            cursor: pointer;
+
+            &:focus{
+              outline: none;
+            }
+          }
+
+          .custom-file-control{
+            height: 100%;
+            width: 100%;
+            background-color: $primary-green;
+            color: #fff;
+            border-radius: 10px;
+            border: 0px;
+            z-index: 10;
+            cursor: pointer;
+
+            img{
+              width: 25px;
+              margin-top: 15px;
+            }
+            &:before{
+              display: none;
+            }
+
+            &:after{
+              width: 100%;
+              text-align: center;
+              padding-top: 22px;
+              cursor: pointer;
+              padding-left: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .tutor-picture-wrapper{
+
+    .green-box{
+      height: auto!important;
+      padding: 30px!important;
+      margin: 40px!important;
+
+      p{
+        margin: 20px 0 10px 0!important;
+      }
+    }
+
+    .tutor-picture-block{
+      // text-align: center;
+      margin-bottom: 200px;
+
+      img{
+        width: 150px;
+        margin-left: 40px;
+      }
+
+      .custom-file{
+        width: 170px;
+        height: 50px;
+        margin: 40px;
+
+        .image-input{
+          width: 170px;
+          height: 50px;
+          padding: 5px;
+          cursor: pointer;
+
+          &:focus{
+            outline: none;
+          }
+        }
+
+        .custom-file-control{
+          height: 100%;
+          width: 100%;
+          color: $main-text-color;
+          z-index: 10;
+          cursor: pointer;
+          border-radius: 0px;
+
+          &:hover{
+            background-color: $primary-red;
+            color: #fff;
+          }
+
+          img{
+            width: 25px;
+            margin-top: 15px;
+            margin-left: 0;
+            margin-top: 7px;
+          }
+          &:before{
+            display: none;
+          }
+
+          &:after{
+            width: 100%;
+            text-align: center;
+            padding-top: 14px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .student-info-step{
+    .question-block{
+      label{
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .info-row{
+        img{
+          width: 20px;
+          margin: 5px;
+        }
+        p{
+          display: inline;
+        }
+      }
+    }
+  }
+  .contact-info-wrapper{
+    .contact-info-box{
+      border: 1px solid $border-color;
+      padding: 20px;
+      text-align: center;
+      min-height: 465px;
+
+      img{
+        width: 100px;
+        margin: 20px 0 50px 0;
+      }
+      p{
+        text-align: left;
+        font-weight: 300;
+      }
+    }
+  }
+  .calendar-info-wrapper{
+    label{
+      font-size: 18px;
+      font-weight: 300;
+    }
+    .calendar-info-box{
+      &.first{
+        margin: 40px 0;
+      }
+      &.second{
+        margin-bottom: 40px;
+      }
+
+      .img-wrapper{
+        width: 80px;
+        float: left;
+        height: 80px;
+
+        img{
+          width: 45px;
+        }
+      }
+      .txt-wrapper{
+        margin-right: 15px;
+
+        p{
+          text-align: left;
+          font-weight: 300;
+          display: inline;
+        }
+      }
+      &.price{
+        .img-wrapper{
+          height: 120px;
+
+          img{
+            width: 50px;
+          }
+        }
+
+        .title-wrapper{
+          p{
+            margin-bottom: 15px;
+          }
+        }
+
+        .txt-wrapper{
+          margin-bottom: 15px;;
+        }
+        span{
+          font-size: 12px;
+          font-weight: lighter;
+          border: 1px solid $border-color;
+          padding: 5px;
+          border-radius: 5px;
+        }
+        input[type='radio']{
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+      &.discount{
+        .img-wrapper{
+          height: 200px;
+        }
+      }
+    }
+  }
+  .calendar-box{
+    padding: 50px 0;
+    img{
+      max-width: 100%;
+    }
+
+    &.side-by-side{
+      img{
+        width: 120px;
+        display: inline;
+        margin-right: 20px;
+      }
+    }
+  }
+}

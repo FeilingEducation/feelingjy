@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="section-header">
+      <h3 >Decorate your profile page</h3>
+    </div>
+  </div>
+
+  <div class="col-md-3"></div>
+  <div class="col-md-6 left-panel">
+    <fieldset class="">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="question-block check_boxes">
+            <p class="survey-question">Set a title for your page!</p>
+            <div class="form-group">
+              <%= f.label :page_name, "Add a catching title to attract your students!", class: '' %>
+              <%= f.text_area :page_name, rows: 5, class: '', placeholder: "e.g. My life in America" %>
+            </div>
+          </div>
+          <div class="survey-btn-row">
+              <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step8">上一步</button>
+              <button type="button" class="btn btn-primary step-navigate main-btn pull-left next" data-percentage='60%' data-target="#step10">下一步</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

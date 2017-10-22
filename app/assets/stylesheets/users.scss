@@ -33,7 +33,7 @@
 .custom-card{
   width: 500px;
   max-width: 500px;
-  border: 1px solid #E0DBDB;
+  border: 1px solid $border-color;
   // padding: 75px;
 
   .modal-content{
@@ -128,14 +128,6 @@
   }
 }
 
-// Generic CSS
-input[type="text"],input[type="password"],input[type="email"], select, button{
-  height: 43px;
-  margin-bottom: 12px;
-  border: 1px solid #AAA8A8;
-  // border-radius: 6px;
-  border-radius: 0px;
-}
 // .signup-card select{
 //   background-color: transparent;
 //   color: #B6C1CD;
@@ -155,27 +147,6 @@ select#user_dob_2i{
 select#user_dob_3i{
   width: 58px!important;
   display: inline-block;
-}
-
-::-webkit-input-placeholder {
-  color: #B6C1CD;
-  font-size: 15px;
-  font-weight: lighter;
-}
-::-moz-placeholder{
-  color: #B6C1CD;
-  font-size: 15px;
-  font-weight: lighter;
-}
-:-ms-input-placeholder{
-  color: #B6C1CD;
-  font-size: 15px;
-  font-weight: lighter;
-}
-:-moz-placeholder{
-  color: #B6C1CD;
-  font-size: 15px;
-  font-weight: lighter;
 }
 .field-with-icon{
   position: relative;
@@ -197,58 +168,40 @@ select#user_dob_3i{
   }
 }
 
-.devise-errors{
-  .error-heading{
-    color: #E25F5F;
-    font-size: 14px;
-  }
-  ul{
-    li{
-      font-size: 12px;
-      color: #E25F5F;
-    }
-  }
-}
-
-
-.mentor-survey{
-  .main-heading{
-    margin-bottom: 30px!important;
-  }
-  .sub-heading{
-    margin-bottom: 25px!important;
-  }
-  .question-block{
-    margin: 25px 0;
-
-    p{
-      color: #717070;
-      font-family: helvetica;
-      line-height: 20px;
-
-      &.survey-question{
-        font-size: 16px;
-      }
-      &.info{
-        font-size: 12px;
-        font-weight: lighter;
-      }
-    }
-    .form-group{
-      margin-bottom: 5px;
-
-      label{
-        font-size: 14px;
-        color: #717070;
-        margin-bottom: 0;
-      }
-    }
-  }
-  .survey-btn-row{
-    margin-top: 40px;
-  }
-}
-
-input[type="radio"], input[type="checkbox"] {
-  margin-right: 10px;
-}
+// .mentor-survey{
+//   .main-heading{
+//     margin-bottom: 30px!important;
+//   }
+//   .sub-heading{
+//     margin-bottom: 25px!important;
+//   }
+//   .question-block{
+//     margin: 25px 0;
+//
+//     p{
+//       color: #717070;
+//       font-family: helvetica;
+//       line-height: 20px;
+//
+//       &.survey-question{
+//         font-size: 16px;
+//       }
+//       &.info{
+//         font-size: 12px;
+//         font-weight: lighter;
+//       }
+//     }
+//     .form-group{
+//       margin-bottom: 5px;
+//
+//       label{
+//         font-size: 14px;
+//         color: #717070;
+//         margin-bottom: 0;
+//       }
+//     }
+//   }
+//   .survey-btn-row{
+//     margin-top: 40px;
+//   }
+// }

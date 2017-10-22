@@ -1,0 +1,49 @@
+<div class="row calendar-info-wrapper">
+  <div class="col-md-12">
+    <div class="section-header">
+      <h3 >Prepare for students now</h3>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-7 left-panel">
+    <fieldset class="">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="question-block">
+            <p class="survey-question">Your first business starts from setting available time!</p>
+            <label>You can set the time you are available to help students</label>
+            <div class="row">
+              <div class="col-md-7">
+                <div class="calendar-info-box first">
+                  <div class="img-wrapper"><%= image_tag "registration/calendar-icon.png"%></div>
+                  <div class="txt-wrapper"><p>Students can only choose time you are available, so please update your time availability timely.</p></div>
+                </div>
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-md-8">
+                <div class="calendar-info-box  second">
+                  <div class="img-wrapper"><%= image_tag "registration/cancel-icon.png"%></div>
+                  <div class="txt-wrapper"><p>You will be responsible for any cancellation or conflict due to incorrect time availability.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr/>
+          <div class="question-block">
+            <div class="row">
+              <div class="col-md-8">
+                <%= f.check_box :ensure_accurate_time%>
+                <%= f.label :ensure_accurate_time, "Will do! I'll keep my time availabilities accurate!" %>
+              </div>
+            </div>
+          </div>
+          <div class="survey-btn-row">
+            <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step15">上一步</button>
+            <button type="button" class="btn btn-primary step-navigate next main-btn pull-left next" data-percentage='40%' data-target="#step17">下一步</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

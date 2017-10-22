@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-6 left-panel">
+    <fieldset class="">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="head-sec">
+            <h2 class="main-heading">Dear <%= current_user.user_info.first_name%>, let's get started on your profile page.</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10">
+          <div class="question-block">
+            <p class="survey-question">Which school are you from? </p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.select :university, InstructorInfo.universities_as_optons(lang), {}, { class: 'select2' } %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= f.select :specialization, InstructorInfo.spcializations_as_optons(lang), {}, { class: 'select2' } %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.select :degree_completed, InstructorInfo.degree_as_optons(lang), {}, { class: 'select2' } %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="survey-btn-row">
+            <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step0">上一步</button>
+            <button type="button" class="btn btn-primary step-navigate next main-btn pull-left next"  data-percentage='30%' data-target="#step2" data-percentage="30">下一步</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="col-md-4 right-panel">
+    <div class="green-box elepahnt">
+      <%= image_tag "registration/step7_elephent.png"%>
+      <p>You could earn</p>
+      <p class="bold-text">¥ 688</p>
+    </div>
+  </div>
+</div>

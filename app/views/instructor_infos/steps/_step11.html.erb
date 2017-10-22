@@ -1,0 +1,71 @@
+<div class="row review-step">
+  <div class="col-md-1"></div>
+  <div class="col-md-5 left-panel">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="head-sec">
+          <h2 class="main-heading"><%= current_user.user_info.first_name%>,<br/> we are almost done!</h2>
+          <h6 class="sub-heading">Let's review your information before creating your page</h6>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <p class="sub-heading">For example tutor option and contact information</p>
+        <a class="modify-link step-navigate" data-target="#step5">Modify</a>
+      </div>
+      <div class="col-md-2 tick-success">
+        <%= image_tag "registration/tick-success.png", class: 'img-responsive'%>
+      </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="head-sec">
+          <h6 class="sub-heading">And decorate your profile</h6>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <p class="sub-heading">Add your life photo, short description and caption.</p>
+        <a class="modify-link step-navigate" data-target="#step12">Modify</a>
+      </div>
+      <div class="col-md-2 tick-success">
+        <%= image_tag "registration/tick-success.png", class: 'img-responsive'%>
+      </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col-md-12 disable-block">
+        <div class="head-sec">
+          <h6 class="sub-heading">Start your own business</h6>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <p class="sub-heading">Decide your price and manage your time</p>
+        <button type="button" class="btn btn-primary step-navigate main-btn pull-left initialize-section" data-section="sec3" data-target="#step12" data-percentage="7%">Continue</button>
+      </div>
+    </div>
+    <!-- <hr/>
+    <div class="row">
+      <div class="col-md-12 disable-block">
+        <p class="sub-heading first">Start your own business</p>
+        <p class="sub-heading">Decide your price and manage your time</p>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="col-md-6 right-panel">
+    <fieldset>
+      <div class="row">
+        <div class="col-md-12">
+          <%= image_tag "registration/jug-bg.png", class: "painting-img"%>
+        </div>
+        <!-- <div class="col-md-12">
+          <div class="painting-box elepahnt">
+            <%= image_tag "registration/step7_elephent.png"%>
+            <p>We thought you could earn</p>
+            <p class="bold-text">¥ 668/hr</p>
+          </div>
+        </div> -->
+      </div>
+    </fieldset>
+  </div>
+</div>

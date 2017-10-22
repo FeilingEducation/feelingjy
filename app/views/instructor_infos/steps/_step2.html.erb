@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="section-header">
+      <h3 > Please fill in the information below</h3>
+    </div>
+  </div>
+  <div class="col-md-6 left-panel">
+    <fieldset class="">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="question-block">
+            <p class="survey-question">What kind of tutor would you want to be? (mutliple choices)</p>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <%= f.label :consulting_tutor, "Become a consulting tutor?" %>
+                  <%= f.select :consulting_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <%= f.label :brainstorming_tutor, "Become a brainstorming tutor?" %>
+                  <%= f.select :brainstorming_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <%= f.label :writing_tutor, "Become a writing tutor?" %>
+                  <%= f.select :writing_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <%= f.label :visa_consultant, "Become a visa consulting tutor?" %>
+                  <%= f.select :visa_consultant, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <label>Have you helped others before?</label>
+                <div class="radio-btns">
+                  <label><%= f.radio_button :helped_before, true %>Yes, I have helped others before</label>
+                </div>
+                <div class="radio-btns">
+                  <label><%= f.radio_button :helped_before, false %>No, this is my first time helping others</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="survey-btn-row">
+            <div class="row">
+              <div class="col-md-8">
+                <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step1">上一步</button>
+                <button type="button" class="btn btn-primary step-navigate main-btn pull-left next"  data-percentage='45%' data-target="#step3">下一步</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="row review-step">
+  <div class="col-md-1"></div>
+  <div class="col-md-6 left-panel">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="head-sec">
+          <h2 class="main-heading">Congrats <%= current_user.user_info.first_name%>, You have completed your mentor info!</h2>
+          <p class="sub-heading">You can start receiving orders from now! You can edit your calendar or privacy  in your personal page anytime.</p>
+        </div>
+        <div class="survey-btn-row">
+          <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step24">Edit</button>
+          <button type="submit" class="btn btn-primary step-navigate main-btn pull-left next submit">Finish and Start Tutoring</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 right-panel">
+    <fieldset>
+      <div class="row">
+        <div class="col-md-12">
+          <%= image_tag "registration/painting-finish.png", class: "painting-img"%>
+        </div>
+        <div class="col-md-12">
+          <div class="painting-box last elepahnt">
+            <p>Hello</p>
+            <p>Let's visit your home page</p>
+            <%= image_tag "registration/profile-banner.jpg"%>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
