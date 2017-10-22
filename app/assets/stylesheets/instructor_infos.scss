@@ -349,4 +349,21 @@
       }
     }
   }
+  .contact-info-wrapper{
+    .contact-info-box{
+      border: 1px solid $border-color;
+      padding: 20px;
+      text-align: center;
+      min-height: 435px;
+
+      img{
+        width: 100px;
+        margin: 20px 0 50px 0;
+      }
+      p{
+        text-align: left;
+        font-weight: 300;
+      }
+    }
+  }
 }

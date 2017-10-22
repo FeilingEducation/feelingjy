@@ -33,7 +33,7 @@
 .custom-card{
   width: 500px;
   max-width: 500px;
-  border: 1px solid #E0DBDB;
+  border: 1px solid $border-color;
   // padding: 75px;
 
   .modal-content{
@@ -132,7 +132,7 @@
 input[type="text"],input[type="password"],input[type="email"], select, button{
   height: 43px;
   margin-bottom: 12px;
-  border: 1px solid #AAA8A8;
+  border: 1px solid $border-color;
   // border-radius: 6px;
   border-radius: 0px;
 }
