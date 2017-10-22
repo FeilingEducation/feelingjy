@@ -403,5 +403,13 @@
     img{
       max-width: 100%;
     }
+
+    &.side-by-side{
+      img{
+        width: 120px;
+        display: inline;
+        margin-right: 20px;
+      }
+    }
   }
 }

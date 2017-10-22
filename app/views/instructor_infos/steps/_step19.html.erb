@@ -18,7 +18,7 @@
             <div class="row">
               <div class="col-md-10">
                 <%= f.label :advance_notify, "Select the number of days in advance" %>
-                <%= f.select :advance_notify, InstructorInfo.tutor_before_options(lang), {}, { class: 'select2' } %>
+                <%= f.select :advance_notify, InstructorInfo.advance_notify_options(lang), {}, { class: 'select2' } %>
               </div>
             </div>
           </div>
