@@ -366,4 +366,36 @@
       }
     }
   }
+  .calendar-info-wrapper{
+    label{
+      font-size: 18px;
+      font-weight: 300;
+    }
+    .calendar-info-box{
+      &.first{
+        margin: 40px 0;
+      }
+      &.second{
+        margin-bottom: 40px;
+      }
+
+      .img-wrapper{
+        width: 80px;
+        float: left;
+        height: 80px;
+
+        img{
+          width: 45px;
+        }
+      }
+      .txt-wrapper{
+
+        p{
+          text-align: left;
+          font-weight: 300;
+          display: inline;
+        }
+      }
+    }
+  }
 }

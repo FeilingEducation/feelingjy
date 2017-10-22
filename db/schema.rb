@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021130430) do
+ActiveRecord::Schema.define(version: 20171022061424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20171021130430) do
     t.boolean "how_to_write"
     t.boolean "nervous"
     t.boolean "care_cooperation"
+    t.boolean "ensure_accurate_time"
   end
 
   create_table "messages", force: :cascade do |t|
