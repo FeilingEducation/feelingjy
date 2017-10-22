@@ -38,6 +38,9 @@ class InstructorInfo < ApplicationRecord
   RESERVE_ADVANCE_NOTIFY_ENGLISH = ['A year ago', 'Nine months ago','Six months ago', 'Three months ago', 'Only one month ago']
   RESERVE_ADVANCE_NOTIFY_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
 
+  WORK_FREQ_NOTIFY_ENGLISH = ['As less as possible', 'Once a month', 'As much as possible']
+  WORK_FREQ_NOTIFY_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+
   def resumes
     self.attachments.where(file_type: 'resume')
   end
@@ -76,6 +79,10 @@ class InstructorInfo < ApplicationRecord
 
   def self.reserve_advance_notify_options local='en'
     (local == 'en' ? RESERVE_ADVANCE_NOTIFY_ENGLISH : RESERVE_ADVANCE_NOTIFY_CHINESE).each_with_index.map {|m,i| [m,i]}
+  end
+
+  def self.work_freq_notify_options local='en'
+    (local == 'en' ? WORK_FREQ_NOTIFY_ENGLISH : WORK_FREQ_NOTIFY_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.countries_as_options

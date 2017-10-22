@@ -1,0 +1,21 @@
+<div class="question-block">
+  <p class="survey-question">Smart price setter</p>
+  <p class="">Set a price range. The suggested price will be within your range.</p>
+</div>
+
+<div class="question-block">
+  <div class="row">
+    <div class="col-md-10">
+      <%= f.label :min_price, "At least" %>
+      <%= f.number_field :min_price, min: 100, class: '', placeholder: 'Suggest: ¥ 600/hr' %>
+    </div>
+  </div>
+</div>
+<div class="question-block">
+  <div class="row">
+    <div class="col-md-10">
+      <%= f.label :max_price, "At most" %>
+      <%= f.number_field :max_price, min: 100, class: '', placeholder: 'Suggest: ¥ 800/hr' %>
+    </div>
+  </div>
+</div>

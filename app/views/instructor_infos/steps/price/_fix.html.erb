@@ -1,0 +1,22 @@
+
+<div class="question-block">
+  <p class="survey-question">Smart price setter</p>
+  <p class="">Students will be charged this price for your service, if you turn off the smart price setter</p>
+</div>
+
+<div class="question-block">
+  <div class="row">
+    <div class="col-md-10">
+      <%= f.label :fix_price, "Fixed Price" %>
+      <%= f.number_field :fix_price, min: 100, class: '', placeholder: 'Suggest: ¥ 760/hr' %>
+    </div>
+  </div>
+</div>
+<div class="question-block">
+  <div class="row">
+    <div class="col-md-10">
+      <%= f.label :work_frequency, "How often do you want to work with students" %>
+      <%= f.select :work_frequency, InstructorInfo.work_freq_notify_options(lang), {}, { class: 'select2' } %>
+    </div>
+  </div>
+</div>
