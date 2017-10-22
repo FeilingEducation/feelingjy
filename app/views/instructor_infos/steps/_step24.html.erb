@@ -1,0 +1,49 @@
+<div class="row calendar-info-wrapper">
+  <div class="col-md-12">
+    <div class="section-header">
+      <h3 >Prepare for students now</h3>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-6 left-panel">
+    <fieldset class="">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="question-block">
+            <p class="survey-question">Provide a deal to start fast</p>
+            <!-- <label>You can set the time you are available to help students</label> -->
+            <div class="row">
+              <div class="col-md-9">
+                <div class="calendar-info-box price discount first">
+                  <div class="img-wrapper"><%= image_tag "registration/discount.png"%></div>
+                  <div class="title-wrapper"><p >Give a 20% discount for your first student!</p></div>
+                  <div class="txt-wrapper"><p>​To help start your service, this deal is provided to the first student. Other students will be charged with your standard rate. This discount expires in a month.</p></div>
+                  <span>Recommended</span>
+                  <%= f.radio_button :first_std_discount, true %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="calendar-info-box price discount first">
+                <div class="img-wrapper"><%= image_tag "registration/no-discount.png"%></div>
+                <div class="title-wrapper"><p>No, I will just use my standard rate.</p></div>
+                <div class="txt-wrapper"><p>The first student will not get a discount. It might become a little harder to start your service.</p></div>
+                <%= f.radio_button :first_std_discount, false %>
+              </div>
+            </div>
+          </div>
+          <div class="survey-btn-row">
+            <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step23">上一步</button>
+            <button type="button" class="btn btn-primary step-navigate next main-btn pull-left next" data-percentage='80%' data-target="#step25" id="discount-setter">下一步</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="col-md-3 right-panel">
+    <div class="green-box elepahnt">
+      <%= image_tag "registration/step7_elephent.png"%>
+      <p>Why having this option？<br/> ​According to survey, this will help attract students in the beginning. According to statistics. this will help you get review quickly and attract more students.</p>
+    </div>
+  </div>
+</div>

@@ -430,6 +430,11 @@
           margin: auto;
         }
       }
+      &.discount{
+        .img-wrapper{
+          height: 200px;
+        }
+      }
     }
   }
   .calendar-box{
