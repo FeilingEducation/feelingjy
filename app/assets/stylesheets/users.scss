@@ -128,14 +128,6 @@
   }
 }
 
-// Generic CSS
-input[type="text"],input[type="password"],input[type="email"], select, button{
-  height: 43px;
-  margin-bottom: 12px;
-  border: 1px solid $border-color;
-  // border-radius: 6px;
-  border-radius: 0px;
-}
 // .signup-card select{
 //   background-color: transparent;
 //   color: #B6C1CD;
@@ -156,27 +148,6 @@ select#user_dob_3i{
   width: 58px!important;
   display: inline-block;
 }
-
-::-webkit-input-placeholder {
-  color: #B6C1CD;
-  font-size: 15px;
-  font-weight: lighter;
-}
-::-moz-placeholder{
-  color: #B6C1CD;
-  font-size: 15px;
-  font-weight: lighter;
-}
-:-ms-input-placeholder{
-  color: #B6C1CD;
-  font-size: 15px;
-  font-weight: lighter;
-}
-:-moz-placeholder{
-  color: #B6C1CD;
-  font-size: 15px;
-  font-weight: lighter;
-}
 .field-with-icon{
   position: relative;
   .icon{
@@ -196,20 +167,6 @@ select#user_dob_3i{
     font-weight: lighter;
   }
 }
-
-.devise-errors{
-  .error-heading{
-    color: #E25F5F;
-    font-size: 14px;
-  }
-  ul{
-    li{
-      font-size: 12px;
-      color: #E25F5F;
-    }
-  }
-}
-
 
 // .mentor-survey{
 //   .main-heading{
@@ -248,7 +205,3 @@ select#user_dob_3i{
 //     margin-top: 40px;
 //   }
 // }
-
-input[type="radio"], input[type="checkbox"] {
-  margin-right: 10px;
-}
