@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022095205) do
+ActiveRecord::Schema.define(version: 20171022103718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20171022095205) do
     t.integer "max_work_days", default: 2
     t.integer "advance_notify"
     t.integer "reserve_advance"
+    t.boolean "recommended_price", default: true
   end
 
   create_table "messages", force: :cascade do |t|

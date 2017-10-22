@@ -389,11 +389,45 @@
         }
       }
       .txt-wrapper{
+        margin-right: 15px;
 
         p{
           text-align: left;
           font-weight: 300;
           display: inline;
+        }
+      }
+      &.price{
+        .img-wrapper{
+          height: 120px;
+
+          img{
+            width: 50px;
+          }
+        }
+
+        .title-wrapper{
+          p{
+            margin-bottom: 15px;
+          }
+        }
+
+        .txt-wrapper{
+          margin-bottom: 15px;;
+        }
+        span{
+          font-size: 12px;
+          font-weight: lighter;
+          border: 1px solid $border-color;
+          padding: 5px;
+          border-radius: 5px;
+        }
+        input[type='radio']{
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
         }
       }
     }
