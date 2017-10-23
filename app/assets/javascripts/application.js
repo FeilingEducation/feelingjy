@@ -82,11 +82,19 @@ $(document).on('change', '.custom-file input[type="file"]', function () {
 // .image-input is a special file input, which has an .image-input-target for
 // displaying the preview of the selected image before uploading.
 $(document).on('change', '.image-input', function() {
+  console.log('Change....')
   var $this = $(this);
   if (this.files && this.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
-      $($this.data('image-input-target')).attr('src', e.target.result);
+      if($this.data('background')){
+        $($this.data('target')).css('background', "url("+e.target.result+")");
+        $($this.data('target')).addClass('override-background');
+      }
+      else{
+        console.log('background Not found....')
+        $($this.data('image-input-target')).attr('src', e.target.result);
+      }
     }
     reader.readAsDataURL(this.files[0]);
   }
@@ -139,7 +147,7 @@ $(document).on('click', '.editable', function() {
     case 'image':
       $form.attr('enctype', 'multipart/form-data');
       // preview selected image without uploading
-      $form.append($("<img id=\"preview\" class=\"editable-image-preview mb-3\" src=\"" + value + "\">"));
+      $form.append($("<img id=\"preview\" class=\"editable-image-preview 123 mb-3\" src=\"" + value + "\">"));
       var $file_input = $(custom_file_input(model_name, 'mb-3', 'image/*'));
       $file_input.find('input').data('image-input-target', '#preview');
       $form.append($file_input);

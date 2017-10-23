@@ -225,7 +225,7 @@
       position: relative;
 
       .school-bg-img{
-        background-size: 25% 65%!important;
+        background-size: 25% 65% !important;
         height: 400px;
         background: asset_url("registration/pg-bg-tile.png");
 
@@ -276,6 +276,9 @@
               padding-left: 35px;
             }
           }
+        }
+        &.override-background{
+          background-size: cover !important;
         }
       }
     }
