@@ -17,19 +17,15 @@
               <%= f.text_area :description, rows: 5, class: '', placeholder: "Please share what you are good and what your suggestions are about applying for a schools." %>
             </div>
             <div class="question-block check_boxes">
-              <!-- <p class="survey-question">I am good at applying for</p> -->
               <label>I am good at applying for</label>
               <div class="">
-                <%= f.check_box :special_at_top_10 %>
-                <%= f.label :special_at_top_10, "Top 10 American Universities" %>
+                <label><%= f.check_box :special_at_top_10 %>Top 10 American Universities</label>
               </div>
               <div class="">
-                <%= f.check_box :special_at_top_20 %>
-                <%= f.label :special_at_top_20, "Top 20 American Universities" %>
+                <label><%= f.check_box :special_at_top_20 %>Top 20 American Universities</label>
               </div>
               <div class="">
-                <%= f.check_box :special_at_top_30 %>
-                <%= f.label :special_at_top_30, "Top 30 American Universities" %>
+                <label><%= f.check_box :special_at_top_30 %>Top 30 American Universities</label>
               </div>
             </div>
           </div>

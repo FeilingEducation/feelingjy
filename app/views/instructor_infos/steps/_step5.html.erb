@@ -11,32 +11,26 @@
           <div class="question-block check_boxes">
             <p class="survey-question">What informatin can you share to students?</p>
             <div class="">
-              <%= f.check_box :share_resume %>
-              <%= f.label :share_resume, "Personal CV" %>
+              <label><%= f.check_box :share_resume %>Personal CV</label>
+              <%#= f.label :share_resume, "" %>
             </div>
             <div class="">
-              <%= f.check_box :share_application_essay %>
-              <%= f.label :share_application_essay, "Application Letter" %>
+              <label><%= f.check_box :share_application_essay %>Application Letter</label>
             </div>
             <div class="">
-              <%= f.check_box :share_offer_letter %>
-              <%= f.label :share_offer_letter, "Offer Letter" %>
+              <label><%= f.check_box :share_offer_letter %>Offer Letter</label>
             </div>
             <div class="">
-              <%= f.check_box :share_gpa %>
-              <%= f.label :share_gpa, "GPA" %>
+              <label><%= f.check_box :share_gpa %>GPA</label>
             </div>
             <div class="">
-              <%= f.check_box :share_gre_score %>
-              <%= f.label :share_gre_score, "GRE Score" %>
+              <label><%= f.check_box :share_gre_score %>GRE Score</label>
             </div>
             <div class="">
-              <%= f.check_box :share_paper %>
-              <%= f.label :share_paper, "Published paper" %>
+              <label><%= f.check_box :share_paper %>Published paper</label>
             </div>
             <div class="">
-              <%= f.check_box :share_course_essay %>
-              <%= f.label :share_course_essay, "Essay from classes" %>
+              <label><%= f.check_box :share_course_essay %>Essay from classes</label>
             </div>
           </div>
           <div class="survey-btn-row">
