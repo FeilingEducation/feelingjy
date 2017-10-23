@@ -16,8 +16,8 @@
                 <div class="school-bg-img-wrapper">
                   <div class="school-bg-img">
                     <div class="custom-file d-block">
-                      <%= f.file_field :page_background, class: " image-input", :'data-target' => '#page-background-img-name', accept: 'image/*' %>
-                      <%= f.hidden_field :page_background_cache %>
+                      <%= f.file_field :page_background, class: " image-input", :'data-target' => '.school-bg-img', :'data-background' => true, accept: 'image/*' %>
+                      <%= f.hidden_field :page_background_cache, id: "page_background_cache" %>
                       <span id="page-background-img-name" class="custom-file-control page-bg custom-file-name" data-content="请选择文件...">
                         <%= image_tag "registration/upload-icon-white.png" %>
                       </span>
@@ -25,8 +25,8 @@
                   </div>
                 </div>
                 <div class="survey-btn-row">
-                  <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step6">上一步</button>
-                  <button type="button" class="btn btn-primary step-navigate main-btn pull-left next"  data-percentage='20%' data-target="#step8">下一步</button>
+                  <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step6">上一步</button>
+                  <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='20%' data-target="#step8">下一步</button>
                 </div>
               </div>
             </div>

@@ -225,7 +225,7 @@
       position: relative;
 
       .school-bg-img{
-        background-size: 25% 65%!important;
+        background-size: 25% 65% !important;
         height: 400px;
         background: asset_url("registration/pg-bg-tile.png");
 
@@ -277,6 +277,9 @@
             }
           }
         }
+        &.override-background{
+          background-size: cover !important;
+        }
       }
     }
   }
@@ -296,8 +299,12 @@
       // text-align: center;
       margin-bottom: 200px;
 
-      img{
+      .pic-placeholder{
         width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: asset_url('registration/pic-placeholder.png');
+        background-size: cover !important;
         margin-left: 40px;
       }
 

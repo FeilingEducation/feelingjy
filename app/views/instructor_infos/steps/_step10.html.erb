@@ -10,19 +10,20 @@
       <div class="row">
         <div class="col-md-12">
           <div class="question-block tutor-picture-block">
-            <p class="survey-question">Please add a picture of yourself </p>
-            <%= image_tag "registration/pic-placeholder.png"%>
+            <p class="survey-question">Please add a picture of yourself1 </p>
+            <%#= image_tag "registration/pic-placeholder.png", class: 'avatar-img-name'%>
+            <div class="pic-placeholder"></div>
             <div class="custom-file d-block">
-              <%= f.file_field :avatar, class: "image-input", :'data-target' => '#page-background-img-name', accept: 'image/*' %>
+              <%= f.file_field :avatar, class: "image-input", :'data-target' => '.pic-placeholder', :'data-background' => true, accept: 'image/*' %>
               <%= f.hidden_field :avatar_cache %>
-              <span id="page-background-img-name" class="custom-file-control page-bg custom-file-name" data-content="Upload">
+              <span id="avatar-img-name" class="custom-file-control page-bg custom-file-name" data-content="Upload">
                 <%= image_tag "registration/upload-icon.png" %>
               </span>
             </div>
           </div>
           <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-right" data-target="#step9">上一步</button>
-            <button type="button" class="btn btn-primary step-navigate next main-btn pull-left next" data-percentage='100%' data-target="#step11">下一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step9">上一步</button>
+            <button type="button" class="btn btn-primary step-navigate next main-btn pull-right next" data-percentage='100%' data-target="#step11">下一步</button>
           </div>
         </div>
       </div>
