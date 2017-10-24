@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get 'states'
       get 'cities'
+      get 'schools_applied'
     end
   end
   resources :profiles, only: [:show]

@@ -103,29 +103,5 @@
     <%= render partial: 'instructor_infos/steps/step26', locals: {f: f, lang: lang} %>
   </div>
 
-  <div class='multi-step-form' id="step118">
-    <div class="col-md-8">
-      <fieldset class="">
-        <div class="head-sec">
-          <h2 class="main-heading">步骤8：装饰主页</h2>
-        </div>
-        <div class="question-block">
-          <p class="survey-question">为自己的主页想个标题</p>
-          <p class="info">吸引人的标题更加展示自己的特点</p>
-          <div class="form-group row">
-            <%= f.label :page_name, "主页名称", class: 'col-md-12 col-form-label' %>
-            <div class="col-md-12">
-              <%= f.text_field :page_name, class: 'form-control' %>
-            </div>
-          </div>
-        </div>
-        <div class="survey-btn-row">
-          <button type="button" class="btn btn-primary float-right step-navigate main-btn submit">完成</button>
-          <button type="button" class="btn btn-default step-navigate" data-target="#step7">上一步</button>
-        </div>
-      </fieldset>
-    </div>
-  </div>
-
   <% end %>
 </div>

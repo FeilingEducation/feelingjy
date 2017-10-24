@@ -1,7 +1,7 @@
 class InstructorInfosController < AuthenticatedResourcesController
 
-  before_action :check_user_info_initialized, except: [:states, :cities]
-  before_action :check_instructor_info_initialized, except: [:states, :cities]
+  before_action :check_user_info_initialized, except: [:states, :cities, :schools_applied]
+  before_action :check_instructor_info_initialized, except: [:states, :cities, :schools_applied]
 
   # Notice that there is no index or show action for this controller.
   # Those are handled by the user_info controller depending on if the current_user
@@ -52,6 +52,10 @@ class InstructorInfosController < AuthenticatedResourcesController
 
   def cities
     render json: CS.cities(params[:state], params[:country]).to_json
+  end
+
+  def schools_applied
+    render json: InstructorInfo::SCHOOLS_APPLIED_BEFORE_ENGLISH[0..params['idx'].to_i]
   end
 
   private
