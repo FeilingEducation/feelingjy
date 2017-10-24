@@ -14,7 +14,7 @@
             <p class="survey-question">Set a title for your page!</p>
             <div class="form-group">
               <%= f.label :page_name, "Add a catching title to attract your students!", class: '' %>
-              <%= f.text_area :page_name, rows: 5, class: '', placeholder: "e.g. My life in America" %>
+              <%= f.text_field :page_name, rows: 5, class: '', placeholder: "e.g. My life in America (max 100 characters)", :'maxLength' => 100 %>
             </div>
           </div>
           <div class="survey-btn-row">

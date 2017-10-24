@@ -23,12 +23,14 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-8">
-              <div class="calendar-info-box price first">
-                <div class="img-wrapper"><%= image_tag "registration/fixed-price-tag.png"%></div>
-                <div class="title-wrapper"><p>Set a fixed price</p></div>
-                <div class="txt-wrapper"><p>You can set a expected price first. Feiling platform will give you a suggestion, and it's up to you which one to go with.</p></div>
-                <%= f.radio_button :recommended_price, false %>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="calendar-info-box price first">
+                  <div class="img-wrapper"><%= image_tag "registration/fixed-price-tag.png"%></div>
+                  <div class="title-wrapper"><p>Set a fixed price</p></div>
+                  <div class="txt-wrapper"><p>You can set a expected price first. Feiling platform will give you a suggestion, and it's up to you which one to go with.</p></div>
+                  <%= f.radio_button :recommended_price, false %>
+                </div>
               </div>
             </div>
           </div>

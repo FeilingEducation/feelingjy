@@ -23,12 +23,14 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-9">
-              <div class="calendar-info-box price discount first">
-                <div class="img-wrapper"><%= image_tag "registration/no-discount.png"%></div>
-                <div class="title-wrapper"><p>No, I will just use my standard rate.</p></div>
-                <div class="txt-wrapper"><p>The first student will not get a discount. It might become a little harder to start your service.</p></div>
-                <%= f.radio_button :first_std_discount, false %>
+            <div class="row">
+              <div class="col-md-9">
+                <div class="calendar-info-box price discount first">
+                  <div class="img-wrapper"><%= image_tag "registration/no-discount.png"%></div>
+                  <div class="title-wrapper"><p>No, I will just use my standard rate.</p></div>
+                  <div class="txt-wrapper"><p>The first student will not get a discount. It might become a little harder to start your service.</p></div>
+                  <%= f.radio_button :first_std_discount, false %>
+                </div>
               </div>
             </div>
           </div>
