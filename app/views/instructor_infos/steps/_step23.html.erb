@@ -13,6 +13,14 @@
           </div>
           <div class="fixed-price" id="fixed-price">
           </div>
+          <div class="question-block">
+            <div class="row">
+              <div class="col-md-10">
+                <%= f.label :work_frequency, "How often do you want to work with students" %>
+                <%= f.select :work_frequency, InstructorInfo.work_freq_notify_options(lang), {}, { class: 'select2' } %>
+              </div>
+            </div>
+          </div>
 
           <div class="survey-btn-row">
             <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step22">上一步</button>
