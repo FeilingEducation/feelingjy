@@ -18,40 +18,50 @@ $(document).on('change', '#user_info_avatar', function () {
   }
 });
 $(document).ready(function(){
-  $( ".select2" ).select2({})
-  $( ".select2.state" ).select2({}).on('change', function(e){
-    $.ajax({
-      url: '/instructor/cities.json?state=' + e.target.value + "&country="+ $('.select2.country').val(),
-      dataType: 'json',
-      success: function (resp) {
-        console.log("resp", resp)
-        $( ".select2.city" ).empty()
-        $( ".select2.city" ).select2({})
-        $.map(resp, function(key, val){
-          var option = new Option(key, val);
-          $( ".select2.city" ).append(option);
-        })
-        // $( ".select2.state" ).trigger("change");
-      }
-    });
+  // $( ".select2" ).select2({})
+  $.map($(".select2"), function(select2, idx){
+    if($(select2).hasClass('state')){
+      console.log('has class state...')
+      $(select2).select2({}).on('change', function(e){
+        $.ajax({
+          url: '/instructor/cities.json?state=' + e.target.value + "&country="+ $('.select2.country').val(),
+          dataType: 'json',
+          success: function (resp) {
+            console.log("resp", resp)
+            $( ".select2.city" ).empty()
+            $( ".select2.city" ).select2({})
+            $.map(resp, function(key, val){
+              var option = new Option(key, val);
+              $( ".select2.city" ).append(option);
+            })
+            // $( ".select2.state" ).trigger("change");
+          }
+        });
+      })
+    }
+    else if($(select2).hasClass('country')){
+      console.log('has class country...')
+      $('.select2.country').select2({}).on('change', function(e){
+        console.log('change....', e.target.value)
+        $.ajax({
+          url: '/instructor/states.json?country=' + e.target.value,
+          dataType: 'json',
+          success: function (resp) {
+            console.log("resp", resp)
+            $( ".select2.state" ).empty()
+            $( ".select2.state" ).select2({})
+            $.map(resp, function(key, val){
+              var option = new Option(key, val);
+              $( ".select2.state" ).append(option);
+            })
+            // $( ".select2.state" ).trigger("change");
+          }
+        });
+      })
+    }
+    else{
+      $(select2).select2({})
+    }
   })
-  $( ".select2.city" ).select2({})
 
-  $('.select2.country').select2({}).on('change', function(e){
-    console.log('change....', e.target.value)
-    $.ajax({
-      url: '/instructor/states.json?country=' + e.target.value,
-      dataType: 'json',
-      success: function (resp) {
-        console.log("resp", resp)
-        $( ".select2.state" ).empty()
-        $( ".select2.state" ).select2({})
-        $.map(resp, function(key, val){
-          var option = new Option(key, val);
-          $( ".select2.state" ).append(option);
-        })
-        // $( ".select2.state" ).trigger("change");
-      }
-    });
-  })
 })
