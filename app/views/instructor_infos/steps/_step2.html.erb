@@ -39,11 +39,15 @@
             <div class="row">
               <div class="col-md-8">
                 <label>Have you helped others before?</label>
-                <div class="radio-btns">
-                  <label><%= f.radio_button :helped_before, true %>Yes, I have helped others before</label>
+                <div class="radio-btns custom-checkbox-radios">
+                  <%= f.radio_button :helped_before, true, id: 'helped_before_true' %>
+                  <label for="helped_before_true">Yes, I have helped others before </label>
+                  <%#= f.label :helped_before, 'Yes, I have helped others before'%>
                 </div>
-                <div class="radio-btns">
-                  <label><%= f.radio_button :helped_before, false %>No, this is my first time helping others</label>
+                <div class="radio-btns custom-checkbox-radios">
+                  <%= f.radio_button :helped_before, false, id: 'helped_before_false' %>
+                  <%#= f.label :helped_before, 'No, this is my first time helping others'%>
+                  <label for="helped_before_false">Yes, I have helped others before </label>
                 </div>
               </div>
             </div>

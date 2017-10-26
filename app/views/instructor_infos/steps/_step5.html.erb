@@ -8,29 +8,28 @@
     <fieldset class="">
       <div class="row">
         <div class="col-md-12">
-          <div class="question-block check_boxes">
+          <div class="question-block check_boxes custom-checkbox-radios">
             <p class="survey-question">What informatin can you share to students?</p>
             <div class="">
-              <label><%= f.check_box :share_resume %>Personal CV</label>
-              <%#= f.label :share_resume, "" %>
+              <%= f.check_box :share_resume, id: 'share_resume' %><label for="share_resume">Personal CV</label>
             </div>
             <div class="">
-              <label><%= f.check_box :share_application_essay %>Application Letter</label>
+              <%= f.check_box :share_application_essay, id: 'share_application_essay' %><label for="share_application_essay">Application Letter</label>
             </div>
             <div class="">
-              <label><%= f.check_box :share_offer_letter %>Offer Letter</label>
+              <%= f.check_box :share_offer_letter, id: 'share_offer_letter' %><label for="share_offer_letter">Offer Letter</label>
             </div>
             <div class="">
-              <label><%= f.check_box :share_gpa %>GPA</label>
+              <%= f.check_box :share_gpa, id: 'share_gpa' %><label for="share_gpa">GPA</label>
             </div>
             <div class="">
-              <label><%= f.check_box :share_gre_score %>GRE Score</label>
+              <%= f.check_box :share_gre_score, id: 'share_gre_score' %><label for="share_gre_score">GRE Score</label>
             </div>
             <div class="">
-              <label><%= f.check_box :share_paper %>Published paper</label>
+              <%= f.check_box :share_paper, id: 'share_paper' %><label for="share_paper">Published paper</label>
             </div>
             <div class="">
-              <label><%= f.check_box :share_course_essay %>Essay from classes</label>
+              <%= f.check_box :share_course_essay, id: 'share_course_essay' %><label for="share_course_essay">Essay from classes</label>
             </div>
           </div>
           <div class="survey-btn-row">

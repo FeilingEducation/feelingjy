@@ -10,11 +10,11 @@
     <fieldset class="">
       <div class="row">
         <div class="col-md-8">
-          <div class="question-block check_boxes">
+          <div class="question-block check_boxes custom-checkbox-radios">
             <p class="survey-question">Set a title for your page!</p>
             <div class="form-group">
-              <%= f.label :page_name, "Add a catching title to attract your students!", class: '' %>
-              <%= f.text_field :page_name, rows: 5, class: '', placeholder: "e.g. My life in America (max 100 characters)", :'maxLength' => 100 %>
+              <%= f.text_field :page_name, rows: 5, class: '',id: 'page_name_lbl', placeholder: "e.g. My life in America (max 100 characters)", :'maxLength' => 100 %>
+              <label for="page_name_lbl">Add a catching title to attract your students!</label>
             </div>
           </div>
           <div class="survey-btn-row">

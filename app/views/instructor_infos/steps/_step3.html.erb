@@ -10,11 +10,11 @@
         <div class="col-md-12">
           <div class="question-block">
             <p class="survey-question">How many schools have you applied before?</p>
-            <div class="row">
+            <div class="row  custom-checkbox-radios">
               <div class="col-md-8">
-                <% InstructorInfo.schools_applied_before_options(lang).each do |option| %>
-                  <div class="radio-btns">
-                    <label><%= f.radio_button :number_institutes_applied, option[1] %> <%= option[0]%></label>
+                <% InstructorInfo.schools_applied_before_options(lang).each_with_index do |option, idx| %>
+                  <div class="radio-btns custom-checkbox-radios">
+                    <%= f.radio_button :number_institutes_applied, option[1], id: "number_institutes_applied#{idx}" %><label for="<%= "number_institutes_applied#{idx}" %>"> <%= option[0]%></label>
                   </div>
                 <%end%>
               </div>

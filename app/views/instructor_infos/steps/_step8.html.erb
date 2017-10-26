@@ -10,22 +10,22 @@
     <fieldset class="">
       <div class="row">
         <div class="col-md-8">
-          <div class="question-block check_boxes">
+          <div class="question-block">
             <p class="survey-question">Description</p>
             <div class="form-group">
               <%= f.label :description, "Simply describe yourself please", class: '' %>
               <%= f.text_area :description, rows: 5, class: '', placeholder: "Please share what you are good and what your suggestions are about applying for a schools." %>
             </div>
-            <div class="question-block check_boxes">
+            <div class="question-block check_boxes custom-checkbox-radios">
               <label>I am good at applying for</label>
               <div class="">
-                <label><%= f.check_box :special_at_top_10 %>Top 10 American Universities</label>
+                <%= f.check_box :special_at_top_10, id: 'special_at_top_10' %><label for="special_at_top_10">Top 10 American Universities</label>
               </div>
               <div class="">
-                <label><%= f.check_box :special_at_top_20 %>Top 20 American Universities</label>
+                <%= f.check_box :special_at_top_20, id: 'special_at_top_20' %><label for="special_at_top_20">Top 20 American Universities</label>
               </div>
               <div class="">
-                <label><%= f.check_box :special_at_top_30 %>Top 30 American Universities</label>
+                <%= f.check_box :special_at_top_30, id: 'special_at_top_30' %><label for="special_at_top_30">Top 30 American Universities</label>
               </div>
             </div>
           </div>

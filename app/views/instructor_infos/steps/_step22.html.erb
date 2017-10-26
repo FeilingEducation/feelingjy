@@ -19,7 +19,8 @@
                   <div class="title-wrapper"><p >According to the market value</p></div>
                   <div class="txt-wrapper"><p>You can use smart price setter to set your price. The price will be within your range.</p></div>
                   <span>Recommended</span>
-                  <%= f.radio_button :recommended_price, true %>
+                  <%= f.radio_button :recommended_price, true, id: "recommended_price_true" %>
+                  <label for="recommended_price_true"></label>
                 </div>
               </div>
             </div>
@@ -29,7 +30,8 @@
                   <div class="img-wrapper"><%= image_tag "registration/fixed-price-tag.png"%></div>
                   <div class="title-wrapper"><p>Set a fixed price</p></div>
                   <div class="txt-wrapper"><p>You can set a expected price first. Feiling platform will give you a suggestion, and it's up to you which one to go with.</p></div>
-                  <%= f.radio_button :recommended_price, false %>
+                  <%= f.radio_button :recommended_price, false, id: "recommended_price_false"  %>
+                  <label for="recommended_price_false"></label>
                 </div>
               </div>
             </div>

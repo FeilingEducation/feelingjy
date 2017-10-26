@@ -19,7 +19,8 @@
                   <div class="title-wrapper"><p >Give a 20% discount for your first student!</p></div>
                   <div class="txt-wrapper"><p>​To help start your service, this deal is provided to the first student. Other students will be charged with your standard rate. This discount expires in a month.</p></div>
                   <span>Recommended</span>
-                  <%= f.radio_button :first_std_discount, true %>
+                  <%= f.radio_button :first_std_discount, true, id: 'first_std_discount_true' %>
+                  <label for="first_std_discount_true"></label>
                 </div>
               </div>
             </div>
@@ -29,7 +30,8 @@
                   <div class="img-wrapper"><%= image_tag "registration/no-discount.png"%></div>
                   <div class="title-wrapper"><p>No, I will just use my standard rate.</p></div>
                   <div class="txt-wrapper"><p>The first student will not get a discount. It might become a little harder to start your service.</p></div>
-                  <%= f.radio_button :first_std_discount, false %>
+                  <%= f.radio_button :first_std_discount, false, id: 'first_std_discount_false' %>
+                  <label for="first_std_discount_false"></label>
                 </div>
               </div>
             </div>

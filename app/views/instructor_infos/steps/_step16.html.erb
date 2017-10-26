@@ -30,10 +30,10 @@
             </div>
           </div>
           <hr/>
-          <div class="question-block">
+          <div class="question-block custom-checkbox-radios">
             <div class="row">
               <div class="col-md-8">
-                <label><%= f.check_box :ensure_accurate_time%>Will do! I'll keep my time availabilities accurate!</label>
+                <%= f.check_box :ensure_accurate_time, id: 'ensure_accurate_time'%><label for="ensure_accurate_time">Will do! I'll keep my time availabilities accurate!</label>
               </div>
             </div>
           </div>
