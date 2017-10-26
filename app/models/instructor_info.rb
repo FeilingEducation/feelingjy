@@ -41,6 +41,9 @@ class InstructorInfo < ApplicationRecord
   WORK_FREQ_NOTIFY_ENGLISH = ['As less as possible', 'Once a month', 'As much as possible']
   WORK_FREQ_NOTIFY_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
 
+  BEST_APPLYING_AT_ENGLISH = ['Top 10 American Universities', 'Top 20 American Universities', 'Top 30 American Universities']
+  BEST_APPLYING_AT_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+
   def resumes
     self.attachments.where(file_type: 'resume')
   end
@@ -83,6 +86,10 @@ class InstructorInfo < ApplicationRecord
 
   def self.work_freq_notify_options local='en'
     (local == 'en' ? WORK_FREQ_NOTIFY_ENGLISH : WORK_FREQ_NOTIFY_CHINESE).each_with_index.map {|m,i| [m,i]}
+  end
+
+  def self.best_applying_at_options local='en'
+    (local == 'en' ? BEST_APPLYING_AT_ENGLISH : BEST_APPLYING_AT_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.countries_as_options

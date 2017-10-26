@@ -55,6 +55,17 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
         })
       }
 
+      // Check if there are number fields present on screen
+      if($(question_block).find('input[type=file]').length > 0){
+        // there are number fields present on the screeb. Make sure that user selects some value.
+        $.map($(question_block).find('input[type=file]'), function(file_field, index){
+          if($(file_field).val().length == 0){
+            isValid = false;
+            console.log('file field validation fails...')
+          }
+        })
+      }
+
       // Check if there are text areas present on screen
       if($(question_block).find('textarea').length > 0){
         // there are text areas present on the screeb. Make sure that user selects some value.
@@ -63,10 +74,16 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
             isValid = false;
             console.log('textarea validation fails...')
           }
+          if($(textarea).attr('id') == "description"){
+            if($(textarea).val().length < 400){
+              isValid = false;
+            }
+          }
         })
       }
     })
   }
+
   if(isValid || $this.hasClass('btn-default')){
     $curr_form.toggleClass('current-step');
     $target_form.toggleClass('current-step');
