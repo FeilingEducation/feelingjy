@@ -13,12 +13,12 @@
           <div class="question-block check_boxes custom-checkbox-radios">
             <p class="survey-question">Set a title for your page!</p>
             <div class="form-group">
-              <%= f.text_field :page_name, rows: 5, class: '',id: 'page_name_lbl', placeholder: "e.g. My life in America (max 100 characters)", :'maxLength' => 100 %>
               <label for="page_name_lbl">Add a catching title to attract your students!</label>
+              <%= f.text_field :page_name, rows: 5, class: '',id: 'page_name_lbl', placeholder: "e.g. My life in America (max 100 characters)", :'maxLength' => 100 %>
             </div>
           </div>
           <div class="survey-btn-row">
-              <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step8">上一步</button>
+              <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step8" data-percentage='20%' >上一步</button>
               <button type="button" class="btn btn-primary step-navigate main-btn pull-right next" data-percentage='60%' data-target="#step10">下一步</button>
           </div>
         </div>

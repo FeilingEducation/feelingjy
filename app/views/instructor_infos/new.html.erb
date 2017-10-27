@@ -10,6 +10,7 @@
   $(document).on('click', '.step-navigate.next', function(){
   })
   $('.initialize-section').on('click', function(){
+    $('.body .progress').removeClass('sec2').removeClass('sec3')
     $('.body .progress').addClass($(this).data('section'))
     $(window).scrollTop(0)
     $('.progress .progress-bar').css('width', "1%")
