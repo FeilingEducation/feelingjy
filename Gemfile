@@ -30,6 +30,8 @@ gem 'redis', '~> 3.0'
 
 gem "fog-aws"
 
+gem 'activeadmin', github: 'activeadmin'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
