@@ -10,5 +10,7 @@
   this.App || (this.App = {});
 
   App.cable = ActionCable.createConsumer();
+  console.log('=============')
+  console.log({App.cable})
 
 }).call(this);
