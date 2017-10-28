@@ -8,7 +8,7 @@
     </div>
   <% end %>
   <div class="d-flex justify-content-center">
-    <div class="d-inline-block" style="margin-top:-105px;">
+    <div class="d-inline-block" style="margin-top:-105px;z-index:9">
       <%= scoped in_scope, :content_tag, :div, class: "editable",
       data: { model: 'user_info', name: 'avatar', type: 'image', target: 'img', attr: 'src',
         label: '背景图片', action: user_info_path, method: 'patch' } do %>

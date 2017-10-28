@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root 'search#index'
 
   mount ActionCable.server => '/cable'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
     collection do
       get 'states'
       get 'cities'
+      get 'schools_applied'
     end
   end
   resources :profiles, only: [:show]

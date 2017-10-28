@@ -266,7 +266,7 @@ textarea{
   position: fixed;
   top: 70px;
   width: 100%;
-  z-index: 9;
+  z-index: 11;
   height: 20px;
   // background-color: rgba(238,248,245,1);
 
@@ -329,7 +329,9 @@ textarea{
 }
 
 *:focus{
-  outline: none!important;
+  outline: none !important;
+  box-shadow: none!important;
+  border: 1px solid $primary-green!important;
 }
 
 input[type="text"],input[type="password"],input[type="email"],input[type="number"], select, button{
@@ -380,4 +382,152 @@ input[type="radio"], input[type="checkbox"] {
   color: #B6C1CD;
   font-size: 15px;
   font-weight: lighter;
+}
+
+.registration-error{
+  width: 260px;
+  border: 1px solid rgb(227, 95, 95);
+  padding: 10px;
+  border-radius: 5px;
+  /* background-color: rgba(297,95,95,.04); */
+  color: #E35F5F;
+  position: fixed;
+  top: 120px;
+  right: 40px;
+  z-index: 99999;
+  -webkit-transition: opacity 600ms, visibility 600ms;
+  transition: opacity 600ms, visibility 600ms;
+}
+*:focus{
+  border: 1px solid $border-color;
+}
+.snack-bar-error{
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: $primary-red; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+  // -webkit-animation: fadout 0.5s;//, fadeout 0.5s 2.5s;
+  // animation: fadout 0.5s;
+
+  &.show{
+    visibility: visible; /* Show the snackbar */
+
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s;//, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s;//, fadeout 0.5s 2.5s;
+  }
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+.custom-checkbox-radios{
+
+  input[type=radio], input[type=checkbox]{
+    visibility: hidden;
+    width: 0;
+    margin: 0;
+
+    label{
+      color: $primary-green;
+      cursor: pointer!important;
+      position: relative;
+      font-weight: 400;
+      margin: 0px;
+      line-height: normal;
+    }
+  }
+
+  input[type=radio] + label:before{
+
+    content: " ";
+    height: 20px;
+    width: 20px;
+    background: #ffffff;
+    border: 2px solid $border-color;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+    border-radius: 100%;
+  }
+  input[type=radio] + label:hover:before{
+    border-color: $primary-green;
+  }
+  input[type=radio]:checked + label:before{
+    border-color: $primary-green;
+  }
+  input[type=radio]:checked + label::after{
+    display: block;
+    content: "\F111";
+    color: $primary-green;
+    font: normal normal normal 12px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    margin-left: 5px;
+    z-index: 2;
+    margin-top: -16px;
+  }
+
+  // Checkbox
+  input[type=checkbox] + label:before{
+
+    content: " ";
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    border: 2px solid $border-color;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+    // border-radius: 100%;
+  }
+  input[type=checkbox] + label:hover:before{
+    border-color: $primary-green;
+  }
+  input[type=checkbox]:checked + label:before{
+    border-color: $primary-green;
+    background-color:  $primary-green;
+  }
+  input[type=checkbox]:checked + label::after{
+    display: block;
+    content: "\F00C";
+    color: #fff;
+    font: normal normal normal 12px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    margin-left: 4px;
+    z-index: 2;
+    margin-top: -16px;
+  }
 }

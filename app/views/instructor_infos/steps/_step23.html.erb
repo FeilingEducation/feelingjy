@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="section-header">
-      <h3>Prepare for students now</h3>
+      <h3>Step 3: Prepare for students now</h3>
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -13,9 +13,17 @@
           </div>
           <div class="fixed-price" id="fixed-price">
           </div>
+          <div class="question-block">
+            <div class="row">
+              <div class="col-md-10">
+                <%= f.label :work_frequency, "How often do you want to work with students" %>
+                <%= f.select :work_frequency, InstructorInfo.work_freq_notify_options(lang), {}, { class: 'select2' } %>
+              </div>
+            </div>
+          </div>
 
           <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step22">上一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step22" data-percentage='65%' >上一步</button>
             <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='80%' data-target="#step24">下一步</button>
           </div>
         </div>

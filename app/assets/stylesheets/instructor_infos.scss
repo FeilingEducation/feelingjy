@@ -198,14 +198,18 @@
           padding: 15px 20px;
           margin-top: 10px;
 
-          img{
-            width: 165px;
-            max-width: 180px;
+          div.school-bg-img{
+            width: 150px;
+            max-width: 160px;
+            height: 100px;
             position: absolute;
+            background-size: contain!important;
             margin: auto;
             top: 10px;
-            bottom:0;
-            right: 40px;
+            bottom: 0;
+            right: 35px;
+            border-radius: 5px;
+            background-repeat: no-repeat!important;
           }
         }
       }
@@ -278,7 +282,9 @@
           }
         }
         &.override-background{
-          background-size: cover !important;
+          background-size: contain !important;
+          background-repeat: no-repeat !important;
+          background-position: center !important;
         }
       }
     }

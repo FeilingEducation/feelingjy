@@ -1,7 +1,7 @@
 <div class="row calendar-info-wrapper">
   <div class="col-md-12">
     <div class="section-header">
-      <h3 >Prepare for students now</h3>
+      <h3 >Step 3: Prepare for students now</h3>
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -19,21 +19,25 @@
                   <div class="title-wrapper"><p >According to the market value</p></div>
                   <div class="txt-wrapper"><p>You can use smart price setter to set your price. The price will be within your range.</p></div>
                   <span>Recommended</span>
-                  <%= f.radio_button :recommended_price, true %>
+                  <%= f.radio_button :recommended_price, true, id: "recommended_price_true" %>
+                  <label for="recommended_price_true"></label>
                 </div>
               </div>
             </div>
-            <div class="col-md-8">
-              <div class="calendar-info-box price first">
-                <div class="img-wrapper"><%= image_tag "registration/fixed-price-tag.png"%></div>
-                <div class="title-wrapper"><p>Set a fixed price</p></div>
-                <div class="txt-wrapper"><p>You can set a expected price first. Feiling platform will give you a suggestion, and it's up to you which one to go with.</p></div>
-                <%= f.radio_button :recommended_price, false %>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="calendar-info-box price first">
+                  <div class="img-wrapper"><%= image_tag "registration/fixed-price-tag.png"%></div>
+                  <div class="title-wrapper"><p>Set a fixed price</p></div>
+                  <div class="txt-wrapper"><p>You can set a expected price first. Feiling platform will give you a suggestion, and it's up to you which one to go with.</p></div>
+                  <%= f.radio_button :recommended_price, false, id: "recommended_price_false"  %>
+                  <label for="recommended_price_false"></label>
+                </div>
               </div>
             </div>
           </div>
           <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step20">上一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step20" data-percentage='60%' >上一步</button>
             <button type="button" class="btn btn-primary step-navigate next main-btn pull-right next" data-percentage='75%' data-target="#step23" id="price-setter">下一步</button>
           </div>
         </div>

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="section-header">
-      <h3 > Please fill in the information below</h3>
+      <h3 > Step 1: Please fill in the information below</h3>
     </div>
   </div>
   <div class="col-md-6 left-panel">
@@ -9,12 +9,12 @@
       <div class="row">
         <div class="col-md-12">
           <div class="question-block">
-            <p class="survey-question">How many schooles have you applied before?</p>
-            <div class="row">
+            <p class="survey-question">How many schools have you applied before?</p>
+            <div class="row  custom-checkbox-radios">
               <div class="col-md-8">
-                <% InstructorInfo.schools_applied_before_options(lang).each do |option| %>
-                  <div class="radio-btns">
-                    <label><%= f.radio_button :number_institutes_applied, option[1] %> <%= option[0]%></label>
+                <% InstructorInfo.schools_applied_before_options(lang).each_with_index do |option, idx| %>
+                  <div class="radio-btns custom-checkbox-radios">
+                    <%= f.radio_button :number_institutes_applied, option[1], id: "number_institutes_applied#{idx}" %><label for="<%= "number_institutes_applied#{idx}" %>"> <%= option[0]%></label>
                   </div>
                 <%end%>
               </div>
@@ -30,7 +30,7 @@
               </div>
               <div class="row">
                 <div class="col-md-7">
-                  <%= f.select :number_institutes_admitted, InstructorInfo.schools_applied_before_options(lang), {}, { class: 'select2' } %>
+                  <%= f.select :number_institutes_admitted, InstructorInfo.schools_applied_before_options(lang), {}, { class: 'select2 schools-applied' } %>
                 </div>
               </div>
             </div>
@@ -38,7 +38,7 @@
           <div class="survey-btn-row">
             <div class="row">
               <div class="col-md-7">
-                <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step1">上一步</button>
+                <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step1" data-percentage='30%' >上一步</button>
                 <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='60%' data-target="#step4">下一步</button>
               </div>
             </div>
@@ -48,3 +48,20 @@
     </fieldset>
   </div>
 </div>
+
+<script type="text/javascript">
+$("input[name='instructor_info[number_institutes_applied]']").on('change', function(e){
+  $.ajax({
+    url: '/instructor/schools_applied.json?idx=' + e.target.value ,
+    dataType: 'json',
+    success: function (resp) {
+      $( ".select2.schools-applied" ).empty()
+      $( ".select2.schools-applied" ).select2({})
+      $.map(resp, function(key, val){
+        var option = new Option(key, val);
+        $( ".select2.schools-applied" ).append(option);
+      })
+    }
+  });
+})
+</script>

@@ -1,7 +1,7 @@
 <div class="row calendar-info-wrapper">
   <div class="col-md-12">
     <div class="section-header">
-      <h3 >Prepare for students now</h3>
+      <h3 >Step 3: Prepare for students now</h3>
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -19,21 +19,25 @@
                   <div class="title-wrapper"><p >Give a 20% discount for your first student!</p></div>
                   <div class="txt-wrapper"><p>​To help start your service, this deal is provided to the first student. Other students will be charged with your standard rate. This discount expires in a month.</p></div>
                   <span>Recommended</span>
-                  <%= f.radio_button :first_std_discount, true %>
+                  <%= f.radio_button :first_std_discount, true, id: 'first_std_discount_true' %>
+                  <label for="first_std_discount_true"></label>
                 </div>
               </div>
             </div>
-            <div class="col-md-9">
-              <div class="calendar-info-box price discount first">
-                <div class="img-wrapper"><%= image_tag "registration/no-discount.png"%></div>
-                <div class="title-wrapper"><p>No, I will just use my standard rate.</p></div>
-                <div class="txt-wrapper"><p>The first student will not get a discount. It might become a little harder to start your service.</p></div>
-                <%= f.radio_button :first_std_discount, false %>
+            <div class="row">
+              <div class="col-md-9">
+                <div class="calendar-info-box price discount first">
+                  <div class="img-wrapper"><%= image_tag "registration/no-discount.png"%></div>
+                  <div class="title-wrapper"><p>No, I will just use my standard rate.</p></div>
+                  <div class="txt-wrapper"><p>The first student will not get a discount. It might become a little harder to start your service.</p></div>
+                  <%= f.radio_button :first_std_discount, false, id: 'first_std_discount_false' %>
+                  <label for="first_std_discount_false"></label>
+                </div>
               </div>
             </div>
           </div>
           <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step23">上一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step23" data-percentage='75%' >上一步</button>
             <button type="button" class="btn btn-primary step-navigate next main-btn pull-right next" data-percentage='100%' data-target="#step26" id="discount-setter">下一步</button>
           </div>
         </div>

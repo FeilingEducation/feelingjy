@@ -1,7 +1,7 @@
 <div class="row calendar-info-wrapper">
   <div class="col-md-12">
     <div class="section-header">
-      <h3 >Prepare for students now</h3>
+      <h3 >Step 3: Prepare for students now</h3>
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -30,16 +30,15 @@
             </div>
           </div>
           <hr/>
-          <div class="question-block">
+          <div class="question-block custom-checkbox-radios">
             <div class="row">
               <div class="col-md-8">
-                <%= f.check_box :ensure_accurate_time%>
-                <%= f.label :ensure_accurate_time, "Will do! I'll keep my time availabilities accurate!" %>
+                <%= f.check_box :ensure_accurate_time, id: 'ensure_accurate_time'%><label for="ensure_accurate_time">Will do! I'll keep my time availabilities accurate!</label>
               </div>
             </div>
           </div>
           <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step15">上一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step15" data-percentage='21%' >上一步</button>
             <button type="button" class="btn btn-primary step-navigate next main-btn pull-right next" data-percentage='40%' data-target="#step17">下一步</button>
           </div>
         </div>
