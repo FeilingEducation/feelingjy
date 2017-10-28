@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027184055) do
+ActiveRecord::Schema.define(version: 20171028055739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,6 +161,16 @@ ActiveRecord::Schema.define(version: 20171027184055) do
     t.string "work_frequency"
     t.boolean "first_std_discount", default: true
     t.integer "best_applying_at"
+    t.integer "number_institutes_applied"
+    t.integer "number_institutes_admitted"
+    t.boolean "share_resume", default: false
+    t.boolean "share_application_essay", default: false
+    t.boolean "share_offer_letter", default: false
+    t.boolean "share_gpa", default: false
+    t.boolean "share_gre_score", default: false
+    t.boolean "share_paper", default: false
+    t.boolean "share_course_essay", default: false
+    t.string "page_name"
   end
 
   create_table "messages", force: :cascade do |t|

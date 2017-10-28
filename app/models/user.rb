@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_one :user_info, foreign_key: "id"
 
+  def name
+    email
+  end
+
 end

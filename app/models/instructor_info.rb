@@ -8,6 +8,8 @@ class InstructorInfo < ApplicationRecord
   has_many :students, through: 'consult_transactions'
   has_many :private_policies, foreign_key: 'instructor_id'
 
+  attr_accessor :avatar_cache
+
   # TODO: maybe unify it with a more general uploader
   mount_uploader :page_background, PageBackgroundUploader
 
