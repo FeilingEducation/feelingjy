@@ -82,21 +82,21 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
         })
       }
     })
-  }
 
-  if(isValid || $this.hasClass('btn-default')){
-    $curr_form.toggleClass('current-step');
-    $target_form.toggleClass('current-step');
-    $target_form.find('input, select').filter(':first').focus();
-    $('.progress .progress-bar').css('width', $(this).data('percentage'))
-    $('.snack-bar-error').removeClass('show')
-    $(window).scrollTop(0)
-  }
-  else{
-    $('.snack-bar-error').addClass('show')
-    setTimeout(function(){
+    if(isValid || $this.hasClass('btn-default')){
+      $curr_form.toggleClass('current-step');
+      $target_form.toggleClass('current-step');
+      $target_form.find('input, select').filter(':first').focus();
+      $('.progress .progress-bar').css('width', $(this).data('percentage'))
       $('.snack-bar-error').removeClass('show')
-    },3000)
-    // alert('Please fill in all fields...')
+      $(window).scrollTop(0)
+    }
+    else{
+      $('.snack-bar-error').addClass('show')
+      setTimeout(function(){
+        $('.snack-bar-error').removeClass('show')
+      },3000)
+      // alert('Please fill in all fields...')
+    }
   }
 });
