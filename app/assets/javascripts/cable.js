@@ -8,9 +8,10 @@
 // Default script for setting up cable (Channel) connection with Rails backend.
 (function() {
   this.App || (this.App = {});
+  var cable = ActionCable.createConsumer();
+  App.cable = cable;
 
-  App.cable = ActionCable.createConsumer();
   console.log('=============')
-  console.log({App.cable})
+  console.log(App.cable)
 
 }).call(this);
