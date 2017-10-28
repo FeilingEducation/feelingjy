@@ -19,6 +19,7 @@
 //= require jquery.ui.widget
 //= require jquery.fileupload
 //= require select2-full
+//= require active_admin/base
 //= require turbolinks
 //= require_tree .
 
