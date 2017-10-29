@@ -47,13 +47,13 @@
             <%= link_to "申请成为导师", new_instructor_info_path, class: "nav-link" %>
           </li>
         <% end %>
+        <li class="nav-item">
+          <%= link_to "学生", consult_transactions_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "消息", messages_path, class: 'nav-link nav-message' %>
+        </li>
         <% if user_is_instructor? %>
-          <li class="nav-item">
-            <%= link_to "学生", consult_transactions_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "消息", messages_path, class: 'nav-link' %>
-          </li>
           <li class="nav-item">
             <%= link_to "评分", '#', class: 'nav-link' %>
           </li>

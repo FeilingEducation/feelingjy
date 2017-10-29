@@ -26,7 +26,7 @@
       <% end %>
     </div>
     <div class="col-9">
-      <div class="message-history" id="message-history">
+      <div class="message-history <%=box_id%>" id="message-history">
         <% for message in message_history do %>
           <% next if message.content.empty? %>
           <div class="message  <%=message_class message%>">
@@ -46,10 +46,10 @@
   <div class="row">
     <div class="col-9 ml-auto">
       <% msg = Message.new(receiver_id: other.id) %>
-      <%= form_with model: msg, class: 'message-form', data: { type: 'json' } do |f| %>
+      <%= form_with model: msg, class: 'message-form', data: { type: 'json', boxId: box_id } do |f| %>
         <div class="form-group">
           <%= f.hidden_field :receiver_id %>
-          <%= f.text_area :content, class: 'form-control', rows: 8, style: 'resize:none', id: "message-box-area" %>
+          <%= f.text_area :content, class: 'form-control message-box-area', rows: 8, style: 'resize:none', id: "message-box-area" %>
         </div>
         <div class="form-group d-flex">
           <div class="attachments-container">

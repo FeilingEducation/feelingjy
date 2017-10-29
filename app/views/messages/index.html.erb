@@ -1,5 +1,6 @@
 <h5>我的消息</h5>
 <hr>
 <% for contact in @contacts do %>
-  <%= render partial: 'message_box', locals: {other: contact, message_history: @grouped_msgs[contact]} %>
+  <%= box_id = SecureRandom.hex%>
+  <%= render partial: 'message_box', locals: {other: contact, message_history: @grouped_msgs[contact], box_id: "box-#{box_id}"} %>
 <% end %>

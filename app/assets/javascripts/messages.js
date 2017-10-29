@@ -11,7 +11,7 @@
 $(document).on('ajax:success', '.message-form', function (e) {
   var data = e.detail[0];
   var $this = $(this);
-  var $history = $('.message-history');
+  var $history = $('.message-history.active');
   $history.append($('<div class="message sent-message">' + ' <span class="fs-120 d-block"><strong>' + data.sender + '</strong></span>' + ' <span class="fs-80 d-block">Posted on: ' + data.timestamp + '</span>' + ' <p class="mb-1">' + data.content + '</p>' +
   // concatenate all attachment elements
   data.attachments.reduce(function (cat, att) {
@@ -21,5 +21,13 @@ $(document).on('ajax:success', '.message-form', function (e) {
   )).prop('scrollTop', $history.prop('scrollHeight'));
   // removed all frontend attachment elements
   $this.find('.attachments-container').empty();
-  $('#message-box-area').val('')
+  $('.message-box-area').val('')
+  $('.message-history').removeClass('active')
 });
+
+$(document).on('ajax:beforeSend', '.message-form', function (e) {
+  console.log('beforeSend message-form...')
+  var messageForm = e.target
+  var messageHistoryCls = $(messageForm).data('boxid')
+  $("." + messageHistoryCls).addClass('active')
+})

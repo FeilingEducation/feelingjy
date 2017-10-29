@@ -14,8 +14,8 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
     // Clear the message text area
     $('#message-box-area').val('')
 
-    // scroll message box to the bottom
-    // $("#message-history").scrollTop($(document).height()+1000)
+    $('.nav-message').addClass('message-notification')
+
 
   }
 });
