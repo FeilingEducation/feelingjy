@@ -55,3 +55,29 @@
     margin-top: -30px;
   }
 }
+.left-msg-nav-item{
+  height: 100px;
+  color: $main-text-color;
+  border-bottom: 1px solid $border-color;
+
+  img{
+    width: 75px;
+    vertical-align: top;
+    border-radius: 5px;
+  }
+
+  div{
+    display: inline-block;
+    padding: 10px 15px;
+  }
+  span{
+    position: absolute;
+    right: 0;
+    top: 10px;
+    font-size: 12px;
+    font-weight: lighter;
+  }
+  // p{
+  //   color: $main-text-color;
+  // }
+}
