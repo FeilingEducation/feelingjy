@@ -24,6 +24,7 @@ $(document).on('submit', 'form.chat-input', function (e) {
   App.consult_comm.create_chat_line(data);
   // select all text in chat-input for easy typing
   $(this).find('textarea').select();
+  $(this).find('textarea').val('')
   return false;
 });
 

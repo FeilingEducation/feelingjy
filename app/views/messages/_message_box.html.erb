@@ -26,10 +26,10 @@
       <% end %>
     </div>
     <div class="col-9">
-      <div class="message-history">
+      <div class="message-history" id="message-history">
         <% for message in message_history do %>
           <% next if message.content.empty? %>
-          <div class="message">
+          <div class="message  <%=message_class message%>">
             <span class="fs-120 d-block"><strong><%= message.sender.full_name %></strong></span>
             <span class="fs-80 d-block">Posted on: <%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></span>
             <p class="mb-1"><%= message.content %></p>
@@ -49,7 +49,7 @@
       <%= form_with model: msg, class: 'message-form', data: { type: 'json' } do |f| %>
         <div class="form-group">
           <%= f.hidden_field :receiver_id %>
-          <%= f.text_area :content, class: 'form-control', rows: 8, style: 'resize:none' %>
+          <%= f.text_area :content, class: 'form-control', rows: 8, style: 'resize:none', id: "message-box-area" %>
         </div>
         <div class="form-group d-flex">
           <div class="attachments-container">

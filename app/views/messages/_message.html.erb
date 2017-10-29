@@ -1,0 +1,10 @@
+<div class="message received-message">
+  <span class="fs-120 d-block"><strong><%= message.sender.full_name %></strong></span>
+  <span class="fs-80 d-block">Posted on: <%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></span>
+  <p class="mb-1"><%= message.content %></p>
+  <% for attachment in message.attachments do %>
+    <div class="attachment">
+      <a href="<%= attachment.file.url %>" target="_blank"><%= attachment.read_attribute(:file) %></a>
+    </div>
+  <% end %>
+</div>

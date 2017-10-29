@@ -14,4 +14,13 @@
   border-radius: 5px;
   padding: 5px 10px;
   margin-bottom: 5px;
+
+  &.sent-message{
+    text-align: left;
+  }
+
+  &.received-message{
+    text-align: right;
+    background-color: $border-color;
+  }
 }
