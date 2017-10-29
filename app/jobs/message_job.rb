@@ -3,6 +3,6 @@ class MessageJob < ApplicationJob
 
   def perform(message)
      html = ApplicationController.render partial: "messages/message", locals: {message: message}, formats: [:html]
-     ActionCable.server.broadcast "messages:#{message.receiver_id}", html: html
+     ActionCable.server.broadcast "messages:#{message.receiver_id}", html: html, sender_id: message.sender_id
    end
 end

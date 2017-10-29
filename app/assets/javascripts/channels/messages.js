@@ -7,7 +7,7 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
     // Called when there's incoming data on the websocket for this channel
     console.log('Recenved data...', data)
     // Append the latest message!!
-    var $history = $('.message-history');
+    var $history = $('.message-history.box-' + data.sender_id);
     $history.append(data.html)
     .prop('scrollTop', $history.prop('scrollHeight'))
 
@@ -15,7 +15,6 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
     $('#message-box-area').val('')
 
     $('.nav-message').addClass('message-notification')
-
 
   }
 });
