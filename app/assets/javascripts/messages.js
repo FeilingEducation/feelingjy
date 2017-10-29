@@ -31,3 +31,16 @@ $(document).on('ajax:beforeSend', '.message-form', function (e) {
   var messageHistoryCls = $(messageForm).data('boxid')
   $("." + messageHistoryCls).addClass('active')
 })
+
+$(document).on('turbolinks:load', function () {
+  console.log('Ready...')
+  $('.right-message-content .message-history').scrollTop(5000)
+  $('.left-msg-nav-item').on('click', function(){
+    console.log('clicked...')
+    $('.right-message-content').addClass('hidden');
+    var $target = $(this).data('target')
+    var $scrollHeight = $($target).removeClass('hidden').prop('scrollHeight')
+    // console.log('$scrollHeight', $scrollHeight)
+    $('.right-message-content .message-history').scrollTop(5000)
+  })
+})

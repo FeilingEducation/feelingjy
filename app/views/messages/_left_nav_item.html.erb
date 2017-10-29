@@ -1,0 +1,24 @@
+<%= image_tag profile_image_of(other), class: '' %>
+<% message = message_history.last%>
+<div>
+  <h5><%= other.full_name %></h5>
+  <p><%= truncate(message.content, length: 25) %></p>
+  <span class="date"><%= message.created_at.strftime('%b %-d, %y')%></sapn>
+</div>
+
+<% unless other.instructor_info.nil? %>
+  <div class="fs-80">
+    <strong>请提供以下信息:</strong>
+    <ul>
+      <li>
+        申请目标
+      </li>
+      <li>
+        可安排时间(包含时区)
+      </li>
+      <li>
+        相关文件
+      </li>
+    </ul>
+  </div>
+<% end %>
