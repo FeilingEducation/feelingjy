@@ -33,10 +33,10 @@ $(document).on('ajax:beforeSend', '.message-form', function (e) {
 })
 
 $(document).on('turbolinks:load', function () {
-  console.log('Ready...')
   $('.right-message-content .message-history').scrollTop(5000)
   $('.left-msg-nav-item').on('click', function(){
-    console.log('clicked...')
+    $('.left-msg-nav-item').removeClass('active')
+    $(this).addClass('active');
     $('.right-message-content').addClass('hidden');
     var $target = $(this).data('target')
     var $scrollHeight = $($target).removeClass('hidden').prop('scrollHeight')

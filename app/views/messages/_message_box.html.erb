@@ -26,22 +26,22 @@
     <!-- <div class="col-9 ml-auto"> -->
       <% msg = Message.new(receiver_id: other.id) %>
       <%= form_with model: msg, class: 'message-form', data: { type: 'json', boxId: box_id } do |f| %>
-      <div class="form-group">
+      <div class="form-group text-area-wrapper">
         <%= f.hidden_field :receiver_id %>
         <%= f.text_area :content, class: 'form-control message-box-area', rows: 8, style: 'resize:none', id: "message-box-area" %>
+        <label for="attachments-input" class="attachments"><i class="fa fa-paperclip"></i></label>
       </div>
       <div class="form-group d-flex">
         <div class="attachments-container">
         </div>
-        <div class="d-flex">
+        <div class="w-100">
           <%= file_field_tag '', id: 'attachments-input', class: 'attachments-input', multiple: true,
           data: { url: attachments_path, param_name: 'attachment[file]',
             form_data: { 'attachment[file_type]': 'attachment' }, data_type: 'json' } %>
-            <label for="attachments-input" class="attachments-btn"><i class="fa fa-paperclip"></i></label>
+            <%= f.submit '发送', class: 'btn btn-primary float-right msg-send-btn' %>
           </div>
         </div>
         <div class="form-group">
-          <%= f.submit '发送', class: 'btn btn-success float-right' %>
         </div>
         <% end %>
       <!-- </div> -->

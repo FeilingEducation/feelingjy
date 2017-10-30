@@ -2,86 +2,172 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.message-history {
-  overflow-y: auto;
-  @extend .thin-scrollbar;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 1rem;
-}
-.message {
-  background-color: lighten($theme-blue, 40%);
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin-bottom: 5px;
+$grey-background: #F0F0F0;
+$active-grey-background: #fff;
 
-  &.sent-message{
-    text-align: left;
+.msg-wrapper{
+  margin: 0!important;
+  background-color: $grey-background;
+
+  .message-history {
+    overflow-y: auto;
+    @extend .thin-scrollbar;
+    width: 100%;
+    height: 100%;
+    // margin-bottom: 20px;
+    border-bottom: 1px solid #E0DBDB;
   }
-
-  &.received-message{
-    text-align: right;
-    background-color: $border-color;
-  }
-}
-
-.order-notification{
-  &:after{
-    display: block;
-    content: "\F111";
-    color: $primary-green;
-    font: normal normal normal 12px/1 FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    position: absolute;
-    z-index: 2;
-    margin-left: 30px;
-    margin-top: -30px;
-  }
-}
-
-.message-notification{
-  &:after{
-    display: block;
-    content: "\F111";
-    color: $primary-green;
-    // color: $primary-red;
-    font: normal normal normal 12px/1 FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    position: absolute;
-    z-index: 2;
-    margin-left: 30px;
-    margin-top: -30px;
-  }
-}
-.left-msg-nav-item{
-  height: 100px;
-  color: $main-text-color;
-  border-bottom: 1px solid $border-color;
-  padding: 12px;
-  cursor: pointer;
-
-  img{
-    width: 75px;
-    vertical-align: top;
+  .message {
+    // background-color: lighten($theme-blue, 40%);
     border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+
+    &.sent-message{
+      text-align: left;
+    }
+
+    &.received-message{
+      text-align: right;
+      // background-color: $border-color;
+    }
   }
 
-  div{
-    display: inline-block;
-    padding: 10px 15px;
+  .order-notification{
+    &:after{
+      display: block;
+      content: "\F111";
+      color: $primary-green;
+      font: normal normal normal 12px/1 FontAwesome;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      position: absolute;
+      z-index: 2;
+      margin-left: 30px;
+      margin-top: -30px;
+    }
   }
-  span{
-    position: absolute;
-    right: 0;
-    top: 10px;
-    font-size: 12px;
+
+  .message-notification{
+    &:after{
+      display: block;
+      content: "\F111";
+      color: $primary-green;
+      // color: $primary-red;
+      font: normal normal normal 12px/1 FontAwesome;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      position: absolute;
+      z-index: 2;
+      margin-left: 30px;
+      margin-top: -30px;
+    }
+  }
+  .msg-left-wrapper{
+    border-bottom: 1px solid $border-color;
+    // height: 100%;
+    overflow: scroll;
+
+    .left-msg-nav-item{
+      height: 100px;
+      color: #b9b3b2;
+      font-weight: lighter;
+      // border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid #dbdcdd;
+      position: relative;
+
+      padding: 12px;
+      cursor: pointer;
+      // background-color: #f8f9fa;
+      background-color: $grey-background;
+
+      &.active{
+        background-color: $active-grey-background;
+      }
+
+      img{
+        width: 75px;
+        vertical-align: top;
+        border-radius: 5px;
+      }
+
+      div{
+        display: inline-block;
+        padding: 10px 15px;
+      }
+      span{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 12px;
+        font-weight: lighter;
+      }
+      h5{
+        color: $question-text;
+      }
+    }
+  }
+  .message-history-wrapper{
+    background-color: $grey-background;
+    padding: 20px;
+    border: 1px solid $border-color;
     font-weight: lighter;
-  }
-}
-.right-message-content{
-  .message-history{
-    max-height: 400px;
+
+    .right-message-content{
+      // background-color: #f3f3f3;
+
+      .message-history{
+        max-height: 400px;
+      }
+
+      .attachments-container{
+        margin: 0;
+      }
+
+      .msg-send-btn{
+        margin-left: 15px;
+      }
+
+      .text-area-wrapper{
+        position: relative;
+        color: $main-text-color;
+        padding: 40px 0;
+
+        textarea{
+          background-color: $grey-background;
+          border: none!important;
+          // border-top: 1px solid $border-color;
+          // padding: 40px;
+          height: 140px;
+
+          &:focus{
+            border: none!important;
+            // outline: none!important;
+            // border-top: 1px solid $border-color !important;
+          }
+        }
+        label.attachments{
+          position: absolute;
+          top: 10px;
+          left: 0;
+          width: 40px;
+          height: 40px;
+          background-color: transparent;
+          border-radius: 50%;
+          text-align: center;
+          vertical-align: middle;
+          cursor: pointer;
+
+          &:hover{
+            background-color: #fff;
+          }
+
+          i{
+            font-size: 24px;
+            margin-top: 8px;
+          }
+        }
+      }
+    }
   }
 }

@@ -30,6 +30,9 @@ $border-color: #E0DBDB;
 $theme-green: #2dbd90;
 $theme-blue: #588fcc;
 
+$grey-background: #F0F0F0;
+$active-grey-background: #E0DBDB;
+
 // vendor
 @import "bootstrap";
 @import "slider";
@@ -51,7 +54,7 @@ body {
 
 .main {
   background-color: #FFFFFF;
-  padding: 2rem 2.5rem;
+  // padding: 2rem 2.5rem;
 }
 
 .text-green {
