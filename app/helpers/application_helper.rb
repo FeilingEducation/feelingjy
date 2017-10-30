@@ -27,7 +27,7 @@ module ApplicationHelper
   # TODO: handle it inside AvatarUploader
   def profile_image_of(user=current_user)
     avatar = UserInfo.find_by_id(user.id).avatar
-    avatar.to_s.empty? ? 'default_profile.png' : avatar
+    avatar.to_s.empty? ? asset_url('default_profile.png') : avatar
   end
 
   # assume signed in

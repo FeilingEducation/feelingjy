@@ -1,4 +1,6 @@
-<%= image_tag profile_image_of(other), class: '' %>
+<div class='sender-img' style="background: url('<%= profile_image_of(other) %>')">
+  <%#= image_tag profile_image_of(other), class: '' %>
+</div>
 <% message = message_history.last%>
 <div>
   <h5><%= other.full_name %></h5>
@@ -6,8 +8,8 @@
   <span class="date"><%= message.created_at.strftime('%b %-d, %y')%></sapn>
 </div>
 
-<% unless other.instructor_info.nil? %>
-  <div class="fs-80">
+<%# unless other.instructor_info.nil? %>
+  <!-- <div class="fs-80">
     <strong>请提供以下信息:</strong>
     <ul>
       <li>
@@ -20,5 +22,5 @@
         相关文件
       </li>
     </ul>
-  </div>
-<% end %>
+  </div> -->
+<%# end %>

@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $grey-background: #F0F0F0;
-$active-grey-background: #fff;
+// $active-grey-background: #E8E8E8;
+$active-grey-background: #E0E0E0;
 
 .msg-wrapper{
   margin: 0!important;
@@ -30,6 +31,41 @@ $active-grey-background: #fff;
     &.received-message{
       text-align: right;
       // background-color: $border-color;
+    }
+
+    .msg-thumb{
+      display: inline-block;
+      vertical-align: top;
+
+      img{
+        width: 25px;
+        border-radius: 50%;
+        height: 25px;
+      }
+    }
+    .msg-content-wrapper{
+      display: inline-block;
+      padding: 0 10px;
+
+      .msg-content{
+        // width: 100%;
+        width: 500px;
+        height: auto;
+        // background-color: $active-grey-background;
+        background-color: #fff;
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 10px;
+        // max-width: 600px;
+      }
+      span{
+        font-size: 12px;
+
+        &.contact-name {
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
     }
   }
 
@@ -85,15 +121,17 @@ $active-grey-background: #fff;
         background-color: $active-grey-background;
       }
 
-      img{
-        width: 75px;
-        vertical-align: top;
-        border-radius: 5px;
-      }
-
       div{
         display: inline-block;
         padding: 10px 15px;
+        vertical-align: top;
+
+        &.sender-img{
+          width: 75px;
+          height: 75px;
+          background-size: cover!important;
+          border-radius: 10px;
+        }
       }
       span{
         position: absolute;
@@ -159,7 +197,7 @@ $active-grey-background: #fff;
           cursor: pointer;
 
           &:hover{
-            background-color: #fff;
+            background-color: $active-grey-background;
           }
 
           i{
