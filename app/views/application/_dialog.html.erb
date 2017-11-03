@@ -2,20 +2,24 @@
 <% id = 'dialog' if local_assigns[:id].nil? %>
 <% title = '' if local_assigns[:title].nil? %>
 <% body = '' if local_assigns[:body].nil? %>
-<% size = 'sm' if local_assigns[:size].nil? %>
+<% size = 'lg' if local_assigns[:size].nil? %>
+
 <div class="modal fade"
            id="<%= id %>" role="dialog"
            tabindex="-1"
            aria-hidden="true"
            data-keyboard="true">
-  <div class="modal-dialog modal-<%= size %>">
+  <div class="modal-dialog modal-<%= size %> send-a-message-modal">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title"><%= title %></h5>
-        <button type="button" class="close"
+        <!-- <button type="button" class="close"
                 data-dismiss="modal"
                 aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
+                <span aria-hidden="true">&times;</span></button> -->
+          <div class="close modal-cross" data-dismiss="modal" aria-label="Close">
+            <%= image_tag "multiply"%>
+          </div>
       </div>
       <div class="modal-body">
         <%= body %>

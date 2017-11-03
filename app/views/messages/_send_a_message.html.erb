@@ -1,0 +1,47 @@
+
+<div class="row send-msg-wrapper">
+  <div class="col-3 pr-0">
+    <div class="instructor-profile-section">
+      <div class="inst-img" style="background: url('<%= profile_image_of(other) %>')"></div>
+      <div class="inst-name"><%=other.full_name%></div>
+      <span>Away</span>
+      <hr/>
+      <p class="lbl">Please include:</p>
+      <ul>
+        <li>Your degree details</li>
+        <li>Letter of motivation</li>
+        <li>Relevant documents</li>
+        <li>Your budget</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-9 send-msg-right">
+    <% msg = Message.new(receiver_id: other.id) %>
+    <p class="avg-resp"> Avg response time: <span>3hrs</span></p>
+    <%= form_with model: msg, class: 'message-form', data: { type: 'json', boxId: box_id } do |f| %>
+    <div class="row m-0">
+      <div class="col-8 text-area-wrapper">
+        <div class="">
+          <%= f.hidden_field :receiver_id %>
+          <%= f.text_area :content, class: 'form-control message-box-area', rows: 8, style: 'resize:none', id: "send-msg-txt-area", maxLength: 2500 %>
+        </div>
+
+        <div class="attachments-container"></div>
+
+        <div class="w-100">
+          <%= file_field_tag '', id: 'attachments-input', class: 'attachments-input', multiple: true,
+          data: { url: attachments_path, param_name: 'attachment[file]',
+            form_data: { 'attachment[file_type]': 'attachment' }, data_type: 'json' } %>
+        </div>
+      </div>
+      <div class="attachment-area col-4"></div>
+      <div class="col-12 msg-count">
+        <p> <span id="msg-char-count">0</span> /&nbsp;2500</p>
+        <label for="attachments-input" class="attachments"><i class="fa fa-paperclip"></i></label>
+      </div>
+    </div>
+    <%= f.submit '发送', class: 'msg-send-btn btn-primary btn float-right' %>
+    <% end %>
+  </div>
+</div>

@@ -18,11 +18,11 @@ $(document).on('ajax:success', '.message-form', function (e) {
     return cat + '<div class="attachment">' + ' <a href="' + att.url + '" target="_blank">' + att.name + '</a>' + '</div>';
   }, '') + '</div>'
   // scroll to bottom
-  )).prop('scrollTop', $history.prop('scrollHeight'));
-  // removed all frontend attachment elements
-  $this.find('.attachments-container').empty();
-  $('.message-box-area').val('')
-  $('.message-history').removeClass('active')
+)).prop('scrollTop', $history.prop('scrollHeight'));
+// removed all frontend attachment elements
+$this.find('.attachments-container').empty();
+$('.message-box-area').val('')
+$('.message-history').removeClass('active')
 });
 
 $(document).on('ajax:beforeSend', '.message-form', function (e) {
@@ -42,5 +42,11 @@ $(document).on('turbolinks:load', function () {
     var $scrollHeight = $($target).removeClass('hidden').prop('scrollHeight')
     // console.log('$scrollHeight', $scrollHeight)
     $('.right-message-content .message-history').scrollTop(5000)
+  })
+
+  $('#send-msg-txt-area').on('keyup', function(){
+    console.log($(this).val().length)
+    $('#msg-char-count').html('')
+    $('#msg-char-count').text($(this).val().length)
   })
 })

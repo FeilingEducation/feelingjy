@@ -219,3 +219,116 @@ $active-grey-background: #E0E0E0;
     }
   }
 }
+.send-a-message-modal{
+
+  .modal-header{
+    color: $question-text;
+    padding: 20px;
+    background-color: $grey-background;
+  }
+
+  .modal-body{
+    padding: 20px;
+  }
+
+  .modal-content{
+    border-radius: 0px;
+  }
+
+  .send-msg-wrapper{
+    .instructor-profile-section{
+      width: 100%;
+      height: 100%;
+      background-color: $grey-background;
+      border-radius: 5px;
+      padding: 10px 10px;
+      color: $main-text-color;
+      text-align: center;
+
+      .inst-img{
+        width: 75px;
+        height: 75px;
+        background-size: cover!important;
+        border-radius: 50%;
+        text-align: center;
+        margin: auto;
+      }
+
+      span{
+        font-size: 15px;
+        font-weight: lighter;
+      }
+      p.lbl{
+        font-size: 16px;
+        color: $question-text;
+        text-align: left;
+        margin-bottom: 10px;
+      }
+      ul{
+        padding: 0 0px 0 20px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: lighter;
+      }
+    }
+
+    .send-msg-right{
+      p{
+        font-size: 14px;
+        font-weight: lighter;
+        color: $main-text-color-light;
+        margin-bottom: 15px;
+
+        span{
+          font-weight: bolder;
+          color: $main-text-color;
+        }
+      }
+      .text-area-wrapper{
+        border: 1px solid $border-color;
+        border-left: 0;
+        border-right: 0;
+        height: 180px;
+
+        textarea{
+          border-radius: 0px;
+          border: none!important;
+          color: $main-text-color-light;
+          padding-left: 0px;
+          font-weight: lighter;
+          font-size: 14px;
+
+          &:focus{
+            // border: 1px solid $border-color!important;
+            border-left: none!important;
+          }
+        }
+      }
+
+      .attachment-area{
+        border: 1px solid $border-color;
+      }
+
+      .msg-count{
+        margin: 15px 0;
+        padding: 15px;
+        border: 1px solid $border-color;
+
+        p{
+          margin-bottom: 0px;
+          display: inline;
+        }
+
+        .attachments{
+          font-size: 22px;
+          position: absolute;
+          right: 15px;
+          top: 10px;
+          bottom: 0;
+          margin: auto;
+          color: $main-text-color;
+        }
+      }
+    }
+  }
+}
