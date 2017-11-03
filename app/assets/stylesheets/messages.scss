@@ -2,16 +2,333 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.message-history {
-  overflow-y: auto;
-  @extend .thin-scrollbar;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 1rem;
+$grey-background: #F0F0F0;
+// $active-grey-background: #E8E8E8;
+$active-grey-background: #E0E0E0;
+
+.msg-wrapper{
+  margin: 0!important;
+  background-color: $grey-background;
+
+  .message-history {
+    overflow-y: auto;
+    @extend .thin-scrollbar;
+    width: 100%;
+    height: 100%;
+    // margin-bottom: 20px;
+    border-bottom: 1px solid #E0DBDB;
+  }
+  .message {
+    // background-color: lighten($theme-blue, 40%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+
+    &.sent-message{
+      text-align: left;
+    }
+
+    &.received-message{
+      text-align: right;
+      // background-color: $border-color;
+    }
+
+    .msg-thumb{
+      display: inline-block;
+      vertical-align: top;
+
+      img{
+        width: 25px;
+        border-radius: 50%;
+        height: 25px;
+      }
+    }
+    .msg-content-wrapper{
+      display: inline-block;
+      padding: 0 10px;
+
+      .msg-content{
+        // width: 100%;
+        width: 500px;
+        // width: auto;
+        height: auto;
+        // background-color: $active-grey-background;
+        background-color: #fff;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 10px;
+        text-align: left;
+        // max-width: 600px;
+      }
+      span{
+        font-size: 12px;
+
+        &.contact-name {
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .order-notification{
+    &:after{
+      display: block;
+      content: "\F111";
+      color: $primary-green;
+      font: normal normal normal 12px/1 FontAwesome;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      position: absolute;
+      z-index: 2;
+      margin-left: 30px;
+      margin-top: -30px;
+    }
+  }
+
+  .message-notification{
+    &:after{
+      display: block;
+      content: "\F111";
+      color: $primary-green;
+      // color: $primary-red;
+      font: normal normal normal 12px/1 FontAwesome;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      position: absolute;
+      z-index: 2;
+      margin-left: 30px;
+      margin-top: -30px;
+    }
+  }
+  .msg-left-wrapper{
+    border-bottom: 1px solid $border-color;
+    // height: 100%;
+    overflow: scroll;
+
+    .left-msg-nav-item{
+      height: 100px;
+      color: #b9b3b2;
+      font-weight: lighter;
+      // border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid #dbdcdd;
+      position: relative;
+
+      padding: 12px;
+      cursor: pointer;
+      // background-color: #f8f9fa;
+      background-color: $grey-background;
+
+      &.active{
+        background-color: $active-grey-background;
+      }
+
+      div{
+        display: inline-block;
+        padding: 10px 15px;
+        vertical-align: top;
+
+        &.sender-img{
+          width: 75px;
+          height: 75px;
+          background-size: cover!important;
+          border-radius: 10px;
+        }
+      }
+      span{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 12px;
+        font-weight: lighter;
+      }
+      h5{
+        color: $question-text;
+      }
+    }
+  }
+  .message-history-wrapper{
+    background-color: $grey-background;
+    padding: 20px;
+    border: 1px solid $border-color;
+    font-weight: lighter;
+
+    .right-message-content{
+      // background-color: #f3f3f3;
+
+      .message-history{
+        max-height: 550px;
+      }
+
+      .attachments-container{
+        margin: 0;
+      }
+
+      .text-area-wrapper{
+        position: relative;
+        color: $main-text-color;
+        padding: 20px 0 0 0;
+
+        textarea{
+          background-color: $grey-background;
+          border: none!important;
+          // border-top: 1px solid $border-color;
+          // padding: 40px;
+          height: 100px;
+          padding: 15px;
+
+          &:focus{
+            border: none!important;
+            outline: none!important;
+            // border-top: 1px solid $border-color !important;
+          }
+        }
+        label.attachments{
+          position: absolute;
+          top: 3px;
+          left: 0;
+          width: 30px;
+          height: 30px;
+          background-color: transparent;
+          border-radius: 50%;
+          text-align: center;
+          vertical-align: middle;
+          cursor: pointer;
+
+          &:hover{
+            background-color: $active-grey-background;
+          }
+
+          i{
+            font-size: 18px;
+            margin-top: 6px;
+          }
+        }
+        .msg-send-btn{
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          border: 1px solid #ddd;
+          padding: 10px 30px;
+          color: $main-text-color;
+        }
+      }
+    }
+  }
 }
-.message {
-  background-color: lighten($theme-blue, 40%);
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin-bottom: 5px;
+.send-a-message-modal{
+
+  .modal-header{
+    color: $question-text;
+    padding: 20px;
+    background-color: $grey-background;
+  }
+
+  .modal-body{
+    padding: 20px;
+  }
+
+  .modal-content{
+    border-radius: 0px;
+  }
+
+  .send-msg-wrapper{
+    .instructor-profile-section{
+      width: 100%;
+      height: 100%;
+      background-color: $grey-background;
+      border-radius: 5px;
+      padding: 10px 10px;
+      color: $main-text-color;
+      text-align: center;
+
+      .inst-img{
+        width: 75px;
+        height: 75px;
+        background-size: cover!important;
+        border-radius: 50%;
+        text-align: center;
+        margin: auto;
+      }
+
+      span{
+        font-size: 15px;
+        font-weight: lighter;
+      }
+      p.lbl{
+        font-size: 16px;
+        color: $question-text;
+        text-align: left;
+        margin-bottom: 10px;
+      }
+      ul{
+        padding: 0 0px 0 20px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: lighter;
+      }
+    }
+
+    .send-msg-right{
+      p{
+        font-size: 14px;
+        font-weight: lighter;
+        color: $main-text-color-light;
+        margin-bottom: 15px;
+
+        span{
+          font-weight: bolder;
+          color: $main-text-color;
+        }
+      }
+      .text-area-wrapper{
+        border: 1px solid $border-color;
+        border-left: 0;
+        border-right: 0;
+        height: 180px;
+
+        textarea{
+          border-radius: 0px;
+          border: none!important;
+          color: $main-text-color-light;
+          padding-left: 0px;
+          font-weight: lighter;
+          font-size: 14px;
+
+          &:focus{
+            // border: 1px solid $border-color!important;
+            border-left: none!important;
+          }
+        }
+      }
+
+      .attachment-area{
+        border: 1px solid $border-color;
+      }
+
+      .msg-count{
+        margin: 15px 0;
+        padding: 15px;
+        border: 1px solid $border-color;
+
+        p{
+          margin-bottom: 0px;
+          display: inline;
+        }
+
+        .attachments{
+          font-size: 22px;
+          position: absolute;
+          right: 15px;
+          top: 10px;
+          bottom: 0;
+          margin: auto;
+          color: $main-text-color;
+        }
+      }
+    }
+  }
 }

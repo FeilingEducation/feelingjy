@@ -1,5 +1,20 @@
-<h5>我的消息</h5>
-<hr>
-<% for contact in @contacts do %>
-  <%= render partial: 'message_box', locals: {other: contact, message_history: @grouped_msgs[contact]} %>
-<% end %>
+<!-- <h5>我的消息</h5> -->
+<!-- <hr> -->
+<div class='row msg-wrapper'>
+  <div class="col-3 p-0 msg-left-wrapper">
+    <% @contacts.each_with_index do |contact, index| %>
+      <div class="left-msg-nav-item  <%= index == 0 ? ' active': ''%>" data-target="#message-history-wrapper<%= contact.id%>">
+        <%= render partial: 'left_nav_item', locals: {other: contact, message_history: @grouped_msgs[contact], box_id: "box-#{contact.id}"} %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-9 p-0">
+    <div class="message-history-wrapper">
+      <% @contacts.each_with_index do |contact, index| %>
+        <div class="right-message-content <%= index == 0 ? '': ' hidden'%>" id="message-history-wrapper<%= contact.id%>">
+          <%= render partial: 'message_box', locals: {other: contact, message_history: @grouped_msgs[contact], box_id: "box-#{contact.id}"} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

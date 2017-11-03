@@ -23,12 +23,16 @@ zh-CN: "浏览"
 $primary-green: #50BF9F;
 $primary-red: #E35F5F;
 $main-text-color: #717070;
+$main-text-color-light: #a4a4a4;
 $question-text: #4A4A4A;
 // $border-color: #AAA8A8;
 $border-color: #E0DBDB;
 
 $theme-green: #2dbd90;
 $theme-blue: #588fcc;
+
+$grey-background: #F0F0F0;
+$active-grey-background: #E0DBDB;
 
 // vendor
 @import "bootstrap";
@@ -51,7 +55,7 @@ body {
 
 .main {
   background-color: #FFFFFF;
-  padding: 2rem 2.5rem;
+  // padding: 2rem 2.5rem;
 }
 
 .text-green {
