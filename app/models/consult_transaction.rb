@@ -1,6 +1,6 @@
 class ConsultTransaction < ApplicationRecord
 
-  after_create :build_chat
+  after_create :build_chat, :create_open_tok_session
   after_destroy :destroy_chat
 
   enum status: {
@@ -28,7 +28,16 @@ class ConsultTransaction < ApplicationRecord
     self.confirmed!
   end
 
+  def generate_opentok_token
+    create_open_tok_session if open_tok_session_id.nil?
+    opentok.generate_token self.open_tok_session_id
+  end
+
   private
+
+  def opentok
+    @opentok ||= OpenTok::OpenTok.new Rails.application.secrets.tokbox[:api_key], Rails.application.secrets.tokbox[:secret]
+  end
 
   def build_chat
     Chat.create(consult_transaction_id: self.id)
@@ -36,6 +45,12 @@ class ConsultTransaction < ApplicationRecord
 
   def destroy_chat
     Chat.destroy(consult_transaction_id: self.id)
+  end
+
+  def create_open_tok_session
+    session = opentok.create_session :media_mode => :routed
+    self.open_tok_session_id = session.session_id
+    self.save
   end
 
 end

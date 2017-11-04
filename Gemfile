@@ -64,3 +64,6 @@ gem 'pg'
 
 gem 'city-state'
 gem 'select2-rails'
+
+gem 'opentok'
+gem 'gon'
