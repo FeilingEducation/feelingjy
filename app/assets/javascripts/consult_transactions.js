@@ -104,7 +104,7 @@ openTok.initSession = function(apiKey, sessionId){
       session.on({
         connectionCreated: function (event) {
           console.log('connectionCreated...')
-          openTok.publish()
+          // openTok.publish()
           openTok.connectionCount++;
           if (event.connection.connectionId != session.connection.connectionId) {
             console.log('Another client connected. ' + openTok.connectionCount + ' total.');
@@ -248,6 +248,7 @@ openTok.connectSession = function(token){
     } else {
       console.log('You have connected to the session.');
       openTok.connected = true;
+      openTok.publish()
     }
   });
 }
