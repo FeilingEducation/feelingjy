@@ -36,4 +36,11 @@ class ConsultCommChannel < ApplicationCable::Channel
     # send voice chat metadata to the other user
     ConsultCommChannel.broadcast_to @other, type: 'voice_chat', comm_data: data.slice("type", "payload")
   end
+
+  def send_video_status_flag(data)
+    # send voice chat metadata to the other user
+    puts '======================'
+    puts "data::::#{data}"
+    ConsultCommChannel.broadcast_to @other, type: 'video_chat', comm_data: data.slice("payload")
+  end
 end

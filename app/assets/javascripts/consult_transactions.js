@@ -65,6 +65,7 @@ $(document).on('turbolinks:load', function () {
 $(document).on('turbolinks:load', function () {
   $('#init-video').on('click', function(){
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
+    App.consult_comm.send_video_status_flag("started");
     $('#init-video').addClass('hidden')
     $('#cancel-video').removeClass('hidden')
   })
@@ -72,6 +73,7 @@ $(document).on('turbolinks:load', function () {
     openTok.unPublish()
     $('#init-video').removeClass('hidden')
     $('#cancel-video').addClass('hidden')
+    App.consult_comm.send_video_status_flag("cancelled");
   })
 })
 
@@ -100,7 +102,13 @@ openTok.initSession = function(apiKey, sessionId){
       console.log('Publisher is not initialized!!!')
     }
     else{
-      var session = OT.initSession(apiKey, sessionId);
+      if(openTok.session == undefined){
+        console.log('initing new session!!!!')
+        var session = OT.initSession(apiKey, sessionId);
+      }
+      else{
+        return;
+      }
       session.on({
         connectionCreated: function (event) {
           console.log('connectionCreated...')
@@ -147,6 +155,8 @@ openTok.initSession = function(apiKey, sessionId){
       })
 
       session.on("streamDestroyed", function (event) {
+        console.log("Stream stopped. Reason: ", event);
+        openTok.session.unsubscribe(event.stream)
         console.log("Stream stopped. Reason: " + event.reason);
       });
 
@@ -255,7 +265,7 @@ openTok.connectSession = function(token){
 
 // disconnect session
 openTok.disconnectSession = function(){
-  openTok.session.disconnect()
+  openTok.session.disconnect(gon.token)
   openTok.connected = false;
 }
 
@@ -273,7 +283,7 @@ openTok.publish = function(){
 
 // Unpublish
 openTok.unPublish = function(){
-  openTok.session.unpublish(openTok.publisher)
   openTok.disconnectSession()
+  openTok.session.unpublish(openTok.publisher)
   openTok.publisherInitialized = false
 }

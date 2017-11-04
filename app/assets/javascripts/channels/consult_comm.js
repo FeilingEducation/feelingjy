@@ -62,8 +62,11 @@ $(document).on('turbolinks:load', function () {
               console.log('Unknown voice chat payload type: ' + comm.type);
           }
           break;
+        case 'video_chat':
+          console.log('==================video chat flag received=========', comm)
+        break;
         case 'error':
-          console.log(comm.content);
+          console.log(data);
           break;
       }
     },
@@ -71,6 +74,10 @@ $(document).on('turbolinks:load', function () {
     // The backend store the chat line to the DB, and broadcast it to all subscribers.
     create_chat_line: function create_chat_line(data) {
       this.perform('create_chat_line', data);
+    },
+    send_video_status_flag: function send_video_status_flag(data) {
+      console.log('==================================', data)
+      this.perform('send_video_status_flag', { type: 'candidate', payload: data });
     },
     // calls "setup_voice_chat" on the backend
     // data has the scheme of { type: ('sdp'|'candidate'), payload: Object }
