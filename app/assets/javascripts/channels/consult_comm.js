@@ -68,15 +68,15 @@ $(document).on('turbolinks:load', function () {
             case 'started':
               console.log('**************** Partner has initiated the call')
               // $('#publisherContainer').addClass('publisher-container')
-              $("#flag-info-msg").html('Call is terminated by the host')
-              setTimeout(function(){
-                $("#flag-info-msg").html('')
-              }, 5000)
               break;
             case 'cancelled':
               console.log("**************** Partner has cancelled ", comm)
               $('#publisherContainer').removeClass('publisher-container')
               $("#subscriberContainer").removeClass('hidden')
+              $("#flag-info-msg").html('Call is terminated by the host')
+              setTimeout(function(){
+                $("#flag-info-msg").html('')
+              }, 5000)
               break;
             case 'ready':
               console.log("**************** Partner is ready to connect *********", comm)

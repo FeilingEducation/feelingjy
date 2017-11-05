@@ -54,7 +54,8 @@ class MessagesController < AuthenticatedResourcesController
             sender: msg.sender.full_name,
             receiver: msg.receiver.full_name,
             content: msg.content,
-            attachments: attachments
+            attachments: attachments,
+            img_url: current_user.user_info.avatar.to_s.empty? ? ActionController::Base.helpers.asset_url('default_profile.png') : current_user.user_info.avatar.url
           }
         }
       end

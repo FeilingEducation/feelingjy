@@ -9,6 +9,7 @@ $active-grey-background: #E0E0E0;
 .msg-wrapper{
   margin: 0!important;
   background-color: $grey-background;
+  min-height: 400px;
 
   .message-history {
     overflow-y: auto;

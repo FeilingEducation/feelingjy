@@ -1,10 +1,17 @@
 <div class="message received-message">
-  <span class="fs-120 d-block"><strong><%= message.sender.full_name %></strong></span>
-  <span class="fs-80 d-block">Posted on: <%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></span>
-  <p class="mb-1"><%= message.content %></p>
-  <% for attachment in message.attachments do %>
-    <div class="attachment">
-      <a href="<%= attachment.file.url %>" target="_blank"><%= attachment.read_attribute(:file) %></a>
+  <div class="msg-thumb float-right"><%= image_tag profile_image_of(message.sender), class: '' %></div>
+  <div class="msg-content-wrapper">
+    <span class="fs-120 contact-name"><strong><%= message.sender.full_name %></strong></span>
+    <span class="fs-80 d-block">Posted on: <%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></span>
+    <div class="msg-content">
+      <p class="mb-1"><%= message.content %></p>
     </div>
-  <% end %>
+    <div class="msg-attachments">
+      <% for attachment in message.attachments do %>
+        <div class="attachment">
+          <a href="<%= attachment.file.url %>" target="_blank"><%= attachment.read_attribute(:file) %></a>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

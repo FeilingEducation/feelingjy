@@ -7,7 +7,9 @@
            id="call-dialog" role="dialog"
            tabindex="-1"
            aria-hidden="true"
-           data-keyboard="true">
+           data-keyboard="false"
+           backdrop= 'static'
+           keyboard= false>
   <div class="modal-dialog modal-<%= size %> custom-card">
     <div class="modal-content">
       <!-- <div class="modal-header">
@@ -16,13 +18,13 @@
             <%#= image_tag "multiply"%>
           </div>
       </div> -->
-      <div class="modal-body form-wrapper">
+      <div class="form-wrapper">
         <div class="head-sec">
-          <h2 class="main-heading">Join</h2>
+          <h2 class="main-heading">Join Video Call</h2>
           <h6 class="sub-heading">Your partner is asking to join a video call. Please join below.</h6>
          </div>
-         <button class="btn btn-primary" id="join-video-dialog">Join</button>
-         <button class="btn btn-danger" id="cancel-video-dialog">Reject</button>
+         <button class="btn btn-primary pull-right" id="join-video-dialog">Join</button>
+         <button class="btn btn-danger pull-left" id="cancel-video-dialog">Reject</button>
       </div>
     </div>
   </div>

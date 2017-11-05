@@ -220,6 +220,22 @@ body {
   }
 }
 
+.btn-danger{
+  background-color: $primary-red;
+  color: #fff;
+  border: 0px;
+  border-radius: 0;
+  padding: 10px 30px;
+  min-height: 43px;
+  cursor: pointer;
+
+  &:hover{
+    background-color: $primary-red!important;
+    opacity: .8;
+  }
+}
+
+
 // select box styling
 select{
   background-color: #fff;
