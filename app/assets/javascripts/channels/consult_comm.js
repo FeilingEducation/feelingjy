@@ -66,14 +66,38 @@ $(document).on('turbolinks:load', function () {
           console.log('==================video chat flag received=========', comm)
           switch (comm.payload) {
             case 'started':
-              console.log('Partner has started!!!')
+              console.log('**************** Partner has initiated the call')
               // $('#publisherContainer').addClass('publisher-container')
+              $("#flag-info-msg").html('Call is terminated by the host')
+              setTimeout(function(){
+                $("#flag-info-msg").html('')
+              }, 5000)
               break;
             case 'cancelled':
+              console.log("**************** Partner has cancelled ", comm)
               $('#publisherContainer').removeClass('publisher-container')
+              $("#subscriberContainer").removeClass('hidden')
+              break;
+            case 'ready':
+              console.log("**************** Partner is ready to connect *********", comm)
+              if(!openTok.connected){
+                $('#call-dialog').modal('show')
+              }
+              break;
+            case 'partner_joined':
+              console.log("**************** Partner has joined ******", comm)
+              $("#flag-info-msg").html('')
+              break;
+            case 'call_rejected':
+              console.log('**************** Partner has rejected the video call *****', comm)
+              $('#cancel-video').click()
+              $("#flag-info-msg").html('').text('Your partner has rejected the call. Please try later after contacting with him')
+              setTimeout(function(){
+                $("#flag-info-msg").html('')
+              }, 10000)
               break;
             default:
-
+              console.log('************************')
           }
         break;
         case 'error':

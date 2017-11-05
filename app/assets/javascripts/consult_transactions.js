@@ -64,6 +64,16 @@ $(document).on('turbolinks:load', function () {
 
 $(document).on('turbolinks:load', function () {
 
+  $('#join-video-dialog').on('click', function(){
+    $('#init-video').click()
+    $('#call-dialog').modal('hide')
+  })
+
+  $('#cancel-video-dialog').on('click', function(){
+    App.consult_comm.send_video_status_flag("call_rejected");
+    $('#call-dialog').modal('hide')
+  })
+
   $('#init-video').on('click', function(){
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
     App.consult_comm.send_video_status_flag("started");
@@ -96,8 +106,8 @@ openTok.publisherContainer = 'publisherContainer'
 openTok.subscriberContainer = 'subscriberContainer'
 
 // Some subcriber and publisher properties
-openTok.subscriberProperties = {insertMode: 'append'};
-openTok.publisherProperties = {insertMode: 'append'};
+openTok.subscriberProperties = {insertMode: 'append',width: 300,height: 250};
+openTok.publisherProperties = {insertMode: 'append',width: 300,height: 250};
 
 openTok.initSession = function(apiKey, sessionId){
   if (OT.checkSystemRequirements() == 1) {
@@ -155,8 +165,9 @@ openTok.initSession = function(apiKey, sessionId){
               console.log(error);
             } else {
               console.log('Subscriber added.');
-              console.log($publisherContainer)
+              App.consult_comm.send_video_status_flag("partner_joined");
               $("#publisherContainer").addClass('publisher-container')
+              $("#subscriberContainer").removeClass('hidden')
             }
           }
         )
@@ -164,7 +175,7 @@ openTok.initSession = function(apiKey, sessionId){
 
       session.on("streamDestroyed", function (event) {
         $("#publisherContainer").removeClass('publisher-container')
-        console.log("Stream stopped. Reason: ", event);
+        $("#subscriberContainer").removeClass('hidden')
         openTok.session.unsubscribe(event.stream)
         console.log("Stream stopped. Reason: " + event.reason);
       });
@@ -294,6 +305,7 @@ openTok.publish = function(){
       console.log('Publishing a stream.');
       openTok.publisherInitialized = true;
       $('#cancel-video').removeClass('hidden')
+      App.consult_comm.send_video_status_flag("ready");
     }
   });
 }
