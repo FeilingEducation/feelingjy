@@ -38,7 +38,10 @@ $(document).on('ajax:beforeSend', '.message-form', function (e) {
   console.log('beforeSend message-form...')
   var messageForm = e.target
   var messageHistoryCls = $(messageForm).data('boxid')
-  $("."+messageHistoryCls.toString()).addClass('active')
+  if(messageHistoryCls){
+    $("."+messageHistoryCls.toString()).addClass('active')
+  }
+
 })
 
 $(document).on('turbolinks:load', function () {
