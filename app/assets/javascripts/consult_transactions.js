@@ -63,19 +63,25 @@ $(document).on('turbolinks:load', function () {
 });
 
 $(document).on('turbolinks:load', function () {
+
   $('#init-video').on('click', function(){
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
     App.consult_comm.send_video_status_flag("started");
     $('#init-video').addClass('hidden')
-    $('#cancel-video').removeClass('hidden')
+    $("#flag-info-msg").html('').text('Please wait while your partner is joining')
   })
   $('#cancel-video').on('click', function(){
     openTok.unPublish()
     $('#init-video').removeClass('hidden')
+    $("#flag-info-msg").html('')
     $('#cancel-video').addClass('hidden')
     App.consult_comm.send_video_status_flag("cancelled");
   })
 })
+
+// Some UI elements
+var $publisherContainer = $('#publisherContainer')
+var $subscriberContainer = $('#subscriberContainer')
 
 // Open Tok video chat flow
 var openTok = {}
@@ -149,12 +155,15 @@ openTok.initSession = function(apiKey, sessionId){
               console.log(error);
             } else {
               console.log('Subscriber added.');
+              console.log($publisherContainer)
+              $("#publisherContainer").addClass('publisher-container')
             }
           }
         )
       })
 
       session.on("streamDestroyed", function (event) {
+        $("#publisherContainer").removeClass('publisher-container')
         console.log("Stream stopped. Reason: ", event);
         openTok.session.unsubscribe(event.stream)
         console.log("Stream stopped. Reason: " + event.reason);
@@ -250,13 +259,20 @@ openTok.initPublisher = function(apiKey,sessionId){
   openTok.publisherInitialized = true
 }
 
+// just to attempt 5 times if user is not able to connect.
+openTok.reconnectionTries = 0
 // connect with session
 openTok.connectSession = function(token){
   openTok.session.connect(token, function (error) {
     if (error) {
-      console.log("Failed to connect.");
+      console.log("Failed to connect. attempting again. Total tries: "+ openTok.reconnectionTries);
+      if(openTok.reconnectionTries < 5){
+        openTok.reconnectionTries += 1;
+        openTok.connectSession(token);
+      }
     } else {
       console.log('You have connected to the session.');
+      openTok.reconnectionTries = 0;
       openTok.connected = true;
       openTok.publish()
     }
@@ -277,6 +293,7 @@ openTok.publish = function(){
     } else {
       console.log('Publishing a stream.');
       openTok.publisherInitialized = true;
+      $('#cancel-video').removeClass('hidden')
     }
   });
 }

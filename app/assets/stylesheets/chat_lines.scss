@@ -37,3 +37,29 @@
     border: 4px solid #bbf;
   }
 }
+
+.video-chat-wrapper{
+  .publisher-container{
+    position: absolute;
+    width: 102px;
+    height: 102px;
+    z-index: 9;
+    border: 1px solid white;
+
+    .OT_mirrored{
+      width: 100px!important;
+      height: 100px!important;
+      overflow: hidden;
+    }
+  }
+
+  .flag-info-msg{
+    font-size: 12px;
+    margin: 10px 0;
+    
+    .btn.btn-danger{
+      // margin-top: 260px;
+      // width: 100%;
+    }
+  }
+}

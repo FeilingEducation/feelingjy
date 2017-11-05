@@ -1,37 +1,37 @@
-<div class="row mb-4">
+<div class="row">
   <div class="col-3 px-5">
-    <%= image_tag profile_image_of(@other), class: 'd-block mb-3' %>
-    <h4 class="ml-3"><%= @other.full_name %></h4>
-    <h5><%= @transaction.service || "未确定服务" %></h5>
-    <div>
-      <span class="mr-3">状态:</span><span><%= status_text_of @transaction %></span>
-    </div>
-    <div>
-      <span class="mr-3">订单创建日期:</span><br>
-      <span><%= @transaction.created_at.strftime('%Y/%m/%d') %></span>
-    </div>
-    <div>
-      <span class="mr-3">订单更新日期:</span><br>
-      <span><%= @transaction.updated_at.strftime('%Y/%m/%d') %></span>
-    </div>
-    <div>
-      <% case @self %>
-      <% when @transaction.student %>
-        <% case @transaction.status %>
-        <% when "initiated" %>
-          <%= button_to "前往付款", pay_consult_transaction_path, disabled: true, class: 'btn btn-outline-secondary mt-3' %>
-        <% when "payment_pending" %>
-          <%= button_to "前往付款", pay_consult_transaction_path, class: 'btn btn-outline-success mt-3' %>
+      <%= image_tag profile_image_of(@other), class: 'd-block mb-3' %>
+      <h4 class="ml-3"><%= @other.full_name %></h4>
+      <h5><%= @transaction.service || "未确定服务" %></h5>
+      <div>
+        <span class="mr-3">状态:</span><span><%= status_text_of @transaction %></span>
+      </div>
+      <div>
+        <span class="mr-3">订单创建日期:</span><br>
+        <span><%= @transaction.created_at.strftime('%Y/%m/%d') %></span>
+      </div>
+      <div>
+        <span class="mr-3">订单更新日期:</span><br>
+        <span><%= @transaction.updated_at.strftime('%Y/%m/%d') %></span>
+      </div>
+      <div>
+        <% case @self %>
+        <% when @transaction.student %>
+          <% case @transaction.status %>
+          <% when "initiated" %>
+            <%= button_to "前往付款", pay_consult_transaction_path, disabled: true, class: 'btn btn-outline-secondary mt-3' %>
+          <% when "payment_pending" %>
+            <%= button_to "前往付款", pay_consult_transaction_path, class: 'btn btn-outline-success mt-3' %>
+          <% end %>
+        <% when @transaction.instructor %>
+          <% case @transaction.status %>
+          <% when "initiated" %>
+            <%= button_to "确认订单", confirm_consult_transaction_path, method: 'post', class: 'btn mt-3' %>
+          <% when "payment_pending" %>
+            <%= button_to "取消确认", confirm_consult_transaction_path(cancel: true), method: 'post', class: 'btn btn-outline-danger mt-3' %>
+          <% end %>
         <% end %>
-      <% when @transaction.instructor %>
-        <% case @transaction.status %>
-        <% when "initiated" %>
-          <%= button_to "确认订单", confirm_consult_transaction_path, method: 'post', class: 'btn mt-3' %>
-        <% when "payment_pending" %>
-          <%= button_to "取消确认", confirm_consult_transaction_path(cancel: true), method: 'post', class: 'btn btn-outline-danger mt-3' %>
-        <% end %>
-      <% end %>
-    </div>
+      </div>
   </div>
   <div class="consult-comm col-6 d-flex flex-column px-4" data-transaction-id="<%= @transaction.id %>" data-user-id="<%= current_user.id %>">
     <div class="chat-box">
@@ -48,14 +48,15 @@
         <%= submit_tag "发送", data: { disable_with: false } %>
       <% end %>
     </div>
-    <audio class="remote" autoplay controls></audio>
-    <audio class="local" autoplay controls></audio>
-    <button class="voice-chat-init">开始语音通话</button>
+    <!-- <audio class="remote" autoplay controls></audio> -->
+    <!-- <audio class="local" autoplay controls></audio> -->
+    <!-- <button class="voice-chat-init">开始语音通话</button> -->
     <button class="btn btn-primary" id="init-video">Start video chat</button>
+  </div>
+  <div class="col-3 video-chat-wrapper p-0">
+    <div id="publisherContainer" class=""></div>
+    <div id="subscriberContainer" class="subscriber-container"></div>
+    <div class="flag-info-msg" id="flag-info-msg"></div>
     <button class="btn btn-danger hidden" id="cancel-video">Stop</button>
   </div>
-</div>
-<div class="row mb-4">
-  <div id="publisherContainer"></div>
-  <div id="subscriberContainer"></div>
 </div>

@@ -64,6 +64,17 @@ $(document).on('turbolinks:load', function () {
           break;
         case 'video_chat':
           console.log('==================video chat flag received=========', comm)
+          switch (comm.payload) {
+            case 'started':
+              console.log('Partner has started!!!')
+              // $('#publisherContainer').addClass('publisher-container')
+              break;
+            case 'cancelled':
+              $('#publisherContainer').removeClass('publisher-container')
+              break;
+            default:
+
+          }
         break;
         case 'error':
           console.log(data);
