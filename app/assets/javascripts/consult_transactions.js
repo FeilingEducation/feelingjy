@@ -78,7 +78,7 @@ $(document).on('turbolinks:load', function () {
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
     App.consult_comm.send_video_status_flag("started");
     $('#init-video').addClass('hidden')
-    $("#flag-info-msg").html('').text('Please wait while your partner is joining')
+    $("#flag-info-msg").html('').text('Please wait while we are connecting...')
   })
   $('#cancel-video').on('click', function(){
     openTok.unPublish()
