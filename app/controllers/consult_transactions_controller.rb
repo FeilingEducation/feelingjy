@@ -9,7 +9,8 @@ class ConsultTransactionsController < AuthenticatedResourcesController
       @role = InstructorInfo.exists?(current_user.id) ? 'instructor' : 'student'
     end
     @other_role = @role == 'instructor' ? 'student' : 'instructor'
-    @transactions = ConsultTransaction.where("#{@role}_id": current_user.id)
+    @transactions_received = ConsultTransaction.where("instructor_id": current_user.id)
+    @transactions_placed = ConsultTransaction.where("student_id": current_user.id)
   end
 
   def create

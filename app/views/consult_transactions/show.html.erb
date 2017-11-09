@@ -58,7 +58,7 @@
   </div>
   <div class="col-3 video-chat-wrapper p-x">
     <div class="info-box">
-      <% sender = current_user.user_info%>
+      <% sender = current_user.user_info %>
       <%= image_tag profile_image_of(sender), class: 'd-block mb-3' %>
       <h4 class=""><%= sender.full_name %></h4>
       <span class=""><%= sender.email %></span>
