@@ -65,14 +65,24 @@ $(document).on('turbolinks:load', function () {
         case 'video_chat':
           console.log('==================video chat flag received=========', comm)
           switch (comm.payload) {
-            case 'started':
+            case 'started_video':
               console.log('**************** Partner has initiated the call')
+              // $('#publisherContainer').addClass('publisher-container')
+              openTok.publishVideo = true
+              break;
+            case 'started_audio':
+              console.log('**************** Partner has initiated the call')
+              openTok.publishVideo = false
               // $('#publisherContainer').addClass('publisher-container')
               break;
             case 'cancelled':
               console.log("**************** Partner has cancelled ", comm)
               $('#publisherContainer').removeClass('publisher-container')
               $("#subscriberContainer").removeClass('hidden')
+              openTok.unPublish()
+              $('#init-video').removeClass('hidden')
+              $('#init-audio').removeClass('hidden')
+              $('#cancel-video').addClass('hidden')
               $("#flag-info-msg").html('Call is terminated by the host')
               setTimeout(function(){
                 $("#flag-info-msg").html('')

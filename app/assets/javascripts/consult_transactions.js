@@ -65,7 +65,12 @@ $(document).on('turbolinks:load', function () {
 $(document).on('turbolinks:load', function () {
 
   $('#join-video-dialog').on('click', function(){
-    $('#init-video').click()
+    if(openTok.publishVideo){
+      $('#init-video').click()
+    }
+    else{
+      $('#init-audio').click()
+    }
     $('#call-dialog').modal('hide')
   })
 
@@ -75,16 +80,27 @@ $(document).on('turbolinks:load', function () {
   })
 
   $('#init-video').on('click', function(){
+    openTok.publishVideo = true
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
-    App.consult_comm.send_video_status_flag("started");
+    App.consult_comm.send_video_status_flag("started_video");
     $('#init-video').addClass('hidden')
+    $("#flag-info-msg").html('').text('Please wait while we are connecting...')
+  })
+  $('#init-audio').on('click', function(){
+    openTok.publishVideo = false
+    openTok.initPublisher(gon.opentok_api_key, gon.session_id)
+    App.consult_comm.send_video_status_flag("started_audio");
+    $('#init-audio').addClass('hidden')
     $("#flag-info-msg").html('').text('Please wait while we are connecting...')
   })
   $('#cancel-video').on('click', function(){
     openTok.unPublish()
     $('#init-video').removeClass('hidden')
     $("#flag-info-msg").html('')
+    $('#init-audio').removeClass('hidden')
     $('#cancel-video').addClass('hidden')
+    $('#publisherContainer').removeClass('publisher-container')
+    $("#subscriberContainer").removeClass('hidden')
     App.consult_comm.send_video_status_flag("cancelled");
   })
 })
@@ -105,9 +121,26 @@ openTok.publisherInitialized = false;
 openTok.publisherContainer = 'publisherContainer'
 openTok.subscriberContainer = 'subscriberContainer'
 
+// Audio video options
+openTok.publishAudio = true
+openTok.publishVideo = true
+
 // Some subcriber and publisher properties
-openTok.subscriberProperties = {insertMode: 'append',width: 300,height: 250};
-openTok.publisherProperties = {insertMode: 'append',width: 300,height: 250};
+openTok.subscriberProperties = function(){
+  var options = {insertMode: 'append',width: 300,height: 250, publishAudio: openTok.publishAudio, publishVideo:openTok.publishVideo, videoSource: null};
+  if(openTok.publishVideo){
+    delete options.videoSource;
+  }
+  return options
+}
+openTok.publisherProperties = function(){
+  var options = {insertMode: 'append',width: 300,height: 250, publishAudio: openTok.publishAudio, publishVideo:openTok.publishVideo, videoSource: null};
+  if(openTok.publishVideo){
+    delete options.videoSource;
+  }
+  console.log("options", options)
+  return options
+}
 
 openTok.initSession = function(apiKey, sessionId){
   if (OT.checkSystemRequirements() == 1) {
@@ -159,7 +192,7 @@ openTok.initSession = function(apiKey, sessionId){
 
         openTok.session.subscribe(event.stream,
           openTok.subscriberContainer,
-          openTok.subscriberProperties,
+          openTok.subscriberProperties(),
           function (error) {
             if (error) {
               console.log(error);
@@ -211,14 +244,14 @@ openTok.initPublisher = function(apiKey,sessionId){
 
   // set the publish options
   // Set the videoSource property to null or false in a voice-only session
-  var pubOptions ={
+  var pubOptions = {
     // audioSource: audioInputDevices[0].deviceId,
     // videoSource: videoInputDevices[0].deviceId,
     usePreviousDeviceSelection: true
   };
 
   // initialize publisher
-  var publisher = OT.initPublisher(openTok.publisherContainer, openTok.publisherProperties, function (error) {
+  var publisher = OT.initPublisher(openTok.publisherContainer, openTok.publisherProperties(), function (error) {
     if (error) {
       console.log(error);
     } else {
