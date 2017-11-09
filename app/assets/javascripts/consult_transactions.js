@@ -79,14 +79,16 @@ $(document).on('turbolinks:load', function () {
     $('#call-dialog').modal('hide')
   })
 
-  $('#init-video').on('click', function(){
+  $('#init-video').on('click', function(e){
+    e.preventDefault()
     openTok.publishVideo = true
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
     App.consult_comm.send_video_status_flag("started_video");
     $('#init-video').addClass('hidden')
     $("#flag-info-msg").html('').text('Please wait while we are connecting...')
   })
-  $('#init-audio').on('click', function(){
+  $('#init-audio').on('click', function(e){
+    e.preventDefault()
     openTok.publishVideo = false
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
     App.consult_comm.send_video_status_flag("started_audio");

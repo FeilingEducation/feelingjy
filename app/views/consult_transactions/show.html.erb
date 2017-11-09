@@ -48,14 +48,14 @@
       <%= form_tag nil, class: 'chat-input d-flex' do %>
         <%= hidden_field_tag :transaction_id, @transaction.id %>
         <%= text_area_tag :content, '', style: 'flex:1' %>
+        <a class="icn-links video" id="init-video"><i class="fa fa-video-camera" aria-hidden="true"></i></a>
+        <a class="icn-links audio" id="init-audio"><i class="fa fa-phone" aria-hidden="true"></i></a>
         <%= submit_tag "发送", data: { disable_with: false } %>
       <% end %>
     </div>
     <!-- <audio class="remote" autoplay controls></audio> -->
     <!-- <audio class="local" autoplay controls></audio> -->
     <!-- <button class="voice-chat-init">开始语音通话</button> -->
-    <button class="btn btn-primary" id="init-video">Start video chat</button>
-    <button class="btn btn-primary" id="init-audio">Start audio chat</button>
   </div>
   <div class="col-3 video-chat-wrapper p-x">
     <div class="info-box">
