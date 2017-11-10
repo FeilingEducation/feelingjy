@@ -15,21 +15,23 @@
             <div class="form-group">
               <%= f.label :description, "Simply describe yourself please", class: '' %>
               <%= f.text_area :description, rows: 5, class: '',id: 'description', placeholder: "Please share what you are good and what your suggestions are about applying for a schools. At least 100 characters." %>
+              <span class="error">Please add at least 400 characters</span>
+              <span id="description-char-count" class="pull-right char-info" style="font-size: 12px;"><span>0</span> / 400</span>
             </div>
             <div class="question-block check_boxes custom-checkbox-radios">
               <label>I am good at applying for</label>
               <div class="">
                 <% InstructorInfo.best_applying_at_options(lang).each_with_index do |option, idx| %>
-                  <div class="radio-btns">
-                    <%= f.radio_button :best_applying_at, option[1], id: "best_applying_at#{idx}" %><label for="<%= "best_applying_at#{idx}" %>"> <%= option[0]%></label>
-                  </div>
+                <div class="radio-btns">
+                  <%= f.radio_button :best_applying_at, option[1], id: "best_applying_at#{idx}" %><label for="<%= "best_applying_at#{idx}" %>"> <%= option[0]%></label>
+                </div>
                 <%end%>
               </div>
             </div>
           </div>
           <div class="survey-btn-row">
-              <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step7" data-percentage='1%' >上一步</button>
-              <button type="button" class="btn btn-primary step-navigate main-btn pull-right next" data-percentage='40%' data-target="#step9">下一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step7" data-percentage='1%' >上一步</button>
+            <button type="button" class="btn btn-primary step-navigate main-btn pull-right next" data-percentage='40%' data-target="#step9">下一步</button>
           </div>
         </div>
       </div>

@@ -9,6 +9,27 @@ $(document).on('keypress', 'form.chat-input textarea', function (e) {
   }
 });
 
+function updateDescriptionCharCount(input, charCountTraget, errorSpan){
+  setTimeout(function(){
+    $(charCountTraget).text($(input).val().length)
+
+    if($(input).val().length < 400){
+      $(input).next(errorSpan).removeClass('hidden')
+    }
+    else{
+      $(input).next(errorSpan).addClass('hidden')
+    }
+  }, 100)
+}
+
+$(document).on('keypress', '#description', function (e) {
+  updateDescriptionCharCount("#description", '#description-char-count span', 'span.error')
+});
+
+$(document).on('paste', '#description', function (e) {
+  updateDescriptionCharCount()
+});
+
 // Override default behavior of submitting the chat-line form
 $(document).on('submit', 'form.chat-input', function (e) {
   // getFormData is a self defined function in application.js to extract form

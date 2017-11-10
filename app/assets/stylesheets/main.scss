@@ -256,6 +256,7 @@ textarea{
   border: 1px solid #AAA8A8;
   width: 100%;
   padding: 10px;
+  color: $main-text-color;
 }
 
 // multi select box styling
@@ -550,4 +551,13 @@ input[type="radio"], input[type="checkbox"] {
     z-index: 2;
     margin-top: -16px;
   }
+}
+
+span.error{
+  color: red;
+  font-size: 12px;
+}
+span.char-info{
+  font-size: 12px;
+  color: $border-color;
 }

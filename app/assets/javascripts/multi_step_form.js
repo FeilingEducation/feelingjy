@@ -75,8 +75,13 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
             console.log('textarea validation fails...')
           }
           if($(textarea).attr('id') == "description"){
+            $('#description-char-count span').text($(textarea).val().length)
             if($(textarea).val().length < 400){
               isValid = false;
+              $(textarea).next('span.error').removeClass('hidden')
+            }
+            else{
+              $(textarea).next('span.error').addClass('hidden')
             }
           }
         })
