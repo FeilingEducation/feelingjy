@@ -17,7 +17,8 @@ $(document).on('change', '#user_info_avatar', function () {
     $('.upload-preview').find('.profile-image-full').attr('src', default_profile_image);
   }
 });
-$(document).ready(function(){
+
+$(document).on('turbolinks:load', function () {
   // $( ".select2" ).select2({})
   $.map($(".select2"), function(select2, idx){
     if($(select2).hasClass('state')){
