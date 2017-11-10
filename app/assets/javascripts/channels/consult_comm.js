@@ -62,8 +62,56 @@ $(document).on('turbolinks:load', function () {
               console.log('Unknown voice chat payload type: ' + comm.type);
           }
           break;
+        case 'video_chat':
+          console.log('==================video chat flag received=========', comm)
+          switch (comm.payload) {
+            case 'started_video':
+              console.log('**************** Partner has initiated the call')
+              // $('#publisherContainer').addClass('publisher-container')
+              openTok.publishVideo = true
+              break;
+            case 'started_audio':
+              console.log('**************** Partner has initiated the call')
+              openTok.publishVideo = false
+              // $('#publisherContainer').addClass('publisher-container')
+              break;
+            case 'cancelled':
+              console.log("**************** Partner has cancelled ", comm)
+              $('#publisherContainer').removeClass('publisher-container')
+              $("#subscriberContainer").removeClass('hidden')
+              openTok.unPublish()
+              $('#init-video').removeClass('hidden')
+              $('#init-audio').removeClass('hidden')
+              $('#cancel-video').addClass('hidden')
+              $("#flag-info-msg").html('Call is terminated by the host')
+              setTimeout(function(){
+                $("#flag-info-msg").html('')
+              }, 5000)
+              break;
+            case 'ready':
+              console.log("**************** Partner is ready to connect *********", comm)
+              if(!openTok.connected){
+                $('#call-dialog').modal('show')
+              }
+              break;
+            case 'partner_joined':
+              console.log("**************** Partner has joined ******", comm)
+              $("#flag-info-msg").html('')
+              break;
+            case 'call_rejected':
+              console.log('**************** Partner has rejected the video call *****', comm)
+              $('#cancel-video').click()
+              $("#flag-info-msg").html('').text('Your partner has rejected the call. Please try later after contacting with him')
+              setTimeout(function(){
+                $("#flag-info-msg").html('')
+              }, 10000)
+              break;
+            default:
+              console.log('************************')
+          }
+        break;
         case 'error':
-          console.log(comm.content);
+          console.log(data);
           break;
       }
     },
@@ -71,6 +119,10 @@ $(document).on('turbolinks:load', function () {
     // The backend store the chat line to the DB, and broadcast it to all subscribers.
     create_chat_line: function create_chat_line(data) {
       this.perform('create_chat_line', data);
+    },
+    send_video_status_flag: function send_video_status_flag(data) {
+      console.log('==================================', data)
+      this.perform('send_video_status_flag', { type: 'candidate', payload: data });
     },
     // calls "setup_voice_chat" on the backend
     // data has the scheme of { type: ('sdp'|'candidate'), payload: Object }

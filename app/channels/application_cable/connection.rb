@@ -12,12 +12,6 @@ module ApplicationCable
     protected
 
     def find_verified_user # this checks whether a user is authenticated with devise
-      puts '=============find_verified_user==============='
-      puts "env['warden'].user::-:-::#{env['warden'].user}"
-      puts @warden
-      puts '---'
-      puts current_user
-      puts User.find_by(id: cookies.signed['user.id'])
       # if verified_user = env['warden'].user
       if verified_user = User.find_by(id: cookies.signed['user.id'])
         verified_user

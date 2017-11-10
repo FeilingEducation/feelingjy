@@ -220,6 +220,22 @@ body {
   }
 }
 
+.btn-danger{
+  background-color: $primary-red;
+  color: #fff;
+  border: 0px;
+  border-radius: 0;
+  padding: 10px 30px;
+  min-height: 43px;
+  cursor: pointer;
+
+  &:hover{
+    background-color: $primary-red!important;
+    opacity: .8;
+  }
+}
+
+
 // select box styling
 select{
   background-color: #fff;
@@ -240,6 +256,7 @@ textarea{
   border: 1px solid #AAA8A8;
   width: 100%;
   padding: 10px;
+  color: $main-text-color;
 }
 
 // multi select box styling
@@ -534,4 +551,13 @@ input[type="radio"], input[type="checkbox"] {
     z-index: 2;
     margin-top: -16px;
   }
+}
+
+span.error{
+  color: red;
+  font-size: 12px;
+}
+span.char-info{
+  font-size: 12px;
+  color: $border-color;
 }

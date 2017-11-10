@@ -1,0 +1,31 @@
+<% id = 'dialog' if local_assigns[:id].nil? %>
+<% title = '' if local_assigns[:title].nil? %>
+<% body = '' if local_assigns[:body].nil? %>
+<% size = 'lg' if local_assigns[:size].nil? %>
+
+<div class="modal fade"
+           id="call-dialog" role="dialog"
+           tabindex="-1"
+           aria-hidden="true"
+           data-keyboard="false"
+           backdrop= 'static'
+           keyboard= false>
+  <div class="modal-dialog modal-<%= size %> custom-card">
+    <div class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title"><%#= title %></h5>
+          <div class="close modal-cross" data-dismiss="modal" aria-label="Close">
+            <%#= image_tag "multiply"%>
+          </div>
+      </div> -->
+      <div class="form-wrapper">
+        <div class="head-sec">
+          <h2 class="main-heading">Join Video Call</h2>
+          <h6 class="sub-heading">Your partner is asking to join a video call. Please join below.</h6>
+         </div>
+         <button class="btn btn-primary pull-right" id="join-video-dialog">Join</button>
+         <button class="btn btn-danger pull-left" id="cancel-video-dialog">Reject</button>
+      </div>
+    </div>
+  </div>
+</div>

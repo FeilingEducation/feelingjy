@@ -9,7 +9,8 @@ class ConsultTransactionsController < AuthenticatedResourcesController
       @role = InstructorInfo.exists?(current_user.id) ? 'instructor' : 'student'
     end
     @other_role = @role == 'instructor' ? 'student' : 'instructor'
-    @transactions = ConsultTransaction.where("#{@role}_id": current_user.id)
+    @transactions_received = ConsultTransaction.where("instructor_id": current_user.id)
+    @transactions_placed = ConsultTransaction.where("student_id": current_user.id)
   end
 
   def create
@@ -29,6 +30,9 @@ class ConsultTransactionsController < AuthenticatedResourcesController
 
   def show
     set_transaction_and_role
+    gon.opentok_api_key = Rails.application.secrets.tokbox[:api_key]
+    gon.token = @transaction.generate_opentok_token
+    gon.session_id = @transaction.open_tok_session_id
   end
 
   def update

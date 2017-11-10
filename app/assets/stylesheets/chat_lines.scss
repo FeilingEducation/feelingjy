@@ -22,9 +22,9 @@
 // a container that holds all chat-lines
 .chat-lines {
   flex:1;
-  background-color: $gray-200;
+  // background-color: $gray-200;
   height: 360px;
-  border: 8px solid $gray-300;
+  // border: 8px solid $gray-300;
   padding: 0.5rem 1rem;
   overflow-y: auto;
   @extend .thin-scrollbar;
@@ -34,6 +34,88 @@
 .chat-input {
   & textarea {
     resize: none;
-    border: 4px solid #bbf;
+    // border: 4px solid #bbf;
+  }
+  .icn-links{
+    position: absolute;
+    color: $main-text-color!important;
+    font-size: 20px;
+    margin-top: 5px;
+
+    &.video{
+      right: 90px;
+    }
+    &.audio{
+      right: 120px;
+    }
+  }
+}
+
+.video-chat-wrapper{
+  .publisher-container{
+    position: absolute;
+    width: 102px;
+    height: 102px;
+    z-index: 9;
+    border: 1px solid white;
+
+    .OT_mirrored{
+      width: 100px!important;
+      height: 100px!important;
+      overflow: hidden;
+    }
+  }
+
+  .flag-info-msg{
+    font-size: 12px;
+    margin: 10px 0;
+
+    .btn.btn-danger{
+      // margin-top: 260px;
+      // width: 100%;
+    }
+  }
+}
+.chat-wrapper{
+  color: $main-text-color;
+
+  .message{
+    padding: 0!important;
+
+    .msg-content-wrapper{
+      width: 100%!important;
+
+      .msg-content{
+        width: 100%!important;
+        background-color: transparent!important;
+        padding: 0!important;
+
+        p{
+          background: #fff;
+          padding: 10px;
+          border-radius: 10px;
+          min-width: 200px;
+        }
+
+        &.chat-line-right{
+          p{
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+  .info-box{
+    text-align: center;
+    padding: 10px;
+
+    img{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
   }
 }
