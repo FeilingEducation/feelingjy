@@ -285,15 +285,16 @@ textarea{
 // progress bar customizations
 .progress{
   position: fixed;
-  top: 70px;
+  top: 71px;
   width: 100%;
   z-index: 11;
-  height: 20px;
+  height: 10px;
   // background-color: rgba(238,248,245,1);
 
   .progress-bar{
     background-color: $primary-green!important;
-    height: 20px;
+    height: 10px;
+    border-radius: 10px;
   }
   &.sec2{
     // background-color: rgba(252,239,239,1)!important;
