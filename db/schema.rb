@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171104061419) do
+ActiveRecord::Schema.define(version: 20171111102048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,6 +172,7 @@ ActiveRecord::Schema.define(version: 20171104061419) do
     t.boolean "share_paper", default: false
     t.boolean "share_course_essay", default: false
     t.string "page_name"
+    t.integer "uni_accepted", array: true
   end
 
   create_table "messages", force: :cascade do |t|

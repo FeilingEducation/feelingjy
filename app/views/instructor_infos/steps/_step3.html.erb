@@ -25,12 +25,14 @@
             <div class="form-group">
               <div class="row">
                 <div class="col-md-8">
-                  <%= f.label :number_institutes_admitted, "How many schools have you been accepted?" %>
+                  <%#= f.label :number_institutes_admitted, "How many schools have you been accepted?" %>
+                  <%= f.label :uni_accepted, "How many schools have you been accepted?" %>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-7">
-                  <%= f.select :number_institutes_admitted, InstructorInfo.schools_applied_before_options(lang), {}, { class: 'select2 schools-applied' } %>
+                  <%#= f.select :number_institutes_admitted, InstructorInfo.schools_applied_before_options(lang), {}, { class: 'select2 schools-applied' } %>
+                  <%= f.select :uni_accepted, InstructorInfo.schoools_accepted(lang), {}, { class: 'select2 schools-applied' } %>
                 </div>
               </div>
             </div>
@@ -51,17 +53,28 @@
 
 <script type="text/javascript">
 $("input[name='instructor_info[number_institutes_applied]']").on('change', function(e){
-  $.ajax({
-    url: '/instructor/schools_applied.json?idx=' + e.target.value ,
-    dataType: 'json',
-    success: function (resp) {
-      $( ".select2.schools-applied" ).empty()
-      $( ".select2.schools-applied" ).select2({})
-      $.map(resp, function(key, val){
-        var option = new Option(key, val);
-        $( ".select2.schools-applied" ).append(option);
-      })
-    }
-  });
+  console.log('e.target.value', e.target.value)
+  $( ".select2.schools-applied" ).val(null).trigger('change')
+  // $( ".select2.schools-applied" ).select2('val','').trigger('change')
+  $( ".select2.schools-applied" ).select2({
+    multiple: true,
+    placeholder: 'Please select your Universities',
+    maximumSelectionLength: parseInt(e.target.value) + 1
+  }).trigger('change')
+  // $.ajax({
+  //   url: '/instructor/schools_applied.json?idx=' + e.target.value ,
+  //   dataType: 'json',
+  //   success: function (resp) {
+  //     $( ".select2.schools-applied" ).empty()
+  //     $( ".select2.schools-applied" ).select2({
+  //       tags: true,
+  //       maximumSelectionLength: e.target.values
+  //     })
+  //     $.map(resp, function(key, val){
+  //       var option = new Option(key, val);
+  //       $( ".select2.schools-applied" ).append(option);
+  //     })
+  //   }
+  // });
 })
 </script>

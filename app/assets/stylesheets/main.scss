@@ -349,6 +349,28 @@ textarea{
   color: #fff!important;
 }
 
+.select2-selection--multiple{
+  border: 1px solid $border-color;
+  height: 43px;
+
+  .select2-selection__rendered{
+    .select2-selection__choice{
+      background-color: #fff!important;
+      border: 1px solid $primary-red !important;
+      color: $primary-red !important;
+      font-size: 12px;
+      padding: 5px!important;
+
+      .select2-selection__choice__remove{
+        color: $primary-red;
+      }
+    }
+    .select2-search__field{
+      display: none;
+    }
+  }
+}
+
 *:focus{
   outline: none !important;
   box-shadow: none!important;

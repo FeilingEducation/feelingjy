@@ -55,7 +55,8 @@ class InstructorInfosController < AuthenticatedResourcesController
   end
 
   def schools_applied
-    render json: InstructorInfo::SCHOOLS_APPLIED_BEFORE_ENGLISH[0..params['idx'].to_i]
+    # render json: InstructorInfo::SCHOOLS_APPLIED_BEFORE_ENGLISH[0..params['idx'].to_i]
+    render json: InstructorInfo::UNIVERSITIES_ENGLISH
   end
 
   private

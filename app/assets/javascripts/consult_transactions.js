@@ -27,7 +27,7 @@ $(document).on('keypress', '#description', function (e) {
 });
 
 $(document).on('paste', '#description', function (e) {
-  updateDescriptionCharCount()
+  updateDescriptionCharCount("#description", '#description-char-count span', 'span.error')
 });
 
 // Override default behavior of submitting the chat-line form
