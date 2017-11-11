@@ -583,3 +583,6 @@ span.char-info{
   font-size: 12px;
   color: $border-color;
 }
+input[type=file_field]:focus{
+  border: 0px !important;
+}
