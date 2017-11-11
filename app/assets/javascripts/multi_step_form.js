@@ -95,6 +95,12 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
     }else{
       $('#max_price').next('span.error').addClass('hidden')
     }
+    if(parseInt($('#max_days').val()) < parseInt($('#min_days').val())){
+      isValid = false;
+      $('#max_days').next('span.error').removeClass('hidden')
+    }else{
+      $('#max_days').next('span.error').addClass('hidden')
+    }
 
     if(isValid || $this.hasClass('btn-default')){
       $curr_form.toggleClass('current-step');

@@ -18,7 +18,7 @@
             <div class="row">
               <div class="col-md-10">
                 <%= f.label :min_work_daysss, "Minimum work days?" %>
-                <%= f.number_field :min_work_days, min: 2, max: 30, default: 2, class: '', placeholder: 'Select minum work days' %>
+                <%= f.number_field :min_work_days, min: 2, max: 30, default: 2, class: '', placeholder: 'Select minum work days', id: 'min_days' %>
               </div>
             </div>
           </div>
@@ -26,7 +26,8 @@
             <div class="row">
               <div class="col-md-10">
                 <%= f.label :max_work_days, "Maximum work days?" %>
-                <%= f.number_field :max_work_days, min: 2, max: 30,default: 2, class: '', placeholder: 'Select maximum work days' %>
+                <%= f.number_field :max_work_days, min: 2, max: 30,default: 2, class: '', placeholder: 'Select maximum work days', id: 'max_days' %>
+                <span class="error hidden"> It should be greater than min days.</span>
               </div>
             </div>
           </div>
