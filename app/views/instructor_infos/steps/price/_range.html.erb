@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-10">
       <%= f.label :min_price, "At least" %>
-      <%= f.number_field :min_price, min: 100, class: '', placeholder: 'Suggest: ¥ 600/hr' %>
+      <%= f.number_field :min_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
     </div>
   </div>
 </div>
@@ -15,7 +15,8 @@
   <div class="row">
     <div class="col-md-10">
       <%= f.label :max_price, "At most" %>
-      <%= f.number_field :max_price, min: 100, class: '', placeholder: 'Suggest: ¥ 800/hr' %>
+      <%= f.number_field :max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
+      <span class="error hidden"> It should be greater than min value.</span>
     </div>
   </div>
 </div>

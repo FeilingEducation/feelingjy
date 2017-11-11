@@ -8,7 +8,7 @@ class InstructorInfosController < AuthenticatedResourcesController
   # is an instructor.
 
   def new
-    @instructor_info = InstructorInfo.new
+    @instructor_info = InstructorInfo.new(min_price: 600, max_price: 800)
   end
 
   def create
@@ -160,7 +160,8 @@ class InstructorInfosController < AuthenticatedResourcesController
       :max_price,
       :fix_price,
       :work_frequency,
-      :first_std_discount
+      :first_std_discount,
+      :uni_acceptedss
       # :avatar
     )
   end

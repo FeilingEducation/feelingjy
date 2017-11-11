@@ -47,8 +47,8 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
       // Check if there are number fields present on screen
       if($(question_block).find('input[type=number]').length > 0){
         // there are number fields present on the screeb. Make sure that user selects some value.
-        $.map($(question_block).find('input[type=number]'), function(text_box, index){
-          if($(text_box).val().length == 0){
+        $.map($(question_block).find('input[type=number]'), function(number_field, index){
+          if($(number_field).val().length == 0){
             isValid = false;
             console.log('number validation fails...')
           }
@@ -87,6 +87,14 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
         })
       }
     })
+
+    // Number fields
+    if(parseInt($('#max_price').val()) < parseInt($('#min_price').val())){
+      isValid = false;
+      $('#max_price').next('span.error').removeClass('hidden')
+    }else{
+      $('#max_price').next('span.error').addClass('hidden')
+    }
 
     if(isValid || $this.hasClass('btn-default')){
       $curr_form.toggleClass('current-step');
