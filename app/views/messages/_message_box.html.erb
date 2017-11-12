@@ -3,54 +3,69 @@
 <!-- </div> -->
 
 <!-- <div class="message-box"> -->
-  <!-- <div class="row" style="height:300px;"> -->
-    <!-- <div class="col-9"> -->
-      <div class="message-history <%=box_id%>" id="message-history">
-        <% for message in message_history do %>
-        <% next if message.content.empty? %>
-        <div class="message  <%=message_class message%>">
-          <div class="msg-thumb <%= message.sender_id == current_user.id ? '' : 'float-right'%>"><%= image_tag profile_image_of( message.sender_id == current_user.id ? message.sender : other), class: '' %></div>
-          <div class="msg-content-wrapper">
-            <span class="fs-120 contact-name"><strong><%= message.sender.full_name %></strong></span>
-            <span class="fs-80 d-block">Posted on: <%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></span>
-            <div class="msg-content">
-              <p class="mb-1"><%= message.content %></p>
-            </div>
-            <div class="msg-attachments">
-              <% for attachment in message.attachments do %>
-                <div class="attachment">
-                  <a href="<%= attachment.file.url %>" target="_blank"><%= attachment.read_attribute(:file) %></a>
-                </div>
-              <% end %>
-            </div>
-          </div>
+<!-- <div class="row" style="height:300px;"> -->
+<!-- <div class="col-9"> -->
+<div class="message-history <%=box_id%>" id="message-history">
+  <% for message in message_history do %>
+  <% next if message.content.empty? %>
+  <div class="message  <%=message_class message%>">
+    <div class="msg-thumb <%= message.sender_id == current_user.id ? '' : 'float-right'%>"><%= image_tag profile_image_of( message.sender_id == current_user.id ? message.sender : other), class: '' %></div>
+    <div class="msg-content-wrapper">
+      <span class="fs-120 contact-name"><strong><%= message.sender.full_name %></strong></span>
+      <span class="fs-80 d-block">Posted on: <%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></span>
+      <div class="msg-content">
+        <p class="mb-1"><%= message.content %></p>
+      </div>
+      <div class="msg-attachments">
+        <% for attachment in message.attachments do %>
+        <div class="attachment">
+          <a href="<%= attachment.file.url %>" target="_blank"><%= attachment.read_attribute(:file) %></a>
         </div>
         <% end %>
       </div>
-    <!-- </div> -->
+    </div>
+  </div>
+  <% end %>
+</div>
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-9 ml-auto"> -->
+<% msg = Message.new(receiver_id: other.id) %>
+<%= form_with model: msg, class: 'message-form', data: { type: 'json', boxId: box_id } do |f| %>
+<div class="form-group text-area-wrapper">
+  <%= f.hidden_field :receiver_id %>
+  <%= f.text_area :content, class: 'form-control message-box-area', rows: 8, style: 'resize:none', id: "message-box-area" %>
+  <label for="attachments-input" class="attachments"><i class="fa fa-paperclip"></i></label>
+  <div class="dropdown settings-cog">
+    <span class="cog-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-cog" aria-hidden="true"></i>
+    </span>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div class="radio-btns dropdown-item custom-checkbox-radios">
+        <input type="radio" name="press_enter" value="true" id="press_enter_true" class="press_enter_true">
+        <label for="press_enter_true">Press enter to send message </label>
+      </div>
+      <div class="radio-btns custom-checkbox-radios dropdown-item">
+        <input type="radio" name="press_enter" value="false" id="press_enter_false" checked='checked' class="press_enter_false">
+        <label for="press_enter_false">Press enter for new line </label>
+      </div>
+    </div>
+  </div>
+  <%= f.submit '发送', class: 'msg-send-btn', data: { disable_with: false } %>
+</div>
+<div class="form-group d-flex">
+  <div class="attachments-container">
+  </div>
+  <div class="w-100">
+    <%= file_field_tag '', id: 'attachments-input', class: 'attachments-input', multiple: true,
+    data: { url: attachments_path, param_name: 'attachment[file]',
+      form_data: { 'attachment[file_type]': 'attachment' }, data_type: 'json' } %>
+    </div>
+  </div>
+  <div class="form-group">
+  </div>
+  <% end %>
   <!-- </div> -->
-  <!-- <div class="row"> -->
-    <!-- <div class="col-9 ml-auto"> -->
-      <% msg = Message.new(receiver_id: other.id) %>
-      <%= form_with model: msg, class: 'message-form', data: { type: 'json', boxId: box_id } do |f| %>
-      <div class="form-group text-area-wrapper">
-        <%= f.hidden_field :receiver_id %>
-        <%= f.text_area :content, class: 'form-control message-box-area', rows: 8, style: 'resize:none', id: "message-box-area" %>
-        <label for="attachments-input" class="attachments"><i class="fa fa-paperclip"></i></label>
-        <%= f.submit '发送', class: 'msg-send-btn' %>
-      </div>
-      <div class="form-group d-flex">
-        <div class="attachments-container">
-        </div>
-        <div class="w-100">
-          <%= file_field_tag '', id: 'attachments-input', class: 'attachments-input', multiple: true,
-          data: { url: attachments_path, param_name: 'attachment[file]',
-            form_data: { 'attachment[file_type]': 'attachment' }, data_type: 'json' } %>
-          </div>
-        </div>
-        <div class="form-group">
-        </div>
-        <% end %>
-      <!-- </div> -->
-    <!-- </div> -->
+  <!-- </div> -->
   <!-- </div> -->
