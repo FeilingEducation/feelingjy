@@ -3,7 +3,7 @@
 // trigger form submission at "enter" key press event
 // Allowing shift+enter to enter a newline
 $(document).on('keypress', 'form.chat-input textarea', function (e) {
-  if (e.keyCode == 13 && !e.shiftKey) {
+  if (e.keyCode == 13 && !e.shiftKey && window.chat_msg_press_enter == 'send_msg') {
     $(this).closest('form').trigger('submit');
     return false;
   }
@@ -126,7 +126,29 @@ $(document).on('turbolinks:load', function () {
     $("#subscriberContainer").removeClass('hidden')
     App.consult_comm.send_video_status_flag("cancelled");
   })
+
+  $(".chat_press_enter_false").on('change', function(){
+    if($(".chat_press_enter_false").prop("checked")){
+      window.chat_msg_press_enter = 'new_line'
+    }
+  })
+
+  $(".chat_press_enter_true").on('change', function(){
+    if($(".chat_press_enter_true").prop("checked")){
+      window.chat_msg_press_enter = 'send_msg'
+    }
+  })
 })
+
+window.chat_msg_press_enter = 'send_msg'
+// Detecting enter key during message sending.
+$(document).on('keypress', 'form.message-form textarea', function (e) {
+  if (e.keyCode == 13 && !e.shiftKey && window.chat_msg_press_enter == 'send_msg') {
+    e.preventDefault();
+    $(this).closest('form').submit();
+    return false;
+  }
+});
 
 // Some UI elements
 var $publisherContainer = $('#publisherContainer')

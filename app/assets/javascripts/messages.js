@@ -58,25 +58,20 @@ $(document).on('turbolinks:load', function () {
   })
 
   $('#send-msg-txt-area').on('keyup', function(){
-    console.log($(this).val().length)
     $('#msg-char-count').html('')
     $('#msg-char-count').text($(this).val().length)
   })
 
   $(".press_enter_false").on('change', function(){
-    console.log($(".press_enter_false").prop("checked"))
     if($(".press_enter_false").prop("checked")){
       window.msg_press_enter = 'new_line'
     }
-    console.log('window.msg_press_enter', window.msg_press_enter)
   })
 
   $(".press_enter_true").on('change', function(){
-    console.log($(".press_enter_false").prop("checked"))
     if($(".press_enter_true").prop("checked")){
       window.msg_press_enter = 'send_msg'
     }
-    console.log('window.msg_press_enter', window.msg_press_enter)
   })
 
 })
@@ -86,9 +81,7 @@ window.msg_press_enter = 'new_line'
 $(document).on('keypress', 'form.message-form textarea', function (e) {
   if (e.keyCode == 13 && !e.shiftKey && window.msg_press_enter == 'send_msg') {
     e.preventDefault();
-    // $(this).closest('form').trigger('submit');
     // $(this).closest('form').submit();
-    // $(this).closest('.msg-send-btn').click()
     $(this).parent().find(".msg-send-btn").click()
     return false;
   }
