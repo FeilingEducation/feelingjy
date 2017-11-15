@@ -11,15 +11,19 @@
         <div class="col-md-12">
           <div class="question-block tutor-picture-block">
             <p class="survey-question">Please add a picture of yourself! </p>
-            <%#= image_tag "registration/pic-placeholder.png", class: 'avatar-img-name'%>
             <div class="pic-placeholder" id="pic-placeholder"></div>
-            <div class="custom-file d-block">
-              <%= f.file_field :avatar, class: "image-input1", :'data-target' => '.pic-placeholder', :'data-background' => true, accept: 'image/*', id: "avatar-image" %>
+            <div class="custom-file d-block" id="upload-btn">
+              <%= f.file_field :avatar, class: "custom-image-input", :'data-target' => '.pic-placeholder', :'data-background' => true, accept: 'image/*', id: "avatar-image" %>
               <%= f.hidden_field :avatar_cache, id: "avatar-preview" %>
               <span id="avatar-img-name" class="custom-file-control page-bg custom-file-name" data-content="Upload" id="avatar-preview">
                 <%= image_tag "registration/upload-icon.png" %>
               </span>
-              <button id="set-image" class='hidden mt-30'>Set</button>
+            </div>
+            <div class="set-image hidden">
+              <span id="reset-image" class='img-reset-btn'>X</span>
+            </div>
+            <div class="set-image hidden">
+              <button id="set-image" class='mt-30 btn-default' type='button'>Done</button>
             </div>
           </div>
           <div class="survey-btn-row">

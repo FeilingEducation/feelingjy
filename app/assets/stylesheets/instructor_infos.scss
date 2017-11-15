@@ -244,7 +244,7 @@
           top: 0;
           bottom: 0;
 
-          .image-input{
+          .custom-image-input{
             width: 170px;
             height: 70px;
             padding: 5px;
@@ -307,12 +307,59 @@
       margin-bottom: 200px;
 
       .pic-placeholder{
-        width: 150px;
-        height: 150px;
+        width: 170px;
+        height: 170px;
         border-radius: 50%;
         background: asset_url('registration/pic-placeholder.png');
         background-size: cover !important;
         margin-left: 40px;
+
+        &.croppie-container{
+          .cr-image{
+            text-indent: -9999px;
+          }
+
+          .cr-viewport.cr-vp-circle{
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border: 0;
+            display: none;
+          }
+
+          .cr-slider-wrap{
+            display: none;
+          }
+
+          &.image-laoded{
+
+            .cr-viewport.cr-vp-circle{
+              -webkit-box-shadow: 0 0 2000px 2000px rgba(0,0,0,.4);
+              box-shadow: 0 0 2000px 2000px rgba(0,0,0,.4);
+              border: 1px solid #fff;
+              display: block;
+            }
+
+            .cr-slider-wrap{
+              display: block;
+              width: 100%;
+
+              input{
+                &:focus{
+                  border: 0!important;
+                }
+              }
+            }
+          }
+
+          &.image-done{
+            .cr-viewport.cr-vp-circle{
+              -webkit-box-shadow: 0 0 2000px 2000px rgba(255,255,255,1);
+              box-shadow: 0 0 2000px 2000px rgba(255,255,255,1);
+              border: 0;
+              display: block;
+            }
+          }
+        }
       }
 
       .custom-file{
@@ -320,7 +367,7 @@
         height: 50px;
         margin: 40px;
 
-        .image-input{
+        .custom-image-input{
           width: 170px;
           height: 50px;
           padding: 5px;
@@ -360,6 +407,20 @@
             padding-top: 14px;
             cursor: pointer;
           }
+        }
+      }
+
+      .set-image{
+        margin: 40px;
+
+        .img-reset-btn{
+          position: absolute;
+          top: 90px;
+          left: 230px;
+        }
+
+        button{
+          width: 170px;
         }
       }
     }
