@@ -44,6 +44,7 @@ $(document).on('ajax:beforeSend', '.message-form', function (e) {
 
 })
 
+// Doing some DOM manipulation
 $(document).on('turbolinks:load', function () {
   $('.right-message-content .message-history').scrollTop(5000)
   $('.left-msg-nav-item').on('click', function(){
@@ -57,8 +58,31 @@ $(document).on('turbolinks:load', function () {
   })
 
   $('#send-msg-txt-area').on('keyup', function(){
-    console.log($(this).val().length)
     $('#msg-char-count').html('')
     $('#msg-char-count').text($(this).val().length)
   })
+
+  $(".press_enter_false").on('change', function(){
+    if($(".press_enter_false").prop("checked")){
+      window.msg_press_enter = 'new_line'
+    }
+  })
+
+  $(".press_enter_true").on('change', function(){
+    if($(".press_enter_true").prop("checked")){
+      window.msg_press_enter = 'send_msg'
+    }
+  })
+
 })
+
+window.msg_press_enter = 'new_line'
+// Detecting enter key during message sending.
+$(document).on('keypress', 'form.message-form textarea', function (e) {
+  if (e.keyCode == 13 && !e.shiftKey && window.msg_press_enter == 'send_msg') {
+    e.preventDefault();
+    // $(this).closest('form').submit();
+    $(this).parent().find(".msg-send-btn").click()
+    return false;
+  }
+});

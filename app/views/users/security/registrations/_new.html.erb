@@ -1,0 +1,17 @@
+<div class="row justify-content-center">
+
+  <div class="col-md-12 custom-card">
+    <div class='multi-step-form current-step' id="step0">
+      <%= render partial: 'terms'%>
+    </div>
+
+    <div class='multi-step-form' id="step1">
+      <%= render partial: 'sign_up', locals: { is_modal: true } %>
+    </div>
+
+    <div class='multi-step-form' id="step2">
+      <%= render partial: 'decline'%>
+    </div>
+  </div>
+
+</div>

@@ -36,6 +36,14 @@
     resize: none;
     // border: 4px solid #bbf;
   }
+  .chat-txt-area{
+    padding: 25px 11px;
+  }
+  .chat-cog{
+    position: absolute;
+    left: 10px;
+    top: 5px;
+  }
   .icn-links{
     position: absolute;
     color: $main-text-color!important;
@@ -43,10 +51,10 @@
     margin-top: 5px;
 
     &.video{
-      right: 90px;
+      right: 60px;
     }
     &.audio{
-      right: 120px;
+      right: 90px;
     }
   }
 }
