@@ -14,15 +14,20 @@
 <% modals = {} %>
 <body>
   <div class="body">
-    <%= render partial: 'header' %>
+    <%= render partial: 'top_header' %>
+    <%#= render partial: 'header' %>
     <div id="flash">
       <%= render partial: 'flash' %>
     </div>
-    <section class="main">
-      <% # for nested layout %>
+    <div class="main-content">
       <%= content_for?(:application) ? yield(:application) : yield %>
-    </section>
-    <%= render partial: 'footer' %>
+    </div>
+    <!-- <section class="main"> -->
+      <% # for nested layout %>
+      <%#= content_for?(:application) ? yield(:application) : yield %>
+    <!-- </section> -->
+    <%#= render partial: 'footer' %>
+    <%= render partial: 'footer_new' %>
   </div>
   <%= render partial: 'dialog' %>
   <%= form_tag '', method: 'post', id: 'template-form', style: 'display:hidden' %>
