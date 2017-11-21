@@ -6,9 +6,13 @@
           <h4><a href="#">Terms &amp; Conditions</a></h4>
 
           <div class="body">
-            <p><img src="images/location-green.png" alt=""> <span>Department Southern Road Takakuji China Xidong Province Shenzhen City</span></p>
+            <p>
+              <%= image_tag "homepage/location-green.png"%>
+              <span>Department Southern Road Takakuji China Xidong Province Shenzhen City</span></p>
 
-            <p><img src="images/phone-green.png" alt=""> <span>400-123-4567</span></p>
+            <p>
+              <%= image_tag "homepage/phone-green.png"%>
+              <span>400-123-4567</span></p>
           </div>
         </div>
 
@@ -18,11 +22,13 @@
             <p>From Monday to Friday 9:00-18:00(SGT)</p>
 
             <div class="dropdown">
-              <a href="#" id="footer-language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/flag/usa.jpg" alt=""> English <i class="fa fa-angle-down"></i></a>
+              <a href="#" id="footer-language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag "homepage/flag/usa.jpg" %> English <i class="fa fa-angle-down"></i></a>
 
               <div class="dropdown-menu top-bar-drop" aria-labelledby="footer-language">
-                <a class="dropdown-item" href="#"><img src="images/flag/usa.jpg" alt=""> English</a>
-                <a class="dropdown-item" href="#"><img src="images/flag/china.jpg" alt=""> Chinese</a>
+                <a class="dropdown-item" href="#">
+                  <%= image_tag "homepage/flag/usa.jpg" %> English</a>
+                <a class="dropdown-item" href="#"><%= image_tag "homepage/flag/china.jpg" %> Chinese</a>
               </div>
             </div>
           </div>

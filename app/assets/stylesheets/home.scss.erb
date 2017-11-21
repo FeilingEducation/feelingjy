@@ -549,23 +549,26 @@ select.form-control {
 }
 
 .without-img-bg .usr-txt .edu-cap {
-	background: url('../images/edu-cap.png') no-repeat left;
+	background: url(<%= asset_url "homepage/edu-cap.png" %>) no-repeat left;
 }
 
 .without-img-bg .usr-txt .usr-location {
-	background: url('../images/location-small.png') no-repeat left;
+	// background: url('../images/location-small.png') no-repeat left;
+	background: url(<%= asset_url "homepage/location-small.png" %>) no-repeat left;
 }
 
 .without-bg-con:hover .without-img-bg .usr-txt .edu-cap,
 .without-bg-con.active .without-img-bg .usr-txt .edu-cap {
 	color: #fff;
-	background: url('../images/edu-cap-white.png') no-repeat left;
+	// background: url('../images/edu-cap-white.png') no-repeat left;
+	background: url(<%= asset_url "homepage/edu-cap-white.png" %>) no-repeat left;
 }
 
 .without-bg-con:hover .without-img-bg .usr-txt .usr-location,
 .without-bg-con.active .without-img-bg .usr-txt .usr-location {
 	color: #fff;
-	background: url('../images/location-small-white.png') no-repeat left;
+	// background: url('../images/location-small-white.png') no-repeat left;
+	background: url(<%= asset_url "homepage/location-small-white.png" %>) no-repeat left;
 }
 
 .user-image-text.user-right {
@@ -657,30 +660,36 @@ select.form-control {
 .advantages .header .img {
 	height: 65px;
 	width: 65px;
-	background: url('../images/advantage/1.png') no-repeat;
+	// background: url('../images/advantage/1.png') no-repeat;
+	background: url(<%= asset_url "homepage/advantage/1.png" %>) no-repeat;
 }
 
 .advantages:hover .img.freelance,
 .advantages.active .img.freelance {
-	background: url('../images/advantage/1-green.png') no-repeat;
+	// background: url('../images/advantage/1-green.png') no-repeat;
+	background: url(<%= asset_url "homepage/advantage/1-green.png" %>) no-repeat;
 }
 
 .advantages .img.price {
-	background: url('../images/advantage/2.png') no-repeat;
+	// background: url('../images/advantage/2.png') no-repeat;
+	background: url(<%= asset_url "homepage/advantage/2.png" %>) no-repeat;
 }
 
 .advantages .img.quality {
-	background: url('../images/advantage/3.png') no-repeat;
+	background: url(<%= asset_url "homepage/advantage/3.png" %>) no-repeat;
+	// background: url('../images/advantage/3.png') no-repeat;
 }
 
 .advantages:hover .img.price,
 .advantages.active .img.price {
-	background: url('../images/advantage/2-green.png') no-repeat;
+	// background: url('../images/advantage/2-green.png') no-repeat;
+	background: url(<%= asset_url "homepage/advantage/2-green.png" %>) no-repeat;
 }
 
 .advantages:hover .img.quality,
 .advantages.active .img.quality {
-	background: url('../images/advantage/3-green.png') no-repeat;
+	background: url(<%= asset_url "homepage/advantage/3-green.png" %>) no-repeat;
+	// background: url('../images/advantage/3-green.png') no-repeat;
 }
 
 .advantages:hover .body,
@@ -773,4 +782,19 @@ select.form-control {
 
 .sub-footer a {
 	color: #fff;
+}
+.main-header {
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    width: 100vw;
+    border-bottom: 1px solid #ddd;
+}
+
+.main-nav {
+  background: #fff;
+}
+
+.main-content {
+  padding-top: 105px;
 }
