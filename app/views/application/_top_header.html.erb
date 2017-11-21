@@ -1,4 +1,4 @@
-<header class="main-header">
+<header class="main-header <%= current_user.present? ? ' signed-in': '' %>">
   <div class="top-bar">
     <div class="container">
       <div class="row">
@@ -73,7 +73,9 @@
           <div class="col-md-9 col-sm-8">
             <ul class="main-nav">
               <li><a href="#">Find your Mentor</a></li>
-              <li><%= link_to "Become a Mentor", new_instructor_info_path, class: "nav-link" %></li>
+              <% if current_user.present? %>
+                <li><%= link_to "Become a Mentor", new_instructor_info_path, class: "nav-link" %></li>
+              <%end%>
               <li><a href="#">VIP Program</a></li>
             </ul>
           </div>

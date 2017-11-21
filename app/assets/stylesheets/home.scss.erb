@@ -144,24 +144,6 @@ select, button {
 	}
 }
 
-.main-nav {
-	padding: 9px 0;
-	li {
-		display: inline-block;
-		font-size: 16px;
-		margin-right: 40px;
-		&:last-child {
-			margin-right: 0px;
-		}
-		a {
-			color: #979999;
-			&:hover {
-				color: #2dbd94;
-			}
-		}
-	}
-}
-
 .main-slider {
 	.slider-overlay {
 		position: absolute;
@@ -747,6 +729,35 @@ select.form-control {
 	z-index: 99;
 	width: 100vw;
 	border-bottom: 1px solid #ddd;
+
+	.main-nav {
+		padding: 14px 0;
+
+		li {
+			display: inline-block;
+			font-size: 16px;
+			margin-right: 40px;
+			&:last-child {
+				margin-right: 0px;
+			}
+			a {
+				color: #979999;
+				&:hover {
+					color: #2dbd94;
+				}
+			}
+		}
+	}
+
+	&.signed-in{
+		.main-nav{
+			padding: 9px 0;
+
+			.logo{
+				padding-top: 5px;
+			}
+		}
+	}
 }
 
 .main-nav {
@@ -757,6 +768,9 @@ select.form-control {
 	padding-top: 105px;
 }
 
-.main-nav .logo {
-	padding-top: 5px;
+// .main-nav .logo {
+// 	// padding-top: 5px;
+// }
+#flash{
+	display: none!important;
 }
