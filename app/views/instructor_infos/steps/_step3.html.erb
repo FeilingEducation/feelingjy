@@ -31,7 +31,6 @@
               </div>
               <div class="row">
                 <div class="col-md-7">
-                  <%#= f.select :number_institutes_admitted, InstructorInfo.schools_applied_before_options(lang), {}, { class: 'select2 schools-applied' } %>
                   <%= f.select :uni_accepted, InstructorInfo.schoools_accepted(lang), {}, { class: 'select2 schools-applied' } %>
                 </div>
               </div>

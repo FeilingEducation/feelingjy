@@ -109,4 +109,22 @@ class InstructorInfo < ApplicationRecord
   def self.default_cities_as_options
     CS.cities(:"11", :CN)
   end
+
+  def universities_accepted local='en'
+    unis = []
+    self.uni_accepted.map {|uni| unis.push((local == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[uni.to_i])}
+    unis
+  end
+
+  def university_name local='en'
+    (local == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[self.university.to_i]
+  end
+
+  def specialization_name local='en'
+    (local == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE)[self.specialization.to_i]
+  end
+
+  def degree_completed_name local='en'
+    (local == 'en' ? DEGREE_COMPLETED_ENGLISH : DEGREE_COMPLETED_CHINESE)[self.degree_completed.to_i]
+  end
 end

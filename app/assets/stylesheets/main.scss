@@ -352,7 +352,8 @@ textarea{
 
 .select2-selection--multiple{
   border: 1px solid $border-color;
-  height: 43px;
+  min-height: 43px;
+  height: auto;
 
   .select2-selection__rendered{
     .select2-selection__choice{
