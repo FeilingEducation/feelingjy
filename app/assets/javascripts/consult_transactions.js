@@ -143,9 +143,12 @@ $(document).on('turbolinks:load', function () {
 window.chat_msg_press_enter = 'send_msg'
 // Detecting enter key during message sending.
 $(document).on('keypress', 'form.message-form textarea', function (e) {
+  console.log('keypress...',window.chat_msg_press_enter)
   if (e.keyCode == 13 && !e.shiftKey && window.chat_msg_press_enter == 'send_msg') {
     e.preventDefault();
-    $(this).closest('form').submit();
+    // $(this).closest('form').submit();
+    $(this).parent().find('.msg-send-btn').click();
+    console.log("$(this).closest('.msg-send-btn')", $(this).closest('.msg-send-btn'))
     return false;
   }
 });

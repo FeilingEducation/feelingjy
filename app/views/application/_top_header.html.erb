@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="phone-num">
-            <%=image_tag "homepage/phone.png"%>
+            <%=image_tag "reskin/phone.png"%>
 
             <span>400-123-4567</span>
           </div>
@@ -15,8 +15,8 @@
             <li class="dropdown">
               <a href="#" id="language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CN <i class="fa fa-angle-down"></i></a>
               <div class="dropdown-menu top-bar-drop" aria-labelledby="language">
-                <a class="dropdown-item" href="#"><%=image_tag "homepage/flag/usa.jpg"%>English</a>
-                <a class="dropdown-item" href="#"><%=image_tag "homepage/flag/china.jpg"%>Chinese</a>
+                <a class="dropdown-item" href="#"><%=image_tag "reskin/flag/usa.jpg"%>English</a>
+                <a class="dropdown-item" href="#"><%=image_tag "reskin/flag/china.jpg"%>Chinese</a>
               </div>
             </li>
 
@@ -32,7 +32,11 @@
           </ul>
           <ul class="login">
             <% if user_signed_in? %>
-            <li>
+            <li class="nav-item">
+              <%= link_to "Orders", consult_transactions_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
             </li>
             <li class="dropdown">
               <a href="javascript:void(0)" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,7 +71,7 @@
       <div class="row">
         <div class="col-md-3 col-sm-4 logo">
           <a href="/">
-            <%=image_tag "homepage/logo.png"%></a>
+            <%=image_tag "reskin/logo.png"%></a>
           </div>
 
           <div class="col-md-9 col-sm-8">
