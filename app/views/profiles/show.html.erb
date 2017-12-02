@@ -11,19 +11,17 @@
                 <h2><%= @instructor_info.full_name %></h2>
                 <div class="skills"><%= @instructor_info.specialization_name %></div>
                 <div class="reviews">
-                  <img src="images/stars.png" alt="">
+                  <%= image_tag "reskin/stars.png" %>
                   <span class="count">38</span>
                   Reviews
                 </div>
 
                 <div class="info location">
-                  <!-- <img src="images/location-green.png" alt=""> -->
                   <%= image_tag "reskin/location-green.png" %>
                   <%= @instructor_info.university_name%>
                 </div>
 
                 <div class="info skills">
-                  <!-- <img src="images/edu-cap.png" alt=""> -->
                   <ul>
                     <li class="degree">
                         <%= image_tag "reskin/edu-cap.png", class: ''%>
@@ -109,7 +107,7 @@
       <div class="col-md-9 col-sm-8">
         <div class="profile-page">
           <div class="profile-img" style="background-image: url('<%= @instructor_info.page_background %>')">
-            <img src="images/user-banner.jpg" alt="">
+            <%= image_tag "reskin/user-banner.jpg"%>
           </div>
 
           <div class="profile-main-con">
@@ -578,7 +576,7 @@
                         <div class="clearfix review-date">
                           <div class="pull-left date">2017/11/03</div>
                           <div class="pull-right">
-                            <img src="images/stars.png" alt="">
+                            <%= image_tag "reskin/stars.png" %>
                           </div>
                         </div>
 
@@ -622,7 +620,7 @@
                         <div class="clearfix review-date">
                           <div class="pull-left date">2017/11/03</div>
                           <div class="pull-right">
-                            <img src="images/stars.png" alt="">
+                            <%= image_tag "reskin/stars.png" %>
                           </div>
                         </div>
 
@@ -654,7 +652,7 @@
                         <div class="clearfix review-date">
                           <div class="pull-left date">2017/11/03</div>
                           <div class="pull-right">
-                            <img src="images/stars.png" alt="">
+                            <%= image_tag "reskin/stars.png" %>
                           </div>
                         </div>
 
