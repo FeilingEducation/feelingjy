@@ -31,6 +31,8 @@ class ConsultTransactionsController < AuthenticatedResourcesController
   def show
     set_transaction_and_role
     gon.opentok_api_key = Rails.application.secrets.tokbox[:api_key]
+    # @sender = @transaction.sender
+    # @receiver = @transaction.receiver
     gon.token = @transaction.generate_opentok_token
     gon.session_id = @transaction.open_tok_session_id
   end

@@ -45,8 +45,12 @@ module ApplicationHelper
   end
 
   def background
-    puts "params::::::#{params}"
-    params["controller"] == "profiles" ? "dark" : ""
+    puts "params::::#{params}"
+    if params["controller"] == "profiles" ||
+      (params["controller"] == "consult_transactions" && params["action"] == "show") ||
+      (params["controller"] == "messages" && params["action"] == "index")
+      "dark"
+    end
   end
 
 end

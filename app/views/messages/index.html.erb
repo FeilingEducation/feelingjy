@@ -12,7 +12,6 @@
               <span class="name"><%= contact.full_name %></span>
               <span class="msg"><%= truncate(message.content, length: 25) %></span>
             </a>
-
             <!-- <a href="#" class="remove-chat"><img src="images/cross-ic.png" alt=""></a> -->
           </li>
 
@@ -29,9 +28,9 @@
         <% message = @grouped_msgs[contact].last%>
         <% message_history =  @grouped_msgs[contact] %>
           <div class="chat-con right-message-content <%= index == 0 ? '': ' hidden'%>" id="message-history-wrapper<%= contact.id%>">
-            <div class="header">
-              <span class="user-name"><%= message.sender.full_name %></span>
-            </div>
+            <!-- <div class="header">
+              <span class="user-name"><%#= message.sender.full_name %></span>
+            </div> -->
 
             <div class="body">
 
