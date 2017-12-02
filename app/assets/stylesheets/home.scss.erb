@@ -8,9 +8,15 @@ body {
 	font-family: 'helvatica-r-bd';
 	line-height: normal;
 	font-size: 14px;
-	background-color: #e6e6e6;
+	// background-color: #e6e6e6;
 }
 .main-content{
+	// background: #e6e6e6;
+	&.dark{
+		background: #e6e6e6;
+	}
+}
+.personal-center{
 	background: #e6e6e6;
 }
 
@@ -31,12 +37,14 @@ body {
 	border: 2px solid #31c89d;
 	cursor: pointer;
 	transition: all .4s ease;
+
 	&:hover {
 		color: #31c89d;
 		background: transparent;
 		cursor: pointer;
 		transition: all .4s ease;
 	}
+
 	&.empty {
 		color: #31c89d;
 		background: transparent;
@@ -45,6 +53,17 @@ body {
 		&:hover {
 			background: #31c89d;
 			color: #fff;
+		}
+	}
+	&.red{
+		background: #ff6666;
+		color: #fff;
+		border: 2px solid #ff6666;
+
+		&:hover{
+			color: #ff6666;
+			background: none;
+			border: 2px solid #ff6666;
 		}
 	}
 }
@@ -1063,6 +1082,14 @@ select.form-control {
 	padding-top: 50px;
 }
 
+.left-bar{
+	&.fixed{
+		position: fixed;
+		top: 135px;
+		width: 255px;
+		z-index: 9
+	}
+}
 .with-leftbar .left-bar {
 	background: #fff;
 	border-radius: 6px;
@@ -1489,11 +1516,16 @@ select.form-control {
 }
 
 .left-bar .btns .btn {
-	font-size: 13px;
+	// font-size: 13px;
+	border-radius: 20px;
 }
 
 .profile-page .profile-img {
 	margin-bottom: 30px;
+	height: 350px;
+	background-size: cover;
+	background-position: center;
+	border-radius: 6px;
 }
 
 .profile-page .profile-img img {

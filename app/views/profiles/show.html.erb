@@ -1,0 +1,689 @@
+<!-- <div class="main-content"> -->
+<% in_scope = "#{controller_name}/#{action_name}" == 'instructor_infos/edit' %>
+  <div class="container personal-center">
+    <div class="with-leftbar row">
+      <div class="col-md-3 col-sm-4">
+        <div class="left-bar-con">
+          <div class="left-bar">
+            <div class="profile-info">
+              <div class="inner">
+                <div class="img" style="background-image: url('<%= profile_image_of(@instructor_info) %>');"></div>
+                <h2><%= @instructor_info.full_name %></h2>
+                <div class="skills"><%= @instructor_info.specialization_name %></div>
+                <div class="reviews">
+                  <img src="images/stars.png" alt="">
+                  <span class="count">38</span>
+                  Reviews
+                </div>
+
+                <div class="info location">
+                  <!-- <img src="images/location-green.png" alt=""> -->
+                  <%= image_tag "reskin/location-green.png" %>
+                  <%= @instructor_info.university_name%>
+                </div>
+
+                <div class="info skills">
+                  <!-- <img src="images/edu-cap.png" alt=""> -->
+                  <ul>
+                    <li class="degree">
+                        <%= image_tag "reskin/edu-cap.png", class: ''%>
+                        <span><%= @instructor_info.degree_completed_name%></span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- <div class="info details">
+                  <img src="images/details-green.png" alt="">
+                  Details
+                </div> -->
+              </div>
+
+              <div class="rate-per-hour">
+                <% if @instructor_info.fix_price.present?%>
+                  Fix price ¥<%= @instructor_info.fix_price %>
+                <%else%>
+                  Minimum ¥<%= @instructor_info.min_price %> per hour
+                <%end%>
+              </div>
+            </div>
+          </div>
+
+          <div class="left-bar" id="fixed-left-bar">
+            <!-- <div class="form-group">
+              <label>Time</label>
+
+              <div class="select-con">
+                <select class="form-control">
+                  <option>Year - Month - Day</option>
+                  <option>Year - Month - Day</option>
+                  <option>Year - Month - Day</option>
+                  <option>Year - Month - Day</option>
+                </select>
+
+                <i class="fa fa-angle-down"></i>
+              </div>
+            </div> -->
+
+            <!-- <div class="form-group">
+              <label>Type of service</label>
+
+              <div class="select-con">
+                <select class="form-control">
+                  <option>Pre-consultation</option>
+                  <option>Pre-consultation</option>
+                  <option>Pre-consultation</option>
+                  <option>Pre-consultation</option>
+                </select>
+
+                <i class="fa fa-angle-down"></i>
+              </div>
+            </div> -->
+
+            <div class="btns">
+              <!-- <div class="card-body"> -->
+                <%= form_with model: @transaction, method: 'post', local: true do |f| %>
+                  <%= f.hidden_field :instructor_id %>
+                  <div class="form-group">
+                    <label>合作日期</label>
+                    <%= f.date_field :scheduled_date, min: Date.today.to_s(:db), class: 'form-control' %>
+                  </div>
+                  <div class="form-group">
+                    <label>合作项目</label>
+                    <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {include_blank: true}, class: 'custom-select d-block w-100' %>
+                  </div>
+                  <div class="form-group">
+                    <%= scoped in_scope, :submit_tag, '申请预定', disabled: true, class: 'btn default-btn red' %>
+                    <%= scoped !in_scope, :submit_tag, '申请预定', class: 'btn default-btn red' %>
+                    <%= scoped !in_scope, :button_tag, '与我联系', type: 'button', class: 'btn default-btn modal-toggle',
+                    data: { target: '#message-box' } %>
+                  </div>
+                <% end %>
+              </div>
+              <!-- <a href="#" class="btn default-btn red">Customize</a>
+              <a href="#" class="btn default-btn">Contact Tutor</a> -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-9 col-sm-8">
+        <div class="profile-page">
+          <div class="profile-img" style="background-image: url('<%= @instructor_info.page_background %>')">
+            <img src="images/user-banner.jpg" alt="">
+          </div>
+
+          <div class="profile-main-con">
+            <div class="profile-data-con">
+              <div class="inner about-me">
+                <!-- <ul class="tabs">
+                  <li class="active"><a href="#">About Me</a></li>
+                  <li><a href="#">About Me</a></li>
+                  <li><a href="#">Evaluation<span>(38)</span></a></li>
+                </ul> -->
+
+                <h1>About Me</h1>
+
+                <div class="timings">
+                  <h4><%= @instructor_info.page_title %></h4>
+                  <p><%= @instructor_info.description %></p>
+
+                  <!-- <div class="col-sm-6"><img src="images/clock-green.png" alt="">Weekdays: 8:00 - 20:00 (Beijing)</div>
+                  <div class="col-sm-6">Weekends: 10:00 - 18:00 (Beijing)</div> -->
+                </div>
+              </div>
+
+              <div class="inner personal-profile">
+                <h1>Personal profile</h1>
+
+                <div id="multi-items" class="carousel slide carousel-multi-item" data-ride="carousel">
+                  <div class="controls-top">
+                    <a href="#multi-items" class="prev" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                    <a href="#multi-items" class="next" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                  </div>
+
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="carousel-item">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="carousel-item">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="profile-description">
+                  <%= @instructor_info.description %>
+                  <!-- Hello! I am a second year master student majoring in Mechanical Engineering at Stanford University.I have applied for schools twice, so I have some experience and my own understanding of applying for schools. With our cooperation, I will try my best to help you get into your desired school. Let's make full use of our time! -->
+                </div>
+
+                <!-- <div class="load-more text-center">
+                  <a href="#" class="btn default-btn">More</a>
+                </div> -->
+              </div>
+            </div>
+
+            <div class="profile-data-con">
+              <div class="inner main-profile-info">
+                <div class="schools">
+                  <h1>Schools I got in</h1>
+                  <div class="row">
+                    <% @instructor_info.universities_accepted.each do |uni|%>
+                      <div class="col-sm-3">
+                        <div class="school-logo">
+                          <div class="logo">
+                            <%= image_tag "reskin/schools/#{uni.gsub(' ','_').downcase}.jpg"%>
+                          </div>
+                          <div class="school-name"><%= uni %></div>
+                        </div>
+                      </div>
+                    <%end%>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Costs</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <ul class="info-list">
+                      <li>
+                        <ul>
+                          <li>Essay Editing</li>
+                          <li class="green">Cost Description</li>
+                        </ul>
+                        <p>
+                          <% if @instructor_info.fix_price.present?%>
+                            Fix price ¥<%= @instructor_info.fix_price %>
+                          <%else%>
+                            Minimum ¥<%= @instructor_info.min_price %>/hr
+                          <%end%>
+                        </p>
+                        <!-- <p>¥888/hr 10% off with 2hr booking</p> -->
+                      </li>
+                      <li>
+                        <ul>
+                          <li>Visa Consulting</li>
+                          <li class="green">Cost Description</li>
+                        </ul>
+                        <p>
+                        <% if @instructor_info.fix_price.present?%>
+                          Fix price ¥<%= @instructor_info.fix_price %>
+                        <%else%>
+                          Minimum ¥<%= @instructor_info.min_price %>/hr
+                        <%end%>
+                          (Support multiple people at same time)
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1 class="more-padding">I can help</h1>
+                    <h1 class="mb-0">I am good at</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <ul class="info-list">
+                      <li>
+                        <ul class="border-0">
+                          <li><span class="green"><%= @instructor_info.max_std_count %></span> students</li>
+                          <li>Position left 1</li>
+                        </ul>
+                      </li>
+                      <li>
+                        <div>Apply for top <%= @instructor_info.best_applying_at %> universities in America</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Privacy Term</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <div class="checkboxes">
+                      <% @instructor_info.privacy_terms.each do |term| %>
+                        <div class="inner">
+                          <label for="privacy-1"><%= term %></label>
+                        </div>
+                      <%end%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Why I am helping</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <div class="checkboxes">
+                      <% @instructor_info.things_to_know.each do |term| %>
+                        <div class="inner">
+                          <label for="privacy-1"><%= term %></label>
+                        </div>
+                      <%end%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Things I can share</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <div class="checkboxes">
+                      <% @instructor_info.things_can_share.each do |term| %>
+                        <div class="inner">
+                          <label for="privacy-1"><%= term %></label>
+                        </div>
+                      <%end%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Experience as tutor</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <div class="profile-description">
+                      <%= @instructor_info.experience_as_totur %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1 class="more-padding">How long I can work</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <ul class="info-list">
+                        <li>Min days: <span class="green"><%= @instructor_info.min_work_days %></span></li>
+                        <li>Max days: <span class="green"><%= @instructor_info.max_work_days %></span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Contact in Advance</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <div class="profile-description">
+                      Contact me at least <%= @instructor_info.advance_notify %> days in advance.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Time Reservation</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <div class="profile-description">
+                      You can reserve an appointment as early as <%= @instructor_info.reserve_in_advance %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Canancellation Policy</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <div class="profile-description">
+                      First ten minutes is free trail. Any time after that will incur service fee. Uou can report tutor if you are not satisfied with the service 70% of fee can be refunded after Feiling's confirmation.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Reesume</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <ul class="files">
+                      <li><a href="javascript:void(0)">
+                        <%= image_tag "reskin/linkedin.png"%>
+                      </a></li>
+                      <li><a href="javascript:void(0)">
+                        <%= image_tag "reskin/pdf.png"%>
+                      </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Education</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <div class="timeline">
+                      <div class="inner">
+                        <div class="date"><%= @instructor_info.university_name %> </div>
+                        <div class="info"><%= @instructor_info.degree_completed_name%></div>
+                        <div class="info"><%= @instructor_info.specialization_name %></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Work</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <div class="timeline">
+                      <div class="inner">
+                        <div class="date">No Work experience added</div>
+                        <div class="info"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner main-profile-info">
+                <div class="row">
+                  <div class="col-md-4 col-sm-5">
+                    <h1>Quality</h1>
+                  </div>
+
+                  <div class="col-md-8 col-sm-7">
+                    <div class="progress-bars">
+                      <div class="inner">
+                        <div class="skill-name">Service</div>
+
+                        <div class="progres-percent">
+                          <div class="progres-bar">
+                            <div class="percent" style="width: 80%;"></div>
+                          </div>
+
+                          80%
+                        </div>
+                      </div>
+
+                      <div class="inner">
+                        <div class="skill-name">Communication</div>
+
+                        <div class="progres-percent">
+                          <div class="progres-bar">
+                            <div class="percent" style="width: 96%;"></div>
+                          </div>
+
+                          96%
+                        </div>
+                      </div>
+
+                      <div class="inner">
+                        <div class="skill-name">Attitude</div>
+
+                        <div class="progres-percent">
+                          <div class="progres-bar">
+                            <div class="percent" style="width: 50%;"></div>
+                          </div>
+                          50%
+                        </div>
+                      </div>
+
+                      <div class="inner">
+                        <div class="skill-name">Efficiency</div>
+
+                        <div class="progres-percent">
+                          <div class="progres-bar">
+                            <div class="percent" style="width: 68%;"></div>
+                          </div>
+
+                          68%
+                        </div>
+                      </div>
+
+                      <div class="inner">
+                        <div class="skill-name">Authenticity</div>
+
+                        <div class="progres-percent">
+                          <div class="progres-bar">
+                            <div class="percent" style="width: 50%;"></div>
+                          </div>
+
+                          50%
+                        </div>
+                      </div>
+
+                      <div class="inner">
+                        <div class="skill-name">Cost-effectiveness</div>
+
+                        <div class="progres-percent">
+                          <div class="progres-bar">
+                            <div class="percent" style="width: 100%;"></div>
+                          </div>
+
+                          100%
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-data-con">
+              <div class="inner">
+                <div class="header clearfix">
+                  <h1 class="mb-0 pull-left">Evaluation</h1>
+                  <h1 class="mb-0 pull-right grey">(38)</h1>
+                </div>
+              </div>
+
+              <div class="inner">
+                <div class="messages-con">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="profile-img-name">
+                        <div class="img" style="background-image: url('images/dumy-user.jpg');"></div>
+                        <h1>Lacey</h1>
+                        <p>City Sate</p>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-9">
+                      <div class="main-msg-con">
+                        <div class="main-msg">
+                          Tell people more about this item. Give peop.e the info they need to go ahead and take the action you want.To make this item your own,click here > Add &amp; Manage Items.
+                        </div>
+
+                        <div class="clearfix review-date">
+                          <div class="pull-left date">2017/11/03</div>
+                          <div class="pull-right">
+                            <img src="images/stars.png" alt="">
+                          </div>
+                        </div>
+
+                        <div class="reply-msg">
+                          <p>Lacey Reply:</p>
+                          <p>Thank you! Keep in touch ha! Hope to meet again!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="messages-con">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="profile-img-name">
+                        <div class="img" style="background-image: url('images/dumy-user.jpg');"></div>
+                        <h1>Lacey</h1>
+                        <p>City Sate</p>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-9">
+                      <div class="main-msg-con">
+                        <div class="main-msg">
+                          <p>Tell people more about this item. Give peop.e the info they need to go ahead and take the action you want.To make this item your own,click here > Add &amp; Manage Items.</p>
+
+                          <div class="imgs-con">
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <div class="img" style="background-image: url('images/profile-slider.jpg');"></div>
+                              </div>
+
+                              <div class="col-sm-4">
+                                <div class="img" style="background-image: url('images/profile-slider.jpg');"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="clearfix review-date">
+                          <div class="pull-left date">2017/11/03</div>
+                          <div class="pull-right">
+                            <img src="images/stars.png" alt="">
+                          </div>
+                        </div>
+
+                        <div class="reply-msg">
+                          <p>Lacey Reply:</p>
+                          <p>Thank you! Keep in touch ha! Hope to meet again!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="messages-con">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="profile-img-name">
+                        <div class="img" style="background-image: url('images/dumy-user.jpg');"></div>
+                        <h1>Lacey</h1>
+                        <p>City Sate</p>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-9">
+                      <div class="main-msg-con">
+                        <div class="main-msg">
+                          Tell people more about this item. Give peop.e the info they need to go ahead and take the action you want.To make this item your own,click here > Add &amp; Manage Items.
+                        </div>
+
+                        <div class="clearfix review-date">
+                          <div class="pull-left date">2017/11/03</div>
+                          <div class="pull-right">
+                            <img src="images/stars.png" alt="">
+                          </div>
+                        </div>
+
+                        <div class="reply-msg">
+                          <p>Lacey Reply:</p>
+                          <p>Thank you! Keep in touch ha! Hope to meet again!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="load-more text-center">
+                <a href="#" class="btn default-btn">See more reviews</a>
+              </div>
+            </div>
+
+            <div class="profile-data-con">
+              <textarea placeholder="Please enter your content" class="form-control grey"></textarea>
+
+              <div class="load-more text-center">
+                <button type="button" class="btn default-btn empty">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+<!--  -->

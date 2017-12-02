@@ -19,7 +19,7 @@
     <div id="flash">
       <%= render partial: 'flash' %>
     </div>
-    <div class="main-content">
+    <div class="main-content <%= background%>">
       <%= content_for?(:application) ? yield(:application) : yield %>
     </div>
     <!-- <section class="main"> -->
