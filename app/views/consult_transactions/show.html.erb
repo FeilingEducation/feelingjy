@@ -28,19 +28,23 @@
                 Reviews
               </div> -->
 
-              <div class="info location">
-                <%= image_tag "reskin/location-green.png" %>
-                <%= @other.try(:university_name)%>
-              </div>
+              <% if @other.respond_to? :university_name%>
+                <div class="info location">
+                  <%= image_tag "reskin/location-green.png" %>
+                  <%= @other.try(:university_name)%>
+                </div>
+              <%end%>
 
-              <div class="info skills">
-                <ul>
-                  <li class="degree">
-                      <%= image_tag "reskin/edu-cap.png", class: ''%>
-                      <span><%= @other.try(:degree_completed_name)%></span>
-                  </li>
-                </ul>
-              </div>
+              <% if @other.respond_to? :degree_completed_name%>
+                <div class="info skills">
+                  <ul>
+                    <li class="degree">
+                        <%= image_tag "reskin/edu-cap.png", class: ''%>
+                        <span><%= @other.try(:degree_completed_name)%></span>
+                    </li>
+                  </ul>
+                </div>
+              <%end%>
             </div>
 
             <div class="status-con">
@@ -59,13 +63,15 @@
                 <%= @transaction.created_at.strftime('%Y/%m/%d') %>
               </div>
 
-              <!-- <div class="inner">
-                <div class="img-txt">
-                  <%#= image_tag "reskin/clock-green.png" %>
-                  Order updated at
+              <% unless @other.respond_to? :degree_completed_name%>
+                <div class="inner">
+                  <div class="img-txt">
+                    <%= image_tag "reskin/clock-green.png" %>
+                    Order updated at
+                  </div>
+                  <%= @transaction.updated_at.strftime('%Y/%m/%d') %>
                 </div>
-                <%#= @transaction.updated_at.strftime('%Y/%m/%d') %>
-              </div> -->
+              <%end%>
 
               <div class="btns">
                 <% case @self %>
