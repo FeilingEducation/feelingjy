@@ -65,7 +65,9 @@ $(document).on('turbolinks:load', function () {
       var chat_lines = _step.value;
 
       var $chat_lines = $(chat_lines);
+      var $chat_body = $('.chat-con .body');
       $chat_lines.prop('scrollTop', $chat_lines.prop('scrollHeight'));
+      $chat_body.prop('scrollTop', $chat_body.prop('scrollHeight'));
     }
   } catch (err) {
     _didIteratorError = true;

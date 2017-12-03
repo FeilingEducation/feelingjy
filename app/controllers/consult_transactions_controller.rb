@@ -121,8 +121,10 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     @transaction = ConsultTransaction.find_by_id(params[:id])
     not_found if @transaction.nil?
     if @transaction.student_id == current_user.id
+      puts '*********************************************'
       @self = @transaction.student
       @other = @transaction.instructor
+      # @other = @transaction.student
     elsif @transaction.instructor_id == current_user.id
       @self = @transaction.instructor
       @other = @transaction.student
