@@ -1,3 +1,17 @@
+<%= render 'video_call'%>
+<div class="video-chat-wrapper p-x hidden">
+  <div class="info-box">
+    <% sender = current_user.user_info %>
+    <%#= image_tag profile_image_of(sender), class: 'd-block mb-3' %>
+    <h4 class=""><%#= sender.full_name %></h4>
+    <span class=""><%#= sender.email %></span>
+  </div>
+
+    <div id="publisherContainer" class=""></div>
+    <div id="subscriberContainer" class="subscriber-container hidden"></div>
+    <div class="flag-info-msg" id="flag-info-msg"></div>
+    <button class="btn btn-danger hidden" id="cancel-video">Stop</button>
+</div>
 <div class="container">
   <div class="with-leftbar row">
     <div class="col-md-3 col-sm-4">

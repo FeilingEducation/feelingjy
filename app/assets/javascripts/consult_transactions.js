@@ -104,6 +104,7 @@ $(document).on('turbolinks:load', function () {
 
   $('#init-video').on('click', function(e){
     e.preventDefault()
+    $('.video-chat-wrapper').removeClass('hidden')
     openTok.publishVideo = true
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
     App.consult_comm.send_video_status_flag("started_video");
@@ -112,6 +113,7 @@ $(document).on('turbolinks:load', function () {
   })
   $('#init-audio').on('click', function(e){
     e.preventDefault()
+    $('.video-chat-wrapper').removeClass('hidden')
     openTok.publishVideo = false
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
     App.consult_comm.send_video_status_flag("started_audio");
@@ -121,6 +123,7 @@ $(document).on('turbolinks:load', function () {
   $('#cancel-video').on('click', function(){
     openTok.unPublish()
     $('#init-video').removeClass('hidden')
+    $('.video-chat-wrapper').addClass('hidden')
     $("#flag-info-msg").html('')
     $('#init-audio').removeClass('hidden')
     $('#cancel-video').addClass('hidden')

@@ -94,6 +94,7 @@ $(document).on('turbolinks:load', function () {
               $("#flag-info-msg").html('Call is terminated by the host')
               setTimeout(function(){
                 $("#flag-info-msg").html('')
+                $('.video-chat-wrapper').addClass('hidden')
               }, 5000)
               break;
             case 'ready':
