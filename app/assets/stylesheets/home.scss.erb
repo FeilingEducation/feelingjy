@@ -808,13 +808,55 @@ select.form-control {
 	border-top: 3px solid #5ad3b1;
 	background: #fff;
 	margin: 60px 0;
-	padding: 60px 0;
+	padding: 0 0 60px 0;
 }
 
 .profile-main > .header {
 	text-align: center;
 	color: #979999;
-	padding-bottom: 30px;
+	// padding-bottom: 30px;
+	padding: 60px 0 30px 0;
+	position: relative;
+
+	.editable{
+		border: 0!important;
+
+		&.background{
+			position: absolute;
+			text-align: right;
+			cursor: pointer;
+			top: 30px;
+			right: 30px;
+			background: #fff;
+			padding: 10px;
+			background: #fafafa;
+			border-radius: 100%;
+			border: 0px;
+
+			img{
+				margin-top: -2px;
+			}
+
+			&.user-profile{
+				bottom: 9px;
+				top: auto;
+				right: 0;
+			}
+		}
+		&.edit-icon{
+			position: absolute;
+			right: 10px;
+		}
+	}
+
+	.hatcher-center{
+		min-width: 280px;
+		margin: 30px auto;
+		background: rgba(254, 254, 254,.8);
+		padding: 10px;
+		border-radius: 10px;
+		max-width: 35px;
+	}
 }
 
 .profile-main .header .img {
@@ -848,7 +890,7 @@ select.form-control {
 	color: #31c89d;
 	font-size: 28px;
 	font-weight: normal;
-	margin: 30px 0 25px;
+	margin: 20px 0 25px;
 }
 
 .profile-main  .profile-summary {
@@ -856,8 +898,12 @@ select.form-control {
 	padding: 20px 45px;
 	position: relative;
 	color: #979999;
-	text-align: center;
+	text-align: left;
 	line-height: 26px;
+
+	&:first-child{
+		padding-bottom: 0px;
+	}
 }
 
 .profile-main  .profile-summary .edit-icon {
@@ -1953,12 +1999,12 @@ textarea.form-control.grey {
 .main-content{
 	.video-chat-wrapper{
 		position: fixed;
-    z-index: 99;
-    top: 10px;
-    background-color: white;
-    padding: 10px;
-    left: 10px;
-    border-radius: 10px;
-    border: 1px solid #31c89d;
+		z-index: 99;
+		top: 10px;
+		background-color: white;
+		padding: 10px;
+		left: 10px;
+		border-radius: 10px;
+		border: 1px solid #31c89d;
 	}
 }
