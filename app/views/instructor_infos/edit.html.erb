@@ -1,4 +1,5 @@
 <% in_scope = "#{controller_name}/#{action_name}" == 'instructor_infos/edit' %>
+<% lang = "en" %>
 <div class="container">
   <div class="profile-main">
     <div class="header" style="background-image: url('<%= @instructor_info.page_background %>');">
@@ -46,24 +47,24 @@
       </div>
     <!-- </div> -->
 
-    <div class="row time-availability">
+    <!-- <div class="row time-availability">
       <div class="col-sm-6"><img src="images/clock-green.png" alt="">Weekdays: 8:00 - 20:00 (Beijing)</div>
       <div class="col-sm-6">Weekends: 8:00 - 20:00 (Beijing)</div>
-    </div>
+    </div> -->
 
     <div class="row contact-info">
       <div class="col-sm-4">
         <div class="inner">
           <div class="img-txt">
             <img src="images/phone-green.png" alt="">
-            <span>Phone</span>
+            <span>Email</span>
           </div>
 
-          <h5>110-4445-5504</h5>
+          <h5><%= @instructor_info.email %></h5>
         </div>
       </div>
 
-      <div class="col-sm-4">
+      <!-- <div class="col-sm-4">
         <div class="inner">
           <div class="img-txt">
             <img src="images/we-chat.png" alt="">
@@ -72,190 +73,207 @@
 
           <h5>Hatcher1119</h5>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col-sm-4">
+      <!-- <div class="col-sm-4">
         <div class="inner">
           <div class="img-txt">
             <img src="images/email-green.png" alt="">
             <span>Email</span>
           </div>
 
-          <h5><%= @instructor_info.email %></h5>
+          <h5><%#= @instructor_info.email %></h5>
         </div>
-      </div>
+      </div> -->
+
     </div>
 
-    <div class="row tow-col">
-      <div class="col-sm-6">
-        <div class="inner">
-          <div class="header">
-            School information
-            <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a>
+    <%= form_with model: @instructor_info, url: instructor_info_path, method: 'post', html: { role: 'form' } do |f| %>
+      <div class="row tow-col">
+        <div class="col-sm-6 first-half">
+          <div class="inner">
+            <div class="header">
+              School information
+              <!-- <a href="javascript:void(0)" class="edit-icon"> -->
+                <!-- <img src="images/edit.png" alt=""> -->
+                <%#= image_tag "reskin/edit.png" %>
+              <!-- </a> -->
+            </div>
+
+            <div class="degree-uni">
+              <div class="inner">
+                <!-- <p>Change your school?</p> -->
+                <%= render partial: 'instructor_infos/steps/shared/which_school', locals: {f: f, lang: lang} %>
+              </div>
+            </div>
+          </div>
+
+          <hr/>
+
+          <div class="inner">
+            <div class="header">
+              Have you helped others before?
+            </div>
           </div>
 
           <div class="degree-uni">
             <div class="inner">
-              <p>Postgraduate</p>
-              <h5>Stanford University</h5>
-            </div>
-
-            <div class="inner">
-              <p>Undergraduate</p>
-              <h5>University of Wisconsin Madison</h5>
-            </div>
-
-            <div class="inner">
-              <p>High school</p>
-              <h5>Dalian Maple Leaf International School</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="inner">
-          <div class="header">
-            College information
-            <p>I can teach the project</p>
-            <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a>
-          </div>
-
-          <div class="small-steps">
-            <div class="inner">
-              <img src="images/steps/1-small.png" alt="">
-              <span>Consultation</span>
-            </div>
-
-            <div class="inner">
-              <img src="images/steps/2-small.png" alt="">
-              <span>Brainstorming</span>
-            </div>
-
-            <div class="inner">
-              <img src="images/steps/3-small.png" alt="">
-              <span>Proofreading</span>
-            </div>
-
-            <div class="inner">
-              <img src="images/steps/4-small.png" alt="">
-              <span>Visa Help</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row tow-col">
-      <div class="col-sm-6">
-        <div class="inner">
-          <div class="header">
-            Information sharing
-            <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a>
-          </div>
-
-          <div class="upload-files">
-            <div class="inner">
-              Resume
-              <a href="javascript:void(0)" class="upload-icon"><img src="images/upload-green.png" alt=""></a>
-            </div>
-
-            <div class="inner">
-              Admission Notice
-              <a href="javascript:void(0)" class="upload-icon"><img src="images/upload-green.png" alt=""></a>
-            </div>
-
-            <div class="inner">
-              Application documents
-              <a href="javascript:void(0)" class="upload-icon"><img src="images/upload-green.png" alt=""></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6">
-        <div class="inner">
-          <div class="header">
-            Successful application college
-            <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a>
-          </div>
-
-          <ul class="applied-university">
-            <li>
-              Already applied <span>130</span>
-            </li>
-
-            <li>
-              Success
-
-              <div class="tags">
-                <a href="javascript:void(0)" class="tag">New York University</a>
-                <a href="javascript:void(0)" class="tag">New York University</a>
-                <a href="javascript:void(0)" class="tag">New York University</a>
+              <div class="col-md-12">
+                <div class="radio-btns custom-checkbox-radios">
+                  <%= f.radio_button :helped_before, true, id: 'helped_before_true' %>
+                  <label for="helped_before_true">Yes, I have helped others before </label>
+                </div>
+                <div class="radio-btns custom-checkbox-radios">
+                  <%= f.radio_button :helped_before, false, id: 'helped_before_false' %>
+                  <label for="helped_before_false">No, this is my first time helping others</label>
+                </div>
               </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="row tow-col">
-      <div class="col-sm-6">
-        <div class="inner">
-          <div class="header">
-            Your Privacy terms
-            <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a>
+            </div>
           </div>
+        </div>
 
-          <div class="checkboxes">
-            <div class="inner">
-              <input type="checkbox" id="privacy-1">
-              <label for="privacy-1">Agree to share edited essays</label>
+        <div class="col-sm-6">
+          <div class="inner">
+            <div class="header">
+              Services I can offer
             </div>
 
-            <div class="inner">
-              <input type="checkbox" id="privacy-2">
-              <label for="privacy-2">Agree to share personal information</label>
-            </div>
-
-            <div class="inner">
-              <input type="checkbox" id="privacy-3">
-              <label for="privacy-3">Agree to meet in person</label>
-            </div>
-
-            <div class="inner">
-              <input type="checkbox" id="privacy-4">
-              <label for="privacy-4">Agree to answer follow up questions for free</label>
-            </div>
-
-            <div class="inner">
-              <input type="checkbox" id="privacy-5">
-              <label for="privacy-5">Agree to ask personal questions</label>
+            <div class="small-steps custom-checkbox-radios">
+              <div class="inner">
+                <%= render partial: 'instructor_infos/steps/shared/subject_to_teach', locals: {f: f, lang: lang} %>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-sm-6">
-        <div class="inner">
-          <div class="header">
-            Set a price range. The suggested price will be within your range.
-            <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a>
-          </div>
+      <div class="row tow-col">
+        <div class="col-sm-6 first-half">
+          <div class="inner">
+            <div class="header">
+              Information sharing
+              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
+            </div>
 
-          <ul class="applied-university">
-            <li>
-              <ul>
-                <li>Already applied <span>130</span></li>
-                <li class="info"><img src="images/info-small.png" alt="">Can not be less than 300</li>
-              </ul>
-            </li>
-            <li class="btns">
-              <a href="javascript:void(0)" class="btn default-btn">Determine</a>
-              <a href="javascript:void(0)" class="btn default-btn grey">Cancel</a>
-            </li>
-          </ul>
+            <div class="upload-files  check_boxes custom-checkbox-radios">
+              <div class="inner">
+                <%= render partial: 'instructor_infos/steps/shared/information_sharing', locals: {f: f, lang: lang} %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="inner">
+            <div class="header">
+              Successful application college
+              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
+            </div>
+
+            <ul class="applied-university">
+              <li>
+                Already applied <span>130</span>
+              </li>
+
+              <li>
+                Success
+
+                <div class="tags">
+                  <a href="javascript:void(0)" class="tag">New York University</a>
+                  <a href="javascript:void(0)" class="tag">New York University</a>
+                  <a href="javascript:void(0)" class="tag">New York University</a>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+
+      <div class="row tow-col">
+        <div class="col-sm-6 first-half">
+          <div class="inner">
+            <div class="header">
+              Your Privacy terms
+              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
+            </div>
+
+            <div class="upload-files  check_boxes custom-checkbox-radios">
+              <div class="inner">
+                <%= render partial: 'instructor_infos/steps/shared/privacy_terms', locals: {f: f, lang: lang} %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="inner">
+            <div class="header">
+              Set a price range. The suggested price will be within your range.
+              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
+            </div>
+
+            <ul class="applied-university">
+              <li>
+                <ul>
+                  <li>Already applied <span>130</span></li>
+                  <li class="info">
+                    <!-- <img src="images/info-small.png" alt=""> -->
+                    Can not be less than 300</li>
+                </ul>
+              </li>
+              <li class="btns">
+                <a href="javascript:void(0)" class="btn default-btn">Determine</a>
+                <a href="javascript:void(0)" class="btn default-btn grey">Cancel</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row tow-col">
+        <div class="col-sm-6 first-half">
+          <div class="inner">
+            <div class="header">
+              What students can know about you
+              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
+            </div>
+
+            <div class="upload-files  check_boxes custom-checkbox-radios">
+              <div class="inner">
+                <%= render partial: 'instructor_infos/steps/shared/privacy_terms', locals: {f: f, lang: lang} %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="inner">
+            <div class="header">
+              Set a price range. The suggested price will be within your range.
+              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
+            </div>
+
+            <ul class="applied-university">
+              <li>
+                <ul>
+                  <li>Already applied <span>130</span></li>
+                  <li class="info">
+                    <!-- <img src="images/info-small.png" alt=""> -->
+                    Can not be less than 300</li>
+                </ul>
+              </li>
+              <li class="btns">
+                <a href="javascript:void(0)" class="btn default-btn">Determine</a>
+                <a href="javascript:void(0)" class="btn default-btn grey">Cancel</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    <%end%>
   </div>
 </div>

@@ -10,43 +10,16 @@
         <div class="col-md-12">
           <div class="question-block">
             <p class="survey-question">What kind of tutor would you want to be? (mutliple choices)</p>
-            <div class="row">
-              <div class="col-md-8">
-                <div class="form-group">
-                  <%= f.label :consulting_tutor, "Become a consulting tutor?" %>
-                  <%= f.select :consulting_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="form-group">
-                  <%= f.label :brainstorming_tutor, "Become a brainstorming tutor?" %>
-                  <%= f.select :brainstorming_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="form-group">
-                  <%= f.label :writing_tutor, "Become a writing tutor?" %>
-                  <%= f.select :writing_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="form-group">
-                  <%= f.label :visa_consultant, "Become a visa consulting tutor?" %>
-                  <%= f.select :visa_consultant, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
-                </div>
-              </div>
-            </div>
+              <%= render partial: 'instructor_infos/steps/shared/subject_to_teach', locals: {f: f, lang: lang} %>
             <div class="row">
               <div class="col-md-8">
                 <label>Have you helped others before?</label>
                 <div class="radio-btns custom-checkbox-radios">
                   <%= f.radio_button :helped_before, true, id: 'helped_before_true' %>
                   <label for="helped_before_true">Yes, I have helped others before </label>
-                  <%#= f.label :helped_before, 'Yes, I have helped others before'%>
                 </div>
                 <div class="radio-btns custom-checkbox-radios">
                   <%= f.radio_button :helped_before, false, id: 'helped_before_false' %>
-                  <%#= f.label :helped_before, 'No, this is my first time helping others'%>
                   <label for="helped_before_false">No, this is my first time helping others</label>
                 </div>
               </div>

@@ -954,12 +954,29 @@ select.form-control {
 }
 
 .tow-col {
-	padding: 60px 30px;
+	padding: 60px 15px;
 	border-bottom: 1px solid #ebebeb;
+
+	.first-half{
+		border-right: 1px solid #ebebeb;
+	}
+
+	label{
+		color: #979999;
+	}
+
+	hr{
+		margin: 2rem 0;
+	}
+
+	.select2-selection__rendered{
+		font-size: 15px !important;
+	}
 }
 
 .tow-col .col-sm-6 > .inner {
-	border-right: 1px solid #ebebeb;
+	// border-right: 1px solid #ebebeb;
+	padding: 0 15px;
 }
 
 .tow-col .col-sm-6:last-child .inner {
@@ -970,8 +987,8 @@ select.form-control {
 	position: relative;
 	font-size: 20px;
 	color: #31c89d;
-	padding-bottom: 60px;
-	padding-right: 80px;
+	padding-bottom: 30px;
+	// padding-right: 80px;
 }
 
 .tow-col .inner .header p {
@@ -1025,6 +1042,11 @@ select.form-control {
 	color: #979999;
 	font-size: 18px;
 	margin-bottom: 70px;
+
+	label{
+		margin-bottom: 20px;
+		font-size: 15px;
+	}
 }
 
 .upload-files .inner .upload-icon {

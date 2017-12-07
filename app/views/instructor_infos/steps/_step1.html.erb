@@ -12,25 +12,7 @@
         <div class="col-md-10">
           <div class="question-block">
             <p class="survey-question">Which school are you from? </p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= f.select :university, InstructorInfo.universities_as_optons(lang), {}, { class: 'select2' } %>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= f.select :specialization, InstructorInfo.spcializations_as_optons(lang), {}, { class: 'select2' } %>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <%= f.select :degree_completed, InstructorInfo.degree_as_optons(lang), {}, { class: 'select2' } %>
-                </div>
-              </div>
-            </div>
+            <%= render partial: 'instructor_infos/steps/shared/which_school', locals: {f: f, lang: lang} %>
           </div>
           <div class="survey-btn-row">
             <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step0" data-percentage='1%' >上一步</button>
