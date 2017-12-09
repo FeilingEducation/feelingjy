@@ -56,7 +56,7 @@
       <div class="col-sm-4">
         <div class="inner">
           <div class="img-txt">
-            <img src="images/phone-green.png" alt="">
+            <!-- <img src="images/phone-green.png" alt=""> -->
             <span>Email</span>
           </div>
 
@@ -88,16 +88,12 @@
 
     </div>
 
-    <%= form_with model: @instructor_info, url: instructor_info_path, method: 'post', html: { role: 'form' } do |f| %>
+    <%= form_with model: @instructor_info, url: instructor_info_path, method: 'patch', html: { role: 'form' } do |f| %>
       <div class="row tow-col">
         <div class="col-sm-6 first-half">
           <div class="inner">
             <div class="header">
               School information
-              <!-- <a href="javascript:void(0)" class="edit-icon"> -->
-                <!-- <img src="images/edit.png" alt=""> -->
-                <%#= image_tag "reskin/edit.png" %>
-              <!-- </a> -->
             </div>
 
             <div class="degree-uni">
@@ -167,24 +163,33 @@
           <div class="inner">
             <div class="header">
               Successful application college
-              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
             </div>
 
-            <ul class="applied-university">
-              <li>
-                Already applied <span>130</span>
-              </li>
+            <div class="row custom-checkbox-radios">
+              <div class="col-md-8">
+                <% InstructorInfo.schools_applied_before_options(lang).each_with_index do |option, idx| %>
+                  <div class="radio-btns custom-checkbox-radios">
+                    <%= f.radio_button :number_institutes_applied, option[1], id: "number_institutes_applied#{idx}" %><label for="<%= "number_institutes_applied#{idx}" %>"> <%= option[0]%></label>
+                  </div>
+                <%end%>
+              </div>
+            </div>
+          </div>
 
-              <li>
-                Success
+          <hr/>
 
-                <div class="tags">
-                  <a href="javascript:void(0)" class="tag">New York University</a>
-                  <a href="javascript:void(0)" class="tag">New York University</a>
-                  <a href="javascript:void(0)" class="tag">New York University</a>
+          <div class="inner">
+            <div class="header">
+              Successful application college
+            </div>
+
+            <div class="header">
+              <div class="row">
+                <div class="col-md-7">
+                  <%= f.select :uni_accepted, InstructorInfo.schoools_accepted(lang), {}, { class: 'select2 schools-applied multiple' } %>
                 </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -199,7 +204,7 @@
 
             <div class="upload-files  check_boxes custom-checkbox-radios">
               <div class="inner">
-                <%= render partial: 'instructor_infos/steps/shared/privacy_terms', locals: {f: f, lang: lang} %>
+                <%= render partial: 'instructor_infos/steps/shared/students_can_know', locals: {f: f, lang: lang} %>
               </div>
             </div>
 
@@ -209,24 +214,26 @@
         <div class="col-sm-6">
           <div class="inner">
             <div class="header">
-              Set a price range. The suggested price will be within your range.
+              Set your work duration
               <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
             </div>
 
-            <ul class="applied-university">
-              <li>
-                <ul>
-                  <li>Already applied <span>130</span></li>
-                  <li class="info">
-                    <!-- <img src="images/info-small.png" alt=""> -->
-                    Can not be less than 300</li>
-                </ul>
-              </li>
-              <li class="btns">
-                <a href="javascript:void(0)" class="btn default-btn">Determine</a>
-                <a href="javascript:void(0)" class="btn default-btn grey">Cancel</a>
-              </li>
-            </ul>
+            <div class="small-steps custom-checkbox-radios">
+              <div class="inner">
+                <div class="row">
+                  <div class="col-md-10 form-group">
+                    <%= f.label :min_work_daysss, "Minimum work days?" %>
+                    <%= f.number_field :min_work_days, min: 2, max: 30, default: 2, class: '', placeholder: 'Select minum work days', id: 'min_days' %>
+                  </div>
+                  <div class="col-md-10 form-group">
+                    <%= f.label :max_work_days, "Maximum work days?" %>
+                    <%= f.number_field :max_work_days, min: 2, max: 30, default: 2, class: '', placeholder: 'Select maximum work days', id: 'max_days' %>
+                    <!-- <span class="error hidden"> It should be greater than min days.</span> -->
+                  </div>
+
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -237,10 +244,9 @@
           <div class="inner">
             <div class="header">
               What students can know about you
-              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
             </div>
 
-            <div class="upload-files  check_boxes custom-checkbox-radios">
+            <div class="upload-files check_boxes custom-checkbox-radios">
               <div class="inner">
                 <%= render partial: 'instructor_infos/steps/shared/privacy_terms', locals: {f: f, lang: lang} %>
               </div>
@@ -252,28 +258,118 @@
         <div class="col-sm-6">
           <div class="inner">
             <div class="header">
-              Set a price range. The suggested price will be within your range.
-              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
+              Set your advance reservation time
             </div>
-
-            <ul class="applied-university">
-              <li>
-                <ul>
-                  <li>Already applied <span>130</span></li>
-                  <li class="info">
-                    <!-- <img src="images/info-small.png" alt=""> -->
-                    Can not be less than 300</li>
-                </ul>
-              </li>
-              <li class="btns">
-                <a href="javascript:void(0)" class="btn default-btn">Determine</a>
-                <a href="javascript:void(0)" class="btn default-btn grey">Cancel</a>
-              </li>
-            </ul>
+            <div class="small-steps custom-checkbox-radios">
+              <div class="inner">
+                <div class="row">
+                  <div class="col-md-10 form-group">
+                    <%= f.label :reserve_advance, "Set your option" %>
+                    <%= f.select :reserve_advance, InstructorInfo.reserve_advance_notify_options(lang), {}, { class: 'select2' } %>
+                  </div>
+                  <div class="col-md-10">
+                    <%= f.label :work_frequency, "How often do you want to work with students" %>
+                    <%= f.select :work_frequency, InstructorInfo.work_freq_notify_options(lang), {}, { class: 'select2' } %>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
       </div>
+
+      <div class="row tow-col">
+        <div class="col-sm-6 first-half">
+          <div class="inner">
+            <div class="header">
+              Some other options
+            </div>
+            <div class="small-steps custom-checkbox-radios">
+              <div class="inner">
+                <div class="row">
+                  <div class="col-md-10 form-group">
+                    <%= f.label :tutor_before, "Have you ever been a tutor before?" %>
+                    <%= f.select :tutor_before, InstructorInfo.tutor_before_options(lang), {}, { class: 'select2' } %>
+                  </div>
+                  <div class="col-md-10">
+                    <%= f.label :max_std_count, "How many students do you wish to help at one time?" %>
+                    <%= f.select :max_std_count, InstructorInfo.max_std_before_options(lang), {}, { class: 'select2' } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="inner">
+            <div class="header">
+              Review your pricing
+            </div>
+
+            <div class="degree-uni">
+              <div class="inner">
+                <div class="col-md-12">
+
+                  <div class="radio-btns custom-checkbox-radios">
+                    <%= f.radio_button :recommended_price, true, id: "recommended_price_true" %>
+                    <label for="recommended_price_true"> Set variable price range </label>
+                  </div>
+
+                  <div class="radio-btns custom-checkbox-radios">
+                    <%= f.radio_button :recommended_price, false, id: "recommended_price_false"  %>
+                    <label for="recommended_price_false"> Fix Price </label>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <hr/>
+            <div class="degree-uni">
+              <div class="inner">
+                <div class="row <%= @instructor_info.recommended_price ? "" : "hidden"%>" id="price-range-fields">
+                  <div class="col-md-10 form-group">
+                    <%= f.label :min_price, "At least" %>
+                    <%= f.number_field :min_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
+                  </div>
+
+                  <div class="col-md-10 form-group">
+                    <%= f.label :max_price, "At most" %>
+                    <%= f.number_field :max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
+                    <span class="error hidden"> It should be greater than min value.</span>
+                  </div>
+                </div>
+
+                <div class="row <%= @instructor_info.recommended_price ? "hidden" : ""%>" id="fixed-price-fields">
+                  <div class="col-md-10 form-group">
+                    <%= f.label :fix_price, "Fixed Price" %>
+                    <%= f.number_field :fix_price, min: 100, class: '', placeholder: 'Suggest: ¥ 760/hr' %>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group submit-btn-row">
+        <%= f.submit "update", class: 'btn btn-primary text-right'%>
+      </div>
     <%end%>
   </div>
 </div>
+
+<script type="text/javascript">
+  $("input[name='instructor_info[number_institutes_applied]']").on('change', function(e){
+    $( ".select2.schools-applied" ).val(null).trigger('change')
+    $( ".select2.schools-applied" ).select2({
+      multiple: true,
+      placeholder: 'Please select your Universities',
+      maximumSelectionLength: parseInt(e.target.value) + 1
+    }).trigger('change')
+  })
+</script>

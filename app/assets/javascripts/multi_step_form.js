@@ -179,6 +179,18 @@ function demoUpload() {
     $('.cr-image').attr('src','')
   })
 }
-  $(document).on('turbolinks:load', function () {
-    demoUpload()
-  })
+$(document).on('turbolinks:load', function () {
+  demoUpload()
+  $('input[type=radio][name="instructor_info[recommended_price]"]').change(function() {
+    if(this.value == 'true'){
+      $("#price-range-fields").removeClass("hidden")
+      $("#fixed-price-fields").addClass("hidden")
+    }
+    else{
+      $("#fixed-price-fields").removeClass("hidden")
+      $("#price-range-fields").addClass("hidden")
+    }
+    console.log("changed....")
+    console.log(this.value)
+  });
+})
