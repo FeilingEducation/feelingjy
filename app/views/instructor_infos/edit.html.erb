@@ -2,7 +2,7 @@
 <% lang = "en" %>
 <div class="container">
   <div class="profile-main">
-    <div class="header" style="background-image: url('<%= @instructor_info.page_background %>');">
+    <div class="header" style="background-size: cover;background-image: url('<%= @instructor_info.page_background %>');">
       <%= scoped in_scope, :content_tag, :div, class: "editable background", data: { model: 'instructor_info',
         name: 'page_background', type: 'image', target: 'img', attr: 'src', size: 'large',
         label: 'Change Cover Photo', action: instructor_info_path, method: 'patch' } do %>
