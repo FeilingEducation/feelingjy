@@ -44,4 +44,13 @@ module ApplicationHelper
     user_info.instructor_info.nil? && user_info.consult_transactions.where(status: 'confirmed').empty?
   end
 
+  def background
+    puts "params::::#{params}"
+    if params["controller"] == "profiles" ||
+      (params["controller"] == "consult_transactions" && params["action"] == "show") ||
+      (params["controller"] == "messages" && params["action"] == "index")
+      "dark"
+    end
+  end
+
 end

@@ -1,0 +1,89 @@
+<header class="main-header <%= current_user.present? ? ' signed-in': '' %>">
+  <div class="top-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="phone-num">
+            <%=image_tag "reskin/phone.png"%>
+
+            <span>400-123-4567</span>
+          </div>
+        </div>
+
+        <div class="col-sm-8 text-right">
+          <ul class="dropdowns">
+            <li class="dropdown">
+              <a href="#" id="language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CN <i class="fa fa-angle-down"></i></a>
+              <div class="dropdown-menu top-bar-drop" aria-labelledby="language">
+                <a class="dropdown-item" href="#"><%=image_tag "reskin/flag/usa.jpg"%>English</a>
+                <a class="dropdown-item" href="#"><%=image_tag "reskin/flag/china.jpg"%>Chinese</a>
+              </div>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" id="help-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help Center <i class="fa fa-angle-down"></i></a>
+
+              <div class="dropdown-menu top-bar-drop" aria-labelledby="help-drop">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Action 1</a>
+                <a class="dropdown-item" href="#">Action 2</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="login">
+            <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Orders", consult_transactions_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag (profile_image_of || "user-ico.png" ), class: "profile-image-thumbnail" %>
+              </a>
+              <div class="dropdown-menu top-bar-drop" aria-labelledby="profile">
+                <% if user_is_instructor? %>
+                <%= link_to 'Edit Instructor Profile', edit_instructor_info_path, class: 'dropdown-item' %>
+                <% end %>
+                <%= link_to '个人中心', user_info_path, class: 'dropdown-item' %>
+                <%= link_to 'Edit User Profile', edit_user_info_path, class: 'dropdown-item' %>
+                <%#= link_to '安全中心', edit_user_registration_path, class: 'dropdown-item' %>
+                <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: "delete" %>
+              </div>
+            </li>
+            <%else%>
+            <li class="">
+              <%= link_to "Login", new_user_session_path, remote: true, class: "nav-link" %>
+            </li>
+            <li class="">
+              <%= link_to "Signup", new_user_registration_path, remote: true, class: "nav-link" %>
+            </li>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-4 logo">
+          <a href="/">
+            <%=image_tag "reskin/logo.png"%></a>
+          </div>
+
+          <div class="col-md-9 col-sm-8">
+            <ul class="main-nav">
+              <li><a href="#">Find your Mentor</a></li>
+              <% if current_user.present? %>
+                <li><%= link_to "Become a Mentor", new_instructor_info_path, class: "nav-link" %></li>
+              <%end%>
+              <li><a href="#">VIP Program</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>

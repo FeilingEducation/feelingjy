@@ -1,20 +1,123 @@
 <!-- <h5>我的消息</h5> -->
 <!-- <hr> -->
-<div class='row msg-wrapper'>
-  <div class="col-3 p-0 msg-left-wrapper">
-    <% @contacts.each_with_index do |contact, index| %>
-      <div class="left-msg-nav-item  <%= index == 0 ? ' active': ''%>" data-target="#message-history-wrapper<%= contact.id%>">
-        <%= render partial: 'left_nav_item', locals: {other: contact, message_history: @grouped_msgs[contact], box_id: "box-#{contact.id}"} %>
+<div class="container">
+  <div class='row with-leftbar'>
+    <div class="msg-left-wrapper col-md-3 col-sm-4">
+      <ul class="chat-name">
+        <% @contacts.each_with_index do |contact, index| %>
+          <% message = @grouped_msgs[contact].last%>
+          <li class="left-msg-nav-item <%= index == 0 ? ' active unread': 'unread'%>"  data-target="#message-history-wrapper<%= contact.id%>">
+            <a href="javascript:void(0)">
+              <span class="img" style="background-image: url('<%= profile_image_of(contact) %>');"></span>
+              <span class="name"><%= contact.full_name %></span>
+              <span class="msg"><%= truncate(message.content, length: 25) %></span>
+            </a>
+            <!-- <a href="#" class="remove-chat"><img src="images/cross-ic.png" alt=""></a> -->
+          </li>
+
+          <!-- <div class="left-msg-nav-item  <%#= index == 0 ? ' active': ''%>" data-target="#message-history-wrapper<%#= contact.id%>"> -->
+            <%#= render partial: 'left_nav_item', locals: {other: contact, message_history: @grouped_msgs[contact], box_id: "box-#{contact.id}"} %>
+          <!-- </div> -->
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-9 col-sm-8">
+      <div class="message-history-wrapper">
+      <% message_history = [] if local_assigns[:message_history].nil? %>
+        <% @contacts.each_with_index do |contact, index| %>
+        <% message = @grouped_msgs[contact].last%>
+        <% message_history =  @grouped_msgs[contact] %>
+          <div class="chat-con right-message-content <%= index == 0 ? '': ' hidden'%>" id="message-history-wrapper<%= contact.id%>">
+            <!-- <div class="header">
+              <span class="user-name"><%#= message.sender.full_name %></span>
+            </div> -->
+
+            <div class="body">
+
+              <div class="message-history <%="box-#{contact.id}"%>" id="message-history">
+                <% for message in message_history do %>
+                <% next if message.content.empty? %>
+                <div class="message <%= message_class message %>">
+                  <div class="msg-content-wrapper">
+                    <% if message.receiver_id == current_user.id %>
+                      <div class="msg msg-by-user">
+                        <div class="img" style="background-image: url('<%= profile_image_of( message.sender_id == current_user.id ? message.sender : contact) %>');"></div>
+                        <span class="msg"><%= message.content %></span>
+                      </div>
+                    <%else%>
+                      <div class="msg reply-by-user">
+                        <span class="msg"><%= message.content %></span>
+                        <div class="img" style="background-image: url('<%= profile_image_of( message.sender_id == current_user.id ? message.sender : contact) %>');"></div>
+                      </div>
+                    <%end%>
+
+                    <div class="date-time-con">
+                      <div class="date-time-send"><%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></div>
+                    </div>
+                    <div class="msg-attachments">
+                      <% for attachment in message.attachments do %>
+                      <div class="attachment">
+                        <a href="<%= attachment.file.url %>" target="_blank"><%= attachment.read_attribute(:file) %></a>
+                      </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="send-msg-con">
+              <% msg = Message.new(receiver_id: contact.id) %>
+              <% box_id = "box-#{contact.id}" %>
+              <%= form_with model: msg, class: 'message-form', data: { type: 'json', boxId: box_id } do |f| %>
+                <%= f.hidden_field :receiver_id %>
+
+                <ul class="msg-toolbar text-area-wrapper">
+                  <li><label for="attachments-input" class="attachments"><i class="fa fa-paperclip"></i></label></li>
+                  <div class="dropdown settings-cog">
+                    <span class="cog-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-cog" aria-hidden="true"></i>
+                    </span>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <div class="radio-btns dropdown-item custom-checkbox-radios">
+                        <input type="radio" name="press_enter" value="true" id="press_enter_true" class="press_enter_true">
+                        <label for="press_enter_true">Press enter to send message </label>
+                      </div>
+                      <div class="radio-btns custom-checkbox-radios dropdown-item">
+                        <input type="radio" name="press_enter" value="false" id="press_enter_false" checked='checked' class="press_enter_false">
+                        <label for="press_enter_false">Press enter for new line </label>
+                      </div>
+                    </div>
+                  </div>
+                </ul>
+
+                <!-- <textarea placeholder="type your message here" class="form-control"></textarea> -->
+                <%= f.text_area :content, class: 'form-control message-box-area', rows: 8, style: 'resize:none', id: "message-box-area" %>
+                <div class="bottom-btns">
+                  <%= f.submit '发送', class: 'send-msg-btn btn default-btn', data: { disable_with: false } %>
+                </div>
+
+                  <!-- <a href="#" class="btn default-btn white">Cancel</a> -->
+                  <!-- <a href="#" class="btn default-btn">Send</a> -->
+
+              <%end%>
+              <div class="form-group d-flex">
+                <div class="attachments-container">
+                </div>
+                <div class="w-100">
+                  <%= file_field_tag '', id: 'attachments-input', class: 'attachments-input', multiple: true,
+                  data: { url: attachments_path, param_name: 'attachment[file]',
+                    form_data: { 'attachment[file_type]': 'attachment' }, data_type: 'json' } %>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- <div class="right-message-content <%= index == 0 ? '': ' hidden'%>" id="message-history-wrapper<%#= contact.id%>"> -->
+            <%#= render partial: 'message_box', locals: {other: contact, message_history: @grouped_msgs[contact], box_id: "box-#{contact.id}"} %>
+          <!-- </div> -->
+        <% end %>
       </div>
-    <% end %>
-  </div>
-  <div class="col-9 p-0">
-    <div class="message-history-wrapper">
-      <% @contacts.each_with_index do |contact, index| %>
-        <div class="right-message-content <%= index == 0 ? '': ' hidden'%>" id="message-history-wrapper<%= contact.id%>">
-          <%= render partial: 'message_box', locals: {other: contact, message_history: @grouped_msgs[contact], box_id: "box-#{contact.id}"} %>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>

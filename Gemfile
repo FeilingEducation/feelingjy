@@ -67,3 +67,6 @@ gem 'select2-rails'
 
 gem 'opentok'
 gem 'gon'
+
+gem 'image_optim'
+gem 'image_optim_pack'

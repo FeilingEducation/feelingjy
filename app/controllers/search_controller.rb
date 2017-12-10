@@ -3,7 +3,7 @@ class SearchController < ApplicationController
   # TODO: better field design and searching queries
   def index
     @search = search_params
-    @results = InstructorInfo.all
+    @results = InstructorInfo.limit(3)
     unless @search[:min_rating].empty?
       @results = @results.where("avg_rating >= ?", @search[:min_rating])
     end

@@ -18,15 +18,23 @@ class ConsultCommChannel < ApplicationCable::Channel
     stream_for current_user
   end
 
+  def profile_url_of user
+    avatar = user.user_info.avatar
+    avatar.to_s.empty? ? asset_url('default_profile.png') : avatar
+  end
+
   def create_chat_line(data)
     # don't write empty chat-line to DB
     if data['content'].empty?
       transmit type: 'chat_line', comm_data: nil
       return
     end
+
+    current_user_image_url = profile_url_of current_user
+
     chat_line = ChatLine.new(content: data['content'], user_info_id: current_user.id, chat_id: @transaction.chat.id)
     if chat_line.save
-      ConsultCommChannel.broadcast_to @transaction, type: 'chat_line', comm_data: {content: data['content'], user_id: current_user.id}
+      ConsultCommChannel.broadcast_to @transaction, type: 'chat_line', comm_data: {content: data['content'], user_id: current_user.id, current_user_image_url: current_user_image_url.to_s }
     else
       transmit type: 'error', comm_data: {content: 'Failed to save chat line.'}
     end

@@ -1,90 +1,180 @@
-<div class="row msg-wrapper chat-wrapper">
-  <div class="col-3 px-5">
-    <div class="info-box">
-      <%= image_tag profile_image_of(@other), class: 'd-block mb-3' %>
-      <h4 class=""><%= @other.full_name %></h4>
-      <span class=""><%= @other.email %></span>
-      <!-- <h5><%#= @transaction.service || "未确定服务" %></h5> -->
-    </div>
-      <div>
-        <span class="mr-3">Status:</span><span><%= status_text_of @transaction %></span>
-      </div>
-      <div>
-        <span class="mr-3">Order placed at:</span>
-        <span><%= @transaction.created_at.strftime('%Y/%m/%d') %></span>
-      </div>
-      <div>
-        <span class="mr-3">Order updated at:</span>
-        <span><%= @transaction.updated_at.strftime('%Y/%m/%d') %></span>
-      </div>
-      <div class="text-center">
-        <% case @self %>
-        <% when @transaction.student %>
-          <% case @transaction.status %>
-          <% when "initiated" %>
-            <%= button_to "前往付款", pay_consult_transaction_path, disabled: true, class: 'btn btn-outline-secondary mt-3' %>
-          <% when "payment_pending" %>
-            <%= button_to "前往付款", pay_consult_transaction_path, class: 'btn btn-outline-success mt-3' %>
-          <% end %>
-        <% when @transaction.instructor %>
-          <% case @transaction.status %>
-          <% when "initiated" %>
-            <%= button_to "确认订单", confirm_consult_transaction_path, method: 'post', class: 'btn mt-3' %>
-          <% when "payment_pending" %>
-            <%= button_to "取消确认", confirm_consult_transaction_path(cancel: true), method: 'post', class: 'btn btn-outline-danger mt-3' %>
-          <% end %>
-        <% end %>
-      </div>
+<%= render 'video_call'%>
+<div class="video-chat-wrapper p-x hidden">
+  <div class="info-box">
+    <% sender = current_user.user_info %>
+    <%#= image_tag profile_image_of(sender), class: 'd-block mb-3' %>
+    <h4 class=""><%#= sender.full_name %></h4>
+    <span class=""><%#= sender.email %></span>
   </div>
-  <div class="consult-comm message-history-wrapper col-6 d-flex flex-column px-4" data-transaction-id="<%= @transaction.id %>" data-user-id="<%= current_user.id %>">
-    <div class="chat-box message">
-      <div class="chat-lines msg-content-wrapper">
-        <% for chat_line in @transaction.chat.chat_lines do %>
-        <div class="chat-line msg-content <%= ' chat-line-right' if chat_line.user_info_id == current_user.id %>">
-          <p class="mb-1"><%= chat_line.content %></p>
-        </div>
-        <% end %>
-      </div>
-      <%= form_tag nil, class: 'chat-input d-flex pos-rel' do %>
-        <%= hidden_field_tag :transaction_id, @transaction.id %>
-        <%= text_area_tag :content, '', style: 'flex:1', class: 'chat-txt-area' %>
-        <a class="icn-links video" id="init-video"><i class="fa fa-video-camera" aria-hidden="true"></i></a>
-        <a class="icn-links audio" id="init-audio"><i class="fa fa-phone" aria-hidden="true"></i></a>
-        <div class="dropdown settings-cog chat-cog">
-          <span class="cog-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-cog" aria-hidden="true"></i>
-          </span>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <div class="radio-btns dropdown-item custom-checkbox-radios">
-              <input type="radio" name="chat_press_enter" value="true" id="chat_press_enter_true" class="chat_press_enter_true">
-              <label for="chat_press_enter_true">Press enter to send message </label>
+
+    <div id="publisherContainer" class=""></div>
+    <div id="subscriberContainer" class="subscriber-container hidden"></div>
+    <div class="flag-info-msg" id="flag-info-msg"></div>
+    <button class="btn btn-danger hidden" id="cancel-video">Stop</button>
+</div>
+<div class="container">
+  <div class="with-leftbar row">
+    <div class="col-md-3 col-sm-4">
+      <div class="left-bar-con">
+        <div class="left-bar">
+          <div class="profile-info">
+            <div class="inner">
+              <div class="img" style="background-image: url('<%= profile_image_of(@other) %>');"></div>
+              <h2><%= @other.full_name %></h2>
+              <div class="skills"><%= @other.try(:specialization_name) %></div>
+              <!-- <div class="reviews">
+                <%#= image_tag "reskin/stars.png" %>
+                <span class="count">38</span>
+                Reviews
+              </div> -->
+
+              <% if @other.respond_to? :university_name%>
+                <div class="info location">
+                  <%= image_tag "reskin/location-green.png" %>
+                  <%= @other.try(:university_name)%>
+                </div>
+              <%end%>
+
+              <% if @other.respond_to? :degree_completed_name%>
+                <div class="info skills">
+                  <ul>
+                    <li class="degree">
+                        <%= image_tag "reskin/edu-cap.png", class: ''%>
+                        <span><%= @other.try(:degree_completed_name)%></span>
+                    </li>
+                  </ul>
+                </div>
+              <%end%>
             </div>
-            <div class="radio-btns custom-checkbox-radios dropdown-item">
-              <input type="radio" name="chat_press_enter" value="false" id="chat_press_enter_false" checked='checked' class="chat_press_enter_false">
-              <label for="chat_press_enter_false">Press enter for new line </label>
+
+            <div class="status-con">
+              <div class="inner">
+                <div class="img-txt">
+                  <img src="images/waiting-glass.png" alt="">Status
+                </div>
+                <%= status_text_of @transaction %>
+              </div>
+
+              <div class="inner">
+                <div class="img-txt">
+                  <%= image_tag "reskin/clock-green.png" %>
+                  Order placed at
+                </div>
+                <%= @transaction.created_at.strftime('%Y/%m/%d') %>
+              </div>
+
+              <% unless @other.respond_to? :degree_completed_name%>
+                <div class="inner">
+                  <div class="img-txt">
+                    <%= image_tag "reskin/clock-green.png" %>
+                    Order updated at
+                  </div>
+                  <%= @transaction.updated_at.strftime('%Y/%m/%d') %>
+                </div>
+              <%end%>
+
+              <div class="btns">
+                <% case @self %>
+                <% when @transaction.student %>
+                  <% case @transaction.status %>
+                  <% when "initiated" %>
+                    <%= button_to "前往付款", pay_consult_transaction_path, disabled: true, class: 'btn default-btn btn-block' %>
+                  <% when "payment_pending" %>
+                    <%= button_to "前往付款", pay_consult_transaction_path, class: 'btn default-btn btn-block' %>
+                  <% end %>
+                <% when @transaction.instructor %>
+                  <% case @transaction.status %>
+                  <% when "initiated" %>
+                    <%= button_to "确认订单", confirm_consult_transaction_path, method: 'post', class: 'btn default-btn btn-block' %>
+                  <% when "payment_pending" %>
+                    <%= button_to "取消确认", confirm_consult_transaction_path(cancel: true), method: 'post', class: 'btn default-btn btn-block red' %>
+                  <% end %>
+                <% end %>
+                <!-- <a href="#" class="btn default-btn btn-block">Confirm Order</a> -->
+              </div>
             </div>
           </div>
         </div>
-        <%= submit_tag "发送", data: { disable_with: false } %>
-      <% end %>
-    </div>
-    <!-- <audio class="remote" autoplay controls></audio> -->
-    <!-- <audio class="local" autoplay controls></audio> -->
-    <!-- <button class="voice-chat-init">开始语音通话</button> -->
-  </div>
-  <div class="col-3 video-chat-wrapper p-x">
-    <div class="info-box">
-      <% sender = current_user.user_info %>
-      <%= image_tag profile_image_of(sender), class: 'd-block mb-3' %>
-      <h4 class=""><%= sender.full_name %></h4>
-      <span class=""><%= sender.email %></span>
+      </div>
     </div>
 
-      <div id="publisherContainer" class=""></div>
-      <div id="subscriberContainer" class="subscriber-container hidden"></div>
-      <div class="flag-info-msg" id="flag-info-msg"></div>
-      <button class="btn btn-danger hidden" id="cancel-video">Stop</button>
+    <div class="col-md-9 col-sm-8">
+      <div class="chat-con">
+        <!-- <div class="header">
+          <div class="img" style="background-image: url('images/dumy-user.jpg');"></div>
+          <span class="user-name">Anna He</span>
+        </div> -->
+
+        <div class="body chat-box">
+          <div class="consult-comm message-history-wrapper" data-transaction-id="<%= @transaction.id %>" data-user-id="<%= current_user.id %>">
+            <div class="chat-box message">
+              <div class="chat-lines msg-content-wrapper">
+                <% for chat_line in @transaction.chat.chat_lines do %>
+                  <% if chat_line.user_info_id == current_user.id %>
+                    <div class="msg-by-user msg">
+                      <div class="img" style="background-image: url('<%= profile_image_of(@self) %>');"></div>
+                      <span class="msg"><%= chat_line.content %></span>
+                    </div>
+                  <%else%>
+                    <div class="reply-by-user msg">
+                      <span class="msg"><%= chat_line.content %></span>
+                      <div class="img" style="background-image: url('<%= profile_image_of(@other) %>');"></div>
+                    </div>
+                  <%end%>
+                  <div class="date-time-con">
+                    <div class="date-time-send">Posted on: <%= chat_line.created_at.strftime('%b %-d, %y - %l:%M %p') %></div>
+                  </div>
+                <!-- <div class="chat-line msg-content <%#= ' chat-line-right' if chat_line.user_info_id == current_user.id %>"> -->
+                  <!-- <p class="mb-1"><%#= chat_line.content %></p> -->
+                <!-- </div> -->
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="send-msg-con">
+          <ul class="msg-toolbar">
+            <li><a class="icn-links video" id="init-video"></a></li>
+            <li><a class="icn-links audio" id="init-audio"></i></a></li>
+            <li>
+              <div class="dropdown settings-cog chat-cog">
+                <span class="cog-btn" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-cog" aria-hidden="true"></i>
+                </span>
+              </div>
+            </li>
+          </ul>
+
+          <%= form_tag nil, class: 'chat-input d-flex pos-rel' do %>
+            <%= hidden_field_tag :transaction_id, @transaction.id %>
+              <%= text_area_tag :content, '', style: 'flex:1', class: '' %>
+            <div class="dropdown">
+
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="radio-btns dropdown-item custom-checkbox-radios">
+                  <input type="radio" name="chat_press_enter" value="true" id="chat_press_enter_true" class="chat_press_enter_true">
+                  <label for="chat_press_enter_true">Press enter to send message </label>
+                </div>
+                <div class="radio-btns custom-checkbox-radios dropdown-item">
+                  <input type="radio" name="chat_press_enter" value="false" id="chat_press_enter_false" checked='checked' class="chat_press_enter_false">
+                  <label for="chat_press_enter_false">Press enter for new line </label>
+                </div>
+              </div>
+            </div>
+            <%#= submit_tag "发送", data: { disable_with: false } %>
+            <div class="bottom-btn">
+              <%= submit_tag '发送', class: 'send-msg-btn btn default-btn', data: { disable_with: false } %>
+            </div>
+          <% end %>
+          <!-- <textarea placeholder="type your message here" class="form-control"></textarea> -->
+
+          <!-- <div class="bottom-btns">
+            <a href="#" class="btn default-btn white">Cancel</a>
+            <a href="#" class="btn default-btn">Send</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-<%= render 'video_call'%>

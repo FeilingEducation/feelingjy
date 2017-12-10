@@ -1,295 +1,375 @@
 <% in_scope = "#{controller_name}/#{action_name}" == 'instructor_infos/edit' %>
-<div class="mb-4">
-  <%= scoped in_scope, :content_tag, :div, class: "editable", data: { model: 'instructor_info',
-    name: 'page_background', type: 'image', target: 'img', attr: 'src', size: 'large',
-    label: '背景图片', action: instructor_info_path, method: 'patch' } do %>
-    <div class="col-12">
-      <%= image_tag @instructor_info.page_background, width: '100%', alt: '背景图片' %>
-    </div>
-  <% end %>
-  <div class="d-flex justify-content-center">
-    <div class="d-inline-block" style="margin-top:-105px;z-index:9">
-      <%= scoped in_scope, :content_tag, :div, class: "editable",
-      data: { model: 'user_info', name: 'avatar', type: 'image', target: 'img', attr: 'src',
-        label: '背景图片', action: user_info_path, method: 'patch' } do %>
-        <%= image_tag profile_image_of(@instructor_info), alt: '个人头像' %>
-        <% end %>
-    </div>
-  </div>
-</div>
-<div class="card float-right sticky-top mx-5 pr-0" style="top:100px;width:280px;">
-  <div class="bg-dark p-3">
-    <span class="text-light">最低 <strong class="h5">￥788</strong> 每小时</span>
-  </div>
-  <div class="card-body">
-    <%= form_with model: @transaction, method: 'post', local: true do |f| %>
-      <%= f.hidden_field :instructor_id %>
-      <div class="form-group">
-        <label>合作日期</label>
-        <%= f.date_field :scheduled_date, min: Date.today.to_s(:db), class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <label>合作项目</label>
-        <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {include_blank: true}, class: 'custom-select d-block w-100' %>
-      </div>
-      <div class="form-group">
-        <%= scoped !in_scope, :button_tag, '与我联系', type: 'button', class: 'btn btn-outline-success btn-block modal-toggle',
-        data: { target: '#message-box' } %>
-      </div>
-      <div class="form-group">
-        <%= scoped in_scope, :submit_tag, '申请预定', disabled: true, class: 'btn btn-secondary btn-block' %>
-        <%= scoped !in_scope, :submit_tag, '申请预定', class: 'btn btn-danger btn-block' %>
-      </div>
-    <% end %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-11">
-    <div>
-      <%= scoped in_scope, :content_tag, :div, class: 'editable', data: { model: 'instructor_info',
-        name: 'page_title', type: 'text', target: 'span', label: '主页标题',
-        action: instructor_info_path, method: 'patch' } do %>
-        <span class="font-weight-bold h1"><%= @instructor_info.page_title || '我的主页' %></span>
+<% lang = "en" %>
+<div class="container">
+  <div class="profile-main">
+    <div class="header" style="background-size: cover;background-image: url('<%= @instructor_info.page_background %>');">
+      <%= scoped in_scope, :content_tag, :div, class: "editable background", data: { model: 'instructor_info',
+        name: 'page_background', type: 'image', target: 'img', attr: 'src', size: 'large',
+        label: 'Change Cover Photo', action: instructor_info_path, method: 'patch' } do %>
+          <%= image_tag "reskin/camera-ic.png" %>
       <% end %>
-      <div class="mb-4">
-        <span class="mr-3">文书改写 | 签证咨询</span>
-        <p><%= @instructor_info.email %></p>
-        <span class="mr-3">斯坦福大学</span>
-        <span class="mr-3">142 条评论</span>
-        <%= image_tag 'five_stars.png', height: '20', class: 'mr-3' %>
-      </div>
-    </div>
-    <div class="mb-4">
-      <h5>导师可安排时间</h5>
-      <span><strong>工作日: </strong>北京时间早8点到晚8点</span><br>
-      <span><strong>周末: </strong>北京时间早9点到晚10点</span>
-    </div>
-    <div class="mb-4">
-      <h5>关于导师</h5>
-      <%= scoped in_scope, :content_tag, :div, class: 'editable', data: { model: 'instructor_info',
-        name: 'about_me', type: 'paragraph', target: 'p', label: '关于导师',
-        action: instructor_info_path, method: 'patch' } do %>
-        <p><%= @instructor_info.about_me || '有关导师的信息' %></p>
-      <% end %>
-    </div>
-    <div class="row mb-4">
-      <div class="col-4">
-        <h5>录取学校</p>
-      </div>
-      <div class="col-8 d-flex flex-wrap justify-content-around">
-        <div class="text-center mx-3 mb-3">
-          <%= image_tag 'harvard.png', class: 'd-block' %>
-          <span>哈佛大学</span>
-        </div>
-        <div class="text-center mx-3 mb-3">
-          <%= image_tag 'university_of_pennsylvania.png', class: 'd-block' %>
-          <span>哈佛大学</span>
-        </div>
-        <div class="text-center mx-3 mb-3">
-          <%= image_tag 'yale.png', class: 'd-block' %>
-          <span>哈佛大学</span>
-        </div>
-        <div class="text-center mx-3 mb-3">
-          <%= image_tag 'columbia.png', class: 'd-block' %>
-          <span>哈佛大学</span>
-        </div>
-        <div class="text-center mx-3 mb-3">
-          <%= image_tag 'stanford.png', class: 'd-block' %>
-          <span>哈佛大学</span>
-        </div>
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-4">
-        <h5>相关收费</h5>
-      </div>
-      <div class="col-8">
-        <p>
-          <span class="mr-2"><%= "文书改写" %> <strong class="h5">￥<%= 888 %></strong> 每小时</span>
-          <span><%= "2小时立减10%" %></span>
-        </p>
-        <p>
-          <span class="mr-2"><%= "签证咨询" %> <strong class="h5">￥<%= 788 %></strong> 每小时</span>
-          <span><%= "(可多人一起)" %></span>
-        </p>
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-4">
-        <h5>最多帮助学生</h5>
-      </div>
-      <div class="col-8">
-        <p>
-          <span><%= 3 %> 名学生</span><span class="float-right">剩余位置 <%= 1 %> 名学生</span>
-        </p>
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-4">
-        <h5>我擅长申请</h5>
-      </div>
-      <div class="col-8">
-        <p>
-          <span><%= "美国前 10 名的本科大学" %></span>
-        </p>
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-4">
-        <h5>《隐私条款》</h5>
-      </div>
-      <div class="col-8">
-        <p>
-          <span><%= "​​允许分享改好的文书" %></span>
-        </p>
-        <p>
-          <span><%= "​​允许分享个人信息" %></span>
-        </p>
-        <p>
-          <span><%= "​​允许面对面见面" %></span>
-        </p>
-        <p>
-          <span><%= "​允许为学生免费答疑问题" %></span>
-        </p>
-        <p>
-          <span><%= "允许探讨私人问题" %></span>
-        </p>
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-4">
-        <h5>预定取消政策</h5>
-      </div>
-      <div class="col-8">
-        <p>
-          <span><%= "前10分钟试听环节免费，试听环节结束后费用按小时计算，如若中途取消合作，将退回全额费用的 70%。" %></span>
-        </p>
-      </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-4">
-        <h5>个人简历</h5>
-      </div>
-      <div class="col-8 d-flex flex-wrap justified-content-around">
-        <% for resume in @instructor_info.resumes do %>
-          <%= scoped in_scope, :content_tag, :div, class: 'clickable hover-btn-container' do %>
-            <%= link_to resume.file.url, target: '_blank' do %>
-              <%= image_tag 'pdf.png' %>
-            <% end %>
-            <%= scoped_tree in_scope, :link_to, resume, method: 'delete', class: 'hover-btn pos-tr', data: { confirm: '确定删除简历吗?' } do %>
-              <i class="fa fa-times"></i>
-            <% end %>
+      <div class="img" style="background-image: url('<%= profile_image_of(@instructor_info) %>');">
+        <%= scoped in_scope, :content_tag, :div, class: "editable background user-profile",
+        data: { model: 'user_info', name: 'avatar', type: 'image', target: 'img', attr: 'src',
+          label: 'Change Profile Image', action: user_info_path, method: 'patch' } do %>
+          <%= image_tag "reskin/camera-ic.png" %>
           <% end %>
-        <% end %>
-        <%= scoped_tree in_scope, :content_tag, :div, class: 'editable align-self-center', data: { model: 'attachment',
-          name: 'file', type: 'attachment', file_type: 'resume', label: '个人简历' },
-          style: 'border:5px dash;border-radius:5px;' do %>
-          <i class="fa fa-plus" style="font-size:3rem;text-align:center;color:#777"></i>
-        <% end %>
+        <!-- <a href="javascript:void(0)" class="camera"><%= image_tag "reskin/camera-ic.png" %></a> -->
+      </div>
+
+      <div class="text-center hatcher-center">
+        <h2 class="user-name"><%= @instructor_info.specialization_name %></h2>
+        <div class="user-skill">Brainstorm Writing rewrite</div>
       </div>
     </div>
-    <div class="row mb-4">
-      <div class="col-4">
-        <h5>领英主页</h5>
-      </div>
-      <div class="col-8 d-flex flex-wrap justified-content-around">
-        <%= scoped in_scope, :content_tag, :div, class: 'editable nonclickable', data: { model: 'instructor_info',
-          name: 'url_linked_in', type: 'text', target: 'a', attr: 'href', label: '领英主页',
+
+    <!-- <div class="profile-summary"> -->
+      <div class="profile-summary">
+        <%= scoped in_scope, :content_tag, :div, class: 'editable edit-icon', data: { model: 'instructor_info',
+          name: 'page_title', type: 'text', target: 'span', label: 'Change Title',
           action: instructor_info_path, method: 'patch' } do %>
-          <%= link_to @instructor_info.url_linked_in, target: '_blank' do %>
-            <%= image_tag 'linkedin.png' %>
-          <% end %>
+          <!-- <span class="font-weight-bold h1"><%#= @instructor_info.page_title || '我的主页' %></span> -->
+          <span class="hidden"><%= @instructor_info.page_title %></span>
+          <%= image_tag "reskin/edit-green.png" %>
         <% end %>
+        <%= @instructor_info.page_title %>
       </div>
+      <hr/>
+      <div class="profile-summary">
+        <%= scoped in_scope, :content_tag, :div, class: 'editable edit-icon', data: { model: 'instructor_info',
+          name: 'description', type: 'text', target: 'span', label: 'Change Description',
+          action: instructor_info_path, method: 'patch' } do %>
+          <!-- <span class="font-weight-bold h1"><%#= @instructor_info.page_title || '我的主页' %></span> -->
+          <span class="hidden"><%= @instructor_info.description %></span>
+          <%= image_tag "reskin/edit-green.png" %>
+        <% end %>
+        <%= @instructor_info.description %>
+      </div>
+    <!-- </div> -->
+
+    <!-- <div class="row time-availability">
+      <div class="col-sm-6"><img src="images/clock-green.png" alt="">Weekdays: 8:00 - 20:00 (Beijing)</div>
+      <div class="col-sm-6">Weekends: 8:00 - 20:00 (Beijing)</div>
+    </div> -->
+
+    <div class="row contact-info">
+      <div class="col-sm-4">
+        <div class="inner">
+          <div class="img-txt">
+            <!-- <img src="images/phone-green.png" alt=""> -->
+            <span>Email</span>
+          </div>
+
+          <h5><%= @instructor_info.email %></h5>
+        </div>
+      </div>
+
+      <!-- <div class="col-sm-4">
+        <div class="inner">
+          <div class="img-txt">
+            <img src="images/we-chat.png" alt="">
+            <span>WeChat</span>
+          </div>
+
+          <h5>Hatcher1119</h5>
+        </div>
+      </div> -->
+
+      <!-- <div class="col-sm-4">
+        <div class="inner">
+          <div class="img-txt">
+            <img src="images/email-green.png" alt="">
+            <span>Email</span>
+          </div>
+
+          <h5><%#= @instructor_info.email %></h5>
+        </div>
+      </div> -->
+
     </div>
-    <div class="row mb-4">
-      <div class="col-12 mb-3">
-        <hr>
-      </div>
-      <div class="col-6">
-        <div class="ml-5">
-          <%= render partial: 'timeline', locals: { title: '教育时间轴', events: [
-            { time: '2009年9月-2012年7月', text: '大连枫叶国际学校(高中)' },
-            { time: '​2012年9月-2016年6月', text: '​威斯康辛大学麦迪逊（本科）' },
-            { time: '​2016年9月-2018年7月', text: '斯坦福大学（硕士）' }] } %>
+
+    <%= form_with model: @instructor_info, url: instructor_info_path, method: 'patch', html: { role: 'form' } do |f| %>
+      <div class="row tow-col">
+        <div class="col-sm-6 first-half">
+          <div class="inner">
+            <div class="header">
+              School information
+            </div>
+
+            <div class="degree-uni">
+              <div class="inner">
+                <!-- <p>Change your school?</p> -->
+                <%= render partial: 'instructor_infos/steps/shared/which_school', locals: {f: f, lang: lang} %>
+              </div>
+            </div>
+          </div>
+
+          <hr/>
+
+          <div class="inner">
+            <div class="header">
+              Have you helped others before?
+            </div>
+          </div>
+
+          <div class="degree-uni">
+            <div class="inner">
+              <div class="col-md-12">
+                <div class="radio-btns custom-checkbox-radios">
+                  <%= f.radio_button :helped_before, true, id: 'helped_before_true' %>
+                  <label for="helped_before_true">Yes, I have helped others before </label>
+                </div>
+                <div class="radio-btns custom-checkbox-radios">
+                  <%= f.radio_button :helped_before, false, id: 'helped_before_false' %>
+                  <label for="helped_before_false">No, this is my first time helping others</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="inner">
+            <div class="header">
+              Services I can offer
+            </div>
+
+            <div class="small-steps custom-checkbox-radios">
+              <div class="inner">
+                <%= render partial: 'instructor_infos/steps/shared/subject_to_teach', locals: {f: f, lang: lang} %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-6">
-        <div class="ml-5">
-          <%= render partial: 'timeline', locals: { title: '实习时间轴', events: [
-            { time: '2009年9月-2012年7月', text: '亚马逊实习' },
-            { time: '​2012年9月-2016年6月', text: '微软实习' },
-            { time: '​2016年9月-2018年7月', text: '飞灵教育实习' }] } %>
+
+      <div class="row tow-col">
+        <div class="col-sm-6 first-half">
+          <div class="inner">
+            <div class="header">
+              Information sharing
+              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
+            </div>
+
+            <div class="upload-files  check_boxes custom-checkbox-radios">
+              <div class="inner">
+                <%= render partial: 'instructor_infos/steps/shared/information_sharing', locals: {f: f, lang: lang} %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="inner">
+            <div class="header">
+              Successful application college
+            </div>
+
+            <div class="row custom-checkbox-radios">
+              <div class="col-md-8">
+                <% InstructorInfo.schools_applied_before_options(lang).each_with_index do |option, idx| %>
+                  <div class="radio-btns custom-checkbox-radios">
+                    <%= f.radio_button :number_institutes_applied, option[1], id: "number_institutes_applied#{idx}" %><label for="<%= "number_institutes_applied#{idx}" %>"> <%= option[0]%></label>
+                  </div>
+                <%end%>
+              </div>
+            </div>
+          </div>
+
+          <hr/>
+
+          <div class="inner">
+            <div class="header">
+              Successful application college
+            </div>
+
+            <div class="header">
+              <div class="row">
+                <div class="col-md-7">
+                  <%= f.select :uni_accepted, InstructorInfo.schoools_accepted(lang), {}, { class: 'select2 schools-applied multiple' } %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row mb-4">
-      <div class="col-12 mb-2">
-        <hr>
-        <span class="h5"><%= 142 %> 条评论</span>
-        <%= image_tag 'five_stars.png' %>
-      </div>
-      <div class="col-6">
-        <label>申请结果</label>
-        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
-      </div>
-      <div class="col-6">
-        <label>服务态度</label>
-        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
-      </div>
-      <div class="col-6">
-        <label>沟通交流</label>
-        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
-      </div>
-      <div class="col-6">
-        <label>服务效率</label>
-        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
-      </div>
-      <div class="col-6">
-        <label>如实描述</label>
-        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
-      </div>
-      <div class="col-6">
-        <label>性价比</label>
-        <%= image_tag 'five_stars.png', class: 'mr-5 float-right' %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 mb-2">
-        <hr>
-      </div>
-      <div class="col-12 mb-5">
-        <%= image_tag 'profile0.png', class: 'mr-4' %>
-        <div class="d-inline-block">
-          <h5>学生一</h5>
-          <h6 class="small"><%= "城市" %></h6>
-          <p>
-            ​​老师咨询工作做得不错，但是改文书时回复不太及时
-          </p>
+
+      <div class="row tow-col">
+        <div class="col-sm-6 first-half">
+          <div class="inner">
+            <div class="header">
+              Your Privacy terms
+              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
+            </div>
+
+            <div class="upload-files  check_boxes custom-checkbox-radios">
+              <div class="inner">
+                <%= render partial: 'instructor_infos/steps/shared/students_can_know', locals: {f: f, lang: lang} %>
+              </div>
+            </div>
+
+          </div>
         </div>
-      </div>
-      <div class="col-12 mb-5">
-        <%= image_tag 'profile1.png', class: 'mr-4' %>
-        <div class="d-inline-block">
-          <h5>学生二</h5>
-          <h6 class="small"><%= "城市" %></h6>
-          <p>
-            ​​老师咨询工作做得不错，但是改文书时回复不太及时
-          </p>
+
+        <div class="col-sm-6">
+          <div class="inner">
+            <div class="header">
+              Set your work duration
+              <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
+            </div>
+
+            <div class="small-steps custom-checkbox-radios">
+              <div class="inner">
+                <div class="row">
+                  <div class="col-md-10 form-group">
+                    <%= f.label :min_work_daysss, "Minimum work days?" %>
+                    <%= f.number_field :min_work_days, min: 2, max: 30, default: 2, class: '', placeholder: 'Select minum work days', id: 'min_days' %>
+                  </div>
+                  <div class="col-md-10 form-group">
+                    <%= f.label :max_work_days, "Maximum work days?" %>
+                    <%= f.number_field :max_work_days, min: 2, max: 30, default: 2, class: '', placeholder: 'Select maximum work days', id: 'max_days' %>
+                    <!-- <span class="error hidden"> It should be greater than min days.</span> -->
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
-      <div class="col-12 mb-5">
-        <%= image_tag 'profile2.png', class: 'mr-4' %>
-        <div class="d-inline-block">
-          <h5>学生三</h5>
-          <h6 class="small"><%= "城市" %></h6>
-          <p>
-            ​​老师咨询工作做得不错，但是改文书时回复不太及时
-          </p>
+
+      <div class="row tow-col">
+        <div class="col-sm-6 first-half">
+          <div class="inner">
+            <div class="header">
+              What students can know about you
+            </div>
+
+            <div class="upload-files check_boxes custom-checkbox-radios">
+              <div class="inner">
+                <%= render partial: 'instructor_infos/steps/shared/privacy_terms', locals: {f: f, lang: lang} %>
+              </div>
+            </div>
+
+          </div>
         </div>
+
+        <div class="col-sm-6">
+          <div class="inner">
+            <div class="header">
+              Set your advance reservation time
+            </div>
+            <div class="small-steps custom-checkbox-radios">
+              <div class="inner">
+                <div class="row">
+                  <div class="col-md-10 form-group">
+                    <%= f.label :reserve_advance, "Set your option" %>
+                    <%= f.select :reserve_advance, InstructorInfo.reserve_advance_notify_options(lang), {}, { class: 'select2' } %>
+                  </div>
+                  <div class="col-md-10">
+                    <%= f.label :work_frequency, "How often do you want to work with students" %>
+                    <%= f.select :work_frequency, InstructorInfo.work_freq_notify_options(lang), {}, { class: 'select2' } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
+
+      <div class="row tow-col">
+        <div class="col-sm-6 first-half">
+          <div class="inner">
+            <div class="header">
+              Some other options
+            </div>
+            <div class="small-steps custom-checkbox-radios">
+              <div class="inner">
+                <div class="row">
+                  <div class="col-md-10 form-group">
+                    <%= f.label :tutor_before, "Have you ever been a tutor before?" %>
+                    <%= f.select :tutor_before, InstructorInfo.tutor_before_options(lang), {}, { class: 'select2' } %>
+                  </div>
+                  <div class="col-md-10">
+                    <%= f.label :max_std_count, "How many students do you wish to help at one time?" %>
+                    <%= f.select :max_std_count, InstructorInfo.max_std_before_options(lang), {}, { class: 'select2' } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="inner">
+            <div class="header">
+              Review your pricing
+            </div>
+
+            <div class="degree-uni">
+              <div class="inner">
+                <div class="col-md-12">
+
+                  <div class="radio-btns custom-checkbox-radios">
+                    <%= f.radio_button :recommended_price, true, id: "recommended_price_true" %>
+                    <label for="recommended_price_true"> Set variable price range </label>
+                  </div>
+
+                  <div class="radio-btns custom-checkbox-radios">
+                    <%= f.radio_button :recommended_price, false, id: "recommended_price_false"  %>
+                    <label for="recommended_price_false"> Fix Price </label>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <hr/>
+            <div class="degree-uni">
+              <div class="inner">
+                <div class="row <%= @instructor_info.recommended_price ? "" : "hidden"%>" id="price-range-fields">
+                  <div class="col-md-10 form-group">
+                    <%= f.label :min_price, "At least" %>
+                    <%= f.number_field :min_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
+                  </div>
+
+                  <div class="col-md-10 form-group">
+                    <%= f.label :max_price, "At most" %>
+                    <%= f.number_field :max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
+                    <span class="error hidden"> It should be greater than min value.</span>
+                  </div>
+                </div>
+
+                <div class="row <%= @instructor_info.recommended_price ? "hidden" : ""%>" id="fixed-price-fields">
+                  <div class="col-md-10 form-group">
+                    <%= f.label :fix_price, "Fixed Price" %>
+                    <%= f.number_field :fix_price, min: 100, class: '', placeholder: 'Suggest: ¥ 760/hr' %>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group submit-btn-row">
+        <%= f.submit "update", class: 'btn btn-primary text-right'%>
+      </div>
+    <%end%>
   </div>
 </div>
-<% modal = render partial: 'messages/send_a_message', locals: { other: @instructor_info.user_info, box_id: '' } %>
-<%= render partial: 'dialog', locals: { id: 'message-box', title: 'Send a Message', body: modal, size: 'lg' } %>
+
+<script type="text/javascript">
+  $("input[name='instructor_info[number_institutes_applied]']").on('change', function(e){
+    $( ".select2.schools-applied" ).val(null).trigger('change')
+    $( ".select2.schools-applied" ).select2({
+      multiple: true,
+      placeholder: 'Please select your Universities',
+      maximumSelectionLength: parseInt(e.target.value) + 1
+    }).trigger('change')
+  })
+</script>

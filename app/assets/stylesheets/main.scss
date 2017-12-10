@@ -53,7 +53,7 @@ body {
   background-color: #F0F0F0;
 }
 
-.main {
+.main-content {
   background-color: #FFFFFF;
   // padding: 2rem 2.5rem;
 }
@@ -83,10 +83,10 @@ body {
 }
 
 .profile-image-thumbnail {
-  border: 3px solid $gray-300;
+  border: 1px solid $gray-300;
   @extend .rounded-circle;
-  width: 2rem;
-  height: 2rem;
+  width: 22px;
+  height: 22px;
 }
 .profile-image-full {
   border: 3px solid $gray-300;
@@ -285,7 +285,7 @@ textarea{
 // progress bar customizations
 .progress{
   position: fixed;
-  top: 71px;
+  top: 107px;
   width: 100%;
   z-index: 11;
   height: 10px;
@@ -352,7 +352,8 @@ textarea{
 
 .select2-selection--multiple{
   border: 1px solid $border-color;
-  height: 43px;
+  min-height: 43px;
+  height: auto;
 
   .select2-selection__rendered{
     .select2-selection__choice{
@@ -372,7 +373,7 @@ textarea{
   }
 }
 
-*:focus{
+input:focus{
   outline: none !important;
   box-shadow: none!important;
   border: 1px solid $primary-green!important;
@@ -446,7 +447,7 @@ input[type="radio"], input[type="checkbox"] {
   transition: opacity 600ms, visibility 600ms;
 }
 *:focus{
-  border: 1px solid $border-color;
+  // border: 1px solid $border-color;
 }
 .snack-bar-error{
   visibility: hidden; /* Hidden by default. Visible on click */

@@ -11,6 +11,7 @@ $(document).on('turbolinks:load', function () {
   if ($consult_comm.length == 0) return;
   var $chat = $consult_comm.find('.chat-box');
   var $chat_lines = $chat.find('.chat-lines');
+  var $chat_body = $('.chat-con .body');
   var user_id = $consult_comm.data('user-id');
 
   App.consult_comm = App.cable.subscriptions.create({
@@ -34,11 +35,18 @@ $(document).on('turbolinks:load', function () {
           // when a chat_line data is received, append the content to the .chat_lines.
           // Content needs to be first sanitized to avoid arbitrary script injection
           if (comm) {
-            var $chat_line = $('<div class="chat-line"><pre>' + sanitize(comm.content) + '</pre></div>');
+            console.log("comm:::", comm)
+            if(user_id == comm.user_id){
+              var $chat_line = $('<div class="msg-by-user msg"><div class="img" style="background-image: url('+ comm.current_user_image_url +');"></div> <span class="msg">' + sanitize(comm.content) + '</span>  </div>')
+            }
+            else{
+              var $chat_line = $('<div class="reply-by-user msg"> <span class="msg">' + sanitize(comm.content) + '</span> <div class="img" style="background-image: url('+ comm.current_user_image_url +');"></div> </div>')
+            }
             // put the chat-line to the right if it is a self post.
-            if (user_id == comm.user_id) $chat_line.addClass('chat-line-right');
+            // if (user_id == comm.user_id) $chat_line.addClass('chat-line-right');
             // scroll to bottom when new chat-line is appended
-            $chat_lines.append($chat_line).prop('scrollTop', $chat_lines.prop('scrollHeight'));
+            $chat_lines.append($chat_line)
+            $chat_body.prop('scrollTop', $chat_body.prop('scrollHeight'));
           }
           // re-enable submit button (disabled at submission)
           $('.chat-input input[type="submit"]').prop('disabled', false);
@@ -86,6 +94,7 @@ $(document).on('turbolinks:load', function () {
               $("#flag-info-msg").html('Call is terminated by the host')
               setTimeout(function(){
                 $("#flag-info-msg").html('')
+                $('.video-chat-wrapper').addClass('hidden')
               }, 5000)
               break;
             case 'ready':

@@ -175,3 +175,16 @@ $(document).on('click', '.editable', function() {
   $form.append($("<input type=\"submit\" class=\"btn btn-success float-right mb-3\" value=\"保存\">"));
   dynamic_modal($form, $this.data('label'), $this.data('size'));
 });
+
+
+$(document).on('turbolinks:load', function () {
+  $(window).on('scroll', function(e){
+    console.log($(window).scrollTop())
+    if($(window).scrollTop() > 460){
+      $("#fixed-left-bar").addClass('fixed')
+    }
+    else{
+      $("#fixed-left-bar").removeClass('fixed')
+    }
+  })
+})

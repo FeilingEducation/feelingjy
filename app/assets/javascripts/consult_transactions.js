@@ -65,7 +65,9 @@ $(document).on('turbolinks:load', function () {
       var chat_lines = _step.value;
 
       var $chat_lines = $(chat_lines);
+      var $chat_body = $('.chat-con .body');
       $chat_lines.prop('scrollTop', $chat_lines.prop('scrollHeight'));
+      $chat_body.prop('scrollTop', $chat_body.prop('scrollHeight'));
     }
   } catch (err) {
     _didIteratorError = true;
@@ -102,6 +104,7 @@ $(document).on('turbolinks:load', function () {
 
   $('#init-video').on('click', function(e){
     e.preventDefault()
+    $('.video-chat-wrapper').removeClass('hidden')
     openTok.publishVideo = true
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
     App.consult_comm.send_video_status_flag("started_video");
@@ -110,6 +113,7 @@ $(document).on('turbolinks:load', function () {
   })
   $('#init-audio').on('click', function(e){
     e.preventDefault()
+    $('.video-chat-wrapper').removeClass('hidden')
     openTok.publishVideo = false
     openTok.initPublisher(gon.opentok_api_key, gon.session_id)
     App.consult_comm.send_video_status_flag("started_audio");
@@ -119,6 +123,7 @@ $(document).on('turbolinks:load', function () {
   $('#cancel-video').on('click', function(){
     openTok.unPublish()
     $('#init-video').removeClass('hidden')
+    $('.video-chat-wrapper').addClass('hidden')
     $("#flag-info-msg").html('')
     $('#init-audio').removeClass('hidden')
     $('#cancel-video').addClass('hidden')
@@ -143,9 +148,12 @@ $(document).on('turbolinks:load', function () {
 window.chat_msg_press_enter = 'send_msg'
 // Detecting enter key during message sending.
 $(document).on('keypress', 'form.message-form textarea', function (e) {
+  console.log('keypress...',window.chat_msg_press_enter)
   if (e.keyCode == 13 && !e.shiftKey && window.chat_msg_press_enter == 'send_msg') {
     e.preventDefault();
-    $(this).closest('form').submit();
+    // $(this).closest('form').submit();
+    $(this).parent().find('.msg-send-btn').click();
+    console.log("$(this).closest('.msg-send-btn')", $(this).closest('.msg-send-btn'))
     return false;
   }
 });

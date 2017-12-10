@@ -109,4 +109,63 @@ class InstructorInfo < ApplicationRecord
   def self.default_cities_as_options
     CS.cities(:"11", :CN)
   end
+
+  def universities_accepted local='en'
+    unis = []
+    self.uni_accepted.map {|uni| unis.push((local == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[uni.to_i])}
+    unis
+  end
+
+  def university_name local='en'
+    (local == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[self.university.to_i]
+  end
+
+  def specialization_name local='en'
+    (local == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE)[self.specialization.to_i]
+  end
+
+  def degree_completed_name local='en'
+    (local == 'en' ? DEGREE_COMPLETED_ENGLISH : DEGREE_COMPLETED_CHINESE)[self.degree_completed.to_i]
+  end
+
+  def privacy_terms
+    terms = []
+    terms.push "Allow to share edited files" if self.share_edited_files
+    terms.push "Allow to share my information" if self.share_info
+    terms.push "Allow to meet in person" if self.meet_in_person
+    terms.push "Allow to answer questions for free" if self.answer_free
+    terms.push "Allow to ask personal questions" if self.personal_questions
+    terms
+  end
+
+  def things_to_know
+    terms = []
+    terms.push "For a sense of accomplishment" if self.accomplishment
+    terms.push "I want to utilize my free time" if self.free_time
+    terms.push "I don't know how to write actually" if self.how_to_write
+    terms.push "I am more nervous than you when I help you apply" if self.nervous
+    terms.push "I care about your cooperation very much" if self.care_cooperation
+    terms
+  end
+
+  def things_can_share
+    terms = []
+    terms.push "Personal CV" if self.share_resume
+    terms.push "Application Letter" if self.share_application_essay
+    terms.push "Offer Letter" if self.share_offer_letter
+    terms.push "GPA" if self.share_gpa
+    terms.push "GRE Score" if self.share_gre_score
+    terms.push "Published paper" if self.share_paper
+    terms.push "Essay from classes" if self.share_course_essay
+    terms
+  end
+
+  def experience_as_totur local = 'en'
+    (local == 'en' ? TUTOR_BEFORE_ENGLISH : TUTOR_BEFORE_CHINESE)[self.tutor_before.to_i]
+  end
+
+  def reserve_in_advance local = 'en'
+    (local == 'en' ? RESERVE_ADVANCE_NOTIFY_ENGLISH : RESERVE_ADVANCE_NOTIFY_CHINESE)[self.reserve_advance.to_i]
+  end
+
 end

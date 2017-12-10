@@ -15,6 +15,7 @@ class InstructorInfosController < AuthenticatedResourcesController
     @instructor_info = InstructorInfo.new(instructor_info_params)
 
     @instructor_info.id = current_user.id
+    @instructor_info.uni_accepted = [instructor_info_params[:uni_accepted]]
     if @instructor_info.save!
       flash[:notice] = 'Instructor profile created successfully.'
       @instructor_info.user_info.update_attributes!(avatar: convert_data_uri_to_upload(params.require(:instructor_info)[:avatar_cache]))
@@ -200,7 +201,18 @@ end
       :fix_price,
       :work_frequency,
       :first_std_discount,
-      :uni_acceptedss
+      :uni_accepted,
+      :number_institutes_applied,
+      :share_resume,
+      :share_application_essay,
+      :share_offer_letter,
+      :share_gpa,
+      :share_gre_score,
+      :share_paper,
+      :share_course_essay,
+      :page_background_cache,
+      :best_applying_at,
+      :page_name
       # :avatar
     )
   end
