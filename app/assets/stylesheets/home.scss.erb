@@ -271,27 +271,28 @@ select.form-control {
 	padding: 70px 0px;
 	border-bottom: 2px solid #e7f7f2;
 	&.grey-section {
-		background: #fcfcfc;
+		background: #f9f9f9;
 	}
 	.header {
 		text-align: center;
-		padding-bottom: 110px;
+		padding-bottom: 30px;
+
 		h1 {
 			font-size: 42px;
 			color: #31c89d;
 			position: relative;
 			margin-bottom: 63px;
-			&:after {
-				content: "";
-				display: block;
-				position: absolute;
-				height: 3px;
-				width: 65px;
-				background: #31c89d;
-				left: 50%;
-				margin-left: -33px;
-				bottom: -35px;
-			}
+			// &:after {
+			// 	content: "";
+			// 	display: block;
+			// 	position: absolute;
+			// 	height: 3px;
+			// 	width: 65px;
+			// 	background: #31c89d;
+			// 	left: 50%;
+			// 	margin-left: -33px;
+			// 	bottom: -35px;
+			// }
 		}
 		p {
 			margin-bottom: 0px;
@@ -316,6 +317,12 @@ select.form-control {
 .div-bg {
 	transition: all .5s ease;
 	cursor: pointer;
+	box-shadow: 2px 2px 20px #ccc;
+	border-radius: 10px;
+
+	.user-info{
+		padding: 10px 10px 30px 10px;
+	}
 
 	.img {
 		height: 300px;
@@ -324,7 +331,8 @@ select.form-control {
 		background-repeat: no-repeat;
 		border-radius: 6px;
 		position: relative;
-		margin-bottom: 20px;
+		// margin-bottom: 20px;
+
 		.divbg-overlay {
 			background: rgba(62, 250, 197, 0.7);
 			position: absolute;
@@ -340,10 +348,10 @@ select.form-control {
 			transition: all .5s ease;
 		}
 	}
-	&:hover .img .divbg-overlay, &.active .img .divbg-overlay {
-		opacity: 1;
-		visibility: visible;
-	}
+	// &:hover .img .divbg-overlay, &.active .img .divbg-overlay {
+	// 	opacity: 1;
+	// 	visibility: visible;
+	// }
 	.img .divbg-overlay .location {
 		position: absolute;
 		top: 50%;
@@ -358,8 +366,8 @@ select.form-control {
 
 .user-image-text {
 	position: relative;
-	padding-left: 100px;
-	padding-top: 15px;
+	padding-left: 90px;
+	padding-top: 10px;
 }
 
 .div-bg {
@@ -367,34 +375,35 @@ select.form-control {
 		position: absolute;
 		left: 0;
 		top: 0;
+
 		img {
-			height: 80px;
-			width: 80px;
+			height: 50px;
+			width: 50px;
 			border-radius: 100%;
 			border: 4px solid transparent;
 			transition: all .5s ease;
 		}
 		.usr-name {
-			width: 80px;
-			text-overflow: ellipsis;
-			overflow: hidden;
-			white-space: nowrap;
-			font-size: 20px;
+			// width: 80px;
+			// text-overflow: ellipsis;
+			// overflow: hidden;
+			// white-space: nowrap;
+			font-size: 15px;
 			color: #979999;
-			text-align: center;
-			padding-top: 5px;
+			// text-align: center;
+			// padding-top: 5px;
 		}
 	}
-	&:hover .usr-img img, &.active .usr-img img {
-		border: 4px solid #31c89d;
-	}
-	&:hover .usr-img .usr-name, &.active .usr-img .usr-name {
-		color: #31c89d;
-	}
+	// &:hover .usr-img img, &.active .usr-img img {
+	// 	border: 4px solid #31c89d;
+	// }
+	// &:hover .usr-img .usr-name, &.active .usr-img .usr-name {
+	// 	color: #31c89d;
+	// }
 	.usr-txt {
 		font-size: 13px;
 		ul {
-			padding-bottom: 10px;
+			// padding-bottom: 10px;
 		}
 		li.degree {
 			color: #31c89d;
@@ -435,6 +444,18 @@ select.form-control {
 			text-overflow: ellipsis;
 			overflow: hidden;
 			white-space: nowrap;
+		}
+	}
+	.location-new{
+		position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,.4);
+    color: white;
+    width: 100%;
+    padding: 10px 25px;
+
+		.specialization{
+			font-size: 20px;
 		}
 	}
 }
@@ -493,6 +514,7 @@ select.form-control {
 	border-radius: 6px;
 	padding: 20px;
 	transition: all .4s ease;
+
 	h4 {
 		color: #31c89d;
 		font-size: 22px;
@@ -530,11 +552,14 @@ select.form-control {
 
 .without-img-bg .usr-txt .edu-cap {
 	background: url(<%= asset_url "reskin/edu-cap.png" %>) no-repeat left;
+	padding-left: 30px;
+	color: #979999;
 }
 
 .without-img-bg .usr-txt .usr-location {
-	// background: asset_url('reskin/location-small.png') no-repeat left;
 	background: url(<%= asset_url "reskin/location-small.png" %>) no-repeat left;
+	padding-left: 30px;
+	color: #979999;
 }
 
 .without-bg-con:hover .without-img-bg .usr-txt .edu-cap,
@@ -612,6 +637,8 @@ select.form-control {
 .advantages {
 	background: #fff;
 	border-radius: 6px;
+	cursor: pointer;
+	
 	.header {
 		text-align: left;
 		padding: 50px 40px;
