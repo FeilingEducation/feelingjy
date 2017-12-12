@@ -76,7 +76,7 @@
 
           <div class="col-md-9 col-sm-8">
             <ul class="main-nav">
-              <li><%= link_to "Find your Mentor", mentors_path, class: "nav-link" %></li>
+              <li><%= link_to "Find your Mentor", mentors_path, class: "header-nav-link nav-link" %></li>
               <% if current_user.present? && !user_is_instructor? %>
                 <li><%= link_to "Become a Mentor", new_instructor_info_path, class: "nav-link" %></li>
               <%end%>
