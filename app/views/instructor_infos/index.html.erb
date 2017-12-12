@@ -1,0 +1,16 @@
+<section class="section grey-section">
+  <div class="container">
+    <div class="header">
+      <h1>Select your Mentor</h1>
+      <p>Star tutors recommended to you by platform due to their high ratings</p>
+    </div>
+
+    <div class="row mentors">
+      <% @results.each do |instructor|%>
+          <%= render partial: 'search/inst_profile', locals: { instructor: instructor } %>
+          <%#= render partial: 'search/inst_profile', locals: { instructor: instructor } %>
+      <%end%>
+    </div>
+
+  </div>
+</section>

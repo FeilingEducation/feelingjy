@@ -76,11 +76,11 @@
 
           <div class="col-md-9 col-sm-8">
             <ul class="main-nav">
-              <li><a href="#">Find your Mentor</a></li>
-              <% if current_user.present? %>
+              <li><%= link_to "Find your Mentor", mentors_path, class: "nav-link" %></li>
+              <% if current_user.present? && !user_is_instructor? %>
                 <li><%= link_to "Become a Mentor", new_instructor_info_path, class: "nav-link" %></li>
               <%end%>
-              <li><a href="#">VIP Program</a></li>
+              <!-- <li><a href="#">VIP Program</a></li> -->
             </ul>
           </div>
         </div>

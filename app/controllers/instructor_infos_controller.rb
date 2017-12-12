@@ -7,6 +7,10 @@ class InstructorInfosController < AuthenticatedResourcesController
   # Those are handled by the user_info controller depending on if the current_user
   # is an instructor.
 
+  def index
+    @results = InstructorInfo.limit(20)
+  end
+
   def new
     @instructor_info = InstructorInfo.new(min_price: 600, max_price: 800)
   end

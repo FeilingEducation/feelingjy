@@ -16,6 +16,9 @@ Rails.application.routes.draw do
       get 'schools_applied'
     end
   end
+
+  get 'mentors', to: "instructor_infos#index"
+
   resources :profiles, only: [:show]
   resources :consult_transactions, path: 'transactions', except: [:edit, :new]
   post 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
