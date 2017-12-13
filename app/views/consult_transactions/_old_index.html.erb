@@ -1,7 +1,8 @@
 <!-- <h1><%= role%><%#= {'instructor' => '导师', 'student' => '学生'}[other_role] %></h1> -->
-<% puts other_role %>
+<!-- <%# puts other_role %> -->
 <!-- <hr> -->
 <% for transaction in @transactions do %>
+  <% next if other.nil?%>
   <% other = transaction.send(other_role) %>
   <div class="row mb-4">
     <div class="col-3">
