@@ -2,8 +2,8 @@
 <!-- <%# puts other_role %> -->
 <!-- <hr> -->
 <% for transaction in @transactions do %>
-  <% next if other.nil?%>
   <% other = transaction.send(other_role) %>
+  <% next if other.nil?%>
   <div class="row mb-4">
     <div class="col-3">
       <%= image_tag profile_image_of(other), class: 'd-block m-auto' %>
