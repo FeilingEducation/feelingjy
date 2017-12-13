@@ -11,33 +11,33 @@
         </div>
 
         <div class="col-sm-8 text-right">
-          <ul class="dropdowns">
-            <li class="dropdown">
+          <!-- <ul class="dropdowns"> -->
+            <!-- <li class="dropdown">
               <a href="#" id="language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CN <i class="fa fa-angle-down"></i></a>
               <div class="dropdown-menu top-bar-drop" aria-labelledby="language">
-                <a class="dropdown-item" href="#"><%=image_tag "reskin/flag/usa.jpg"%>English</a>
-                <a class="dropdown-item" href="#"><%=image_tag "reskin/flag/china.jpg"%>Chinese</a>
+                <a class="dropdown-item" href="#"><%#=image_tag "reskin/flag/usa.jpg"%>English</a>
+                <a class="dropdown-item" href="#"><%#=image_tag "reskin/flag/china.jpg"%>Chinese</a>
               </div>
-            </li>
+            </li> -->
 
-            <li class="dropdown">
-              <a href="#" id="help-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help Center <i class="fa fa-angle-down"></i></a>
+            <!-- <li class="dropdown"> -->
+              <!-- <a href="#" id="help-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help Center <i class="fa fa-angle-down"></i></a> -->
 
-              <div class="dropdown-menu top-bar-drop" aria-labelledby="help-drop">
+              <!-- <div class="dropdown-menu top-bar-drop" aria-labelledby="help-drop">
                 <a class="dropdown-item" href="#">Action</a>
                 <a class="dropdown-item" href="#">Action 1</a>
                 <a class="dropdown-item" href="#">Action 2</a>
-              </div>
-            </li>
-          </ul>
+              </div> -->
+            <!-- </li> -->
+          <!-- </ul> -->
           <ul class="login">
             <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "Orders", consult_transactions_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
-            </li>
+            <!-- <li class="nav-item"> -->
+              <%#= link_to "Orders", consult_transactions_path, class: 'nav-link' %>
+            <!-- </li> -->
+            <!-- <li class="nav-item">
+              <%#= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
+            </li> -->
             <li class="dropdown">
               <a href="javascript:void(0)" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= image_tag (profile_image_of || "user-ico.png" ), class: "profile-image-thumbnail" %>
@@ -79,6 +79,14 @@
               <li><%= link_to "Find your Mentor", mentors_path, class: "header-nav-link nav-link" %></li>
               <% if current_user.present? && !user_is_instructor? %>
                 <li><%= link_to "Become a Mentor", new_instructor_info_path, class: "nav-link" %></li>
+              <%end%>
+              <% if current_user.present?%>
+                <li class="nav-item">
+                  <%= link_to "My Orders", consult_transactions_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
+                </li>
               <%end%>
               <!-- <li><a href="#">VIP Program</a></li> -->
             </ul>
