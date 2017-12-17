@@ -1,6 +1,6 @@
 <header class="main-header <%= current_user.present? ? ' signed-in': '' %>">
 
-  <%#= render partial: 'top_header' %>
+  <%#= render partial: 'top_bar' %>
 
   <div class="main-nav">
     <div class="container">
@@ -10,7 +10,7 @@
             <%=image_tag "reskin/fj-logo.png"%></a>
           </div>
 
-          <div class="col-md-6 col-sm-6">
+          <div class="col-md-7 col-sm-6">
             <ul class="main-nav <%= current_user.nil? ? "public" : ""%>">
               <li><%= link_to "Find your Mentor", mentors_path, class: "header-nav-link nav-link" %></li>
               <% if current_user.present? && !user_is_instructor? %>
@@ -28,9 +28,8 @@
             </ul>
 
           </div>
-          <div class="col-md-3 col-sm-2">
+          <div class="col-md-2 col-sm-2">
 
-            <ul class="login main-nav public">
               <% if user_signed_in? %>
               <!-- <li class="nav-item"> -->
                 <%#= link_to "Orders", consult_transactions_path, class: 'nav-link' %>
@@ -38,27 +37,31 @@
               <!-- <li class="nav-item">
                 <%#= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
               </li> -->
-              <li class="dropdown">
-                <a href="javascript:void(0)" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= image_tag (profile_image_of || "user-ico.png" ), class: "profile-image-thumbnail" %>
-                </a>
-                <div class="dropdown-menu top-bar-drop" aria-labelledby="profile">
-                  <% if user_is_instructor? %>
-                  <%= link_to 'Edit Instructor Profile', edit_instructor_info_path, class: 'dropdown-item' %>
-                  <% end %>
-                  <%= link_to '个人中心', user_info_path, class: 'dropdown-item' %>
-                  <%= link_to 'Edit User Profile', edit_user_info_path, class: 'dropdown-item' %>
-                  <%#= link_to '安全中心', edit_user_registration_path, class: 'dropdown-item' %>
-                  <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: "delete" %>
-                </div>
-              </li>
+                <ul class="login main-nav top-bar">
+                  <li class="dropdown">
+                    <a href="javascript:void(0)" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <%= image_tag (profile_image_of || "user-ico.png" ), class: "profile-image-thumbnail" %>
+                    </a>
+                    <div class="dropdown-menu top-bar-drop" aria-labelledby="profile">
+                      <% if user_is_instructor? %>
+                      <%= link_to 'Edit Instructor Profile', edit_instructor_info_path, class: 'dropdown-item' %>
+                      <% end %>
+                      <%= link_to '个人中心', user_info_path, class: 'dropdown-item' %>
+                      <%= link_to 'Edit User Profile', edit_user_info_path, class: 'dropdown-item' %>
+                      <%#= link_to '安全中心', edit_user_registration_path, class: 'dropdown-item' %>
+                      <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: "delete" %>
+                    </div>
+                  </li>
+                </ul>
               <%else%>
-              <li class="">
-                <%= link_to "Login", new_user_session_path, remote: true, class: "nav-link" %>
-              </li>
-              <li class="">
-                <%= link_to "Signup", new_user_registration_path, remote: true, class: "nav-link" %>
-              </li>
+                <ul class="main-nav top-bar">
+                  <li class="">
+                    <%= link_to "Login", new_user_session_path, remote: true, class: "nav-link" %>
+                  </li>
+                  <li class="">
+                    <%= link_to "Signup", new_user_registration_path, remote: true, class: "nav-link" %>
+                  </li>
+                </ul>
               <%end%>
             </ul>
           </div>

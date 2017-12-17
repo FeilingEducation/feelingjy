@@ -159,6 +159,19 @@ select, button {
 	font-size: 14px;
 	transform: none !important;
 	top: 27px !important;
+
+	&.dropdown-item {
+		padding: 6px 13px;
+		color:#fff!important;
+
+		a{
+			color:#fff!important;
+		}
+		&:hover {
+			background: #fff;
+			color: #2dbd94;
+		}
+	}
 }
 
 .dropdowns li:first-child {
@@ -173,9 +186,11 @@ select, button {
 	}
 	&.dropdown-item {
 		padding: 6px 13px;
+		color: #fff!important;
+
 		&:hover {
 			background: #fff;
-			color: #2dbd94;
+			color: #2dbd94!important;
 		}
 	}
 }
@@ -852,12 +867,14 @@ select.form-control {
 
 	.login{
 		text-align: right;
+		margin-top: 13px;
 	}
 }
 
 .main-content {
 	// padding-top: 105px;
 	padding-top: 84px;
+	padding-top: 78px;
 }
 
 // .main-nav .logo {
