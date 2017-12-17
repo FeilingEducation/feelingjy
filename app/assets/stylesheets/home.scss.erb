@@ -2,6 +2,8 @@
 // @import url('fonts/font-awesome/font-awesome.css');
 @import "halvetica-rounded";
 
+$main-text-color: #717070;
+
 body {
 	padding-top: 0;
 	// background: #fff;
@@ -722,6 +724,7 @@ select.form-control {
 		left: 0;
 		top: 0;
 		background: rgba(51, 195, 154, 0.5);
+
 		.overlay-txt {
 			color: #fff;
 			position: absolute;
@@ -1216,6 +1219,15 @@ select.form-control {
 .chat-name li {
 	position: relative;
 	padding: 24px 40px 20px 95px;
+
+	&.no-contact{
+		padding: 20px 0;
+		text-align: center;
+
+		.name{
+			color: $main-text-color;
+		}
+	}
 }
 
 .chat-name li a:focus {
@@ -2079,4 +2091,7 @@ form{
 		margin-top: 10px;
 		text-align: right;
 	}
+}
+.no-contact{
+	color: $main-text-color;
 }
