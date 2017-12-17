@@ -53,4 +53,9 @@ module ApplicationHelper
     end
   end
 
+  def show_footer?
+    !((params["controller"] == "consult_transactions" && params["action"] == "show") ||
+    (params["controller"] == "messages" && params["action"] == "index"))
+  end
+
 end

@@ -28,7 +28,9 @@
       <%#= content_for?(:application) ? yield(:application) : yield %>
     <!-- </section> -->
     <%#= render partial: 'footer' %>
-    <%#= render partial: 'footer_new' %>
+    <% if show_footer?%>
+      <%= render partial: 'footer_new' %>
+    <% end %>
   </div>
   <%= render partial: 'dialog' %>
   <%= form_tag '', method: 'post', id: 'template-form', style: 'display:hidden' %>
