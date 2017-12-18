@@ -3,7 +3,7 @@
   <%#= render partial: 'top_bar' %>
 
   <div class="main-nav">
-    <div class="container">
+    <div class="header-container">
       <div class="row">
         <div class="col-md-3 col-sm-4 logo">
           <a href="/">
@@ -44,7 +44,7 @@
                     </a>
                     <div class="dropdown-menu top-bar-drop" aria-labelledby="profile">
                       <% if user_is_instructor? %>
-                      <%= link_to 'Edit Instructor Profile', edit_instructor_info_path, class: 'dropdown-item' %>
+                        <%= link_to 'Edit Instructor Profile', edit_instructor_info_path, class: 'dropdown-item' %>
                       <% end %>
                       <%= link_to '个人中心', user_info_path, class: 'dropdown-item' %>
                       <%= link_to 'Edit User Profile', edit_user_info_path, class: 'dropdown-item' %>
