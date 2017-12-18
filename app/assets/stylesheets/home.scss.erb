@@ -295,7 +295,7 @@ select.form-control {
 }
 
 .section {
-	padding: 70px 0px;
+	padding: 40px 0px;
 	border-bottom: 2px solid #e7f7f2;
 	&.grey-section {
 		background: #f9f9f9;
@@ -314,7 +314,7 @@ select.form-control {
 			font-size: 42px;
 			color: #31c89d;
 			position: relative;
-			margin-bottom: 40px;
+			margin-bottom: 30px;
 			// &:after {
 			// 	content: "";
 			// 	display: block;
@@ -339,7 +339,7 @@ select.form-control {
 	h3 {
 		font-size: 22px;
 		color: #31c89d;
-		margin: 50px 0 20px;
+		margin: 20px 0 20px;
 	}
 	p {
 		color: #979999;
@@ -438,15 +438,21 @@ select.form-control {
 		ul {
 			// padding-bottom: 10px;
 		}
-		li.degree {
-			color: #31c89d;
-			position: relative;
-			display: block;
-			// padding-left: 26px;
-			text-overflow: ellipsis;
-			overflow: hidden;
-			white-space: nowrap;
+		li{
+			margin-bottom: 5px;
+
+			&.degree {
+				color: #31c89d;
+				position: relative;
+				display: block;
+				// padding-left: 26px;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+				margin-bottom: 0px;
+			}
 		}
+
 		.two-links {
 			display: flex;
 			li {
@@ -674,17 +680,17 @@ select.form-control {
 
 	.header {
 		text-align: left;
-		padding: 50px 40px;
+		padding: 30px 40px 10px;
 	}
 	.body {
 		text-align: left;
-		padding: 50px 40px;
+		padding: 30px 40px 10px;
 		color: #979999;
 		font-size: 13px;
 		line-height: 26px;
 		border-bottom-left-radius: 6px;
 		border-bottom-right-radius: 6px;
-		height: 280px;
+		height: 180px;
 		// overflow: hidden;
 	}
 	.header h5 {
