@@ -3,36 +3,34 @@
 <!-- <hr> -->
 <% for transaction in @transactions do %>
   <% other = transaction.send(other_role) %>
-  <% next if other.nil?%>
-  <div class="row mb-4">
-    <div class="col-3">
-      <%= image_tag profile_image_of(other), class: 'd-block m-auto' %>
-    </div>
-    <div class="col-4">
-      <%= link_to transaction do %>
-        <h5><%= other.full_name %></h5>
-      <% end %>
-      <div>
-        <span class="mr-3">状态:</span><span>未确认</span>
-      </div>
-      <div>
-        <span class="mr-3">订单创建日期:</span><span><%= transaction.created_at %></span>
-      </div>
-      <div>
-        <span class="mr-3">订单更新日期:</span><span><%= transaction.updated_at %></span>
-      </div>
-    </div>
-    <div class="col-5 d-flex flex-column">
-      <h6>聊天记录</h6>
-      <div class="chat-box">
-        <div class="chat-lines">
-          <% for chat_line in transaction.chat.chat_lines do %>
-          <div class="chat-line<%= ' chat-line-right' if chat_line.user_info_id == current_user.id %>">
-            <pre><%= chat_line.content %></pre>
-          </div>
-          <% end %>
-        </div>
+  <% @transactions.delete(transaction) if other.nil?%>
+<%end%>
+
+<% if @transactions.size == 0 %>
+  <p class="no-order-message">No orders here</p>
+<%else%>
+<div class="row order-title-row">
+  <div class="col-sm-3"><%= other_role == "instructor" ? "Instructor Name" : "Student Name" %></div>
+  <div class="col-sm-3">Order Placed at</div>
+  <div class="col-sm-3">Order Status</div>
+  <div class="col-sm-3">Actions</div>
+</div>
+
+
+  <% for transaction in @transactions do %>
+    <% other = transaction.send(other_role) %>
+    <% next if other.nil?%>
+
+    <div class="row order-title-row data-row">
+      <div class="col-sm-3"><%= other.full_name %></div>
+      <div class="col-sm-3"><%= transaction.created_at %></div>
+      <div class="col-sm-3"><%= transaction.status %></div>
+      <div class="col-sm-3">
+        <%= link_to transaction do %>
+          View Details
+        <% end %>
       </div>
     </div>
-  </div>
+
+  <% end %>
 <% end %>
