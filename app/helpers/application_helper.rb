@@ -48,7 +48,8 @@ module ApplicationHelper
     puts "params::::#{params}"
     if params["controller"] == "profiles" ||
       (params["controller"] == "consult_transactions" && params["action"] == "show") ||
-      (params["controller"] == "messages" && params["action"] == "index")
+      (params["controller"] == "messages" && params["action"] == "index") ||
+      (params["controller"] == "consult_transactions" && params["action"] == "index")
       "dark"
     end
   end

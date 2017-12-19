@@ -3,6 +3,8 @@
 @import "halvetica-rounded";
 
 $main-text-color: #717070;
+$question-text: #4A4A4A;
+$theme-green: #31c89d;
 
 body {
 	padding-top: 0;
@@ -45,26 +47,26 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .default-btn {
-	background: #31c89d;
+	background: $theme-green;
 	color: #fff;
-	border: 2px solid #31c89d;
+	border: 2px solid $theme-green;
 	cursor: pointer;
 	transition: all .4s ease;
 
 	&:hover {
-		color: #31c89d;
+		color: $theme-green;
 		background: transparent;
 		cursor: pointer;
 		transition: all .4s ease;
 	}
 
 	&.empty {
-		color: #31c89d;
+		color: $theme-green;
 		background: transparent;
 		cursor: pointer;
 		transition: all .4s ease;
 		&:hover {
-			background: #31c89d;
+			background: $theme-green;
 			color: #fff;
 		}
 	}
@@ -110,7 +112,7 @@ select, button {
 }
 
 .top-bar {
-	background: #31c89d;
+	background: $theme-green;
 	color: #fff;
 	padding: 6px 0px 8px;
 }
@@ -212,7 +214,7 @@ select, button {
 		padding-bottom: 0;
 		h1 {
 			font-size: 50px;
-			color: #31c89d;
+			color: $theme-green;
 			font-weight: normal;
 			margin-bottom: 20px;
 		}
@@ -287,7 +289,7 @@ select.form-control {
 	&.active {
 		width: 44px;
 		border-radius: 14px;
-		background: #31c89d;
+		background: $theme-green;
 	}
 	&:last-child {
 		margin-right: 0px;
@@ -312,7 +314,7 @@ select.form-control {
 
 		h1 {
 			font-size: 42px;
-			color: #31c89d;
+			color: $theme-green;
 			position: relative;
 			margin-bottom: 30px;
 			// &:after {
@@ -321,7 +323,7 @@ select.form-control {
 			// 	position: absolute;
 			// 	height: 3px;
 			// 	width: 65px;
-			// 	background: #31c89d;
+			// 	background: $theme-green;
 			// 	left: 50%;
 			// 	margin-left: -33px;
 			// 	bottom: -35px;
@@ -338,7 +340,7 @@ select.form-control {
 .steps-con {
 	h3 {
 		font-size: 22px;
-		color: #31c89d;
+		color: $theme-green;
 		margin: 20px 0 20px;
 	}
 	p {
@@ -428,10 +430,10 @@ select.form-control {
 		}
 	}
 	// &:hover .usr-img img, &.active .usr-img img {
-	// 	border: 4px solid #31c89d;
+	// 	border: 4px solid $theme-green;
 	// }
 	// &:hover .usr-img .usr-name, &.active .usr-img .usr-name {
-	// 	color: #31c89d;
+	// 	color: $theme-green;
 	// }
 	.usr-txt {
 		font-size: 13px;
@@ -442,7 +444,7 @@ select.form-control {
 			margin-bottom: 5px;
 
 			&.degree {
-				color: #31c89d;
+				color: $theme-green;
 				position: relative;
 				display: block;
 				// padding-left: 26px;
@@ -487,11 +489,11 @@ select.form-control {
 	}
 	.location-new{
 		position: absolute;
-    bottom: 0;
-    background: rgba(0,0,0,.4);
-    color: white;
-    width: 100%;
-    padding: 10px 25px;
+		bottom: 0;
+		background: rgba(0,0,0,.4);
+		color: white;
+		width: 100%;
+		padding: 10px 25px;
 
 		.specialization{
 			font-size: 20px;
@@ -519,7 +521,7 @@ select.form-control {
 
 .div-bg {
 	&:hover .review-comment .comment, &.active .review-comment .comment {
-		color: #31c89d;
+		color: $theme-green;
 	}
 	.amount {
 		color: #dadada;
@@ -531,7 +533,7 @@ select.form-control {
 			vertical-align: middle;
 		}
 		.digit {
-			color: #31c89d;
+			color: $theme-green;
 			font-size: 24px;
 			margin: 0 5px;
 		}
@@ -555,7 +557,7 @@ select.form-control {
 	transition: all .4s ease;
 
 	h4 {
-		color: #31c89d;
+		color: $theme-green;
 		font-size: 22px;
 		text-overflow: ellipsis;
 		overflow: hidden;
@@ -567,7 +569,7 @@ select.form-control {
 
 .without-bg-con {
 	&:hover .without-img-bg {
-		background: #31c89d;
+		background: $theme-green;
 		color: #fff;
 		cursor: pointer;
 		h4 {
@@ -658,13 +660,13 @@ select.form-control {
 }
 
 .without-bg-con:hover .user-time .usr-img img {
-	border: 3px solid #31c89d;
+	border: 3px solid $theme-green;
 }
 
 .user-time {
 	.usr-name {
 		font-size: 16px;
-		color: #31c89d;
+		color: $theme-green;
 		padding-bottom: 5px;
 	}
 	.date {
@@ -777,7 +779,7 @@ select.form-control {
 	h4 {
 		font-size: 24px;
 		a {
-			color: #31c89d;
+			color: $theme-green;
 		}
 	}
 	.body {
@@ -809,7 +811,7 @@ select.form-control {
 }
 
 .sub-footer {
-	background: #31c89d;
+	background: $theme-green;
 	color: #fff;
 	font-size: 12px;
 	padding: 21px 0px;
@@ -865,9 +867,9 @@ select.form-control {
 
 	&.public{
 		li{
-			 a{
-				 padding: 4px!important;
-			 }
+			a{
+				padding: 4px!important;
+			}
 		}
 	}
 
@@ -975,7 +977,7 @@ select.form-control {
 }
 
 .profile-main .header .user-name {
-	color: #31c89d;
+	color: $theme-green;
 	font-size: 28px;
 	font-weight: normal;
 	margin: 20px 0 25px;
@@ -1074,7 +1076,7 @@ select.form-control {
 .tow-col .inner .header {
 	position: relative;
 	font-size: 20px;
-	color: #31c89d;
+	color: $theme-green;
 	padding-bottom: 30px;
 	// padding-right: 80px;
 }
@@ -1173,7 +1175,7 @@ select.form-control {
 }
 
 .applied-university li > span {
-	color: #31c89d;
+	color: $theme-green;
 	margin-left: 50px;
 }
 
@@ -1467,7 +1469,7 @@ select.form-control {
 }
 
 .chat-con .body .reply-by-user > .msg {
-	background: #31c89d;
+	background: $theme-green;
 	color: #fff;
 }
 
@@ -1666,7 +1668,7 @@ select.form-control {
 }
 
 .left-bar .profile-info .rate-per-hour {
-	color: #31c89d;
+	color: $theme-green;
 	font-size: 17px;
 	padding-top: 20px;
 	border-top: 1px solid #acadad;
@@ -1742,12 +1744,12 @@ select.form-control {
 
 .profile-main-con .profile-data-con .tabs li:hover a,
 .profile-main-con .profile-data-con .tabs li.active a {
-	border-bottom: 2px solid #31c89d;
+	border-bottom: 2px solid $theme-green;
 }
 
 .profile-main-con .profile-data-con h1 {
 	font-size: 20px;
-	color: #31c89d;
+	color: $theme-green;
 	font-weight: normal;
 	margin-bottom: 30px;
 }
@@ -1790,7 +1792,7 @@ select.form-control {
 	font-size: 40px;
 	top: 50%;
 	margin-top: -24px;
-	color: #31c89d;
+	color: $theme-green;
 }
 
 .profile-data-con .carousel-multi-item .controls-top a:focus {
@@ -1874,7 +1876,7 @@ select.form-control {
 }
 
 .green {
-	color: #31c89d;
+	color: $theme-green;
 }
 
 .grey {
@@ -1902,7 +1904,7 @@ select.form-control {
 	content: "";
 	width: 3px;
 	height: 100%;
-	background: #31c89d;
+	background: $theme-green;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -1920,7 +1922,7 @@ select.form-control {
 	border: 4px solid #fff;
 	border-radius: 100%;
 	position: absolute;
-	background: #31c89d;
+	background: $theme-green;
 	left: -7px;
 	top: 50%;
 	margin-top: -10px;
@@ -1974,7 +1976,7 @@ select.form-control {
 .progres-percent .progres-bar .percent {
 	height: 100%;
 	width: 60%;
-	background: #31c89d;
+	background: $theme-green;
 	border-radius: 40px;
 }
 
@@ -2073,7 +2075,7 @@ textarea.form-control.grey {
 }
 
 .status-con .img-txt {
-	color: #31c89d;
+	color: $theme-green;
 	padding-bottom: 15px;
 }
 
@@ -2124,7 +2126,7 @@ textarea.form-control.grey {
 		padding: 10px;
 		left: 10px;
 		border-radius: 10px;
-		border: 1px solid #31c89d;
+		border: 1px solid $theme-green;
 	}
 }
 form{
@@ -2163,6 +2165,36 @@ form{
 				img{
 					width: 40px;
 					height: 40px;
+				}
+			}
+		}
+	}
+}
+.orders-tabs{
+	padding: 50px 0;
+
+	.tab-header{
+		background: #fff;
+		padding: 0px 50px;
+		border-radius: 10px;
+
+		.nav-tabs{
+			border: 0px;
+
+			.nav-item{
+				padding: 0 20px;
+
+				.nav-link{
+					border: 0px;
+					color: $main-text-color;
+					font-size: 16px;
+					padding: 20px 0;
+
+					&.active{
+						color: $question-text;
+						font-weight: 900;
+						border-bottom: 5px solid $theme-green;
+					}
 				}
 			}
 		}
