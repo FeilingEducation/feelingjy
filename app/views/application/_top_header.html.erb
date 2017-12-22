@@ -5,12 +5,12 @@
   <div class="main-nav">
     <div class="header-container">
       <div class="row">
-        <div class="col-md-3 col-sm-4 logo">
+        <div class="col-md-1 col-sm-1 logo">
           <a href="/">
-            <%=image_tag "reskin/fj-logo.png"%></a>
+            <%=image_tag "reskin/logo-small.png"%></a>
           </div>
 
-          <div class="col-md-7 col-sm-6">
+          <div class="col-md-9 col-sm-8">
             <ul class="main-nav <%= current_user.nil? ? "public" : ""%>">
               <li><%= link_to "Find your Mentor", mentors_path, class: "header-nav-link nav-link" %></li>
               <% if current_user.present? && !user_is_instructor? %>
