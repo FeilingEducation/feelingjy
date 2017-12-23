@@ -12,7 +12,7 @@ class InstructorInfosController < AuthenticatedResourcesController
   end
 
   def new
-    @instructor_info = InstructorInfo.new(min_price: 600, max_price: 800)
+    @instructor_info = InstructorInfo.new(min_price: 600, max_price: 800, consulting_tutor: true, brainstorming_tutor: true, writing_tutor: "false", visa_consultant:true)
   end
 
   def create

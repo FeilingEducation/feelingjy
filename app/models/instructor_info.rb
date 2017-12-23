@@ -63,7 +63,7 @@ class InstructorInfo < ApplicationRecord
   end
 
   def self.tutor_options local='en'
-    (local == 'en' ? TUTOR_OPTIONS_ENGLISH : TUTOR_OPTIONS_CHINES).each_with_index.map {|m,i| [m,i]}
+    (local == 'en' ? TUTOR_OPTIONS_ENGLISH : TUTOR_OPTIONS_CHINES).reverse.each_with_index.map {|m,i| [m,i.to_s]}
   end
 
   def self.schools_applied_before_options local='en'

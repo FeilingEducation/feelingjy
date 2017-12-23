@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   get 'search', to: 'search#index'
+  post 'search', to: 'search#search'
 
   resource :user_info, path: 'account', except: [:destroy]
   resource :instructor_info, path: 'instructor', only: [:new, :create, :edit, :update, :destroy] do

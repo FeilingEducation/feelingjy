@@ -1,6 +1,6 @@
 module InstructorInfosHelper
 
-  def services_of(instructor)
+  def services_of instructor
     services = []
     # if instructor.is_early_consult
       services << '前期咨询'
@@ -18,5 +18,9 @@ module InstructorInfosHelper
     #   services << '暂无服务'
     # end
     services
+  end
+
+  def services_as_collection
+    ["Early Consultant","Brainstroming Consultant", "Essay Consultant", "Visa Consultant"].each_with_index.map {|m,i| [m,i]}
   end
 end

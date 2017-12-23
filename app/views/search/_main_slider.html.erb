@@ -1,4 +1,22 @@
 <div class="main-slider">
+  <%= form_tag search_path, class: "search-form" do %>
+    <div class="search-con">
+      <div class="select-con">
+        <%= select_tag "service", options_for_select(services_as_collection), prompt: "Select service", class: "form-control"%>
+        <i class="fa fa-angle-down"></i>
+      </div>
+
+      <div class="select-con">
+        <select class="form-control">
+          <option>Search Field</option>
+          <option>Search Field 1</option>
+          <option>Search Field 2</option>
+          <option>Search Field 3</option>
+        </select>
+
+        <i class="fa fa-angle-down"></i>
+      </div>
+    <%end%>
   <div id="carousel-main" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carousel-main" data-slide-to="0" class="active"></li>
@@ -14,29 +32,6 @@
           <div class="carousel-caption d-none d-md-block text-center">
             <h1>Feiling Education</h1>
             <p>We are a platform for connecting students with tutors, providing each side with the best service possible. Students receive quality lessons, while tutors can gain success on the platform.</p>
-
-            <div class="search-con">
-              <div class="select-con">
-                <select class="form-control">
-                  <option>Search Field</option>
-                  <option>Search Field 1</option>
-                  <option>Search Field 2</option>
-                  <option>Search Field 3</option>
-                </select>
-
-                <i class="fa fa-angle-down"></i>
-              </div>
-
-              <div class="select-con">
-                <select class="form-control">
-                  <option>Search Field</option>
-                  <option>Search Field 1</option>
-                  <option>Search Field 2</option>
-                  <option>Search Field 3</option>
-                </select>
-
-                <i class="fa fa-angle-down"></i>
-              </div>
 
               <button class="btn default-btn" type="button">Search</button>
             </div>
