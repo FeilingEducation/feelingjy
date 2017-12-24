@@ -182,6 +182,7 @@
         background-repeat: no-repeat;
         padding: 15px 30px;
         margin: 0 4px;
+        position: relative;
 
         img{
           max-width: 40px;
@@ -197,7 +198,7 @@
           margin: 10px 0 5px 0;
           color: #fff;
 
-          &.white{
+          &.colored{
             color: $question-text;
           }
         }
@@ -209,6 +210,14 @@
           img{
             position: absolute;
             right: 20px;
+          }
+          &.requirments{
+            width: 300px;
+            min-height: 190px;
+
+            p{
+              line-height: 24px;
+            }
           }
         }
         &.last{
@@ -226,7 +235,7 @@
             max-width: 160px;
             height: 100px;
             position: absolute;
-            background-size: contain!important;
+            background-size: cover !important;
             margin: auto;
             top: 10px;
             bottom: 0;
