@@ -11,9 +11,11 @@
             <%=image_tag "reskin/logo-small.png", class: 'orig'%>
           </div>
 
-          <div class="col-md-9 col-sm-8">
+          <div class="col-md-7 col-sm-7">
             <ul class="main-nav <%= current_user.nil? ? "public" : ""%>">
-              <li><%= link_to "Find your Mentor", mentors_path, class: "header-nav-link nav-link" %></li>
+              <% if current_user.present?%>
+                <li><%= link_to "Find your Mentor", mentors_path, class: "header-nav-link nav-link" %></li>
+              <%end%>
               <% if current_user.present? && !user_is_instructor? %>
                 <li><%= link_to "Become a Mentor", new_instructor_info_path, class: "nav-link" %></li>
               <%end%>
@@ -29,7 +31,7 @@
             </ul>
 
           </div>
-          <div class="col-md-2 col-sm-2">
+          <div class="col-md-4 col-sm-4">
 
               <% if user_signed_in? %>
               <!-- <li class="nav-item"> -->
@@ -56,6 +58,9 @@
                 </ul>
               <%else%>
                 <ul class="main-nav top-bar">
+                  <% unless current_user.present?%>
+                    <li><%= link_to "Find your Mentor", mentors_path, class: "nav-link" %></li>
+                  <%end%>
                   <li class="">
                     <%= link_to "Signup", new_user_registration_path, remote: true, class: "nav-link" %>
                   </li>
