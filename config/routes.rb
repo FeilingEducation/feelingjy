@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root 'search#index'
   get "/confirmation_success", to: "search#confirmation"
+  get "/terms_conditions", to: "search#terms"
 
   mount ActionCable.server => '/cable'
 

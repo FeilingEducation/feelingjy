@@ -613,6 +613,7 @@ select.form-control {
 .without-img-bg .usr-txt .usr-location {
 	background: url(<%= asset_url "reskin/location-small.png" %>) no-repeat left;
 	padding-left: 30px;
+	padding-top: 2px;
 	color: #979999;
 }
 
@@ -1779,10 +1780,16 @@ select.form-control {
 	padding-bottom: 0;
 }
 
-.profile-main-con .profile-data-con .inner.about-me .timings img {
-	display: inline-block;
-	vertical-align: top;
-	margin-right: 14px;
+.profile-main-con .profile-data-con .inner.about-me .timings{
+	.about-me-description{
+		font-size: 16px;
+		line-height: 26px;
+	}
+	 img {
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 14px;
+	}
 }
 
 .profile-data-con .carousel-multi-item {
@@ -2264,4 +2271,12 @@ form{
 //
 .mentors-wrapper{
 	border-bottom: 0px;
+
+	.container{
+		max-width: 1280px !important;
+
+		.div-bg .img{
+			 height: 200px;
+		}
+	}
 }
