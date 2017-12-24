@@ -1,8 +1,15 @@
-<section class="section grey-section">
+<section class="section mentors-wrapper <%= @results.size > 0 ? " grey-section" : ""%>">
   <div class="container">
     <div class="header">
-      <h1>Select your Mentor</h1>
-      <p>Star tutors recommended to you by platform due to their high ratings</p>
+      <% if @results.size > 0%>
+        <h1>Select your Mentor</h1>
+        <p>Star tutors recommended to you by platform due to their high ratings</p>
+      <%else%>
+        <h1>No Matching results</h1>
+        <p>Please go back to previous screen to select some different parameters</p>
+        <br/>
+        <%= link_to "Back", root_path, class: 'btn btn-default'%>
+      <%end%>
     </div>
 
     <div class="row mentors">

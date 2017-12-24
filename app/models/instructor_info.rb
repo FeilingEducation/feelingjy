@@ -168,4 +168,28 @@ class InstructorInfo < ApplicationRecord
     (local == 'en' ? RESERVE_ADVANCE_NOTIFY_ENGLISH : RESERVE_ADVANCE_NOTIFY_CHINESE)[self.reserve_advance.to_i]
   end
 
+  def self.specialization_as_collection  local = 'en'
+    (local == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE).each_with_index.map {|m,i| [m,i]}
+  end
+
+  def self.search params
+    keys = []
+    if params[:service].present?
+      case params[:service]
+      when "0"
+        keys.push 'consulting_tutor = :service'
+      when "1"
+        keys.push 'brainstorming_tutor = :service'
+      when "2"
+        keys.push 'writing_tutor = :service'
+      when "3"
+        keys.push 'visa_consultant = :service'
+      end
+    end
+    if params[:specialization].present?
+      keys.push 'specialization = :specialization'
+    end
+    InstructorInfo.where(keys.join(" and "), service: 1, specialization: params[:specialization]).limit(20)
+  end
+
 end

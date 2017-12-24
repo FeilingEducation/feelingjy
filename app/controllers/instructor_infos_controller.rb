@@ -8,7 +8,11 @@ class InstructorInfosController < AuthenticatedResourcesController
   # is an instructor.
 
   def index
-    @results = InstructorInfo.limit(20)
+    if params[:service].present? || params[:specialization].present?
+      @results = InstructorInfo.search(params)
+    else
+      @results = InstructorInfo.limit(20)
+    end
   end
 
   def new
