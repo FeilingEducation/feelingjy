@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'search#index'
+  get "/confirmation_success", to: "search#confirmation"
 
   mount ActionCable.server => '/cable'
 
