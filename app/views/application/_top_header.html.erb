@@ -9,68 +9,63 @@
           <a href="/">
             <%=image_tag "reskin/logo-small_v1.png", class: 'colored'%></a>
             <%=image_tag "reskin/logo-small.png", class: 'orig'%>
-          </div>
+        </div>
 
-          <div class="col-md-7 col-sm-7">
+        <%if current_user.present?%>
+          <div class="col-md-9 col-sm-9">
             <ul class="main-nav <%= current_user.nil? ? "public" : ""%>">
-              <% if current_user.present?%>
-                <li><%= link_to "Find your Mentor", mentors_path, class: "header-nav-link nav-link" %></li>
-              <%end%>
-              <% if current_user.present? && !user_is_instructor? %>
+              <% if !user_is_instructor? %>
                 <li><%= link_to "Become a Mentor", new_instructor_info_path, class: "nav-link" %></li>
               <%end%>
-              <% if current_user.present?%>
-                <li class="nav-item">
-                  <%= link_to "My Orders", consult_transactions_path, class: 'nav-link' %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
-                </li>
-              <%end%>
-              <!-- <li><a href="#">VIP Program</a></li> -->
+              <li><%= link_to "Find your Mentor", mentors_path, class: "header-nav-link nav-link" %></li>
+              <li class="nav-item">
+                <%= link_to "My Orders", consult_transactions_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
+              </li>
             </ul>
-
           </div>
+
+            <div class="col-md-2 col-sm-2">
+              <ul class="login main-nav top-bar">
+                <li class="dropdown">
+                  <a href="javascript:void(0)" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= image_tag (profile_image_of || "user-ico.png" ), class: "profile-image-thumbnail" %>
+                  </a>
+                  <div class="dropdown-menu top-bar-drop" aria-labelledby="profile">
+                    <% if user_is_instructor? %>
+                      <%= link_to 'Edit Instructor Profile', edit_instructor_info_path, class: 'dropdown-item' %>
+                    <% end %>
+                    <%= link_to '个人中心', user_info_path, class: 'dropdown-item' %>
+                    <%= link_to 'Edit User Profile', edit_user_info_path, class: 'dropdown-item' %>
+                    <%#= link_to '安全中心', edit_user_registration_path, class: 'dropdown-item' %>
+                    <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: "delete" %>
+                  </div>
+                </li>
+              </ul>
+            </ul>
+          </div>
+        <%else%>
+          <div class="col-md-7 col-sm-7"></div>
           <div class="col-md-4 col-sm-4">
-
-              <% if user_signed_in? %>
-              <!-- <li class="nav-item"> -->
-                <%#= link_to "Orders", consult_transactions_path, class: 'nav-link' %>
-              <!-- </li> -->
-              <!-- <li class="nav-item">
-                <%#= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
-              </li> -->
-                <ul class="login main-nav top-bar">
-                  <li class="dropdown">
-                    <a href="javascript:void(0)" id="profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <%= image_tag (profile_image_of || "user-ico.png" ), class: "profile-image-thumbnail" %>
-                    </a>
-                    <div class="dropdown-menu top-bar-drop" aria-labelledby="profile">
-                      <% if user_is_instructor? %>
-                        <%= link_to 'Edit Instructor Profile', edit_instructor_info_path, class: 'dropdown-item' %>
-                      <% end %>
-                      <%= link_to '个人中心', user_info_path, class: 'dropdown-item' %>
-                      <%= link_to 'Edit User Profile', edit_user_info_path, class: 'dropdown-item' %>
-                      <%#= link_to '安全中心', edit_user_registration_path, class: 'dropdown-item' %>
-                      <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: "delete" %>
-                    </div>
-                  </li>
-                </ul>
-              <%else%>
-                <ul class="main-nav top-bar">
-                  <% unless current_user.present?%>
-                    <li><%= link_to "Find your Mentor", mentors_path, class: "nav-link" %></li>
-                  <%end%>
-                  <li class="">
-                    <%= link_to "Signup", new_user_registration_path, remote: true, class: "nav-link" %>
-                  </li>
-                  <li class="">
-                    <%= link_to "Log In", new_user_session_path, remote: true, class: "nav-link" %>
-                  </li>
-                </ul>
+            <ul class="main-nav top-bar">
+              <% unless current_user.present?%>
+                <li><%= link_to "Find your Mentor", mentors_path, class: "nav-link" %></li>
               <%end%>
+              <li class="">
+                <%= link_to "Signup", new_user_registration_path, remote: true, class: "nav-link" %>
+              </li>
+              <li class="">
+                <%= link_to "Log In", new_user_session_path, remote: true, class: "nav-link" %>
+              </li>
             </ul>
           </div>
+        <%end%>
+
+
+
+
         </div>
       </div>
     </div>
