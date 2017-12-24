@@ -101,7 +101,7 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
     }else{
       $('#max_days').next('span.error').addClass('hidden')
     }
-    if($("select[name='instructor_info[uni_accepted]']").val().length == 0){
+    if($("select[name='instructor_info[uni_accepted]']").length > 0 && $("select[name='instructor_info[uni_accepted]']").val().length == 0){
       isValid = false
     }
 
