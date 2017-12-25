@@ -351,6 +351,35 @@ select.form-control {
 }
 
 .steps-con {
+	.sec{
+		cursor: pointer;
+
+		.bottom-bar{
+			width: 80px;
+			height: 2px;
+			background: $theme-green;
+			display: block;
+			margin: 20px auto;
+			-webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
+	    transition: width .8s;
+		}
+
+		&:hover > .bottom-bar{
+			width: 60%;
+		}
+
+		p{
+			visibility: hidden;
+		  opacity: 0;
+		  transition: visibility 0s, opacity .8s linear;
+		}
+
+		&:hover > p{
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+
 	h3 {
 		font-size: 22px;
 		color: $theme-green;
