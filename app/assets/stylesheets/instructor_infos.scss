@@ -110,6 +110,12 @@
         min-height: 170px;
         position: relative;
 
+        &.profile-page{
+          height: 320px!important;
+          width: 370px;
+          line-height: 28px;
+        }
+
         img{
           position: absolute;
           right: 20px;
