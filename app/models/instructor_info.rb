@@ -19,11 +19,14 @@ class InstructorInfo < ApplicationRecord
   UNIVERSITIES_CHINESE = ["California Institute of Technology (Caltech)", "Cambridge", "Columbia University", "Cornell University", "Harvard University", "Johns Hopkins University", "Massachusetts Institute of Technology (MIT)", "Princeton University", "Stanford University", "University of Chicago", "Yale University"]
   SPECIALIZATIONS_ENGLISH = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "English Literature", "Management", "Mathematics", "Physics"]
   SPECIALIZATIONS_CHINESE = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "English Literature", "Management", "Mathematics", "Physics"]
-  DEGREE_COMPLETED_ENGLISH = ['First year graduate student','Second year graduate student', 'Third year graduate student', 'Final year graduate student', 'Complete Degree']
-  DEGREE_COMPLETED_CHINESE = ['First year graduate student','Second year graduate student', 'Third year graduate student', 'Final year graduate student', 'Complete Degree']
+  DEGREE_COMPLETED_ENGLISH = ['First year graduate student','Second year graduate student', 'Third year graduate student', 'Final year graduate student', 'Bachelor', 'PhD' ]
+  DEGREE_COMPLETED_CHINESE = ['First year graduate student','Second year graduate student', 'Third year graduate student', 'Final year graduate student', 'Bachelor', 'PhD']
 
   TUTOR_OPTIONS_ENGLISH = ['Yes, I can do this', 'No, I can\'t do this']
   TUTOR_OPTIONS_CHINES = ['Yes, I can do this', 'No, I can\'t do this']
+
+  IS_GRADUATE_OPTIONS_ENGLISH = ['Yes, I am a graduate', 'No, I am not a graduate']
+  IS_GRADUATE_OPTIONS_CHINES = ['Yes, I am a graduate', 'No, I am not a graduate']
 
   SCHOOLS_APPLIED_BEFORE_ENGLISH = ['One', 'Two','Three', 'Four', 'Five or more']
   SCHOOLS_APPLIED_BEFORE_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
@@ -190,6 +193,10 @@ class InstructorInfo < ApplicationRecord
       keys.push 'specialization = :specialization'
     end
     InstructorInfo.where(keys.join(" and "), service: 1, specialization: params[:specialization]).limit(20)
+  end
+
+  def self.is_graduate_options local='en'
+    (local == 'en' ? IS_GRADUATE_OPTIONS_ENGLISH : IS_GRADUATE_OPTIONS_CHINES).reverse.each_with_index.map {|m,i| [m,i==0]}
   end
 
 end
