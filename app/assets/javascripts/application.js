@@ -187,4 +187,13 @@ $(document).on('turbolinks:load', function () {
       $("#fixed-left-bar").removeClass('fixed')
     }
   })
+
+  $('.vertical-nav-item').on("click", function(){
+    $('.vertical-nav-item').removeClass('active')
+    $(this).addClass('active')
+    var target = $(this).data("target")
+    $('.content-wrapper .sec').addClass('hidden')
+    $(target).removeClass('hidden')
+  })
+
 })

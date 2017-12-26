@@ -361,7 +361,7 @@ select.form-control {
 			display: block;
 			margin: 20px auto;
 			-webkit-transition: width 1s; /* For Safari 3.1 to 6.0 */
-	    transition: width .3s;
+			transition: width .3s;
 		}
 
 		&:hover > .bottom-bar{
@@ -370,8 +370,8 @@ select.form-control {
 
 		p{
 			visibility: hidden;
-		  opacity: 0;
-		  transition: visibility 0s, opacity .3s linear;
+			opacity: 0;
+			transition: visibility 0s, opacity .3s linear;
 		}
 
 		&:hover > p{
@@ -1814,7 +1814,7 @@ select.form-control {
 		font-size: 16px;
 		line-height: 26px;
 	}
-	 img {
+	img {
 		display: inline-block;
 		vertical-align: top;
 		margin-right: 14px;
@@ -2305,7 +2305,29 @@ form{
 		max-width: 1280px !important;
 
 		.div-bg .img{
-			 height: 200px;
+			height: 200px;
+		}
+	}
+}
+.terms-wrapper{
+	color: $main-text-color;
+	
+	.vertical-nav-item{
+		padding: 17px;
+		background: #f9f9f9;
+		border-bottom: 1px solid #ddd;
+		cursor: pointer;
+
+		&.active{
+			background: #eee;
+		}
+	}
+
+	.content-wrapper{
+		.sec{
+			h2,h3{
+				margin-bottom: 30px;
+			}
 		}
 	}
 }
