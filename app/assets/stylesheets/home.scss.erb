@@ -354,6 +354,16 @@ select.form-control {
 	.sec{
 		cursor: pointer;
 
+		.img-wrp{
+			width: 55px;
+			height: 65px;
+			text-align: center;
+			display: inline-block;
+			// img{
+			// 	width: 100%;
+			// }
+		}
+
 		.bottom-bar{
 			width: 70px;
 			height: 2px;
@@ -494,6 +504,10 @@ select.form-control {
 				overflow: hidden;
 				white-space: nowrap;
 				margin-bottom: 0px;
+
+				img{
+					 width: 20px;
+				}
 			}
 		}
 
@@ -637,6 +651,7 @@ select.form-control {
 	background: url(<%= asset_url "reskin/edu-cap.png" %>) no-repeat left;
 	padding-left: 30px;
 	color: #979999;
+	background-size: contain;
 }
 
 .without-img-bg .usr-txt .usr-location {
@@ -644,6 +659,7 @@ select.form-control {
 	padding-left: 30px;
 	padding-top: 2px;
 	color: #979999;
+	background-size: contain;
 }
 
 .without-bg-con:hover .without-img-bg .usr-txt .edu-cap,
@@ -651,6 +667,7 @@ select.form-control {
 	color: #fff;
 	// background: asset_url('reskin/edu-cap-white.png') no-repeat left;
 	background: url(<%= asset_url "reskin/edu-cap-white.png" %>) no-repeat left;
+	background-size: contain;
 }
 
 .without-bg-con:hover .without-img-bg .usr-txt .usr-location,
@@ -658,6 +675,7 @@ select.form-control {
 	color: #fff;
 	// background: asset_url('reskin/location-small-white.png') no-repeat left;
 	background: url(<%= asset_url "reskin/location-small-white.png" %>) no-repeat left;
+	background-size: contain;
 }
 
 .user-image-text.user-right {
@@ -750,21 +768,25 @@ select.form-control {
 	width: 65px;
 	// background: asset_url('reskin/advantage/1.png') no-repeat;
 	background: url(<%= asset_url "reskin/advantage/1.png" %>) no-repeat;
+	background-size: contain;
 }
 
 .advantages:hover .img.freelance,
 .advantages.active .img.freelance {
 	// background: asset_url('reskin/advantage/1-green.png') no-repeat;
 	background: url(<%= asset_url "reskin/advantage/1-green.png" %>) no-repeat;
+	background-size: contain;
 }
 
 .advantages .img.price {
 	// background: asset_url('reskin/advantage/2.png') no-repeat;
 	background: url(<%= asset_url "reskin/advantage/2.png" %>) no-repeat;
+	background-size: contain;
 }
 
 .advantages .img.quality {
 	background: url(<%= asset_url "reskin/advantage/3.png" %>) no-repeat;
+	background-size: contain;
 	// background: asset_url('reskin/advantage/3.png') no-repeat;
 }
 
@@ -772,11 +794,13 @@ select.form-control {
 .advantages.active .img.price {
 	// background: asset_url('reskin/advantage/2-green.png') no-repeat;
 	background: url(<%= asset_url "reskin/advantage/2-green.png" %>) no-repeat;
+	background-size: contain;
 }
 
 .advantages:hover .img.quality,
 .advantages.active .img.quality {
 	background: url(<%= asset_url "reskin/advantage/3-green.png" %>) no-repeat;
+	background-size: contain;
 	// background: asset_url('reskin/advantage/3-green.png') no-repeat;
 }
 .advantages {
@@ -788,6 +812,7 @@ select.form-control {
 
 .footer-top {
 	position: relative;
+
 	.footer-overlay {
 		position: absolute;
 		height: 100%;
@@ -811,6 +836,9 @@ select.form-control {
 			p {
 				margin-bottom: 50px;
 			}
+			img{
+				width: 80px;
+			}
 		}
 	}
 }
@@ -819,6 +847,7 @@ select.form-control {
 	padding: 55px 0 45px;
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	background: #f9f9f9;
+
 	h4 {
 		font-size: 24px;
 		a {
@@ -831,6 +860,7 @@ select.form-control {
 	}
 	p img {
 		margin-right: 20px;
+		width: 20px;
 	}
 	.email-date {
 		p {
@@ -866,7 +896,7 @@ select.form-control {
 .main-header {
 	position: fixed;
 	top: 0;
-	z-index: 99;
+	z-index: 1000;
 	width: 100vw;
 	border-bottom: 1px solid #ddd;
 
@@ -1476,6 +1506,7 @@ select.form-control {
 	width: 5px;
 	// background: asset_url('reskin/chat-arrow-left.png') no-repeat;
 	background: asset_url('reskin/chat-arrow-left.png') no-repeat;
+	background-size: contain;
 	left: -5px;
 	bottom: 10px;
 }
@@ -1518,6 +1549,7 @@ select.form-control {
 
 .chat-con .body .reply-by-user > .msg:before {
 	background: asset_url('reskin/chat-right-arrow.png') no-repeat;
+	background-size: contain;
 	left: auto;
 	right: -5px;
 	bottom: 10px;
@@ -1563,51 +1595,62 @@ select.form-control {
 .msg-toolbar li:hover a,
 .msg-toolbar li:active a {
 	background-image: asset_url('reskin/chat-icons/1-green.png');
+	background-size: contain;
 }
 
 .msg-toolbar li a.img {
 	background-image: asset_url('reskin/chat-icons/2.png');
+	background-size: contain;
 }
 
 .msg-toolbar li:hover a.img,
 .msg-toolbar li.active a.img {
 	background-image: asset_url('reskin/chat-icons/2-green.png');
+	background-size: contain;
 }
 
 .msg-toolbar li a.folder {
 	background-image: asset_url('reskin/chat-icons/3.png');
+	background-size: contain;
 }
 
 .msg-toolbar li:hover a.folder,
 .msg-toolbar li.active a.folder {
 	background-image: asset_url('reskin/chat-icons/3-green.png');
+	background-size: contain;
 }
 
 .msg-toolbar li a.crop {
 	background-image: asset_url('reskin/chat-icons/4.png');
+	background-size: contain;
 }
 
 .msg-toolbar li:hover a.crop,
 .msg-toolbar li.active a.crop {
 	background-image: asset_url('reskin/chat-icons/4-green.png');
+	background-size: contain;
 }
 
 .msg-toolbar li a.mic {
 	background-image: asset_url('reskin/chat-icons/5.png');
+	background-size: contain;
 }
 
 .msg-toolbar li:hover a.mic,
 .msg-toolbar li.active a.mic {
 	background-image: asset_url('reskin/chat-icons/5-green.png');
+	background-size: contain;
 }
 
 .msg-toolbar li a.video {
 	background-image: asset_url('reskin/chat-icons/6.png');
+	background-size: contain;
 }
 
 .msg-toolbar li:hover a.video,
 .msg-toolbar li.active a.video {
 	background-image: asset_url('reskin/chat-icons/6-green.png');
+	background-size: contain;
 }
 
 .chat-con{
@@ -2311,7 +2354,7 @@ form{
 }
 .terms-wrapper{
 	color: $main-text-color;
-	
+
 	.vertical-nav-item{
 		padding: 17px;
 		background: #f9f9f9;

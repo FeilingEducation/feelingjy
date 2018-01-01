@@ -15,8 +15,12 @@ class InstructorInfo < ApplicationRecord
 
   validates_presence_of :id, on: [:create]
 
-  UNIVERSITIES_ENGLISH = ["California Institute of Technology (Caltech)", "Cambridge", "Columbia University", "Cornell University", "Harvard University", "Johns Hopkins University", "Massachusetts Institute of Technology (MIT)", "Princeton University", "Stanford University", "University of Chicago", "Yale University"]
-  UNIVERSITIES_CHINESE = ["California Institute of Technology (Caltech)", "Cambridge", "Columbia University", "Cornell University", "Harvard University", "Johns Hopkins University", "Massachusetts Institute of Technology (MIT)", "Princeton University", "Stanford University", "University of Chicago", "Yale University"]
+  UNIVERSITIES_ENGLISH = ['Berkeley','Brown','Cal Tech','Columbia','Cornell','Dartmouth','Duke','Emory','Georgetown','Harvard','John Hopkins','MIT','Northwestern','Notre Dame','Penn','Princeton','Rice','Stanford','UCLA','University of Chicago','USC','Vanderbilt','Virginia','Washington (St.Louis)','Yale']
+  UNIVERSITIES_CHINESE = ['Berkeley','Brown','Cal Tech','Columbia','Cornell','Dartmouth','Duke','Emory','Georgetown','Harvard','John Hopkins','MIT','Northwestern','Notre Dame','Penn','Princeton','Rice','Stanford','UCLA','University of Chicago','USC','Vanderbilt','Virginia','Washington (St.Louis)','Yale']
+
+  # UNIVERSITIES_ENGLISH = ["California Institute of Technology (Caltech)", "Cambridge", "Columbia University", "Cornell University", "Harvard University", "Johns Hopkins University", "Massachusetts Institute of Technology (MIT)", "Princeton University", "Stanford University", "University of Chicago", "Yale University"]
+  # UNIVERSITIES_CHINESE = ["California Institute of Technology (Caltech)", "Cambridge", "Columbia University", "Cornell University", "Harvard University", "Johns Hopkins University", "Massachusetts Institute of Technology (MIT)", "Princeton University", "Stanford University", "University of Chicago", "Yale University"]
+
   SPECIALIZATIONS_ENGLISH = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "English Literature", "Management", "Mathematics", "Physics"]
   SPECIALIZATIONS_CHINESE = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "English Literature", "Management", "Mathematics", "Physics"]
   DEGREE_COMPLETED_ENGLISH = ['First year graduate student','Second year graduate student', 'Third year graduate student', 'Final year graduate student', 'Bachelor', 'PhD' ]

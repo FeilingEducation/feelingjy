@@ -109,6 +109,7 @@
         border-radius: 30px 0 30px 30px;
         min-height: 170px;
         position: relative;
+        line-height: 25px;
 
         &.profile-page{
           height: 320px!important;
@@ -128,6 +129,38 @@
         p{
           color: #fff;
         }
+
+        &.step12{
+          img{
+            bottom: 10px;
+          }
+        }
+
+        &.step13{
+          width: 320px;
+          height: 280px;
+
+          img{
+            bottom: 10px;
+          }
+        }
+
+        &.step14{
+
+          img{
+            bottom: 10px;
+          }
+        }
+
+        &.requirments{
+          width: 320px;
+          min-height: 245px;
+
+          p{
+            line-height: 24px;
+          }
+        }
+
       }
     }
   }
@@ -219,15 +252,7 @@
 
           img{
             position: absolute;
-            right: 20px;
-          }
-          &.requirments{
-            width: 300px;
-            min-height: 190px;
-
-            p{
-              line-height: 24px;
-            }
+            right: 30px;
           }
         }
         &.last{
@@ -305,6 +330,7 @@
             border: 0px;
             z-index: 10;
             cursor: pointer;
+            padding-left: 30px;
 
             img{
               width: 25px;
@@ -316,10 +342,10 @@
 
             &:after{
               width: 100%;
-              text-align: center;
-              padding-top: 22px;
+              // text-align: center;
+              padding-top: 24px;
               cursor: pointer;
-              padding-left: 35px;
+              padding-left: 62px;
             }
           }
         }
@@ -357,6 +383,8 @@
 
         &.croppie-container{
           .cr-image{
+            // display: none;
+            transform: translate3d(0px, 0px, 0px) scale(0); transform-origin: 0px 0px 0px;
             text-indent: -9999px;
           }
 
@@ -401,6 +429,12 @@
             }
           }
         }
+
+        // &.image-loaded{
+        //   .cr-image{
+        //     display: block!important;
+        //   }
+        // }
       }
 
       .custom-file{
