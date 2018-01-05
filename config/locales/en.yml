@@ -170,3 +170,15 @@ en:
       checkbox5: "GRE Score"
       checkbox6: "Published paper"
       checkbox7: "Essay from classes"
+
+    step6:
+      title: "we are almost done!"
+      sub_title: "Let's review your information before creating your page"
+      tick1: "For example tutor option and contact information"
+      modify: "Modify"
+      sub_title2: "And decorate your profile"
+      text2: "Add your life photo, short description and caption."
+      continue: "Continue"
+      sub_title3: "Start your own business"
+      text3: "Decide your price and manage your time"
+      elephant_text: "We thought you could earn"
