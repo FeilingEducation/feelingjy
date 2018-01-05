@@ -92,7 +92,7 @@
                   <div class="form-group">
                     <%= scoped in_scope, :submit_tag, '申请预定', disabled: true, class: 'btn default-btn red' %>
                     <%= scoped !in_scope, :submit_tag, '申请预定', class: 'btn default-btn red' %>
-                    <%= scoped !in_scope, :button_tag, '与我联系', type: 'button', class: 'btn default-btn modal-toggle',
+                    <%= scoped !in_scope, :button_tag, '与我联系', type: 'button', class: 'btn default-btn message-box modal-toggle',
                     data: { target: '#message-box' } %>
                   </div>
                 <% end %>
@@ -123,17 +123,17 @@
 
                 <div class="timings">
                   <h4><%= @instructor_info.page_title %></h4>
-                  <p><%= @instructor_info.description %></p>
+                  <p class="about-me-description"><%= @instructor_info.description %></p>
 
                   <!-- <div class="col-sm-6"><img src="images/clock-green.png" alt="">Weekdays: 8:00 - 20:00 (Beijing)</div>
                   <div class="col-sm-6">Weekends: 10:00 - 18:00 (Beijing)</div> -->
                 </div>
               </div>
 
-              <div class="inner personal-profile">
-                <h1>Personal profile</h1>
+              <!-- <div class="inner personal-profile">
+                <h1>Personal profile</h1> -->
 
-                <div id="multi-items" class="carousel slide carousel-multi-item" data-ride="carousel">
+                <!-- <div id="multi-items" class="carousel slide carousel-multi-item" data-ride="carousel">
                   <div class="controls-top">
                     <a href="#multi-items" class="prev" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                     <a href="#multi-items" class="next" data-slide="next"><i class="fa fa-angle-right"></i></a>
@@ -143,31 +143,15 @@
                     <div class="carousel-item active">
                       <div class="row">
                         <div class="col-md-4">
-                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                          <div class="img" style="background-image: url('<%#= asset_url "reskin/profile-slider.jpg" %>');"></div>
                         </div>
 
                         <div class="col-md-4">
-                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                          <div class="img" style="background-image: url('<%#= asset_url "reskin/profile-slider.jpg" %>');"></div>
                         </div>
 
                         <div class="col-md-4">
-                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="carousel-item">
-                      <div class="row">
-                        <div class="col-md-4">
-                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
-                        </div>
-
-                        <div class="col-md-4">
-                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
-                        </div>
-
-                        <div class="col-md-4">
-                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                          <div class="img" style="background-image: url('<%#= asset_url "reskin/profile-slider.jpg" %>');"></div>
                         </div>
                       </div>
                     </div>
@@ -175,33 +159,49 @@
                     <div class="carousel-item">
                       <div class="row">
                         <div class="col-md-4">
-                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                          <div class="img" style="background-image: url('<%#= asset_url "reskin/profile-slider.jpg" %>');"></div>
                         </div>
 
                         <div class="col-md-4">
-                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                          <div class="img" style="background-image: url('<%#= asset_url "reskin/profile-slider.jpg" %>');"></div>
                         </div>
 
                         <div class="col-md-4">
-                          <div class="img" style="background-image: url('<%= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                          <div class="img" style="background-image: url('<%#= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="carousel-item">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%#= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%#= asset_url "reskin/profile-slider.jpg" %>');"></div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="img" style="background-image: url('<%#= asset_url "reskin/profile-slider.jpg" %>');"></div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
-                <div class="profile-description">
-                  <%= @instructor_info.description %>
+                <!-- <div class="profile-description"> -->
+                  <%#= @instructor_info.description %>
                   <!-- Hello! I am a second year master student majoring in Mechanical Engineering at Stanford University.I have applied for schools twice, so I have some experience and my own understanding of applying for schools. With our cooperation, I will try my best to help you get into your desired school. Let's make full use of our time! -->
-                </div>
+                <!-- </div> -->
 
                 <!-- <div class="load-more text-center">
                   <a href="#" class="btn default-btn">More</a>
                 </div> -->
-              </div>
+              <!-- </div> -->
             </div>
 
-            <div class="profile-data-con">
+            <div class="profile-data-con last">
               <div class="inner main-profile-info">
                 <div class="schools">
                   <h1>Schools I got in</h1>
@@ -210,7 +210,7 @@
                       <div class="col-sm-3">
                         <div class="school-logo">
                           <div class="logo">
-                            <%= image_tag "reskin/schools/#{uni.gsub(' ','_').gsub('(','').gsub(')','').downcase}.jpg"%>
+                            <%= image_tag "reskin/universities/#{uni}.jpg"%>
                           </div>
                           <div class="school-name"><%= uni %></div>
                         </div>
@@ -398,7 +398,7 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Canancellation Policy</h1>
+                    <h1>Cancellation Policy</h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
@@ -412,7 +412,7 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Reesume</h1>
+                    <h1>Resume</h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
@@ -548,7 +548,7 @@
               </div>
             </div>
 
-            <div class="profile-data-con">
+            <!-- <div class="profile-data-con">
               <div class="inner">
                 <div class="header clearfix">
                   <h1 class="mb-0 pull-left">Evaluation</h1>
@@ -652,7 +652,7 @@
                         <div class="clearfix review-date">
                           <div class="pull-left date">2017/11/03</div>
                           <div class="pull-right">
-                            <%= image_tag "reskin/stars.png" %>
+                            <%#= image_tag "reskin/stars.png" %>
                           </div>
                         </div>
 
@@ -669,15 +669,15 @@
               <div class="load-more text-center">
                 <a href="#" class="btn default-btn">See more reviews</a>
               </div>
-            </div>
+            </div> -->
 
-            <div class="profile-data-con">
+            <!-- <div class="profile-data-con">
               <textarea placeholder="Please enter your content" class="form-control grey"></textarea>
 
               <div class="load-more text-center">
                 <button type="button" class="btn default-btn empty">Submit</button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

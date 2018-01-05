@@ -1,19 +1,28 @@
 <!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#orders-received" role="tab">Orders Received</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#orders-placed" role="tab">Orders Placed</a>
-  </li>
-</ul>
-
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane" id="orders-placed" role="tabpanel">
-    <%= render partial: 'old_index', locals: {'@transactions': @transactions_placed, other_role: 'instructor', role: 'student' }%>
+<div class="container orders-tabs">
+  <div class="row tab-header">
+    <div class="col-sm-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#orders-received" role="tab">Orders Received</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#orders-placed" role="tab">Orders Placed</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="tab-pane active" id="orders-received" role="tabpanel">
-    <%= render partial: 'old_index', locals: {'@transactions': @transactions_received, role: 'instructor', other_role: 'student'}%>
+
+  <div class="row tab-content-wrapper">
+    <div class="col-sm-12">
+      <div class="tab-content">
+        <div class="tab-pane" id="orders-placed" role="tabpanel">
+          <%= render partial: 'old_index', locals: {'@transactions': @transactions_placed, other_role: 'instructor', role: 'student' }%>
+        </div>
+        <div class="tab-pane active" id="orders-received" role="tabpanel">
+          <%= render partial: 'old_index', locals: {'@transactions': @transactions_received, role: 'instructor', other_role: 'student'}%>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

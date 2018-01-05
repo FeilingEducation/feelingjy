@@ -11,9 +11,14 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6">
     <div class="form-group">
       <%= f.select :degree_completed, InstructorInfo.degree_as_optons(lang), {}, { class: 'select2' } %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.select :is_graduate, InstructorInfo.is_graduate_options(lang), {}, { class: 'select2' } %>
     </div>
   </div>
 </div>

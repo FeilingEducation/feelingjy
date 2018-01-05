@@ -1,13 +1,14 @@
-<div class="col-md-4 col-sm-6">
+<div class="col-md-4 col-sm-6 instructor-profile-box">
   <%= link_to profile_path(instructor) do %>
     <div class="div-bg">
       <div class="img" style="background-image: url('<%= instructor.page_background%>');">
-
-        <div class="divbg-overlay">
-          <div class="location">
-            <%= image_tag "reskin/location-pin.png", class: ''%>
+        <div class="location-new">
+          <%#= image_tag "reskin/location-pin.png", class: ''%>
+          <h6 class="specialization"><%= instructor.specialization_name%> </h6>
+          <span class="usr-location">
+            <%= image_tag "reskin/location-small.png", class: ''%>
             <span><%= instructor.university_name %></span>
-          </div>
+          </span>
         </div>
       </div>
 
@@ -21,7 +22,7 @@
           </div>
 
           <div class="usr-txt">
-            <h6><%= instructor.specialization_name%> </h6>
+            <!-- <h6><%#= instructor.specialization_name%> </h6> -->
             <ul>
               <li class="degree">
                   <%= image_tag "reskin/edu-cap.png", class: ''%>
@@ -29,10 +30,10 @@
               </li>
             </ul>
 
-            <span class="usr-location">
-              <%= image_tag "reskin/location-small.png", class: ''%>
+            <!-- <span class="usr-location">
+              <%#= image_tag "reskin/location-small.png", class: ''%>
               <span><%= instructor.university_name %></span>
-            </span>
+            </span> -->
           </div>
 
           <div class="review-comment">
@@ -42,7 +43,7 @@
               Reviews
             </div>
 
-            <a href="#" class="comment"><i class="fa fa-commenting"></i></a>
+            <!-- <a href="#" class="comment"><i class="fa fa-commenting"></i></a> -->
           </div>
         </div>
       </div>

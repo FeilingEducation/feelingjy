@@ -81,8 +81,10 @@
 
   .right-panel{
     .green-box{
-      background-color: #BCE9DC;
-      border: 1px solid #96D4C2;
+      // background-color: #BCE9DC;
+      // border: 1px solid #96D4C2;
+      background-color: rgba(49,200,156, .8);
+      border: 1px solid rgb(49,200,156);
 
       img{
         max-width: 50px;
@@ -104,7 +106,61 @@
         width: 270px;
         margin: 100px auto;
         padding: 20px;
-        // height: 170px;
+        border-radius: 30px 0 30px 30px;
+        min-height: 170px;
+        position: relative;
+        line-height: 25px;
+
+        &.profile-page{
+          height: 320px!important;
+          width: 370px;
+          line-height: 28px;
+        }
+
+        &.step1{
+          margin-top: 230px;
+        }
+
+        img{
+          position: absolute;
+          right: 20px;
+        }
+
+        p{
+          color: #fff;
+        }
+
+        &.step12{
+          img{
+            bottom: 10px;
+          }
+        }
+
+        &.step13{
+          width: 320px;
+          height: 280px;
+
+          img{
+            bottom: 10px;
+          }
+        }
+
+        &.step14{
+
+          img{
+            bottom: 10px;
+          }
+        }
+
+        &.requirments{
+          width: 320px;
+          min-height: 245px;
+
+          p{
+            line-height: 24px;
+          }
+        }
+
       }
     }
   }
@@ -169,6 +225,7 @@
         background-repeat: no-repeat;
         padding: 15px 30px;
         margin: 0 4px;
+        position: relative;
 
         img{
           max-width: 40px;
@@ -182,12 +239,21 @@
         p.bold-text{
           font-size: 24px;
           margin: 10px 0 5px 0;
-          color: $question-text;
+          color: #fff;
+
+          &.colored{
+            color: $question-text;
+          }
         }
 
         &.elepahnt{
           padding: 20px 30px;
-          height: 170px;
+          min-height: 170px;
+
+          img{
+            position: absolute;
+            right: 30px;
+          }
         }
         &.last{
           border-radius: 10px;
@@ -204,7 +270,7 @@
             max-width: 160px;
             height: 100px;
             position: absolute;
-            background-size: contain!important;
+            background-size: cover !important;
             margin: auto;
             top: 10px;
             bottom: 0;
@@ -264,6 +330,7 @@
             border: 0px;
             z-index: 10;
             cursor: pointer;
+            padding-left: 30px;
 
             img{
               width: 25px;
@@ -275,10 +342,10 @@
 
             &:after{
               width: 100%;
-              text-align: center;
-              padding-top: 22px;
+              // text-align: center;
+              padding-top: 24px;
               cursor: pointer;
-              padding-left: 35px;
+              padding-left: 62px;
             }
           }
         }
@@ -316,6 +383,8 @@
 
         &.croppie-container{
           .cr-image{
+            // display: none;
+            transform: translate3d(0px, 0px, 0px) scale(0); transform-origin: 0px 0px 0px;
             text-indent: -9999px;
           }
 
@@ -360,6 +429,12 @@
             }
           }
         }
+
+        // &.image-loaded{
+        //   .cr-image{
+        //     display: block!important;
+        //   }
+        // }
       }
 
       .custom-file{

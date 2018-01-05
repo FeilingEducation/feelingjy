@@ -1,14 +1,23 @@
 class InstructorInfosController < AuthenticatedResourcesController
 
-  before_action :check_user_info_initialized, except: [:states, :cities, :schools_applied]
-  before_action :check_instructor_info_initialized, except: [:states, :cities, :schools_applied]
+  before_action :check_user_info_initialized, except: [:states, :cities, :schools_applied,:index]
+  before_action :check_instructor_info_initialized, except: [:states, :cities, :schools_applied,:index]
+  before_action :authenticate_user!, except: [:index]
 
   # Notice that there is no index or show action for this controller.
   # Those are handled by the user_info controller depending on if the current_user
   # is an instructor.
 
+  def index
+    if params[:service].present? || params[:specialization].present?
+      @results = InstructorInfo.search(params)
+    else
+      @results = InstructorInfo.limit(20)
+    end
+  end
+
   def new
-    @instructor_info = InstructorInfo.new(min_price: 600, max_price: 800)
+    @instructor_info = InstructorInfo.new(min_price: 600, max_price: 800, consulting_tutor: true, brainstorming_tutor: true, writing_tutor: "false", visa_consultant:true)
   end
 
   def create

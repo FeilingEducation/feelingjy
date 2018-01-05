@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'search#index'
+  get "/confirmation_success", to: "search#confirmation"
+  get "/terms_conditions", to: "search#terms"
 
   mount ActionCable.server => '/cable'
 
   get 'search', to: 'search#index'
+  post 'search', to: 'search#search'
 
   resource :user_info, path: 'account', except: [:destroy]
   resource :instructor_info, path: 'instructor', only: [:new, :create, :edit, :update, :destroy] do
@@ -16,6 +19,9 @@ Rails.application.routes.draw do
       get 'schools_applied'
     end
   end
+
+  get 'mentors', to: "instructor_infos#index"
+
   resources :profiles, only: [:show]
   resources :consult_transactions, path: 'transactions', except: [:edit, :new]
   post 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'

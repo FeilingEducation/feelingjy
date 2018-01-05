@@ -14,7 +14,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <%= f.label :country, 'Country' %>
-                  <%= f.select :country, InstructorInfo.countries_as_options, {}, { class: 'select2 country' } %>
+                  <%= f.select :country, options_for_select(InstructorInfo.countries_as_options, "CN"), {}, { class: 'select2 country' } %>
                 </div>
               </div>
             </div>

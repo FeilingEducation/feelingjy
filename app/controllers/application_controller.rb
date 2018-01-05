@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
       stored_location_for(resource_or_scope) || signed_in_root_path(resource_or_scope)
     end
   end
-
+  
   # no longer used as user_info will always created at registration.
   def check_user_info_initialized
     exists = UserInfo.exists?(current_user.id)

@@ -1,5 +1,14 @@
 class SearchController < ApplicationController
 
+  def search
+  end
+
+  def confirmation
+  end
+
+  def terms
+  end
+
   # TODO: better field design and searching queries
   def index
     @search = search_params
