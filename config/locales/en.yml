@@ -31,3 +31,78 @@
 
 en:
   hello: "Hello world"
+
+  header:
+  footer:
+    terms:
+      title: "Terms & Conditions"
+      address: "Department Southern Road Takakuji China Xidong Province Shenzhen City"
+      phone: "400-123-4567"
+      email: "FeilingEducatio@idealens.com"
+      office_time: "From Monday to Friday 9:00-18:00(SGT)"
+
+  homepage:
+    carousel:
+      title: "Feiling Education"
+      description: "Enter into dream school and impressive experience with talent."
+
+    four_steps:
+      title: "Four easy steps"
+      sec1:
+        title: "Consultation"
+        description: "Professional colleagues to share experience"
+      sec2:
+        title: "Brainstroming"
+        description: "Free association, finalize the theme"
+      sec3:
+        title: "Proofreading"
+        description: "Repeatedly revised until satisfied"
+      sec4:
+        title: "Visa Help"
+        description: "Simulation training, guaranteed to pass"
+
+    tutor_background:
+      title: "Tutor Background"
+      description: "Star tutors recommended to you by platform due to their high ratings"
+
+    tutor_reviews:
+      title: "Tutor Reviews"
+      description: "Star tutors recommended to you by platform due to their high ratings"
+      sec1:
+        title: "Finance Program Consulation"
+        to_mentor: "To Mentor: Delia"
+        degree: "Brainstrom Writing rewrite"
+        uni: "Stanford"
+        text: "HongSu is really awesome! He is professional, authentic and passionate about the application process. Highly recommended!"
+        reviews: "Reviews"
+      sec2:
+        title: "Finance Program Consulation"
+        to_mentor: "To Mentor: Delia"
+        degree: "Brainstrom Writing rewrite"
+        uni: "Stanford"
+        text: "HongSu is really awesome! He is professional, authentic and passionate about the application process. Highly recommended!"
+        reviews: "Reviews"
+      sec3:
+        title: "Finance Program Consulation"
+        to_mentor: "To Mentor: Delia"
+        degree: "Brainstrom Writing rewrite"
+        uni: "Stanford"
+        text: "HongSu is really awesome! He is professional, authentic and passionate about the application process. Highly recommended!"
+        reviews: "Reviews"
+
+    advantages:
+      title: "Advantage"
+      description: "Star tutors recommended to you by platform due to their high ratings"
+      sec1:
+        title: "Why freelancer"
+        text: "We are a platform for connecting students with tutors, providing each side with the best service possible. Students receive quality lessons, while tutors can gain success on the platform."
+      sec2:
+        title: "Lowest Price"
+        text: "Low prices are made possible because we are a shared platform where tutors and students can interact. We are confident that we can provide the greatest value for the lowest price."
+      sec3:
+        title: "Best quality"
+        text: "Quality is ensured through the benchmarks built into our platform. Rating is one way of evaluating a tutor’s performance. We also have a team of dedicated professionals for quality checking."
+
+    expert:
+      title: "Expert Admissions Advice At Your Fingertips"
+      description: "Expert Admissions Advice At Your Fingertips"

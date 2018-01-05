@@ -26,7 +26,7 @@
                 <%= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
               </li>
               <li class="nav-item">
-                <% if session[:local] == "cn" %>
+                <% if session[:locale] == "cn" %>
                   <%#= image_tag "reskin/flag/usa.jpg" %>
                   <%= link_to "EN", set_local_path(local: "en"), class: 'nav-link'%>
                 <%else%>
