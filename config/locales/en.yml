@@ -147,3 +147,8 @@ en:
       radio_question: "Have you helped others before?"
       yes_label: "Yes, I have helped others before "
       no_label: "No, this is my first time helping others"
+
+    step3:
+      title: "Step 1: Please fill in the information below"
+      q1: "How many schools have you applied before?"
+      q2: "How many schools have you been accepted?"
