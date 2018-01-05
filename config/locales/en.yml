@@ -33,6 +33,18 @@ en:
   hello: "Hello world"
 
   header:
+    signup: "Sign Up"
+    login: "Log In"
+    logged_in:
+      become_mentor: "Become a Mentor"
+      find_mentor: "Find your Mentor"
+      my_orders: "My Orders"
+      messages: "Messages"
+      view_profile: "User Info"
+      edit_profile: "Edit User Profile"
+      edit_instructor_profile: "Edit Instructor Profile"
+      logout: "Log Out"
+
   footer:
     terms:
       title: "Terms & Conditions"
