@@ -159,3 +159,14 @@ en:
       label1: "Country"
       label2: "State / Province"
       label3: "City"
+
+    step5:
+      title: "Step 1: Please fill in the information below"
+      q: "What informatin can you share to students?"
+      checkbox1: "Personal CV"
+      checkbox2: "Application Letter"
+      checkbox3: "Offer Letter"
+      checkbox4: "GPA"
+      checkbox5: "GRE Score"
+      checkbox6: "Published paper"
+      checkbox7: "Essay from classes"
