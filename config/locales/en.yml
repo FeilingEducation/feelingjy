@@ -118,3 +118,21 @@ en:
     expert:
       title: "Expert Admissions Advice At Your Fingertips"
       description: "Expert Admissions Advice At Your Fingertips"
+
+  registration:
+    btn_agree: "I Agree"
+    btn_disagree: "Nope"
+    btn_next: "Next"
+    btn_back: "Back"
+
+    step0:
+      title: "Before Becoming a Tutor on Feiling"
+      p1: "Feiling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper."
+      p2: "Making tasteful product is the core principle to develop this platform and the main reason to make it work is to make you, my dear tutors to succeed on the platform. The more successful you are, the more meaningful it is for us."
+      p3: "We would do our best to give you the best user experience and make money in the easiest way!"
+
+    step1:
+      title_dear: "Dear"
+      title: "let's get started on your profile page."
+      question_title: "Which school are you from?"
+      elephant_text: "You could earn"
