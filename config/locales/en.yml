@@ -189,6 +189,10 @@ en:
 
     step8:
       title: "Step 2: Decorate your profile page"
+      description: "Description"
+      placeholder: "Please share what you are good and what your suggestions are about applying for a schools. At least 100 characters."
+      error: "Please add at least 400 characters"
+      q: "I am good at applying for"
 
     step9:
       title: "Step 2: Decorate your profile page"

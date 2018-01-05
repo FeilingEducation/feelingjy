@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="section-header">
-      <h3 >Step 2: Decorate your profile page</h3>
+      <h3><%= I18n.t("registration.step8.title") %></h3>
     </div>
   </div>
 
@@ -11,15 +11,15 @@
       <div class="row">
         <div class="col-md-8">
           <div class="question-block">
-            <p class="survey-question">Description</p>
+            <p class="survey-question"><%= I18n.t("registration.step8.description") %></p>
             <div class="form-group">
               <%= f.label :description, "Simply describe yourself please", class: '' %>
-              <%= f.text_area :description, rows: 5, class: '',id: 'description', placeholder: "Please share what you are good and what your suggestions are about applying for a schools. At least 100 characters." %>
-              <span class="error">Please add at least 400 characters</span>
+              <%= f.text_area :description, rows: 5, class: '',id: 'description', placeholder: I18n.t("registration.step8.placeholder") %>
+              <span class="error"><%= I18n.t("registration.step8.error") %></span>
               <span id="description-char-count" class="pull-right char-info" style="font-size: 12px;"><span>0</span> / 400</span>
             </div>
             <div class="question-block check_boxes custom-checkbox-radios">
-              <label>I am good at applying for</label>
+              <label><%= I18n.t("registration.step8.q") %></label>
               <div class="">
                 <% InstructorInfo.best_applying_at_options(lang).each_with_index do |option, idx| %>
                 <div class="radio-btns">
