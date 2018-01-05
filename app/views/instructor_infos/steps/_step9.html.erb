@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="section-header">
-      <h3><%= I18n.t("registration.step7.title") %></h3>
+      <h3><%= I18n.t("registration.step9.title") %></h3>
     </div>
   </div>
 
@@ -11,10 +11,10 @@
       <div class="row">
         <div class="col-md-8">
           <div class="question-block check_boxes custom-checkbox-radios">
-            <p class="survey-question">Set a title for your page!</p>
+            <p class="survey-question"><%= I18n.t("registration.step9.q") %></p>
             <div class="form-group">
-              <label for="page_name_lbl">Add a catching title to attract your students!</label>
-              <%= f.text_field :page_name, rows: 5, class: '',id: 'page_name_lbl', placeholder: "e.g. My life in America (max 100 characters)", :'maxLength' => 100 %>
+              <label for="page_name_lbl"><%= I18n.t("registration.step9.description") %></label>
+              <%= f.text_field :page_name, rows: 5, class: '',id: 'page_name_lbl', placeholder: I18n.t("registration.step9.placeholder"), :'maxLength' => 100 %>
             </div>
           </div>
           <div class="survey-btn-row">

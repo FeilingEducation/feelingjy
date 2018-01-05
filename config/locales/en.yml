@@ -196,6 +196,9 @@ en:
 
     step9:
       title: "Step 2: Decorate your profile page"
+      q: "Set a title for your page!"
+      description: "Add a catching title to attract your students!"
+      placeholder: "e.g. My life in America (max 100 characters)"
 
     step10:
       title: "Step 2: Decorate your profile page"
