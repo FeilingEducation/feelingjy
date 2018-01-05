@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="section-header">
-      <h3 > Step 1: Please fill in the information below</h3>
+      <h3 > <%= I18n.t("registration.step4.title") %></h3>
     </div>
   </div>
   <div class="col-md-6 left-panel">
@@ -9,11 +9,11 @@
       <div class="row">
         <div class="col-md-8">
           <div class="question-block">
-            <p class="survey-question">Where are you from? </p>
+            <p class="survey-question"><%= I18n.t("registration.step4.q")%></p>
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <%= f.label :country, 'Country' %>
+                  <%= f.label :country, I18n.t("registration.step4.label1") %>
                   <%= f.select :country, options_for_select(InstructorInfo.countries_as_options, "CN"), {}, { class: 'select2 country' } %>
                 </div>
               </div>
@@ -21,21 +21,21 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <%= f.label :state, 'State / Province' %>
+                  <%= f.label :state, I18n.t("registration.step4.label2") %>
                   <%= f.select :state, InstructorInfo.default_states_as_options, {}, { class: 'select2 state' } %>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <%= f.label :city, 'City' %>
+                  <%= f.label :city, I18n.t("registration.step4.label3") %>
                   <%= f.select :city, InstructorInfo.default_cities_as_options, {}, { class: 'select2 city' } %>
                 </div>
               </div>
             </div>
           </div>
           <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step3" data-percentage='45%' >上一步</button>
-            <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='75%' data-target="#step5">下一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step3" data-percentage='45%' ><%= I18n.t("registration.btn_back") %></button>
+            <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='75%' data-target="#step5"><%= I18n.t("registration.btn_next") %></button>
           </div>
         </div>
       </div>
