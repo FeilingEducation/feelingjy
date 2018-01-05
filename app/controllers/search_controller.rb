@@ -49,6 +49,12 @@ class SearchController < ApplicationController
     end
   end
 
+  def set_local
+    session[:local] = params[:local]
+    # render json: {status: 200}
+    redirect_to root_path
+  end
+
   private
 
   def search_params
