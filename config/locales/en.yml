@@ -202,6 +202,19 @@ en:
 
     step10:
       title: "Step 2: Decorate your profile page"
+      q: "Please add a picture of yourself!"
+      upload: "Upload"
+      elephant_text1: "Every user (tutors and students) on the platform has a profile picture of her/himself. The purpose is to improve the sense of trust and security."
+      elephant_text2: "Please make sure we can clearly see your face in the picture."
+      done: "Done"
 
     step11:
-      title: "Step 2: Decorate your profile page"
+      title: "we are almost done!"
+      heading1: "Let's review your information before creating your page"
+      desc1: "For example tutor option and contact information"
+      modify: "Modify"
+      heading2: "And decorate your profile"
+      desc2: "Add your life photo, short description and caption."
+      heading3: "Start your own business"
+      desc3: "Decide your price and manage your time"
+      continue: "Continue"
