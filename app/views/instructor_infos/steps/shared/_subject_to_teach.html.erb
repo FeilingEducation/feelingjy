@@ -1,25 +1,25 @@
 <div class="row">
   <div class="col-md-8">
     <div class="form-group">
-      <%= f.label :consulting_tutor, "Become a consulting tutor?" %>
+      <%= f.label :consulting_tutor, <%= I18n.t("registration.step2.label1") %> %>
       <%= f.select :consulting_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
     </div>
   </div>
   <div class="col-md-8">
     <div class="form-group">
-      <%= f.label :brainstorming_tutor, "Become a brainstorming tutor?" %>
+      <%= f.label :brainstorming_tutor, <%= I18n.t("registration.step2.label2") %> %>
       <%= f.select :brainstorming_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
     </div>
   </div>
   <div class="col-md-8">
     <div class="form-group">
-      <%= f.label :writing_tutor, "Become a writing tutor?" %>
+      <%= f.label :writing_tutor, <%= I18n.t("registration.step2.label3") %> %>
       <%= f.select :writing_tutor, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
     </div>
   </div>
   <div class="col-md-8">
     <div class="form-group">
-      <%= f.label :visa_consultant, "Become a visa consulting tutor?" %>
+      <%= f.label :visa_consultant, <%= I18n.t("registration.step2.label4") %> %>
       <%= f.select :visa_consultant, InstructorInfo.tutor_options(lang), {}, { class: 'select2' } %>
     </div>
   </div>

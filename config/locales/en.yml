@@ -136,3 +136,14 @@ en:
       title: "let's get started on your profile page."
       question_title: "Which school are you from?"
       elephant_text: "You could earn"
+
+    step2:
+      title: "Step 1: Please fill in the information below"
+      question_text: "What kind of tutor would you want to be? (mutliple choices)"
+      label1: "Become a consulting tutor?"
+      label2: "Become a brainstorming tutor?"
+      label3: "Become a writing tutor?"
+      label4: "Become a visa consulting tutor?"
+      radio_question: "Have you helped others before?"
+      yes_label: "Yes, I have helped others before "
+      no_label: "No, this is my first time helping others"
