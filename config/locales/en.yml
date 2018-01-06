@@ -278,3 +278,13 @@ en:
       box3:
         p1: "3. Only you will be notified when an order is confirmed."
         p2: "You will receive confirmation emails with including the order detail, including order type, personal requirement, etc."
+
+    step16:
+      sub_title: "Your first business starts from setting available time!"
+      p1: "You can set the time you are available to help students"
+      label1: "Students can only choose time you are available, so please update your time availability timely."
+      label2: "You will be responsible for any cancellation or conflict due to incorrect time availability."
+      label3: "Will do! I'll keep my time availabilities accurate!"
+
+    step17:
+      

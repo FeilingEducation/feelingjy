@@ -10,13 +10,13 @@
       <div class="row">
         <div class="col-md-12">
           <div class="question-block">
-            <p class="survey-question">Your first business starts from setting available time!</p>
-            <label>You can set the time you are available to help students</label>
+            <p class="survey-question"><%= I18n.t("registration.step16.sub_title") %></p>
+            <label><%= I18n.t("registration.step16.p1") %></label>
             <div class="row">
               <div class="col-md-7">
                 <div class="calendar-info-box first">
                   <div class="img-wrapper"><%= image_tag "registration/calendar-icon.png"%></div>
-                  <div class="txt-wrapper"><p>Students can only choose time you are available, so please update your time availability timely.</p></div>
+                  <div class="txt-wrapper"><p><%= I18n.t("registration.step16.label1") %></p></div>
                 </div>
               </div>
               </div>
@@ -24,7 +24,7 @@
               <div class="col-md-8">
                 <div class="calendar-info-box  second">
                   <div class="img-wrapper"><%= image_tag "registration/cancel-icon.png"%></div>
-                  <div class="txt-wrapper"><p>You will be responsible for any cancellation or conflict due to incorrect time availability.</p></div>
+                  <div class="txt-wrapper"><p><%= I18n.t("registration.step16.label2") %></p></div>
                 </div>
               </div>
             </div>
@@ -33,7 +33,7 @@
           <div class="question-block custom-checkbox-radios">
             <div class="row">
               <div class="col-md-8">
-                <%= f.check_box :ensure_accurate_time, id: 'ensure_accurate_time'%><label for="ensure_accurate_time">Will do! I'll keep my time availabilities accurate!</label>
+                <%= f.check_box :ensure_accurate_time, id: 'ensure_accurate_time'%><label for="ensure_accurate_time"><%= I18n.t("registration.step16.label3") %></label>
               </div>
             </div>
           </div>
