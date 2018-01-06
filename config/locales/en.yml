@@ -291,3 +291,14 @@ en:
       p1: "These questions can help you better manage your service and time"
       label1: "Have you ever been a tutor before? "
       label2: "How many students do you wish to help at one time?"
+
+    step18:
+      sub_title: "Set a length of time a student can work with you"
+      p1: "How long you are willing to work with one student is important. Students will use this to adjust their progress and communication with you."
+      label1: "Minimum work days?"
+      label2: "Maximum work days?"
+      error: "It should be greater than min days."
+      placeholder1: "Select minimum work days"
+      placeholder2: "Select maximum work days"
+      cal1: "You can choose"
+      cal2: "between 2 and 30 days"

@@ -10,24 +10,24 @@
       <div class="row">
         <div class="col-md-10">
           <div class="question-block">
-            <p class="survey-question">Set a length of time a student can work with you</p>
-            <p class="">How long you are willing to work with one student is important. Students will use this to adjust their progress and communication with you.</p>
+            <p class="survey-question"><%= I18n.t("registration.step18.sub_title") %></p>
+            <p class=""><%= I18n.t("registration.step18.p1") %></p>
           </div>
 
           <div class="question-block">
             <div class="row">
               <div class="col-md-10">
-                <%= f.label :min_work_daysss, "Minimum work days?" %>
-                <%= f.number_field :min_work_days, min: 2, max: 30, default: 2, class: '', placeholder: 'Select minum work days', id: 'min_days' %>
+                <%= f.label :min_work_daysss, I18n.t("registration.step18.label1") %>
+                <%= f.number_field :min_work_days, min: 2, max: 30, default: 2, class: '', placeholder: I18n.t("registration.step18.placeholder1"), id: 'min_days' %>
               </div>
             </div>
           </div>
           <div class="question-block">
             <div class="row">
               <div class="col-md-10">
-                <%= f.label :max_work_days, "Maximum work days?" %>
-                <%= f.number_field :max_work_days, min: 2, max: 30,default: 2, class: '', placeholder: 'Select maximum work days', id: 'max_days' %>
-                <span class="error hidden"> It should be greater than min days.</span>
+                <%= f.label :max_work_days, I18n.t("registration.step18.label2") %>
+                <%= f.number_field :max_work_days, min: 2, max: 30,default: 2, class: '', placeholder: I18n.t("registration.step18.placeholder2"), id: 'max_days' %>
+                <span class="error hidden"><%= I18n.t("registration.step18.error") %></span>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@
   </div>
   <div class="col-md-3 right-panel">
     <div class="calendar-box elepahnt">
-      <p>You can choose<br/> between 2 and 30 days</p>
+      <p><%= I18n.t("registration.step18.cal1") %><br/> <%= I18n.t("registration.step18.cal2") %> </p>
       <%= image_tag "registration/calendar-min-max.png"%>
     </div>
   </div>
