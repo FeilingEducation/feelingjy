@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="section-header">
-      <h3>Step 3: Prepare for students now</h3>
+      <%= I18n.t("registration.step12.title") %>
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -10,15 +10,15 @@
       <div class="row">
         <div class="col-md-12">
           <div class="question-block">
-            <p class="survey-question">Just a couple more questions for you</p>
-            <p class="">These questions can help you better manage your service and time</p>
+            <p class="survey-question"><%= I18n.t("registration.step17.sub_title") %></p>
+            <p class=""><%= I18n.t("registration.step17.p1") %></p>
           </div>
 
           <div class="question-block">
             <div class="row">
               <div class="col-md-7">
                 <div class="form-group">
-                  <%= f.label :tutor_before, "Have you ever been a tutor before?" %>
+                  <%= f.label :tutor_before, I18n.t("registration.step17.label1") %>
                   <%= f.select :tutor_before, InstructorInfo.tutor_before_options(lang), {}, { class: 'select2' } %>
                 </div>
               </div>
@@ -28,7 +28,7 @@
             <div class="row">
               <div class="col-md-7">
                 <div class="form-group">
-                  <%= f.label :max_std_count, "How many students do you wish to help at one time?" %>
+                  <%= f.label :max_std_count, I18n.t("registration.step17.label2") %>
                   <%= f.select :max_std_count, InstructorInfo.max_std_before_options(lang), {}, { class: 'select2' } %>
                 </div>
               </div>

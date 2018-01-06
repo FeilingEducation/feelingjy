@@ -287,4 +287,7 @@ en:
       label3: "Will do! I'll keep my time availabilities accurate!"
 
     step17:
-      
+      sub_title: "Just a couple more questions for you"
+      p1: "These questions can help you better manage your service and time"
+      label1: "Have you ever been a tutor before? "
+      label2: "How many students do you wish to help at one time?"
