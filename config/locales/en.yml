@@ -309,4 +309,5 @@ en:
       label: "Select the number of days in advance"
 
     step20:
-      
+      sub_title: "How many days could students reserve your time in advance?"
+      p1: "You could choose to open your time for a while"
