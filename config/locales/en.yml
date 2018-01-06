@@ -338,3 +338,13 @@ en:
         error: "It should be greater than min value."
         placeholder1: "Suggest: ¥ 600/hr"
         placeholder2: "Suggest: ¥ 800/hr"
+
+    step24:
+      sub_title: "Provide a deal to start fast"
+      label1: "Give a 20% discount for your first student!"
+      desc1: "To help start your service, this deal is provided to the first student. Other students will be charged with your standard rate. This discount expires in a month."
+      recommended: "Recommended"
+      label2: "No, I will just use my standard rate."
+      desc2: "The first student will not get a discount. It might become a little harder to start your service."
+      elephant_text1: "Why having this option?"
+      elephant_text2: "​According to survey, this will help attract students in the beginning. According to statistics, this will help you get review quickly and attract more students."

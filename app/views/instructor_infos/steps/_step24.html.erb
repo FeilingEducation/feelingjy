@@ -10,15 +10,15 @@
       <div class="row">
         <div class="col-md-12">
           <div class="question-block">
-            <p class="survey-question">Provide a deal to start fast</p>
+            <p class="survey-question"><%= I18n.t("registration.step24.sub_title") %></p>
             <!-- <label>You can set the time you are available to help students</label> -->
             <div class="row">
               <div class="col-md-9">
                 <div class="calendar-info-box price discount first">
                   <div class="img-wrapper"><%= image_tag "registration/discount.png"%></div>
-                  <div class="title-wrapper"><p >Give a 20% discount for your first student!</p></div>
-                  <div class="txt-wrapper"><p>​To help start your service, this deal is provided to the first student. Other students will be charged with your standard rate. This discount expires in a month.</p></div>
-                  <span>Recommended</span>
+                  <div class="title-wrapper"><p ><%= I18n.t("registration.step24.label1") %></p></div>
+                  <div class="txt-wrapper"><p><%= I18n.t("registration.step24.desc1") %></p></div>
+                  <span><%= I18n.t("registration.step24.recommended") %></span>
                   <%= f.radio_button :first_std_discount, true, id: 'first_std_discount_true' %>
                   <label for="first_std_discount_true"></label>
                 </div>
@@ -28,8 +28,8 @@
               <div class="col-md-9">
                 <div class="calendar-info-box price discount first">
                   <div class="img-wrapper"><%= image_tag "registration/no-discount.png"%></div>
-                  <div class="title-wrapper"><p>No, I will just use my standard rate.</p></div>
-                  <div class="txt-wrapper"><p>The first student will not get a discount. It might become a little harder to start your service.</p></div>
+                  <div class="title-wrapper"><p><%= I18n.t("registration.step24.label2") %></p></div>
+                  <div class="txt-wrapper"><p><%= I18n.t("registration.step24.desc2") %></p></div>
                   <%= f.radio_button :first_std_discount, false, id: 'first_std_discount_false' %>
                   <label for="first_std_discount_false"></label>
                 </div>
@@ -45,9 +45,9 @@
     </fieldset>
   </div>
   <div class="col-md-3 right-panel">
-    <div class="green-box elepahnt">
+    <div class="green-box elepahnt step24">
       <%= image_tag "registration/step7-elephent.png"%>
-      <p>Why having this option？<br/> ​According to survey, this will help attract students in the beginning. According to statistics. this will help you get review quickly and attract more students.</p>
+      <p><%= I18n.t("registration.step24.elephant_text1") %><br/><%= I18n.t("registration.step24.elephant_text2") %></p>
     </div>
   </div>
 </div>
