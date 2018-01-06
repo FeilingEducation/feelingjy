@@ -16,7 +16,7 @@
     <div class="col-md-10">
       <%= f.label :max_price, I18n.t("registration.step23.range.label2") %>
       <%= f.number_field :max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: I18n.t("registration.step23.range.placeholder2"), id: "max_price" %>
-      <span class="error hidden">I18n.t("registration.step23.range.error")</span>
+      <span class="error hidden"><%= I18n.t("registration.step23.range.error") %></span>
     </div>
   </div>
 </div>
