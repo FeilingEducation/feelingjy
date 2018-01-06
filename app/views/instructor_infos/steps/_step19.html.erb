@@ -10,14 +10,14 @@
       <div class="row">
         <div class="col-md-10">
           <div class="question-block">
-            <p class="survey-question">How many days in advance do you need the student to notify you?</p>
-            <p class="">How long you are willing to work with one student is important. Students will use this to adjust their progress and communication with you.</p>
+            <p class="survey-question"><%= I18n.t("registration.step19.sub_title") %></p>
+            <p class=""><%= I18n.t("registration.step19.p1") %></p>
           </div>
 
           <div class="question-block">
             <div class="row">
               <div class="col-md-10">
-                <%= f.label :advance_notify, "Select the number of days in advance" %>
+                <%= f.label :advance_notify, I18n.t("registration.step19.label") %>
                 <%= f.select :advance_notify, InstructorInfo.advance_notify_options(lang), {}, { class: 'select2' } %>
               </div>
             </div>

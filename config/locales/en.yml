@@ -302,3 +302,11 @@ en:
       placeholder2: "Select maximum work days"
       cal1: "You can choose"
       cal2: "between 2 and 30 days"
+
+    step19:
+      sub_title: "How many days in advance do you need the student to notify you?"
+      p1: "How long you are willing to work with one student is important. Students will use this to adjust their progress and communication with you."
+      label: "Select the number of days in advance"
+
+    step20:
+      
