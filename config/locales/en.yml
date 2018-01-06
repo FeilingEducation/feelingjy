@@ -348,3 +348,12 @@ en:
       desc2: "The first student will not get a discount. It might become a little harder to start your service."
       elephant_text1: "Why having this option?"
       elephant_text2: "​According to survey, this will help attract students in the beginning. According to statistics, this will help you get review quickly and attract more students."
+
+    step26:
+      sub_title1: "Congrats"
+      sub_title2: "You have completed your mentor info!"
+      desc: "You can start receiving orders from now! You can edit your calendar or privacy  in your personal page anytime."
+      edit_btn: "Edit"
+      finish_btn: "Finish and Start Tutoring"
+      hello: "Hello"
+      visit_home: "Let's visit your home page"

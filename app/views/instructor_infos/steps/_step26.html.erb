@@ -4,12 +4,12 @@
     <div class="row">
       <div class="col-md-10">
         <div class="head-sec">
-          <h2 class="main-heading">Congrats <%= current_user.user_info.first_name%>, You have completed your mentor info!</h2>
-          <p class="sub-heading">You can start receiving orders from now! You can edit your calendar or privacy  in your personal page anytime.</p>
+          <h2 class="main-heading"><%= I18n.t("registration.step26.sub_title1") %> <%= current_user.user_info.first_name%>, <%= I18n.t("registration.step26.sub_title2") %></h2>
+          <p class="sub-heading"><%= I18n.t("registration.step26.desc") %></p>
         </div>
         <div class="survey-btn-row">
-          <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step24" data-percentage="80%">Edit</button>
-          <button type="submit" class="btn btn-primary step-navigate main-btn pull-right submit">Finish and Start Tutoring</button>
+          <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step24" data-percentage="80%"><%= I18n.t("registration.step26.edit_btn") %></button>
+          <button type="submit" class="btn btn-primary step-navigate main-btn pull-right submit"><%= I18n.t("registration.step26.finish_btn") %></button>
         </div>
       </div>
     </div>
@@ -23,8 +23,8 @@
         </div>
         <div class="col-md-12">
           <div class="painting-box last elepahnt">
-            <p>Hello</p>
-            <p>Let's visit your home page</p>
+            <p><%= I18n.t("registration.step26.hello") %></p>
+            <p><%= I18n.t("registration.step26.visit_home") %></p>
             <div class="school-bg-img"></div>
           </div>
         </div>
