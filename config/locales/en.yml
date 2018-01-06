@@ -266,3 +266,15 @@ en:
       k4: "I am more nervous than you when I help you apply"
       k5: "I care about your cooperation very much"
       elephant_text: "Your information is safe with us! These are the requirments for students before they contact you."
+
+    step15:
+      sub_title: "Students can request your help in following way"
+      box1:
+        p1: "1. Only students who meet all terms and requirements can contact you"
+        p2: "Any students who want to work with you need to confirm their contact info, payment info, and clarify the help they need."
+      box2:
+        p1: "2. You decide whom to work with"
+        p2: "You can set all the time you are available. Students who work with you needs to obey all your privacy terms."
+      box3:
+        p1: "3. Only you will be notified when an order is confirmed."
+        p2: "You will receive confirmation emails with including the order detail, including order type, personal requirement, etc."
