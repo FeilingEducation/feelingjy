@@ -1,7 +1,7 @@
 <div class="row student-info-step">
   <div class="col-md-12">
     <div class="section-header">
-      <h3 >Step 3: Prepare for students now</h3>
+      <%= I18n.t("registration.step12.title") %>
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -10,47 +10,47 @@
       <div class="row">
         <div class="col-md-12">
           <div class="question-block">
-            <p class="survey-question">Our requirments for students</p>
-            <label>Before selecting tutors, we require students to meet the following requirements</label>
+            <p class="survey-question"><%= I18n.t("registration.step12.sub_title") %></p>
+            <label><%= I18n.t("registration.step12.q1") %></label>
             <div class="info-row">
               <%= image_tag "registration/tick.png"%>
-              <p> Profile picture</p>
+              <p> <%= I18n.t("registration.step12.r1") %></p>
             </div>
             <div class="info-row">
               <%= image_tag "registration/tick.png"%>
-              <p> Authenticated e-mail address</p>
+              <p> <%= I18n.t("registration.step12.r2") %></p>
             </div>
             <div class="info-row">
               <%= image_tag "registration/tick.png"%>
-              <p> Authenticated phone number</p>
+              <p> <%= I18n.t("registration.step12.r3") %></p>
             </div>
             <div class="info-row">
               <%= image_tag "registration/tick.png"%>
-              <p> Payment information</p>
+              <p> <%= I18n.t("registration.step12.r4") %></p>
             </div>
             <div class="info-row">
               <%= image_tag "registration/tick.png"%>
-              <p> Agree with our privacy term</p>
+              <p> <%= I18n.t("registration.step12.r5") %></p>
             </div>
             <div class="info-row">
               <%= image_tag "registration/tick.png"%>
-              <p> Send you information for questions</p>
+              <p> <%= I18n.t("registration.step12.r6") %></p>
             </div>
           </div>
           <hr/>
           <div class="question-block">
-            <label>For new students:</label>
+            <label><%= I18n.t("registration.step12.q2") %></label>
             <div class="info-row">
               <%= image_tag "registration/tick.png"%>
-              <p> Every tutor tries their best to help you</p>
+              <p> <%= I18n.t("registration.step12.n1") %></p>
             </div>
             <div class="info-row">
               <%= image_tag "registration/tick.png"%>
-              <p> Please respect all tutors, they are why we exist</p>
+              <p><%= I18n.t("registration.step12.n2") %></p>
             </div>
             <div class="info-row">
               <%= image_tag "registration/tick.png"%>
-              <p> Please keep in contact with tutors</p>
+              <p><%= I18n.t("registration.step12.n3") %></p>
             </div>
           </div>
           <div class="survey-btn-row">
@@ -65,7 +65,7 @@
   <div class="col-md-4 right-panel">
     <div class="green-box elepahnt step12">
       <%= image_tag "registration/step7-elephent.png"%>
-      <p>Your information is safe with us! These are the requirment for students before they contact you.</p>
+      <p><%= I18n.t("registration.step12.elephant_text") %></p>
     </div>
   </div>
 </div>
