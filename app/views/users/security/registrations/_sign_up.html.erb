@@ -55,20 +55,8 @@
       </div>
     </div>
   <% end %>
-  <!-- <div class="text-divider">
-    <span>或</span>
-    <hr>
-  </div>
-  <ul class="list-unstyled">
-    <li>
-      <a href="#" class="btn btn-wechat btn-block">
-        <%= image_tag "wechat_logo.png", width: "36", height: "36" %>
-        <span>使用微信登录</span>
-      </a>
-    </li>
-  </ul> -->
   <hr class="tight-bottom">
   <div class="already-login-wrapper">
-    <p > <%= I18n.t("signup.step2.already_account") %> <%= link_to <%= I18n.t("signup.step2.login") %>, new_session_path(resource_name), remote: is_modal, class: "" %></p>
+    <p > <%= I18n.t("signup.step2.already_account") %> <%= link_to I18n.t("signup.step2.login") %>, new_session_path(resource_name), remote: is_modal, class: "" %></p>
   </div>
 </div>
