@@ -390,3 +390,14 @@ en:
         signup: "Sign Up"
         already_account: "Already have an account?"
         login: "Log In"
+
+    signin:
+      heading: "Login"
+      p: "Please fill in your account information below to login."
+      placeholder1: "Enter your email"
+      placeholder2: "Password"
+      remember_me: "Remember me"
+      forgot_pwd: "Forgot Password"
+      login: "Log In"
+      no_account: "Don't have an account?"
+      signup: "Sign Up"

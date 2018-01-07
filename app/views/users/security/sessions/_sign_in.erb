@@ -8,31 +8,31 @@
 
 <div class="form-wrapper <%= local_assigns[:is_modal] ? 'modal-wrapper' : ''%>">
   <div class="head-sec">
-    <h2 class="main-heading">Login</h2>
-    <h6 class="sub-heading">Please fill in your account information below to login.</h6>
+    <h2 class="main-heading"><%= I18n.t "signin.heading" %></h2>
+    <h6 class="sub-heading"><%= I18n.t "signin.p" %></h6>
    </div>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), role: "form") do |f| %>
     <div class="row">
       <div class="col-md-12">
         <div class="form-group tight-bottom field-with-icon">
-          <%= f.email_field :email, autofocus: true, class: "form-control first-input", require: true, placeholder: "Email" %>
+          <%= f.email_field :email, autofocus: true, class: "form-control first-input", require: true, placeholder: I18n.t("signin.placeholder1)" %>
           <div class="icon"><%= image_tag "registration/003-envelope.png"%></div>
         </div>
         <div class="form-group tight-bottom field-with-icon">
-          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: I18n.t("signin.placeholder2)" %>
           <div class="icon"><%= image_tag "registration/001-padlock.png"%></div>
         </div>
         <div class="form-group tight-bottom field-with-icon">
           <% if devise_mapping.rememberable? %>
           <%= f.label :remember_me, class: "small" do %>
           <%= f.check_box :remember_me %>
-          Remember me
+          <%= I18n.t("signin.remember_me") %>
           <% end %>
           <% end %>
-          <%= link_to "Forgot Password?", new_password_path(resource_name), class: "small float-right" %>
+          <%= link_to I18n.t("signin.forgot_pwd"), new_password_path(resource_name), class: "small float-right" %>
         </div>
         <div class="form-group tight-bottom">
-          <%= f.submit "Log In", class: "btn submit-btn btn-block" %>
+          <%= f.submit I18n.t("signin.login"), class: "btn submit-btn btn-block" %>
         </div>
         <!-- <div class="col-md-6">
       </div> -->
@@ -53,6 +53,6 @@
   </ul> -->
   <hr class="tight-bottom">
   <div class="already-login-wrapper">
-    <p > Don't have an account? <%= link_to "Sign Up", new_registration_path(resource_name), remote: is_modal, class: "small float-right" %></p>
+    <p > <%= I18n.t("signin.no_account") %> <%= link_to I18n.t("signin.signup"), new_registration_path(resource_name), remote: is_modal, class: "small float-right" %></p>
   </div>
 </div>
