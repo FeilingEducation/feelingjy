@@ -13,7 +13,7 @@
           <div class="question-block">
             <p class="survey-question"><%= I18n.t("registration.step8.description") %></p>
             <div class="form-group">
-              <%= f.label :description, "Simply describe yourself please", class: '' %>
+              <%= f.label :description, I18n.t("registration.step8.label"), class: '' %>
               <%= f.text_area :description, rows: 5, class: '',id: 'description', placeholder: I18n.t("registration.step8.placeholder") %>
               <span class="error"><%= I18n.t("registration.step8.error") %></span>
               <span id="description-char-count" class="pull-right char-info" style="font-size: 12px;"><span>0</span> / 400</span>

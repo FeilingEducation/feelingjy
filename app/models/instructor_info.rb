@@ -74,6 +74,7 @@ class InstructorInfo < ApplicationRecord
   end
 
   def self.schools_applied_before_options local='en'
+    puts "============:::#{local}"
     (local == 'en' ? SCHOOLS_APPLIED_BEFORE_ENGLISH : SCHOOLS_APPLIED_BEFORE_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
@@ -102,6 +103,7 @@ class InstructorInfo < ApplicationRecord
   end
 
   def self.best_applying_at_options local='en'
+    puts "en:::::::#{local}"
     (local == 'en' ? BEST_APPLYING_AT_ENGLISH : BEST_APPLYING_AT_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 

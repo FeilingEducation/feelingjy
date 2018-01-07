@@ -189,7 +189,8 @@ en:
 
     step8:
       title: "Step 2: Decorate your profile page"
-      description: "Description"
+      description: "Add attracting description"
+      label: "Simply describe yourself please"
       placeholder: "Please share what you are good and what your suggestions are about applying for a schools. At least 100 characters."
       error: "Please add at least 400 characters"
       q: "I am good at applying for"
@@ -224,15 +225,15 @@ en:
       sub_title: "Our requirments for students"
       q1: "Before selecting tutors, we require students to meet the following requirements"
       r1: "Profile picture"
-      r1: "Authenticated e-mail address"
-      r1: "Authenticated phone number"
-      r1: "Payment information"
-      r1: "Agree with our privacy term"
-      r1: "Send you information for questions"
+      r2: "Authenticated e-mail address"
+      r3: "Authenticated phone number"
+      r4: "Payment information"
+      r5: "Agree with our privacy term"
+      r6: "Send you information for questions"
       q2: "For new students:"
       n1: "Every tutor tries their best to help you"
-      n1: "Please respect all tutors, they are why we exist"
-      n1: "Please keep in contact with tutors"
+      n2: "Please respect all tutors, they are why we exist"
+      n3: "Please keep in contact with tutors"
       elephant_text: "Your information is safe with us! These are the requirment for students before they contact you."
 
     step13:
@@ -249,7 +250,7 @@ en:
       k4: "I am more nervous than you when I help you apply"
       k5: "I care about your cooperation very much"
       elephant_text1: "Besides agreeing with our terms, students also need to agree with your terms."
-      elephant_text1: "If you feel upset of insecure about the interaction with student, you cancel before setting a time to avoid penalty."
+      elephant_text2: "If you feel upset of insecure about the interaction with student, you cancel before setting a time to avoid penalty."
 
     step14:
       sub_title: "Your requirments for students"
@@ -358,7 +359,7 @@ en:
       hello: "Hello"
       visit_home: "Let's visit your home page"
 
-  montors:
+  mentors:
     heading: "Select your Mentor"
     desc: "Star tutors recommended to you by platform due to their high ratings"
     no_heading: "No Matching results"
@@ -384,9 +385,9 @@ en:
       birthday_lbl: "Birthday"
       birthday_p: "To sign up, you must be 18 or older."
       t1: "By signing up below, you are agreeing to our"
-      t1: "terms"
-      t1: "and"
-      t1: "privacy policy"
+      t2: "terms"
+      t3: "and"
+      t4: "privacy policy"
       signup: "Sign Up"
       already_account: "Already have an account?"
       login: "Log In"
