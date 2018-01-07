@@ -2,13 +2,13 @@
   <div class="container">
     <div class="header">
       <% if @results.size > 0%>
-        <h1>Select your Mentor</h1>
-        <p>Star tutors recommended to you by platform due to their high ratings</p>
+        <h1><%= I18n.t("mentors.heading") %></h1>
+        <p><%= I18n.t("mentors.desc") %></p>
       <%else%>
-        <h1>No Matching results</h1>
-        <p>Please go back to previous screen to select some different parameters</p>
+        <h1><%= I18n.t("mentors.no_heading") %></h1>
+        <p><%= I18n.t("mentors.no_desc") %></p>
         <br/>
-        <%= link_to "Back", root_path, class: 'btn btn-default'%>
+        <%= link_to I18n.t("mentors.back_btn"), root_path, class: 'btn btn-default'%>
       <%end%>
     </div>
 

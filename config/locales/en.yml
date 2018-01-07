@@ -357,3 +357,10 @@ en:
       finish_btn: "Finish and Start Tutoring"
       hello: "Hello"
       visit_home: "Let's visit your home page"
+
+    montors:
+      heading: "Select your Mentor"
+      desc: "Star tutors recommended to you by platform due to their high ratings"
+      no_heading: "No Matching results"
+      no_desc: "Opps!! No mentors matching your selection. Let's go back to to previous screen to select some different filters"
+      back_btn: "Back"
