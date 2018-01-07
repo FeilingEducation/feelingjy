@@ -9,8 +9,8 @@
 
 <div class="form-wrapper <%= local_assigns[:is_modal] ? 'modal-wrapper' : ''%>">
   <div class="head-sec">
-    <h2 class="main-heading">Please add information</h2>
-    <h6 class="sub-heading">Please fill in the information correct so that we can finish well.</h6>
+    <h2 class="main-heading"><%= I18n.t "signup.step2.heading" %></h2>
+    <h6 class="sub-heading"><%= I18n.t("signup.step2.p") %></h6>
    </div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), role: "form") do |f| %>
     <%= devise_error_messages! %>
@@ -18,39 +18,39 @@
       <div class="col-md-12">
         <%= fields_for :user_info do |user_info| %>
           <div class="form-group tight-bottom field-with-icon">
-            <%= user_info.text_field :last_name, autofocus: true, class: "form-control", require: true, placeholder: "First Name" %>
+            <%= user_info.text_field :last_name, autofocus: true, class: "form-control", require: true, placeholder: I18n.t("signup.step2.placeholder1") %>
             <div class="icon"><%= image_tag "registration/002-avatar.png"%></div>
           </div>
           <div class="form-group tight-bottom field-with-icon">
-            <%= user_info.text_field :first_name, autofocus: true, class: "form-control", require: true, placeholder: "Last Name" %>
+            <%= user_info.text_field :first_name, autofocus: true, class: "form-control", require: true, placeholder: I18n.t("signup.step2.placeholder2") %>
             <div class="icon"><%= image_tag "registration/002-avatar.png"%></div>
           </div>
         <% end %>
         <div class="form-group tight-bottom field-with-icon">
-          <%= f.email_field :email, class: "form-control", require: true, placeholder: "Email" %>
+          <%= f.email_field :email, class: "form-control", require: true, placeholder: I18n.t("signup.step2.placeholder3") %>
           <div class="icon"><%= image_tag "registration/003-envelope.png"%></div>
         </div>
         <div class="form-group tight-bottom field-with-icon">
           <% if @minimum_password_length %>
             <% notice = "（最少#{@minimum_password_length}位）"%>
           <% end %>
-          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "密码#{notice}" %>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: I18n.t("signup.step2.placeholder4") %>
           <div class="icon"><%= image_tag "registration/001-padlock.png"%></div>
         </div>
         <div class="form-group tight-bottom field-with-icon">
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "确认密码" %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: I18n.t("signup.step2.placeholder5") %>
           <div class="icon"><%= image_tag "registration/001-padlock.png"%></div>
         </div>
         <div class="form-group tight-bottom field-with-icon">
-          <h3 class="dob-heading">Birthday</h3>
-          <h6 class="dob-sub-heading">To sign up, you must be 18 or older.</h6>
-          <%= f.date_select :dob, {start_year: (Date.today.year - 100), end_year: Date.today.year - 18, default: 18.years.ago}, {class: "form-control", placeholder: "Birthdate"} %>
+          <h3 class="dob-heading"><%= I18n.t("signup.step2.birthday_lbl") %></h3>
+          <h6 class="dob-sub-heading"><%= I18n.t("signup.step2.birthday_lbl") %></h6>
+          <%= f.date_select :dob, {start_year: (Date.today.year - 100), end_year: Date.today.year - 18, default: 18.years.ago}, {class: "form-control", placeholder: I18n.t("signup.step2.placeholder6")} %>
         </div>
         <div class="form-group tight-bottom terms-text">
-          <p> By signing up below, you are agreeing to our <%= link_to "terms", new_session_path(resource_name), remote: is_modal, class: "" %> and <%= link_to "privacy policy", new_session_path(resource_name), remote: is_modal, class: "" %></p>
+          <p> <%= I18n.t("signup.step2.t1") %> <%= link_to I18n.t("signup.step2.t2"), new_session_path(resource_name), remote: is_modal, class: "" %> <%= I18n.t("signup.step2.t3") %> <%= link_to I18n.t("signup.step2.t4"), new_session_path(resource_name), remote: is_modal, class: "" %></p>
         </div>
         <div class="form-group tight-bottom">
-          <%= f.submit "注册", class: "btn btn-block submit-btn" %>
+          <%= f.submit I18n.t("signup.step2.signup"), class: "btn btn-block submit-btn" %>
         </div>
       </div>
     </div>
@@ -69,6 +69,6 @@
   </ul> -->
   <hr class="tight-bottom">
   <div class="already-login-wrapper">
-    <p > Already have an account? <%= link_to "Login", new_session_path(resource_name), remote: is_modal, class: "" %></p>
+    <p > <%= I18n.t("signup.step2.already_account") %> <%= link_to <%= I18n.t("signup.step2.login") %>, new_session_path(resource_name), remote: is_modal, class: "" %></p>
   </div>
 </div>

@@ -3,20 +3,20 @@
 
   <div class="head-sec">
     <h2 class="terms-heading">
-      Before you join
+      <%= I18n.t "signup.step1.heading" %>
     </h2>
   </div>
   <p>
-    Feiling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper.
+    <%= I18n.t "signup.step1.p1" %>
   </p>
   <p>
-    Making tasteful product is the core principle to develop this platform and the main reason to make it work is to make you, my dear tutors to succeed on the platform. The more successful you are, the more meaningful it is for us.
+    <%= I18n.t "signup.step1.p2" %>
   </p>
   <p>
-    We would do our best to give you the best user experience and make money in the easiest way!
+    <%= I18n.t "signup.step1.p3" %>
   </p>
   <div class="survey-btn-row">
-    <button type="button" class="btn btn-primary step-navigate pull-right" data-target="#step1" data-percentage='1%' >Accept</button>
-    <button type="button" class="btn btn-default step-navigate next main-btn pull-left next" data-target="#step2"  data-dismiss="modal" aria-label="Close">Decline</button>
+    <button type="button" class="btn btn-primary step-navigate pull-right" data-target="#step1" data-percentage='1%' ><%= I18n.t "signup.step1.accept_btn" %></button>
+    <button type="button" class="btn btn-default step-navigate next main-btn pull-left next" data-target="#step2"  data-dismiss="modal" aria-label="Close"><%= I18n.t "signup.step1.decline_btn" %></button>
   </div>
 </div>
