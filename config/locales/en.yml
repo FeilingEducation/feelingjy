@@ -402,3 +402,14 @@ en:
     login: "Log In"
     no_account: "Don't have an account?"
     signup: "Sign Up"
+
+  transactions:
+    order_received: "Orders Received"
+    order_placed: "Orders Placed"
+    no_orders: "No Orders"
+    inst_name: "Instructor Name"
+    std_name: "Student Name"
+    order_placed_at: "Order Placed at"
+    order_status: "Order Status"
+    actions: "Actions"
+    view_more: "View Details"

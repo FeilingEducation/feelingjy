@@ -7,13 +7,13 @@
 <%end%>
 
 <% if @transactions.size == 0 %>
-  <p class="no-order-message">No orders here</p>
+  <p class="no-order-message"><%= I18n.t("transactions.no_orders") %></p>
 <%else%>
 <div class="row order-title-row">
-  <div class="col-sm-3"><%= other_role == "instructor" ? "Instructor Name" : "Student Name" %></div>
-  <div class="col-sm-3">Order Placed at</div>
-  <div class="col-sm-3">Order Status</div>
-  <div class="col-sm-3">Actions</div>
+  <div class="col-sm-3"><%= other_role == "instructor" ? I18n.t("transactions.inst_name") : I18n.t("transactions.std_name") %></div>
+  <div class="col-sm-3"><%= I18n.t("transactions.order_placed_at") %></div>
+  <div class="col-sm-3"><%= I18n.t("transactions.order_status") %></div>
+  <div class="col-sm-3"><%= I18n.t("transactions.actions") %></div>
 </div>
 
 
@@ -27,7 +27,7 @@
       <div class="col-sm-3"><%= transaction.status %></div>
       <div class="col-sm-3">
         <%= link_to transaction do %>
-          View Details
+          <%= I18n.t("transactions.view_more") %>
         <% end %>
       </div>
     </div>
