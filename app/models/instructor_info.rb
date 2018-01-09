@@ -15,43 +15,38 @@ class InstructorInfo < ApplicationRecord
 
   validates_presence_of :id, on: [:create]
 
-  UNIVERSITIES_ENGLISH = ['Berkeley','Brown','Cal Tech','Columbia','Cornell','Dartmouth','Duke','Emory','Georgetown','Harvard','John Hopkins','MIT','Northwestern','Notre Dame','Penn','Princeton','Rice','Stanford','UCLA','University of Chicago','USC','Vanderbilt','Virginia','Washington (St.Louis)','Yale']
-  UNIVERSITIES_CHINESE = ['Berkeley','Brown','Cal Tech','Columbia','Cornell','Dartmouth','Duke','Emory','Georgetown','Harvard','John Hopkins','MIT','Northwestern','Notre Dame','Penn','Princeton','Rice','Stanford','UCLA','University of Chicago','USC','Vanderbilt','Virginia','Washington (St.Louis)','Yale']
+  UNIVERSITIES_ENGLISH = ['Brown University','California Institute of Technology (Caltech)','Columbia University','Cornell University','Dartmouth College','Duke University','Emory University','Georgetown University','Harvard University','Johns Hopkins University','Massachusetts Institute of Technology (MIT)','Northwestern University','Princeton University','Rice University','Stanford University','Rice','Stanford','UC Berkeley','UCLA','University of Chicago','University of Notre Dame','University of Pennsylvania','University of Southern California','University of Virginia','University of Wisconsin-Madison','Vanderbilt University','Washington University in St. Louis','Yale University']
+  UNIVERSITIES_CHINESE = ['布朗大学','加州理工学院','哥伦比亚大学','康奈尔大学','达特茅斯学院','杜克大学','埃默里大学','乔治城大学','哈佛大学','约翰霍普金斯大学','麻省理工学院','西北大学','普林斯顿大学','莱斯大学','斯坦福大学','加州大学伯克利分校','加州大学洛杉矶分校','芝加哥大学','圣母大学','宾夕法尼亚大学','南加州大学','弗吉尼亚大学','威斯康辛大学麦迪逊分校','范德堡大学','圣路易斯华盛顿大学','耶鲁大学']
 
-  # UNIVERSITIES_ENGLISH = ["California Institute of Technology (Caltech)", "Cambridge", "Columbia University", "Cornell University", "Harvard University", "Johns Hopkins University", "Massachusetts Institute of Technology (MIT)", "Princeton University", "Stanford University", "University of Chicago", "Yale University"]
-  # UNIVERSITIES_CHINESE = ["California Institute of Technology (Caltech)", "Cambridge", "Columbia University", "Cornell University", "Harvard University", "Johns Hopkins University", "Massachusetts Institute of Technology (MIT)", "Princeton University", "Stanford University", "University of Chicago", "Yale University"]
-
-  SPECIALIZATIONS_ENGLISH = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "English Literature", "Management", "Mathematics", "Physics"]
-  SPECIALIZATIONS_CHINESE = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "English Literature", "Management", "Mathematics", "Physics"]
-  DEGREE_COMPLETED_ENGLISH = ['First year graduate student','Second year graduate student', 'Third year graduate student', 'Final year graduate student', 'Bachelor', 'PhD' ]
-  DEGREE_COMPLETED_CHINESE = ['First year graduate student','Second year graduate student', 'Third year graduate student', 'Final year graduate student', 'Bachelor', 'PhD']
+  SPECIALIZATIONS_ENGLISH = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "Literature", "Law", "Management", "Mathematics", "Physics"]
+  SPECIALIZATIONS_CHINESE = ["艺术与人文领域", "生命科学", "商科", "计算机科学", "工程", "文学", "法律", "管理", "数学", "物理"]
+  DEGREE_COMPLETED_ENGLISH = ['Bachelor (junior)', 'Bachelor (senior)', 'First year graduate student', 'Second year graduate student', 'PhD'，'Bachelor (graduated)'，'Master (graduated)'，'PhD (graduated)' ]
+  DEGREE_COMPLETED_CHINESE = ['在读本科第三年','在读本科第四年', '在读研究生第一年', '在读研究生第二年', '在读博士'，'本科（已毕业）'，'研究生（已毕业）'，'博士（已毕业）']
 
   TUTOR_OPTIONS_ENGLISH = ['Yes, I can do this', 'No, I can\'t do this']
-  TUTOR_OPTIONS_CHINES = ['Yes, I can do this', 'No, I can\'t do this']
-
-  IS_GRADUATE_OPTIONS_ENGLISH = ['Yes, I am a graduate', 'No, I am not a graduate']
-  IS_GRADUATE_OPTIONS_CHINES = ['Yes, I am a graduate', 'No, I am not a graduate']
+  TUTOR_OPTIONS_CHINESE = ['是的，我能做这些', '抱歉，我做不了这些']
 
   SCHOOLS_APPLIED_BEFORE_ENGLISH = ['One', 'Two','Three', 'Four', 'Five or more']
-  SCHOOLS_APPLIED_BEFORE_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+  SCHOOLS_APPLIED_BEFORE_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '5所学校或5所以上']
 
   TUTOR_BEFORE_ENGLISH = ['I am a newcomer', 'I have few years of experience','I am a tutor by profession']
-  TUTOR_BEFORE_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+  TUTOR_BEFORE_CHINESE = ['我是名新手', '我有几年的经验','我是专业的导师']
 
   MAX_STUDENTS_ENGLISH = ['I want to focus on one student', 'I can work with two students','I can work with three students', 'I can manage 5+ students']
-  MAX_STUDENTS_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+  MAX_STUDENTS_CHINESE = ['我要专注，1名就够', '我可以同时和2个学生一起合作','我可以同时和3个学生一起合作', '我可以同时和超过5个学生一起合作']
 
   ADVANCE_NOTIFY_ENGLISH = ['At least one day', 'At least two days','At least three days', 'At least a week']
-  ADVANCE_NOTIFY_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+  ADVANCE_NOTIFY_CHINESE = ['至少一天前', '至少两天前','至少三天前', '至少一周前']
 
-  RESERVE_ADVANCE_NOTIFY_ENGLISH = ['A year ago', 'Nine months ago','Six months ago', 'Three months ago', 'Only one month ago']
-  RESERVE_ADVANCE_NOTIFY_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+  RESERVE_ADVANCE_NOTIFY_ENGLISH = ['1 week ago', '2 weeks ago', '1 month ago','3 months ago', '6 months ago']
+  RESERVE_ADVANCE_NOTIFY_CHINESE = ['一周前', '两周前','一个月前', '3个月前', '6个月前']
 
-  WORK_FREQ_NOTIFY_ENGLISH = ['As less as possible', 'Once a month', 'As much as possible']
-  WORK_FREQ_NOTIFY_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+  WORK_FREQ_NOTIFY_ENGLISH = ['As less as possible', 'As much as possible']
+  WORK_FREQ_NOTIFY_CHINESE = ['尽可能少', '尽可能多']
 
   BEST_APPLYING_AT_ENGLISH = ['Top 10 American Universities', 'Top 20 American Universities', 'Top 30 American Universities']
-  BEST_APPLYING_AT_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '全部录取']
+  BEST_APPLYING_AT_CHINESE = ['全美前10名大学', '全美前20名大学','全美前30名大学']
+
 
   def resumes
     self.attachments.where(file_type: 'resume')
