@@ -15,11 +15,13 @@ class InstructorInfo < ApplicationRecord
 
   validates_presence_of :id, on: [:create]
 
-  UNIVERSITIES_ENGLISH = ['Brown University','California Institute of Technology (Caltech)','Columbia University','Cornell University','Dartmouth College','Duke University','Emory University','Georgetown University','Harvard University','Johns Hopkins University','Massachusetts Institute of Technology (MIT)','Northwestern University','Princeton University','Rice University','Stanford University','Rice','Stanford','UC Berkeley','UCLA','University of Chicago','University of Notre Dame', 'University of Pennsylvania', 'University of Southern California', 'University of Virginia', 'University of Wisconsin-Madison','Vanderbilt University','Washington University in St. Louis','Yale University']
+  UNIVERSITIES_ENGLISH = ["Brown University","California Institute of Technology (Caltech)","Columbia University","Cornell University","Dartmouth College","Duke University","Emory University","Georgetown University","Harvard University","Johns Hopkins University","Massachusetts Institute of Technology (MIT)","Northwestern University","Princeton University","Rice University","Stanford University","Rice","Stanford","UC Berkeley","UCLA","University of Chicago","University of Notre Dame", "University of Pennsylvania", "University of Southern California", "University of Virginia", "University of Wisconsin-Madison","Vanderbilt University","Washington University in St. Louis","Yale University"]
+
   UNIVERSITIES_CHINESE = ['布朗大学','加州理工学院','哥伦比亚大学','康奈尔大学','达特茅斯学院','杜克大学','埃默里大学','乔治城大学','哈佛大学','约翰霍普金斯大学','麻省理工学院','西北大学','普林斯顿大学','莱斯大学','斯坦福大学','加州大学伯克利分校','加州大学洛杉矶分校','芝加哥大学','圣母大学','宾夕法尼亚大学','南加州大学','弗吉尼亚大学','威斯康辛大学麦迪逊分校','范德堡大学','圣路易斯华盛顿大学','耶鲁大学']
 
   SPECIALIZATIONS_ENGLISH = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "Literature", "Law", "Management", "Mathematics", "Physics"]
   SPECIALIZATIONS_CHINESE = ["艺术与人文领域", "生命科学", "商科", "计算机科学", "工程", "文学", "法律", "管理", "数学", "物理"]
+
   DEGREE_COMPLETED_ENGLISH = ["Bachelor (junior)", "Bachelor (senior)", "First year graduate student", "Second year graduate student", "PhD"，"Bachelor (graduated)"，"Master (graduated)"，"PhD (graduated)" ]
   DEGREE_COMPLETED_CHINESE = ['在读本科第三年','在读本科第四年', '在读研究生第一年', '在读研究生第二年', '在读博士'，'本科（已毕业）'，'研究生（已毕业）'，'博士（已毕业）']
 
