@@ -554,6 +554,11 @@ select.form-control {
 		.specialization{
 			font-size: 20px;
 		}
+		.usr-location{
+			img{
+				width: 16px;
+			}
+		}
 	}
 }
 
@@ -655,7 +660,7 @@ select.form-control {
 }
 
 .without-img-bg .usr-txt .usr-location {
-	background: url(<%= asset_url "reskin/location-small.png" %>) no-repeat left;
+	background: url(<%= asset_url "reskin/location-green.png" %>) no-repeat left;
 	padding-left: 30px;
 	padding-top: 2px;
 	color: #979999;
@@ -998,6 +1003,7 @@ select.form-control {
 
 			img{
 				margin-top: -2px;
+				width: 20px;
 			}
 
 			&.user-profile{
@@ -1009,6 +1015,10 @@ select.form-control {
 		&.edit-icon{
 			position: absolute;
 			right: 10px;
+
+			img{
+				width: 20px;
+			}
 		}
 	}
 
@@ -1073,6 +1083,10 @@ select.form-control {
 	position: absolute;
 	top: 6px;
 	right: 10px;
+
+	img{
+		width: 20px;
+	}
 }
 
 .profile-main .time-availability {
@@ -2176,6 +2190,7 @@ textarea.form-control.grey {
 	display: inline-block;
 	vertical-align: bottom;
 	margin-right: 15px;
+	width: 16px;
 }
 .send-msg-con{
 	textarea{
@@ -2213,7 +2228,7 @@ textarea.form-control.grey {
 .main-content{
 	.video-chat-wrapper{
 		position: fixed;
-		z-index: 99;
+		z-index: 9999;
 		top: 10px;
 		background-color: white;
 		padding: 10px;
