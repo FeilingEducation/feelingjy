@@ -16,8 +16,8 @@
             </li>
           <% end %>
         <%else%>
-          <li class="left-msg-nav-item no-contact"   data-target="#message-history-wrapper0">
-            <span class="name">No Contact</span>
+          <li class="left-msg-nav-item no-contact" data-target="#message-history-wrapper0">
+            <span class="name"><%= I18n.t("my_orders.no_contact") %></span>
           </li>
         <% end %>
       </ul>
@@ -28,7 +28,7 @@
         <div class="chat-con right-message-content" id="message-history-wrapper0">
           <div class="body">
             <div class="message-history no-contact" id="message-history">
-              No messages here. Please check back later.
+              <%= I18n.t("my_orders.no_msgs") %>
             </div>
           </div>
         </div>
@@ -86,23 +86,22 @@
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <div class="radio-btns dropdown-item custom-checkbox-radios">
                           <input type="radio" name="press_enter" value="true" id="press_enter_true" class="press_enter_true">
-                          <label for="press_enter_true">Press enter to send message </label>
+                          <label for="press_enter_true"><%= I18n.t("my_orders.send_msg") %></label>
                         </div>
                         <div class="radio-btns custom-checkbox-radios dropdown-item">
                           <input type="radio" name="press_enter" value="false" id="press_enter_false" checked='checked' class="press_enter_false">
-                          <label for="press_enter_false">Press enter for new line </label>
+                          <label for="press_enter_false"><%= I18n.t("my_orders.new_line") %> </label>
                         </div>
                       </div>
                     </div>
                   </ul>
                   <%= f.text_area :content, class: 'form-control message-box-area', rows: 8, style: 'resize:none', id: "message-box-area" %>
                   <div class="bottom-btns">
-                    <%= f.submit '发送', class: 'send-msg-btn btn default-btn', data: { disable_with: false } %>
+                    <%= f.submit I18n.t("my_orders.snd_btn"), class: 'send-msg-btn btn default-btn', data: { disable_with: false } %>
                   </div>
                 <%end%>
                 <div class="form-group d-flex">
-                  <div class="attachments-container">
-                  </div>
+                  <div class="attachments-container"></div>
                   <div class="w-100">
                     <%= file_field_tag '', id: 'attachments-input', class: 'attachments-input', multiple: true,
                     data: { url: attachments_path, param_name: 'attachment[file]',
@@ -113,7 +112,6 @@
             </div>
           <% end %>
         </div>
-
       <%end%>
     </div>
   </div>

@@ -429,3 +429,10 @@ en:
     min_days: "Min days:"
     max_days: "Max days:"
     advance: "Advance"
+
+  my_orders:
+    no_contact: "No Contact"
+    no_msgs: "No messages here. Please check back later."
+    new_line: "Press enter for new line"
+    send_msg: "Press enter to send message"
+    snd_btn: "Send"
