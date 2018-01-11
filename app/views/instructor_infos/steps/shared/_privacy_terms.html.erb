@@ -1,20 +1,20 @@
 <div class="">
   <%= f.check_box :share_edited_files, "data-class": "q1",id: 'q1'%>
-    <label for="q1">Allow to share edited files</label>
+  <label for="q1"><%= I18n.t("privacy_terms.shared_edited") %></label>
 </div>
 <div class="">
   <%= f.check_box :share_info, "data-class": "q2",id: 'q2'%>
-    <label for="q2">Allow to share my information</label>
+  <label for="q2"><%= I18n.t("privacy_terms.share_my_info") %></label>
 </div>
 <div class="">
   <%= f.check_box :meet_in_person, "data-class": "q3",id: 'q3'%>
-    <label for="q3">Allow to meet in person</label>
+  <label for="q3"><%= I18n.t("privacy_terms.meet_person") %></label>
 </div>
 <div class="">
   <%= f.check_box :answer_free, "data-class": "q4",id: 'q4'%>
-    <label for="q4">Allow to answer questions for free</label>
+  <label for="q4"><%= I18n.t("privacy_terms.answer_question") %></label>
 </div>
 <div class="">
   <%= f.check_box :personal_questions, "data-class": "q5",id: 'q5'%>
-    <label for="q5">Allow to ask personal questions</label>
+  <label for="q5"><%= I18n.t("privacy_terms.personal_questions") %></label>
 </div>

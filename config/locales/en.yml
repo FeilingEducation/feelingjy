@@ -443,10 +443,10 @@ en:
     services_ican_offer: "Services I can offer"
     helped_others: "Have you helped others before?"
     info_sharing: "Information Sharing"
-    application_college: "Successful application college"
-    privacy_terms: "Your Privacy terms"
+    application_college: "Successful Application College"
+    privacy_terms: "Your Privacy Terms"
     set_work_duration: "Set your work duration"
-    students_can_know: "What students can know about you"
+    students_can_know: "What students could know about you"
     advance_reseration: "Set your advance reservation time"
     other_options: "Some other options"
     your_pricing: "Review your pricing"
@@ -463,3 +463,29 @@ en:
     fix_price: "Fix Price"
     at_least: "At Least"
     at_most: "At Most"
+    set_your_option: "Set your option"
+    how_often: "How often do you want to work with students"
+    error: "It should be greater than min value."
+
+  stds:
+    accomp: "For a sense of accomplishment"
+    utilize: "I want to utilize my free time"
+    how_to_write: "I don't know how to write actually"
+    more_nervous: "I am more nervous than you when I help you apply"
+    care_about: "I care about your cooperation very much"
+
+  privacy_terms:
+    shared_edited: "Allow to share edited files"
+    share_my_info: 'Allow to share my information'
+    meet_person: "Allow to meet in person"
+    answer_question: "Allow to answer questions for free"
+    personal_questions: "Allow to ask personal questions"
+
+  things_can_share:
+    cv: "Personal CV"
+    app_letter: "Application Letter"
+    offer_letter: "Offer Letter"
+    gpa: "GPA"
+    gre: "GRE Score"
+    paper: "Published paper"
+    essay: "Essay from classes"

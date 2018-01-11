@@ -1,5 +1,5 @@
 <% in_scope = "#{controller_name}/#{action_name}" == 'instructor_infos/edit' %>
-<% lang = "en" %>
+<% lang = I18n.locale %>
 <div class="container">
   <div class="profile-main">
     <div class="header" style="background-size: cover;background-image: url('<%= @instructor_info.page_background %>');">
@@ -264,11 +264,11 @@
               <div class="inner">
                 <div class="row">
                   <div class="col-md-10 form-group">
-                    <%= f.label :reserve_advance, "Set your option" %>
+                    <%= f.label :reserve_advance, I18n.t("edit_profile.set_your_option") %>
                     <%= f.select :reserve_advance, InstructorInfo.reserve_advance_notify_options(lang), {}, { class: 'select2' } %>
                   </div>
                   <div class="col-md-10">
-                    <%= f.label :work_frequency, "How often do you want to work with students" %>
+                    <%= f.label :work_frequency, I18n.t("edit_profile.how_often") %>
                     <%= f.select :work_frequency, InstructorInfo.work_freq_notify_options(lang), {}, { class: 'select2' } %>
                   </div>
                 </div>
@@ -338,7 +338,7 @@
                   <div class="col-md-10 form-group">
                     <%= f.label :max_price, I18n.t("edit_profile.at_most") %>
                     <%= f.number_field :max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
-                    <span class="error hidden"> It should be greater than min value.</span>
+                    <span class="error hidden"> <%= I18n.t("edit_profile.error") %></span>
                   </div>
                 </div>
 

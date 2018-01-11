@@ -66,7 +66,7 @@ class InstructorInfo < ApplicationRecord
   end
 
   def self.tutor_options local='en'
-    (local == 'en' ? TUTOR_OPTIONS_ENGLISH : TUTOR_OPTIONS_CHINES).reverse.each_with_index.map {|m,i| [m,i.to_s]}
+    (local == 'en' ? TUTOR_OPTIONS_ENGLISH : TUTOR_OPTIONS_CHINESE).reverse.each_with_index.map {|m,i| [m,i.to_s]}
   end
 
   def self.schools_applied_before_options local='en'
@@ -155,13 +155,13 @@ class InstructorInfo < ApplicationRecord
 
   def things_can_share
     terms = []
-    terms.push "Personal CV" if self.share_resume
-    terms.push "Application Letter" if self.share_application_essay
-    terms.push "Offer Letter" if self.share_offer_letter
-    terms.push "GPA" if self.share_gpa
-    terms.push "GRE Score" if self.share_gre_score
-    terms.push "Published paper" if self.share_paper
-    terms.push "Essay from classes" if self.share_course_essay
+    terms.push I18n.t("things_can_share.cv") if self.share_resume
+    terms.push I18n.t("things_can_share.app_letter") if self.share_application_essay
+    terms.push I18n.t("things_can_share.offer_letter") if self.share_offer_letter
+    terms.push I18n.t("things_can_share.gpa") if self.share_gpa
+    terms.push I18n.t("things_can_share.gre") if self.share_gre_score
+    terms.push I18n.t("things_can_share.papper") if self.share_paper
+    terms.push I18n.t("things_can_share.essay") if self.share_course_essay
     terms
   end
 
