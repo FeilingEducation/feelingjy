@@ -374,8 +374,8 @@ en:
     signup: "Sign Up"
 
   transactions:
-    order_received: "Orders Received"
-    order_placed: "Orders Placed"
+    order_received: "Orders Received (as mentor)"
+    order_placed: "Orders Placed (as student)"
     no_orders: "No Orders"
     inst_name: "Instructor Name"
     std_name: "Student Name"
