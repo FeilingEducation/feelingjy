@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="section-header">
-      <h3><%= I18n.t("registration.step7.title") %></h3>
+      <h3><%= I18n.t("registration.step8.title") %></h3>
     </div>
   </div>
   <div class="col-md-12 left-panel bg-upload-wrapper">
@@ -18,7 +18,7 @@
                     <div class="custom-file d-block">
                       <%= f.file_field :page_background, class: " custom-image-input image-input", :'data-target' => '.school-bg-img', :'data-background' => true, accept: 'image/*' %>
                       <%= f.hidden_field :page_background_cache, id: "page_background_cache" %>
-                      <span id="page-background-img-name" class="custom-file-control page-bg custom-file-name" data-content="请选择文件...">
+                      <span id="page-background-img-name" class="custom-file-control page-bg custom-file-name" data-content="<%= I18n.t("registration.step7.label")%>">
                         <%= image_tag "registration/upload-icon-white.png" %>
                       </span>
                     </div>

@@ -155,6 +155,7 @@ en:
     step7:
       title: "Step 2: Decorate your profile page"
       q: "Pick a picture of your school to be on your tutor page!"
+      label: "Upload..."
 
     step8:
       title: "Step 2: Decorate your profile page"
