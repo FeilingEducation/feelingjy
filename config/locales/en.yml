@@ -107,7 +107,7 @@ en:
       elephant_text: "You could earn"
 
     step2:
-      title: "Step 1: Please fill in the information below"
+      title: "Step 1: Basic Information"
       question_text: "What kind of tutor would you want to be? (mutliple choices)"
       label1: "Become a consulting tutor?"
       label2: "Become a brainstorming tutor?"
@@ -118,19 +118,19 @@ en:
       no_label: "No, this is my first time helping others"
 
     step3:
-      title: "Step 1: Please fill in the information below"
+      title: "Step 1: Basic Information"
       q1: "How many schools have you applied before?"
       q2: "How many schools have you been accepted?"
 
     step4:
-      title: "Step 1: Please fill in the information below"
+      title: "Step 1: Basic Information"
       q: "Where are you from?"
       label1: "Country"
       label2: "State / Province"
       label3: "City"
 
     step5:
-      title: "Step 1: Please fill in the information below"
+      title: "Step 1: Basic Information"
       q: "What informatin could you share to students?"
       checkbox1: "Personal CV"
       checkbox2: "Application Letter"
