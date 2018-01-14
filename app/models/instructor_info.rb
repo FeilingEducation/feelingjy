@@ -16,7 +16,7 @@ class InstructorInfo < ApplicationRecord
   validates_presence_of :id, on: [:create]
 
   UNIVERSITIES_ENGLISH = ["Brown University","California Institute of Technology (Caltech)","Columbia University","Cornell University","Dartmouth College","Duke University","Emory University","Georgetown University","Harvard University","Johns Hopkins University","Massachusetts Institute of Technology (MIT)","Northwestern University","Princeton University","Rice University","Stanford University","Rice","Stanford","UC Berkeley","UCLA","University of Chicago","University of Notre Dame", "University of Pennsylvania", "University of Southern California", "University of Virginia", "University of Wisconsin-Madison","Vanderbilt University","Washington University in St. Louis","Yale University"]
-  UNIVERSITIES_CHINESE = ['布朗大学','加州理工学院','哥伦比亚大学','康奈尔大学','达特茅斯学院','杜克大学','埃默里大学','乔治城大学','哈佛大学','约翰霍普金斯大学','麻省理工学院','西北大学','普林斯顿大学','莱斯大学','斯坦福大学','加州大学伯克利分校','加州大学洛杉矶分校','芝加哥大学','圣母大学','宾夕法尼亚大学','南加州大学','弗吉尼亚大学','威斯康辛大学麦迪逊分校','范德堡大学','圣路易斯华盛顿大学','耶鲁大学']
+  UNIVERSITIES_CHINESE = ['布朗大学111','加州理工学院','哥伦比亚大学','康奈尔大学','达特茅斯学院','杜克大学','埃默里大学','乔治城大学','哈佛大学','约翰霍普金斯大学','麻省理工学院','西北大学','普林斯顿大学','莱斯大学','斯坦福大学','加州大学伯克利分校','加州大学洛杉矶分校','芝加哥大学','圣母大学','宾夕法尼亚大学','南加州大学','弗吉尼亚大学','威斯康辛大学麦迪逊分校','范德堡大学','圣路易斯华盛顿大学','耶鲁大学']
 
   SPECIALIZATIONS_ENGLISH = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "Literature", "Law", "Management", "Mathematics", "Physics"]
   SPECIALIZATIONS_CHINESE = ["艺术与人文领域", "生命科学", "商科", "计算机科学", "工程", "文学", "法律", "管理", "数学", "物理"]
@@ -54,53 +54,56 @@ class InstructorInfo < ApplicationRecord
   end
 
   def self.universities_as_optons local='en'
-    (local == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE).each_with_index.map {|m,i| [m,i]}
+    puts "local::::::#{local}"
+    puts "local.to_s == 'en':::::: #{local.to_s == 'en'}"
+    puts "local.to_s == 'en':::: #{local.to_s == "en"}"
+    (local.to_s == "en" ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.spcializations_as_optons local='en'
-    (local == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.degree_as_optons local='en'
-    (local == 'en' ? DEGREE_COMPLETED_ENGLISH : DEGREE_COMPLETED_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? DEGREE_COMPLETED_ENGLISH : DEGREE_COMPLETED_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.tutor_options local='en'
-    (local == 'en' ? TUTOR_OPTIONS_ENGLISH : TUTOR_OPTIONS_CHINESE).reverse.each_with_index.map {|m,i| [m,i.to_s]}
+    (local.to_s == 'en' ? TUTOR_OPTIONS_ENGLISH : TUTOR_OPTIONS_CHINESE).reverse.each_with_index.map {|m,i| [m,i.to_s]}
   end
 
   def self.schools_applied_before_options local='en'
     puts "============:::#{local}"
-    (local == 'en' ? SCHOOLS_APPLIED_BEFORE_ENGLISH : SCHOOLS_APPLIED_BEFORE_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? SCHOOLS_APPLIED_BEFORE_ENGLISH : SCHOOLS_APPLIED_BEFORE_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.schoools_accepted local='en'
-    (local == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.tutor_before_options local='en'
-    (local == 'en' ? TUTOR_BEFORE_ENGLISH : TUTOR_BEFORE_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? TUTOR_BEFORE_ENGLISH : TUTOR_BEFORE_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.max_std_before_options local='en'
-    (local == 'en' ? MAX_STUDENTS_ENGLISH : MAX_STUDENTS_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? MAX_STUDENTS_ENGLISH : MAX_STUDENTS_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.advance_notify_options local='en'
-    (local == 'en' ? ADVANCE_NOTIFY_ENGLISH : ADVANCE_NOTIFY_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? ADVANCE_NOTIFY_ENGLISH : ADVANCE_NOTIFY_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.reserve_advance_notify_options local='en'
-    (local == 'en' ? RESERVE_ADVANCE_NOTIFY_ENGLISH : RESERVE_ADVANCE_NOTIFY_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? RESERVE_ADVANCE_NOTIFY_ENGLISH : RESERVE_ADVANCE_NOTIFY_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.work_freq_notify_options local='en'
-    (local == 'en' ? WORK_FREQ_NOTIFY_ENGLISH : WORK_FREQ_NOTIFY_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? WORK_FREQ_NOTIFY_ENGLISH : WORK_FREQ_NOTIFY_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.best_applying_at_options local='en'
     puts "en:::::::#{local}"
-    (local == 'en' ? BEST_APPLYING_AT_ENGLISH : BEST_APPLYING_AT_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? BEST_APPLYING_AT_ENGLISH : BEST_APPLYING_AT_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.countries_as_options
@@ -117,20 +120,20 @@ class InstructorInfo < ApplicationRecord
 
   def universities_accepted local='en'
     unis = []
-    self.uni_accepted.map {|uni| unis.push((local == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[uni.to_i])}
+    self.uni_accepted.map {|uni| unis.push((local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[uni.to_i])}
     unis
   end
 
   def university_name local='en'
-    (local == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[self.university.to_i]
+    (local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[self.university.to_i]
   end
 
   def specialization_name local='en'
-    (local == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE)[self.specialization.to_i]
+    (local.to_s == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE)[self.specialization.to_i]
   end
 
   def degree_completed_name local='en'
-    (local == 'en' ? DEGREE_COMPLETED_ENGLISH : DEGREE_COMPLETED_CHINESE)[self.degree_completed.to_i]
+    (local.to_s == 'en' ? DEGREE_COMPLETED_ENGLISH : DEGREE_COMPLETED_CHINESE)[self.degree_completed.to_i]
   end
 
   def privacy_terms
@@ -166,15 +169,15 @@ class InstructorInfo < ApplicationRecord
   end
 
   def experience_as_totur local = 'en'
-    (local == 'en' ? TUTOR_BEFORE_ENGLISH : TUTOR_BEFORE_CHINESE)[self.tutor_before.to_i]
+    (local.to_s == 'en' ? TUTOR_BEFORE_ENGLISH : TUTOR_BEFORE_CHINESE)[self.tutor_before.to_i]
   end
 
   def reserve_in_advance local = 'en'
-    (local == 'en' ? RESERVE_ADVANCE_NOTIFY_ENGLISH : RESERVE_ADVANCE_NOTIFY_CHINESE)[self.reserve_advance.to_i]
+    (local.to_s == 'en' ? RESERVE_ADVANCE_NOTIFY_ENGLISH : RESERVE_ADVANCE_NOTIFY_CHINESE)[self.reserve_advance.to_i]
   end
 
   def self.specialization_as_collection  local = 'en'
-    (local == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE).each_with_index.map {|m,i| [m,i]}
   end
 
   def self.search params
@@ -198,7 +201,7 @@ class InstructorInfo < ApplicationRecord
   end
 
   def self.is_graduate_options local='en'
-    (local == 'en' ? IS_GRADUATE_OPTIONS_ENGLISH : IS_GRADUATE_OPTIONS_CHINES).reverse.each_with_index.map {|m,i| [m,i==0]}
+    (local.to_s == 'en' ? IS_GRADUATE_OPTIONS_ENGLISH : IS_GRADUATE_OPTIONS_CHINES).reverse.each_with_index.map {|m,i| [m,i==0]}
   end
 
 end
