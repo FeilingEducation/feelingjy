@@ -490,3 +490,15 @@ en:
     gre: "GRE Score"
     paper: "Published paper"
     essay: "Essay from classes"
+
+  chat:
+    status: "Status"
+    order_placed_at: "Order placed at"
+    order_updated_at: "Order updated at"
+    initiated: "Initiated"
+    pending: "Pay"
+    posted_on: "Posted on"
+    press_enter_to_msg: "Press enter to send message"
+    press_enter_for_new_line: "Press enter for new line"
+    send_btn: "Send"
+    stop: "Stop"
