@@ -49,5 +49,5 @@ test:
 #
 production:
   <<: *default
-  database: feelingjy_development
+  database: feelingjy_production
   password: <%= ENV['FEELINGJY_DATABASE_PASSWORD'] %>
