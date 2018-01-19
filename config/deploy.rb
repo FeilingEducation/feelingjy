@@ -1,5 +1,5 @@
 # Change these
-server '47.104.5.149', port: 3008, roles: [:web, :app, :db], primary: true
+server '47.104.5.149', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:FeilingEducation/feelingjy.git'
 set :application,     'feelingjy'
