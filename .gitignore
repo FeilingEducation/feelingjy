@@ -21,3 +21,5 @@
 /public/uploads/*
 /public/.well-known/*
 /config/database.yml.example
+
+/keys/*

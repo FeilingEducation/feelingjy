@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="section-header">
-      <h3 > Step 1: Please fill in the information below</h3>
+      <h3 > <%= I18n.t("registration.step3.title") %> </h3>
     </div>
   </div>
   <div class="col-md-6 left-panel">
@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="question-block">
-            <p class="survey-question">How many schools have you applied before?</p>
+            <p class="survey-question"><%= I18n.t("registration.step3.q1") %></p>
             <div class="row custom-checkbox-radios">
               <div class="col-md-8">
                 <% InstructorInfo.schools_applied_before_options(lang).each_with_index do |option, idx| %>
@@ -25,7 +25,7 @@
             <div class="form-group">
               <div class="row">
                 <div class="col-md-8">
-                  <%= f.label :uni_accepted, "How many schools have you been accepted?" %>
+                  <%= f.label :uni_accepted, I18n.t("registration.step3.q2") %>
                 </div>
               </div>
               <div class="row">
@@ -38,8 +38,8 @@
           <div class="survey-btn-row">
             <div class="row">
               <div class="col-md-7">
-                <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step1" data-percentage='30%' >上一步</button>
-                <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='60%' data-target="#step4">下一步</button>
+                <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step1" data-percentage='30%' ><%= I18n.t("registration.btn_back") %></button>
+                <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='60%' data-target="#step4"><%= I18n.t("registration.btn_next") %></button>
               </div>
             </div>
           </div>

@@ -1,14 +1,14 @@
 
 <div class="question-block">
-  <p class="survey-question">Smart price setter</p>
-  <p class="">Students will be charged this price for your service, if you turn off the smart price setter</p>
+  <p class="survey-question"><%= I18n.t("registration.step23.fix.title") %></p>
+  <p class=""><%= I18n.t("registration.step12.fix.p") %></p>
 </div>
 
 <div class="question-block">
   <div class="row">
     <div class="col-md-10">
-      <%= f.label :fix_price, "Fixed Price" %>
-      <%= f.number_field :fix_price, min: 100, class: '', placeholder: 'Suggest: ¥ 760/hr' %>
+      <%= f.label :fix_price, I18n.t("registration.step23.fix.label") %>
+      <%= f.number_field :fix_price, min: 100, class: '', placeholder: I18n.t("registration.step23.fix.placeholder") %>
     </div>
   </div>
 </div>

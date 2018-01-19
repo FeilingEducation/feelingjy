@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="section-header">
-      <h3>Step 3: Prepare for students now</h3>
+      <h3><%= I18n.t("registration.step12.title") %></h3>
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -10,21 +10,21 @@
       <div class="row">
         <div class="col-md-10">
           <div class="question-block">
-            <p class="survey-question">How many days could students reserve your time in advance?</p>
+            <p class="survey-question"><%= I18n.t("registration.step20.sub_title") %></p>
           </div>
 
           <div class="question-block">
             <div class="row">
               <div class="col-md-10">
-                <%= f.label :reserve_advance, "You could choose to open your time for a while" %>
+                <%= f.label :reserve_advance, I18n.t("registration.step20.p1") %>
                 <%= f.select :reserve_advance, InstructorInfo.reserve_advance_notify_options(lang), {}, { class: 'select2' } %>
               </div>
             </div>
           </div>
 
           <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step19" data-percentage='55%' >上一步</button>
-            <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='65%' data-target="#step22">下一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step19" data-percentage='55%' ><%= I18n.t("registration.btn_back") %></button>
+            <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='65%' data-target="#step22"><%= I18n.t("registration.btn_next") %></button>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="section-header">
-      <h3>Step 3: Prepare for students now</h3>
+      <h3><%= I18n.t("registration.step12.title") %></h3>
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -10,22 +10,22 @@
       <div class="row">
         <div class="col-md-10">
           <div class="question-block">
-            <p class="survey-question">How many days in advance do you need the student to notify you?</p>
-            <p class="">How long you are willing to work with one student is important. Students will use this to adjust their progress and communication with you.</p>
+            <p class="survey-question"><%= I18n.t("registration.step19.sub_title") %></p>
+            <p class=""><%= I18n.t("registration.step19.p1") %></p>
           </div>
 
           <div class="question-block">
             <div class="row">
               <div class="col-md-10">
-                <%= f.label :advance_notify, "Select the number of days in advance" %>
+                <%= f.label :advance_notify, I18n.t("registration.step19.label") %>
                 <%= f.select :advance_notify, InstructorInfo.advance_notify_options(lang), {}, { class: 'select2' } %>
               </div>
             </div>
           </div>
 
           <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step18" data-percentage='45%' >上一步</button>
-            <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='60%' data-target="#step20">下一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step18" data-percentage='45%' ><%= I18n.t("registration.btn_back") %></button>
+            <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='60%' data-target="#step20"><%= I18n.t("registration.btn_next") %></button>
           </div>
         </div>
       </div>

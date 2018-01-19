@@ -4,24 +4,24 @@
       <div class="row">
         <div class="col-sm-7">
           <h4>
-            <%= link_to "Terms & Conditions", terms_conditions_path, target: '_blank'%>
+            <%= link_to I18n.t("footer.terms.title"), terms_conditions_path, target: '_blank'%>
           </h4>
 
           <div class="body">
             <p>
               <%= image_tag "reskin/location-green.png"%>
-              <span>Department Southern Road Takakuji China Xidong Province Shenzhen City</span></p>
+              <span><%= I18n.t "footer.terms.address" %></span></p>
 
             <p>
               <%= image_tag "reskin/phone-green.png"%>
-              <span>400-123-4567</span></p>
+              <span><%= I18n.t "footer.terms.phone" %></span></p>
           </div>
         </div>
 
         <div class="col-sm-5 text-right">
           <div class="email-date">
-            <h4><a href="#">FeilingEducatio@idealens.com</a></h4>
-            <p>From Monday to Friday 9:00-18:00(SGT)</p>
+            <h4><a href="#"><%= I18n.t "footer.terms.email" %></a></h4>
+            <p><%= I18n.t "footer.terms.office_time" %></p>
 
             <div class="dropdown">
               <a href="#" id="footer-language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

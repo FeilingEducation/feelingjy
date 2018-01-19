@@ -4,13 +4,13 @@
     <div class="row">
       <div class="col-md-12">
         <div class="head-sec">
-          <h2 class="main-heading"><%= current_user.user_info.first_name%>,<br/> we are almost done!</h2>
-          <h6 class="sub-heading">Let's review your information before creating your page</h6>
+          <h2 class="main-heading"><%= current_user.user_info.first_name%>,<br/> <%= I18n.t("registration.step6.title") %> </h2>
+          <h6 class="sub-heading"> <%= I18n.t("registration.step6.sub_title") %> </h6>
         </div>
       </div>
       <div class="col-md-6">
-        <p class="sub-heading">For example tutor option and contact information</p>
-        <a class="modify-link step-navigate initialize-section" data-target="#step5" data-section="" data-percentage='75%'>Modify</a>
+        <p class="sub-heading"> <%= I18n.t("registration.step6.tick1") %> </p>
+        <a class="modify-link step-navigate initialize-section" data-target="#step5" data-section="" data-percentage='75%'> <%= I18n.t("registration.step6.modify") %> </a>
       </div>
       <div class="col-md-2 tick-success">
         <%= image_tag "registration/tick-success.png", class: 'img-responsive'%>
@@ -20,19 +20,19 @@
     <div class="row">
       <div class="col-md-12 disable-block">
         <div class="head-sec">
-          <h6 class="sub-heading">And decorate your profile</h6>
+          <h6 class="sub-heading"><%= I18n.t("registration.step6.sub_title2") %> </h6>
         </div>
       </div>
       <div class="col-md-12">
-        <p class="sub-heading">Add your life photo, short description and caption.</p>
-        <button type="button" class="btn btn-primary step-navigate main-btn pull-left initialize-section" data-section="sec2" data-target="#step7">Continue</button>
+        <p class="sub-heading"><%= I18n.t("registration.step6.text2") %></p>
+        <button type="button" class="btn btn-primary step-navigate main-btn pull-left initialize-section" data-section="sec2" data-target="#step7"><%= I18n.t("registration.step6.continue") %></button>
       </div>
     </div>
     <hr/>
     <div class="row">
       <div class="col-md-12 disable-block">
-        <p class="sub-heading first">Start your own business</p>
-        <p class="sub-heading">Decide your price and manage your time</p>
+        <p class="sub-heading first"><%= I18n.t("registration.step6.sub_title3") %></p>
+        <p class="sub-heading"><%= I18n.t("registration.step6.text3") %></p>
       </div>
     </div>
   </div>
@@ -46,7 +46,7 @@
         <div class="col-md-12">
           <div class="painting-box elepahnt">
             <%= image_tag "registration/step7-elephent-green.png"%>
-            <p>We thought you could earn</p>
+            <p><%= I18n.t("registration.step6.elephant_text") %></p>
             <p class="bold-text colored">¥ 668/hr</p>
           </div>
         </div>

@@ -12,12 +12,7 @@
 */
 
 $custom-file-text: (
-placeholder: (
-zh-CN: "选择文件"
-),
-button-label: (
-zh-CN: "浏览"
-)
+placeholder: (zh-CN: "选择文件"), button-label: (zh-CN: "浏览")
 );
 
 $primary-green: #50BF9F;
@@ -50,7 +45,7 @@ $active-grey-background: #E0DBDB;
 
 body {
   padding-top: 72px;
-  background-color: #F0F0F0;
+  // background-color: #F0F0F0;
 }
 
 .main-content {
@@ -286,7 +281,7 @@ textarea{
 .progress{
   position: fixed;
   // top: 115px;
-  top: 79px;
+  top: 82px;
   width: 100%;
   z-index: 11;
   height: 10px;

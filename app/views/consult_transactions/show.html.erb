@@ -10,7 +10,7 @@
     <div id="publisherContainer" class=""></div>
     <div id="subscriberContainer" class="subscriber-container hidden"></div>
     <div class="flag-info-msg" id="flag-info-msg"></div>
-    <button class="btn btn-danger hidden" id="cancel-video">Stop</button>
+    <button class="btn btn-danger hidden" id="cancel-video"><%= I18n.t("chat.stop") %></button>
 </div>
 <div class="container">
   <div class="with-leftbar row">
@@ -50,7 +50,7 @@
             <div class="status-con">
               <div class="inner">
                 <div class="img-txt">
-                  <img src="images/waiting-glass.png" alt="">Status
+                  <img src="images/waiting-glass.png" alt=""><%= I18n.t("chat.status") %>
                 </div>
                 <%= status_text_of @transaction %>
               </div>
@@ -58,7 +58,7 @@
               <div class="inner">
                 <div class="img-txt">
                   <%= image_tag "reskin/clock-green.png" %>
-                  Order placed at
+                  <%= I18n.t("chat.order_placed_at") %>
                 </div>
                 <%= @transaction.created_at.strftime('%Y/%m/%d') %>
               </div>
@@ -67,7 +67,7 @@
                 <div class="inner">
                   <div class="img-txt">
                     <%= image_tag "reskin/clock-green.png" %>
-                    Order updated at
+                    <%= I18n.t("chat.order_updated_at") %>
                   </div>
                   <%= @transaction.updated_at.strftime('%Y/%m/%d') %>
                 </div>
@@ -78,16 +78,16 @@
                 <% when @transaction.student %>
                   <% case @transaction.status %>
                   <% when "initiated" %>
-                    <%= button_to "前往付款", pay_consult_transaction_path, disabled: true, class: 'btn default-btn btn-block' %>
+                    <%= button_to I18n.t("chat.initiated"), pay_consult_transaction_path, disabled: true, class: 'btn default-btn btn-block' %>
                   <% when "payment_pending" %>
-                    <%= button_to "前往付款", pay_consult_transaction_path, class: 'btn default-btn btn-block' %>
+                    <%= button_to I18n.t("chat.pending"), pay_consult_transaction_path, class: 'btn default-btn btn-block' %>
                   <% end %>
                 <% when @transaction.instructor %>
                   <% case @transaction.status %>
                   <% when "initiated" %>
-                    <%= button_to "确认订单", confirm_consult_transaction_path, method: 'post', class: 'btn default-btn btn-block' %>
+                    <%= button_to I18n.t("chat.initiated"), confirm_consult_transaction_path, method: 'post', class: 'btn default-btn btn-block' %>
                   <% when "payment_pending" %>
-                    <%= button_to "取消确认", confirm_consult_transaction_path(cancel: true), method: 'post', class: 'btn default-btn btn-block red' %>
+                    <%= button_to I18n.t("chat.pending"), confirm_consult_transaction_path(cancel: true), method: 'post', class: 'btn default-btn btn-block red' %>
                   <% end %>
                 <% end %>
                 <!-- <a href="#" class="btn default-btn btn-block">Confirm Order</a> -->
@@ -122,7 +122,7 @@
                     </div>
                   <%end%>
                   <div class="date-time-con">
-                    <div class="date-time-send">Posted on: <%= chat_line.created_at.strftime('%b %-d, %y - %l:%M %p') %></div>
+                    <div class="date-time-send"><%= I18n.t("chat.posted_on") %>: <%= chat_line.created_at.strftime('%b %-d, %y - %l:%M %p') %></div>
                   </div>
                 <!-- <div class="chat-line msg-content <%#= ' chat-line-right' if chat_line.user_info_id == current_user.id %>"> -->
                   <!-- <p class="mb-1"><%#= chat_line.content %></p> -->
@@ -154,17 +154,17 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="radio-btns dropdown-item custom-checkbox-radios">
                   <input type="radio" name="chat_press_enter" value="true" id="chat_press_enter_true" class="chat_press_enter_true">
-                  <label for="chat_press_enter_true">Press enter to send message </label>
+                  <label for="chat_press_enter_true"><%= I18n.t("chat.press_enter_to_msg") %></label>
                 </div>
                 <div class="radio-btns custom-checkbox-radios dropdown-item">
                   <input type="radio" name="chat_press_enter" value="false" id="chat_press_enter_false" checked='checked' class="chat_press_enter_false">
-                  <label for="chat_press_enter_false">Press enter for new line </label>
+                  <label for="chat_press_enter_false"><%= I18n.t("chat.press_enter_for_new_line") %></label>
                 </div>
               </div>
             </div>
             <%#= submit_tag "发送", data: { disable_with: false } %>
             <div class="bottom-btn">
-              <%= submit_tag '发送', class: 'send-msg-btn btn default-btn', data: { disable_with: false } %>
+              <%= submit_tag I18n.t("chat.send_btn"), class: 'send-msg-btn btn default-btn', data: { disable_with: false } %>
             </div>
           <% end %>
           <!-- <textarea placeholder="type your message here" class="form-control"></textarea> -->

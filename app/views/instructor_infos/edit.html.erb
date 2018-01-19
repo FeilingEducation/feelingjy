@@ -1,5 +1,5 @@
 <% in_scope = "#{controller_name}/#{action_name}" == 'instructor_infos/edit' %>
-<% lang = "en" %>
+<% lang = I18n.locale %>
 <div class="container">
   <div class="profile-main">
     <div class="header" style="background-size: cover;background-image: url('<%= @instructor_info.page_background %>');">
@@ -93,7 +93,7 @@
         <div class="col-sm-6 first-half">
           <div class="inner">
             <div class="header">
-              School information
+              <%= I18n.t("edit_profile.school_info") %>
             </div>
 
             <div class="degree-uni">
@@ -108,7 +108,7 @@
 
           <div class="inner">
             <div class="header">
-              Have you helped others before?
+              <%= I18n.t("edit_profile.helped_others") %>
             </div>
           </div>
 
@@ -117,11 +117,11 @@
               <div class="col-md-12">
                 <div class="radio-btns custom-checkbox-radios">
                   <%= f.radio_button :helped_before, true, id: 'helped_before_true' %>
-                  <label for="helped_before_true">Yes, I have helped others before </label>
+                  <label for="helped_before_true"><%= I18n.t("edit_profile.yes_helped") %></label>
                 </div>
                 <div class="radio-btns custom-checkbox-radios">
                   <%= f.radio_button :helped_before, false, id: 'helped_before_false' %>
-                  <label for="helped_before_false">No, this is my first time helping others</label>
+                  <label for="helped_before_false"><%= I18n.t("edit_profile.no_helped") %></label>
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@
         <div class="col-sm-6">
           <div class="inner">
             <div class="header">
-              Services I can offer
+              <%= I18n.t("edit_profile.services_ican_offer") %>
             </div>
 
             <div class="small-steps custom-checkbox-radios">
@@ -147,7 +147,7 @@
         <div class="col-sm-6 first-half">
           <div class="inner">
             <div class="header">
-              Information sharing
+              <%= I18n.t("edit_profile.info_sharing") %>
               <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
             </div>
 
@@ -162,7 +162,7 @@
         <div class="col-sm-6">
           <div class="inner">
             <div class="header">
-              Successful application college
+              <%= I18n.t("edit_profile.application_college") %>
             </div>
 
             <div class="row custom-checkbox-radios">
@@ -180,7 +180,7 @@
 
           <div class="inner">
             <div class="header">
-              Successful application college
+              <%= I18n.t("edit_profile.application_college") %>
             </div>
 
             <div class="header">
@@ -198,7 +198,7 @@
         <div class="col-sm-6 first-half">
           <div class="inner">
             <div class="header">
-              Your Privacy terms
+              <%= I18n.t("edit_profile.privacy_terms") %>
               <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
             </div>
 
@@ -214,7 +214,7 @@
         <div class="col-sm-6">
           <div class="inner">
             <div class="header">
-              Set your work duration
+              <%= I18n.t("edit_profile.set_work_duration") %>
               <!-- <a href="javascript:void(0)" class="edit-icon"><img src="images/edit.png" alt=""></a> -->
             </div>
 
@@ -222,12 +222,12 @@
               <div class="inner">
                 <div class="row">
                   <div class="col-md-10 form-group">
-                    <%= f.label :min_work_daysss, "Minimum work days?" %>
-                    <%= f.number_field :min_work_days, min: 2, max: 30, default: 2, class: '', placeholder: 'Select minum work days', id: 'min_days' %>
+                    <%= f.label :min_work_days, I18n.t("edit_profile.min_days_lbl") %>
+                    <%= f.number_field :min_work_days, min: 2, max: 30, default: 2, class: '', placeholder: I18n.t("edit_profile.min_days"), id: 'min_days' %>
                   </div>
                   <div class="col-md-10 form-group">
-                    <%= f.label :max_work_days, "Maximum work days?" %>
-                    <%= f.number_field :max_work_days, min: 2, max: 30, default: 2, class: '', placeholder: 'Select maximum work days', id: 'max_days' %>
+                    <%= f.label :max_work_days, I18n.t("edit_profile.max_days_lbl") %>
+                    <%= f.number_field :max_work_days, min: 2, max: 30, default: 2, class: '', placeholder: I18n.t("edit_profile.max_days"), id: 'max_days' %>
                     <!-- <span class="error hidden"> It should be greater than min days.</span> -->
                   </div>
 
@@ -243,7 +243,7 @@
         <div class="col-sm-6 first-half">
           <div class="inner">
             <div class="header">
-              What students can know about you
+              <%= I18n.t("edit_profile.students_can_know") %>
             </div>
 
             <div class="upload-files check_boxes custom-checkbox-radios">
@@ -258,17 +258,17 @@
         <div class="col-sm-6">
           <div class="inner">
             <div class="header">
-              Set your advance reservation time
+              <%= I18n.t("edit_profile.advance_reseration") %>
             </div>
             <div class="small-steps custom-checkbox-radios">
               <div class="inner">
                 <div class="row">
                   <div class="col-md-10 form-group">
-                    <%= f.label :reserve_advance, "Set your option" %>
+                    <%= f.label :reserve_advance, I18n.t("edit_profile.set_your_option") %>
                     <%= f.select :reserve_advance, InstructorInfo.reserve_advance_notify_options(lang), {}, { class: 'select2' } %>
                   </div>
                   <div class="col-md-10">
-                    <%= f.label :work_frequency, "How often do you want to work with students" %>
+                    <%= f.label :work_frequency, I18n.t("edit_profile.how_often") %>
                     <%= f.select :work_frequency, InstructorInfo.work_freq_notify_options(lang), {}, { class: 'select2' } %>
                   </div>
                 </div>
@@ -283,17 +283,17 @@
         <div class="col-sm-6 first-half">
           <div class="inner">
             <div class="header">
-              Some other options
+              <%= I18n.t("edit_profile.other_options") %>
             </div>
             <div class="small-steps custom-checkbox-radios">
               <div class="inner">
                 <div class="row">
                   <div class="col-md-10 form-group">
-                    <%= f.label :tutor_before, "Have you ever been a tutor before?" %>
+                    <%= f.label :tutor_before, I18n.t("edit_profile.tutor_before") %>
                     <%= f.select :tutor_before, InstructorInfo.tutor_before_options(lang), {}, { class: 'select2' } %>
                   </div>
                   <div class="col-md-10">
-                    <%= f.label :max_std_count, "How many students do you wish to help at one time?" %>
+                    <%= f.label :max_std_count, I18n.t("edit_profile.std_help_at_a_time") %>
                     <%= f.select :max_std_count, InstructorInfo.max_std_before_options(lang), {}, { class: 'select2' } %>
                   </div>
                 </div>
@@ -305,7 +305,7 @@
         <div class="col-sm-6">
           <div class="inner">
             <div class="header">
-              Review your pricing
+              <%= I18n.t("edit_profile.your_pricing") %>
             </div>
 
             <div class="degree-uni">
@@ -314,12 +314,12 @@
 
                   <div class="radio-btns custom-checkbox-radios">
                     <%= f.radio_button :recommended_price, true, id: "recommended_price_true" %>
-                    <label for="recommended_price_true"> Set variable price range </label>
+                    <label for="recommended_price_true"> <%= I18n.t("edit_profile.variable_price_range")%> </label>
                   </div>
 
                   <div class="radio-btns custom-checkbox-radios">
                     <%= f.radio_button :recommended_price, false, id: "recommended_price_false"  %>
-                    <label for="recommended_price_false"> Fix Price </label>
+                    <label for="recommended_price_false"> <%= I18n.t("edit_profile.fix_price")%> </label>
                   </div>
 
                 </div>
@@ -331,14 +331,14 @@
               <div class="inner">
                 <div class="row <%= @instructor_info.recommended_price ? "" : "hidden"%>" id="price-range-fields">
                   <div class="col-md-10 form-group">
-                    <%= f.label :min_price, "At least" %>
+                    <%= f.label :min_price, I18n.t("edit_profile.at_least") %>
                     <%= f.number_field :min_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
                   </div>
 
                   <div class="col-md-10 form-group">
-                    <%= f.label :max_price, "At most" %>
+                    <%= f.label :max_price, I18n.t("edit_profile.at_most") %>
                     <%= f.number_field :max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
-                    <span class="error hidden"> It should be greater than min value.</span>
+                    <span class="error hidden"> <%= I18n.t("edit_profile.error") %></span>
                   </div>
                 </div>
 
@@ -357,7 +357,7 @@
       </div>
 
       <div class="form-group submit-btn-row">
-        <%= f.submit "update", class: 'btn btn-primary text-right'%>
+        <%= f.submit I18n.t("edit_profile.update_btn"), class: 'btn btn-primary text-right' %>
       </div>
     <%end%>
   </div>

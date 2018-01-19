@@ -1,20 +1,20 @@
 <div class="">
   <%= f.check_box :accomplishment, "data-class": "q6",id: 'q6'%>
-    <label for="q6">For a sense of accomplishment</label>
+    <label for="q6"><%= I18n.t("stds.accomp") %></label>
 </div>
 <div class="">
   <%= f.check_box :free_time, "data-class": "q7",id: 'q7'%>
-    <label for="q7">I want to utilize my free time</label>
+    <label for="q7"><%= I18n.t("stds.utilize") %></label>
 </div>
 <div class="">
   <%= f.check_box :how_to_write, "data-class": "q8",id: 'q8'%>
-    <label for="q8">I don't know how to write actually</label>
+    <label for="q8"><%= I18n.t("stds.how_to_write") %></label>
 </div>
 <div class="">
   <%= f.check_box :nervous, "data-class": "q9",id: 'q9'%>
-    <label for="q9">I am more nervous than you when I help you apply</label>
+    <label for="q9"><%= I18n.t("stds.more_nervous") %></label>
 </div>
 <div class="">
   <%= f.check_box :care_cooperation, "data-class": "q10", id: 'q10',class: 'custom-checkbox-radios' %>
-    <label for="q10">I care about your cooperation very much</label>
+    <label for="q10"><%= I18n.t("stds.care_about") %></label>
 </div>

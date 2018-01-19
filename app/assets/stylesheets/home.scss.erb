@@ -23,7 +23,7 @@ h1,h2,h3,h4,h5,h6{
 
 .main-content{
 	// background: #e6e6e6;
-	min-height: 80vh;
+	min-height: 100vh;
 	height: auto;
 
 	&.dark{
@@ -554,6 +554,11 @@ select.form-control {
 		.specialization{
 			font-size: 20px;
 		}
+		.usr-location{
+			img{
+				width: 16px;
+			}
+		}
 	}
 }
 
@@ -655,11 +660,12 @@ select.form-control {
 }
 
 .without-img-bg .usr-txt .usr-location {
-	background: url(<%= asset_url "reskin/location-small.png" %>) no-repeat left;
-	padding-left: 30px;
-	padding-top: 2px;
+	background: url(<%= asset_url "reskin/location-green.png" %>) no-repeat left;
+	padding-left: 27px;
+	padding-top: 1px;
 	color: #979999;
 	background-size: contain;
+	margin-left: 3px;
 }
 
 .without-bg-con:hover .without-img-bg .usr-txt .edu-cap,
@@ -674,7 +680,7 @@ select.form-control {
 .without-bg-con.active .without-img-bg .usr-txt .usr-location {
 	color: #fff;
 	// background: asset_url('reskin/location-small-white.png') no-repeat left;
-	background: url(<%= asset_url "reskin/location-small-white.png" %>) no-repeat left;
+	background: url(<%= asset_url "reskin/location-pin-white.png" %>) no-repeat left;
 	background-size: contain;
 }
 
@@ -753,7 +759,7 @@ select.form-control {
 		line-height: 26px;
 		border-bottom-left-radius: 6px;
 		border-bottom-right-radius: 6px;
-		height: 180px;
+		height: 200px;
 		// overflow: hidden;
 	}
 	.header h5 {
@@ -902,6 +908,7 @@ select.form-control {
 
 	.main-nav {
 		padding: 11px 0;
+		min-height: 48px;
 
 		.header-nav-link{
 			padding: 12px 0 0 0;
@@ -998,6 +1005,7 @@ select.form-control {
 
 			img{
 				margin-top: -2px;
+				width: 20px;
 			}
 
 			&.user-profile{
@@ -1009,6 +1017,10 @@ select.form-control {
 		&.edit-icon{
 			position: absolute;
 			right: 10px;
+
+			img{
+				width: 20px;
+			}
 		}
 	}
 
@@ -1073,6 +1085,10 @@ select.form-control {
 	position: absolute;
 	top: 6px;
 	right: 10px;
+
+	img{
+		width: 20px;
+	}
 }
 
 .profile-main .time-availability {
@@ -1467,7 +1483,7 @@ select.form-control {
 
 	&.chat-box{
 		// overflow: hidden;
-		height: 410px;
+		height: 460px;
 	}
 }
 
@@ -1728,6 +1744,7 @@ select.form-control {
 
 .left-bar .profile-info .info img {
 	margin-right: 6px;
+	width: 20px;
 }
 
 .left-bar .profile-info .location img {
@@ -2175,6 +2192,7 @@ textarea.form-control.grey {
 	display: inline-block;
 	vertical-align: bottom;
 	margin-right: 15px;
+	width: 16px;
 }
 .send-msg-con{
 	textarea{
@@ -2212,7 +2230,7 @@ textarea.form-control.grey {
 .main-content{
 	.video-chat-wrapper{
 		position: fixed;
-		z-index: 99;
+		z-index: 9999;
 		top: 10px;
 		background-color: white;
 		padding: 10px;

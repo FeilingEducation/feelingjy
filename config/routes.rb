@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'search#index'
   get "/confirmation_success", to: "search#confirmation"
   get "/terms_conditions", to: "search#terms"
+  get "/set_local", to: "search#set_local"
 
   mount ActionCable.server => '/cable'
 

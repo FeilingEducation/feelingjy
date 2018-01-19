@@ -2,7 +2,7 @@
   <section class="section white-section">
     <div class="container">
       <div class="header">
-        <h1>Four easy steps</h1>
+        <h1><%= I18n.t "homepage.four_steps.title" %></h1>
         <!-- <p>Studying "from 0 to 1" may be skillful; applying "from 1 to N" as long as Feiling is enough</p> -->
       </div>
 
@@ -10,32 +10,32 @@
         <div class="col-sm-3 sec">
           <div class="img-wrp"><%= image_tag "reskin/steps/1.png", class: ''%></div>
           <span class="bottom-bar"></span>
-          <h3>Consultation</h3>
-          <p>Professional colleagues to share experience</p>
+          <h3><%= I18n.t "homepage.four_steps.sec1.title" %></h3>
+          <p><%= I18n.t "homepage.four_steps.sec1.description" %></p>
         </div>
 
         <div class="col-sm-3 sec">
           <!-- <img src="images/steps/2.png" alt=""> -->
           <div class="img-wrp"><%= image_tag "reskin/steps/2.png", class: ''%></div>
           <span class="bottom-bar"></span>
-          <h3>Brainstroming</h3>
-          <p>Free association, finalize the theme</p>
+          <h3><%= I18n.t "homepage.four_steps.sec2.title" %></h3>
+          <p><%= I18n.t "homepage.four_steps.sec2.description" %></p>
         </div>
 
         <div class="col-sm-3 sec">
           <!-- <img src="images/steps/3.png" alt=""> -->
           <div class="img-wrp"><%= image_tag "reskin/steps/3.png", class: ''%></div>
           <span class="bottom-bar"></span>
-          <h3>Proofreading</h3>
-          <p>Repeatedly revised until satisfied</p>
+          <h3><%= I18n.t "homepage.four_steps.sec3.title" %></h3>
+          <p><%= I18n.t "homepage.four_steps.sec3.description" %></p>
         </div>
 
         <div class="col-sm-3 sec">
           <!-- <img src="images/steps/4.png" alt=""> -->
           <div class="img-wrp"><%= image_tag "reskin/steps/4.png", class: ''%></div>
           <span class="bottom-bar"></span>
-          <h3>Visa Help</h3>
-          <p>Simulation training, guaranteed to pass</p>
+          <h3><%= I18n.t "homepage.four_steps.sec4.title" %></h3>
+          <p><%= I18n.t "homepage.four_steps.sec4.description" %></p>
         </div>
       </div>
     </div>
@@ -44,8 +44,8 @@
   <section class="section grey-section">
     <div class="container">
       <div class="header">
-        <h1>Tutor Background</h1>
-        <p>Star tutors recommended to you by platform due to their high ratings</p>
+        <h1><%= I18n.t "homepage.tutor_background.title" %></h1>
+        <p><%= I18n.t "homepage.tutor_background.description" %></p>
       </div>
 
       <div class="row">
@@ -63,15 +63,15 @@
   <section class="section white-section">
     <div class="container">
       <div class="header">
-        <h1>Tutor Reviews</h1>
-        <p>Star tutors recommended to you by platform due to their high ratings</p>
+        <h1><%= I18n.t "homepage.tutor_reviews.title" %></h1>
+        <p><%= I18n.t "homepage.tutor_reviews.description" %></p>
       </div>
 
       <div class="row">
         <div class="col-md-4 col-sm-6">
           <div class="without-bg-con">
             <div class="div-bg without-img-bg">
-              <h4>Finance Program Consulation</h4>
+              <h4><%= I18n.t "homepage.tutor_reviews.sec1.title" %></h4>
 
               <div class="user-image-text user-right">
                 <div class="usr-img">
@@ -80,25 +80,25 @@
                 </div>
 
                 <div class="usr-txt">
-                  <p>To Mentor: Delia</p>
+                  <p><%= I18n.t "homepage.tutor_reviews.sec1.to_mentor" %></p>
                   <ul>
                     <li>
-                      <a href="#" class="edu-cap">Brainstrom Writing rewrite</a>
+                      <a href="#" class="edu-cap"><%= I18n.t "homepage.tutor_reviews.sec1.degree" %></a>
                     </li>
                   </ul>
 
-                  <a class="usr-location"><span>Stanford</span></a>
+                  <a class="usr-location"><span><%= I18n.t "homepage.tutor_reviews.sec1.uni" %></span></a>
                 </div>
               </div>
 
-              <p>HongSu is really awesome! He is professional, authentic and passionate about the application process. Highly recommended!</p>
+              <p><%= I18n.t "homepage.tutor_reviews.sec1.text" %></p>
 
               <div class="review-comment text-right">
                 <div class="reviews">
                   <!-- <img src="images/stars.png" alt=""> -->
                   <%= image_tag "reskin/stars.png", class: ''%>
                   <span class="review-count">39</span>
-                  Reviews
+                  <%= I18n.t "homepage.tutor_reviews.sec1.reviews" %>
                 </div>
               </div>
             </div>
@@ -120,7 +120,7 @@
         <div class="col-md-4 col-sm-6">
           <div class="without-bg-con">
             <div class="div-bg without-img-bg">
-              <h4>Finance Program Consulation</h4>
+              <h4><%= I18n.t "homepage.tutor_reviews.sec2.title" %></h4>
 
               <div class="user-image-text user-right">
                 <div class="usr-img">
@@ -129,25 +129,25 @@
                 </div>
 
                 <div class="usr-txt">
-                  <p>To Mentor: Delia</p>
+                  <p><%= I18n.t "homepage.tutor_reviews.sec2.to_mentor" %></p>
                   <ul>
                     <li>
-                      <a href="#" class="edu-cap">Brainstrom Writing rewrite</a>
+                      <a href="#" class="edu-cap"><%= I18n.t "homepage.tutor_reviews.sec2.degree" %></a>
                     </li>
                   </ul>
 
-                  <a class="usr-location"><span>Stanford</span></a>
+                  <a class="usr-location"><span><%= I18n.t "homepage.tutor_reviews.sec2.uni" %></span></a>
                 </div>
               </div>
 
-              <p>HongSu is really awesome! He is professional, authentic and passionate about the application process. Highly recommended!</p>
+              <p><%= I18n.t "homepage.tutor_reviews.sec2.text" %></p>
 
               <div class="review-comment text-right">
                 <div class="reviews">
                   <!-- <img src="images/stars.png" alt=""> -->
                   <%= image_tag "reskin/stars.png", class: ''%>
                   <span class="review-count">39</span>
-                  Reviews
+                  <%= I18n.t "homepage.tutor_reviews.sec2.reviews" %>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@
         <div class="col-md-4 col-sm-6">
           <div class="without-bg-con">
             <div class="div-bg without-img-bg">
-              <h4>Finance Program Consulation</h4>
+              <h4><%= I18n.t "homepage.tutor_reviews.sec3.title" %></h4>
 
               <div class="user-image-text user-right">
                 <div class="usr-img">
@@ -178,25 +178,25 @@
                 </div>
 
                 <div class="usr-txt">
-                  <p>To Mentor: Delia</p>
+                  <p><%= I18n.t "homepage.tutor_reviews.sec3.to_mentor" %></p>
                   <ul>
                     <li>
-                      <a href="#" class="edu-cap">Brainstrom Writing rewrite</a>
+                      <a href="#" class="edu-cap"><%= I18n.t "homepage.tutor_reviews.sec3.degree" %></a>
                     </li>
                   </ul>
 
-                  <a class="usr-location"><span>Stanford</span></a>
+                  <a class="usr-location"><span><%= I18n.t "homepage.tutor_reviews.sec3.uni" %></span></a>
                 </div>
               </div>
 
-              <p>HongSu is really awesome! He is professional, authentic and passionate about the application process. Highly recommended!</p>
+              <p><%= I18n.t "homepage.tutor_reviews.sec3.text" %></p>
 
               <div class="review-comment text-right">
                 <div class="reviews">
                   <!-- <img src="images/stars.png" alt=""> -->
                   <%= image_tag "reskin/stars.png", class: ''%>
                   <span class="review-count">39</span>
-                  Reviews
+                  <%= I18n.t "homepage.tutor_reviews.sec3.reviews" %>
                 </div>
               </div>
             </div>
@@ -225,8 +225,8 @@
   <section class="section grey-section">
     <div class="container">
       <div class="header">
-        <h1>Advantage</h1>
-        <p>Star tutors recommended to you by platform due to their high ratings</p>
+        <h1><%= I18n.t "homepage.advantages.title" %></h1>
+        <p><%= I18n.t "homepage.advantages.description" %></p>
       </div>
 
       <div class="row">
@@ -234,11 +234,11 @@
           <div class="advantages">
             <div class="header">
               <div class="img freelance"></div>
-              <h5>Why freelancer</h5>
+              <h5><%= I18n.t "homepage.advantages.sec1.title" %></h5>
             </div>
 
             <div class="body">
-              We are a platform for connecting students with tutors, providing each side with the best service possible. Students receive quality lessons, while tutors can gain success on the platform.
+              <%= I18n.t "homepage.advantages.sec1.text" %>
             </div>
           </div>
         </div>
@@ -247,11 +247,11 @@
           <div class="advantages">
             <div class="header">
               <div class="img price"></div>
-              <h5>Lowest Price</h5>
+              <h5><%= I18n.t "homepage.advantages.sec2.title" %></h5>
             </div>
 
             <div class="body">
-              Low prices are made possible because we are a shared platform where tutors and students can interact. We are confident that we can provide the greatest value for the lowest price.
+              <%= I18n.t "homepage.advantages.sec2.text" %>
             </div>
           </div>
         </div>
@@ -260,11 +260,11 @@
           <div class="advantages">
             <div class="header">
               <div class="img quality"></div>
-              <h5>Best quality</h5>
+              <h5><%= I18n.t "homepage.advantages.sec3.title" %></h5>
             </div>
 
             <div class="body">
-              Quality is ensured through the benchmarks built into our platform. Rating is one way of evaluating a tutor’s performance. We also have a team of dedicated professionals for quality checking.
+              <%= I18n.t "homepage.advantages.sec3.text" %>
             </div>
           </div>
         </div>
@@ -283,8 +283,8 @@
 
     <div class="footer-overlay">
       <div class="overlay-txt">
-        <h1>Expert Admissions Advice At Your Fingertips</h1>
-        <p>Expert Admissions Advice At Your Fingertips</p>
+        <h1><%= I18n.t "homepage.expert.title" %></h1>
+        <p><%= I18n.t "homepage.expert.description" %></p>
 
         <a href="#">
           <!-- <img src="images/video_ic.png" alt=""> -->

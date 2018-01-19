@@ -13,7 +13,7 @@
                 <div class="reviews">
                   <%= image_tag "reskin/stars.png" %>
                   <span class="count">38</span>
-                  Reviews
+                  <%= I18n.t "instructor_profile.reviews" %>
                 </div>
 
                 <div class="info location">
@@ -38,9 +38,9 @@
 
               <div class="rate-per-hour">
                 <% if @instructor_info.fix_price.present?%>
-                  Fix price ¥<%= @instructor_info.fix_price %>
+                  <%= I18n.t "instructor_profile.fix_price" %> ¥<%= @instructor_info.fix_price %>
                 <%else%>
-                  Minimum ¥<%= @instructor_info.min_price %> per hour
+                  <%= I18n.t "instructor_profile.minimum" %> ¥<%= @instructor_info.min_price %> <%= I18n.t "instructor_profile.per_hour" %>
                 <%end%>
               </div>
             </div>
@@ -82,11 +82,11 @@
                 <%= form_with model: @transaction, method: 'post', local: true do |f| %>
                   <%= f.hidden_field :instructor_id %>
                   <div class="form-group">
-                    <label>合作日期</label>
+                    <label><%= I18n.t "instructor_profile.start_date" %></label>
                     <%= f.date_field :scheduled_date, min: Date.today.to_s(:db), class: 'form-control' %>
                   </div>
                   <div class="form-group">
-                    <label>合作项目</label>
+                    <label><%= I18n.t "instructor_profile.services" %></label>
                     <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {include_blank: true}, class: 'custom-select d-block w-100' %>
                   </div>
                   <div class="form-group">
@@ -119,7 +119,7 @@
                   <li><a href="#">Evaluation<span>(38)</span></a></li>
                 </ul> -->
 
-                <h1>About Me</h1>
+                <h1><%= I18n.t "instructor_profile.about_me" %></h1>
 
                 <div class="timings">
                   <h4><%= @instructor_info.page_title %></h4>
@@ -204,7 +204,7 @@
             <div class="profile-data-con last">
               <div class="inner main-profile-info">
                 <div class="schools">
-                  <h1>Schools I got in</h1>
+                  <h1><%= I18n.t "instructor_profile.school_got_in" %></h1>
                   <div class="row">
                     <% @instructor_info.universities_accepted.each do |uni|%>
                       <div class="col-sm-3">
@@ -223,37 +223,37 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Costs</h1>
+                    <h1><%= I18n.t "instructor_profile.costs" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
                     <ul class="info-list">
                       <li>
                         <ul>
-                          <li>Essay Editing</li>
-                          <li class="green">Cost Description</li>
+                          <li><%= I18n.t "instructor_profile.essay_editing" %></li>
+                          <li class="green"><%= I18n.t "instructor_profile.cost_desc" %></li>
                         </ul>
                         <p>
                           <% if @instructor_info.fix_price.present?%>
-                            Fix price ¥<%= @instructor_info.fix_price %>
+                            <%= I18n.t "instructor_profile.fix_price" %> ¥<%= @instructor_info.fix_price %>
                           <%else%>
-                            Minimum ¥<%= @instructor_info.min_price %>/hr
+                            <%= I18n.t "instructor_profile.minimum" %> ¥<%= @instructor_info.min_price %> <%= I18n.t "instructor_profile.per_hour" %>
                           <%end%>
                         </p>
                         <!-- <p>¥888/hr 10% off with 2hr booking</p> -->
                       </li>
                       <li>
                         <ul>
-                          <li>Visa Consulting</li>
-                          <li class="green">Cost Description</li>
+                          <li><%= I18n.t "instructor_profile.visa_consulting" %></li>
+                          <li class="green"><%= I18n.t "instructor_profile.visa_cost_desc" %></li>
                         </ul>
                         <p>
                         <% if @instructor_info.fix_price.present?%>
-                          Fix price ¥<%= @instructor_info.fix_price %>
+                          <%= I18n.t "instructor_profile.fix_price" %> ¥<%= @instructor_info.fix_price %>
                         <%else%>
-                          Minimum ¥<%= @instructor_info.min_price %>/hr
+                          <%= I18n.t "instructor_profile.minimum" %> ¥<%= @instructor_info.min_price %> <%= I18n.t "instructor_profile.per_hour" %>
                         <%end%>
-                          (Support multiple people at same time)
+                          (<%= I18n.t "instructor_profile.support_multiple" %>)
                         </p>
                       </li>
                     </ul>
@@ -264,20 +264,20 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1 class="more-padding">I can help</h1>
-                    <h1 class="mb-0">I am good at</h1>
+                    <h1 class="more-padding"><%= I18n.t "instructor_profile.i_can_help" %></h1>
+                    <h1 class="mb-0"><%= I18n.t "instructor_profile.im_good_at" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
                     <ul class="info-list">
                       <li>
                         <ul class="border-0">
-                          <li><span class="green"><%= @instructor_info.max_std_count %></span> students</li>
-                          <li>Position left 1</li>
+                          <li><span class="green"><%= @instructor_info.max_std_count %></span> <%= I18n.t "instructor_profile.students" %></li>
+                          <li><%= I18n.t "instructor_profile.pos_left1" %></li>
                         </ul>
                       </li>
                       <li>
-                        <div>Apply for top <%= @instructor_info.best_applying_at %> universities in America</div>
+                        <div><%= I18n.t "instructor_profile.apply_for_top" %> <%= @instructor_info.best_applying_at %> <%= I18n.t "instructor_profile.uni_in_usa" %></div>
                       </li>
                     </ul>
                   </div>
@@ -287,7 +287,7 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Privacy Term</h1>
+                    <h1><%= I18n.t "instructor_profile.privacy_terms" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
@@ -305,7 +305,7 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Why I am helping</h1>
+                    <h1><%= I18n.t "instructor_profile.why_helping" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
@@ -323,7 +323,7 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Things I can share</h1>
+                    <h1><%= I18n.t "instructor_profile.things_ican_share" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
@@ -341,7 +341,7 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Experience as tutor</h1>
+                    <h1><%= I18n.t "instructor_profile.experience_as_totur" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
@@ -355,13 +355,13 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1 class="more-padding">How long I can work</h1>
+                    <h1 class="more-padding"><%= I18n.t "instructor_profile.how_long_ican_work" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
                     <ul class="info-list">
-                        <li>Min days: <span class="green"><%= @instructor_info.min_work_days %></span></li>
-                        <li>Max days: <span class="green"><%= @instructor_info.max_work_days %></span></li>
+                        <li><%= I18n.t "instructor_profile.min_days" %><span class="green"><%= @instructor_info.min_work_days %></span></li>
+                        <li><%= I18n.t "instructor_profile.max_days" %> <span class="green"><%= @instructor_info.max_work_days %></span></li>
                     </ul>
                   </div>
                 </div>
@@ -370,12 +370,12 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Contact in Advance</h1>
+                    <h1><%= I18n.t "instructor_profile.contact_in_advance" %><%= I18n.t "instructor_profile.advance" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
                     <div class="profile-description">
-                      Contact me at least <%= @instructor_info.advance_notify %> days in advance.
+                      <%= I18n.t "instructor_profile.contact_me_at_least" %> <%= @instructor_info.advance_notify %> <%= I18n.t "instructor_profile.days_in_advance" %>
                     </div>
                   </div>
                 </div>
@@ -384,12 +384,12 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Time Reservation</h1>
+                    <h1><%= I18n.t "instructor_profile.time_reservation" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
                     <div class="profile-description">
-                      You can reserve an appointment as early as <%= @instructor_info.reserve_in_advance %>
+                      <%= I18n.t "instructor_profile.you_can_reserve" %> <%= @instructor_info.reserve_in_advance %>
                     </div>
                   </div>
                 </div>
@@ -398,18 +398,18 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Cancellation Policy</h1>
+                    <h1><%= I18n.t "instructor_profile.cancel_policy" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
                     <div class="profile-description">
-                      First ten minutes is free trail. Any time after that will incur service fee. Uou can report tutor if you are not satisfied with the service 70% of fee can be refunded after Feiling's confirmation.
+                      <%= I18n.t "instructor_profile.firs_ten_min" %>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div class="inner main-profile-info">
+              <!-- <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
                     <h1>Resume</h1>
@@ -418,20 +418,20 @@
                   <div class="col-md-8 col-sm-7">
                     <ul class="files">
                       <li><a href="javascript:void(0)">
-                        <%= image_tag "reskin/linkedin.png"%>
+                        <%#= image_tag "reskin/linkedin.png"%>
                       </a></li>
                       <li><a href="javascript:void(0)">
-                        <%= image_tag "reskin/pdf.png"%>
+                        <%#= image_tag "reskin/pdf.png"%>
                       </a></li>
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Education</h1>
+                    <h1><%= I18n.t "instructor_profile.eduation" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
@@ -450,13 +450,13 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Work</h1>
+                    <h1><%= I18n.t "instructor_profile.work" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
                     <div class="timeline">
                       <div class="inner">
-                        <div class="date">No Work experience added</div>
+                        <div class="date"><%= I18n.t "instructor_profile.no_work_exp" %></div>
                         <div class="info"></div>
                       </div>
                     </div>
@@ -467,13 +467,13 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1>Quality</h1>
+                    <h1><%= I18n.t "instructor_profile.quality" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">
                     <div class="progress-bars">
                       <div class="inner">
-                        <div class="skill-name">Service</div>
+                        <div class="skill-name"><%= I18n.t "instructor_profile.service" %></div>
 
                         <div class="progres-percent">
                           <div class="progres-bar">
@@ -485,7 +485,7 @@
                       </div>
 
                       <div class="inner">
-                        <div class="skill-name">Communication</div>
+                        <div class="skill-name"><%= I18n.t "instructor_profile.comm" %></div>
 
                         <div class="progres-percent">
                           <div class="progres-bar">
@@ -497,7 +497,7 @@
                       </div>
 
                       <div class="inner">
-                        <div class="skill-name">Attitude</div>
+                        <div class="skill-name"><%= I18n.t "instructor_profile.attitude" %></div>
 
                         <div class="progres-percent">
                           <div class="progres-bar">
@@ -508,7 +508,7 @@
                       </div>
 
                       <div class="inner">
-                        <div class="skill-name">Efficiency</div>
+                        <div class="skill-name"><%= I18n.t "instructor_profile.efficiency" %></div>
 
                         <div class="progres-percent">
                           <div class="progres-bar">
@@ -520,7 +520,7 @@
                       </div>
 
                       <div class="inner">
-                        <div class="skill-name">Authenticity</div>
+                        <div class="skill-name"><%= I18n.t "instructor_profile.authenticity" %></div>
 
                         <div class="progres-percent">
                           <div class="progres-bar">
@@ -532,7 +532,7 @@
                       </div>
 
                       <div class="inner">
-                        <div class="skill-name">Cost-effectiveness</div>
+                        <div class="skill-name"><%= I18n.t "instructor_profile.cost_effect" %></div>
 
                         <div class="progres-percent">
                           <div class="progres-bar">

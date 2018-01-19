@@ -1,33 +1,504 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+
+  header:
+    signup: "Sign Up"
+    login: "Log In"
+    logged_in:
+      become_mentor: "Become a Mentor"
+      find_mentor: "Find your Mentor"
+      my_orders: "My Orders"
+      messages: "Messages"
+      view_profile: "User Info"
+      edit_profile: "Edit User Profile"
+      edit_instructor_profile: "Edit Instructor Profile"
+      logout: "Log Out"
+
+  footer:
+    terms:
+      title: "Terms & Conditions"
+      address: "Venture Building 704 Huangbei Rd Luohu District Shenzhen"
+      phone: "400-123-4567"
+      email: "suggestion@feelingyt.com"
+      office_time: "From Monday to Friday 9:00-18:00(SGT)"
+
+  homepage:
+    carousel:
+      title: "Feiling Education"
+      description: "Enter into dream school and impressive experience with talent."
+
+    four_steps:
+      title: "Four Easy Steps"
+      sec1:
+        title: "Consultation"
+        description: "Professional colleagues to share experience"
+      sec2:
+        title: "Brainstroming"
+        description: "Free association, finalize the theme"
+      sec3:
+        title: "Proofreading"
+        description: "Repeatedly revised until satisfied"
+      sec4:
+        title: "Visa Help"
+        description: "Simulation training, guaranteed to pass"
+
+    tutor_background:
+      title: "Tutor Background"
+      description: "Star tutors recommended to you by platform due to their high ratings"
+
+    tutor_reviews:
+      title: "Tutor Reviews"
+      description: "What students would like to say about their tutors"
+      sec1:
+        title: "Finance Program Consultation"
+        to_mentor: "To Mentor: Yuting"
+        degree: "Brainstroming"
+        uni: "Stanford"
+        text: "Yuting is really awesome! He is professional, authentic and passionate about the application process. He not only raises my personal statement level, but also advises me a lot on my future plan, I will keep in touch with him!"
+        reviews: "Reviews"
+      sec2:
+        title: "Engineering Program Consultation"
+        to_mentor: "To Mentor: Yuting"
+        degree: "Proofreading"
+        uni: "Stanford"
+        text: "Yuting is really awesome! He is professional, authentic and passionate about the application process. He not only raises my personal statement level, but also advises me a lot on my future plan, I will keep in touch with him!"
+        reviews: "Reviews"
+      sec3:
+        title: "Literature Program Consultation"
+        to_mentor: "To Mentor: Yuting"
+        degree: "Proofreading"
+        uni: "Stanford"
+        text: "Yuting is really awesome! He is professional, authentic and passionate about the application process. He not only raises my personal statement level, but also advises me a lot on my future plan, I will keep in touch with him!"
+        reviews: "Reviews"
+
+    advantages:
+      title: "Advantage"
+      description: "This is why you need to choose Feiling Education"
+      sec1:
+        title: "Why Freelancer"
+        text: "We are a platform for connecting students with tutors, providing each side with the best service possible. Students receive quality lessons, while tutors can gain success on the platform."
+      sec2:
+        title: "Lowest Price"
+        text: "Low prices are made possible because we are a shared platform where tutors and students can interact. We are confident that we can provide the greatest value for the lowest price."
+      sec3:
+        title: "Best Quality"
+        text: "Quality is ensured through the benchmarks built into our platform. Rating is one way of evaluating a tutor’s performance. We also have a team of dedicated professionals for quality checking."
+
+    expert:
+      title: "Share Economy Study Abroad Platform"
+      description: "Change the way it was and open up a new door for sharing knowledge"
+
+  registration:
+    btn_agree: "I Agree"
+    btn_disagree: "Nope"
+    btn_next: "Next"
+    btn_back: "Back"
+
+    step0:
+      title: "Before Becoming a Tutor on Feiling"
+      p1: "Feiling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper."
+      p2: "Making tasteful product is the core principle to develop this platform and the main reason to make it work is to make you, my dear tutors to succeed on the platform. The more successful you are, the more meaningful it is for us."
+      p3: "We would do our best to give you the best user experience and make money in the easiest way!"
+
+    step1:
+      title_dear: "Dear"
+      title: "let's get started on your profile page."
+      question_title: "Which school are you from?"
+      elephant_text: "You could earn"
+
+    step2:
+      title: "Step 1: Basic Information"
+      question_text: "What kind of tutor would you want to be? (mutliple choices)"
+      label1: "Become a consulting tutor?"
+      label2: "Become a brainstorming tutor?"
+      label3: "Become a proofreading tutor?"
+      label4: "Become a visa consulting tutor?"
+      radio_question: "Have you helped others before?"
+      yes_label: "Yes, I have helped others before "
+      no_label: "No, this is my first time helping others"
+
+    step3:
+      title: "Step 1: Basic Information"
+      q1: "How many schools have you applied before?"
+      q2: "How many schools have you been accepted?"
+
+    step4:
+      title: "Step 1: Basic Information"
+      q: "Where are you from?"
+      label1: "Country"
+      label2: "State / Province"
+      label3: "City"
+
+    step5:
+      title: "Step 1: Basic Information"
+      q: "What informatin could you share to students?"
+      checkbox1: "Personal CV"
+      checkbox2: "Application Letter"
+      checkbox3: "Offer Letter"
+      checkbox4: "GPA"
+      checkbox5: "GRE Score"
+      checkbox6: "Published Paper"
+      checkbox7: "Essay from classes"
+
+    step6:
+      title: "we are almost done!"
+      sub_title: "Let's review your information before creating your page"
+      tick1: "For example tutor option and contact information"
+      modify: "Modify"
+      sub_title2: "And decorate your profile"
+      text2: "Add your life photo, short description and caption."
+      continue: "Continue"
+      sub_title3: "Start your own business"
+      text3: "Decide your price and manage your time"
+      elephant_text: "We thought you could earn"
+
+    step7:
+      title: "Step 2: Decorate your profile page"
+      q: "Pick a picture of your school to be on your tutor page!"
+      label: "Upload..."
+
+    step8:
+      title: "Step 2: Decorate your profile page"
+      description: "Add attracting description"
+      label: "Simply describe yourself please"
+      placeholder: "Please share what you are good and what your suggestions are about applying for a schools. At least 400 characters."
+      error: "Please add at least 400 characters"
+      q: "I am good at applying for"
+
+    step9:
+      title: "Step 2: Decorate your profile page"
+      q: "Set a title for your page!"
+      description: "Add a catching title to attract more students!"
+      placeholder: "e.g. My life in America (max 100 characters)"
+
+    step10:
+      title: "Step 2: Decorate your profile page"
+      q: "Please add a picture of yourself!"
+      upload: "Upload"
+      elephant_text1: "Every user (tutors and students) on the platform has a profile picture of her/himself. The purpose is to improve the sense of trust and security."
+      elephant_text2: "Please make sure we can clearly see your face in the picture."
+      done: "Done"
+
+    step11:
+      title: "we are almost done!"
+      heading1: "Let's review your information before creating your page"
+      desc1: "For example tutor option and contact information"
+      modify: "Modify"
+      heading2: "And decorate your profile"
+      desc2: "Add your life photo, short description and caption."
+      heading3: "Start your own business"
+      desc3: "Decide your price and manage your time"
+      continue: "Continue"
+
+    step12:
+      title: "Step 3: Prepare for students now"
+      sub_title: "Our requirments for students"
+      q1: "Before selecting tutors, we require students to meet the following requirements"
+      r1: "Profile picture"
+      r2: "Authenticated e-mail address"
+      r3: "Authenticated phone number"
+      r4: "Payment information"
+      r5: "Agree with our privacy term"
+      r6: "Send you information for questions"
+      q2: "For new students:"
+      n1: "Every tutor tries their best to help you"
+      n2: "Please respect all tutors, they are why we exist"
+      n3: "Please keep in contact with tutors"
+      elephant_text: "Your information is safe with us! These are the requirment for students before they contact you."
+
+    step13:
+      q1: "Privacy terms for students"
+      t1: "Allow to share edited files"
+      t2: "Allow to share my information"
+      t3: "Allow to meet in person"
+      t4: "Allow to answer questions for free"
+      t5: "Allow to ask personal questions"
+      q2: "What would you want your students to know about you and the help you provide"
+      k1: "For a sense of accomplishment"
+      k2: "I want to utilize my free time"
+      k3: "I don't know how to write actually"
+      k4: "I am more nervous than you when I help you apply"
+      k5: "I care about your cooperation very much"
+      elephant_text1: "Besides agreeing with our terms, students also need to agree with your terms."
+      elephant_text2: "If you feel upset of insecure about the interaction with student, you cancel before setting a time to avoid penalty."
+
+    step14:
+      sub_title: "Your requirments for students"
+      q1: "Our privacy terms"
+      t1: "Allow to share edited files"
+      t2: "Allow to share my information"
+      t3: "Allow to meet in person"
+      t4: "Allow to answer questions for free"
+      t5: "Allow to ask personal questions"
+      q2: "Your privacy terms"
+      k1: "For a sense of accomplishment"
+      k2: "I want to utilize my free time"
+      k3: "I don't know how to write actually"
+      k4: "I am more nervous than you when I help you apply"
+      k5: "I care about your cooperation very much"
+      elephant_text: "Your information is safe with us! These are the requirments for students before they contact you."
+
+    step15:
+      sub_title: "Students can request your help in following way"
+      box1:
+        p1: "1. Only students who meet all terms and requirements can contact you"
+        p2: "Any students who want to work with you need to confirm their contact info, payment info, and clarify the help they need."
+      box2:
+        p1: "2. You decide whom to work with"
+        p2: "You can set all the time you are available. Students who work with you needs to obey all your privacy terms."
+      box3:
+        p1: "3. Only you will be notified when an order is confirmed."
+        p2: "You will receive confirmation emails with including the order detail, including order type, personal requirement, etc."
+
+    step16:
+      sub_title: "Your first business starts from setting available time!"
+      p1: "You can set the time you are available to help students"
+      label1: "Students can only choose time you are available, so please update your time availability timely."
+      label2: "You will be responsible for any cancellation or conflict due to incorrect time availability."
+      label3: "Will do! I'll keep my time availabilities accurate!"
+
+    step17:
+      sub_title: "Just a couple more questions for you"
+      p1: "These questions can help you better manage your service and time"
+      label1: "Have you ever been a tutor before? "
+      label2: "How many students do you wish to help at one time?"
+
+    step18:
+      sub_title: "Set a length of time a student can work with you"
+      p1: "How long you are willing to work with one student is important. Students will use this to adjust their progress and communication with you."
+      label1: "Minimum work days?"
+      label2: "Maximum work days?"
+      error: "It should be greater than min days."
+      placeholder1: "Select minimum work days"
+      placeholder2: "Select maximum work days"
+      cal1: "You can choose"
+      cal2: "between 2 and 30 days"
+
+    step19:
+      sub_title: "How many days in advance do you need the student to notify you?"
+      p1: "How long you are willing to work with one student is important. Students will use this to adjust their progress and communication with you."
+      label: "Select the number of days in advance"
+
+    step20:
+      sub_title: "How many days could students reserve your time in advance?"
+      p1: "You could choose to open your time for a while"
+
+    step22:
+      sub_title: "How do you want to set the price?"
+      p1: "You can set the time you are available to help students"
+      label1: "According to the market value"
+      desc1: "You can use smart price setter to set your price. The price will be within your range."
+      recommended: "Recommended"
+      label2: "Set a fixed price"
+      desc2: "You can set an expected price first. Feiling platform will give you a suggestion, and it's up to you which one to go with."
+      elephant_text: "These two ways are mean to help match your desired price with students' desired price. No matter how you choose, we will help you to set a reasonable price that can best help you succeed on this platform."
+
+    step23:
+      elephant_text: "You are the one who decides the price, we only make suggestions. Price will influence the amount of students you get and students' reviews."
+      fix:
+        title: "Smart price setter"
+        p: "Students will be charged this price for your service, if you turn off the smart price setter"
+        label: "Fixed Price"
+        placeholder: "Suggest: ¥ 760/hr"
+      range:
+        title: "Smart price setter"
+        p1: "Set a price range. The suggested price will be within your range."
+        label1: "At least"
+        label2: "At most"
+        label3: "How often do you want to work with students"
+        error: "It should be greater than min value."
+        placeholder1: "Suggest: ¥ 600/hr"
+        placeholder2: "Suggest: ¥ 800/hr"
+
+    step24:
+      sub_title: "Provide a deal to start fast"
+      label1: "Give a 20% discount for your first student!"
+      desc1: "To help start your service, this deal is provided to the first student. Other students will be charged with your standard rate. This discount expires in a month."
+      recommended: "Recommended"
+      label2: "No, I will just use my standard rate."
+      desc2: "The first student will not get a discount. It might become a little harder to start your service."
+      elephant_text1: "Why having this option?"
+      elephant_text2: "​According to survey, this will help attract students in the beginning. According to statistics, this will help you get review quickly and attract more students."
+
+    step26:
+      sub_title1: "Congrats"
+      sub_title2: "You have completed your mentor info!"
+      desc: "You can start receiving orders from now! You can edit your calendar or privacy  in your personal page anytime."
+      edit_btn: "Edit"
+      finish_btn: "Finish and Start Tutoring"
+      hello: "Hello"
+      visit_home: "Let's visit your home page"
+
+  mentors:
+    heading: "Select your Mentor"
+    desc: "Star tutors recommended to you by platform due to their high ratings"
+    no_heading: "No Matching results"
+    no_desc: "Opps!! No mentors matching your selection. Let's go back to to previous screen to select some different filters"
+    back_btn: "Back"
+
+  signup:
+    step1:
+      heading: "Before you join"
+      p1: "Feiling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper."
+      p2: "Making tasteful product is the core principle to develop this platform and the main reason to make it work is to make you, my dear tutors to succeed on the platform. The more successful you are, the more meaningful it is for us."
+      p3: "We would do our best to give you the best user experience and make money in the easiest way!"
+      accept_btn: "Accept"
+      decline_btn: "Decline"
+    step2:
+      heading: "Please add information"
+      p: "Please fill in the information correctly so that we can finish well."
+      placeholder1: "First Name"
+      placeholder2: "Last Name"
+      placeholder3: "Email"
+      placeholder4: "Password"
+      placeholder5: "Confirm Password"
+      birthday_lbl: "Birthday"
+      birthday_p: "To sign up, you must be 18 or older."
+      t1: "By signing up below, you are agreeing to our"
+      t2: "terms"
+      t3: "and"
+      t4: "privacy policy"
+      signup: "Sign Up"
+      already_account: "Already have an account?"
+      login: "Log In"
+
+  signin:
+    heading: "Login"
+    p: "Please fill in your account information below to login."
+    placeholder1: "Enter your email"
+    placeholder2: "Password"
+    remember_me: "Remember me"
+    forgot_pwd: "Forgot Password"
+    login: "Log In"
+    no_account: "Don't have an account?"
+    signup: "Sign Up"
+
+  transactions:
+    order_received: "Orders Received (as mentor)"
+    order_placed: "Orders Placed (as student)"
+    no_orders: "No Orders"
+    inst_name: "Instructor Name"
+    std_name: "Student Name"
+    order_placed_at: "Order Placed at"
+    order_status: "Order Status"
+    actions: "Actions"
+    view_more: "View Details"
+
+  instructor_profile:
+    reviews: "Reviews"
+    fix_price: "Fix price"
+    minimum: "Minimum"
+    per_hour: "per hour"
+    start_date: "Start Date"
+    services: "Services"
+    about_me: "About Me"
+    school_got_in: "Schools I got in"
+    costs: "Costs"
+    essay_editing: "Essay Editing"
+    cost_desc: "Cost Description"
+    visa_consulting: "Visa Consulting"
+    visa_cost_desc: "Cost Description"
+    support_multiple: "Support multiple people at same time"
+    i_can_help: "I can help"
+    im_good_at: "I am good at"
+    students: "students"
+    pos_left1: "Position left 1"
+    apply_for_top: "Apply for top"
+    uni_in_usa: "universities in America"
+    privacy_terms: "Privacy Terms"
+    why_helping: "Why I am helping"
+    things_ican_share: "Things I can share"
+    experience_as_totur: "Experience as tutor"
+    how_long_ican_work: "How long I can work"
+    contact_in_advance: "Contact in Advance"
+    contact_me_at_least: "Contact me at least"
+    days_in_advance: "days in advance."
+    time_reservation: "Time Reservation"
+    you_can_reserve: "You can reserve an appointment as early as"
+    cancel_policy: "Cancellation Policy"
+    firs_ten_min: "First ten minutes is free trail. Any time after that will incur service fee. Uou can report tutor if you are not satisfied with the service 70% of fee can be refunded after Feiling's confirmation."
+    eduation: "Education"
+    work: "Work"
+    no_work_exp: "No Work experience added"
+    quality: "Quality"
+    service: "Service"
+    comm: "Communication"
+    attitude: "Attitude"
+    efficiency: "Efficiency"
+    authenticity: "Authenticity"
+    cost_effect: "Cost-effectiveness"
+    min_days: "Min days:"
+    max_days: "Max days:"
+    advance: "Advance"
+
+  my_orders:
+    no_contact: "No Contact"
+    no_msgs: "No messages here. Please check back later."
+    new_line: "Press enter for new line"
+    send_msg: "Press enter to send message"
+    snd_btn: "Send"
+
+  edit_profile:
+    email: "Email"
+    school_info: "School Information"
+    services_ican_offer: "Services I can offer"
+    helped_others: "Have you helped others before?"
+    info_sharing: "Information Sharing"
+    application_college: "Successful Application College"
+    privacy_terms: "Your Privacy Terms"
+    set_work_duration: "Set your work duration"
+    students_can_know: "What students could know about you"
+    advance_reseration: "Set your advance reservation time"
+    other_options: "Some other options"
+    your_pricing: "Review your pricing"
+    update_btn: "Update"
+    yes_helped: "Yes, I have helped others before"
+    no_helped: "No, this is my first time helping others"
+    min_days: "Select minimum work days"
+    max_days: "Select maximum work days"
+    min_days_lbl: "Minimum work days?"
+    max_days_lbl: "Maximum work days?"
+    tutor_before: "Have you ever been a tutor before?"
+    std_help_at_a_time: "How many students do you wish to help at one time?"
+    variable_price_range: "Set variable price range"
+    fix_price: "Fix Price"
+    at_least: "At Least"
+    at_most: "At Most"
+    set_your_option: "Set your option"
+    how_often: "How often do you want to work with students"
+    error: "It should be greater than min value."
+
+  stds:
+    accomp: "For a sense of accomplishment"
+    utilize: "I want to utilize my free time"
+    how_to_write: "I don't know how to write actually"
+    more_nervous: "I am more nervous than you when I help you apply"
+    care_about: "I care about your cooperation very much"
+
+  privacy_terms:
+    shared_edited: "Allow to share edited files"
+    share_my_info: 'Allow to share my information'
+    meet_person: "Allow to meet in person"
+    answer_question: "Allow to answer questions for free"
+    personal_questions: "Allow to ask personal questions"
+
+  things_can_share:
+    cv: "Personal CV"
+    app_letter: "Application Letter"
+    offer_letter: "Offer Letter"
+    gpa: "GPA"
+    gre: "GRE Score"
+    paper: "Published paper"
+    essay: "Essay from classes"
+
+  chat:
+    status: "Status"
+    order_placed_at: "Order placed at"
+    order_updated_at: "Order updated at"
+    initiated: "Initiated"
+    pending: "Pay"
+    posted_on: "Posted on"
+    press_enter_to_msg: "Press enter to send message"
+    press_enter_for_new_line: "Press enter for new line"
+    send_btn: "Send"
+    stop: "Stop"

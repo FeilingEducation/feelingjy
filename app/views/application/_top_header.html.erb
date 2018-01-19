@@ -1,5 +1,4 @@
 <header class="main-header <%= current_user.present? ? ' signed-in': '' %>">
-
   <%#= render partial: 'top_bar' %>
 
   <div class="main-nav">
@@ -16,14 +15,23 @@
           <div class="col-md-10 col-sm-10 text-right">
             <ul class="main-nav <%= current_user.nil? ? "public" : ""%>">
               <% if !user_is_instructor? %>
-                <li><%= link_to "Become a Mentor", new_instructor_info_path, class: "nav-link" %></li>
+                <li><%= link_to I18n.t("header.logged_in.become_mentor"), new_instructor_info_path, class: "nav-link" %></li>
               <%end%>
-              <li><%= link_to "Find your Mentor", mentors_path, class: "header-nav-link nav-link" %></li>
+              <li><%= link_to I18n.t("header.logged_in.find_mentor"), mentors_path, class: "header-nav-link nav-link" %></li>
               <li class="nav-item">
-                <%= link_to "My Orders", consult_transactions_path, class: 'nav-link' %>
+                <%= link_to I18n.t("header.logged_in.my_orders"), consult_transactions_path, class: 'nav-link' %>
               </li>
               <li class="nav-item">
-                <%= link_to "Messages", messages_path, class: 'nav-link nav-message' %>
+                <%= link_to I18n.t("header.logged_in.messages"), messages_path, class: 'nav-link nav-message' %>
+              </li>
+              <li class="nav-item">
+                <% if session[:locale] == "cn" %>
+                  <%#= image_tag "reskin/flag/usa.jpg" %>
+                  <%= link_to "EN", set_local_path(local: "en"), class: 'nav-link'%>
+                <%else%>
+                  <%#= image_tag "reskin/flag/china.jpg" %>
+                  <%= link_to "CN", set_local_path(local: "cn"), class: 'nav-link'%>
+                <%end%>
               </li>
             </ul>
           </div>
@@ -36,12 +44,12 @@
                   </a>
                   <div class="dropdown-menu top-bar-drop" aria-labelledby="profile">
                     <% if user_is_instructor? %>
-                      <%= link_to 'Edit Instructor Profile', edit_instructor_info_path, class: 'dropdown-item' %>
+                      <%= link_to I18n.t("header.logged_in.edit_instructor_profile"), edit_instructor_info_path, class: 'dropdown-item' %>
                     <% end %>
-                    <%= link_to '个人中心', user_info_path, class: 'dropdown-item' %>
-                    <%= link_to 'Edit User Profile', edit_user_info_path, class: 'dropdown-item' %>
+                    <%= link_to I18n.t("header.logged_in.view_profile"), user_info_path, class: 'dropdown-item' %>
+                    <%= link_to I18n.t("header.logged_in.edit_profile"), edit_user_info_path, class: 'dropdown-item' %>
                     <%#= link_to '安全中心', edit_user_registration_path, class: 'dropdown-item' %>
-                    <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: "delete" %>
+                    <%= link_to I18n.t("header.logged_in.logout"), destroy_user_session_path, class: "dropdown-item", method: "delete" %>
                   </div>
                 </li>
               </ul>
@@ -52,21 +60,26 @@
           <div class="col-md-4 col-sm-4">
             <ul class="main-nav top-bar">
               <% unless current_user.present?%>
-                <li><%= link_to "Find your Mentor", mentors_path, class: "nav-link" %></li>
+                <li><%= link_to I18n.t("header.logged_in.find_mentor"), mentors_path, class: "nav-link" %></li>
               <%end%>
               <li class="">
-                <%= link_to "Signup", new_user_registration_path, remote: true, class: "nav-link" %>
+                <%= link_to I18n.t("header.signup"), new_user_registration_path, remote: true, class: "nav-link" %>
               </li>
               <li class="">
-                <%= link_to "Log In", new_user_session_path, remote: true, class: "nav-link" %>
+                <%= link_to I18n.t("header.login"), new_user_session_path, remote: true, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <% if session[:locale] == "cn" %>
+                  <%#= image_tag "reskin/flag/usa.jpg" %>
+                  <%= link_to "EN", set_local_path(local: "en"), class: 'nav-link'%>
+                <%else%>
+                  <%#= image_tag "reskin/flag/china.jpg" %>
+                  <%= link_to "CN", set_local_path(local: "cn"), class: 'nav-link'%>
+                <%end%>
               </li>
             </ul>
           </div>
         <%end%>
-
-
-
-
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <div class="row tutor-picture-wrapper">
   <div class="col-md-12">
     <div class="section-header">
-      <h3 >Step 2: Decorate your profile page</h3>
+      <h3><%= I18n.t("registration.step10.title") %></h3>
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -10,12 +10,12 @@
       <div class="row">
         <div class="col-md-12">
           <div class="question-block tutor-picture-block">
-            <p class="survey-question">Please add a picture of yourself! </p>
+            <p class="survey-question"><%= I18n.t("registration.step10.q") %> </p>
             <div class="pic-placeholder" id="pic-placeholder"></div>
             <div class="custom-file d-block" id="upload-btn">
               <%= f.file_field :avatar, class: "custom-image-input", :'data-target' => '.pic-placeholder', :'data-background' => true, accept: 'image/*', id: "avatar-image" %>
               <%= f.hidden_field :avatar_cache, id: "avatar-preview" %>
-              <span id="avatar-img-name" class="custom-file-control page-bg custom-file-name" data-content="Upload" id="avatar-preview">
+              <span id="avatar-img-name" class="custom-file-control page-bg custom-file-name" data-content="<%= I18n.t("registration.step10.upload") %>" id="avatar-preview">
                 <%= image_tag "registration/upload-icon.png" %>
               </span>
             </div>
@@ -23,12 +23,12 @@
               <span id="reset-image" class='img-reset-btn'>X</span>
             </div>
             <div class="set-image hidden">
-              <button id="set-image" class='mt-30 btn-default' type='button'>Done</button>
+              <button id="set-image" class='mt-30 btn-default' type='button'><%= I18n.t("registration.step10.done") %></button>
             </div>
           </div>
           <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step9" data-percentage='40%' >上一步</button>
-            <button type="button" class="btn btn-primary step-navigate next main-btn pull-right next" data-percentage='100%' data-target="#step11">下一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step9" data-percentage='40%' ><%= I18n.t("registration.btn_back") %></button>
+            <button type="button" class="btn btn-primary step-navigate next main-btn pull-right next" data-percentage='100%' data-target="#step11"><%= I18n.t("registration.btn_next") %></button>
           </div>
         </div>
       </div>
@@ -37,8 +37,8 @@
 
   <div class="col-md-5 right-panel">
     <div class="green-box elepahnt profile-page">
-      <p>Every user (tutors and students) on the platform has a profile picture of her/himself. The purpose is to improve the sense of trust and security.</p>
-      <p>Please make sure we can clearly see your face in the picture.</p>
+      <p><%= I18n.t("registration.step10.elephant_text1") %></p>
+      <p><%= I18n.t("registration.step10.elephant_text2") %></p>
       <%= image_tag "registration/step7-elephent.png"%>
     </div>
   </div>

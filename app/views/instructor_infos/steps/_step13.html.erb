@@ -1,7 +1,7 @@
 <div class="row student-info-step">
   <div class="col-md-12">
     <div class="section-header">
-      <h3 >Step 3: Prepare for students now</h3>
+      <h3><%= I18n.t("registration.step12.title") %></h3>
     </div>
   </div>
   <div class="col-md-2"></div>
@@ -10,17 +10,17 @@
       <div class="row">
         <div class="col-md-12">
           <div class="question-block our-terms-agreed custom-checkbox-radios">
-            <p class="survey-question">Privacy terms for students</p>
+            <p class="survey-question"><%= I18n.t("registration.step13.q1") %></p>
             <%= render partial: 'instructor_infos/steps/shared/privacy_terms', locals: {f: f, lang: lang} %>
           </div>
           <div class="question-block your-terms-agreed custom-checkbox-radios">
-            <p class="survey-question">What would you want your students to know about you and the help you provide</p>
+            <p class="survey-question"><%= I18n.t("registration.step13.q2") %></p>
             <%= render partial: 'instructor_infos/steps/shared/students_can_know', locals: {f: f, lang: lang} %>
           </div>
 
           <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step12" data-percentage='1%' >上一步</button>
-            <button type="button" class="btn btn-primary step-navigate next main-btn pull-right next" data-percentage='17%' data-target="#step14" id="selected-terms">下一步</button>
+            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step12" data-percentage='1%' ><%= I18n.t("registration.btn_back") %></button>
+            <button type="button" class="btn btn-primary step-navigate next main-btn pull-right next" data-percentage='17%' data-target="#step14" id="selected-terms"><%= I18n.t("registration.btn_next") %></button>
           </div>
         </div>
       </div>
@@ -30,8 +30,8 @@
   <div class="col-md-4 right-panel">
     <div class="green-box elepahnt step13">
       <%= image_tag "registration/step7-elephent.png"%>
-      <p>Besides agreeing with our terms, students also need to agree with your terms.</p>
-      <p>If you feel upset of insecure about the interaction with student, you cancel before setting a time to avoid penalty</p>
+      <p><%= I18n.t("registration.step13.elephant_text1") %></p>
+      <p><%= I18n.t("registration.step13.elephant_text2") %></p>
     </div>
   </div>
 </div>

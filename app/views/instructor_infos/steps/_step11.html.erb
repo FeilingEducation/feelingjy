@@ -4,13 +4,13 @@
     <div class="row">
       <div class="col-md-12">
         <div class="head-sec">
-          <h2 class="main-heading"><%= current_user.user_info.first_name%>,<br/> we are almost done!</h2>
-          <h6 class="sub-heading">Let's review your information before creating your page</h6>
+          <h2 class="main-heading"><%= current_user.user_info.first_name%>,<br/> <%= I18n.t("registration.step11.title") %> </h2>
+          <h6 class="sub-heading"><%= I18n.t("registration.step11.heading1") %></h6>
         </div>
       </div>
       <div class="col-md-6">
-        <p class="sub-heading">For example tutor option and contact information</p>
-        <a class="modify-link step-navigate initialize-section" data-target="#step5" data-section="" data-percentage='75%'>Modify</a>
+        <p class="sub-heading"><%= I18n.t("registration.step11.desc1") %></p>
+        <a class="modify-link step-navigate initialize-section" data-target="#step5" data-section="" data-percentage='75%'><%= I18n.t("registration.step11.modify") %></a>
       </div>
       <div class="col-md-2 tick-success">
         <%= image_tag "registration/tick-success.png", class: 'img-responsive'%>
@@ -20,12 +20,12 @@
     <div class="row">
       <div class="col-md-12">
         <div class="head-sec">
-          <h6 class="sub-heading">And decorate your profile</h6>
+          <h6 class="sub-heading"><%= I18n.t("registration.step11.heading2") %></h6>
         </div>
       </div>
       <div class="col-md-6">
-        <p class="sub-heading">Add your life photo, short description and caption.</p>
-        <a class="modify-link step-navigate initialize-section" data-target="#step10" data-percentage="60%" data-section="sec2">Modify</a>
+        <p class="sub-heading"><%= I18n.t("registration.step11.desc2") %></p>
+        <a class="modify-link step-navigate initialize-section" data-target="#step10" data-percentage="60%" data-section="sec2"><%= I18n.t("registration.step11.modify") %></a>
       </div>
       <div class="col-md-2 tick-success">
         <%= image_tag "registration/tick-success.png", class: 'img-responsive'%>
@@ -35,12 +35,12 @@
     <div class="row">
       <div class="col-md-12 disable-block">
         <div class="head-sec">
-          <h6 class="sub-heading">Start your own business</h6>
+          <h6 class="sub-heading"><%= I18n.t("registration.step11.heading3") %></h6>
         </div>
       </div>
       <div class="col-md-12">
-        <p class="sub-heading">Decide your price and manage your time</p>
-        <button type="button" class="btn btn-primary step-navigate main-btn pull-left initialize-section" data-section="sec3" data-target="#step12" data-percentage="1%">Continue</button>
+        <p class="sub-heading"><%= I18n.t("registration.step11.desc3") %></p>
+        <button type="button" class="btn btn-primary step-navigate main-btn pull-left initialize-section" data-section="sec3" data-target="#step12" data-percentage="1%"><%= I18n.t("registration.step11.continue") %></button>
       </div>
     </div>
     <!-- <hr/>
