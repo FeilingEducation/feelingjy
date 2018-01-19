@@ -26,7 +26,7 @@ module ApplicationHelper
   # returns the url of the user profile image.
   # TODO: handle it inside AvatarUploader
   def profile_image_of(user=current_user)
-    avatar = UserInfo.find_by_id(user.id).avatar
+    avatar = UserInfo.find_by_id(user.id).try(:avatar)
     avatar.to_s.empty? ? asset_url('default_profile.png') : avatar
   end
 
