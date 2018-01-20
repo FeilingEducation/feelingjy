@@ -47,14 +47,14 @@ namespace :puma do
 end
 
 
-namespace :config do
-  desc "Symlink application config files."
-  task :symlink do
-    execute "ln -s {#{shared_path},#{release_path}}/config/secrets.yml"
-  end
-end
-
-after "deploy", "config:symlink"
+# namespace :config do
+#   desc "Symlink application config files."
+#   task :symlink do
+#
+#   end
+# end
+#
+# after "deploy", "config:symlink"
 
 
 namespace :deploy do
@@ -84,10 +84,18 @@ namespace :deploy do
     end
   end
 
+  desc "Generate Symlink for secrets"
+  task :symlink_secrets do
+    on roles(:web) do
+      execute "ln -s {#{shared_path},#{release_path}}/config/secrets.yml"
+    end
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
+  after  :finishing,    :symlink_secrets
 end
 
 # ps aux | grep puma    # Get puma pid
