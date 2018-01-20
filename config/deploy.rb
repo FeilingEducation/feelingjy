@@ -46,6 +46,17 @@ namespace :puma do
   before :start, :make_dirs
 end
 
+
+namespace :config do
+  desc "Symlink application config files."
+  task :symlink do
+    run "ln -s {#{shared_path},#{release_path}}/config/secrets.yml"
+  end
+end
+
+after "deploy", "config:symlink"
+
+
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
   task :check_revision do
