@@ -50,7 +50,7 @@ end
 namespace :config do
   desc "Symlink application config files."
   task :symlink do
-    run "ln -s {#{shared_path},#{release_path}}/config/secrets.yml"
+    execute "ln -s {#{shared_path},#{release_path}}/config/secrets.yml"
   end
 end
 
