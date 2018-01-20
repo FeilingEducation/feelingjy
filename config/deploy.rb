@@ -86,7 +86,8 @@ namespace :deploy do
 
   desc "Generate Symlink for secrets"
   task :symlink_secrets do
-    on roles(:web) do
+    on roles(:app) do
+      execute "rm #{release_path}}/config/secrets.yml"
       execute "ln -s {#{shared_path},#{release_path}}/config/secrets.yml"
     end
   end
