@@ -92,11 +92,20 @@ namespace :deploy do
     end
   end
 
+  desc "Generate Symlink for database.yml"
+  task :symlink_database_yml do
+    on roles(:app) do
+      execute "rm #{release_path}/config/database.yml"
+      execute "ln -s {#{shared_path},#{release_path}}/config/database.yml"
+    end
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
   after  :finishing,    :symlink_secrets
+  after  :finishing,    :symlink_database_yml
 end
 
 # ps aux | grep puma    # Get puma pid
