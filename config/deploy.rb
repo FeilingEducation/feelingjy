@@ -114,7 +114,7 @@ namespace :deploy do
   after  :finishing,    :restart
   after  :finishing,    :symlink_secrets
   after  :finishing,    :symlink_database_yml
-  after  :finishing,    :migrate
+  after  :finishing,    :'deploy:migrating'
 end
 
 # ps aux | grep puma    # Get puma pid
