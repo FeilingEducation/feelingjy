@@ -100,9 +100,17 @@ namespace :deploy do
     end
   end
 
+  desc "Run migrations"
+  task :run_migrations do
+    on roles(:app) do
+      execute "rake db:migrate RAILS_ENV=production"
+    end
+  end
+
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
+  after  :finishing,    :run_migrations
   after  :finishing,    :restart
   after  :finishing,    :symlink_secrets
   after  :finishing,    :symlink_database_yml
