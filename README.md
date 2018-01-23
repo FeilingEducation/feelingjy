@@ -106,3 +106,9 @@ Audio communication also requires a stun server for NAT discovery. More details
 There are many free stun servers online (for example this Google one: stun.l.google.com:19302).
 Since running one is not computationally expensive, you can also install a
 [turnserver](https://github.com/coturn/coturn) and run it with `-S` option.
+
+
+# deployment instructions
+1.  cap production deploy
+2.  cap production deploy:migrating
+3.  cap production deploy:restart
