@@ -110,10 +110,11 @@ namespace :deploy do
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-  after  :finishing,    :run_migrations
+  # after  :finishing,    :run_migrations
   after  :finishing,    :restart
   after  :finishing,    :symlink_secrets
   after  :finishing,    :symlink_database_yml
+  after  :finishing,    :migrate
 end
 
 # ps aux | grep puma    # Get puma pid
