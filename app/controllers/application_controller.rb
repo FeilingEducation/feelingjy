@@ -59,8 +59,8 @@ class ApplicationController < ActionController::Base
     # Set Local for translation
     def set_locale
       puts "========#{Rails.env}"
-      puts '********'
-      puts "#{Rails.application.secrets}*********"
+      # puts '********'
+      # puts "#{Rails.application.secrets}*********"
       I18n.locale = session[:locale] || I18n.default_locale
     end
 

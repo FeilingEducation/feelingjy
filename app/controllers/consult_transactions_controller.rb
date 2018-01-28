@@ -35,6 +35,8 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     # @receiver = @transaction.receiver
     gon.token = @transaction.generate_opentok_token
     gon.session_id = @transaction.open_tok_session_id
+    gon.alipay_url = generate_ali_pay_url @transaction
+    @payment_amount = @transaction.payment_amount
   end
 
   def update
@@ -130,6 +132,34 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     else
       raise ApplicationController::NotAuthorized
     end
+  end
+
+  def generate_ali_pay_url transaction
+
+    app_url = Rails.application.secrets.alipay[:api_url]
+    app_id = Rails.application.secrets.alipay[:app_id]
+    app_private_key = Rails.application.secrets.alipay[:app_private_key]
+    alipay_public_key = Rails.application.secrets.alipay[:alipay_public_key]
+
+    alipay_client = Alipay::Client.new(
+      url: app_url,
+      app_id: app_id,
+      app_private_key: app_private_key,
+      alipay_public_key: alipay_public_key
+    )
+
+    alipay_client.page_execute_url(
+      method: 'alipay.trade.page.pay',
+      return_url: #consult_transaction_url(transaction),
+      biz_content: {
+        out_trade_no: "transaction-#{transaction.id}",
+        product_code: 'FAST_INSTANT_TRADE_PAY',
+        total_amount: transaction.payment_amount,
+        subject: "Payment for transaction #{transaction.id}"
+      }.to_json, # to_json is important!
+      timestamp: Time.now
+    )
+
   end
 
 end

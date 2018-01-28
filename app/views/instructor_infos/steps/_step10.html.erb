@@ -15,7 +15,7 @@
             <div class="custom-file d-block" id="upload-btn">
               <%= f.file_field :avatar, class: "custom-image-input", :'data-target' => '.pic-placeholder', :'data-background' => true, accept: 'image/*', id: "avatar-image" %>
               <%= f.hidden_field :avatar_cache, id: "avatar-preview" %>
-              <span id="avatar-img-name" class="custom-file-control page-bg custom-file-name" data-content="<%= I18n.t("registration.step10.upload") %>" id="avatar-preview">
+              <span id="avatar-img-name" class="custom-file-control page-bg custom-file-name" data-content="<%= I18n.t("registration.step10.upload") %>">
                 <%= image_tag "registration/upload-icon.png" %>
               </span>
             </div>

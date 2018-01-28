@@ -33,6 +33,12 @@ class ConsultTransaction < ApplicationRecord
     opentok.generate_token self.open_tok_session_id
   end
 
+  def payment_amount
+    #TODO update the logic to calculate the price.
+    # transaction.instructor.fix_price? ? transaction.instructor.max_price : transaction.instructor.max_price
+    800
+  end
+
   private
 
   def opentok

@@ -78,9 +78,9 @@
                 <% when @transaction.student %>
                   <% case @transaction.status %>
                   <% when "initiated" %>
-                    <%= button_to I18n.t("chat.initiated"), pay_consult_transaction_path, disabled: true, class: 'btn default-btn btn-block' %>
+                    <%= button_to I18n.t("chat.initiated") + " #{@payment_amount}", pay_consult_transaction_path, disabled: true, class: 'btn default-btn btn-block' %>
                   <% when "payment_pending" %>
-                    <%= button_to I18n.t("chat.pending"), pay_consult_transaction_path, class: 'btn default-btn btn-block' %>
+                    <%= button_to I18n.t("chat.pending") +  " #{@payment_amount}", pay_consult_transaction_path, class: 'btn default-btn btn-block' %>
                   <% end %>
                 <% when @transaction.instructor %>
                   <% case @transaction.status %>
