@@ -143,6 +143,10 @@ $(document).on('turbolinks:load', function () {
       window.chat_msg_press_enter = 'send_msg'
     }
   })
+
+  $("#std-pay").on('click', function(){
+    window.location = gon.alipay_url
+  })
 })
 
 window.chat_msg_press_enter = 'send_msg'

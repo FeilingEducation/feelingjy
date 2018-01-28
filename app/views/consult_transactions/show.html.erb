@@ -50,7 +50,7 @@
             <div class="status-con">
               <div class="inner">
                 <div class="img-txt">
-                  <img src="images/waiting-glass.png" alt=""><%= I18n.t("chat.status") %>
+                  <%= image_tag "reskin/waiting-glass.png"%><%= I18n.t("chat.status") %>
                 </div>
                 <%= status_text_of @transaction %>
               </div>
@@ -78,16 +78,17 @@
                 <% when @transaction.student %>
                   <% case @transaction.status %>
                   <% when "initiated" %>
-                    <%= button_to I18n.t("chat.initiated"), pay_consult_transaction_path, disabled: true, class: 'btn default-btn btn-block' %>
+                    <%= button_to I18n.t("chat.student_initiated"), '', disabled: true, class: 'btn default-btn btn-block' %>
                   <% when "payment_pending" %>
-                    <%= button_to I18n.t("chat.pending"), pay_consult_transaction_path, class: 'btn default-btn btn-block' %>
+                    <%#= button_to I18n.t("chat.pending") +  " #{@payment_amount}", pay_consult_transaction_path, class: 'btn default-btn btn-block' %>
+                    <%= link_to I18n.t("chat.pending") +  " #{@payment_amount}", @alipay_url , class: 'btn default-btn btn-block', id: "std-pay" %>
                   <% end %>
                 <% when @transaction.instructor %>
                   <% case @transaction.status %>
                   <% when "initiated" %>
-                    <%= button_to I18n.t("chat.initiated"), confirm_consult_transaction_path, method: 'post', class: 'btn default-btn btn-block' %>
+                    <%= button_to I18n.t("chat.instructor_initiated"), confirm_consult_transaction_path, method: 'post', class: 'btn default-btn btn-block' %>
                   <% when "payment_pending" %>
-                    <%= button_to I18n.t("chat.pending"), confirm_consult_transaction_path(cancel: true), method: 'post', class: 'btn default-btn btn-block red' %>
+                    <%= button_to I18n.t("chat.pending_msg"), '', disabled: true, class: 'btn default-btn btn-block red' %>
                   <% end %>
                 <% end %>
                 <!-- <a href="#" class="btn default-btn btn-block">Confirm Order</a> -->

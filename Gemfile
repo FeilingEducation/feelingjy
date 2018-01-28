@@ -76,5 +76,7 @@ gem 'select2-rails'
 gem 'opentok'
 gem 'gon'
 
+gem 'alipay', '~> 0.15.0'
+
 # gem 'image_optim'
 # gem 'image_optim_pack'
