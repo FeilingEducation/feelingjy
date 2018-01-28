@@ -490,13 +490,14 @@ cn:
     gre: "GRE 分数"
     paper: "发表文章"
     essay: "写作课的文章"
-    
+
   chat:
     status: "状态"
     order_placed_at: "订单放置于"
     order_updated_at: "订单更新于"
     initiated: "开始合作"
     pending: "付款"
+    pending_msg: "付款"
     posted_on: "发表于"
     press_enter_to_msg: "按回车键发送消息"
     press_enter_for_new_line: "按回车键换行"

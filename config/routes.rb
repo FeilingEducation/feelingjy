@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :consult_transactions, path: 'transactions', except: [:edit, :new]
   post 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
   post 'transactions/:id/pay', to: 'consult_transactions#pay', as: 'pay_consult_transaction'
+  post '/alipay', to: 'consult_transactions#alipay'
   resources :chat_lines, only: [:create]
   resources :payments, only: [:show, :update]
   resources :attachments, only: [:create, :destroy]

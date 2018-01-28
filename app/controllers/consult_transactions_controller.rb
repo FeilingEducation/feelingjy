@@ -35,7 +35,8 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     # @receiver = @transaction.receiver
     gon.token = @transaction.generate_opentok_token
     gon.session_id = @transaction.open_tok_session_id
-    gon.alipay_url = generate_ali_pay_url @transaction
+    @alipay_url = generate_ali_pay_url @transaction
+    gon.alipay_url = @alipay_url
     @payment_amount = @transaction.payment_amount
   end
 
@@ -103,6 +104,15 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     redirect_to @transaction
   end
 
+  def alipay
+    puts "================================"
+    puts "got response from alipay!!!!"
+    puts "params:::#{params}"
+    puts "================================"
+
+    render status: 200
+  end
+
   def destroy
     # not implemented yet
   end
@@ -150,7 +160,7 @@ class ConsultTransactionsController < AuthenticatedResourcesController
 
     alipay_client.page_execute_url(
       method: 'alipay.trade.page.pay',
-      return_url: #consult_transaction_url(transaction),
+      return_url: consult_transaction_url(transaction),
       biz_content: {
         out_trade_no: "transaction-#{transaction.id}",
         product_code: 'FAST_INSTANT_TRADE_PAY',
