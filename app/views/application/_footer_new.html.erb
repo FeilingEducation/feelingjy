@@ -24,13 +24,20 @@
             <p><%= I18n.t "footer.terms.office_time" %></p>
 
             <div class="dropdown">
-              <a href="#" id="footer-language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= image_tag "reskin/flag/usa.jpg" %> English <i class="fa fa-angle-down"></i></a>
+
+              <a href="/set_local?local=en" id="footer-language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <% if session[:locale] == "cn" %>
+                  <%= image_tag "reskin/flag/china.jpg" %> Chinese <i class="fa fa-angle-down"></i>
+                <%else%>
+                  <%= image_tag "reskin/flag/usa.jpg" %> English <i class="fa fa-angle-down"></i>
+                <%end%>
+
+              </a>
 
               <div class="dropdown-menu top-bar-drop" aria-labelledby="footer-language">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="/set_local?local=en">
                   <%= image_tag "reskin/flag/usa.jpg" %> English</a>
-                <a class="dropdown-item" href="#"><%= image_tag "reskin/flag/china.jpg" %> Chinese</a>
+                <a class="dropdown-item" href="/set_local?local=cn"><%= image_tag "reskin/flag/china.jpg" %> Chinese</a>
               </div>
             </div>
           </div>
