@@ -552,6 +552,12 @@
         text-align: left;
         font-weight: 300;
       }
+      .first-para{
+        min-height: 70px;
+        p{
+          margin-bottom: 16px;
+        }
+      }
     }
   }
   .calendar-info-wrapper{
