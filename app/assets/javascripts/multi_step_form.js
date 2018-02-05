@@ -160,6 +160,7 @@ function demoUpload() {
   })
 
   $('#avatar-image').on('change', function () { readFile(this);
+    console.log('changed....')
     $('#pic-placeholder').addClass('image-laoded')
     $('#pic-placeholder').removeClass('image-done')
     $(".set-image").removeClass('hidden')
@@ -184,11 +185,13 @@ function demoUpload() {
   })
 
   $('#reset-image').on('click', function (ev) {
+    console.log("reset-image...")
     $('#pic-placeholder').removeClass('image-laoded')
     $('#pic-placeholder').removeClass('image-done')
     $(".set-image").addClass('hidden')
     $("#upload-btn").removeClass('hidden')
     $("#avatar-preview").val('')
+    $("#avatar-image").val('')
     $('.cr-image').attr('src','')
   })
 }
