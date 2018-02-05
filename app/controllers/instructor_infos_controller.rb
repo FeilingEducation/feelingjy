@@ -27,6 +27,17 @@ class InstructorInfosController < AuthenticatedResourcesController
     @instructor_info.uni_accepted = [instructor_info_params[:uni_accepted]]
     if @instructor_info.save!
       flash[:notice] = 'Instructor profile created successfully.'
+      puts "*********************"
+      puts params.require(:instructor_info)[:avatar_cache]
+      puts "*********************"
+      puts "*********************"
+      puts "*********************"
+      puts "*********************"
+      puts "*********************"
+      puts "*********************"
+      puts "*********************"
+      puts "*********************"
+
       @instructor_info.user_info.update_attributes!(avatar: convert_data_uri_to_upload(params.require(:instructor_info)[:avatar_cache]))
       redirect_to(profile_path(@instructor_info))
     else

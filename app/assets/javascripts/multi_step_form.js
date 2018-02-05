@@ -10,6 +10,7 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
   var $curr_form = $this.closest('.multi-step-form');
   var $target_form = $($this.data('target'));
   var isValid = true;
+  var $targetHref = $($this).data('target')
   if(!$this.is('.submit')) {
 
     // Implement validations
@@ -55,7 +56,7 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
         })
       }
 
-      // Check if there are number fields present on screen
+      // Check if files are attached properly
       if($(question_block).find('input[type=file]').length > 0){
         // there are number fields present on the screeb. Make sure that user selects some value.
         $.map($(question_block).find('input[type=file]'), function(file_field, index){
@@ -103,6 +104,12 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
     }
     if($("select[name='instructor_info[uni_accepted]']").length > 0 && $("select[name='instructor_info[uni_accepted]']").val().length == 0){
       isValid = false
+    }
+
+    // $target_form check if user has click on Done after uplaoding profile picture.
+    console.log("===========", $targetHref.toString() == '#step11')
+    if($targetHref == '#step11'){
+      isValid = !($("#avatar-preview").val() == '')
     }
 
     if(isValid || $this.hasClass('btn-default')){
@@ -160,11 +167,14 @@ function demoUpload() {
   });
 
   $('#set-image').on('click', function (ev) {
+    console.log("Set Image clicked...")
     $uploadCrop.croppie('result', {
       type: 'base64',
       size: 'viewport'
     }).then(function (resp) {
       console.log('Done')
+      console.log(resp)
+      console.log('===================================')
       $("#avatar-preview").val(resp)
       $(".set-image").addClass('hidden')
       $("#upload-btn").removeClass('hidden')
