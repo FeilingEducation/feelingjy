@@ -32,7 +32,7 @@ class UserInfo < ApplicationRecord
                         :length => { :maximum => 20 }
 
   def full_name
-    self[:last_name] + self[:first_name]
+    (self.last_name || '') + (self.first_name || '')
   end
 
   # implemented for "attachable" object so that we can check if a user is authorized
