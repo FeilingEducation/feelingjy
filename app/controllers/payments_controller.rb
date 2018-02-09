@@ -22,6 +22,7 @@ class PaymentsController < ApplicationController
     transaction = ConsultTransaction.find_by_id params[:consult_tx_id]
     payment = transaction.build_payment
     payment.status = 3
+    puts payment.inspect
     payment.alipay_response = params.to_json
     payment.save!
 
@@ -49,7 +50,7 @@ class PaymentsController < ApplicationController
     # "sign_type"=>"RSA2",
     # "seller_id"=>"2088921395591671",
     # "consult_tx_id"=>"1"}
-    render status: 200
+    render status: 200, json: {}
   end
 
 
