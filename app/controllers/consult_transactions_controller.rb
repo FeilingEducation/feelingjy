@@ -159,7 +159,7 @@ class ConsultTransactionsController < AuthenticatedResourcesController
 
     alipay_client.page_execute_url(
       method: 'alipay.trade.page.pay',
-      return_url: consult_transaction_url(transaction),
+      return_url: payment_success_url(transaction),
       notify_url: alipay_callback_url(transaction),
       biz_content: {
         out_trade_no: "transaction-#{transaction.id}",
