@@ -53,6 +53,9 @@ class PaymentsController < ApplicationController
     render status: 200, json: {}
   end
 
+  def payment_confirmation
+  end
+
 
 
 end

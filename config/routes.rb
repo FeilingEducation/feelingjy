@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   post 'transactions/:id/pay', to: 'consult_transactions#pay', as: 'pay_consult_transaction'
   post '/alipay', to: 'consult_transactions#alipay'
   post '/alipay/:consult_tx_id', to: 'payments#alipay_callback', as: 'alipay_callback'
+  get '/payment_success/:consult_tx_id', to: 'payments#payment_confirmation', as: 'payment_success'
   resources :chat_lines, only: [:create]
   resources :payments, only: [:show, :update]
   resources :attachments, only: [:create, :destroy]
