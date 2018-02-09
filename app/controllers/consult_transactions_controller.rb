@@ -109,7 +109,13 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     puts "got response from alipay!!!!"
     puts "params:::#{params}"
     puts "================================"
+    render status: 200
+  end
 
+  def alipay_callback
+    puts "got response from alipay_callback!!!!"
+    puts "params:::#{params}"
+    puts "================================"
     render status: 200
   end
 
@@ -161,6 +167,7 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     alipay_client.page_execute_url(
       method: 'alipay.trade.page.pay',
       return_url: consult_transaction_url(transaction),
+      notify_url: alipay_callback_url(transaction)
       biz_content: {
         out_trade_no: "transaction-#{transaction.id}",
         product_code: 'FAST_INSTANT_TRADE_PAY',
