@@ -1,5 +1,7 @@
 class MessagesController < AuthenticatedResourcesController
 
+  before_action :authenticate_user!
+
   def index
     @user_info = current_user.user_info
     received = Message.where(receiver_id: current_user.id)
