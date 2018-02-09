@@ -12,6 +12,9 @@ class Users::Security::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    puts '========='
+    puts Rails.application.secrets
+    puts '******************'
     super do |resource|
       # create user_info at registration
       # May be better to register only with email and enter more information later
