@@ -22,6 +22,12 @@ class Users::Security::RegistrationsController < Devise::RegistrationsController
       attributes["id"] =  resource.id
       resource.create_user_info(attributes)
     end
+
+    # unless resource.valid?
+    #   puts "======="
+    #   redirect_to(action: 'new') and return
+    # end
+
   end
 
   # GET /resource/edit

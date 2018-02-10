@@ -2,6 +2,7 @@
 $('#dialog .modal-dialog').removeClass('modal-lg');
 $('#dialog .modal-dialog').addClass('custom-card');
 $('#dialog .modal-header').remove();
-
+console.log("======")
+console.log(<%= resource.errors.size %>)
 $('#dialog .modal-body').html('<%= j render(partial: 'new', locals: { is_modal: true }) %>');
 show_or_update($('#dialog'));
