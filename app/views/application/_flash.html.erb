@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col alert alert-<%= css_class %>" role="alert">
         <span><%= flash[type] %></span>
-        <a href="#" class="close">&times;</a>
+        <a href="javascript:void(0)" class="close" onclick="$('#flash').remove()">&times;</a>
       </div>
     </div>
   <% end %>
