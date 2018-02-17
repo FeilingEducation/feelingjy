@@ -508,3 +508,8 @@ cn:
     title: "恭喜您！"
     text: "您已付款成功！您可以进行您的项目。请点击以下按钮返回到您的订单页面。"
     login_txt: "返回"
+
+  account_confirmation:
+    title: "恭喜您！"
+    text: "您已付款成功！您可以进行您的项目。请点击以下按钮返回到您的订单页面。"
+    login_txt: "登录"
