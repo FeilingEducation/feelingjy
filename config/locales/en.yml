@@ -513,5 +513,5 @@ en:
 
   account_confirmation:
     title: "Congratulations!"
-    text: "You have successfully confirmed your account. Click on the button below to Log In to your account."
+    text: "You have successfully confirmed your account. Please click on the button below to log in to your account."
     login_txt: "Log In"
