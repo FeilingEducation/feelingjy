@@ -24,7 +24,7 @@ en:
 
   homepage:
     carousel:
-      title: "Feiling Education"
+      title: "Feeling Education"
       description: "Enter into dream school and impressive experience with talent"
 
     four_steps:
@@ -73,7 +73,7 @@ en:
 
     advantages:
       title: "Advantage"
-      description: "This is why you need to choose Feiling Education"
+      description: "This is why you need to choose Feeling Education"
       sec1:
         title: "Why Freelancer"
         text: "We are a platform for connecting students with tutors, providing each side with the best service possible. Students receive quality lessons, while tutors can gain success on the platform."
@@ -95,8 +95,8 @@ en:
     btn_back: "Back"
 
     step0:
-      title: "Before Becoming a Tutor on Feiling"
-      p1: "Feiling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper."
+      title: "Before Becoming a Tutor on Feeling"
+      p1: "Feeling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper."
       p2: "Making tasteful product is the core principle to develop this platform and the main reason to make it work is to make you, my dear tutors to succeed on the platform. The more successful you are, the more meaningful it is for us."
       p3: "We would do our best to give you the best user experience and make money in the easiest way!"
 
@@ -290,7 +290,7 @@ en:
       desc1: "You can use smart price setter to set your price. The price will be within your range."
       recommended: "Recommended"
       label2: "Set a fixed price"
-      desc2: "You can set an expected price first. Feiling platform will give you a suggestion, and it's up to you which one to go with."
+      desc2: "You can set an expected price first. Feeling platform will give you a suggestion, and it's up to you which one to go with."
       elephant_text: "These two ways are mean to help match your desired price with students' desired price. No matter how you choose, we will help you to set a reasonable price that can best help you succeed on this platform."
 
     step23:
@@ -339,7 +339,7 @@ en:
   signup:
     step1:
       heading: "Before you join"
-      p1: "Feiling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper."
+      p1: "Feeling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper."
       p2: "Making tasteful product is the core principle to develop this platform and the main reason to make it work is to make you, my dear tutors to succeed on the platform. The more successful you are, the more meaningful it is for us."
       p3: "We would do our best to give you the best user experience and make money in the easiest way!"
       accept_btn: "Accept"
@@ -416,7 +416,7 @@ en:
     time_reservation: "Time Reservation"
     you_can_reserve: "You can reserve an appointment as early as"
     cancel_policy: "Cancellation Policy"
-    firs_ten_min: "First ten minutes is free trail. Any time after that will incur service fee. Uou can report tutor if you are not satisfied with the service 70% of fee can be refunded after Feiling's confirmation."
+    firs_ten_min: "First ten minutes is free trail. Any time after that will incur service fee. Uou can report tutor if you are not satisfied with the service 70% of fee can be refunded after Feeling's confirmation."
     eduation: "Education"
     work: "Work"
     no_work_exp: "No Work experience added"
