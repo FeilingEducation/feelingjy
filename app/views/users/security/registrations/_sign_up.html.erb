@@ -47,7 +47,7 @@
           <%= f.date_select :dob, {start_year: (Date.today.year - 100), end_year: Date.today.year - 18, default: 18.years.ago}, {class: "form-control", placeholder: I18n.t("signup.step2.placeholder6")} %>
         </div>
         <div class="form-group tight-bottom terms-text">
-          <p> <%= I18n.t("signup.step2.t1") %> <%= link_to I18n.t("signup.step2.t2"), terms_conditions_path, remote: is_modal, class: "" %> <%= I18n.t("signup.step2.t3") %> <%= link_to I18n.t("signup.step2.t4"), terms_conditions_path, remote: is_modal, class: "" %></p>
+          <p> <%= I18n.t("signup.step2.t1") %> <%= link_to I18n.t("signup.step2.t2"), terms_conditions_path, class: "", target: "_blank" %> <%= I18n.t("signup.step2.t3") %> <%= link_to I18n.t("signup.step2.t4"), terms_conditions_path, class: "", target: "_blank" %></p>
         </div>
         <div class="form-group tight-bottom">
           <%= f.submit I18n.t("signup.step2.signup"), class: "btn btn-block submit-btn" %>
