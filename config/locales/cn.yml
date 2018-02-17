@@ -505,6 +505,6 @@ cn:
     stop: "停止"
 
   payment_confirmation:
-    title: "Congratulations!"
-    text: "You payment was successful and you can go ahead with your session. Click on the button below to go back to your order screen."
-    login_txt: "Log In"
+    title: "恭喜您！"
+    text: "您已付款成功！您可以进行您的项目。请点击以下按钮返回到您的订单页面。"
+    login_txt: "返回"

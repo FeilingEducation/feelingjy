@@ -1,11 +1,11 @@
 <section class="section payment-confirmation">
   <div class="container">
     <div class="header">
-        <h1>Congratulations!</h1>
-        <p>You payment was successful and you can go ahead with your session. Click on the button below to go back to your order screen.</p>
+        <h1><%= I18n.t "payment_confirmation.title" %></h1>
+        <p><%= I18n.t "payment_confirmation.text" %></p>
         <br/>
         <br/>
-        <%= link_to "Back", consult_transaction_path(params[:consult_tx_id]), class: "btn btn-default" %>
+        <%= link_to I18n.t("payment_confirmation.login_txt"), consult_transaction_path(params[:consult_tx_id]), class: "btn btn-default" %>
     </div>
 
   </div>
