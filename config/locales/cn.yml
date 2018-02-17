@@ -503,3 +503,8 @@ cn:
     press_enter_for_new_line: "按回车键换行"
     send_btn: "发送"
     stop: "停止"
+
+  payment_confirmation:
+    title: "Congratulations!"
+    text: "You payment was successful and you can go ahead with your session. Click on the button below to go back to your order screen."
+    login_txt: "Log In"
