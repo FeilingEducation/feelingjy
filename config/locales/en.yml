@@ -508,8 +508,8 @@ en:
 
   payment_confirmation:
     title: "Congratulations!"
-    text: "You payment was successful and you can go ahead with your session. Click on the button below to go back to your order screen."
-    login_txt: "Back"
+    text: "Your payment was successful and you can go ahead with your session. Please click on the button below to go back to your order screen."
+    login_txt: "Log In"
 
   account_confirmation:
     title: "Congratulations!"
