@@ -60,6 +60,3 @@ en:
       not_saved:
         one: "1个失误阻止%{resource}被保存:"
         other: "%{count}个失误阻止%{resource}被保存:"
-
-
-Add CommentCollapse 
