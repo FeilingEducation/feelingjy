@@ -25,7 +25,7 @@ class InstructorInfo < ApplicationRecord
   DEGREE_COMPLETED_CHINESE = ['在读本科第三年','在读本科第四年', '在读研究生第一年', '在读研究生第二年', '在读博士','本科（已毕业）','研究生（已毕业）','博士（已毕业）']
 
   TUTOR_OPTIONS_ENGLISH = ['Yes, I can do this', 'No, I can\'t do this']
-  TUTOR_OPTIONS_CHINESE = ['是的,我能做这些', '抱歉,我做不了这些']
+  TUTOR_OPTIONS_CHINESE = ['是的, 我能做这些', '抱歉, 我做不了这些']
 
   SCHOOLS_APPLIED_BEFORE_ENGLISH = ['One', 'Two','Three', 'Four', 'Five or more']
   SCHOOLS_APPLIED_BEFORE_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '5所学校或5所以上']

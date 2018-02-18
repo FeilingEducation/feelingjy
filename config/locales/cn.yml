@@ -104,7 +104,8 @@ cn:
       title_dear: "您好"
       title: "我们开始一起创建您的主页吧。"
       question_title: "您来自哪所学校？"
-      elephant_text: "您可以赚取"
+      # elephant_text: "您可以赚取"
+      elephant_text: "抱歉朋友，我们现阶段只支持来自清单上学校的导师由于我们针对的特殊客户人群。感谢您理解与支持"
 
     step2:
       title: "步骤1：基本信息"
@@ -120,7 +121,7 @@ cn:
     step3:
       title: "步骤1：基本信息"
       q1: "您之前申请过几所学校？"
-      q2: "您之前被哪些学校录取？"
+      q2: "您之前被以下名单中的哪些学校录取？"
 
     step4:
       title: "步骤1：基本信息"
@@ -151,6 +152,7 @@ cn:
       sub_title3: "开始您的留学生意"
       text3: "决定价格、设置自己的时间"
       elephant_text: "我们觉得您可以赚取"
+      hr: "小时"
 
     step7:
       title: "步骤2：让主页更漂亮"
@@ -518,3 +520,6 @@ cn:
     title: "Forgot your password?"
     text: "Fill in your email address below and we will send you an email to reset your password"
     login_txt: "Send me instructions"
+
+  errors:
+    fill_all: "请填写所有信息"

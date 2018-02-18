@@ -104,7 +104,7 @@ en:
       title_dear: "Dear"
       title: "let's get started on your profile page."
       question_title: "Which school are you from?"
-      elephant_text: "You could earn"
+      elephant_text: "Sorry friends, we currently only support tutors from schools on the list because of our specific targeted customers. Thank you for your understanding and support"
 
     step2:
       title: "Step 1: Basic Information"
@@ -120,7 +120,7 @@ en:
     step3:
       title: "Step 1: Basic Information"
       q1: "How many schools have you applied before?"
-      q2: "How many schools have you been accepted?"
+      q2: "How many schools have you been accepted from the list below?"
 
     step4:
       title: "Step 1: Basic Information"
@@ -151,6 +151,7 @@ en:
       sub_title3: "Start your own business"
       text3: "Decide your price and manage your time"
       elephant_text: "We thought you could earn"
+      hr: "hr"
 
     step7:
       title: "Step 2: Decorate your profile page"
@@ -520,3 +521,6 @@ en:
     title: "Forgot your password?"
     text: "Fill in your email address below and we will send you an email to reset your password"
     login_txt: "Send me instructions"
+
+  errors:
+    fill_all: "Please fill in all the information"
