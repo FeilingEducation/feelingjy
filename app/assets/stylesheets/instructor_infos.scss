@@ -119,6 +119,11 @@
 
         &.step1{
           margin-top: 230px;
+          width: 380px;
+
+          img{
+            bottom: 10px;
+          }
         }
 
         img{
@@ -138,7 +143,7 @@
 
         &.step13{
           width: 320px;
-          height: 280px;
+          height: 260px;
 
           img{
             bottom: 10px;
@@ -164,6 +169,14 @@
         &.step24{
           width: 320px;
           height: 210px;
+
+          img{
+            right: 15px;
+            top: 5px;
+          }
+          p{
+            margin-top: 20px;
+          }
 
           // img{
           //   bottom: 10px;
@@ -537,6 +550,18 @@
         }
       }
     }
+
+    &.step14{
+      .question-block{
+        .info-row{
+          p{
+            label{
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
   }
   .contact-info-wrapper{
     .contact-info-box{
@@ -640,7 +665,7 @@
 
     &.side-by-side{
       img{
-        width: 120px;
+        width: 220px;
         display: inline;
         margin-right: 20px;
       }

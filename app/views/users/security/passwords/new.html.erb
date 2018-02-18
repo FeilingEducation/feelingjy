@@ -1,16 +1,29 @@
-<h2>Forgot your password?</h2>
+<section class="section payment-confirmation forgot-pwd">
+  <div class="container">
+    <div class="header">
+        <h1><%= I18n.t "forgot_password.title" %></h1>
+        <p><%= I18n.t "forgot_password.text" %></p>
+        <br/>
+        <br/>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <div class="row text-center">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group tight-bottom field-with-icon">
+            <%= f.email_field :email, autofocus: true, class: "form-control first-input", require: true, placeholder: I18n.t("signin.placeholder1") %>
+            <div class="icon"><%= image_tag "registration/003-envelope.png"%></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= f.submit I18n.t("forgot_password.login_txt"), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+    <%#= render "devise/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>

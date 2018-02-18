@@ -25,7 +25,7 @@ class InstructorInfo < ApplicationRecord
   DEGREE_COMPLETED_CHINESE = ['在读本科第三年','在读本科第四年', '在读研究生第一年', '在读研究生第二年', '在读博士','本科（已毕业）','研究生（已毕业）','博士（已毕业）']
 
   TUTOR_OPTIONS_ENGLISH = ['Yes, I can do this', 'No, I can\'t do this']
-  TUTOR_OPTIONS_CHINESE = ['是的,我能做这些', '抱歉,我做不了这些']
+  TUTOR_OPTIONS_CHINESE = ['是的, 我能做这些', '抱歉, 我做不了这些']
 
   SCHOOLS_APPLIED_BEFORE_ENGLISH = ['One', 'Two','Three', 'Four', 'Five or more']
   SCHOOLS_APPLIED_BEFORE_CHINESE = ['1所学校', '2所学校','3所学校', '4所学校', '5所学校或5所以上']
@@ -136,23 +136,39 @@ class InstructorInfo < ApplicationRecord
     (local.to_s == 'en' ? DEGREE_COMPLETED_ENGLISH : DEGREE_COMPLETED_CHINESE)[self.degree_completed.to_i]
   end
 
-  def privacy_terms
+  def privacy_terms local='en'
     terms = []
-    terms.push "Allow to share edited files" if self.share_edited_files
-    terms.push "Allow to share my information" if self.share_info
-    terms.push "Allow to meet in person" if self.meet_in_person
-    terms.push "Allow to answer questions for free" if self.answer_free
-    terms.push "Allow to ask personal questions" if self.personal_questions
+    if local.to_s == 'en'
+      terms.push "Allow to share edited files" if self.share_edited_files
+      terms.push "Allow to share my information" if self.share_info
+      terms.push "Allow to meet in person" if self.meet_in_person
+      terms.push "Allow to answer questions for free" if self.answer_free
+      terms.push "Allow to ask personal questions" if self.personal_questions
+    else
+      terms.push "允许分享改好的文书" if self.share_edited_files
+      terms.push "允许分享个人信息" if self.share_info
+      terms.push "允许面对面见面" if self.meet_in_person
+      terms.push "允许为学生免费答疑问题" if self.answer_free
+      terms.push "允许问私人问题" if self.personal_questions
+    end
     terms
   end
 
-  def things_to_know
+  def things_to_know local='en'
     terms = []
-    terms.push "For a sense of accomplishment" if self.accomplishment
-    terms.push "I want to utilize my free time" if self.free_time
-    terms.push "I don't know how to write actually" if self.how_to_write
-    terms.push "I am more nervous than you when I help you apply" if self.nervous
-    terms.push "I care about your cooperation very much" if self.care_cooperation
+    if local.to_s == 'en'
+      terms.push "For a sense of accomplishment" if self.accomplishment
+      terms.push "I want to utilize my free time" if self.free_time
+      terms.push "I don't know how to write actually" if self.how_to_write
+      terms.push "I am more nervous than you when I help you apply" if self.nervous
+      terms.push "I care about your cooperation very much" if self.care_cooperation
+    else
+      terms.push "我做导师是为了实现价值" if self.accomplishment
+      terms.push "我做导师是为了把零散时间利用起来" if self.free_time
+      terms.push "我根本不会写作" if self.how_to_write
+      terms.push "我其实比您还要紧张" if self.nervous
+      terms.push "我特别在意我们之间合作的体验" if self.care_cooperation
+    end
     terms
   end
 
@@ -202,6 +218,14 @@ class InstructorInfo < ApplicationRecord
 
   def self.is_graduate_options local='en'
     (local.to_s == 'en' ? IS_GRADUATE_OPTIONS_ENGLISH : IS_GRADUATE_OPTIONS_CHINES).reverse.each_with_index.map {|m,i| [m,i==0]}
+  end
+
+  def notify_advance local='en'
+    (local.to_s == 'en' ? ADVANCE_NOTIFY_ENGLISH : ADVANCE_NOTIFY_CHINESE)[self.advance_notify.to_i]
+  end
+
+  def advance_work local='en'
+    (local.to_s == 'en' ? RESERVE_ADVANCE_NOTIFY_ENGLISH : RESERVE_ADVANCE_NOTIFY_CHINESE)[self.reserve_in_advance.to_i]
   end
 
 end

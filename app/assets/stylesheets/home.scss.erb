@@ -1,6 +1,6 @@
 // @import url('fonts/helvatica-r-bd/style.css');
 // @import url('fonts/font-awesome/font-awesome.css');
-@import "halvetica-rounded";
+// @import "halvetica-rounded";
 
 // $main-text-color: #717070;
 $main-text-color: #979999;
@@ -12,13 +12,13 @@ body {
 	padding-top: 0;
 	// background: #fff;
 	// font-family: 'helvatica-r-bd';
-	font-family: 'Roboto-Light', 'Tahoma','sans-serif';
+	font-family: 'HelveticaNeuePro', 'Roboto-Light', 'Tahoma','sans-serif';
 	line-height: normal;
 	font-size: 14px;
 	// background-color: #e6e6e6;
 }
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Tahoma','sans-serif';
+	font-family: 'HelveticaNeueProBold', 'Tahoma','sans-serif';
 }
 
 .main-content{
@@ -978,7 +978,7 @@ select.form-control {
   line-height: 22px;
 
 	.close{
-		top: 0;
+		top: 8px;
     position: absolute;
     right: 10px;
 	}
@@ -2388,6 +2388,22 @@ form{
 		}
 	}
 }
+
+.payment-confirmation{
+	margin-top: 100px;
+
+	&.forgot-pwd{
+
+		.header{
+			text-align: left;
+		}
+
+		.actions{
+			margin-top: 20px;
+		}
+	}
+}
+
 .terms-wrapper{
 	color: $main-text-color;
 
@@ -2409,4 +2425,12 @@ form{
 			}
 		}
 	}
+}
+// Adding border radius to everything as per request by Yuting.
+input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,.custom-file-control{
+	border-radius: 5px !important;
+}
+
+.select2-search--dropdown{
+	display: none!important;
 }
