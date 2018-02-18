@@ -1,0 +1,44 @@
+// @font-face {
+//   // font-family:'helvatica-r-bd';
+//   // src: font_url('helvatica-r-bd/HelveticaRoundedLTStd-Bd.eot');
+//   // src: font_url('helvatica-r-bd/HelveticaRoundedLTStd-Bd.eot?#iefix') format('embedded-opentype'),
+//   // font_url('helvatica-r-bd/HelveticaRoundedLTStd-Bd.woff2') format('woff2'),
+//   // font_url('helvatica-r-bd/HelveticaRoundedLTStd-Bd.woff') format('woff'),
+//   // font_url('helvatica-r-bd/HelveticaRoundedLTStd-Bd.svg#HelveticaRoundedLTStd-Bd') format('svg');
+//   // font-weight: normal;
+// }
+
+@font-face {
+  font-family:'Tahoma';
+  // Tahoma font
+  src: font_url('Tahoma.ttf');
+
+}
+@font-face {
+  font-family:'Roboto-Light';
+  src: font_url('Roboto-Light.ttf');
+}
+
+@font-face {
+  font-family:'HelveticaNeuePro';
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-It.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-UltLt.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-Lt.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-LtCn.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-LtCnO.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-LtEx.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-LtExO.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-LtIt.otf');
+}
+
+
+@font-face {
+  font-family:'HelveticaNeueProBold';
+  src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-Md.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-BdCn.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-BdCnO.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-BdEx.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-BdExO.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-BdIt.otf');
+  // src: font_url('HelveticaNeuePro/HelveticaNeueLTPro-BdOu.otf');
+}
