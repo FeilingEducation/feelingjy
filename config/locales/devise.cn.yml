@@ -1,0 +1,65 @@
+en:
+  devise:
+    confirmations:
+      confirmed: "您的电子邮箱地址已被成功确认。"
+      send_instructions: "您将会在几分钟内收到确认账户的邮件。"
+      send_paranoid_instructions: "如果您的邮箱存在于我们的数据库中，您将会在几分钟之内收到确认邮件。"
+    failure:
+      already_authenticated: "您已登录"
+      inactive: "您的账户还未激活"
+      invalid: "无效的%{authentication_keys}或密码。"
+      locked: "您的账户被锁"
+      last_attempt: "您的账户在被锁前还有最后一次尝试。"
+      not_found_in_database: "无效的%{authentication_keys}或密码。"
+      timeout: "您的使用期限已过。请重新登录继续。"
+      unauthenticated: "您在继续前需要登录或注册。"
+      unconfirmed: "您在继续前需要确认您的邮箱地址"
+    mailer:
+      confirmation_instructions:
+        subject: "确认指示"
+      reset_password_instructions:
+        subject: "重设密码指示"
+      unlock_instructions:
+        subject: "解锁指示"
+      email_changed:
+        subject: "邮件已更改"
+      password_change:
+        subject: "密码已更改"
+    omniauth_callbacks:
+      failure: "不能证明%{kind}是真实的因为\"%{reason}\"。"
+      success: "成功证明%{kind}是真实的账户。"
+    passwords:
+      no_token: "在没有进入重置密码邮件前，您是不可以进入此页面的。如果您进入重置密码邮件，请确保您使用提供的完整链接"
+      send_instructions: "您将会在几分钟内收到如何重置密码的邮件。"
+      send_paranoid_instructions: "如果您的邮箱地址存在于我们的数据库中，您将会在几分钟之内收到恢复密码的邮件。"
+      updated: "您的密码已更改成功。您已登录"
+      updated_not_active: "您的密码已更改成功"
+    registrations:
+      destroyed: "拜拜! 您的账户已被成功关闭。我们希望未来再和您合作。"
+      signed_up: "欢迎您! 您已成功注册。"
+      signed_up_but_inactive: "您已成功注册。但是您暂时不能登陆由于您还未激活您的账户。"
+      signed_up_but_locked: "您已成功注册。但是您暂时不能登陆由于您的账户被锁。"
+      signed_up_but_unconfirmed: "确认链接已发送到您的邮箱。请点击链接激活您的账户。"
+      update_needs_confirmation: "您虽已成功更新您的账户, 但是我们仍需要核对您新的邮箱地址。请检查您的邮箱并点击确认链接确认您新的邮箱地址。"
+      updated: "您的账户已成功被更新。"
+    sessions:
+      signed_in: "登录成功"
+      signed_out: "注销成功"
+      already_signed_out: "注销成功"
+    unlocks:
+      send_instructions: "您将会在几分钟之内收到如何解锁您账户的邮件。"
+      send_paranoid_instructions: "如果您的账户依旧存在，您将会在几分钟之内收到如何解锁您账户的邮件。"
+      unlocked: "您的账户已成功被解锁。请登录继续。"
+  errors:
+    messages:
+      already_confirmed: "已被确认，请尝试重新登录"
+      confirmation_period_expired: "需要在%{period}内确认, 请重新获取。"
+      expired: "已过期, 请重新获取。"
+      not_found: "未找到"
+      not_locked: "未被锁"
+      not_saved:
+        one: "1个失误阻止%{resource}被保存:"
+        other: "%{count}个失误阻止%{resource}被保存:"
+
+
+Add CommentCollapse 

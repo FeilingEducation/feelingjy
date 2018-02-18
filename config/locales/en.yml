@@ -519,8 +519,8 @@ en:
 
   forgot_password:
     title: "Forgot your password?"
-    text: "Fill in your email address below and we will send you an email to reset your password"
-    login_txt: "Send me instructions"
+    text: "Fill in your email address below and we will send you an email to reset your password."
+    login_txt: "Please send me instructions"
 
   errors:
     fill_all: "Please fill in all the information"
