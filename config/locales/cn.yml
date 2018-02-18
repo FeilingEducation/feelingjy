@@ -513,3 +513,8 @@ cn:
     title: "恭喜您！"
     text: "您已成功确认您的账户。 请点击以下按钮登录您的账户。"
     login_txt: "登录"
+
+  forgot_password:
+    title: "Forgot your password?"
+    text: "Fill in your email address below and we will send you an email to reset your password"
+    login_txt: "Send me instructions"
