@@ -170,6 +170,14 @@
           width: 320px;
           height: 210px;
 
+          img{
+            right: 15px;
+            top: 5px;
+          }
+          p{
+            margin-top: 20px;
+          }
+
           // img{
           //   bottom: 10px;
           // }
@@ -539,6 +547,18 @@
         }
         p{
           display: inline;
+        }
+      }
+    }
+
+    &.step14{
+      .question-block{
+        .info-row{
+          p{
+            label{
+              margin-bottom: 0;
+            }
+          }
         }
       }
     }
