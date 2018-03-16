@@ -116,45 +116,45 @@ select, button {
 	margin-bottom: 0;
 }
 
-.top-bar {
-	background: $theme-green;
-	color: #fff;
-	padding: 6px 0px 8px;
-}
+// .top-bar {
+// 	background: $theme-green;
+// 	color: #fff;
+// 	padding: 6px 0px 8px;
+// }
 
 .phone-num img {
 	margin-right: 8px;
 }
 
-.top-bar {
-	a {
-		color: #fff;
-	}
-	display: flex;
-	justify-content: flex-end;
-	ul, li {
-		display: inline-block;
-	}
-	.dropdown .fa {
-		font-size: 17px;
-		font-weight: bold;
-		margin-left: 5px;
-	}
-}
+// .top-bar {
+// 	a {
+// 		color: #fff;
+// 	}
+// 	display: flex;
+// 	justify-content: flex-end;
+// 	ul, li {
+// 		display: inline-block;
+// 	}
+// 	.dropdown .fa {
+// 		font-size: 17px;
+// 		font-weight: bold;
+// 		margin-left: 5px;
+// 	}
+// }
 
 .dropdown.show .fa {
 	transform: rotate(-180deg);
 }
 
-.top-bar .login {
-	margin-left: 15px;
+//.top-bar .login {
+.login {
 	li {
 		&:first-child {
 			// border-right: 2px solid #fff;
 		}
 		a {
-			display: block;
-			padding: 0 15px;
+			display: inline;
+			// padding: 0 15px;
 		}
 	}
 }
@@ -287,7 +287,7 @@ select.form-control {
 		border-radius: 40px;
 		padding: 6px 14px;
 		position: absolute;
-		right: 5px;
+		right: 20px;
 		top: 4px;
 	}
 }
@@ -903,37 +903,43 @@ select.form-control {
 	position: fixed;
 	top: 0;
 	z-index: 1000;
+	background: #f9f9f9;
+	height: 80px;
 	width: 100vw;
 	border-bottom: 1px solid #ddd;
 
 	.main-nav {
-		padding: 11px 0;
 		min-height: 48px;
+		margin-right: 0;
+    .navbar-toggler{
+			margin-right: 10px;
+		}
 
 		.header-nav-link{
 			padding: 12px 0 0 0;
 		}
+		 li {
+			 display: inline-block;
+			 font-size: 15px;
+			 margin-right: 10px;
 
-		li {
-			display: inline-block;
-			font-size: 15px;
-			margin-right: 10px;
+			 &:last-child {
+				 margin-right: 0px;
+			 }
 
-			&:last-child {
-				margin-right: 0px;
-			}
-			a {
-				color: #979999;
-				&:hover {
-					color: #2dbd94;
-				}
-			}
-		}
+			 a {
+				 color: #979999;
+				 &:hover {
+					 color: #2dbd94;
+				 }
+			 }
+		 }
 	}
+
 
 	&.signed-in{
 		.main-nav{
-			padding: 10px 0;
+			padding: 0;
 
 			.logo{
 				padding-top: 5px;
@@ -954,8 +960,8 @@ select.form-control {
 	}
 
 	.login{
-		text-align: right;
-		margin-top: 13px;
+		text-align: left;
+		margin-top: 5px;
 	}
 }
 
@@ -2273,9 +2279,13 @@ form{
 }
 
 .header-container{
-	padding: 0 20px;
+	padding: 0 20px 0 0;
+  position: relative;
 
 	.logo{
+		position: absolute;
+		top: 10px;
+		left: 10px;
 		img{
 			max-width: 50px;
 			position: absolute;
@@ -2288,7 +2298,8 @@ form{
 		}
 	}
 
-	.login.main-nav.top-bar{
+//	.login.main-nav.top-bar{
+    .login.main-nav{
 		padding: 0px;
 
 		.dropdown{
@@ -2305,6 +2316,7 @@ form{
 		}
 	}
 }
+
 .orders-tabs{
 	padding: 50px 0;
 
@@ -2433,4 +2445,80 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 
 .select2-search--dropdown{
 	display: none!important;
+}
+
+// slide out menu (only display > 768px)
+#sidebar{
+	display: none;
+}
+
+// responsiveness
+@media (max-width:768px){
+	#sidebar {
+		display: block;
+		position: fixed;
+		width: 200px;
+		height: 100%;
+		background:$theme-green;
+		left: -200px;
+	  border: 1px solid #fff;
+		transition: all 200ms linear;
+	}
+
+	#sidebar.active{
+		left: 0px;
+	}
+
+	#sidebar ul li {
+		color: rgba(230,230,230,0.9);
+		list-style:none;
+		padding:15px 0px;
+		margin-right: 0px;
+		border-bottom: 1px solid #fff;
+		display: block;
+		.nav-link{
+			color: white;
+		}
+	}
+
+	#sidebar .login-li {
+		padding: 0;
+		border-bottom: none;
+
+		a{
+			padding-left: 15px;
+		}
+	}
+
+	#sidebar .navbar-toggler{
+		position: absolute;
+		left: 210px;
+		top: 10px;
+	}
+
+	.header-container{
+    padding: 0 0 1px 0;
+
+		.logo{
+			position: relative;
+			margin-right: 70px;
+			text-align: right;
+		}
+	}
+
+	.search-con{
+		width: 90%;
+		.select-con{
+			width: 40%;
+			> .form-control {
+				font-size: 14px;
+			}
+		}
+		.btn{
+			width: 15%;
+			padding-left: 5px;
+			font-size: 12px;
+			right: 14px;
+		}
+	}
 }
