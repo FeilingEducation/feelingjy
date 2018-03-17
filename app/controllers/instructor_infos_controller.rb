@@ -9,10 +9,34 @@ class InstructorInfosController < AuthenticatedResourcesController
   # is an instructor.
 
   def index
-    if params[:service].present? || params[:specialization].present?
-      @results = InstructorInfo.search(params)
+    if request.xhr?
+      @data = InstructorInfo.limit(20)
+      price_sort = params[:price_sort]
+      rating_sort = params[:rating_sort]
+      case price_sort
+      when "less_than_400"
+        @data = @data.where("min_price < 400")
+      when "400_to_600"
+        @data = @data.where(min_price: 400..600)
+      when "600_to_800"
+        @data = @data.where(min_price: 601..800)
+      when "more_than_800"
+        @data = @data.where("min_price > 800")  
+      end
+      if rating_sort == "all"
+        @results = @data
+      else
+        @results = []
+        @data.each do |obj|
+          @results << obj if obj.user_info.user.get_rating.to_i == rating_sort.to_i
+        end
+      end
     else
-      @results = InstructorInfo.limit(20)
+      if params[:service].present? || params[:specialization].present?
+        @results = InstructorInfo.search(params)
+      else
+        @results = InstructorInfo.limit(20)
+      end
     end
   end
 

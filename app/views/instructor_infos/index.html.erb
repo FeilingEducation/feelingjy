@@ -12,6 +12,34 @@
       <%end%>
     </div>
 
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Price</label>
+          <select class="select2 price_sort">
+            <option value="all">Sort by Price</option>
+            <option value="less_than_400"><400</option>
+            <option value="400_to_600">400-600</option>
+            <option value="600_to_800">600-800</option>
+            <option value="more_than_800">800+</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Rating</label>
+          <select class="select2 rating_sort">
+            <option value="all">Sort by Rating</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
     <div class="row mentors">
       <% @results.each do |instructor|%>
         <%= render partial: 'inst_profile', locals: { instructor: instructor } %>
@@ -22,3 +50,19 @@
 
   </div>
 </section>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".price_sort, .rating_sort").change(function(){
+      price_sort = $(".price_sort").find("option:selected")[0].value
+      rating_sort = $(".rating_sort").find("option:selected")[0].value
+      $.ajax({
+        type: "get",
+        url: "/mentors",
+        data: "price_sort="+price_sort+"&rating_sort="+rating_sort,
+        success: function(res){
+          $(".mentors").html($(res).find(".mentors").html())
+        }
+      })
+    })
+  })  
+</script>
