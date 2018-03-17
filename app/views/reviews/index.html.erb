@@ -1,0 +1,143 @@
+<div class="mt-4 mx-3">
+	<h3>Add Review</h3>
+	<hr>
+	<%= form_for @tutor.reviews.new, url: user_reviews_path(params[:user_id]) do |f| %>
+		<%= f.hidden_field :reviewer_id, value: current_user.id %>
+		<div class="row">
+			<div class="col-md-2">
+				<%= f.label :service_communication %>
+			</div>
+			<div class="col-md-8">
+				<%= f.text_area :service_communication %>
+			</div>
+			<div class="col-md-2">
+				<div id="service_communication" class="rating"></div>
+				<%= f.hidden_field :service_communication_rating %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<%= f.label :attitude %>
+			</div>
+			<div class="col-md-8">
+				<%= f.text_area :attitude %>
+			</div>
+			<div class="col-md-2">
+				<div id="attitude" class="rating"></div>
+				<%= f.hidden_field :attitude_rating %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<%= f.label :efficiency %>
+			</div>
+			<div class="col-md-8">
+				<%= f.text_area :efficiency %>
+			</div>
+			<div class="col-md-2">
+				<div id="efficiency" class="rating"></div>
+				<%= f.hidden_field :efficiency_rating %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<%= f.label :authenticity %>
+			</div>
+			<div class="col-md-8">
+				<%= f.text_area :authenticity %>
+			</div>
+			<div class="col-md-2">
+				<div id="authenticity" class="rating"></div>
+				<%= f.hidden_field :authenticity_rating %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<%= f.label :cost_effectiveness %>
+			</div>
+			<div class="col-md-8">
+				<%= f.text_area :cost_effectiveness %>
+			</div>
+			<div class="col-md-2">
+				<div id="cost_effectiveness" class="rating"></div>
+				<%= f.hidden_field :cost_effectiveness_rating %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<center><%= f.submit "Submit", class: "btn btn-primary" %></center>
+			</div>
+		</div>		
+	<% end %>
+
+	<h3>List Reviews</h3>
+	<hr>
+	<% @tutor.reviews.where.not(id: nil).each do |r| %>
+		<div class="row">
+			<div class="col-md-2">
+				Service Communication
+			</div>
+			<div class="col-md-2">
+				<div class="rating-readonly" data-score="<%=r.service_communication_rating%>"></div>
+			</div>
+			<div class="col-md-8">
+				<%= r.service_communication %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				Attitude
+			</div>
+			<div class="col-md-2">
+				<div class="rating-readonly" data-score="<%=r.attitude_rating%>"></div>
+			</div>
+			<div class="col-md-8">
+				<%= r.attitude %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				Efficiency
+			</div>
+			<div class="col-md-2">
+				<div class="rating-readonly" data-score="<%=r.efficiency_rating%>"></div>
+			</div>
+			<div class="col-md-8">
+				<%= r.efficiency %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				Authenticity
+			</div>
+			<div class="col-md-2">
+				<div class="rating-readonly" data-score="<%=r.authenticity_rating%>"></div>
+			</div>
+			<div class="col-md-8">
+				<%= r.authenticity %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				Cost Effectiveness
+			</div>
+			<div class="col-md-2">
+				<div class="rating-readonly" data-score="<%=r.cost_effectiveness_rating%>"></div>
+			</div>
+			<div class="col-md-8">
+				<%= r.cost_effectiveness %>
+			</div>
+		</div>
+		<hr>
+	<% end %>
+</div>
+
+<script type="text/javascript">
+	$('.rating').raty({
+		click: function(score, evt) {
+	    $(this).parent().find('input[type=hidden]').val(score)
+	    return false;
+	  }
+	});
+	$('.rating-readonly').raty({readOnly: true})
+</script>

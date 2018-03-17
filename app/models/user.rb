@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_one :user_info, foreign_key: "id"
+  has_many :reviews
 
   def name
     email
