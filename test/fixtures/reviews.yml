@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_communication: MyText
+  attitude: MyText
+  efficiency: MyText
+  authenticity: MyText
+  cost_effectiveness: MyText
+  user_id: 1
+
+two:
+  service_communication: MyText
+  attitude: MyText
+  efficiency: MyText
+  authenticity: MyText
+  cost_effectiveness: MyText
+  user_id: 1

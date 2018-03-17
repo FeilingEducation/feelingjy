@@ -12,8 +12,9 @@
                 <h2><%= @instructor_info.full_name %></h2>
                 <div class="skills"><%= @instructor_info.specialization_name local %></div>
                 <div class="reviews">
-                  <%= image_tag "reskin/stars.png" %>
-                  <span class="count">38</span>
+                  <span class="rating" data-score="<%= @instructor_info.user_info.user.get_rating %>"></span>
+                  <span class="count"><%= @instructor_info.user_info.user.reviews.count %></span>
+                  <%#= image_tag "reskin/stars.png" %>
                   <%= I18n.t "instructor_profile.reviews" %>
                 </div>
 
@@ -686,3 +687,6 @@
   </div>
 <!-- </div> -->
 <!--  -->
+<script type="text/javascript">
+  $('.rating').raty({readOnly: true, number: 5})
+</script>

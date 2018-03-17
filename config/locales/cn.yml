@@ -386,6 +386,7 @@ cn:
     order_status: "订单状态"
     actions: "活动"
     view_more: "查看详情"
+    view_reviews: "查看详情"
 
   instructor_profile:
     reviews: "评论"

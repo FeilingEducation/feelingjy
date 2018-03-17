@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180317073826) do
+ActiveRecord::Schema.define(version: 20180317122659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -215,6 +215,20 @@ ActiveRecord::Schema.define(version: 20180317073826) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["instructor_id"], name: "index_private_policies_on_instructor_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "service_communication_rating"
+    t.integer "attitude_rating"
+    t.integer "efficiency_rating"
+    t.integer "authenticity_rating"
+    t.integer "cost_effectiveness_rating"
+    t.integer "user_id"
+    t.integer "reviewer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "review_text"
+    t.integer "consult_transaction_id"
   end
 
   create_table "user_infos", force: :cascade do |t|

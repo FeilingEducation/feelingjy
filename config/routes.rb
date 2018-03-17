@@ -42,4 +42,7 @@ Rails.application.routes.draw do
     confirmations: 'users/security/confirmations'
   }
 
+  resources :users do
+    resources :reviews
+  end
 end
