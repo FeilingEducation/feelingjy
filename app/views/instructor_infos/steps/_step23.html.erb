@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row step23">
   <div class="col-md-12">
     <div class="section-header">
       <h3><%= I18n.t("registration.step12.title") %></h3>
@@ -45,12 +45,43 @@ $('#price-setter').on('click', function(){
     $('#fixed-price').html('')
     $('#price-range').append('<%= j render(partial: 'instructor_infos/steps/price/range', locals: {f: f, lang: lang}) %>')
     $( ".select2" ).select2({})
+    managePrices("price-range-fields")
   }
   else{
     $('#fixed-price').html('')
     $('#price-range').html('')
     $('#fixed-price').append('<%= j render(partial: 'instructor_infos/steps/price/fix', locals: {f: f, lang: lang}) %>')
     $( ".select2" ).select2({})
+    managePrices("fixed-price-fields")
   }
 })
+
+function managePrices(id){
+  console.log("managePrices...", id)
+  if($("select[name='instructor_info[consulting_tutor]']").val() == "1"){
+    $("#"+id+" .consulting-service").removeClass('hidden')
+  }
+  if($("select[name='instructor_info[brainstorming_tutor]']").val() == "1"){
+    $("#"+id+" .brainstorming-service").removeClass('hidden')
+  }
+  if($("select[name='instructor_info[writing_tutor]']").val() == "1"){
+    $("#"+id+" .writing-service").removeClass('hidden')
+  }
+  if($("select[name='instructor_info[visa_consultant]']").val() == "1"){
+    $("#"+id+" .visa-service").removeClass('hidden')
+  }
+
+  if($("select[name='instructor_info[consulting_tutor]']").val() == "0"){
+    $("#"+id+" .consulting-service").addClass('hidden')
+  }
+  if($("select[name='instructor_info[brainstorming_tutor]']").val() == "0"){
+    $("#"+id+" .brainstorming-service").addClass('hidden')
+  }
+  if($("select[name='instructor_info[writing_tutor]']").val() == "0"){
+    $("#"+id+" .writing-service").addClass('hidden')
+  }
+  if($("select[name='instructor_info[visa_consultant]']").val() == "0"){
+    $("#"+id+" .visa-service").addClass('hidden')
+  }
+}
 </script>

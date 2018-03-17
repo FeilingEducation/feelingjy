@@ -129,7 +129,7 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
     }
   }
 });
-function demoUpload() {
+function initFileCrop() {
   var $uploadCrop;
   function readFile(input) {
     if (input.files && input.files[0]) {
@@ -195,8 +195,9 @@ function demoUpload() {
     $('.cr-image').attr('src','')
   })
 }
+
 $(document).on('turbolinks:load', function () {
-  demoUpload()
+  initFileCrop()
   $('input[type=radio][name="instructor_info[recommended_price]"]').change(function() {
     if(this.value == 'true'){
       $("#price-range-fields").removeClass("hidden")
