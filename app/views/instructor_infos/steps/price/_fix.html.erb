@@ -1,14 +1,54 @@
-
 <div class="question-block">
   <p class="survey-question"><%= I18n.t("registration.step23.fix.title") %></p>
   <p class=""><%= I18n.t("registration.step12.fix.p") %></p>
 </div>
 
-<div class="question-block">
+<div class="question-block" id="fixed-price-fields">
   <div class="row">
+
     <div class="col-md-10">
-      <%= f.label :fix_price, I18n.t("registration.step23.fix.label") %>
-      <%= f.number_field :fix_price, min: 100, class: '', placeholder: I18n.t("registration.step23.fix.placeholder") %>
+
+      <div class="service-fees consulting-service" id="consulting-service">
+        <%= f.label :consulting_tutor, I18n.t("price_range.label1") %>
+        <div class="form-group">
+          <%= f.label :consult_fix_price, I18n.t("edit_profile.at_least"), class: 'lbl-small' %>
+          <%= f.number_field :consult_fix_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
+        </div>
+      </div>
+
+      <hr/>
+
+
+      <div class="service-fees brainstorming-service" id="brainstorming-service">
+        <%= f.label :consulting_tutor, I18n.t("price_range.label2") %>
+        <div class="form-group">
+          <%= f.label :brainstorm_fix_price, I18n.t("edit_profile.at_least"), class: 'lbl-small' %>
+          <%= f.number_field :brainstorm_fix_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="service-fees writing-service" id="writing-service">
+        <%= f.label :consulting_tutor, I18n.t("price_range.label3") %>
+        <div class="form-group">
+          <%= f.label :essay_fix_price, I18n.t("edit_profile.at_least"), class: 'lbl-small' %>
+          <%= f.number_field :essay_fix_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
+        </div>
+      </div>
+
+    <hr/>
+
+
+      <div class="service-fees visa-service" id="visa-service">
+        <%= f.label :consulting_tutor, I18n.t("price_range.label4") %>
+        <div class="form-group">
+          <%= f.label :visa_fix_price, I18n.t("edit_profile.at_least"), class: 'lbl-small' %>
+          <%= f.number_field :visa_fix_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </div>

@@ -304,6 +304,7 @@ en:
       range:
         title: "Smart price setter"
         p1: "Set a price range. The suggested price will be within your range."
+        p2: "Set a fix price."
         label1: "At least"
         label2: "At most"
         label3: "How often do you want to work with students"
@@ -525,3 +526,9 @@ en:
 
   errors:
     fill_all: "Please fill in all the information"
+
+  price_range:
+    label1: "Price for consulting service?"
+    label2: "Price for brainstorming service?"
+    label3: "Price for proofreading service?"
+    label4: "Price for visa consulting service?"

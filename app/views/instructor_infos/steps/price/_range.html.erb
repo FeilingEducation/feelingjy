@@ -3,20 +3,76 @@
   <p class=""><%= I18n.t("registration.step23.range.p1") %></p>
 </div>
 
-<div class="question-block">
+<div class="question-block" id="price-range-fields">
   <div class="row">
+
     <div class="col-md-10">
-      <%= f.label :min_price, I18n.t("registration.step23.range.label1") %>
-      <%= f.number_field :min_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: I18n.t("registration.step23.range.placeholder1"), id: "min_price" %>
+
+      <div class="service-fees consulting-service" id="consulting-service">
+        <%= f.label :consulting_tutor, I18n.t("price_range.label1") %>
+        <div class="form-group">
+          <%= f.label :consult_min_price, I18n.t("edit_profile.at_least"), class: 'lbl-small' %>
+          <%= f.number_field :consult_min_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :consult_max_price, I18n.t("edit_profile.at_most"), class: 'lbl-small' %>
+          <%= f.number_field :consult_max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
+          <span class="error hidden"> <%= I18n.t("edit_profile.error") %></spa, class: 'lbl-small'n>
+        </div>
+      </div>
+
+      <hr/>
+
+
+      <div class="service-fees brainstorming-service" id="brainstorming-service">
+        <%= f.label :consulting_tutor, I18n.t("price_range.label2") %>
+        <div class="form-group">
+          <%= f.label :brainstorm_min_price, I18n.t("edit_profile.at_least"), class: 'lbl-small' %>
+          <%= f.number_field :brainstorm_min_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :brainstorm_max_price, I18n.t("edit_profile.at_most"), class: 'lbl-small' %>
+          <%= f.number_field :brainstorm_max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
+          <span class="error hidden"> <%= I18n.t("edit_profile.error") %></spa, class: 'lbl-small'n>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="service-fees writing-service" id="writing-service">
+        <%= f.label :consulting_tutor, I18n.t("price_range.label3") %>
+        <div class="form-group">
+          <%= f.label :essay_min_price, I18n.t("edit_profile.at_least"), class: 'lbl-small' %>
+          <%= f.number_field :essay_min_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :essay_max_price, I18n.t("edit_profile.at_most"), class: 'lbl-small' %>
+          <%= f.number_field :essay_max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
+          <span class="error hidden"> <%= I18n.t("edit_profile.error") %></spa, class: 'lbl-small'n>
+        </div>
+      </div>
+
+    <hr/>
+
+
+      <div class="service-fees visa-service" id="visa-service">
+        <%= f.label :consulting_tutor, I18n.t("price_range.label4") %>
+        <div class="form-group">
+          <%= f.label :visa_min_price, I18n.t("edit_profile.at_least"), class: 'lbl-small' %>
+          <%= f.number_field :visa_min_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :visa_max_price, I18n.t("edit_profile.at_most"), class: 'lbl-small' %>
+          <%= f.number_field :visa_max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
+          <span class="error hidden"> <%= I18n.t("edit_profile.error") %></spa, class: 'lbl-small'n>
+        </div>
+      </div>
+
     </div>
-  </div>
-</div>
-<div class="question-block">
-  <div class="row">
-    <div class="col-md-10">
-      <%= f.label :max_price, I18n.t("registration.step23.range.label2") %>
-      <%= f.number_field :max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: I18n.t("registration.step23.range.placeholder2"), id: "max_price" %>
-      <span class="error hidden"><%= I18n.t("registration.step23.range.error") %></span>
-    </div>
+
   </div>
 </div>

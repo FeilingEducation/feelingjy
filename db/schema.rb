@@ -174,6 +174,18 @@ ActiveRecord::Schema.define(version: 20180317082112) do
     t.string "page_name"
     t.integer "uni_accepted", array: true
     t.boolean "is_graduate", default: true
+    t.integer "consult_min_price"
+    t.integer "consult_max_price"
+    t.integer "consult_fix_price"
+    t.integer "brainstorm_min_price"
+    t.integer "brainstorm_max_price"
+    t.integer "brainstorm_fix_price"
+    t.integer "essay_min_price"
+    t.integer "essay_max_price"
+    t.integer "essay_fix_price"
+    t.integer "visa_min_price"
+    t.integer "visa_max_price"
+    t.integer "visa_fix_price"
   end
 
   create_table "messages", force: :cascade do |t|

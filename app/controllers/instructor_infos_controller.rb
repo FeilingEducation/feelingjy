@@ -27,16 +27,6 @@ class InstructorInfosController < AuthenticatedResourcesController
     @instructor_info.uni_accepted = [instructor_info_params[:uni_accepted]]
     if @instructor_info.save!
       flash[:notice] = 'Instructor profile created successfully.'
-      puts "*********************"
-      puts params.require(:instructor_info)[:avatar_cache]
-      puts "*********************"
-      puts "*********************"
-      puts "*********************"
-      puts "*********************"
-      puts "*********************"
-      puts "*********************"
-      puts "*********************"
-      puts "*********************"
 
       @instructor_info.user_info.update_attributes!(avatar: convert_data_uri_to_upload(params.require(:instructor_info)[:avatar_cache]))
       redirect_to(profile_path(@instructor_info))
@@ -232,7 +222,19 @@ end
       :share_course_essay,
       :page_background_cache,
       :best_applying_at,
-      :page_name
+      :page_name,
+      :consult_min_price,
+      :consult_max_price,
+      :consult_fix_price,
+      :brainstorm_min_price,
+      :brainstorm_max_price,
+      :brainstorm_fix_price,
+      :essay_min_price,
+      :essay_max_price,
+      :essay_fix_price,
+      :visa_min_price,
+      :visa_max_price,
+      :visa_fix_price
       # :avatar
     )
   end
