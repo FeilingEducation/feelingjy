@@ -1,75 +1,72 @@
 <div class="mt-4 mx-3">
-	<h3>Add Review</h3>
-	<hr>
-	<%= form_for @tutor.reviews.new, url: user_reviews_path(params[:user_id]) do |f| %>
-		<%= f.hidden_field :reviewer_id, value: current_user.id %>
-		<div class="row">
-			<div class="col-md-2">
-				<%= f.label :service_communication %>
+	<% if !@transaction.blank? && @transaction.payment.try(:status) %>
+		<h3>Add Review</h3>
+		<hr>
+		<%= form_for @tutor_review, url: user_reviews_path(params[:user_id]) do |f| %>
+			<%= f.hidden_field :reviewer_id, value: current_user.id %>
+			<%= f.hidden_field :consult_transaction_id, value: current_user.id %>
+			<div class="row">
+				<div class="col-md-2">
+					<label>Service Communication</label>
+				</div>
+				<div class="col-md-8">
+					<div id="service_communication" class="rating" data-score="<%=@tutor_review.service_communication_rating%>"></div>
+					<%= f.hidden_field :service_communication_rating %>
+				</div>
 			</div>
-			<div class="col-md-8">
-				<%= f.text_area :service_communication %>
+			<div class="row">
+				<div class="col-md-2">
+					<label>Attitude</label>
+				</div>
+				<div class="col-md-8">
+					<div id="attitude" class="rating" data-score="<%=@tutor_review.attitude_rating%>"></div>
+					<%= f.hidden_field :attitude_rating %>
+				</div>
 			</div>
-			<div class="col-md-2">
-				<div id="service_communication" class="rating"></div>
-				<%= f.hidden_field :service_communication_rating %>
+			<div class="row">
+				<div class="col-md-2">
+					<label>Efficiency</label>
+				</div>
+				<div class="col-md-8">
+					<div id="efficiency" class="rating" data-score="<%=@tutor_review.efficiency_rating%>"></div>
+					<%= f.hidden_field :efficiency_rating %>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<%= f.label :attitude %>
+			<div class="row">
+				<div class="col-md-2">
+					<label>Authenticity</label>
+				</div>
+				<div class="col-md-8">
+					<div id="authenticity" class="rating" data-score="<%=@tutor_review.authenticity_rating%>"></div>
+					<%= f.hidden_field :authenticity_rating %>
+				</div>
 			</div>
-			<div class="col-md-8">
-				<%= f.text_area :attitude %>
+			<div class="row">
+				<div class="col-md-2">
+					<label>Cost Efftiveness</label>
+				</div>
+				<div class="col-md-8">
+					<div id="cost_effectiveness" class="rating" data-score="<%=@tutor_review.cost_effectiveness_rating%>"></div>
+					<%= f.hidden_field :cost_effectiveness_rating %>
+				</div>
 			</div>
-			<div class="col-md-2">
-				<div id="attitude" class="rating"></div>
-				<%= f.hidden_field :attitude_rating %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<%= f.label :efficiency %>
-			</div>
-			<div class="col-md-8">
-				<%= f.text_area :efficiency %>
-			</div>
-			<div class="col-md-2">
-				<div id="efficiency" class="rating"></div>
-				<%= f.hidden_field :efficiency_rating %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<%= f.label :authenticity %>
-			</div>
-			<div class="col-md-8">
-				<%= f.text_area :authenticity %>
-			</div>
-			<div class="col-md-2">
-				<div id="authenticity" class="rating"></div>
-				<%= f.hidden_field :authenticity_rating %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-2">
-				<%= f.label :cost_effectiveness %>
-			</div>
-			<div class="col-md-8">
-				<%= f.text_area :cost_effectiveness %>
-			</div>
-			<div class="col-md-2">
-				<div id="cost_effectiveness" class="rating"></div>
-				<%= f.hidden_field :cost_effectiveness_rating %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<center><%= f.submit "Submit", class: "btn btn-primary" %></center>
-			</div>
-		</div>		
-	<% end %>
-
+			<% if @transaction.review.nil? %>
+				<div class="row">
+					<div class="col-md-2">
+						<label>Enter your message:</label>
+					</div>
+					<div class="col-md-8">
+						<%= f.text_area :review_text %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<center><%= f.submit "Submit", class: "btn btn-primary" %></center>
+					</div>
+				</div>
+			<% end %>	
+		<% end %>
+	<%end%>
 	<h3>List Reviews</h3>
 	<hr>
 	<% @tutor.reviews.where.not(id: nil).each do |r| %>
@@ -80,9 +77,6 @@
 			<div class="col-md-2">
 				<div class="rating-readonly" data-score="<%=r.service_communication_rating%>"></div>
 			</div>
-			<div class="col-md-8">
-				<%= r.service_communication %>
-			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">
@@ -90,9 +84,6 @@
 			</div>
 			<div class="col-md-2">
 				<div class="rating-readonly" data-score="<%=r.attitude_rating%>"></div>
-			</div>
-			<div class="col-md-8">
-				<%= r.attitude %>
 			</div>
 		</div>
 		<div class="row">
@@ -102,9 +93,6 @@
 			<div class="col-md-2">
 				<div class="rating-readonly" data-score="<%=r.efficiency_rating%>"></div>
 			</div>
-			<div class="col-md-8">
-				<%= r.efficiency %>
-			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-2">
@@ -112,9 +100,6 @@
 			</div>
 			<div class="col-md-2">
 				<div class="rating-readonly" data-score="<%=r.authenticity_rating%>"></div>
-			</div>
-			<div class="col-md-8">
-				<%= r.authenticity %>
 			</div>
 		</div>
 		<div class="row">
@@ -124,8 +109,13 @@
 			<div class="col-md-2">
 				<div class="rating-readonly" data-score="<%=r.cost_effectiveness_rating%>"></div>
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<label>Message:</label>
+			</div>
 			<div class="col-md-8">
-				<%= r.cost_effectiveness %>
+				<div><%= r.review_text %></div>
 			</div>
 		</div>
 		<hr>

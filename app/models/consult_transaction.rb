@@ -17,6 +17,7 @@ class ConsultTransaction < ApplicationRecord
 
   has_one :chat
   has_one :payment, as: :payable
+  has_one :review
 
   validates_presence_of :instructor_id
   validates_presence_of :student_id

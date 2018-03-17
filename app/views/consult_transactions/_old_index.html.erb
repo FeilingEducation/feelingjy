@@ -29,7 +29,7 @@
         <%= link_to transaction do %>
           <%= I18n.t("transactions.view_more") %>
         <% end %>|
-        <%= link_to user_reviews_path(transaction) do %>
+        <%= link_to user_reviews_path(transaction, transaction_id: transaction.id) do %>
           <%= I18n.t("transactions.view_reviews") %>
         <% end %>
       </div>
