@@ -305,6 +305,7 @@ cn:
       range:
         title: "只能定价"
         p1: "请设置价格范围。您的服务价格会根据您设定的范围进行调整。"
+        p2: "Set a fix price."
         label1: "最少"
         label2: "最多"
         label3: "您想与学生合作的频率"
@@ -523,3 +524,9 @@ cn:
 
   errors:
     fill_all: "请填写所有信息"
+
+  price_range:
+    label1: "Price for consulting service?"
+    label2: "Price for brainstorming service?"
+    label3: "Price for proofreading service?"
+    label4: "Price for visa consulting service?"
