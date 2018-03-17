@@ -28,10 +28,13 @@
       <div class="col-sm-3">
         <%= link_to transaction do %>
           <%= I18n.t("transactions.view_more") %>
-        <% end %>|
-        <%= link_to user_reviews_path(transaction, transaction_id: transaction.id) do %>
-          <%= I18n.t("transactions.view_reviews") %>
         <% end %>
+        <% if transaction.payment.try(:status) %>
+          |
+          <%= link_to user_reviews_path(transaction, transaction_id: transaction.id) do %>
+            <%= I18n.t("transactions.view_reviews") %>
+          <% end %>
+        <%end%>  
       </div>
     </div>
 

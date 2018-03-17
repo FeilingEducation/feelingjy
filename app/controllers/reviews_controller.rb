@@ -1,8 +1,12 @@
 class ReviewsController < ApplicationController
 	def index
 		@transaction = ConsultTransaction.find(params[:transaction_id])
-		@tutor = User.find(params[:user_id])
-		@tutor_review = @transaction.review.nil? ? @tutor.reviews.new : @transaction.review
+		if @transaction.student_id == current_user.id
+			@tutor = User.find(params[:user_id])
+			@tutor_review = @transaction.review.nil? ? @tutor.reviews.new : @transaction.review
+		else
+			redirect_to root_url, alert: "You are not allowed."
+		end
 	end
 
 	def create
