@@ -1,5 +1,5 @@
 <div class="main-slider">
-  <%= form_tag mentors_path, class: 'search-form' do %>
+  <%= form_tag mentors_path, method: :get, class: 'search-form' do %>
     <div class="search-con">
       <div class="select-con">
         <%= select_tag "service", options_for_select(services_as_collection), prompt: "Select service", class: "form-control"%>
@@ -10,7 +10,7 @@
         <%= select_tag "specialization", options_for_select(InstructorInfo.specialization_as_collection), prompt: "Select Specialization", class: "form-control"%>
         <i class="fa fa-angle-down"></i>
       </div>
-      <button class="btn default-btn" type="submit">Search</button>
+      <button class="btn default-btn" type="submit" style="border-radius:40px!important">Search</button>
     <%end%>
   </div>
   <div id="carousel-main" class="carousel slide" data-ride="carousel">

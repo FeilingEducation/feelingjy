@@ -38,8 +38,9 @@
 
           <div class="review-comment">
             <div class="reviews">
-              <%= image_tag "reskin/stars.png", class: ''%>
-              <span class="review-count">39</span>
+              <span class="rating" data-score="<%= instructor.user_info.user.get_rating %>"></span>
+              <span class="review-count"><%= instructor.user_info.user.reviews.count %></span>
+              <%#= image_tag "reskin/stars.png", class: ''%>
               Reviews
             </div>
 
@@ -50,3 +51,6 @@
     </div>
   <%end%>
 </div>
+<script type="text/javascript">
+  $('.rating').raty({readOnly: true, number: 5})
+</script>
