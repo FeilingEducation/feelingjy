@@ -12,6 +12,27 @@
       <%end%>
     </div>
 
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Sort By</label>
+          <select class="select2 sort_by">
+            <option value="price">Price</option>
+            <option value="rating">Rating</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Order By</label>
+          <select class="select2 order_by">
+            <option value="asc">Asc</option>
+            <option value="desc">Desc</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
     <div class="row mentors">
       <% @results.each do |instructor|%>
         <%= render partial: 'inst_profile', locals: { instructor: instructor } %>
@@ -22,3 +43,19 @@
 
   </div>
 </section>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".sort_by, .order_by").change(function(){
+      sort_by = $(".sort_by").find("option:selected")[0].value
+      order_by = $(".order_by").find("option:selected")[0].value
+      $.ajax({
+        type: "get",
+        url: "/mentors",
+        data: "sort_by="+sort_by+"&order_by="+order_by,
+        success: function(res){
+          $(".mentors").html($(res).find(".mentors").html())
+        }
+      })
+    })
+  })  
+</script>
