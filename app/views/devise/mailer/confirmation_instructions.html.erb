@@ -1,0 +1,128 @@
+<div class="mail-container">
+  <div class="container">
+    <div class="mail-header">
+      <%=image_tag "reskin/logo-small.png", class: 'logo'%>
+      <p class='logo-text'>Feeling Education</p>
+    </div>
+
+    <div class="mail-main-content">
+      <p class="greeting">Hi <%= @email %>, </p>
+      <p>Thank you for registering Feeling Education account! Before you begin, we need to confirm your identity. Click the button below to verify e-mail:</p>
+      <div class="email-confirm-btn text-center">
+        <p><%= link_to 'E-mail verification', confirmation_url(@resource, confirmation_token: @token), :class=> "btn default-btn"%></p>
+      </div>
+
+      <div class="email-support">
+        <p>
+          Need any help? Please contact our support team by email
+          <span><%= mail_to "support@feelingyt.com", "support@feelingyt.com", class: 'link'%></span>
+          or look for us on Wechat <span class="link">@飞灵教育</span>.
+          I want to give some advice? Please through our
+          <span><%= mail_to "feedback@feelingyt.com", "feedback@feelingyt.com", class: 'link'%></span>
+          to let us know what you think.
+        </p>
+      </div>
+    </div>
+
+    <div class="funfact text-center">
+      <h1> FUN FACT </h1>
+      <p>
+         Approximately 44% of billionaires, 55.9% of Forbes' most powerful women
+         and 85.2% of Forbes' most powerful men attended elite colleges.
+      </p>
+    </div>
+
+    <div class="footer">
+      <div class="text-center">
+        Sent by Feeling Education * Check out our official Wechat account * <span class="link">@飞灵教育</span>
+      </div>
+      <div class="text-center">
+        Jingbeinan community 16-704, Luohu District, Shenzhen, 518000, China
+      </div>
+    </div>
+
+  </div>
+</div>  
+
+<style type="text/css">
+.mail-container{
+  background-color: #e9e9e9;
+  color: #696969;
+  padding-top: 0;
+  font-family: 'HelveticaNeuePro', 'Roboto-Light', 'Tahoma','sans-serif';
+  line-height: normal;
+  font-size: 14px;
+}
+
+.mail-container .link{
+  color: #31c89d;
+}
+
+.mail-container .mail-header{
+  text-align: center;
+  padding: 20px 0;
+}
+
+.mail-container .logo{
+  max-width:40px;
+  margin-bottom: 5px;
+}
+.mail-container .logo-text{
+  font-weight: bolder;
+  color: #a9a9a9;
+}
+
+.mail-main-content{
+  background: white;
+  padding: 50px;
+  border-radius: 10px;
+  font-size: 18px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mail-main-content .greeting{
+  font-size: 25px;
+  font-weight: 900;
+  color: black;
+}
+
+.mail-main-content .email-confirm-btn{
+  margin:0;
+  padding:10px 0 40px 0;
+  border-bottom: 1px solid #D3D3D3;
+}
+
+.mail-main-content .email-support{
+  padding-top: 40px;
+  font-size: 14px;
+}
+
+.funfact{
+  margin-top: 20px;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.funfact h1{
+  font-size: 30px;
+  color: #31c89d;
+}
+
+.footer{
+  font-size: 13px;
+  padding: 40px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.btn {
+  padding: 12px;
+  border-radius: 5px;
+  background: #31c89d;
+  color: white;
+  text-decoration: none;
+}
+
+</style>
