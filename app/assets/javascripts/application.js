@@ -197,4 +197,10 @@ $(document).on('turbolinks:load', function () {
     $(target).removeClass('hidden')
   })
 
+  $("#services-drop").on('change', function(e){
+    console.log("change...", $(this).val())
+    $("#place-order").removeAttr('disabled')
+    
+  })
+
 })
