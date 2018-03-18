@@ -11,25 +11,20 @@ class InstructorInfosController < AuthenticatedResourcesController
   def index
     if request.xhr?
       @data = InstructorInfo.limit(20)
-      price_sort = params[:price_sort]
-      rating_sort = params[:rating_sort]
-      case price_sort
-      when "less_than_400"
-        @data = @data.where("min_price < 400")
-      when "400_to_600"
-        @data = @data.where(min_price: 400..600)
-      when "600_to_800"
-        @data = @data.where(min_price: 601..800)
-      when "more_than_800"
-        @data = @data.where("min_price > 800")  
-      end
-      if rating_sort == "all"
-        @results = @data
+      sort_by = params[:sort_by]
+      order_by = params[:order_by]
+      
+      if sort_by == 'price'
+        @results = @data.order("min_price #{order_by}")
       else
+        arr=[]
         @results = []
         @data.each do |obj|
-          @results << obj if obj.user_info.user.get_rating.to_i == rating_sort.to_i
+          arr << [obj.id, obj.user_info.user.get_rating]
         end
+        sorted_arr = arr.sort {|a,b| a[1] <=> b[1]}
+        sorted_arr = sorted_arr.reverse if order_by == 'desc'
+        sorted_arr.each{|obj| @results << InstructorInfo.find(obj[0]) }
       end
     else
       if params[:service].present? || params[:specialization].present?
