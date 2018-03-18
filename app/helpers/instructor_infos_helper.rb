@@ -2,22 +2,37 @@ module InstructorInfosHelper
 
   def services_of instructor
     services = []
-    # if instructor.is_early_consult
-      services << '前期咨询'
-    # end
-    # if instructor.is_brainstorm_consult
-      services << '头脑风暴'
-    # end
-    # if instructor.is_essay_consult
-      services << '文书改写'
-    # end
-    # if instructor.is_visa_consult
-      services << '签证咨询'
-    # end
-    # if services.empty?
-    #   services << '暂无服务'
-    # end
+    if instructor.is_early_consult
+      services << [I18n.t("services.early_consultant"), 'early_consult']
+    end
+    if instructor.is_brainstorm_consult
+      services << [I18n.t("services.brainstorm_consultant"), 'brainstorm_consultant']
+    end
+    if instructor.is_essay_consult
+      services << [I18n.t("services.essay_consultant"), 'essay_consultant']
+    end
+    if instructor.is_visa_consult
+      services << [I18n.t("services.visa_consultant"), 'visa_consultant']
+    end
+    if services.empty?
+      services << [I18n.t("services.all"), 'all']
+    end
     services
+  end
+
+  def service service_name
+    case service_name
+    when "early_consult"
+      I18n.t("services.early_consultant")
+    when "brainstorm_consultant"
+      I18n.t("services.brainstorm_consultant")
+    when "essay_consultant"
+      I18n.t("services.essay_consultant")
+    when "visa_consultant"
+      I18n.t("services.visa_consultant")
+    when "all"
+      I18n.t("services.all")
+    end
   end
 
   def services_as_collection

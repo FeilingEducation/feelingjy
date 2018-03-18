@@ -401,6 +401,9 @@ cn:
     essay_editing: "文书改写"
     cost_desc: "费用说明"
     visa_consulting: "签证咨询"
+    early_consultant: "Early Consultancy"
+    brainstorm_consultant: "Brainstorm Consultancy"
+    essay_editing: "Essay Consultancy"
     visa_cost_desc: "费用说明"
     support_multiple: "同一时间支持多人"
     i_can_help: "我可以帮助"
@@ -434,6 +437,7 @@ cn:
     min_days: "最少天数:"
     max_days: "最多天数:"
     advance: "提前"
+    place_order: "申请预定"
 
   my_orders:
     no_contact: "尚无联系"
@@ -531,3 +535,10 @@ cn:
     label2: "Price for brainstorming service?"
     label3: "Price for proofreading service?"
     label4: "Price for visa consulting service?"
+
+  services:
+    early_consultant: "前期咨询"
+    brainstorm_consultant: "头脑风暴"
+    essay_consultant: "文书改写"
+    visa_consultant: "签证咨询"
+    all: "暂无服务"

@@ -386,6 +386,7 @@ en:
     actions: "Actions"
     view_more: "View Details"
     view_reviews: "View Reviews"
+    service: "Service"
 
   instructor_profile:
     reviews: "Reviews"
@@ -400,6 +401,9 @@ en:
     essay_editing: "Essay Editing"
     cost_desc: "Cost Description"
     visa_consulting: "Visa Consulting"
+    early_consultant: "Early Consultancy"
+    brainstorm_consultant: "Brainstorm Consultancy"
+    essay_editing: "Essay Consultancy"
     visa_cost_desc: "Cost Description"
     support_multiple: "Support multiple people at same time"
     i_can_help: "I can help"
@@ -433,6 +437,7 @@ en:
     min_days: "Min days:"
     max_days: "Max days:"
     advance: "Advance"
+    place_order: "Place Order"
 
   my_orders:
     no_contact: "No Contact"
@@ -532,3 +537,10 @@ en:
     label2: "Price for brainstorming service?"
     label3: "Price for proofreading service?"
     label4: "Price for visa consulting service?"
+
+  services:
+    early_consultant: "Early Consultancy"
+    brainstorm_consultant: "Brainstorm Consultancy"
+    essay_consultant: "Essay Consultancy"
+    visa_consultant: "Visa Consultancy"
+    all: "All"
