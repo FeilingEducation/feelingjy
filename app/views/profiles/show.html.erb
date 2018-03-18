@@ -1,5 +1,5 @@
 <!-- <div class="main-content"> -->
-<% local = session[:locale] %>
+<% local = session[:locale] || "en" %>
 <% in_scope = "#{controller_name}/#{action_name}" == 'instructor_infos/edit' %>
   <div class="container personal-center">
     <div class="with-leftbar row">
@@ -88,12 +88,12 @@
                   </div>
                   <div class="form-group">
                     <label><%= I18n.t "instructor_profile.services" %></label>
-                    <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {include_blank: true}, class: 'custom-select d-block w-100' %>
+                    <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {}, class: 'custom-select d-block w-100', id: "services-drop"%>
                   </div>
                   <div class="form-group">
-                    <%= scoped in_scope, :submit_tag, '申请预定', disabled: true, class: 'btn default-btn red' %>
-                    <%= scoped !in_scope, :submit_tag, '申请预定', class: 'btn default-btn red' %>
-                    <%= scoped !in_scope, :button_tag, '与我联系', type: 'button', class: 'btn default-btn message-box modal-toggle',
+                    <%#= scoped in_scope, :submit_tag, '申请预定1', disabled: true, class: 'btn default-btn red' %>
+                    <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn default-btn red', id: "place-order" %>
+                    <%#= scoped !in_scope, :button_tag, '与我联系3', type: 'button', class: 'btn default-btn message-box modal-toggle',
                     data: { target: '#message-box' } %>
                   </div>
                 <% end %>
@@ -229,34 +229,73 @@
 
                   <div class="col-md-8 col-sm-7">
                     <ul class="info-list">
-                      <li>
-                        <ul>
-                          <li><%= I18n.t "instructor_profile.essay_editing" %></li>
-                          <li class="green"><%= I18n.t "instructor_profile.cost_desc" %></li>
-                        </ul>
-                        <p>
-                          <% if @instructor_info.fix_price.present?%>
-                            <%= I18n.t "instructor_profile.fix_price" %> ¥<%= @instructor_info.fix_price %>
+
+                      <% if @instructor_info.is_early_consult %>
+                        <li>
+                          <ul>
+                            <li><%= I18n.t "instructor_profile.early_consultant" %></li>
+                            <li class="green"><%= I18n.t "instructor_profile.visa_cost_desc" %></li>
+                          </ul>
+                          <p>
+                          <% if @instructor_info.consult_fix_price.present?%>
+                            <%= I18n.t "instructor_profile.fix_price" %> ¥<%= @instructor_info.consult_fix_price %>
                           <%else%>
-                            <%= I18n.t "instructor_profile.minimum" %> ¥<%= @instructor_info.min_price %> <%= I18n.t "instructor_profile.per_hour" %>
+                            <%= I18n.t "instructor_profile.minimum" %> ¥<%= @instructor_info.consult_min_price %> <%= I18n.t "instructor_profile.per_hour" %>
                           <%end%>
-                        </p>
-                        <!-- <p>¥888/hr 10% off with 2hr booking</p> -->
-                      </li>
-                      <li>
-                        <ul>
-                          <li><%= I18n.t "instructor_profile.visa_consulting" %></li>
-                          <li class="green"><%= I18n.t "instructor_profile.visa_cost_desc" %></li>
-                        </ul>
-                        <p>
-                        <% if @instructor_info.fix_price.present?%>
-                          <%= I18n.t "instructor_profile.fix_price" %> ¥<%= @instructor_info.fix_price %>
-                        <%else%>
-                          <%= I18n.t "instructor_profile.minimum" %> ¥<%= @instructor_info.min_price %> <%= I18n.t "instructor_profile.per_hour" %>
-                        <%end%>
-                          (<%= I18n.t "instructor_profile.support_multiple" %>)
-                        </p>
-                      </li>
+                            (<%= I18n.t "instructor_profile.support_multiple" %>)
+                          </p>
+                        </li>
+                      <%end%>
+
+                      <% if @instructor_info.is_brainstorm_consult %>
+                        <li>
+                          <ul>
+                            <li><%= I18n.t "instructor_profile.brainstorm_consultant" %></li>
+                            <li class="green"><%= I18n.t "instructor_profile.visa_cost_desc" %></li>
+                          </ul>
+                          <p>
+                          <% if @instructor_info.brainstorm_fix_price.present?%>
+                            <%= I18n.t "instructor_profile.fix_price" %> ¥<%= @instructor_info.brainstorm_fix_price %>
+                          <%else%>
+                            <%= I18n.t "instructor_profile.minimum" %> ¥<%= @instructor_info.essay_min_price %> <%= I18n.t "instructor_profile.per_hour" %>
+                          <%end%>
+                            (<%= I18n.t "instructor_profile.support_multiple" %>)
+                          </p>
+                        </li>
+                      <%end%>
+
+                      <% if @instructor_info.is_essay_consult %>
+                        <li>
+                          <ul>
+                            <li><%= I18n.t "instructor_profile.essay_editing" %></li>
+                            <li class="green"><%= I18n.t "instructor_profile.cost_desc" %></li>
+                          </ul>
+                          <p>
+                            <% if @instructor_info.essay_fix_price.present?%>
+                              <%= I18n.t "instructor_profile.fix_price" %> ¥<%= @instructor_info.essay_fix_price %>
+                            <%else%>
+                              <%= I18n.t "instructor_profile.minimum" %> ¥<%= @instructor_info.essay_min_price %> <%= I18n.t "instructor_profile.per_hour" %>
+                            <%end%>
+                          </p>
+                        </li>
+                      <%end%>
+
+                      <% if @instructor_info.is_visa_consult %>
+                        <li>
+                          <ul>
+                            <li><%= I18n.t "instructor_profile.visa_consulting" %></li>
+                            <li class="green"><%= I18n.t "instructor_profile.visa_cost_desc" %></li>
+                          </ul>
+                          <p>
+                          <% if @instructor_info.visa_fix_price.present?%>
+                            <%= I18n.t "instructor_profile.fix_price" %> ¥<%= @instructor_info.visa_fix_price %>
+                          <%else%>
+                            <%= I18n.t "instructor_profile.minimum" %> ¥<%= @instructor_info.visa_min_price %> <%= I18n.t "instructor_profile.per_hour" %>
+                          <%end%>
+                            (<%= I18n.t "instructor_profile.support_multiple" %>)
+                          </p>
+                        </li>
+                      <%end%>
                     </ul>
                   </div>
                 </div>

@@ -125,6 +125,8 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     :hourly_price,
     :status,
     :rating,
+    :service,
+    :scheduled_date,
     :feed_back)
   end
 
@@ -164,7 +166,7 @@ class ConsultTransactionsController < AuthenticatedResourcesController
       biz_content: {
         out_trade_no: "transaction-#{transaction.id}",
         product_code: 'FAST_INSTANT_TRADE_PAY',
-        total_amount: 1, #transaction.payment_amount,
+        total_amount: transaction.payment_amount, #1
         subject: "Payment for transaction #{transaction.id}"
       }.to_json # to_json is important!
       # timestamp: Time.now

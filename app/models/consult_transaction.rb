@@ -36,7 +36,23 @@ class ConsultTransaction < ApplicationRecord
   def payment_amount
     #TODO update the logic to calculate the price.
     # transaction.instructor.fix_price? ? transaction.instructor.max_price : transaction.instructor.max_price
-    800
+    instructor = transaction.instructor
+    case transaction.service
+      when "early_consult"
+        instructor.consult_fix_price? ? instructor.consult_fix_price : instructor.consult_min_price
+      when "brainstorm_consultant"
+        instructor.brainstorm_fix_price? ? instructor.brainstorm_fix_price : instructor.brainstorm_min_price
+      when "essay_consultant"
+        instructor.essay_fix_price? ? instructor.essay_fix_price : instructor.essay_min_price
+      when "visa_consultant"
+        instructor.visa_fix_price? ? instructor.visa_fix_price : instructor.visa_min_price
+      when "all"
+        600
+      when ""
+        1
+      when nil
+        1
+    end
   end
 
   private

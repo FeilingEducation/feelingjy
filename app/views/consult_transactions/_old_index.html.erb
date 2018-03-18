@@ -10,9 +10,10 @@
   <p class="no-order-message"><%= I18n.t("transactions.no_orders") %></p>
 <%else%>
 <div class="row order-title-row">
-  <div class="col-sm-3"><%= other_role == "instructor" ? I18n.t("transactions.inst_name") : I18n.t("transactions.std_name") %></div>
+  <div class="col-sm-2"><%= other_role == "instructor" ? I18n.t("transactions.inst_name") : I18n.t("transactions.std_name") %></div>
   <div class="col-sm-3"><%= I18n.t("transactions.order_placed_at") %></div>
-  <div class="col-sm-3"><%= I18n.t("transactions.order_status") %></div>
+  <div class="col-sm-2"><%= I18n.t("transactions.order_status") %></div>
+  <div class="col-sm-2"><%= I18n.t("transactions.service") %></div>
   <div class="col-sm-3"><%= I18n.t("transactions.actions") %></div>
 </div>
 
@@ -22,13 +23,20 @@
     <% next if other.nil?%>
 
     <div class="row order-title-row data-row">
-      <div class="col-sm-3"><%= other.full_name %></div>
+      <div class="col-sm-2"><%= other.full_name %></div>
       <div class="col-sm-3"><%= transaction.created_at %></div>
-      <div class="col-sm-3"><%= transaction.status %></div>
+      <div class="col-sm-2"><%= transaction.status %></div>
+      <div class="col-sm-2"><%= service transaction.service %></div>
       <div class="col-sm-3">
         <%= link_to transaction do %>
           <%= I18n.t("transactions.view_more") %>
         <% end %>
+        <% if transaction.payment.try(:status) == 3 %>
+          |
+          <%= link_to user_reviews_path(transaction, transaction_id: transaction.id) do %>
+            <%= I18n.t("transactions.view_reviews") %>
+          <% end %>
+        <%end%>
       </div>
     </div>
 
