@@ -10,6 +10,9 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <% if Rails.env.production? %>
+    <%= render partial: 'ga' %>
+  <%end%>
 </head>
 
 <% modals = {} %>
