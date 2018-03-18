@@ -1,5 +1,51 @@
-<p>Welcome <%= @email %>!</p>
+<div class="mail-container">
+  <div class="container">
+    <div class="mail-header">
+      <%=image_tag "reskin/logo-small.png", class: 'logo'%>
+      <p class='logo-text'>Feeling Education</p>
+    </div>
+
+    <div class="mail-main-content">
+      <p class="greeting">Hi <%= @email %>, </p>
+      <p>Thank you for signing up an account with us! Please click the button below to verify your email:</p>
+      <div class="email-confirm-btn text-center">
+        <p><%= link_to 'Confirm Email', confirmation_url(@resource, confirmation_token: @token), :class=> "btn default-btn"%></p>
+      </div>
+
+      <div class="email-support">
+        <p>
+          Need help? Please contat our support team by email
+          <span><%= mail_to "support@feelingyt.com", "support@feelingyt.com", class: 'link'%></span>
+          or look for us on Wechat <span class="link">@飞灵教育</span>.
+          Feel free to give us suggestions at
+          <span><%= mail_to "feedback@feelingyt.com", "feedback@feelingyt.com", class: 'link'%></span>
+        </p>
+      </div>
+    </div>
+
+    <div class="funfact text-center">
+      <h1> FUN FACT </h1>
+      <p>
+         Approximately 44% of billionaires, 55.9% of Forbes' most powerful women
+         and 85.2% of Forbes' most powerful men attended elite universities.
+      </p>
+    </div>
+
+    <div class="footer">
+      <div class="text-center">
+        Sent by Feeling Education * Check out our official Wechat account * <span class="link">@飞灵教育</span>
+      </div>
+      <div class="text-center">
+        Jingbeinan community 16-704, Luohu District, Shenzhen, 518000, China
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- <p>Welcome <%= @email %>!</p>
 
 <p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p> -->
