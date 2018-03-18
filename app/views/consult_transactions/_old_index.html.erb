@@ -32,11 +32,12 @@
           <%= I18n.t("transactions.view_more") %>
         <% end %>
         <% if transaction.payment.try(:status) == 3 %>
+
           |
           <%= link_to user_reviews_path(transaction, transaction_id: transaction.id) do %>
             <%= I18n.t("transactions.view_reviews") %>
           <% end %>
-        <%end%>
+        <%end%>  
       </div>
     </div>
 

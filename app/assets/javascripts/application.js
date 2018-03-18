@@ -20,6 +20,7 @@
 //= require jquery.fileupload
 //= require select2-full
 //= require croppie.min
+//= require jquery.raty
 //= require turbolinks
 //= require_tree .
 
