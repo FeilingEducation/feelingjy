@@ -33,6 +33,8 @@ gem "fog-aws"
 
 gem 'activeadmin', github: 'activeadmin'
 
+gem 'rack-rewrite', '~> 1.5.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
