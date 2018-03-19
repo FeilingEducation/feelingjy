@@ -23,6 +23,11 @@ en:
       office_time: "From Monday to Friday 9:00-18:00(SGT)"
 
   homepage:
+    search:
+      search_btn: "Search"
+      specialization: "Specialization"
+      service: "Service"
+
     carousel:
       title: "Feeling Education"
       description: "Enter into dream school and impressive experience with talent"

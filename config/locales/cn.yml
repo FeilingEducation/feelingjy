@@ -23,6 +23,11 @@ cn:
       office_time: "接听时间周一至周五：9:00 – 18:00 （北京时间）"
 
   homepage:
+    search:
+      search_btn: "搜索"
+      specialization: "选择专业"
+      service: "选择服务"
+
     carousel:
       title: "飞灵教育"
       description: "走进梦想学校并开始一段难忘的经历。"
