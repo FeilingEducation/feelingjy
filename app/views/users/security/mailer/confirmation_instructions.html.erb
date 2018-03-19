@@ -1,121 +1,50 @@
-
-
-<div class="mail-container">
-  <div class="container">
-    <div class="mail-header">
-      <%=image_tag "reskin/logo-small.png", class: 'logo'%>
-      <p class='logo-text'>Feeling Education</p>
+<div style="background-color: #e9e9e9; color: #696969;">
+  <div style="margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; width: 100%;">
+    <div style="text-align: center; padding: 20px 0;">
+      <%=image_tag "logo-small.png", style: 'max-width: 40px; margin-bottom: 5px;'%>
+      <p style='font-weight: bolder; color: #a9a9a9;'>Feeling Education</p>
     </div>
 
-    <div class="mail-main-content">
-      <p class="greeting">Hi <%= @email %>, </p>
-      <p>Thank you for signing up an account with us! Please click the button below to verify your email:</p>
-      <div class="email-confirm-btn text-center">
-        <p><%= link_to 'Confirm Email', confirmation_url(@resource, confirmation_token: @token), :class=> "btn default-btn"%></p>
+    <div style="background: white; padding: 50px; border-radius: 10px; font-size: 18px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+      <p style="font-size: 25px; font-weight: 900; color: black; margin-top: 0; margin-bottom: 1rem;">Hi <%= @email %>, </p>
+      <p style="margin-top: 0; margin-bottom: 1rem;">Thank you for signing up an account with us! Please click the button below to verify your email:</p>
+      <div style="text-align: center; margin: 0; padding: 10px 0 40px 0; border-bottom: 1px solid #D3D3D3;">
+        <p style="margin-top: 0; margin-bottom: 1rem; text-align: center;"><%= link_to 'Confirm Email', confirmation_url(@resource, confirmation_token: @token),
+                :style=> "border-radius: 5px; background: #31c89d; color: #fff; border: 2px solid #31c89d;
+                          cursor: pointer; font-family: 'helvatica-r-bd';
+                          font-size: 16px; outline: none; display: inline-block; font-weight: normal;
+                          white-space: nowrap; vertical-align: middle; user-select: none; padding: 0.5rem 0.75rem;
+                          line-height: 1.25; text-decoration: none; touch-action: manipulation;"%></p>
       </div>
 
-      <div class="email-support">
-        <p>
-          Need help? Please contat our support team by email
-          <span><%= mail_to "support@feelingyt.com", "support@feelingyt.com", class: 'link'%></span>
-          or look for us on Wechat <span class="link">@飞灵教育</span>.
-          Feel free to give us suggestions at
-          <span><%= mail_to "feedback@feelingyt.com", "feedback@feelingyt.com", class: 'link'%></span>
+      <div style="padding-top: 40px; font-size: 14px;">
+        <p style="margin-top: 0; margin-bottom: 1rem;">
+           Need help? Please contat our support team by email
+           <span><%= mail_to "support@feelingyt.com", "support@feelingyt.com", style: 'color: #31c89d;'%></span>
+           or look for us on Wechat <span style="color: #31c89d;">@飞灵教育</span>.
+           Feel free to give us suggestions at
+           <span><%= mail_to "feedback@feelingyt.com", "feedback@feelingyt.com", style: 'color: #31c89d;'%></span>
         </p>
       </div>
     </div>
 
-    <div class="funfact text-center">
-      <h1> FUN FACT </h1>
-      <p>
+    <div style="margin-top: 20px; background: white; padding: 40px; border-radius: 10px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                text-align: center;">
+      <p style="color: #31c89d; font-size: 30px, margin: 1.5rem;"> FUN FACT </p>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 1rem;">
          Approximately 44% of billionaires, 55.9% of Forbes' most powerful women
          and 85.2% of Forbes' most powerful men attended elite universities.
       </p>
     </div>
 
-    <div class="footer">
-      <div class="text-center">
-        Sent by Feeling Education * Check out our official Wechat account * <span class="link">@飞灵教育</span>
+    <div style="padding-top: 3rem; padding-bottom: 2rem;">
+      <div style="text-align: center;">
+        Sent by Feeling Education * Check out our official Wechat account * <span style="color: #31c89d;">@飞灵教育</span>
       </div>
-      <div class="text-center">
+      <div style="text-align: center;">
         Jingbeinan community 16-704, Luohu District, Shenzhen, 518000, China
       </div>
     </div>
-
   </div>
 </div>
-
-<style>
-.mail-container{
-	background-color: #e9e9e9;
-	color: #696969;
-}
-
-.mail-container{
-
- .link{
-		color: $theme-green;
- }
-
- .mail-header{
-		text-align: center;
-		padding: 20px 0;
-	}
-	.logo{
-		max-width:40px;
-		margin-bottom: 5px;
-	}
-	.logo-text{
-		font-weight: bolder;
-		color: #a9a9a9;
-	}
-}
-.mail-main-content{
-	background: white;
-	padding: 50px;
-	border-radius: 10px;
-	font-size: 18px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-	.greeting{
-		font-size: 25px;
-		font-weight: 900;
-		color: black;
-	}
-
-  .email-confirm-btn{
-		margin:0;
-		padding:10px 0 40px 0;
-		border-bottom: 1px solid #D3D3D3;
-	}
-
-	.email-support{
-		padding-top: 40px;
-		font-size: 14px;
-	}
-}
-
-.funfact{
-	margin-top: 20px;
-	background: white;
-	padding: 40px;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	h1{
-		font-size: 30px;
-		color: $theme-green;
-	}
-
- .footer{
-	 div{
-		 font-size: 13px;
-	 }
- }
-}
-</style>
-
-<!-- <p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p> -->
