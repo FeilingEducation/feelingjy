@@ -123,6 +123,9 @@ namespace :deploy do
   # after  :finishing,    :run_migrations
 end
 
+# sudo /etc/init.d/nginx restart
+
+
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
 # kill -s SIGTERM pid   # Stop puma
