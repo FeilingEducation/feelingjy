@@ -20,7 +20,8 @@
 
         <div class="col-sm-5 text-left">
           <div class="email-date">
-            <h4><a href="#"><%= I18n.t "footer.terms.email" %></a></h4>
+            <h4><%= mail_to I18n.t "footer.terms.email", "support@feelingyt.com", class: 'link'%></h4>
+            <!-- <h4><a href="suggestion@feelingyt.com"><%= I18n.t "footer.terms.email" %></a></h4> -->
             <p><%= I18n.t "footer.terms.office_time" %></p>
 
             <div class="dropdown">
