@@ -21,6 +21,7 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     @transaction.student_id = current_user.id
     @transaction.status = 'initiated'
     if @transaction.save
+      TutorMailer.notify_tutor(@transaction.instructor_id, @transaction.student_id).deliver
       flash[:notice] = 'Transaction saved successfully.'
       redirect_to(consult_transactions_path)
     else
