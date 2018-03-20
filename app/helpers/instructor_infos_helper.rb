@@ -35,10 +35,28 @@ module InstructorInfosHelper
     end
   end
 
+  #
+  # def services_as_collection
+  #   ["Early Consultant","Brainstroming Consultant", "Essay Consultant", "Visa Consultant"].each_with_index.map {|m,i| [m,i]}
+  # end
+
   def services_as_collection
-    ["Early Consultant","Brainstroming Consultant", "Essay Consultant", "Visa Consultant"].each_with_index.map {|m,i| [m,i]}
+    # the dropdown items are chinese when cn is selected
+    if(session[:locale]=='en')
+      ["Early Consultant","Brainstroming Consultant", "Essay Consultant", "Visa Consultant"].each_with_index.map {|m,i| [m,i]}
+    else
+      ["前期咨询","文书构思", "文书改写", "签证咨询"].each_with_index.map {|m,i| [m,i]}
+    end
   end
 
+  def specialization_as_collection
+    # the dropdown items are chinese when cn is selected
+    if(session[:locale]=='en')
+      ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "Literature", "Law", "Management", "Mathematics", "Physics"].each_with_index.map {|m,i| [m,i]}
+    else
+      ["艺术与人文领域", "生命科学", "商科", "计算机科学", "工程", "文学", "法律", "管理", "数学", "物理"].each_with_index.map {|m,i| [m,i]}
+    end
+  end
 
   def uni_logo uni, local='en'
     uni_english = ["Brown University","California Institute of Technology (Caltech)","Columbia University","Cornell University","Dartmouth College","Duke University","Emory University","Georgetown University","Harvard University","Johns Hopkins University","Massachusetts Institute of Technology (MIT)","Northwestern University","Princeton University","Rice University","Stanford University","UC Berkeley","UCLA","University of Chicago","University of Notre Dame", "University of Pennsylvania", "University of Southern California", "University of Virginia", "University of Wisconsin-Madison","Vanderbilt University","Washington University in St. Louis","Yale University"]

@@ -20,7 +20,7 @@ class ConsultCommChannel < ApplicationCable::Channel
 
   def profile_url_of user
     avatar = user.user_info.avatar
-    avatar.to_s.empty? ? asset_url('default_profile.png') : avatar
+    avatar.to_s.empty? ? ActionController::Base.helpers.asset_url('default_profile.png') : avatar
   end
 
   def create_chat_line(data)

@@ -192,9 +192,9 @@ class InstructorInfo < ApplicationRecord
     (local.to_s == 'en' ? RESERVE_ADVANCE_NOTIFY_ENGLISH : RESERVE_ADVANCE_NOTIFY_CHINESE)[self.reserve_advance.to_i]
   end
 
-  def self.specialization_as_collection  local = 'en'
-    (local.to_s == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE).each_with_index.map {|m,i| [m,i]}
-  end
+  # def self.specialization_as_collection  local = 'en'
+  #   (local.to_s == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE).each_with_index.map {|m,i| [m,i]}
+  # end
 
   def self.search params
     keys = []
