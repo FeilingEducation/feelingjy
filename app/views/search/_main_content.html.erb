@@ -317,4 +317,9 @@
 </div>
 <script type="text/javascript">
   $('.rating').raty({readOnly: true})
+  $(function(){
+  $('.close').click(function(){      
+    $('iframe').attr('src', $('iframe').attr('src'));
+  });
+});
 </script>
