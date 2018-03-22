@@ -386,7 +386,7 @@ en:
     no_orders: "No Orders"
     inst_name: "Instructor Name"
     std_name: "Student Name"
-    order_placed_at: "Order Placed at"
+    order_placed_at: "Order Placed At"
     order_status: "Order Status"
     actions: "Actions"
     view_more: "View Details"
@@ -442,7 +442,8 @@ en:
     min_days: "Min days:"
     max_days: "Max days:"
     advance: "Advance"
-    place_order: "Place Order"
+    place_order: "Request Service"
+    customized_price: "Customized Price"
 
   my_orders:
     no_contact: "No Contact"
@@ -506,8 +507,8 @@ en:
 
   chat:
     status: "Status"
-    order_placed_at: "Order placed at"
-    order_updated_at: "Order updated at"
+    order_placed_at: "Order Placed At"
+    order_updated_at: "Order Updated At"
     initiated: "Confirm Order"
     student_initiated: "Awaiting Confirmation"
     instructor_initiated: "Confirm Order"
@@ -549,3 +550,11 @@ en:
     essay_consultant: "Essay Consultancy"
     visa_consultant: "Visa Consultancy"
     all: "All"
+
+  service_status:
+    initiated: "Waiting For Confirmation"
+    payment_pending: "Payment Pending"
+    confirmed: "Order Confirmed"
+    canceled: "Cancelled"
+    completed: "Completed"
+    aborted: "Aborted"

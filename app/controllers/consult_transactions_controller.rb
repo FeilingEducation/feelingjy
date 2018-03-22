@@ -38,14 +38,14 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     gon.session_id = @transaction.open_tok_session_id
     @alipay_url = generate_ali_pay_url @transaction
     gon.alipay_url = @alipay_url
-    @payment_amount = @transaction.payment_amount
+    @payment_amount = @transaction.hourly_price
   end
 
   def update
     set_transaction_and_role
     if @transaction.update_attributes(transaction_params)
       flash[:notice] = 'Transaction updated successfully.'
-      redirect_to(consult_transaction_path)
+      redirect_to(confirm_consult_transaction_path)
     else
       render('show')
     end
