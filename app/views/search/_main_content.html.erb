@@ -307,10 +307,10 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-        <iframe width="770" height="400" src="//www.youtube.com/embed/Rf7dAfEccmo" frameborder="0" allowfullscreen></iframe>
+        <iframe id="videoModal" width="770" height="400" src="//www.youtube.com/embed/Rf7dAfEccmo" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="closeBtn">Close</button>
       </div>
     </div>
   </div>
@@ -318,7 +318,7 @@
 <script type="text/javascript">
   $('.rating').raty({readOnly: true})
   $(function(){
-  $('.close').click(function(){      
+  $('.close').click(function(){
     $('iframe').attr('src', $('iframe').attr('src'));
   });
 });
