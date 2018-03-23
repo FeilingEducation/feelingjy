@@ -778,46 +778,60 @@ select.form-control {
 	height: 65px;
 	width: 65px;
 	// background: asset_url('reskin/advantage/1.png') no-repeat;
-	background: url(<%= asset_url "reskin/advantage/1.png" %>) no-repeat;
-	background-size: contain;
+	// background: url(<%#= asset_url "reskin/advantage/1.png" %>) no-repeat;
+	// background-size: contain;
 }
 
-.advantages:hover .img.freelance,
-.advantages.active .img.freelance {
-	// background: asset_url('reskin/advantage/1-green.png') no-repeat;
-	background: url(<%= asset_url "reskin/advantage/1-green.png" %>) no-repeat;
-	background-size: contain;
+.advantages .img{
+	img{
+		position: absolute;
+		width: 50px;
+		z-index: 0;
+
+		&.grey{
+			z-index: 1;
+		}
+	}
 }
 
 .advantages .img.price {
 	// background: asset_url('reskin/advantage/2.png') no-repeat;
-	background: url(<%= asset_url "reskin/advantage/2.png" %>) no-repeat;
-	background-size: contain;
 }
 
 .advantages .img.quality {
-	background: url(<%= asset_url "reskin/advantage/3.png" %>) no-repeat;
-	background-size: contain;
 	// background: asset_url('reskin/advantage/3.png') no-repeat;
 }
 
 .advantages:hover .img.price,
 .advantages.active .img.price {
 	// background: asset_url('reskin/advantage/2-green.png') no-repeat;
-	background: url(<%= asset_url "reskin/advantage/2-green.png" %>) no-repeat;
-	background-size: contain;
 }
 
 .advantages:hover .img.quality,
 .advantages.active .img.quality {
-	background: url(<%= asset_url "reskin/advantage/3-green.png" %>) no-repeat;
-	background-size: contain;
 	// background: asset_url('reskin/advantage/3-green.png') no-repeat;
 }
 .advantages {
 	&:hover .body, &.active .body {
 		background: #33c39a;
 		color: #fff;
+	}
+	&:hover{
+		.img.freelance{
+			img.green{
+				z-index: 2;
+			}
+		}
+		.img.price{
+			img.green{
+				z-index: 2;
+			}
+		}
+		.img.quality{
+			img.green{
+				z-index: 2;
+			}
+		}
 	}
 }
 
