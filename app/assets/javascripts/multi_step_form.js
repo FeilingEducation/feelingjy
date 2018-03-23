@@ -89,6 +89,91 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
       }
     })
 
+    if($('#step23').hasClass('current-step')){
+      if($('input[name="instructor_info[recommended_price]"]:checked').val()=="true"){
+        console.log("checking!!!")
+
+        if($("select[name='instructor_info[consulting_tutor]']").val() == "1"){
+          console.log("Checking consultant...")
+          if($("input[name='instructor_info[consult_min_price]']").val() == "" || $("input[name='instructor_info[consult_max_price]']").val() == "" ){
+            isValid = false
+          }else if(parseInt($("input[name='instructor_info[consult_min_price]']").val()) > parseInt($("input[name='instructor_info[consult_max_price]']").val())){
+            isValid = false
+            $("input[name='instructor_info[consulting_max_price]']").next('span.error').removeClass('hidden')
+          }
+          else{
+            $("input[name='instructor_info[consulting_max_price]']").next('span.error').addClass('hidden')
+          }
+        }
+
+        if($("select[name='instructor_info[brainstorming_tutor]']").val() == "1"){
+          console.log("brainstorming consultant...")
+          if($("input[name='instructor_info[brainstorm_min_price]']").val() == "" || $("input[name='instructor_info[brainstorm_max_price]']").val() == "" ){
+            isValid = false
+          }else if(parseInt($("input[name='instructor_info[brainstorm_min_price]']").val()) > parseInt($("input[name='instructor_info[brainstorm_max_price]']").val())){
+            isValid = false
+            $("input[name='instructor_info[brainstorm_max_price]']").next('span.error').removeClass('hidden')
+          }
+          else{
+            $("input[name='instructor_info[brainstorm_max_price]']").next('span.error').addClass('hidden')
+          }
+        }
+
+        if($("select[name='instructor_info[writing_tutor]']").val() == "1"){
+          console.log("Checking consultant111...")
+          if($("input[name='instructor_info[essay_min_price]']").val() == "" || $("input[name='instructor_info[essay_max_price]']").val() == "" ){
+            isValid = false
+          }else if(parseInt($("input[name='instructor_info[essay_min_price]']").val()) > parseInt($("input[name='instructor_info[essay_max_price]']").val())){
+            isValid = false
+            $("input[name='instructor_info[essay_max_price]']").next('span.error').removeClass('hidden')
+          }
+          else{
+            $("input[name='instructor_info[essay_max_price]']").next('span.error').addClass('hidden')
+          }
+        }
+
+        if($("select[name='instructor_info[visa_consultant]']").val() == "1"){
+          console.log("Checking consultant222...")
+          if($("input[name='instructor_info[visa_min_price]']").val() == "" || $("input[name='instructor_info[visa_max_price]']").val() == "" ){
+            isValid = false
+          }else if(parseInt($("input[name='instructor_info[visa_min_price]']").val()) > parseInt($("input[name='instructor_info[visa_max_price]']").val())){
+            isValid = false
+            $("input[name='instructor_info[visa_max_price]']").next('span.error').removeClass('hidden')
+          }
+          else{
+            $("input[name='instructor_info[visa_max_price]']").next('span.error').addClass('hidden')
+          }
+        }
+      }
+      else{
+
+        if($("select[name='instructor_info[consulting_tutor]']").val() == "1"){
+          if($("input[name='instructor_info[consult_fix_price]']").val() == ""){
+            isValid = false
+          }
+        }
+
+        if($("select[name='instructor_info[brainstorming_tutor]']").val() == "1"){
+          if($("input[name='instructor_info[brainstorm_fix_price]']").val() == ""){
+            isValid = false
+          }
+        }
+
+        if($("select[name='instructor_info[writing_tutor]']").val() == "1"){
+          if($("input[name='instructor_info[essay_fix_price]']").val() == ""){
+            isValid = false
+          }
+        }
+
+        if($("select[name='instructor_info[visa_consultant]']").val() == "1"){
+          if($("input[name='instructor_info[visa_fix_price]']").val() == ""){
+            isValid = false
+          }
+        }
+
+      }
+    }
+
     // Number fields
     if(parseInt($('#max_price').val()) < parseInt($('#min_price').val())){
       isValid = false;

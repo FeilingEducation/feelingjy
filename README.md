@@ -110,5 +110,5 @@ Since running one is not computationally expensive, you can also install a
 
 # deployment instructions
 1.  cap production deploy
-2.  cap production deploy:migrating
+2.  cap production deploy:migrate
 3.  cap production deploy:restart

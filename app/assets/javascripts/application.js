@@ -180,7 +180,7 @@ $(document).on('click', '.editable', function() {
 
 $(document).on('turbolinks:load', function () {
   $(window).on('scroll', function(e){
-    console.log($(window).scrollTop())
+    // console.log($(window).scrollTop())
     if($(window).scrollTop() > 460){
       $("#fixed-left-bar").addClass('fixed')
     }
@@ -200,7 +200,7 @@ $(document).on('turbolinks:load', function () {
   $("#services-drop").on('change', function(e){
     console.log("change...", $(this).val())
     $("#place-order").removeAttr('disabled')
-    
+
   })
 
 })
