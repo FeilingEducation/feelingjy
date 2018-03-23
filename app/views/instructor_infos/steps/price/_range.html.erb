@@ -20,9 +20,8 @@
           <%= f.number_field :consult_max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
           <span class="error hidden"> <%= I18n.t("edit_profile.error") %></span>
         </div>
+        <hr/>
       </div>
-
-      <hr/>
 
 
       <div class="service-fees brainstorming-service" id="brainstorming-service">
@@ -37,9 +36,9 @@
           <%= f.number_field :brainstorm_max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
           <span class="error hidden"> <%= I18n.t("edit_profile.error") %></span>
         </div>
+        <hr/>
       </div>
 
-      <hr/>
 
       <div class="service-fees writing-service" id="writing-service">
         <%= f.label :consulting_tutor, I18n.t("price_range.label3") %>
@@ -53,9 +52,8 @@
           <%= f.number_field :essay_max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
           <span class="error hidden"> <%= I18n.t("edit_profile.error") %></span>
         </div>
+        <hr/>
       </div>
-
-    <hr/>
 
 
       <div class="service-fees visa-service" id="visa-service">
@@ -70,6 +68,7 @@
           <%= f.number_field :visa_max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
           <span class="error hidden"> <%= I18n.t("edit_profile.error") %></span>
         </div>
+        <hr/>
       </div>
 
     </div>
