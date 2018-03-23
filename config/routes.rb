@@ -26,7 +26,8 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:show]
   resources :consult_transactions, path: 'transactions', except: [:edit, :new]
-  post 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
+  # post 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
+  get 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
   post 'transactions/:id/pay', to: 'consult_transactions#pay', as: 'pay_consult_transaction'
   post '/alipay', to: 'consult_transactions#alipay'
   post '/alipay/:consult_tx_id', to: 'payments#alipay_callback', as: 'alipay_callback'

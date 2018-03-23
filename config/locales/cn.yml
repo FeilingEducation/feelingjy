@@ -443,6 +443,7 @@ cn:
     max_days: "最多天数:"
     advance: "提前"
     place_order: "申请预定"
+    customized_price: "自行定价"
 
   my_orders:
     no_contact: "尚无联系"
@@ -509,6 +510,8 @@ cn:
     order_placed_at: "订单放置于"
     order_updated_at: "订单更新于"
     initiated: "开始合作"
+    student_initiated: "等待申请确认"
+    instructor_initiated: "确认服务请求"
     pending: "付款"
     pending_msg: "付款"
     posted_on: "发表于"
@@ -547,3 +550,11 @@ cn:
     essay_consultant: "文书改写"
     visa_consultant: "签证咨询"
     all: "暂无服务"
+
+  service_status:
+    initiated: "等待导师确认"
+    payment_pending: "待付款"
+    confirmed: "已付款"
+    canceled: "已取消"
+    completed: "已完成"
+    aborted: "已终止"
