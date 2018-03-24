@@ -146,16 +146,16 @@ en:
       checkbox7: "Essay from classes"
 
     step6:
-      title: "we are almost done!"
+      title: "We are almost done!"
       sub_title: "Let's review your information before creating your page"
-      tick1: "For example tutor option and contact information"
+      tick1: "Modify your tutor options and contact information"
       modify: "Modify"
-      sub_title2: "And decorate your profile"
-      text2: "Add your life photo, short description and caption."
+      sub_title2: "Now start decorating your profile"
+      text2: "Add your life photo, brief description and caption."
       continue: "Continue"
       sub_title3: "Start your own business"
       text3: "Decide your price and manage your time"
-      elephant_text: "We thought you could earn"
+      elephant_text: "We think you may earn"
       hr: "hr"
 
     step7:
@@ -186,12 +186,12 @@ en:
       done: "Done"
 
     step11:
-      title: "we are almost done!"
+      title: "We are almost done!"
       heading1: "Let's review your information before creating your page"
-      desc1: "For example tutor option and contact information"
+      desc1: "Modify your tutor options and contact information"
       modify: "Modify"
-      heading2: "And decorate your profile"
-      desc2: "Add your life photo, short description and caption."
+      heading2: "Start decorating your profile"
+      desc2: "Add your life photo, brief description and caption."
       heading3: "Start your own business"
       desc3: "Decide your price and manage your time"
       continue: "Continue"
@@ -221,8 +221,8 @@ en:
       t5: "Allow to ask personal questions"
       q2: "What would you want your students to know about you and the help you provide"
       k1: "For a sense of accomplishment"
-      k2: "I want to utilize my free time"
-      k3: "I don't know how to write actually"
+      k2: "To capitalize on myfree time"
+      k3: "I am not good at writing"
       k4: "I am more nervous than you when I help you apply"
       k5: "I care about your cooperation very much"
       elephant_text1: "Besides agreeing with our terms, students also need to agree with your terms."
@@ -314,8 +314,14 @@ en:
         label2: "At most"
         label3: "How often do you want to work with students"
         error: "It should be greater than min value."
-        placeholder1: "Suggest: ¥ 600/hr"
-        placeholder2: "Suggest: ¥ 800/hr"
+        consult_placeholder1: "Suggest: ¥ 600/hr"
+        consult_placeholder2: "Suggest: ¥ 800/hr"
+        brainstorm_placeholder1: "Suggest: ¥ 600/hr"
+        brainstorm_placeholder2: "Suggest: ¥ 800/hr"
+        proofread_placeholder1: "Suggest: ¥ 600/hr"
+        proofread_placeholder2: "Suggest: ¥ 800/hr"
+        visa_placeholder1: "Suggest: ¥ 600/hr"
+        visa_placeholder2: "Suggest: ¥ 800/hr"
 
     step24:
       sub_title: "Provide a deal to start fast"
@@ -332,7 +338,7 @@ en:
       sub_title2: "You have completed your mentor info!"
       desc: "You can start receiving orders from now! You can edit your calendar or privacy  in your personal page anytime."
       edit_btn: "Edit"
-      finish_btn: "Finish and Start Tutoring"
+      finish_btn: "Finish and Start"
       hello: "Hello"
       visit_home: "Let's visit your home page"
 
@@ -486,8 +492,8 @@ en:
     accomp: "For a sense of accomplishment"
     utilize: "I want to utilize my free time"
     how_to_write: "I don't know how to write actually"
-    more_nervous: "I am more nervous than you when I help you apply"
-    care_about: "I care about your cooperation very much"
+    more_nervous: "I'm actually more nervous than you"
+    care_about: "I value our cooperation experience"
 
   privacy_terms:
     shared_edited: "Allow to share edited files"
@@ -539,10 +545,10 @@ en:
     fill_all: "Please fill in all the information"
 
   price_range:
-    label1: "Price for consulting service?"
-    label2: "Price for brainstorming service?"
-    label3: "Price for proofreading service?"
-    label4: "Price for visa consulting service?"
+    label1: "Price for consulting service"
+    label2: "Price for brainstorming service"
+    label3: "Price for proofreading service"
+    label4: "Price for visa consulting service"
 
   services:
     early_consultant: "Early Consultancy"

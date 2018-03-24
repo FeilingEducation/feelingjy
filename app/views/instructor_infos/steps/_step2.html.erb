@@ -4,15 +4,15 @@
       <h3 ><%= I18n.t("registration.step2.title") %> </h3>
     </div>
   </div>
-  <div class="col-md-6 left-panel">
+  <div class="col-md-10 left-panel">
     <fieldset class="">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
           <div class="question-block">
             <p class="survey-question"><%= I18n.t("registration.step2.question_text") %></p>
               <%= render partial: 'instructor_infos/steps/shared/subject_to_teach', locals: {f: f, lang: lang} %>
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-12">
                 <label><%= I18n.t("registration.step2.radio_question") %></label>
                 <div class="radio-btns custom-checkbox-radios">
                   <%= f.radio_button :helped_before, true, id: 'helped_before_true' %>
