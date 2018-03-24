@@ -197,9 +197,14 @@ $(document).on('turbolinks:load', function () {
     $(target).removeClass('hidden')
   })
 
-  $("#services-drop").on('change', function(e){
+  $("input[name='consult_transaction[scheduled_date]']").on('change', function(e){
     console.log("change...", $(this).val())
-    $("#place-order").removeAttr('disabled')
+    if($(this).val() == "" || $(this).val() == undefined){
+      $("#place-order").attr('disabled', 'disabled')
+    }
+    else{
+      $("#place-order").removeAttr('disabled')
+    }
 
   })
 

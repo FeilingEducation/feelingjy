@@ -13,7 +13,7 @@ class InstructorInfosController < AuthenticatedResourcesController
       @data = InstructorInfo.limit(20)
       sort_by = params[:sort_by]
       order_by = params[:order_by]
-      
+
       if sort_by == 'price'
         @results = @data.order("min_price #{order_by}")
       else
@@ -41,9 +41,9 @@ class InstructorInfosController < AuthenticatedResourcesController
 
   def create
     @instructor_info = InstructorInfo.new(instructor_info_params)
-
+    byebug
     @instructor_info.id = current_user.id
-    @instructor_info.uni_accepted = [instructor_info_params[:uni_accepted]]
+    @instructor_info.uni_accepted = instructor_info_params[:uni_accepted].reject {|s| s.empty?}
     if @instructor_info.save!
       flash[:notice] = 'Instructor profile created successfully.'
 
@@ -230,7 +230,6 @@ end
       :fix_price,
       :work_frequency,
       :first_std_discount,
-      :uni_accepted,
       :number_institutes_applied,
       :share_resume,
       :share_application_essay,
@@ -253,7 +252,9 @@ end
       :essay_fix_price,
       :visa_min_price,
       :visa_max_price,
-      :visa_fix_price
+      :visa_fix_price,
+      :avatar_cache,
+      :uni_accepted =>  []
       # :avatar
     )
   end

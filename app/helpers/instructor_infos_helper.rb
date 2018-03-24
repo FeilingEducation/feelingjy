@@ -2,16 +2,16 @@ module InstructorInfosHelper
 
   def services_of instructor
     services = []
-    if instructor.is_early_consult
+    if instructor.consulting_tutor
       services << [I18n.t("services.early_consultant"), 'early_consult']
     end
-    if instructor.is_brainstorm_consult
+    if instructor.brainstorming_tutor
       services << [I18n.t("services.brainstorm_consultant"), 'brainstorm_consultant']
     end
-    if instructor.is_essay_consult
+    if instructor.writing_tutor
       services << [I18n.t("services.essay_consultant"), 'essay_consultant']
     end
-    if instructor.is_visa_consult
+    if instructor.visa_consultant
       services << [I18n.t("services.visa_consultant"), 'visa_consultant']
     end
     if services.empty?

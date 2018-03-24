@@ -48,6 +48,8 @@
             </div>
           </div>
 
+          <% if current_user.present? && current_user.id != @instructor_info.id %>
+
           <div class="left-bar" id="fixed-left-bar">
             <!-- <div class="form-group">
               <label>Time</label>
@@ -78,31 +80,34 @@
                 <i class="fa fa-angle-down"></i>
               </div>
             </div> -->
+            <!-- Hide this section if user is viewing his own profile -->
 
-            <div class="btns">
-              <!-- <div class="card-body"> -->
-                <%= form_with model: @transaction, method: 'post', local: true do |f| %>
-                  <%= f.hidden_field :instructor_id %>
-                  <div class="form-group">
-                    <label><%= I18n.t "instructor_profile.start_date" %></label>
-                    <%= f.date_field :scheduled_date, min: Date.today.to_s(:db), class: 'form-control' %>
-                  </div>
-                  <div class="form-group">
-                    <label><%= I18n.t "instructor_profile.services" %></label>
-                    <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {}, class: 'custom-select d-block w-100', id: "services-drop"%>
-                  </div>
-                  <div class="form-group">
-                    <%#= scoped in_scope, :submit_tag, '申请预定1', disabled: true, class: 'btn default-btn red' %>
-                    <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn default-btn red', id: "place-order" %>
-                    <%#= scoped !in_scope, :button_tag, '与我联系3', type: 'button', class: 'btn default-btn message-box modal-toggle',
-                    data: { target: '#message-box' } %>
-                  </div>
-                <% end %>
-              </div>
+              <div class="btns">
+                <!-- <div class="card-body"> -->
+                  <%= form_with model: @transaction, method: 'post', local: true do |f| %>
+                    <%= f.hidden_field :instructor_id %>
+                    <div class="form-group">
+                      <label><%= I18n.t "instructor_profile.start_date" %></label>
+                      <%= f.date_field :scheduled_date, min: Date.today.to_s(:db), class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+                      <label><%= I18n.t "instructor_profile.services" %></label>
+                      <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {}, class: 'custom-select d-block w-100', id: "services-drop"%>
+                    </div>
+                    <div class="form-group">
+                      <%#= scoped in_scope, :submit_tag, '申请预定1', disabled: true, class: 'btn default-btn red' %>
+                      <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn default-btn red', id: "place-order", disabled: 'disabled' %>
+                      <%#= scoped !in_scope, :button_tag, '与我联系3', type: 'button', class: 'btn default-btn message-box modal-toggle',
+                      data: { target: '#message-box' } %>
+                    </div>
+                  <% end %>
+                </div>
+
               <!-- <a href="#" class="btn default-btn red">Customize</a>
               <a href="#" class="btn default-btn">Contact Tutor</a> -->
             <!-- </div> -->
           </div>
+          <% end %>
         </div>
       </div>
 
@@ -231,7 +236,7 @@
                   <div class="col-md-8 col-sm-7">
                     <ul class="info-list">
 
-                      <% if @instructor_info.is_early_consult %>
+                      <% if @instructor_info.consulting_tutor %>
                         <li>
                           <ul>
                             <li><%= I18n.t "instructor_profile.early_consultant" %></li>
@@ -248,7 +253,7 @@
                         </li>
                       <%end%>
 
-                      <% if @instructor_info.is_brainstorm_consult %>
+                      <% if @instructor_info.brainstorming_tutor %>
                         <li>
                           <ul>
                             <li><%= I18n.t "instructor_profile.brainstorm_consultant" %></li>
@@ -265,7 +270,7 @@
                         </li>
                       <%end%>
 
-                      <% if @instructor_info.is_essay_consult %>
+                      <% if @instructor_info.writing_tutor %>
                         <li>
                           <ul>
                             <li><%= I18n.t "instructor_profile.essay_editing" %></li>
@@ -281,7 +286,7 @@
                         </li>
                       <%end%>
 
-                      <% if @instructor_info.is_visa_consult %>
+                      <% if @instructor_info.visa_consultant %>
                         <li>
                           <ul>
                             <li><%= I18n.t "instructor_profile.visa_consulting" %></li>
@@ -401,8 +406,8 @@
 
                   <div class="col-md-8 col-sm-7">
                     <ul class="info-list">
-                        <li><%= I18n.t "instructor_profile.min_days" %><span class="green"><%= @instructor_info.min_work_days %></span></li>
-                        <li><%= I18n.t "instructor_profile.max_days" %> <span class="green"><%= @instructor_info.max_work_days %></span></li>
+                        <li><%= I18n.t "instructor_profile.min_days" %><span class="green"> <%= @instructor_info.min_work_days %></span></li>
+                        <li><%= I18n.t "instructor_profile.max_days" %> <span class="green"> <%= @instructor_info.max_work_days %></span></li>
                     </ul>
                   </div>
                 </div>
@@ -411,7 +416,7 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1><%= I18n.t "instructor_profile.contact_in_advance" %><%= I18n.t "instructor_profile.advance" %></h1>
+                    <h1><%= I18n.t "instructor_profile.contact_in_advance" %></h1>
                   </div>
 
                   <div class="col-md-8 col-sm-7">

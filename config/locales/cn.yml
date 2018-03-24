@@ -394,6 +394,7 @@ cn:
     inst_name: "导师名字"
     std_name: "学生名字"
     order_placed_at: "订单放置于"
+    order_scheduled_at: "Start At"
     order_status: "订单状态"
     actions: "活动"
     view_more: "查看详情"

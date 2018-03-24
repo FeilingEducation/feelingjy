@@ -30,7 +30,7 @@
               </div>
               <div class="row">
                 <div class="col-md-10">
-                  <%= f.select :uni_accepted, InstructorInfo.schoools_accepted(lang), {}, { class: 'select2 schools-applied' } %>
+                  <%= f.select :uni_accepted, InstructorInfo.schoools_accepted(lang), { :multiple => true, :size => 5 }, { class: 'select2 schools-applied', :multiple => true, :size => 5  } %>
                 </div>
               </div>
             </div>

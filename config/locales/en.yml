@@ -514,6 +514,7 @@ en:
   chat:
     status: "Status"
     order_placed_at: "Order Placed At"
+    order_scheduled_at: "Start At"
     order_updated_at: "Order Updated At"
     initiated: "Confirm Order"
     student_initiated: "Awaiting Confirmation"
