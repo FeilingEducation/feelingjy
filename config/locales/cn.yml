@@ -541,6 +541,12 @@ cn:
     text: "请输入您的邮箱地址，我们会发送邮件来帮您重置密码。"
     login_txt: "请发送给我指示"
 
+  change_password:
+    title: "更改密码"
+    text1: "输入新密码"
+    text2: "确认新密码"
+    btn: "确认更改"
+
   errors:
     fill_all: "请填写所有信息"
 

@@ -541,6 +541,12 @@ en:
     text: "Fill in your email address below and we will send you an email to reset your password."
     login_txt: "Please send me instructions"
 
+  change_password:
+    title: "Change Password"
+    text1: "New Password"
+    text2: "Confirm New Password"
+    btn: "Confirm Change"
+
   errors:
     fill_all: "Please fill in all the information"
 
