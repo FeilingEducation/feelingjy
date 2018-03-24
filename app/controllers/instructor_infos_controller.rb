@@ -41,7 +41,6 @@ class InstructorInfosController < AuthenticatedResourcesController
 
   def create
     @instructor_info = InstructorInfo.new(instructor_info_params)
-    byebug
     @instructor_info.id = current_user.id
     @instructor_info.uni_accepted = instructor_info_params[:uni_accepted].reject {|s| s.empty?}
     if @instructor_info.save!
