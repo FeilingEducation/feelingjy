@@ -1,6 +1,10 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$main-text-color: #979999;
+$question-text: #4A4A4A;
+$theme-green: #31c89d;
+$border-color: #E0DBDB;
 
 .btn-signup {
   @include button-variant(#fff, $red);
@@ -189,6 +193,17 @@ select#user_dob_3i{
     font-weight: lighter;
   }
 }
+
+// password
+.section.payment-confirmation.forgot-pwd{
+  .password-header{
+    color: $theme-green;
+  }
+  label{
+    color: $main-text-color;
+  }
+}
+
 
 // .mentor-survey{
 //   .main-heading{
