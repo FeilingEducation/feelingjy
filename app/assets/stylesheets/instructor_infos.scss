@@ -118,8 +118,8 @@
         }
 
         &.step1{
-          margin-top: 230px;
-          width: 380px;
+          // margin-top: 230px;
+          // width: 380px;
 
           img{
             bottom: 10px;
@@ -184,7 +184,7 @@
         }
 
         &.requirments{
-          width: 320px;
+          // width: 320px;
           min-height: 245px;
 
           p{
@@ -222,6 +222,7 @@
     }
     .tick-success{
       img{
+        margin-top: 10px;
         width: 37px;
       }
     }
@@ -245,7 +246,7 @@
     .right-panel{
       .painting-img{
         width: 450px;
-        max-width: 150%;
+        max-width: 300%;
       }
       .painting-box{
         // background-color: #F2F2F2;
@@ -680,5 +681,88 @@
 
   .lbl-small{
     font-size: 15px;
+  }
+}
+
+
+@media (max-width:768px){
+
+  .mentor-survey{
+
+    label{
+      font-size: 18px;
+    }
+
+    .radio-btns label{
+      font-size: 14px;
+    }
+
+    .student-info-step .question-block label{
+      font-size: 14px;
+    }
+
+    .calendar-info-wrapper label{
+      font-size: 14px;
+    }
+
+    .calendar-box{
+      padding: 0;
+    }
+
+    .survey-question{
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    .row{
+      display: flex;
+      flex-flow: column;
+
+      .left-panel{
+        order:2;
+      }
+
+      .right-panel{
+        order:1;
+        width: 230px;
+        .green-box{
+          p{
+            font-size: 14px;
+            margin: 10px 0 3px 0;
+          }
+
+          p.bold-text{
+            font-size: 20px;
+            margin: 7px 0 3px 0;
+          }
+
+          &.elepahnt{
+            margin: 0;
+            border-radius: 30px;
+            line-height: 20px;
+            &.step1{
+              margin: 0;
+            }
+            &.step10{
+              margin: 0;
+            }
+          }
+        }
+        .painting-box{
+          padding: 10px 30px;
+          width: 300px;
+        }
+      }
+
+    }
+    .tutor-picture-wrapper{
+
+      .tutor-picture-block{
+        margin-bottom: 0;
+      }
+      .right-panel{
+        display: none;
+      }
+    }
   }
 }

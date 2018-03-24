@@ -141,7 +141,7 @@ cn:
       checkbox1: "个人简历"
       checkbox2: "申请文书"
       checkbox3: "录取通知书"
-      checkbox4: "GRE"
+      checkbox4: "GPA"
       checkbox5: "GRE 分数"
       checkbox6: "发表文章"
       checkbox7: "写作课的文章"
@@ -262,7 +262,7 @@ cn:
       p1: "您即将开始设定日历和可预订日期"
       label1: "学生会选择您可预订的时间，所以为避免时间冲突，请及时更新您的可用时间"
       label2: "如果出现日历信息有误导致学生预定被取消，您会因此受到相应的处罚，请谅解。"
-      label3: "妥妥的，我理解平台的苦衷，我会及时更新日历！"
+      label3: "妥妥的，我理解平台的苦衷！"
 
     step17:
       sub_title: "请先回答几个问题吧"
@@ -315,8 +315,14 @@ cn:
         label2: "最多"
         label3: "您想与学生合作的频率"
         error: "最多应该大于最少"
-        placeholder1: "建议: ¥ 600/小时"
-        placeholder2: "建议: ¥ 800/小时"
+        consult_placeholder1: "建议: ¥ 600/小时"
+        consult_placeholder2: "建议: ¥ 800/小时"
+        brainstorm_placeholder1: "建议: ¥ 600/小时"
+        brainstorm_placeholder2: "建议: ¥ 800/小时"
+        proofread_placeholder1: "建议: ¥ 600/小时"
+        proofread_placeholder2: "建议: ¥ 800/小时"
+        visa_placeholder1: "建议: ¥ 600/小时"
+        visa_placeholder2: "建议: ¥ 800/小时"
 
     step24:
       sub_title: "提供优惠，为生意开个好兆头"
@@ -483,11 +489,11 @@ cn:
     error: "最大值应该大于最小值"
 
   stds:
-    accomp: "我做导师是为了实现价值"
-    utilize: "我做导师是为了把零散时间利用起来"
+    accomp: "为了实现自我价值"
+    utilize: "为了把零散时间利用起来"
     how_to_write: "我根本不会写作"
     more_nervous: "我其实比您还要紧张"
-    care_about: "我特别在意我们之间合作的体验"
+    care_about: "我特别在意我们的合作体验"
 
   privacy_terms:
     shared_edited: "允许分享改好的文书"
@@ -539,10 +545,10 @@ cn:
     fill_all: "请填写所有信息"
 
   price_range:
-    label1: "Price for consulting service?"
-    label2: "Price for brainstorming service?"
-    label3: "Price for proofreading service?"
-    label4: "Price for visa consulting service?"
+    label1: "咨询每小时价格"
+    label2: "文书灵感开发每小时价格"
+    label3: "文书修改每小时价格"
+    label4: "签证咨询每小时价格"
 
   services:
     early_consultant: "前期咨询"

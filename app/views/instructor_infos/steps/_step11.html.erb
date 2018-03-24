@@ -1,13 +1,13 @@
 <div class="row review-step">
+  <div class="col-md-12">
+    <div class="head-sec">
+      <h2 class="main-heading"><%= current_user.user_info.first_name%>,<br/> <%= I18n.t("registration.step11.title") %> </h2>
+      <h6 class="sub-heading"><%= I18n.t("registration.step11.heading1") %></h6>
+    </div>
+  </div>
   <div class="col-md-1"></div>
   <div class="col-md-5 left-panel">
     <div class="row">
-      <div class="col-md-12">
-        <div class="head-sec">
-          <h2 class="main-heading"><%= current_user.user_info.first_name%>,<br/> <%= I18n.t("registration.step11.title") %> </h2>
-          <h6 class="sub-heading"><%= I18n.t("registration.step11.heading1") %></h6>
-        </div>
-      </div>
       <div class="col-md-6">
         <p class="sub-heading"><%= I18n.t("registration.step11.desc1") %></p>
         <a class="modify-link step-navigate initialize-section" data-target="#step5" data-section="" data-percentage='75%'><%= I18n.t("registration.step11.modify") %></a>
@@ -51,7 +51,6 @@
       </div>
     </div> -->
   </div>
-
   <div class="col-md-6 right-panel">
     <fieldset>
       <div class="row">
