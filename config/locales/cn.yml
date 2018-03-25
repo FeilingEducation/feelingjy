@@ -76,6 +76,9 @@ cn:
         text: "禹廷真得很棒，他很专业并且显示出了足够的耐心，他不仅在文书上帮助我提高了层次并且还为我在未来的规划上有了更明确地指导，我会一直和他保持联系！"
         reviews: "评论"
 
+    video:
+      close_button: "关闭"
+
     advantages:
       title: "优势"
       description: "这才是您选择飞灵教育的原因"
