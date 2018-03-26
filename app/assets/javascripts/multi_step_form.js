@@ -281,16 +281,49 @@ function initFileCrop() {
   })
 }
 
+function managePrices(id){
+  console.log("managePrices...", id)
+  if($("select[name='instructor_info[consulting_tutor]']").val() == "1"){
+    $("#"+id+" .consulting-service").removeClass('hidden')
+  }
+  if($("select[name='instructor_info[brainstorming_tutor]']").val() == "1"){
+    $("#"+id+" .brainstorming-service").removeClass('hidden')
+  }
+  if($("select[name='instructor_info[writing_tutor]']").val() == "1"){
+    $("#"+id+" .writing-service").removeClass('hidden')
+  }
+  if($("select[name='instructor_info[visa_consultant]']").val() == "1"){
+    $("#"+id+" .visa-service").removeClass('hidden')
+  }
+
+  if($("select[name='instructor_info[consulting_tutor]']").val() == "0"){
+    $("#"+id+" .consulting-service").addClass('hidden')
+  }
+  if($("select[name='instructor_info[brainstorming_tutor]']").val() == "0"){
+    $("#"+id+" .brainstorming-service").addClass('hidden')
+  }
+  if($("select[name='instructor_info[writing_tutor]']").val() == "0"){
+    $("#"+id+" .writing-service").addClass('hidden')
+  }
+  if($("select[name='instructor_info[visa_consultant]']").val() == "0"){
+    $("#"+id+" .visa-service").addClass('hidden')
+  }
+}
+
 $(document).on('turbolinks:load', function () {
   initFileCrop()
+  managePrices("price-range-fields")
+  managePrices("fixed-price-fields")
   $('input[type=radio][name="instructor_info[recommended_price]"]').change(function() {
     if(this.value == 'true'){
       $("#price-range-fields").removeClass("hidden")
       $("#fixed-price-fields").addClass("hidden")
+      managePrices("price-range-fields")
     }
     else{
       $("#fixed-price-fields").removeClass("hidden")
       $("#price-range-fields").addClass("hidden")
+      managePrices("fixed-price-fields")
     }
     console.log("changed....")
     console.log(this.value)

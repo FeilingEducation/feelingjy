@@ -329,24 +329,12 @@
             <hr/>
             <div class="degree-uni">
               <div class="inner">
-                <div class="row <%= @instructor_info.recommended_price ? "" : "hidden"%>" id="price-range-fields">
-                  <div class="col-md-10 form-group">
-                    <%= f.label :min_price, I18n.t("edit_profile.at_least") %>
-                    <%= f.number_field :min_price, min: 100, max: 3000,default: 600, class: 'hourly-rate', placeholder: 'Suggest: ¥ 600/hr', id: "min_price" %>
-                  </div>
-
-                  <div class="col-md-10 form-group">
-                    <%= f.label :max_price, I18n.t("edit_profile.at_most") %>
-                    <%= f.number_field :max_price, min: 100,max: 3000,default: 800, class: 'hourly-rate', placeholder: 'Suggest: ¥ 800/hr', id: "max_price" %>
-                    <span class="error hidden"> <%= I18n.t("edit_profile.error") %></span>
-                  </div>
+                <div class="price-section <%= @instructor_info.recommended_price ? "" : "hidden"%>" id="price-range-fields">
+                  <%= render(partial: 'instructor_infos/steps/price/range', locals: {f: f, lang: lang}) %>
                 </div>
 
-                <div class="row <%= @instructor_info.recommended_price ? "hidden" : ""%>" id="fixed-price-fields">
-                  <div class="col-md-10 form-group">
-                    <%= f.label :fix_price, "Fixed Price" %>
-                    <%= f.number_field :fix_price, min: 100, class: '', placeholder: 'Suggest: ¥ 760/hr' %>
-                  </div>
+                <div class="price-section <%= @instructor_info.recommended_price ? "hidden" : ""%>" id="fixed-price-fields">
+                  <%= render(partial: 'instructor_infos/steps/price/fix', locals: {f: f, lang: lang}) %>
                 </div>
 
               </div>
