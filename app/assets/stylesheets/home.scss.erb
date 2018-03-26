@@ -873,15 +873,17 @@ select.form-control {
 	padding: 55px 0 45px;
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	background: #f9f9f9;
-
-	h4 {
-		font-size: 24px;
+  p{
+		margin: 5px;
+	}
+	h5 {
+		// font-size: 24px;
 		a {
 			color: $theme-green;
 		}
 	}
 	.body {
-		padding-top: 25px;
+		padding-top: 20px;
 		color: #979999;
 	}
 	p img {
@@ -2336,23 +2338,30 @@ form{
 	}
 
 
-//	.login.main-nav.top-bar{
-    .login.main-nav{
-		padding: 0px;
+    .login{
+			padding: 0px;
+	    margin: 0px;
+			.dropdown{
+				> a{
+					height: 100%;
 
-		.dropdown{
-			width: 75%;
-
-			> a{
-				height: 100%;
-
-				img{
-					width: 40px;
-					height: 40px;
+					img{
+						width: 30px;
+						height: 100%;
+					}
+				}
+				.dropdown-item1{
+					padding-right: 108px;
+				}
+				.dropdown-item2{
+					padding-right: 60px;
+				}
+				.dropdown-item3{
+					padding-right: 115px;
 				}
 			}
-		}
-	}
+	  }
+
 }
 
 .orders-tabs{
@@ -2540,6 +2549,18 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 		.nav-link{
 			color: white;
 		}
+		.dropdown-item0{
+			padding-right: 33px;
+		}
+		.dropdown-item1{
+			padding-right: 118px;
+		}
+		.dropdown-item2{
+			padding-right: 70px;
+		}
+		.dropdown-item3{
+			padding-right: 125px;
+		}
 	}
 
 	#sidebar .login-li {
@@ -2586,6 +2607,9 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 		.search-form{
 			top: 40%;
 		}
+		.search-btn{
+			width: 60px;
+		}
 	}
 
 	.footer-top {
@@ -2607,7 +2631,22 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 		}
 	}
 
-}
+	.main-footer {
+    h4{
+			font-size: 20px;
+		}
+		p{
+			font-size: 12px;
+			margin: 5px;
+		}
+		.body.email-date{
+			padding-top: 15px;
+		}
+	}
+
+
+
+} //media 768px
 
 @media (max-width:576px){
 	.footer-top {
