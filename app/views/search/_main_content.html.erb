@@ -301,8 +301,7 @@
         <p><%= I18n.t "homepage.expert.description" %></p>
 
         <a href="javascript:void(0)">
-          <!-- <img src="images/video_ic.png" alt=""> -->
-          <%= image_tag "reskin/video_ic.png", class: '', 'data-toggle'=>"modal", 'data-target'=>"#myModal"%>
+          <%= image_tag "reskin/video_ic.png", class: 'video_open', 'data-toggle'=>"modal", 'data-target'=>"#myModal"%>
         </a>
       </div>
     </div>
@@ -310,16 +309,16 @@
 </div>
 
 <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog" style="max-width:800px">
+  <div class="modal-dialog" style="max-width:740px">
     <div class="modal-content">
-      <div class="modal-header">
+      <!-- <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+      </div> -->
       <div class="modal-body">
-        <iframe id="videoModal" width="770" height="400" src="//www.youtube.com/embed/Rf7dAfEccmo" frameborder="0" allowfullscreen></iframe>
+        <iframe id="videoModal" width="705" height="500" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="closeBtn">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="closeBtn"><%=I18n.t("homepage.video.close_button")%></button>
       </div>
     </div>
   </div>

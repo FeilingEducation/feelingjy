@@ -93,6 +93,9 @@ en:
       title: "Share Economy Study Abroad Platform"
       description: "Change the way it was and open up a new door for sharing knowledge"
 
+    video:
+      close_button: "Close"
+
   registration:
     btn_agree: "I Agree"
     btn_disagree: "Nope"
