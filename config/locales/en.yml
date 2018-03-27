@@ -393,6 +393,7 @@ en:
     order_received: "Orders Received (as mentor)"
     order_placed: "Orders Placed (as student)"
     no_orders: "No Orders"
+    order_scheduled_at: "Start At"
     inst_name: "Instructor Name"
     std_name: "Student Name"
     order_placed_at: "Order Placed At"
