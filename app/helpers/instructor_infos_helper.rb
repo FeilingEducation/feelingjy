@@ -42,7 +42,7 @@ module InstructorInfosHelper
 
   def services_as_collection
     # the dropdown items are chinese when cn is selected
-    if(session[:locale]=='en')
+    if(session[:locale]=='en' || session[:locale]==nil)
       ["Early Consultant","Brainstroming Consultant", "Essay Consultant", "Visa Consultant"].each_with_index.map {|m,i| [m,i]}
     else
       ["前期咨询","文书构思", "文书改写", "签证咨询"].each_with_index.map {|m,i| [m,i]}
@@ -51,7 +51,7 @@ module InstructorInfosHelper
 
   def specialization_as_collection
     # the dropdown items are chinese when cn is selected
-    if(session[:locale]=='en')
+    if(session[:locale]=='en' || session[:locale]==nil)
       ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "Literature", "Law", "Management", "Mathematics", "Physics"].each_with_index.map {|m,i| [m,i]}
     else
       ["艺术与人文领域", "生命科学", "商科", "计算机科学", "工程", "文学", "法律", "管理", "数学", "物理"].each_with_index.map {|m,i| [m,i]}
