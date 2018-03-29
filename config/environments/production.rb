@@ -92,8 +92,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.smtp_settings = {
-      :address        => 'smtp2525.sendcloud.net',#'smtp.sendcloud.net', #'smtp.sendgrid.net',
-      :port           => '2525',#'25', #'587',
+      :address        => 'smtp587.sendcloud.net',#'smtp.sendcloud.net', #'smtp.sendgrid.net',
+      :port           => '587',#'25', #'587',
       :authentication => :plain,
       :user_name      => Rails.application.secrets.sendgrid_username,
       :password       => Rails.application.secrets.sendgrid_password,
