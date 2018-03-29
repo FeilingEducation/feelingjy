@@ -97,8 +97,8 @@ Rails.application.configure do
       :authentication => :plain,
       :user_name      => Rails.application.secrets.sendgrid_username,
       :password       => Rails.application.secrets.sendgrid_password,
-      :domain         => Rails.application.secrets.domain_name,
-      :enable_starttls_auto => true,
+      :domain         => '9eZxwOTyS3hs7xVJQRA5mx3rewzoCpuF.sendcloud.org', #Rails.application.secrets.domain_name,
+      :enable_starttls_auto => true
   }
 
   config.eager_load = true
