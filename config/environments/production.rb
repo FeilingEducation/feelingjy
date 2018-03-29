@@ -99,7 +99,7 @@ Rails.application.configure do
       :password       => Rails.application.secrets.sendgrid_password,
       :domain         => Rails.application.secrets.domain_name,
       :enable_starttls_auto => true,
-      openssl_verify_mode: "none"
+      :openssl_verify_mode => false
   }
 
   config.eager_load = true
