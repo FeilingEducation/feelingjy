@@ -1389,11 +1389,15 @@ select.form-control {
 }
 
 .left-bar{
+	.close{
+		display: none;
+	}
+
 	&.fixed{
 		position: fixed;
-		top: 96px;
+		top: 80px;
 		width: 255px;
-		z-index: 9
+		z-index: 9;
 	}
 }
 .with-leftbar .left-bar {
@@ -1753,7 +1757,7 @@ select.form-control {
 }
 .left-bar-con .left-bar {
 	margin-bottom: 30px;
-	padding: 28px 20px;
+	padding: 25px 20px 15px 20px;
 }
 
 .left-bar-con .left-bar:last-child {
@@ -1836,23 +1840,29 @@ select.form-control {
 
 .left-bar label {
 	color: #babbbb;
+	// margin-bottom: 0.5rem;
 }
 
 .left-bar .form-group {
-	margin-bottom: 25px;
+	margin-bottom: 12px;
 }
 
-.left-bar .form-group select.form-control {
+.left-bar .form-group .form-control {
 	border-radius: 6px;
 	border: 2px solid #e3e6e6;
 	color: #babbbb;
-	font-size: 12px;
+	font-size: 14px;
 	height: 40px;
 }
 
 .left-bar .btns .btn {
 	// font-size: 13px;
 	border-radius: 20px;
+	margin-top: 4px;
+}
+
+#place-order-resp{
+	display: none;
 }
 
 .profile-page .profile-img {
@@ -2500,6 +2510,14 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 }
 
 // responsiveness
+@media (max-width:1201px){
+  .left-bar{
+		&.fixed{
+			width: 210px;
+		}
+	}
+}
+
 @media (max-width:992px){
 	.footer-top {
 		.footer-overlay {
@@ -2519,6 +2537,62 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 			}
 		}
 	}
+
+
+	#fixed-left-bar{
+		display: none;
+		position: fixed;
+		padding-top: 30px;
+		top: 25vw;
+		left: 15vw;
+		width: 70vw;
+    z-index: 3;
+		.close{
+			display: block;
+			height: 0;
+			position: absolute;
+			top: 5px;
+			right: 20px;
+			cursor: pointer;
+		}
+	}
+
+	#place-order-resp{
+		display: block;
+		position: fixed;
+		font-size: 13px;
+
+		padding: 12px 10px;
+		width: 100vw;
+		left: 0px;
+		bottom: 0px;
+		opacity: 1;
+		z-index: 9;
+	}
+
+	#place-order-resp.hide-request-btn{
+		display: none;
+	}
+
+	#place-order-resp:hover{
+		color: white;
+		background: #ffb3b3;
+		border: 3px solid #ffb3b3;
+	}
+
+	#request-overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+  }
 }
 
 
@@ -2645,6 +2719,9 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 			padding-top: 15px;
 		}
 	}
+
+
+
 
 
 
