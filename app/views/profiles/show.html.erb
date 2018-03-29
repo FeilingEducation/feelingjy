@@ -2,9 +2,18 @@
 <% local = session[:locale] || "en" %>
 <% in_scope = "#{controller_name}/#{action_name}" == 'instructor_infos/edit' %>
   <div class="container personal-center">
+
+  <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn default-btn red', id: "place-order-resp" %>
+
+  <div id="request-overlay" onclick="requestOverlayOff()"></div>
+
+
+
     <div class="with-leftbar row">
-      <div class="col-md-3 col-sm-4">
-        <div class="left-bar-con">
+      <div class="col-lg-3 mb-4">
+
+    <div class="row">
+        <div class="left-bar-con col-md-12">
           <div class="left-bar">
             <div class="profile-info">
               <div class="inner">
@@ -84,6 +93,7 @@
 
               <div class="btns">
                 <!-- <div class="card-body"> -->
+                 <button class="close" id="close-btn">&times;</button>
                   <%= form_with model: @transaction, method: 'post', local: true do |f| %>
                     <%= f.hidden_field :instructor_id %>
                     <div class="form-group">
@@ -92,7 +102,7 @@
                     </div>
                     <div class="form-group">
                       <label><%= I18n.t "instructor_profile.services" %></label>
-                      <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {}, class: 'custom-select d-block w-100', id: "services-drop"%>
+                      <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {}, class: 'custom-select d-block w-100 form-control', id: "services-drop"%>
                     </div>
                     <div class="form-group">
                       <%#= scoped in_scope, :submit_tag, '申请预定1', disabled: true, class: 'btn default-btn red' %>
@@ -109,9 +119,14 @@
           </div>
           <% end %>
         </div>
+
       </div>
 
-      <div class="col-md-9 col-sm-8">
+      </div>
+
+      <div class="col-lg-9">
+        <div class="row">
+          <div class="col-md-12">
         <div class="profile-page">
           <div class="profile-img" style="background-image: url('<%= @instructor_info.page_background %>')">
             <%#= image_tag "reskin/user-banner.jpg"%>
@@ -727,6 +742,8 @@
           </div>
         </div>
       </div>
+      </div>
+    </div>
     </div>
   </div>
 <!-- </div> -->
