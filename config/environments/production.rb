@@ -98,7 +98,8 @@ Rails.application.configure do
       :user_name      => Rails.application.secrets.sendgrid_username,
       :password       => Rails.application.secrets.sendgrid_password,
       :domain         => Rails.application.secrets.domain_name,
-      :enable_starttls_auto => true
+      :enable_starttls_auto => true,
+      openssl_verify_mode: "none"
   }
 
   config.eager_load = true
