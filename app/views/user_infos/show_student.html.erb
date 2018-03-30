@@ -30,7 +30,7 @@
         <% for transaction in @user_info.consult_transactions do %>
           <% other = transaction.send('student') %>
           <% if transaction.student_id != @user_info.id %>
-            <% if transaction.status == "payment_pending" %>
+            <% if transaction.status == "confirmed" %>
               <div class="d-inline-block">
                   <div class="profile">
                     <%= link_to transaction do %>
