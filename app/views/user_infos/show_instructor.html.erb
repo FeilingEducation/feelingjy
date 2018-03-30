@@ -1,0 +1,67 @@
+<div class="show-instructor-page">
+  <div class="container transation-container">
+    <ul class="transaction-tracking d-flex justify-content-around">
+      <li class="transaction-tracking-item active" id="transaction-tracking-item0"><%=I18n.t("show_tutors.all_tutors")%></li>
+      <li class="transaction-tracking-item" id="transaction-tracking-item1"><%=I18n.t("show_tutors.current_tutors")%></li>
+      <li class="transaction-tracking-item" id="transaction-tracking-item2"><%=I18n.t("show_tutors.previous_tutors")%></li>
+    </ul>
+    <div class="row" id="all-tutors">
+        <div class="col-md-12">
+          <% for transaction in @user_info.consult_transactions do %>
+            <div class="d-inline-block">
+              <div class="profile">
+                <% other = transaction.send('instructor') %>
+                <%= link_to transaction do %>
+                   <img class="mb-4 lazyload" data-expand="-5" data-src="<%= profile_image_of(other) %>">
+                <% end %>
+                <div class="text-center">
+                  <h6 class="small"><%= other.full_name %></h6>
+                  <h6 class="small"><%= transaction.service || I18n.t("show_tutors.unknown_service") %></h6>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
+    <div class="row d-none" id="current-tutors">
+      <div class="col-md-12">
+        <% for transaction in @user_info.consult_transactions do %>
+          <% other = transaction.send('instructor') %>
+          <% if transaction.status == "payment_pending" %>
+            <div class="d-inline-block">
+                <div class="profile">
+                  <%= link_to transaction do %>
+                     <img class="mb-4 lazyload" data-expand="-5" data-src="<%= profile_image_of(other) %>">
+                  <% end %>
+                  <div class="text-center">
+                    <h6 class="small"><%= other.full_name %></h6>
+                    <h6 class="small"><%= transaction.service || I18n.t("show_tutors.unknown_service") %></h6>
+                  </div>
+                </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row d-none" id="previous-tutors">
+      <div class="col-md-12">
+        <% for transaction in @user_info.consult_transactions do %>
+          <% other = transaction.send('instructor') %>
+          <% if transaction.status == "completed" %>
+            <div class="d-inline-block">
+                <div class="profile">
+                  <%= link_to transaction do %>
+                     <img class="mb-4 lazyload" data-expand="-5" data-src="<%= profile_image_of(other) %>">
+                  <% end %>
+                  <div class="text-center">
+                    <h6 class="small"><%= other.full_name %></h6>
+                    <h6 class="small"><%= transaction.service || I18n.t("show_tutors.unknown_service") %></h6>
+                  </div>
+                </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

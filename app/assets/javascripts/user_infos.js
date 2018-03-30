@@ -64,5 +64,65 @@ $(document).on('turbolinks:load', function () {
       $(select2).select2({})
     }
   })
-
 })
+
+
+$(document).on('click', '#transaction-tracking-item0', function () {
+  var item1 = document.getElementById("transaction-tracking-item1");
+  item1.classList.remove('active');
+  var item2 = document.getElementById("transaction-tracking-item2");
+  item2.classList.remove('active');
+
+  var item0 = document.getElementById("transaction-tracking-item0");
+  item0.className += " active";
+
+
+  var current_tutors = document.getElementById("current-tutors");
+  current_tutors.className += " d-none";
+
+  var previous_tutors = document.getElementById("previous-tutors");
+  previous_tutors.className += " d-none";
+
+  var all_tutors = document.getElementById("all-tutors");
+  all_tutors.classList.remove('d-none');
+});
+
+$(document).on('click', '#transaction-tracking-item1', function () {
+  var item0 = document.getElementById("transaction-tracking-item0");
+  item0.classList.remove('active');
+  var item2 = document.getElementById("transaction-tracking-item2");
+  item2.classList.remove('active');
+
+  var item1 = document.getElementById("transaction-tracking-item1");
+  item1.className += " active";
+
+  var all_tutors = document.getElementById("all-tutors");
+  all_tutors.className += " d-none";
+
+  var previous_tutors = document.getElementById("previous-tutors");
+  previous_tutors.className += " d-none";
+
+  var current_tutors = document.getElementById("current-tutors");
+  current_tutors.classList.remove('d-none');
+
+});
+
+$(document).on('click', '#transaction-tracking-item2', function () {
+  var item1 = document.getElementById("transaction-tracking-item1");
+  item1.classList.remove('active');
+  var item0 = document.getElementById("transaction-tracking-item0");
+  item0.classList.remove('active');
+
+  var item2 = document.getElementById("transaction-tracking-item2");
+  item2.className += " active";
+
+  var all_tutors = document.getElementById("all-tutors");
+  all_tutors.className += " d-none";
+
+  var current_tutors = document.getElementById("current-tutors");
+  current_tutors.className += " d-none";
+
+  var previous_tutors = document.getElementById("previous-tutors");
+  previous_tutors.classList.remove('d-none');
+
+});

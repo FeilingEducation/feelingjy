@@ -9,9 +9,13 @@ en:
       find_mentor: "Find your Mentor"
       my_orders: "My Orders"
       messages: "Messages"
-      view_profile: "User Info"
-      edit_profile: "Edit User Profile"
-      edit_instructor_profile: "Edit Instructor Profile"
+      view_my_info: "User Profile"
+      view_my_instructor_info: "My Tutor Profile"
+      view_my_tutors: "My Tutors"
+      view_my_students: "My Students"
+      # view_profile: "User Info"
+      # edit_profile: "Edit User Profile"
+      # edit_instructor_profile: "Edit Instructor Profile"
       logout: "Log Out"
 
   footer:
@@ -575,3 +579,9 @@ en:
     canceled: "Cancelled"
     completed: "Completed"
     aborted: "Aborted"
+
+  show_tutors:
+    all_tutors: "All Tutors"
+    current_tutors: "Current Tutors"
+    previous_tutors: "Previous Tutors"
+    unknown_service: "Service Unknown"
