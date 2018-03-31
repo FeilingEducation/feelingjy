@@ -21,7 +21,7 @@ en:
           Bachelor (graduated): "Bachelor (graduated)"
           Master (graduated): "Master (graduated)"
           PhD (graduated): "PhD (graduated)"
-        
+
         university:
           Brown University: "Brown University"
           California Institute of Technology (Caltech): "California Institute of Technology (Caltech)"
@@ -679,3 +679,13 @@ en:
     current_tutors: "Current Tutors"
     previous_tutors: "Previous Tutors"
     unknown_service: "Service Unknown"
+
+  rating:
+    rate: rating
+    price: 小时价
+
+  sorting:
+    sort_by: Sort By
+    order_by: Order By
+    asc: Asc
+    desc: Desc

@@ -413,7 +413,7 @@ cn:
       range:
         title: "只能定价"
         p1: "请设置价格范围。您的服务价格会根据您设定的范围进行调整。"
-        p2: "Set a fix price."
+        p2: "请设置一个固定价格."
         label1: "最少"
         label2: "最多"
         label3: "您想与学生合作的频率"
@@ -618,7 +618,7 @@ cn:
 
   chat:
     status: "状态"
-    order_placed_at: "订单放置于"
+    order_placed_at: "订单下单于"
     order_updated_at: "订单更新于"
     initiated: "开始合作"
     student_initiated: "等待申请确认"
@@ -681,3 +681,13 @@ cn:
     current_tutors: "现在正在帮助我的导师"
     previous_tutors: "以前帮助过我的导师"
     unknown_service: "未确定服务"
+
+  rating:
+    rate: 评分
+    price: 小时价
+
+  sorting:
+    sort_by: 筛选类型
+    order_by: 显示顺序
+    asc: 从低到高
+    desc: 从高到低
