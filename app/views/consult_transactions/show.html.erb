@@ -22,7 +22,9 @@
             <div class="inner">
               <div class="img" style="background-image: url('<%= profile_image_of(@other) %>');"></div>
               <h2><%= @other.full_name %></h2>
-              <div class="skills"><%= InstructorInfo.find_specialization(@other.try(:specialization_name)) %></div>
+              <% if @other.respond_to? :university_name%>
+                <div class="skills"><%= InstructorInfo.find_specialization(@other.try(:specialization_name)) %></div>
+              <%end%>
               <!-- <div class="reviews">
                 <%#= image_tag "reskin/stars.png" %>
                 <span class="count">38</span>
