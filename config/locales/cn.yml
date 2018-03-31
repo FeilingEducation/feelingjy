@@ -678,6 +678,6 @@ cn:
 
   show_tutors:
     all_tutors: "所有导师"
-    current_tutors: "现在正在忙我的导师"
+    current_tutors: "现在正在帮助我的导师"
     previous_tutors: "以前帮助过我的导师"
     unknown_service: "未确定服务"

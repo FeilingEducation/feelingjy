@@ -21,7 +21,7 @@ en:
           Bachelor (graduated): "Bachelor (graduated)"
           Master (graduated): "Master (graduated)"
           PhD (graduated): "PhD (graduated)"
-        # specialization: "专业"
+        
         university:
           Brown University: "Brown University"
           California Institute of Technology (Caltech): "California Institute of Technology (Caltech)"
