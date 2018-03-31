@@ -15,11 +15,170 @@ class InstructorInfo < ApplicationRecord
 
   validates_presence_of :id, on: [:create]
 
-  UNIVERSITIES_ENGLISH = ["Brown University","California Institute of Technology (Caltech)","Columbia University","Cornell University","Dartmouth College","Duke University","Emory University","Georgetown University","Harvard University","Johns Hopkins University","Massachusetts Institute of Technology (MIT)","Northwestern University","Princeton University","Rice University","Stanford University","UC Berkeley","UCLA","University of Chicago","University of Notre Dame", "University of Pennsylvania", "University of Southern California", "University of Virginia", "University of Wisconsin-Madison","Vanderbilt University","Washington University in St. Louis","Yale University"]
-  UNIVERSITIES_CHINESE = ['布朗大学','加州理工学院','哥伦比亚大学','康奈尔大学','达特茅斯学院','杜克大学','埃默里大学','乔治城大学','哈佛大学','约翰霍普金斯大学','麻省理工学院','西北大学','普林斯顿大学','莱斯大学','斯坦福大学','加州大学伯克利分校','加州大学洛杉矶分校','芝加哥大学','圣母大学','宾夕法尼亚大学','南加州大学','弗吉尼亚大学','威斯康辛大学麦迪逊分校','范德堡大学','圣路易斯华盛顿大学','耶鲁大学']
+  UNIVERSITIES_ENGLISH = [
+                          #A
+                          #B
+                          "Boston College",
+                          "Boston University",
+                          "Brandeis University",
+                          "Brown University",
+                          #C
+                          "Case Western Reserve University",
+                          "California Institute of Technology (Caltech)",
+                          "Carnegie Mellon University",
+                          "College of William and Mary",
+                          "Columbia University",
+                          "Cornell University",
+                          #D
+                          "Dartmouth College",
+                          "Duke University",
+                          #E
+                          "Emory University",
+                          #F
+                          #G
+                          "Georgetown University",
+                          "Georgia Institute of Technology",
+                          #H
+                          "Harvard University",
+                          #I
+                          #J
+                          "Johns Hopkins University",
+                          #K
+                          #L
+                          "Lehigh University",
+                          #M
+                          "Massachusetts Institute of Technology (MIT)",
+                          #N
+                          "New York University",
+                          "Northeastern University",
+                          "Northwestern University",
+                          #O
+                          #P
+                          "Princeton University",
+                          #Q
+                          #R
+                          "Rice University",
+                          #S
+                          "Stanford University",
+                          #T
+                          "Tufts University",
+                          "Tulane University",
+                          #U
+                          "UC Berkeley",
+                          "University of California-Davis",
+                          "UCLA",
+                          "University of California-Irvine",
+                          "University of California-Santa Barbara",
+                          "University of California-San Diego",
+                          "University of Chicago",
+                          "University of Florida",
+                          "University of Maryland-College Park",
+                          "University of Miami",
+                          "University of North Carolina-Chapel Hill",
+                          "University of Notre Dame",
+                          "University of Pennsylvania",
+                          "University of Pittsburgh",
+                          "University of Rochester",
+                          "University of Southern California",
+                          "University of Texas-Austin",
+                          "University of Virginia",
+                          "University of Washington at Seattle",
+                          "University of Wisconsin-Madison",
 
-  SPECIALIZATIONS_ENGLISH = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "Literature", "Law", "Management", "Mathematics", "Physics"]
-  SPECIALIZATIONS_CHINESE = ["艺术与人文领域", "生命科学", "商科", "计算机科学", "工程", "文学", "法律", "管理", "数学", "物理"]
+                          #V
+                          "Vanderbilt University",
+                          #W
+                          "Wake Forest University",
+                          "Washington University in St. Louis",
+                          #X
+                          #Y
+                          "Yale University"
+                          #Z
+                         ]
+
+  UNIVERSITIES_CHINESE = [
+                          #A
+                          #B
+                          '波士顿学院(Boston College)',
+                          '波士顿大学(Boston University)',
+                          '布兰迪斯大学(Brandeis University)',
+                          '布朗大学(Brown University)',
+                          #C
+                          '凯斯西储大学(Case Western Reserve University)',
+                          '加州理工学院(California Institute of Technology (Caltech))',
+                          '卡耐基梅隆大学 (Carnegie Mellon University)',
+                          '威廉玛丽学院(College of William and Mary)',
+                          '哥伦比亚大学(Columbia University)',
+                          '康奈尔大学(Cornell University)',
+                          #D
+                          '达特茅斯学院(Dartmouth College)',
+                          '杜克大学(Duke University)',
+                          #E
+                          '埃默里大学(Emory University)',
+                          #F
+                          #G
+                          '乔治城大学(Georgetown University)',
+                          '佐治亚理工学院(Georgia Institute of Technology)',
+                          #H
+                          '哈佛大学(Harvard University)',
+                          #I
+                          #J
+                          '约翰霍普金斯大学(Johns Hopkins University)',
+                          #K
+                          #L
+                          '理海大学(Lehigh University)',
+                          #M
+                          '麻省理工学院(Massachusetts Institute of Technology (MIT))',
+                          #N
+                          '纽约大学(New York University)',
+                          '东北大学(Northeastern University)',
+                          '西北大学(Northwestern University)',
+                          #O
+                          #P
+                          '普林斯顿大学(Princeton University)',
+                          #Q
+                          #R
+                          '莱斯大学(Rice University)',
+                          #S
+                          '斯坦福大学(Stanford University)',
+                          #T
+                          '塔夫斯大学(Tufts University)',
+                          '杜兰大学(Tulane University)',
+                          #U
+                          '加州大学伯克利分校(University of California-Berkeley)',
+                          '加州大学戴维斯分校(University of California-Davis)',
+                          '加州大学欧文分校(University of California-Irvine)',
+                          '加州大学洛杉矶分校(UCLA)',
+                          '加州大学圣巴巴拉分校(University of California-Santa Barbara)',
+                          '加州大学圣地亚哥分校(University of California-San Diego)',
+                          '芝加哥大学(University of Chicago)',
+                          '马里兰大学帕克分校(University of Maryland-College Park)',
+                          '迈阿密大学(University of Miami)',
+                          '佛罗里达大学(University of Florida)',
+                          '北卡罗来纳大学(University of North Carolina-Chapel Hill)',
+                          '圣母大学(University of Notre Dame)',
+                          '宾夕法尼亚大学(University of Pennsylvania)',
+                          '匹兹堡大学(University of Pittsburgh)',
+                          '罗切斯特大学(University of Rochester)',
+                          '南加州大学(University of Southern California)',
+                          '德克萨斯大学奥斯汀分校(University of Texas-Austin)',
+                          '弗吉尼亚大学(University of Virginia)',
+                          '华盛顿大学西雅图分校(University of Washington at Seattle)',
+                          '威斯康辛大学麦迪逊分校(University of Wisconsin-Madison)',
+                          #V
+                          '范德堡大学(Vanderbilt University)',
+                          #W
+                          '圣路易斯华盛顿大学(Washington University in St. Louis)',
+                          '维克森林大学(Wake Forest University)',
+                          #X
+                          #Y
+                          '耶鲁大学(Yale University)'
+                          #Z
+                         ]
+
+
+  SPECIALIZATIONS_ENGLISH = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "Literature", "Law", "Management", "Mathematics", "Physics", "Language", "Chemistry", "Neurobiology"]
+  SPECIALIZATIONS_CHINESE = ["艺术与人文领域", "生命科学", "商科", "计算机科学", "工程", "文学", "法律", "管理", "数学", "物理", "语言", "化学", "神经学"]
 
   DEGREE_COMPLETED_ENGLISH = ["Bachelor (junior)", "Bachelor (senior)", "First year graduate student", "Second year graduate student", "PhD","Bachelor (graduated)","Master (graduated)", "PhD (graduated)"]
   DEGREE_COMPLETED_CHINESE = ['在读本科第三年','在读本科第四年', '在读研究生第一年', '在读研究生第二年', '在读博士','本科（已毕业）','研究生（已毕业）','博士（已毕业）']
@@ -47,6 +206,30 @@ class InstructorInfo < ApplicationRecord
 
   BEST_APPLYING_AT_ENGLISH = ['Top 10 American Universities', 'Top 20 American Universities', 'Top 30 American Universities']
   BEST_APPLYING_AT_CHINESE = ['全美前10名大学', '全美前20名大学','全美前30名大学']
+
+
+
+# lei added
+def self.find_degree(degree_name)
+   I18n.t("activerecord.attributes.instructor_info.degree.#{degree_name.to_s}")
+end
+
+def self.find_university(university_name)
+   I18n.t("activerecord.attributes.instructor_info.university.#{university_name.to_s}")
+end
+
+def self.find_specialization(specialization_name)
+   I18n.t("activerecord.attributes.instructor_info.specialization.#{specialization_name.to_s}")
+end
+#
+
+
+
+
+
+
+
+
 
 
   def resumes

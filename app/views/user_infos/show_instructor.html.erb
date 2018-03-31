@@ -27,7 +27,7 @@
       <div class="col-md-12">
         <% for transaction in @user_info.consult_transactions do %>
           <% other = transaction.send('instructor') %>
-          <% if transaction.status == "payment_pending" %>
+          <% if transaction.status == "confirmed" %>
             <div class="d-inline-block">
                 <div class="profile">
                   <%= link_to transaction do %>

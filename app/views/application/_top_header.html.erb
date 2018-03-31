@@ -1,8 +1,10 @@
 <header class="main-header <%= current_user.present? ? ' signed-in': '' %>">
   <%#= render partial: 'top_bar' %>
   <div class="main-nav navbar-light navbar-expand-md">
-    <div class="header-container">
 
+    <div id="sidebar-overlay" onclick="sidebarOverlayOff()"></div>
+
+    <div class="header-container">
         <div class="logo">
             <a href="/">
               <%=image_tag "reskin/logo-small_v1.png", class: 'colored'%>
