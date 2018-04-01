@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // a bordered group for user_info fields.
+$main-text-color: #979999;
+$question-text: #4A4A4A;
+$theme-green: #31c89d;
+$border-color: #E0DBDB;
 .widget {
   & .widget-body {
     border: 1px solid #dbdbdb;
@@ -11,4 +15,78 @@
   }
   margin-bottom: 1.25rem;
   @extend .col-lg-6;
+}
+
+.show-instructor-page{
+  background: #E0DBDB;
+  min-height: 50vw;
+  // padding-bottom: 600px;
+}
+
+.transation-container{
+  padding: 40px 150px 0 150px;
+
+}
+
+.transation-container .transaction-tracking{
+  padding: 2px 0;
+  margin-bottom: 30px;
+  text-align: left;
+  color: #979999;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  .transaction-tracking-item{
+    display: inline-block;
+    font-size: 17px;
+    margin: 0 30px;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 5px solid white;
+    font-weight: bold;
+  }
+
+  .transaction-tracking-item:hover, .transaction-tracking-item.active{
+    cursor: pointer;
+    color: #4A4A4A;
+    border-bottom: 5px solid $theme-green;
+  }
+
+}
+
+.transation-container{
+  .profile{
+    background: white;
+    border-radius: 5px;
+    padding: 25px;
+    margin: 0 32px 30px 32px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    img{
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+    }
+  }
+  .profile:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+  }
+
+  .show-more-btn{
+    position: absolute;
+    padding: 10px 30px;
+    bottom: 30px;
+  }
+}
+
+
+
+@media (max-width:768px){
+   .transation-container{
+     padding: 30px 10px 0 10px;
+     .transaction-tracking .transaction-tracking-item{
+       font-size: 14px;
+     }
+   }
+
 }

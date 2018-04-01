@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   get 'search', to: 'search#index'
   post 'search', to: 'search#search'
 
-  resource :user_info, path: 'account', except: [:destroy]
+  resource :user_info, path: 'account', except: [:destroy] do
+    member do
+      get 'show_student'
+      get 'show_instructor'
+    end
+  end
+
   resource :instructor_info, path: 'instructor', only: [:new, :create, :edit, :update, :destroy] do
     collection do
       get 'states'

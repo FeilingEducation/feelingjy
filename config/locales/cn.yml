@@ -9,9 +9,13 @@ cn:
       find_mentor: "寻找导师"
       my_orders: "我的订单"
       messages: "消息"
-      view_profile: "用户信息"
-      edit_profile: "编辑用户资料"
-      edit_instructor_profile: "编辑导师资料"
+      view_my_info: "用户信息"
+      view_my_instructor_info: "导师主页"
+      view_my_tutors: "我的导师"
+      view_my_students: "我的学生"
+      # view_profile: "用户信息"
+      # edit_profile: "编辑用户资料"
+      # edit_instructor_profile: "编辑导师资料"
       logout: "注销"
 
   footer:
@@ -574,3 +578,9 @@ cn:
     canceled: "已取消"
     completed: "已完成"
     aborted: "已终止"
+
+  show_tutors:
+    all_tutors: "所有导师"
+    current_tutors: "现在正在忙我的导师"
+    previous_tutors: "以前帮助过我的导师"
+    unknown_service: "未确定服务"

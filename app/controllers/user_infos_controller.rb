@@ -1,7 +1,7 @@
 class UserInfosController < AuthenticatedResourcesController
   # See /views/layouts/user_info.html.erb
   # A layout with basic user infomation on the left and a menu bar
-  layout 'user_info'
+  layout 'user_info', except: [:show_student, :show_instructor]
   before_action :check_user_info_initialized
 
   def show
@@ -13,6 +13,14 @@ class UserInfosController < AuthenticatedResourcesController
     else
       @other_role = 'student'
     end
+  end
+
+  def show_student
+    @user_info = UserInfo.find(current_user.id)
+  end
+
+  def show_instructor
+    @user_info = UserInfo.find(current_user.id)
   end
 
   def new

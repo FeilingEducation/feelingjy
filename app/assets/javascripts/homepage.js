@@ -1,7 +1,6 @@
 // toggle the menu based on active
 $(document).on('click', '#sidebar .navbar-toggler', function () {
     document.getElementById("sidebar").classList.toggle('active');
-    console.log('haha');
 });
 
 // if click on close button, remove src tag to close video

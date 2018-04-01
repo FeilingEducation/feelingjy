@@ -40,13 +40,15 @@
                                   <%= image_tag (profile_image_of || "user-ico.png" ), class: "profile-image-thumbnail" %>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right py-1" aria-labelledby="profile" style="min-width:12.4rem;">
+                                  <%= link_to I18n.t("header.logged_in.view_my_info"), edit_user_info_path, class: 'dropdown-item dropdown-item0' %>
                                   <% if user_is_instructor? %>
-                                    <%= link_to I18n.t("header.logged_in.edit_instructor_profile"), edit_instructor_info_path, class: 'dropdown-item dropdown-item0' %>
+                                    <%= link_to I18n.t("header.logged_in.view_my_instructor_info"), edit_instructor_info_path, class: 'dropdown-item dropdown-item1' %>
                                   <% end %>
-                                  <%= link_to I18n.t("header.logged_in.view_profile"), user_info_path, class: 'dropdown-item dropdown-item1' %>
-                                  <%= link_to I18n.t("header.logged_in.edit_profile"), edit_user_info_path, class: 'dropdown-item dropdown-item2' %>
-                                  <%#= link_to '安全中心', edit_user_registration_path, class: 'dropdown-item' %>
-                                  <%= link_to I18n.t("header.logged_in.logout"), destroy_user_session_path, class: "dropdown-item dropdown-item3", method: "delete" %>
+                                  <%= link_to I18n.t("header.logged_in.view_my_tutors"), show_instructor_user_info_path(current_user.id), class: 'dropdown-item dropdown-item2' %>
+                                  <% if user_is_instructor? %>
+                                    <%= link_to I18n.t("header.logged_in.view_my_students"), show_student_user_info_path(current_user.id), class: 'dropdown-item dropdown-item3' %>
+                                  <% end %>
+                                  <%= link_to I18n.t("header.logged_in.logout"), destroy_user_session_path, class: "dropdown-item dropdown-item4", method: "delete" %>
                                 </div> <!-- dropdown-menu-->
                             </li> <!-- dropdown-->
                         </ul><!-- login -->
@@ -86,13 +88,15 @@
                                <%= image_tag (profile_image_of || "user-ico.png" ), class: "profile-image-thumbnail" %>
                              </a>
                              <div class="dropdown-menu dropdown-menu-right py-1" aria-labelledby="profile">
+                               <%= link_to I18n.t("header.logged_in.view_my_info"), edit_user_info_path, class: 'dropdown-item dropdown-item0' %>
                                <% if user_is_instructor? %>
-                                 <%= link_to I18n.t("header.logged_in.edit_instructor_profile"), edit_instructor_info_path, class: 'dropdown-item dropdown-item0' %>
+                                 <%= link_to I18n.t("header.logged_in.view_my_instructor_info"), edit_instructor_info_path, class: 'dropdown-item dropdown-item1' %>
                                <% end %>
-                               <%= link_to I18n.t("header.logged_in.view_profile"), user_info_path, class: 'dropdown-item dropdown-item1' %>
-                               <%= link_to I18n.t("header.logged_in.edit_profile"), edit_user_info_path, class: 'dropdown-item dropdown-item2' %>
-                               <%#= link_to '安全中心', edit_user_registration_path, class: 'dropdown-item' %>
-                               <%= link_to I18n.t("header.logged_in.logout"), destroy_user_session_path, class: "dropdown-item dropdown-item3", method: "delete" %>
+                               <%= link_to I18n.t("header.logged_in.view_my_tutors"), show_instructor_user_info_path(current_user.id), class: 'dropdown-item dropdown-item2' %>
+                               <% if user_is_instructor? %>
+                                 <%= link_to I18n.t("header.logged_in.view_my_students"), show_student_user_info_path(current_user.id), class: 'dropdown-item dropdown-item3' %>
+                               <% end %>
+                               <%= link_to I18n.t("header.logged_in.logout"), destroy_user_session_path, class: "dropdown-item dropdown-item4", method: "delete" %>
                              </div> <!-- dropdown-menu-->
                          </li> <!-- dropdown-->
                      </ul><!-- login -->
