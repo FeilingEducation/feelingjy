@@ -59,7 +59,7 @@
 
           <% if current_user.present? && current_user.id != @instructor_info.id %>
 
-          <div class="left-bar" id="fixed-left-bar">
+          <div class="left-bar second" id="fixed-left-bar">
             <!-- <div class="form-group">
               <label>Time</label>
 
@@ -106,8 +106,8 @@
                     </div>
                     <div class="form-group">
                       <%#= scoped in_scope, :submit_tag, '申请预定1', disabled: true, class: 'btn default-btn red' %>
-                      <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn default-btn red', id: "place-order", disabled: 'disabled' %>
-                      <%= scoped !in_scope, :button_tag, '与我联系', type: 'button', class: 'btn default-btn message-box modal-toggle',
+                      <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn full-width-btn default-btn red', id: "place-order", disabled: 'disabled' %>
+                      <%= scoped !in_scope, :button_tag, I18n.t("instructor_profile.send_a_msg"), type: 'button', class: 'btn full-width-btn pull-left default-btn message-box modal-toggle',
                       data: { target: '#message-box' } %>
                     </div>
                   <% end %>

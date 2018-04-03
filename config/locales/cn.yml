@@ -457,6 +457,7 @@ cn:
     max_days: "最多天数:"
     advance: "提前"
     place_order: "申请预定"
+    send_a_msg: "与我联系"
     customized_price: "自行定价"
 
   my_orders:
