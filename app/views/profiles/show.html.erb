@@ -107,7 +107,7 @@
                     <div class="form-group">
                       <%#= scoped in_scope, :submit_tag, '申请预定1', disabled: true, class: 'btn default-btn red' %>
                       <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn default-btn red', id: "place-order", disabled: 'disabled' %>
-                      <%#= scoped !in_scope, :button_tag, '与我联系3', type: 'button', class: 'btn default-btn message-box modal-toggle',
+                      <%= scoped !in_scope, :button_tag, '与我联系', type: 'button', class: 'btn default-btn message-box modal-toggle',
                       data: { target: '#message-box' } %>
                     </div>
                   <% end %>
@@ -751,3 +751,5 @@
 <script type="text/javascript">
   $('.rating').raty({readOnly: true, number: 5})
 </script>
+<% modal = render partial: 'messages/send_a_message', locals: { other: @instructor_info.user_info, box_id: '' } %>
+<%= render partial: 'dialog', locals: { id: 'message-box', title: 'Send a Message', body: modal, size: 'lg' } %>
