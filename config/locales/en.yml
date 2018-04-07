@@ -619,9 +619,9 @@ en:
     order_placed_at: "Order Placed At"
     order_scheduled_at: "Start At"
     order_updated_at: "Order Updated At"
-    initiated: "Confirm Order"
+    initiated: "Confirm Request"
     student_initiated: "Awaiting Confirmation"
-    instructor_initiated: "Confirm Order"
+    instructor_initiated: "Confirm Request"
     pending: "Pay"
     pending_msg: "Awaiting Payment"
     posted_on: "Posted on"
@@ -629,6 +629,9 @@ en:
     press_enter_for_new_line: "Press enter for new line"
     send_btn: "Send"
     stop: "Stop"
+    decline: "Decline"
+    request_aborted_instructor: "Declined"
+    request_aborted_student: "Declined"
 
   payment_confirmation:
     title: "Congratulations!"
@@ -682,11 +685,28 @@ en:
     unknown_service: "Service Unknown"
 
   rating:
-    rate: rating
-    price: 小时价
+    rate: "rating"
+    price: "小时价"
 
   sorting:
-    sort_by: Sort By
-    order_by: Order By
-    asc: Asc
-    desc: Desc
+    sort_by: "Sort By"
+    order_by: "Order By"
+    asc: "Asc"
+    desc: "Desc"
+
+  flash_notice:
+    transaction:
+      save_successful: "Transaction saved successfully."
+      update_successful: "Transaction updated successfully."
+      transaction_confirmed: "Transaction confirmed. Waiting for student's payment."
+      transaction_confirm_failed: "Failed to confirm transaction. Please try again later."
+      transaction_cancelled: "Transaction confirmation canceled."
+      transaction_cancel_failed: "Failed to cancel confirmation. Please try again later."
+      transaction_cannot_confirm: "Cannot confirm transaction at the current status."
+      invalid_operation: "Invalid operation."
+      transaction_declined: "Transaction has been declined."
+      transaction_decline_failed: "Failed to decline transaction, please try again."
+      transaction_cannot_declined: "Cannot decline transaction at the current status."
+      pay_invalid_role: "Invalid role"
+      cannot_pay: "Cannot pay at current status"
+      payment_create_failed: "Cannot create payment. Please try again later."

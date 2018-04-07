@@ -631,6 +631,9 @@ cn:
     press_enter_for_new_line: "按回车键换行"
     send_btn: "发送"
     stop: "停止"
+    decline: "拒绝"
+    request_aborted_instructor: "已拒绝"
+    request_aborted_student: "申请已被拒绝"
 
   payment_confirmation:
     title: "恭喜您！"
@@ -684,11 +687,28 @@ cn:
     unknown_service: "未确定服务"
 
   rating:
-    rate: 评分
-    price: 小时价
+    rate: "评分"
+    price: "小时价"
 
   sorting:
-    sort_by: 筛选类型
-    order_by: 显示顺序
-    asc: 从低到高
-    desc: 从高到低
+    sort_by: "筛选类型"
+    order_by: "显示顺序"
+    asc: "从低到高"
+    desc: "从高到低"
+
+  flash_notice:
+    transaction:
+      save_successful: "订单保存成功。"
+      update_successful: "订单更新成功。"
+      transaction_confirmed: "订单确认，等待学生支付。"
+      transaction_confirm_failed: "订单确认失败，请稍后尝试。"
+      transaction_cancelled: "订单确认取消。"
+      transaction_cancel_failed: "取消确认订单，请稍后尝试。"
+      transaction_cannot_confirm: "当前订单状态下，不可确认订单。"
+      invalid_operation: "操作失败。"
+      transaction_declined: "订单已被拒绝。"
+      transaction_decline_failed: "拒绝订单失败，请稍后尝试。"
+      transaction_cannot_declined: "当前订单状态下，不可拒绝订单。"
+      pay_invalid_role: "支付角色错误。"
+      cannot_pay: "当前状态下不可支付。"
+      payment_create_failed: "支付失败，请稍后尝试。"
