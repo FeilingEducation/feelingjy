@@ -8,18 +8,22 @@
     <div class="row" id="all-tutors">
         <div class="col-md-12">
           <% for transaction in @user_info.consult_transactions do %>
-            <div class="d-inline-block">
-              <div class="profile">
-                <% other = transaction.send('instructor') %>
-                <%= link_to transaction do %>
-                   <img class="mb-4 lazyload" data-expand="-5" data-src="<%= profile_image_of(other) %>">
-                <% end %>
-                <div class="text-center">
-                  <h6 class="small"><%= other.full_name %></h6>
-                  <h6 class="small"><%= transaction.service || I18n.t("show_tutors.unknown_service") %></h6>
+            <% other = transaction.send('instructor') %>
+            <% if transaction.instructor_id != @user_info.id %>
+              <% if transaction.status == "confirmed" || transaction.status == "completed"%>
+                <div class="d-inline-block">
+                  <div class="profile">
+                    <%= link_to transaction do %>
+                       <img class="mb-4 lazyload" data-expand="-5" data-src="<%= profile_image_of(other) %>">
+                    <% end %>
+                    <div class="text-center">
+                      <h6 class="small"><%= other.full_name %></h6>
+                      <h6 class="small"><%= transaction.service || I18n.t("show_tutors.unknown_service") %></h6>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              <% end %>
+           <% end %>
           <% end %>
         </div>
     </div>
@@ -27,8 +31,9 @@
       <div class="col-md-12">
         <% for transaction in @user_info.consult_transactions do %>
           <% other = transaction.send('instructor') %>
-          <% if transaction.status == "payment_pending" %>
-            <div class="d-inline-block">
+          <% if transaction.instructor_id != @user_info.id %>
+            <% if transaction.status == "confirmed" %>
+              <div class="d-inline-block">
                 <div class="profile">
                   <%= link_to transaction do %>
                      <img class="mb-4 lazyload" data-expand="-5" data-src="<%= profile_image_of(other) %>">
@@ -38,7 +43,8 @@
                     <h6 class="small"><%= transaction.service || I18n.t("show_tutors.unknown_service") %></h6>
                   </div>
                 </div>
-            </div>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
@@ -47,8 +53,9 @@
       <div class="col-md-12">
         <% for transaction in @user_info.consult_transactions do %>
           <% other = transaction.send('instructor') %>
-          <% if transaction.status == "completed" %>
-            <div class="d-inline-block">
+          <% if transaction.student_id != @user_info.id %>
+            <% if transaction.status == "completed" %>
+              <div class="d-inline-block">
                 <div class="profile">
                   <%= link_to transaction do %>
                      <img class="mb-4 lazyload" data-expand="-5" data-src="<%= profile_image_of(other) %>">
@@ -58,7 +65,8 @@
                     <h6 class="small"><%= transaction.service || I18n.t("show_tutors.unknown_service") %></h6>
                   </div>
                 </div>
-            </div>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>

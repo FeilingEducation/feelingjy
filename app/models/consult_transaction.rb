@@ -3,14 +3,7 @@ class ConsultTransaction < ApplicationRecord
   after_create :build_chat, :create_open_tok_session
   after_destroy :destroy_chat
 
-  enum status: {
-    initiated: 0,
-    payment_pending: 1,
-    confirmed: 2,
-    canceled: 3,
-    completed: 4,
-    aborted: 5
-  }
+  enum status: [:initiated, :payment_pending, :confirmed, :canceled, :completed, :aborted]
 
   belongs_to :instructor, class_name: 'InstructorInfo'
   belongs_to :student, class_name: 'UserInfo'
@@ -24,6 +17,15 @@ class ConsultTransaction < ApplicationRecord
   validate do
     errors.add(:base, "Consulting yourself is not allowed") if instructor_id == student_id
   end
+
+
+  # this function is to access .yml to get corresponding CHINESE/ENGLISH based on status enum
+  def self.status_enum_name(enum_name)
+     I18n.t("activerecord.attributes.consult_transaction.status.#{enum_name.to_s}")
+  end
+
+
+
 
   def payment_completed!
     self.confirmed!

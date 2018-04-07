@@ -1,4 +1,100 @@
 cn:
+
+  activerecord:
+    attributes:
+      consult_transaction:
+        status:
+          initiated: "已发送"
+          payment_pending: "等待付款"
+          confirmed: "付款已确认"
+          canceled: "取消"
+          completed: "完成"
+          aborted: "服务终止"
+
+      instructor_info:
+        degree:
+          Bachelor (junior): "在读本科第三年"
+          Bachelor (senior): "在读本科第四年"
+          First year graduate student: "在读研究生第一年"
+          Second year graduate student: "在读研究生第二年"
+          PhD: "在读博士"
+          Bachelor (graduated): "本科（已毕业)"
+          Master (graduated): "研究生（已毕业)"
+          PhD (graduated): "博士（已毕业)"
+
+        university:
+          Brown University: "布朗大学"
+          California Institute of Technology (Caltech): "加州理工学院"
+          Columbia University: "哥伦比亚大学"
+          Cornell University: "康奈尔大学"
+          Dartmouth College: "达特茅斯学院"
+          Duke University: "杜克大学"
+          Emory University: "埃默里大学"
+          Georgetown University: "乔治城大学"
+          Harvard University: "哈佛大学"
+          Johns Hopkins University: "约翰霍普金斯大学"
+          Massachusetts Institute of Technology (MIT): "麻省理工学院"
+          Northwestern University: "西北大学"
+          Princeton University: "普林斯顿大学"
+          Rice University: "莱斯大学"
+          Stanford University: "斯坦福大学"
+          UC Berkeley: "加州大学伯克利分校"
+          UCLA: "加州大学洛杉矶分校"
+          University of Chicago: "芝加哥大学"
+          University of Notre Dame: "圣母大学"
+          University of Pennsylvania: "宾夕法尼亚大学"
+          University of Southern California: "南加州大学"
+          University of Virginia: "弗吉尼亚大学"
+          University of Wisconsin-Madison: "威斯康辛大学麦迪逊分校"
+          Vanderbilt University: "范德堡大学"
+          Washington University in St. Louis: "圣路易斯华盛顿大学"
+          Yale University: "耶鲁大学"
+          #new
+          Carnegie Mellon University: "卡耐基梅隆大学"
+          Wake Forest University: "维克森林大学"
+          Tufts University: "塔夫斯大学"
+          New York University: "纽约大学"
+          University of North Carolina-Chapel Hill: "北卡罗来纳大学"
+          Boston College: "波士顿学院"
+          College of William and Mary: "威廉玛丽学院"
+          Brandeis University: "布兰迪斯大学"
+          Georgia Institute of Technology: "佐治亚理工学院"
+          University of Rochester: "罗切斯特大学"
+          Boston University: "波士顿大学"
+          Case Western Reserve University: "凯斯西储大学"
+          University of California-Santa Barbara: "加州大学圣巴巴拉分校"
+          Northeastern University: "东北大学"
+          Tulane University: "杜兰大学"
+          University of California-Irvine: "加州大学欧文分校"
+          University of California-San Diego: "加州大学圣地亚哥分校"
+          University of Florida: "佛罗里达大学"
+          Lehigh University: "理海大学"
+          University of California-Davis: "加州大学戴维斯分校"
+          University of Miami: "迈阿密大学"
+          University of Texas-Austin: "德克萨斯大学奥斯汀分校"
+          University of Washington at Seattle: "华盛顿大学西雅图分校"
+          University of Maryland-College Park: "马里兰大学帕克分校"
+          University of Pittsburgh: "匹兹堡大学"
+
+
+
+        specialization:
+          Arts & Humanities: "艺术与人文领域"
+          Biological Sciences: "生命科学"
+          Business: "商科"
+          Computer Science: "计算机科学"
+          Engineering: "工程"
+          Literature: "文学"
+          Law: "法律"
+          Management: "管理"
+          Mathematics: "数学"
+          Physics: "物理"
+          #new
+          Language: "语言"
+          Chemistry: "化学"
+          Neurobiology: "神经学"
+
+
   hello: "Hello world"
 
   header:
@@ -317,7 +413,7 @@ cn:
       range:
         title: "只能定价"
         p1: "请设置价格范围。您的服务价格会根据您设定的范围进行调整。"
-        p2: "Set a fix price."
+        p2: "请设置一个固定价格."
         label1: "最少"
         label2: "最多"
         label3: "您想与学生合作的频率"
@@ -396,16 +492,17 @@ cn:
 
   transactions:
     order_received: "已收到订单（作为导师）"
-    order_placed: "已放置订单（作为学生）"
+    order_placed: "已下订单（作为学生）"
     no_orders: "暂无订单"
     inst_name: "导师名字"
     std_name: "学生名字"
-    order_placed_at: "订单放置于"
-    order_scheduled_at: "Start At"
+    order_placed_at: "订单下单于"
+    order_scheduled_at: "下单时间"
     order_status: "订单状态"
     actions: "活动"
     view_more: "查看详情"
     view_reviews: "查看详情"
+    service: "服务类型"
 
   instructor_profile:
     reviews: "评论"
@@ -522,13 +619,13 @@ cn:
 
   chat:
     status: "状态"
-    order_placed_at: "订单放置于"
+    order_placed_at: "订单下单于"
     order_updated_at: "订单更新于"
     initiated: "开始合作"
     student_initiated: "等待申请确认"
     instructor_initiated: "确认服务请求"
     pending: "付款"
-    pending_msg: "付款"
+    pending_msg: "等待付款"
     posted_on: "发表于"
     press_enter_to_msg: "按回车键发送消息"
     press_enter_for_new_line: "按回车键换行"
@@ -582,6 +679,16 @@ cn:
 
   show_tutors:
     all_tutors: "所有导师"
-    current_tutors: "现在正在忙我的导师"
+    current_tutors: "现在正在帮助我的导师"
     previous_tutors: "以前帮助过我的导师"
     unknown_service: "未确定服务"
+
+  rating:
+    rate: 评分
+    price: 小时价
+
+  sorting:
+    sort_by: 筛选类型
+    order_by: 显示顺序
+    asc: 从低到高
+    desc: 从高到低

@@ -1,7 +1,33 @@
 // toggle the menu based on active
 $(document).on('click', '#sidebar .navbar-toggler', function () {
+    sidebarOverlayOn();
+    var btn_active = document.getElementById("sidebar").classList.toggle('active');
+    if(!btn_active){
+      sidebarOverlayOff();
+    }
+});
+
+function sidebarOverlayOn() {
+    var overlayClass = document.getElementById("sidebar-overlay");
+    overlayClass.classList.remove("d-none");
+    overlayClass.classList.add("d-block");
+}
+
+function sidebarOverlayOff() {
+    var overlayClass = document.getElementById("sidebar-overlay");
+    overlayClass.classList.remove("d-block");
+    overlayClass.classList.add("d-none");
+}
+
+$(document).on('click', '#sidebar-overlay', function () {
     document.getElementById("sidebar").classList.toggle('active');
 });
+
+
+
+
+
+
 
 // if click on close button, remove src tag to close video
 $(document).on('click', "#closeBtn", function () {

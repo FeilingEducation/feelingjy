@@ -4,10 +4,10 @@
       <div class="img" style="background-image: url('<%= instructor.page_background%>');">
         <div class="location-new">
           <%#= image_tag "reskin/location-pin.png", class: ''%>
-          <h6 class="specialization"><%= instructor.specialization_name%> </h6>
+          <h6 class="specialization"><%=InstructorInfo.find_specialization(instructor.specialization_name)%> </h6>
           <span class="usr-location">
             <%= image_tag "reskin/location-green.png", class: ''%>
-            <span><%= instructor.university_name %></span>
+            <span><%= InstructorInfo.find_university(instructor.university_name)  %></span>
           </span>
         </div>
       </div>
@@ -26,7 +26,7 @@
             <ul>
               <li class="degree">
                   <%= image_tag "reskin/edu-cap.png", class: ''%>
-                  <span><%= instructor.degree_completed_name%></span>
+                  <span><%= InstructorInfo.find_degree(instructor.degree_completed_name)%></span>
               </li>
             </ul>
 
@@ -41,7 +41,7 @@
               <span class="rating" data-score="<%= instructor.user_info.user.get_rating %>"></span>
               <span class="review-count"><%= instructor.user_info.user.reviews.count %></span>
               <%#= image_tag "reskin/stars.png", class: ''%>
-              Reviews
+              <%= I18n.t "rating.review_cnt" %>
             </div>
 
             <!-- <a href="#" class="comment"><i class="fa fa-commenting"></i></a> -->

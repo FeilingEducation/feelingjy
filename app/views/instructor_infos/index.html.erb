@@ -15,19 +15,19 @@
     <div class="row">
       <div class="col-md-2">
         <div class="form-group">
-          <label>Sort By</label>
+          <label><%=I18n.t("sorting.sort_by")%></label>
           <select class="select2 sort_by">
-            <option value="price">Price</option>
-            <option value="rating">Rating</option>
+            <option value="price"><%=I18n.t("rating.price")%></option>
+            <option value="rating"><%=I18n.t("rating.rate")%></option>
           </select>
         </div>
       </div>
       <div class="col-md-2">
         <div class="form-group">
-          <label>Order By</label>
+          <label><%=I18n.t("sorting.order_by")%></label>
           <select class="select2 order_by">
-            <option value="asc">Asc</option>
-            <option value="desc">Desc</option>
+            <option value="asc"><%=I18n.t("sorting.asc")%></option>
+            <option value="desc"><%=I18n.t("sorting.desc")%></option>
           </select>
         </div>
       </div>
@@ -57,5 +57,5 @@
         }
       })
     })
-  })  
+  })
 </script>
