@@ -551,6 +551,7 @@ en:
     max_days: "Max days:"
     advance: "Advance"
     place_order: "Request Service"
+    send_a_msg: "Send a message"
     customized_price: "Customized Price"
 
   my_orders:
