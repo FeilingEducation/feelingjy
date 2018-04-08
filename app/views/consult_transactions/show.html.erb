@@ -1,5 +1,6 @@
 <%= render 'video_call'%>
 
+
 <div class="video-chat-wrapper p-x hidden">
   <div class="info-box">
     <% sender = current_user.user_info %>
@@ -87,33 +88,34 @@
                     <%= button_to I18n.t("chat.student_initiated"), '', disabled: true, class: 'btn default-btn btn-block btn-initiated' %>
                   <% when "payment_pending" %>
                     <%#= button_to I18n.t("chat.pending") +  " #{@payment_amount}", pay_consult_transaction_path, class: 'btn default-btn btn-block' %>
-                    <%= link_to I18n.t("chat.pending") +  " #{@payment_amount}", @alipay_url , class: 'btn default-btn btn-block', id: "std-pay" %>
+                    <%= link_to I18n.t("chat.pending") +  " #{@payment_amount}", @alipay_url , class: 'btn default-btn btn-block red', id: "std-pay" %>
+                    <%= link_to I18n.t("chat.decline"), decline_consult_transaction_path, class: 'btn default-btn btn-block'%>
+                    <!-- <%= button_to I18n.t("chat.decline"), '', class: 'btn default-btn btn-block' %> -->
+                  <% when "aborted" %>
+                    <h6><%=I18n.t("chat.request_aborted_student")%></h6>
+                    <!-- <%= button_to I18n.t("chat.request_aborted_student"), '', disabled: true, class: 'btn default-btn btn-block red' %> -->
                   <% end %>
                 <% when @transaction.instructor %>
                   <% case @transaction.status %>
                   <% when "initiated" %>
                     <div class="form-group">
                       <label for="customized-price"><%= I18n.t("instructor_profile.customized_price") %></label>
-                      <%= f.text_field(:hourly_price) %>
-                      <!-- <input type="text" class="form-control" id="customized-price" :hourly_price> -->
+                      <%= f.text_field :hourly_price, :id => "payment_amount", :maxlength => 6 %>
                     </div>
-
-                    <button type="submit" class="btn default-btn btn-block"><%=I18n.t("chat.instructor_initiated")%></button>
-                    <!-- <%= button_to I18n.t("chat.instructor_initiated"), confirm_consult_transaction_path, method: 'post', class: 'btn default-btn btn-block' %> -->
+                    <div class="form-group">
+                      <%= f.submit I18n.t("chat.instructor_initiated"), class: "btn default-btn btn-block red", id: "confirm-payment-btn" %>
+                      <%= f.submit I18n.t("chat.decline"), class: "btn default-btn btn-block"%>
+                    </div>
                   <% when "payment_pending" %>
                     <%= button_to I18n.t("chat.pending_msg"), '', disabled: true, class: 'btn default-btn btn-block red' %>
+
+                  <% when "aborted" %>
+                    <h6><%=I18n.t("chat.request_aborted_instructor")%></h6>
                   <% end %>
                 <% end %>
                 <!-- <a href="#" class="btn default-btn btn-block">Confirm Order</a> -->
                 <% end %>
               </div>
-
-
-
-
-
-
-
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     @transaction.status = 'initiated'
     if @transaction.save
       TutorMailer.notify_tutor(@transaction.instructor_id, @transaction.student_id).deliver
-      flash[:notice] = 'Transaction saved successfully.'
+      flash[:notice] = I18n.t("flash_notice.transaction.save_successful")
       redirect_to(consult_transactions_path)
     else
       render('new')
@@ -43,11 +43,19 @@ class ConsultTransactionsController < AuthenticatedResourcesController
 
   def update
     set_transaction_and_role
-    if @transaction.update_attributes(transaction_params)
-      flash[:notice] = 'Transaction updated successfully.'
-      redirect_to(confirm_consult_transaction_path)
+    if invalid_payment_amount?
+      redirect_to(consult_transaction_path(@transaction), alert: I18n.t("errors.payment_amount_invalid"))
     else
-      render('show')
+      if @transaction.update_attributes(transaction_params)
+        flash[:notice] = I18n.t("flash_notice.transaction.update_successful")
+        if request_aborted?
+          redirect_to(decline_consult_transaction_path)
+        else
+          redirect_to(confirm_consult_transaction_path)
+        end
+      else
+        render('show')
+      end
     end
   end
 
@@ -61,21 +69,47 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     if @self == @transaction.instructor
       if @transaction.status == "initiated"
         if @transaction.update(status: :payment_pending)
-          flash[:notice] = 'Transaction confirmed. Waiting for student payment.'
+          flash[:notice] = I18n.t("flash_notice.transaction.transaction_confirmed")
         else
-          flash[:notice] = 'Failed to confirm transaction. Please try again later'
+          flash[:notice] = I18n.t("flash_notice.transaction.transaction_confirm_failed")
         end
       elsif params.permit(:cancel)
         if @transaction.update(status: :initiated)
-          flash[:notice] = 'Transaction confirmation canceled.'
+          flash[:notice] = I18n.t("flash_notice.transaction.transaction_cancelled")
         else
-          flash[:notice] = 'Failed to cancel confirmation. Please try again later'
+          flash[:notice] = I18n.t("flash_notice.transaction.transaction_cancel_failed")
         end
       else
-        flash[:notice] = 'Cannot confirm transaction at the current status.'
+        flash[:notice] = I18n.t("flash_notice.transaction.transaction_cannot_confirm")
       end
     else
-      flash[:notice] = 'Invalid operation.'
+      flash[:notice] = I18n.t("flash_notice.transaction.invalid_operation")
+    end
+    redirect_to @transaction
+  end
+
+  def decline
+    set_transaction_and_role
+    if @self == @transaction.instructor
+      if @transaction.status == "initiated"
+        if @transaction.update(status: :aborted)
+          flash[:notice] = I18n.t("flash_notice.transaction.transaction_declined")
+        else
+          flash[:notice] = I18n.t("flash_notice.transaction.transaction_decline_failed")
+        end
+      else
+        flash[:notice] = I18n.t("flash_notice.transaction.transaction_cannot_declined")
+      end
+    else #student
+      if @transaction.status == "payment_pending"
+        if @transaction.update(status: :aborted)
+          flash[:notice] = I18n.t("flash_notice.transaction.transaction_declined")
+        else
+          flash[:notice] = I18n.t("flash_notice.transaction.transaction_decline_failed")
+        end
+      else
+        flash[:notice] = I18n.t("flash_notice.transaction.transaction_cannot_declined")
+      end
     end
     redirect_to @transaction
   end
@@ -87,12 +121,12 @@ class ConsultTransactionsController < AuthenticatedResourcesController
   def pay
     set_transaction_and_role
     if @self != @transaction.student
-      flash[:notice] = 'Invalid role'
+      flash[:notice] = I18n.t("flash_notice.transaction.pay_invalid_role")
       redirect_to @transaction
       return
     end
     if @transaction.status != "payment_pending"
-      flash[:notice] = 'Cannot pay at current status'
+      flash[:notice] = I18n.t("flash_notice.transaction.cannot_pay")
       redirect_to @transaction
       return
     end
@@ -101,7 +135,7 @@ class ConsultTransactionsController < AuthenticatedResourcesController
       redirect_to payment
       return
     end
-    flash[:notice] = 'Cannot create payment. Please try again later.'
+    flash[:notice] = I18n.t("flash_notice.transaction.payment_create_failed")
     redirect_to @transaction
   end
 
@@ -175,4 +209,11 @@ class ConsultTransactionsController < AuthenticatedResourcesController
 
   end
 
+  def request_aborted?
+    params[:commit] == I18n.t("chat.decline")
+  end
+
+  def invalid_payment_amount?
+    params[:consult_transaction][:hourly_price] == ""
+  end
 end

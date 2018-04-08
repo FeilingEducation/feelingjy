@@ -3,12 +3,19 @@
   <div class="row tab-header">
     <div class="col-sm-12">
       <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#orders-received" role="tab"><%= I18n.t("transactions.order_received") %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#orders-placed" role="tab"><%= I18n.t("transactions.order_placed") %></a>
-        </li>
+        <% if @role == 'instructor' %>
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#orders-received" role="tab"><%= I18n.t("transactions.order_received") %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#orders-placed" role="tab"><%= I18n.t("transactions.order_placed") %></a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#orders-placed" role="tab"><%= I18n.t("transactions.order_placed") %></a>
+          </li>
+        <% end %>
+
       </ul>
     </div>
   </div>
@@ -16,12 +23,19 @@
   <div class="row tab-content-wrapper">
     <div class="col-sm-12">
       <div class="tab-content">
-        <div class="tab-pane" id="orders-placed" role="tabpanel">
-          <%= render partial: 'old_index', locals: {'@transactions': @transactions_placed, other_role: 'instructor', role: 'student' }%>
-        </div>
-        <div class="tab-pane active" id="orders-received" role="tabpanel">
-          <%= render partial: 'old_index', locals: {'@transactions': @transactions_received, role: 'instructor', other_role: 'student'}%>
-        </div>
+        <% if @role == 'instructor' %>
+          <div class="tab-pane" id="orders-placed" role="tabpanel">
+            <%= render partial: 'old_index', locals: {'@transactions': @transactions_placed, other_role: 'instructor', role: 'student' }%>
+          </div>
+          <div class="tab-pane active" id="orders-received" role="tabpanel">
+            <%= render partial: 'old_index', locals: {'@transactions': @transactions_received, role: 'instructor', other_role: 'student'}%>
+          </div>
+        <% else %>
+          <div class="tab-pane active" id="orders-placed" role="tabpanel">
+            <%= render partial: 'old_index', locals: {'@transactions': @transactions_placed, other_role: 'instructor', role: 'student' }%>
+          </div>
+        <% end %>
+
       </div>
     </div>
   </div>
