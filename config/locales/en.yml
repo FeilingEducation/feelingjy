@@ -656,6 +656,7 @@ en:
 
   errors:
     fill_all: "Please fill in all the information"
+    payment_amount_invalid: Amount entered cannot be empty;
 
   price_range:
     label1: "Price for consulting service"

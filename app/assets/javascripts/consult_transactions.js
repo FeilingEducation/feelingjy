@@ -9,6 +9,16 @@ $(document).on('keypress', 'form.chat-input textarea', function (e) {
   }
 });
 
+// prevent user typing a non-numeric amount for payment
+$(document).on('keypress', '#payment_amount', function (e) {
+  var a = [];
+  var k = e.which;
+  for (var i = 48; i < 58; i++)
+      a.push(i);
+  if (!(a.indexOf(k)>=0))
+      e.preventDefault();
+});
+
 function updateDescriptionCharCount(input, charCountTraget, errorSpan){
   setTimeout(function(){
     $(charCountTraget).text($(input).val().length)

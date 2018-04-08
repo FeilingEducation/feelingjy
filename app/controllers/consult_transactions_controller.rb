@@ -43,15 +43,19 @@ class ConsultTransactionsController < AuthenticatedResourcesController
 
   def update
     set_transaction_and_role
-    if @transaction.update_attributes(transaction_params)
-      flash[:notice] = I18n.t("flash_notice.transaction.update_successful")
-      if request_aborted?
-        redirect_to(decline_consult_transaction_path)
-      else
-        redirect_to(confirm_consult_transaction_path)
-      end
+    if invalid_payment_amount?
+      redirect_to(consult_transaction_path(@transaction), alert: I18n.t("errors.payment_amount_invalid"))
     else
-      render('show')
+      if @transaction.update_attributes(transaction_params)
+        flash[:notice] = I18n.t("flash_notice.transaction.update_successful")
+        if request_aborted?
+          redirect_to(decline_consult_transaction_path)
+        else
+          redirect_to(confirm_consult_transaction_path)
+        end
+      else
+        render('show')
+      end
     end
   end
 
@@ -209,4 +213,7 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     params[:commit] == I18n.t("chat.decline")
   end
 
+  def invalid_payment_amount?
+    params[:consult_transaction][:hourly_price] == ""
+  end
 end
