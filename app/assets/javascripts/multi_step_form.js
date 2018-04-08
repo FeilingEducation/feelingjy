@@ -23,6 +23,15 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
           console.log('checkbox validation fails...')
         }
       }
+      
+      if($('#step1').hasClass('current-step')){
+        console.log("112312312")
+        console.log($("select[name='instructor_info[specialization][]']").val())
+        if($("select[name='instructor_info[specialization][]']").val()){
+          console.log("=======")
+          isValid = true
+        }
+      }
       // Check if there are radio buttons on screen
       if($(question_block).find('input[type=radio]').length > 0){
         // there are radio buttons present on the screeb. Make sure that user selects some value.
@@ -88,6 +97,7 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
         })
       }
     })
+    console.log("isValid111", isValid)
 
     if($('#step23').hasClass('current-step')){
       if($('input[name="instructor_info[recommended_price]"]:checked').val()=="true"){
@@ -193,6 +203,7 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
 
     // $target_form check if user has click on Done after uplaoding profile picture.
     console.log("===========", $targetHref.toString() == '#step11')
+    console.log("isValid112", isValid)
     if($targetHref == '#step11'){
       isValid = !($("#avatar-preview").val() == '')
     }

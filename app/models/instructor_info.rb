@@ -312,7 +312,8 @@ end
   end
 
   def specialization_name local='en'
-    (local.to_s == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE)[self.specialization.to_i]
+    spceializations = []
+    self.specialization.map {|s| spceializations.push((local.to_s == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE)[s.to_i])}
   end
 
   def degree_completed_name local='en'

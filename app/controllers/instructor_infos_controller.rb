@@ -43,6 +43,7 @@ class InstructorInfosController < AuthenticatedResourcesController
     @instructor_info = InstructorInfo.new(instructor_info_params)
     @instructor_info.id = current_user.id
     @instructor_info.uni_accepted = instructor_info_params[:uni_accepted].reject {|s| s.empty?}
+    @instructor_info.specialization = instructor_info_params[:specialization].reject {|s| s.empty?}
     if @instructor_info.save!
       flash[:notice] = 'Instructor profile created successfully.'
 
@@ -253,7 +254,8 @@ end
       :visa_max_price,
       :visa_fix_price,
       :avatar_cache,
-      :uni_accepted =>  []
+      :uni_accepted =>  [],
+      :spceialization =>  []
       # :avatar
     )
   end
