@@ -12,22 +12,35 @@ $(document).on('ajax:success', '.message-form', function (e) {
   var data = e.detail[0];
   var $this = $(this);
   var $history = $('.message-history.active');
-  $history.append($('<div class="message sent-message">' +
-  '<div class="msg-thumb"> <img src="' + data.img_url +'"/></div>' +
-  '<div class="msg-content-wrapper">' +
-  '<span class="fs-120 contact-name"><strong>' + data.sender + '</strong></span>' +
-  ' <span class="fs-80 d-block">Posted on: ' + data.timestamp + '</span>' +
-  '<div class="msg-content">' +
-  ' <p class="mb-1">' + data.content + '</p></div>' +
-  '<div class="msg-attachments">' +
-  // concatenate all attachment elements
+  console.log(data)
+
+  // var msg = $('<div class="msg-by-user msg"><div class="img" style="background-image: url('+ data.img_url +');"></div> <span class="msg">' + sanitize(data.content) + '</span>  </div>')
+  var msg = $('<div class="reply-by-user msg"> <span class="msg">' + sanitize(data.content) + '</span> <div class="img" style="background-image: url('+ data.img_url +');"></div></div>' +
   data.attachments.reduce(function (cat, att) {
     return cat + '<div class="attachment">' + ' <a href="' + att.url + '" target="_blank">' + att.name + '</a>' + '</div>';
-  }, '') + '</div></div></div>'
+  }, '') +
+  '<div class="date-time-con">' +
+    '<div class="date-time-send">'+ data.timestamp +'</div>' +
+  '</div>'
+)
+
+  $history.append(
+    msg
+  //   $('<div class="message sent-message msg-by-user">' +
+  // '<div class="msg-thumb"> <img src="' + data.img_url +'"/></div>' +
+  // '<div class="msg-content-wrapper">' +
+  // '<div class="msg-content">' +
+  // ' <p class="mb-1">' + data.content + '</p></div>' +
+  // '<div class="msg-attachments">' +
+  // // concatenate all attachment elements
+  // data.attachments.reduce(function (cat, att) {
+  //   return cat + '<div class="attachment">' + ' <a href="' + att.url + '" target="_blank">' + att.name + '</a>' + '</div>';
+  // }, '') + '</div></div></div>'
 
 
   // scroll to bottom
-)).prop('scrollTop', $history.prop('scrollHeight'));
+// )
+).prop('scrollTop', $history.prop('scrollHeight'));
 // removed all frontend attachment elements
 $this.find('.attachments-container').empty();
 $('.message-box-area').val('')

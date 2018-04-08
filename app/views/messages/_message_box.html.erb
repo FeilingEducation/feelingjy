@@ -11,7 +11,7 @@
   <div class="message  <%=message_class message%>">
     <div class="msg-thumb <%= message.sender_id == current_user.id ? '' : 'float-right'%>"><%= image_tag profile_image_of( message.sender_id == current_user.id ? message.sender : other), class: '' %></div>
     <div class="msg-content-wrapper">
-      <span class="fs-120 contact-name"><strong><%= message.sender.full_name %></strong></span>
+      <span class="fs-120 contact-name "><strong><%= message.sender.full_name %></strong></span>
       <span class="fs-80 d-block">Posted on: <%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></span>
       <div class="msg-content">
         <p class="mb-1"><%= message.content %></p>

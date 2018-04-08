@@ -1,10 +1,9 @@
 <div class="message received-message">
-  <div class="msg-thumb float-right"><%= image_tag profile_image_of(message.sender), class: '' %></div>
   <div class="msg-content-wrapper">
-    <span class="fs-120 contact-name"><strong><%= message.sender.full_name %></strong></span>
-    <span class="fs-80 d-block">Posted on: <%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></span>
-    <div class="msg-content">
-      <p class="mb-1"><%= message.content %></p>
+    <div class="msg-by-user msg"><div class="img" style='<%= "background-image: url('#{profile_image_of(message.sender)}');" %>'></div>
+    <span class="msg"><%= message.content %></span>
+    <div class="date-time-con">
+      <div class="date-time-send"><%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></div>
     </div>
     <div class="msg-attachments">
       <% for attachment in message.attachments do %>
@@ -15,3 +14,5 @@
     </div>
   </div>
 </div>
+
+<!-- var $chat_line = $(' <span class="msg">' + sanitize(comm.content) + '</span>  </div>') -->

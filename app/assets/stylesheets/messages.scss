@@ -6,6 +6,22 @@ $grey-background: #F0F0F0;
 // $active-grey-background: #E8E8E8;
 $active-grey-background: #E0E0E0;
 
+.message-notification{
+  &:after{
+    display: block;
+    content: "\F111";
+    color: $primary-green;
+    // color: $primary-red;
+    font: normal normal normal 12px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    z-index: 2;
+    right: 0px;
+    margin-top: -22px;
+  }
+}
+
 .msg-wrapper{
   margin: 0!important;
   background-color: $grey-background;
@@ -87,21 +103,6 @@ $active-grey-background: #E0E0E0;
     }
   }
 
-  .message-notification{
-    &:after{
-      display: block;
-      content: "\F111";
-      color: $primary-green;
-      // color: $primary-red;
-      font: normal normal normal 12px/1 FontAwesome;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      position: absolute;
-      z-index: 2;
-      margin-left: 30px;
-      margin-top: -30px;
-    }
-  }
   .msg-left-wrapper{
     border-bottom: 1px solid $border-color;
     // height: 100%;
