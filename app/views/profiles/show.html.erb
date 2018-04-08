@@ -1,13 +1,22 @@
-<!-- <div class="main-content"> -->
 <% local = session[:locale] || "en" %>
 <% in_scope = "#{controller_name}/#{action_name}" == 'instructor_infos/edit' %>
+  <div class="container">
+      <ul class="profile-nav row">
+        <li class="d-inline-block col-3"><a href="#about_me" class="profile-nav-item" id="about_me_nav"><%=I18n.t "instructor_profile.about_me"%></a></li>
+        <li class="d-inline-block col-3"><a href="#universities" class="profile-nav-item" id="universities_nav"><%=I18n.t "instructor_profile.school_got_in"%></a></li>
+        <li class="d-inline-block col-3"><a href="#costs" class="profile-nav-item" id="costs_nav"><%=I18n.t "instructor_profile.costs"%></a></li>
+        <li class="d-inline-block col-3"><a href="#education" class="profile-nav-item" id="education_nav"><%=I18n.t "instructor_profile.eduation"%></a></li>
+      </ul>
+  </div>
+
+
+  <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
   <div class="container personal-center">
 
   <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn default-btn red', id: "place-order-resp" %>
-
   <div id="request-overlay" onclick="requestOverlayOff()"></div>
-
-
 
     <div class="with-leftbar row">
       <div class="col-lg-3 mb-4">
@@ -58,64 +67,65 @@
           </div>
 
           <% if current_user.present? && current_user.id != @instructor_info.id %>
+          <div class="left-bar-wrapper" id="fixed-left-bar-wrapper">
+            <div class="left-bar second" id="fixed-left-bar">
+              <!-- <div class="form-group">
+                <label>Time</label>
 
-          <div class="left-bar second" id="fixed-left-bar">
-            <!-- <div class="form-group">
-              <label>Time</label>
+                <div class="select-con">
+                  <select class="form-control">
+                    <option>Year - Month - Day</option>
+                    <option>Year - Month - Day</option>
+                    <option>Year - Month - Day</option>
+                    <option>Year - Month - Day</option>
+                  </select>
 
-              <div class="select-con">
-                <select class="form-control">
-                  <option>Year - Month - Day</option>
-                  <option>Year - Month - Day</option>
-                  <option>Year - Month - Day</option>
-                  <option>Year - Month - Day</option>
-                </select>
-
-                <i class="fa fa-angle-down"></i>
-              </div>
-            </div> -->
-
-            <!-- <div class="form-group">
-              <label>Type of service</label>
-
-              <div class="select-con">
-                <select class="form-control">
-                  <option>Pre-consultation</option>
-                  <option>Pre-consultation</option>
-                  <option>Pre-consultation</option>
-                  <option>Pre-consultation</option>
-                </select>
-
-                <i class="fa fa-angle-down"></i>
-              </div>
-            </div> -->
-            <!-- Hide this section if user is viewing his own profile -->
-
-              <div class="btns">
-                <!-- <div class="card-body"> -->
-                 <button class="close" id="close-btn">&times;</button>
-                  <%= form_with model: @transaction, method: 'post', local: true do |f| %>
-                    <%= f.hidden_field :instructor_id %>
-                    <div class="form-group">
-                      <label><%= I18n.t "instructor_profile.start_date" %></label>
-                      <%= f.date_field :scheduled_date, min: Date.today.to_s(:db), class: 'form-control' %>
-                    </div>
-                    <div class="form-group">
-                      <label><%= I18n.t "instructor_profile.services" %></label>
-                      <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {}, class: 'custom-select d-block w-100 form-control', id: "services-drop"%>
-                    </div>
-                    <div class="form-group">
-                      <%#= scoped in_scope, :submit_tag, '申请预定1', disabled: true, class: 'btn default-btn red' %>
-                      <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn full-width-btn default-btn red', id: "place-order", disabled: 'disabled' %>
-                      <%= scoped !in_scope, :button_tag, I18n.t("instructor_profile.send_a_msg"), type: 'button', class: 'btn full-width-btn pull-left default-btn message-box modal-toggle',
-                      data: { target: '#message-box' } %>
-                    </div>
-                  <% end %>
+                  <i class="fa fa-angle-down"></i>
                 </div>
+              </div> -->
 
-              <!-- <a href="#" class="btn default-btn red">Customize</a>
-              <a href="#" class="btn default-btn">Contact Tutor</a> -->
-            <!-- </div> -->
+              <!-- <div class="form-group">
+                <label>Type of service</label>
+
+                <div class="select-con">
+                  <select class="form-control">
+                    <option>Pre-consultation</option>
+                    <option>Pre-consultation</option>
+                    <option>Pre-consultation</option>
+                    <option>Pre-consultation</option>
+                  </select>
+
+                  <i class="fa fa-angle-down"></i>
+                </div>
+              </div> -->
+              <!-- Hide this section if user is viewing his own profile -->
+
+                <div class="btns">
+                  <!-- <div class="card-body"> -->
+                   <button class="close" id="close-btn">&times;</button>
+                    <%= form_with model: @transaction, method: 'post', local: true do |f| %>
+                      <%= f.hidden_field :instructor_id %>
+                      <div class="form-group">
+                        <label><%= I18n.t "instructor_profile.start_date" %></label>
+                        <%= f.date_field :scheduled_date, min: Date.today.to_s(:db), class: 'form-control' %>
+                      </div>
+                      <div class="form-group">
+                        <label><%= I18n.t "instructor_profile.services" %></label>
+                        <%= f.select :service, options_for_select(services_of(@instructor_info), nil), {}, class: 'custom-select d-block w-100 form-control', id: "services-drop"%>
+                      </div>
+                      <div class="form-group">
+                        <%#= scoped in_scope, :submit_tag, '申请预定1', disabled: true, class: 'btn default-btn red' %>
+                        <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn full-width-btn default-btn red', id: "place-order", disabled: 'disabled' %>
+                        <%= scoped !in_scope, :button_tag, I18n.t("instructor_profile.send_a_msg"), type: 'button', class: 'btn full-width-btn pull-left default-btn message-box modal-toggle',
+                        data: { target: '#message-box' } %>
+                      </div>
+                    <% end %>
+                  </div>
+
+                <!-- <a href="#" class="btn default-btn red">Customize</a>
+                <a href="#" class="btn default-btn">Contact Tutor</a> -->
+              <!-- </div> -->
+            </div>
           </div>
           <% end %>
         </div>
@@ -140,8 +150,11 @@
                   <li><a href="#">About Me</a></li>
                   <li><a href="#">Evaluation<span>(38)</span></a></li>
                 </ul> -->
+                <p class="my-0" style="position:relative;">
+                    <a id="about_me" style="position:absolute; top:-100px;"></a>
+                    <h1><%= I18n.t "instructor_profile.about_me" %></h1>
+                </p>
 
-                <h1><%= I18n.t "instructor_profile.about_me" %></h1>
 
                 <div class="timings">
                   <h4><%= @instructor_info.page_title %></h4>
@@ -226,7 +239,10 @@
             <div class="profile-data-con last">
               <div class="inner main-profile-info">
                 <div class="schools">
-                  <h1><%= I18n.t "instructor_profile.school_got_in" %></h1>
+                  <p class="my-0" style="position:relative;">
+                      <a id="universities" style="position:absolute; top:-100px;"></a>
+                      <h1><%= I18n.t "instructor_profile.school_got_in" %></h1>
+                  </p>
                   <div class="row">
                     <% @instructor_info.universities_accepted(local).each do |uni|%>
                       <div class="col-sm-3">
@@ -245,9 +261,11 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1><%= I18n.t "instructor_profile.costs" %></h1>
+                    <p class="my-0" style="position:relative;">
+                       <a id="costs" style="position:absolute; top:-100px;"></a>
+                       <h1><%= I18n.t "instructor_profile.costs" %></h1>
+                    </p>
                   </div>
-
                   <div class="col-md-8 col-sm-7">
                     <ul class="info-list">
 
@@ -492,7 +510,11 @@
               <div class="inner main-profile-info">
                 <div class="row">
                   <div class="col-md-4 col-sm-5">
-                    <h1><%= I18n.t "instructor_profile.eduation" %></h1>
+                    <p class="my-0" style="position:relative;">
+                       <a id="education" style="position:absolute; top:-100px;"></a>
+                       <h1><%= I18n.t "instructor_profile.eduation" %></h1>
+                    </p>
+
                   </div>
 
                   <div class="col-md-8 col-sm-7">

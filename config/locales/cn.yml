@@ -512,7 +512,7 @@ cn:
     start_date: "开始日期"
     services: "服务项目"
     about_me: "关于我"
-    school_got_in: "我被录取的学校有"
+    school_got_in: "被录取的学校"
     costs: "费用"
     essay_editing: "文书改写"
     cost_desc: "费用说明"

@@ -179,13 +179,61 @@ $(document).on('click', '.editable', function() {
 
 
 $(document).on('turbolinks:load', function () {
+
+    // scroll to top feature in instructor profile page
+  $(window).scroll(function() {
+      if ($(this).scrollTop() >= 200) {        // If page is scrolled more than 50px
+          $('#return-to-top').fadeIn(200);    // Fade in the arrow
+      } else {
+          $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+      }
+  });
+  $('#return-to-top').click(function() {      // When arrow is clicked
+      $('body,html').animate({
+          scrollTop : 0                       // Scroll to top of body
+      }, 500);
+  });
+
+
   $(window).on('scroll', function(e){
     // console.log($(window).scrollTop())
-    if($(window).scrollTop() > 460){
-      $("#fixed-left-bar").addClass('fixed')
+    if($(window).width() > 1201){
+      if($(window).scrollTop() <= 460){
+        $("#fixed-left-bar").removeClass('fixed')
+        $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', '420px')
+      }
+
+      else if($(window).scrollTop() > 460 && $(window).scrollTop() < 3180){
+        $("#fixed-left-bar").addClass('fixed')
+        $("#fixed-left-bar-wrapper").removeClass('left-bar-wrapper')
+      }
+      else if ($(window).scrollTop() >= 3180) {
+        $("#fixed-left-bar").removeClass('fixed')
+        $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', '3125px')
+      }
+      else{
+        $("#fixed-left-bar").removeClass('fixed')
+        $("#fixed-left-bar-wrapper").removeClass('left-bar-wrapper')
+      }
     }
-    else{
-      $("#fixed-left-bar").removeClass('fixed')
+    else {
+      if($(window).scrollTop() <= 460){
+        $("#fixed-left-bar").removeClass('fixed')
+        $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', '420px')
+      }
+
+      else if($(window).scrollTop() > 460 && $(window).scrollTop() < 3260){
+        $("#fixed-left-bar").addClass('fixed')
+        $("#fixed-left-bar-wrapper").removeClass('left-bar-wrapper')
+      }
+      else if ($(window).scrollTop() >= 3260) {
+        $("#fixed-left-bar").removeClass('fixed')
+        $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', '3210px')
+      }
+      else{
+        $("#fixed-left-bar").removeClass('fixed')
+        $("#fixed-left-bar-wrapper").removeClass('left-bar-wrapper')
+      }
     }
   })
 
