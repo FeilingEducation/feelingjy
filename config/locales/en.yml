@@ -503,14 +503,14 @@ en:
 
   instructor_profile:
     reviews: "Reviews"
-    fix_price: "Fix price"
+    fix_price: "Fixed price"
     minimum: "Minimum"
-    per_hour: "per hour"
+    per_hour: "Per Hour"
     start_date: "Start Date"
     services: "Services"
     about_me: "About Me"
-    school_got_in: "Schools I got in"
-    costs: "Costs"
+    school_got_in: "Universities"
+    costs: "Prices"
     essay_editing: "Essay Editing"
     cost_desc: "Cost Description"
     visa_consulting: "Visa Consulting"

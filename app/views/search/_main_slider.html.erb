@@ -6,12 +6,12 @@
   <%= form_tag mentors_path, method: :get, class: 'search-form' do %>
     <div class="search-con">
       <div class="select-con select-service">
-        <%= select_tag "service", options_for_select(services_as_collection), prompt: service, class: "form-control"%>
+        <%= select_tag "service", options_for_select(services_as_collection), prompt: service, class: "form-control search-select"%>
         <i class="fa fa-angle-down"></i>
       </div>
 
       <div class="select-con select-specialization">
-        <%= select_tag "specialization", options_for_select(specialization_as_collection), prompt: specialization, class: "form-control"%>
+        <%= select_tag "specialization", options_for_select(specialization_as_collection), prompt: specialization, class: "form-control search-select"%>
         <i class="fa fa-angle-down"></i>
       </div>
       <!-- <button class="btn default-btn" type="submit" style="border-radius:40px!important">Search</button> -->
