@@ -22,7 +22,9 @@
             <div class="inner">
               <div class="img" style="background-image: url('<%= profile_image_of(@other) %>');"></div>
               <h2><%= @other.full_name %></h2>
-              <div class="skills"><%= @other.try(:specialization_name) %></div>
+              <% if @other.respond_to? :university_name%>
+                <div class="skills"><%= InstructorInfo.find_specialization(@other.try(:specialization_name)) %></div>
+              <%end%>
               <!-- <div class="reviews">
                 <%#= image_tag "reskin/stars.png" %>
                 <span class="count">38</span>
@@ -32,7 +34,7 @@
               <% if @other.respond_to? :university_name%>
                 <div class="info location">
                   <%= image_tag "reskin/location-green.png" %>
-                  <%= @other.try(:university_name)%>
+                  <%= InstructorInfo.find_university(@other.try(:university_name))%>
                 </div>
               <%end%>
 
@@ -41,7 +43,7 @@
                   <ul>
                     <li class="degree">
                         <%= image_tag "reskin/edu-cap.png", class: ''%>
-                        <span><%= @other.try(:degree_completed_name)%></span>
+                        <span><%= InstructorInfo.find_degree(@other.try(:degree_completed_name))%></span>
                     </li>
                   </ul>
                 </div>
@@ -82,7 +84,7 @@
                 <% when @transaction.student %>
                   <% case @transaction.status %>
                   <% when "initiated" %>
-                    <%= button_to I18n.t("chat.student_initiated"), '', disabled: true, class: 'btn default-btn btn-block' %>
+                    <%= button_to I18n.t("chat.student_initiated"), '', disabled: true, class: 'btn default-btn btn-block btn-initiated' %>
                   <% when "payment_pending" %>
                     <%#= button_to I18n.t("chat.pending") +  " #{@payment_amount}", pay_consult_transaction_path, class: 'btn default-btn btn-block' %>
                     <%= link_to I18n.t("chat.pending") +  " #{@payment_amount}", @alipay_url , class: 'btn default-btn btn-block', id: "std-pay" %>

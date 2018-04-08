@@ -788,7 +788,10 @@ select.form-control {
 		position: absolute;
 		width: 50px;
 		z-index: 0;
-
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
 		&.grey{
 			z-index: 1;
 		}
@@ -1399,7 +1402,6 @@ select.form-control {
 		width: 255px;
 		z-index: 9;
 	}
-
 	&.second{
 		height: 293px;
 
@@ -1408,8 +1410,13 @@ select.form-control {
 			float: left;
 			width: 100%;
 		}
-	}
+  }
 }
+
+.btns .btn-initiated{
+  font-size: 14px;
+}
+
 .with-leftbar .left-bar {
 	background: #fff;
 	border-radius: 6px;
@@ -2619,6 +2626,10 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
     z-index: 2;
     cursor: pointer;
   }
+
+	.left-bar .profile-info h2 {
+		font-size: 16px;
+	}
 }
 
 
@@ -2631,6 +2642,8 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 		height: 100%;
 		background:$theme-green;
 		left: -200px;
+		top: 0;
+		z-index: 3;
 	  border: 1px solid #fff;
 		transition: all 200ms linear;
 	}
@@ -2681,7 +2694,11 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 	#sidebar .navbar-toggler{
 		position: absolute;
 		left: 210px;
-		top: 10px;
+		top: 16px;
+		background: #f9f9f9;
+		cursor: pointer;
+		outline: none;
+		z-index: 3;
 	}
 
 	.header-container{
@@ -2714,7 +2731,7 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 			top: 40%;
 		}
 		.search-btn{
-			width: 60px;
+			width: 68px;
 		}
 	}
 
@@ -2752,30 +2769,48 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 		}
 	}
 
+	#sidebar-overlay {
+		position: fixed;
+		display: none;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,0.5);
+		z-index: 2;
+		cursor: pointer;
+	}
 
-
-
-
+	.left-bar .profile-info h2 {
+		font-size: 14px;
+	}
 
 } //media 768px
 
-// @media (max-width:576px){
-// 	.footer-top {
-// 		.footer-overlay {
-// 			.overlay-txt {
-// 				top: 50%;
-// 				h1 {
-// 					font-size: 17px;
-// 					margin-bottom: 3px;
-// 				}
-// 				p {
-// 					margin-bottom: 3px;
-// 					font-size: 12px;
-// 				}
-// 				img{
-// 					width: 30px;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
+@media (max-width:575px){
+	.main-slider {
+		.select-con{
+			.form-control{
+			  font-size: 12px;
+	  	}
+			.fa{
+				font-size: 18px;
+				right: 22px;
+				top: 13px;
+			}
+		}
+
+		.select-service{
+			width: 33vw;
+		}
+		.search-btn{
+			font-size: 12px;
+		}
+	}
+
+	.left-bar .profile-info h2 {
+		font-size: 22px;
+	}
+}
