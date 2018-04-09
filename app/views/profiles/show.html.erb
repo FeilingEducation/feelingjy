@@ -16,14 +16,14 @@
   <div class="container personal-center">
 
   <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn default-btn red', id: "place-order-resp" %>
-  <div id="request-overlay" onclick="requestOverlayOff()"></div>
+  <div id="request-overlay"></div>
 
     <div class="with-leftbar row">
       <div class="col-lg-3 mb-4">
 
     <div class="row">
         <div class="left-bar-con col-md-12">
-          <div class="left-bar">
+          <div class="left-bar" id="left-bar-profile">
             <div class="profile-info">
               <div class="inner">
                 <div class="img" style="background-image: url('<%= profile_image_of(@instructor_info) %>');"></div>
@@ -135,7 +135,7 @@
       </div>
 
       <div class="col-lg-9">
-        <div class="row">
+        <div class="row" id="profile-row">
           <div class="col-md-12">
         <div class="profile-page">
           <div class="profile-img" style="background-image: url('<%= @instructor_info.page_background %>')">

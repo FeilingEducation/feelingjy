@@ -196,45 +196,30 @@ $(document).on('turbolinks:load', function () {
 
 
   $(window).on('scroll', function(e){
-    // console.log($(window).scrollTop())
-    if($(window).width() > 1201){
-      if($(window).scrollTop() <= 460){
-        $("#fixed-left-bar").removeClass('fixed')
-        $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', '420px')
+      var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+      var left_bar_height = $("#left-bar-profile").height() + 70
+      var stopScroll
+      if($(window).width() > 1201){
+        stopScroll = $("#profile-row").height() - $("#main-footer").height() - 45;
+      }
+      else{
+        stopScroll = $("#profile-row").height() - $("#main-footer").height() - 35;
       }
 
-      else if($(window).scrollTop() > 460 && $(window).scrollTop() < 3180){
+      if($(window).scrollTop() <= left_bar_height+90){
+        $("#fixed-left-bar").removeClass('fixed')
+        $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', left_bar_height)
+      }
+      else if($(window).scrollTop() > left_bar_height+90 && scrollBottom > $(".main-footer").height()-50){
+        console.log($(scrollBottom))
+        console.log($(".main-footer").height())
         $("#fixed-left-bar").addClass('fixed')
         $("#fixed-left-bar-wrapper").removeClass('left-bar-wrapper')
       }
-      else if ($(window).scrollTop() >= 3180) {
-        $("#fixed-left-bar").removeClass('fixed')
-        $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', '3125px')
-      }
       else{
         $("#fixed-left-bar").removeClass('fixed')
-        $("#fixed-left-bar-wrapper").removeClass('left-bar-wrapper')
+        $("#fixed-left-bar-wrapper").css('position', 'absolute').css("top", stopScroll)
       }
-    }
-    else {
-      if($(window).scrollTop() <= 460){
-        $("#fixed-left-bar").removeClass('fixed')
-        $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', '420px')
-      }
-
-      else if($(window).scrollTop() > 460 && $(window).scrollTop() < 3260){
-        $("#fixed-left-bar").addClass('fixed')
-        $("#fixed-left-bar-wrapper").removeClass('left-bar-wrapper')
-      }
-      else if ($(window).scrollTop() >= 3260) {
-        $("#fixed-left-bar").removeClass('fixed')
-        $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', '3210px')
-      }
-      else{
-        $("#fixed-left-bar").removeClass('fixed')
-        $("#fixed-left-bar-wrapper").removeClass('left-bar-wrapper')
-      }
-    }
   })
 
   $('.vertical-nav-item').on("click", function(){
