@@ -196,7 +196,6 @@ end
       :page_background,
       :about_me,
       :university,
-      :specialization,
       :degree_completed,
       :consulting_tutor,
       :brainstorming_tutor,
@@ -255,7 +254,7 @@ end
       :visa_fix_price,
       :avatar_cache,
       :uni_accepted =>  [],
-      :spceialization =>  []
+      :specialization =>  []
       # :avatar
     )
   end
