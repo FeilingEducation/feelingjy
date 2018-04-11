@@ -1,14 +1,26 @@
+<% local = session[:locale] || "en" %>
 <div class="col-md-4 col-sm-6 instructor-profile-box">
   <%= link_to profile_path(instructor) do %>
     <div class="div-bg">
       <div class="img" style="background-image: url('<%= instructor.page_background%>');">
         <div class="location-new">
           <%#= image_tag "reskin/location-pin.png", class: ''%>
-          <h6 class="specialization"><%= InstructorInfo.find_specialization(instructor.specialization_name)%> </h6>
-          <span class="usr-location">
-            <%= image_tag "reskin/location-green.png", class: ''%>
-            <span><%= InstructorInfo.find_university(instructor.university_name) %></span>
-          </span>
+          <% spec_list = instructor.specialization_name local%>
+          <% i = 0 %>
+          <% spec_list.each do |spec| %>
+            <% if i < 3 %>
+              <p id="spec-<%=i%>" class="specialization mt-0 mb-1"><%=spec%> </p>
+            <% elsif i == 4 %>
+              <p class="p-0 m-0">...</p>
+            <% end %>
+            <% i = i + 1 %>
+          <% end %>
+          <div class="text-right">
+            <span class="usr-location">
+              <%= image_tag "reskin/location-green.png", class: ''%>
+              <span><%= InstructorInfo.find_university(instructor.university_name) %></span>
+            </span>
+          </div>
         </div>
       </div>
 
@@ -41,7 +53,7 @@
               <%= image_tag "reskin/stars.png", class: ''%>
               <!-- <span class="rating" data-score=""<%=instructor.avg_rating%>""></span> -->
               <span class="review-count"><%=instructor.user_info.user.reviews.count%></span>
-              <%= I18n.t "rating.review_cnt" %>
+              <%= I18n.t "rating.rate" %>
             </div>
 
             <!-- <a href="#" class="comment"><i class="fa fa-commenting"></i></a> -->

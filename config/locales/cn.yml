@@ -683,8 +683,14 @@ cn:
 
   show_tutors:
     all_tutors: "所有导师"
-    current_tutors: "现在正在帮助我的导师"
-    previous_tutors: "以前帮助过我的导师"
+    current_tutors: "正在帮助我的导师"
+    previous_tutors: "曾经帮助我的导师"
+    unknown_service: "未确定服务"
+
+  show_students:
+    all_students: "所有学生"
+    current_students: "正在帮助的学生"
+    previous_students: "曾经帮助的学生"
     unknown_service: "未确定服务"
 
   rating:

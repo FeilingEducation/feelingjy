@@ -28,7 +28,10 @@
               <div class="inner">
                 <div class="img" style="background-image: url('<%= profile_image_of(@instructor_info) %>');"></div>
                 <h2><%= @instructor_info.full_name %></h2>
-                <div class="skills"><%= @instructor_info.specialization_name local %></div>
+                <% spec_list = @instructor_info.specialization_name local%>
+                <% spec_list.each do |spec| %>
+                   <div class="skills"><%=spec%></div>
+                <% end %>
                 <div class="reviews">
                   <span class="rating" data-score="<%= @instructor_info.user_info.user.get_rating %>"></span>
                   <span class="count"><%= @instructor_info.user_info.user.reviews.count %></span>

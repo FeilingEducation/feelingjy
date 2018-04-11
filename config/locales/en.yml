@@ -686,9 +686,15 @@ en:
     previous_tutors: "Previous Tutors"
     unknown_service: "Service Unknown"
 
+  show_students:
+    all_students: "All Students"
+    current_students: "Current Students"
+    previous_students: "Previous Students"
+    unknown_service: "Service Unknown"
+
   rating:
-    rate: "rating"
-    price: "小时价"
+    rate: "review count"
+    price: "hourly price"
 
   sorting:
     sort_by: "Sort By"
