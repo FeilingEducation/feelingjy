@@ -4,9 +4,13 @@
       <h3 ><%= I18n.t("registration.step2.title") %> </h3>
     </div>
   </div>
-  <div class="col-md-10 left-panel">
+</div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10 left-panel ">
     <fieldset class="">
       <div class="row">
+        <div class="col-md-2"></div>
         <div class="col-md-10">
           <div class="question-block">
             <p class="survey-question"><%= I18n.t("registration.step2.question_text") %></p>
@@ -25,16 +29,17 @@
               </div>
             </div>
           </div>
-          <div class="survey-btn-row">
-            <div class="row">
-              <div class="col-md-8">
-                <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step1" data-percentage='20%' ><%= I18n.t("registration.btn_back") %></button>
-                <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='45%' data-target="#step3"><%= I18n.t("registration.btn_next") %></button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </fieldset>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="survey-btn-row">
+      <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step1" data-percentage='20%' ><%= I18n.t("registration.btn_back") %></button>
+      <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='45%' data-target="#step3"><%= I18n.t("registration.btn_next") %></button>
+    </div>
   </div>
 </div>
