@@ -1,3 +1,4 @@
+<% local = session[:locale] || "en" %>
 <%= render 'video_call'%>
 <div class="video-chat-wrapper p-x hidden">
   <div class="info-box">
@@ -22,7 +23,10 @@
               <div class="img" style="background-image: url('<%= profile_image_of(@other) %>');"></div>
               <h2><%= @other.full_name %></h2>
               <% if @other.respond_to? :university_name%>
-                <div class="skills"><%= InstructorInfo.find_specialization(@other.try(:specialization_name)) %></div>
+              <% spec_list = @other.specialization_name local%>
+              <% spec_list.each do |spec| %>
+                 <div class="skills"><%=spec%></div>
+              <% end %>
               <%end%>
               <!-- <div class="reviews">
                 <%#= image_tag "reskin/stars.png" %>

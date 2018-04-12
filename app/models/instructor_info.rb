@@ -218,9 +218,9 @@ def self.find_university(university_name)
    I18n.t("activerecord.attributes.instructor_info.university.#{university_name.to_s}")
 end
 
-def self.find_specialization(specialization_name)
-   I18n.t("activerecord.attributes.instructor_info.specialization.#{specialization_name.to_s}")
-end
+# def self.find_specialization(specialization_name)
+#    I18n.t("activerecord.attributes.instructor_info.specialization.#{specialization_name.to_s}")
+# end
 #
 
 
@@ -314,6 +314,7 @@ end
   def specialization_name local='en'
     spceializations = []
     self.specialization.map {|s| spceializations.push((local.to_s == 'en' ? SPECIALIZATIONS_ENGLISH : SPECIALIZATIONS_CHINESE)[s.to_i])}
+    spceializations
   end
 
   def degree_completed_name local='en'

@@ -4,6 +4,8 @@
       <h3><%= I18n.t("registration.step12.title") %></h3>
     </div>
   </div>
+</div>
+<div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-5 left-panel">
     <fieldset class="">
@@ -31,11 +33,6 @@
               </div>
             </div>
           </div>
-
-          <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step17" data-percentage='40%' ><%= I18n.t("registration.btn_back") %></button>
-            <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='55%' data-target="#step19"><%= I18n.t("registration.btn_next") %></button>
-          </div>
         </div>
       </div>
     </fieldset>
@@ -44,6 +41,15 @@
     <div class="calendar-box elepahnt">
       <p><%= I18n.t("registration.step18.cal1") %><br/> <%= I18n.t("registration.step18.cal2") %> </p>
       <%= image_tag "registration/calendar-min-max.png"%>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="survey-btn-row">
+      <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step17" data-percentage='40%' ><%= I18n.t("registration.btn_back") %></button>
+      <button type="button" class="btn btn-primary step-navigate main-btn pull-right next"  data-percentage='55%' data-target="#step19"><%= I18n.t("registration.btn_next") %></button>
     </div>
   </div>
 </div>

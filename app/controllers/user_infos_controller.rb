@@ -16,7 +16,7 @@ class UserInfosController < AuthenticatedResourcesController
   end
 
   def show_student
-    @user_info = UserInfo.find(current_user.id)
+    @user_info = InstructorInfo.find(current_user.id)
   end
 
   def show_instructor

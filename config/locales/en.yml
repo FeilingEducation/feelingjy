@@ -211,6 +211,7 @@ en:
       title: "let's get started on your profile page."
       question_title: "Which school are you from?"
       elephant_text: "Sorry friends, we currently only support tutors from schools on the list because of our specific targeted customers. Thank you for your understanding and support"
+      select_specialization: "Please select your specialization(s)"
 
     step2:
       title: "Step 1: Basic Information"
@@ -685,9 +686,15 @@ en:
     previous_tutors: "Previous Tutors"
     unknown_service: "Service Unknown"
 
+  show_students:
+    all_students: "All Students"
+    current_students: "Current Students"
+    previous_students: "Previous Students"
+    unknown_service: "Service Unknown"
+
   rating:
-    rate: "rating"
-    price: "小时价"
+    rate: "review count"
+    price: "hourly price"
 
   sorting:
     sort_by: "Sort By"

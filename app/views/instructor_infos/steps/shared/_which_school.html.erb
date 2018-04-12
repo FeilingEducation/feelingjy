@@ -6,14 +6,20 @@
   </div>
   <div class="col-md-6">
     <div class="form-group">
-      <%= f.select :specialization, InstructorInfo.spcializations_as_optons(lang), { :multiple => true, :size => 5 }, { class: 'select2 specialization-dd', :multiple => true, :size => 5  }%>
+      <%= f.select :degree_completed, InstructorInfo.degree_as_optons(lang), {}, { class: 'select2' } %>
     </div>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6">
+<div class="col-md-12">
+  <p> <p>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
     <div class="form-group">
-      <%= f.select :degree_completed, InstructorInfo.degree_as_optons(lang), {}, { class: 'select2' } %>
+      <%= f.label :specialization, I18n.t("registration.step1.select_specialization") %>
+      <%= f.select :specialization, InstructorInfo.spcializations_as_optons(lang), { :multiple => true, :size => 5 }, { class: 'select2 specialization-dd', :multiple => true, :size => 5  }%>
     </div>
   </div>
   <!-- <div class="col-md-6"> -->
