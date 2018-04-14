@@ -92,12 +92,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.smtp_settings = {
-      :address        => 'smtp587.sendcloud.net',#'smtp.sendcloud.net', #'smtp.sendgrid.net',
+      :address        => 'smtp.sendgrid.net',#'smtp587.sendcloud.net',#'smtp.sendcloud.net', #'smtp.sendgrid.net',
       :port           => '587',#'25', #'587',
       :authentication => :plain,
       :user_name      => Rails.application.secrets.sendgrid_username,
       :password       => Rails.application.secrets.sendgrid_password,
-      :domain         => '9eZxwOTyS3hs7xVJQRA5mx3rewzoCpuF.sendcloud.org', #Rails.application.secrets.domain_name,
+      :domain         => Rails.application.secrets.domain_name,#'9eZxwOTyS3hs7xVJQRA5mx3rewzoCpuF.sendcloud.org', #Rails.application.secrets.domain_name,
       :enable_starttls_auto => true
   }
 
