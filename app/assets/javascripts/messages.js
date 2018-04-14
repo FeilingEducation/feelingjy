@@ -59,8 +59,9 @@ $(document).on('ajax:beforeSend', '.message-form', function (e) {
 
 // Doing some DOM manipulation
 $(document).on('turbolinks:load', function () {
-  $('.right-message-content .message-history').scrollTop(5000)
-  $('.right-message-content .body').scrollTop(5000)
+  var objDiv = document.getElementById("message-history");
+  $('.right-message-content .message-history').scrollTop(objDiv.scrollHeight)
+  $('.right-message-content .body').scrollTop(objDiv.scrollHeight)
   $('.left-msg-nav-item').on('click', function(){
     $('.left-msg-nav-item').removeClass('active')
     $(this).addClass('active');
@@ -68,8 +69,8 @@ $(document).on('turbolinks:load', function () {
     var $target = $(this).data('target')
     var $scrollHeight = $($target).removeClass('hidden').prop('scrollHeight')
     // console.log('$scrollHeight', $scrollHeight)
-    $('.right-message-content .message-history').scrollTop(5000)
-    $('.right-message-content .body').scrollTop(5000)
+    $('.right-message-content .message-history').scrollTop(50000000)
+    $('.right-message-content .body').scrollTop(50000000)
   })
 
   $('#send-msg-txt-area').on('keyup', function(){
@@ -89,15 +90,45 @@ $(document).on('turbolinks:load', function () {
     }
   })
 
+  $("#message-page").on('keypress', 'form.message-form textarea', function(event) {
+      if (event.keyCode === 13 && !event.shiftKey) {
+          $("#send-msg-btn").click();
+      }
+  });
+
+  $("#send-msg-btn").on('click', function (e) {
+    // if the send-msg-btn is triggered by click() function, then
+    // all of the contact's button will be triggered. But other chatboxes
+    // are empty. so prevent these empty messages from sending by adding this.
+    console.log($('form.message-form textarea').val())
+    if(!$('form.message-form textarea').val()) {
+      console.log("in here")
+      // e.preventDefault();
+    }
+    // scroll to the bottom if a message is sent
+    else{
+      $('.right-message-content .message-history').scrollTop(objDiv.scrollHeight)
+      $('.right-message-content .body').scrollTop(objDiv.scrollHeight)
+      console.log(objDiv.scrollHeight)
+    }
+  })
 })
 
-window.msg_press_enter = 'new_line'
-// Detecting enter key during message sending.
-$(document).on('keypress', 'form.message-form textarea', function (e) {
-  if (e.keyCode == 13 && !e.shiftKey && window.msg_press_enter === 'send_msg') {
-    e.preventDefault();
-    // $(this).closest('form').submit();
-    $(this).parent().find(".send-msg-btn").click()
-    return false;
-  }
+
+// window.msg_press_enter = 'new_line'
+// // Detecting enter key during message sending.
+// $(document).on('keypress', 'form.message-form textarea', function (e) {
+//   if (e.keyCode == 13 && !e.shiftKey && window.msg_press_enter === 'send_msg') {
+//     e.preventDefault();
+//     // $(this).closest('form').submit();
+//     $(this).parent().find(".send-msg-btn").click()
+//     return false;
+//   }
+// });
+
+
+// add this so that the chatbox contacts can scroll all the way up even thought its parent
+// has overflow:hidden
+$(document).ready(function() {
+  $(".chat-name").css("max-height", ($(".msg-left-wrapper").height()-$(".chat-myinfo").height()-60));
 });

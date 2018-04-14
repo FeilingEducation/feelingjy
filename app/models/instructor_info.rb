@@ -396,8 +396,10 @@ end
       end
     end
     if params[:specialization].present?
-      keys.push 'specialization = :specialization'
+      keys.push ":specialization =ANY(specialization)"
+      # keys.push 'specialization = :specialization'
     end
+
     InstructorInfo.where(keys.join(" and "), service: 1, specialization: params[:specialization]).limit(20)
   end
 
