@@ -69,8 +69,8 @@ $(document).on('turbolinks:load', function () {
     var $target = $(this).data('target')
     var $scrollHeight = $($target).removeClass('hidden').prop('scrollHeight')
     // console.log('$scrollHeight', $scrollHeight)
-    $('.right-message-content .message-history').scrollTop(objDiv.scrollHeight)
-    $('.right-message-content .body').scrollTop(objDiv.scrollHeight)
+    $('.right-message-content .message-history').scrollTop(50000000)
+    $('.right-message-content .body').scrollTop(50000000)
   })
 
   $('#send-msg-txt-area').on('keyup', function(){
