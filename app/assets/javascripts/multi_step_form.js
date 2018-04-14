@@ -23,7 +23,7 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
           console.log('checkbox validation fails...')
         }
       }
-      
+
       if($('#step1').hasClass('current-step')){
         console.log("112312312")
         console.log($("select[name='instructor_info[specialization][]']").val())
@@ -100,6 +100,7 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
     console.log("isValid111", isValid)
 
     if($('#step23').hasClass('current-step')){
+      isValid = true
       if($('input[name="instructor_info[recommended_price]"]:checked').val()=="true"){
         console.log("checking!!!")
 
