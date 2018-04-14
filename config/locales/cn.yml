@@ -634,6 +634,8 @@ cn:
     decline: "拒绝"
     request_aborted_instructor: "已拒绝"
     request_aborted_student: "申请已被拒绝"
+    city: "所在城市"
+    gender: "性别"
 
   payment_confirmation:
     title: "恭喜您！"

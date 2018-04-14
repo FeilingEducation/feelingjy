@@ -633,6 +633,8 @@ en:
     decline: "Decline"
     request_aborted_instructor: "Declined"
     request_aborted_student: "Declined"
+    city: "Current City"
+    gender: "Gender"
 
   payment_confirmation:
     title: "Congratulations!"

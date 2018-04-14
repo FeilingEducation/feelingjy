@@ -1,8 +1,19 @@
 <!-- <h5>我的消息</h5> -->
 <!-- <hr> -->
-<div class="container">
+<div class="container" id="message-page">
   <div class='row with-leftbar'>
-    <div class="msg-left-wrapper col-md-3 col-sm-4">
+    <div class="col-sm-1"></div>
+    <div class="msg-left-wrapper col-md-4 col-sm-3">
+      <div class="chat-myinfo">
+        <a href="<%=edit_user_info_path(@user_info)%>">
+          <span class="img d-inline-block" style="background-image: url('<%= profile_image_of(@user_info) %>');"></span>
+          <span class="name"><%= @user_info.full_name %></span>
+          <%if !@user_info.current_city.nil? %>
+            <span class="city"><%=I18n.t("chat.city") + ": " + @user_info.current_city %></span>
+          <% end %>
+        </a>
+      </div>
+      <li class="chat-myinfo-padding"></li>
       <ul class="chat-name">
         <%if @contacts.size > 0 %>
           <% @contacts.each_with_index do |contact, index| %>
@@ -22,53 +33,54 @@
         <% end %>
       </ul>
     </div>
-    <div class="col-md-9 col-sm-8">
+    <div class="msg-right-wrapper col-md-6 col-sm-7">
       <div class="message-history-wrapper">
-      <%if @contacts.size == 0 %>
-        <div class="chat-con right-message-content" id="message-history-wrapper0">
-          <div class="body">
-            <div class="message-history no-contact" id="message-history">
-              <%= I18n.t("my_orders.no_msgs") %>
+        <%if @contacts.size == 0 %>
+          <div class="chat-con right-message-content" id="message-history-wrapper0">
+            <div class="body">
+              <div class="message-history no-contact" id="message-history">
+                <%= I18n.t("my_orders.no_msgs") %>
+              </div>
             </div>
           </div>
-        </div>
-      <%else%>
+        <%else%>
         <% message_history = [] if local_assigns[:message_history].nil? %>
           <% @contacts.each_with_index do |contact, index| %>
           <% message = @grouped_msgs[contact].last%>
           <% message_history =  @grouped_msgs[contact] %>
             <div class="chat-con right-message-content <%= index == 0 ? '': ' hidden'%>" id="message-history-wrapper<%= contact.id%>">
+              <div class="msg-right-header"><%=contact.full_name%></div>
               <div class="body">
                 <div class="message-history <%="box-#{contact.id}"%>" id="message-history">
                   <% for message in message_history do %>
                   <% next if message.content.empty? %>
-                  <div class="message <%= message_class message %>">
-                    <div class="msg-content-wrapper">
-                      <% if message.receiver_id == current_user.id %>
-                        <div class="msg msg-by-user">
-                          <div class="img" style="background-image: url('<%= profile_image_of( message.sender_id == current_user.id ? message.sender : contact) %>');"></div>
-                          <span class="msg"><%= message.content %></span>
-                        </div>
-                      <%else%>
-                        <div class="msg reply-by-user">
-                          <span class="msg"><%= message.content %></span>
-                          <div class="img" style="background-image: url('<%= profile_image_of( message.sender_id == current_user.id ? message.sender : contact) %>');"></div>
-                        </div>
-                      <%end%>
+                    <div class="message <%= message_class message %>">
+                      <div class="msg-content-wrapper">
+                        <% if message.receiver_id == current_user.id %>
+                          <div class="msg msg-by-user">
+                            <div class="img" style="background-image: url('<%= profile_image_of( message.sender_id == current_user.id ? message.sender : contact) %>');"></div>
+                            <div class="msg"><%= message.content %></div>
+                          </div>
+                        <%else%>
+                          <div class="msg reply-by-user">
+                            <div class="msg"><%= message.content %></div>
+                            <div class="img" style="background-image: url('<%= profile_image_of( message.sender_id == current_user.id ? message.sender : contact) %>');"></div>
+                          </div>
+                        <%end%>
 
-                      <div class="date-time-con">
-                        <div class="date-time-send"><%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></div>
-                      </div>
-                      <div class="msg-attachments">
-                        <% for attachment in message.attachments do %>
-                        <div class="attachment">
-                          <a href="<%= attachment.file.url %>" target="_blank"><%= attachment.read_attribute(:file) %></a>
+                        <div class="date-time-con">
+                          <div class="date-time-send"><%= message.created_at.strftime('%b %-d, %y - %l:%M %p') %></div>
                         </div>
-                        <% end %>
+                        <div class="msg-attachments">
+                          <% for attachment in message.attachments do %>
+                            <div class="attachment">
+                              <a href="<%= attachment.file.url %>" target="_blank"><%= attachment.read_attribute(:file) %></a>
+                            </div>
+                          <% end %>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <% end %>
+                  <% end %>  <!-- end for do -->
                 </div>
               </div>
 
@@ -76,7 +88,7 @@
                 <% msg = Message.new(receiver_id: contact.id) %>
                 <% box_id = "box-#{contact.id}" %>
                 <%= form_with model: msg, class: 'message-form', data: { type: 'json', boxId: box_id } do |f| %>
-                  <%= f.hidden_field :receiver_id %>
+                <%= f.hidden_field :receiver_id %>
                   <ul class="msg-toolbar text-area-wrapper">
                     <li><label for="attachments-input" class="attachments"><i class="fa fa-paperclip"></i></label></li>
                     <div class="dropdown settings-cog">
@@ -97,22 +109,22 @@
                   </ul>
                   <%= f.text_area :content, class: 'form-control message-box-area', rows: 8, style: 'resize:none', id: "message-box-area" %>
                   <div class="bottom-btns">
-                    <%= f.submit I18n.t("my_orders.snd_btn"), class: 'send-msg-btn btn default-btn', data: { disable_with: false } %>
+                    <%= f.submit I18n.t("my_orders.snd_btn"), class: 'send-msg-btn btn default-btn', id: 'send-msg-btn', data: { disable_with: false } %>
                   </div>
-                <%end%>
+                <%end%>  <!-- end form with msg -->
                 <div class="form-group d-flex">
                   <div class="attachments-container"></div>
                   <div class="w-100">
                     <%= file_field_tag '', id: 'attachments-input', class: 'attachments-input', multiple: true,
                     data: { url: attachments_path, param_name: 'attachment[file]',
                       form_data: { 'attachment[file_type]': 'attachment' }, data_type: 'json' } %>
-                    </div>
                   </div>
+                </div>
               </div>
             </div>
-          <% end %>
+          <% end %> <!--contact each  do-->
         </div>
-      <%end%>
+      <%end%> <!--end else-->
     </div>
   </div>
 </div>
