@@ -327,7 +327,7 @@ select.form-control {
 
 		.mentors{
 			.instructor-profile-box{
-				margin-bottom: 30px;
+				// margin-bottom: 30px;
 			}
 		}
 	}
@@ -562,7 +562,7 @@ select.form-control {
 		padding: 10px 25px;
 
 		.specialization{
-			font-size: 18px;
+			font-size: 15px;
 		}
 		.usr-location{
 			img{
@@ -1394,7 +1394,7 @@ select.form-control {
 }
 
 .with-leftbar {
-	padding-top: 50px;
+	// padding-top: 50px;
 }
 
 .left-bar{
@@ -1432,6 +1432,87 @@ select.form-control {
 	padding: 25px 15px;
 }
 
+.msg-left-wrapper{
+  background: #3a3f45;
+  padding: 0 0 10px 0;
+	height: 550px;
+	overflow: hidden;
+	border-top-left-radius: 5px;
+ border-bottom-left-radius: 5px;
+  .chat-myinfo{
+    background: #2e3238;
+    padding: 25px 24px 40px 24px;
+    border-bottom: 1px solid #292c33;
+		border-top-left-radius: 5px;
+  }
+
+	.chat-myinfo .img {
+		height: 50px;
+		width: 50px;
+		background-size: cover;
+		border-radius: 100%;
+		left: 15px;
+		top: 11px;
+	}
+
+	.chat-myinfo .name {
+		color: $theme-green;
+		font-size: 16px;
+		padding-bottom: 3px;
+		left: 100px;
+		position: absolute;
+	}
+
+	.chat-myinfo .city {
+		color: white;
+		font-size: 14px;
+		padding-bottom: 3px;
+		left: 100px;
+		top: 50px;
+		position: absolute;
+	}
+
+  .chat-myinfo-padding{
+    padding: 2px 0;
+    border-bottom: 1px solid #292c33;
+  }
+
+
+  .left-msg-nav-item{
+    // overflow: hidden;
+    border-bottom: 1px solid #292c33;
+    cursor: pointer;
+    position: relative;
+  }
+}
+
+.msg-right-wrapper{
+  padding: 0;
+	background: #f5f5f5;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	.msg-right-header{
+     font-size: 16px;
+		 font-weight: bold;
+		 text-align: center;
+		 padding: 10px;
+		 margin: 0 10px;
+		 background: transparent;
+		 border-bottom: 1px solid #d5d5d5;
+	}
+}
+
+.chat-name {
+	 max-height:540px;
+	 overflow-y:auto;
+
+	 :-webkit-scrollbar {
+	  width: 0px;  /* remove scrollbar space */
+	  background: transparent;  /* optional: just make scrollbar invisible */
+	 }
+}
+
+
 .chat-name li {
 	position: relative;
 	padding: 24px 40px 20px 95px;
@@ -1446,6 +1527,9 @@ select.form-control {
 	}
 }
 
+.chat-name li:last-child {
+	border-bottom-left-radius: 5px;
+}
 .chat-name li a:focus {
 	border: none !important;
 }
@@ -1459,8 +1543,8 @@ select.form-control {
 }
 
 .chat-name .img {
-	height: 60px;
-	width: 60px;
+	height: 50px;
+	width: 50px;
 	background-size: cover;
 	background-position: center;
 	border-radius: 100%;
@@ -1478,7 +1562,7 @@ select.form-control {
 }
 
 .chat-name .name {
-	color: #0c3328;
+	color: white;
 	font-size: 18px;
 	padding-bottom: 3px;
 }
@@ -1488,14 +1572,14 @@ select.form-control {
 }
 
 .chat-name li.unread{
-	background: #fff;
+	background: #2e3238;
 
 	&.active{
-		background: #f5f5f5;
+		background: #3a3f45;
 	}
 }
 .chat-name li.unread:hover {
-	background: #f5f5f5;
+	background: #3a3f45;
 }
 
 .chat-name li{
@@ -1521,18 +1605,7 @@ select.form-control {
 	display: block;
 }
 
-.chat-name li:last-child {
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
-}
-
-.chat-name li:first-child {
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-}
-
 .chat-con {
-	background: #ffffff;
 	border-radius: 6px;
 }
 
@@ -1559,11 +1632,11 @@ select.form-control {
 }
 
 .chat-con > .body {
-	// padding: 30 25px;
-	padding: 20px;
+	padding: 20px 20px 100px 20px;
 	border-bottom: 1px solid #d9d9d9;
-	height: 360px;
+	height: 350px;
 	overflow: scroll;
+	background: #f5f5f5;
 
 	&.chat-box{
 		// overflow: hidden;
@@ -1588,15 +1661,17 @@ select.form-control {
 .chat-con .body .msg .msg {
 	display: inline-block;
 	background: #f5f5f5;
-	padding: 4px 25px;
-	font-size: 16px;
+	padding: 4px 20px;
+	font-size: 14px;
 	color: #808080;
 	position: relative;
 	border-radius: 3px;
 	line-height: 26px;
-	width: 340px;
+	max-width: 340px;
 	vertical-align: top;
+	top: 15px;
 	text-align: left;
+	margin-bottom: 25px;
 }
 
 .chat-con .body .msg .msg:before {
@@ -1629,7 +1704,11 @@ select.form-control {
 
 	.img{
 		margin-left: 0!important;
-		margin-right: 25px!important;
+		margin-right: 10px!important;
+	}
+
+	> .msg{
+		background: #e6e6e6;
 	}
 }
 
@@ -1639,12 +1718,13 @@ select.form-control {
 
 .chat-con .body .reply-by-user .img {
 	margin-right: 0;
-	margin-left: 25px;
+	margin-left: 0;
 }
 
 .chat-con .body .reply-by-user > .msg {
 	background: $theme-green;
 	color: #fff;
+	margin-right: 10px;
 }
 
 .chat-con .body .reply-by-user > .msg:before {
@@ -1652,12 +1732,12 @@ select.form-control {
 	background-size: contain;
 	left: auto;
 	right: -5px;
-	bottom: 10px;
+	top: 15px;
 }
 
 .chat-con .send-msg-con {
 	background: #f5f5f5;
-	padding: 25px 25px 5px 25px;
+	padding: 10px 25px 0 25px;
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 
@@ -2497,7 +2577,7 @@ form{
 		max-width: 1280px !important;
 
 		.div-bg .img{
-			height: 200px;
+			height: 250px;
 		}
 	}
 }

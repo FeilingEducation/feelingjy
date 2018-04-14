@@ -211,8 +211,6 @@ $(document).on('turbolinks:load', function () {
         $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', left_bar_height)
       }
       else if($(window).scrollTop() > left_bar_height+90 && scrollBottom > $(".main-footer").height()-80){
-        console.log($(scrollBottom))
-        console.log($(".main-footer").height())
         $("#fixed-left-bar").addClass('fixed')
         $("#fixed-left-bar-wrapper").removeClass('left-bar-wrapper')
       }
