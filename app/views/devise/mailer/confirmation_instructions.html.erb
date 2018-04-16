@@ -6,7 +6,7 @@
     </div>
 
     <div style="background: white; padding: 50px; border-radius: 10px; font-size: 16px; box-shadow: 2px 2px 20px #ccc; width: 60vw;">
-      <p style="color: black; font-size: 25px; font-weight: 900; color: black; margin-top: 0; margin-bottom: 1rem;">嗨 <%= @user_info.first_name %>, </p>
+      <p style="color: black; font-size: 25px; font-weight: 900; color: black; margin-top: 0; margin-bottom: 1rem;">嗨 <%= @first_name %>, </p>
       <p style="color: #808080; margin-top: 0; margin-bottom: 1rem;">感谢您注册飞灵教育的账号！飞灵教育非常欢迎您的到来。在正式开始之前，我们需要确认您的身份。请点击下方的按钮来验证电子邮件: </p>
       <div style="text-align: center; margin: 0; padding: 10px 0 40px 0; border-bottom: 1px solid #D3D3D3;">
         <p style="margin-top: 0; margin-bottom: 1rem; text-align: center;"><%= link_to '验证电子邮箱', confirmation_url(@resource, confirmation_token: @token),
