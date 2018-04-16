@@ -5,10 +5,10 @@ class UserMailer < Devise::Mailer
 
   default from: '<no-reply@feelingyt.com>'
 
-  def registration_confirmation(record, token, opts={})
+  def confirmation_instructions(record, token, opts={})
    @token = token
    #you can add your instance variables here
-   @first_name = record.first_name
+   @first_name = record
    devise_mail(record, :confirmation_instructions, opts)
   end
 end
