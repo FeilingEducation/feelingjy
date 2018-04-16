@@ -6,7 +6,7 @@ class UserMailer < Devise::Mailer
   def confirmation_instructions(record, token, opts={})
    @token = token
    #you can add your instance variables here
-   @first_name = UserInfo.find(record.id).first_name
+   @first_name = UserInfo.find(record.id)
    devise_mail(record, :confirmation_instructions, opts)
   end
 end
