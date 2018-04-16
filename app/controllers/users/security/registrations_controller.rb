@@ -11,23 +11,12 @@ class Users::Security::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    puts '========='
-    puts Rails.application.secrets
-    puts '******************'
-    super do |resource|
-      # create user_info at registration
-      # May be better to register only with email and enter more information later
-      attributes = params.require(:user_info).permit(:first_name, :last_name)
-      attributes["id"] =  resource.id
-      resource.create_user_info(attributes)
-    end
+  def sign_up_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
 
-    # unless resource.valid?
-    #   puts "======="
-    #   redirect_to(action: 'new') and return
-    # end
-
+  def account_update_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
   end
 
   # GET /resource/edit
