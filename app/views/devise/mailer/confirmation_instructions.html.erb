@@ -1,16 +1,16 @@
 <div style="background-color: #e9e9e9; color: #696969;">
   <div style="margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; width: 100%;">
     <div style="text-align: center; padding: 20px 0;">
-      <%=image_tag "reskin/logo-small.png", style: 'max-width: 40px; margin-bottom: 2px;'%>
-      <p style='font-weight: bolder; color: #31c89d; margin-top: 0;'>飞灵教育</p>
+      <%=image_tag "reskin/logo-small.png", style: 'max-width: 40px; margin-bottom: 2px; display: inline-block'%>
+      <span style='font-weight: bolder; color: #31c89d; font-size: 40px; margin-top: 0;'>飞灵教育</span>
     </div>
 
     <div style="text-align: center">
       <div style="background: white; padding: 50px; border-radius: 10px; font-size: 16px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 60vw;">
-        <p style="color: black; font-size: 25px; font-weight: 900; color: black; margin-top: 0; margin-bottom: 1rem;">Hi <%= @email %>, </p>
-        <p style="color: black; margin-top: 0; margin-bottom: 1rem;">感谢您的注册，请点击下方的确认按钮，确认您的邮箱地址: </p>
+        <p style="color: black; font-size: 25px; font-weight: 900; color: black; margin-top: 0; margin-bottom: 1rem;">嗨 <%= @email %>, </p>
+        <p style="color: black; margin-top: 0; margin-bottom: 1rem;">感谢您注册飞灵教育的账号！飞灵教育非常欢迎您的到来。在正式开始之前，我们需要确认您的身份。请点击下方的按钮来验证电子邮件: </p>
         <div style="text-align: center; margin: 0; padding: 10px 0 40px 0; border-bottom: 1px solid #D3D3D3;">
-          <p style="margin-top: 0; margin-bottom: 1rem; text-align: center;"><%= link_to '确认邮件', confirmation_url(@resource, confirmation_token: @token),
+          <p style="margin-top: 0; margin-bottom: 1rem; text-align: center;"><%= link_to '验证电子邮箱', confirmation_url(@resource, confirmation_token: @token),
                   :style=> "border-radius: 5px; background: #31c89d; color: #fff; border: 2px solid #31c89d;
                             cursor: pointer; font-family: 'helvatica-r-bd';
                             font-size: 16px; outline: none; display: inline-block; font-weight: normal;
@@ -20,11 +20,12 @@
 
         <div style="padding-top: 40px; font-size: 14px;">
           <p style="color: black; margin-top: 0; margin-bottom: 1rem;">
-             需要帮助？请通过邮件联系我们
+             需要帮助吗？请联系我们的团队
              <span><%= mail_to "support@feelingyt.com", "support@feelingyt.com", style: 'color: #31c89d;'%></span>
-             或者您也可以搜索我们的微信公众号 <span style="color: #31c89d;">@飞灵教育</span>。
-             如果您有建议，请把您珍贵的建议发送至
-             <span><%= mail_to "feedback@feelingyt.com", "feedback@feelingyt.com", style: 'color: #31c89d;'%></span>。
+             或在微信上联系我们 <span style="color: #31c89d;">@飞灵教育</span>。
+             您想给予些建议吗？请通过我们的反馈信箱
+             <span><%= mail_to "feedback@feelingyt.com", "feedback@feelingyt.com", style: 'color: #31c89d;'%></span>
+             让我们知道您的想法。
           </p>
         </div>
       </div>
@@ -32,16 +33,16 @@
       <div style="margin-top: 20px; background: white; padding: 50px; border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); text-align: center; width: 60vw;">
         <p style="color: #31c89d; font-size: 30px; margin: 1.5rem;">你知道吗？</p>
         <p style="color: black; text-align: center; margin-top: 0; margin-bottom: 1rem;">
-           大约44%的亿万富翁，55.9%的福布斯最有影响力的女性以及85.2%最有影响力的男性都来自名校。
+           大约44%身价过10亿万富豪，55.9%福布斯最有影响力的女性和85.2%最有影响力的男性均出自名校。
         </p>
       </div>
     </div>
     <div style="padding-top: 3rem; padding-bottom: 2rem;">
       <div style="color: black; text-align: center; margin-bottom: 0.5rem;">
-        发送来自飞灵教育 * 搜索我们的微信公众号 * <span style="color: #31c89d;">@飞灵教育</span>
+        由飞灵教育发送 &#x25CF; <span style="color: #31c89d;">@请查看我们的微信公众号</span> &#x25CF; <span style="color: #31c89d;">@飞灵教育</span>
       </div>
-      <div style="color: black; text-align: center;">
-        黄贝路创业大厦 16-704, 罗湖区, 深圳, 518000, 中国
+      <div style="color: black; text-align: center; color: #31c89d;">
+        深圳市罗湖区景贝南16栋704
       </div>
     </div>
   </div>
