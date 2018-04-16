@@ -16,7 +16,7 @@
     <%= devise_error_messages! %>
     <div class="row">
       <div class="col-md-12">
-        <%= f.fields_for :user_info do |user_info| %>
+        <%= fields_for :user_info do |user_info| %>
           <div class="form-group tight-bottom field-with-icon">
             <%= user_info.text_field :last_name, autofocus: true, class: "form-control", require: true, placeholder: I18n.t("signup.step2.placeholder1") %>
             <div class="icon"><%= image_tag "registration/002-avatar.png"%></div>
