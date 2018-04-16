@@ -20,8 +20,6 @@ class Users::Security::RegistrationsController < Devise::RegistrationsController
       # May be better to register only with email and enter more information later
       attributes = params.require(:user_info).permit(:first_name, :last_name)
       attributes["id"] =  resource.id
-      attributes["first_name"] =  resource.first_name
-      attributes["last_name"] =  resource.last_name
       resource.create_user_info(attributes)
     end
 
