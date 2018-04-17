@@ -60,8 +60,8 @@ $(document).on('ajax:beforeSend', '.message-form', function (e) {
 // Doing some DOM manipulation
 $(document).on('turbolinks:load', function () {
   var objDiv = document.getElementById("message-history");
-  $('.right-message-content .message-history').scrollTop(objDiv.scrollHeight)
-  $('.right-message-content .body').scrollTop(objDiv.scrollHeight)
+  $('.right-message-content .message-history').scrollTop(500000000)
+  $('.right-message-content .body').scrollTop(500000000)
   $('.left-msg-nav-item').on('click', function(){
     $('.left-msg-nav-item').removeClass('active')
     $(this).addClass('active');
@@ -69,8 +69,8 @@ $(document).on('turbolinks:load', function () {
     var $target = $(this).data('target')
     var $scrollHeight = $($target).removeClass('hidden').prop('scrollHeight')
     // console.log('$scrollHeight', $scrollHeight)
-    $('.right-message-content .message-history').scrollTop(50000000)
-    $('.right-message-content .body').scrollTop(50000000)
+    $('.right-message-content .message-history').scrollTop(500000000)
+    $('.right-message-content .body').scrollTop(500000000)
   })
 
   $('#send-msg-txt-area').on('keyup', function(){

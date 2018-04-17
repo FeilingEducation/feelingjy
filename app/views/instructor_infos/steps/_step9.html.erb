@@ -4,13 +4,11 @@
       <h3><%= I18n.t("registration.step9.title") %></h3>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-3"></div>
+
+  <!-- <div class="col-md-3"></div> -->
   <div class="col-md-6 left-panel">
     <fieldset class="">
       <div class="row">
-        <div class="col-md-2"></div>
         <div class="col-md-8">
           <div class="question-block check_boxes custom-checkbox-radios">
             <p class="survey-question"><%= I18n.t("registration.step9.q") %></p>
@@ -19,17 +17,12 @@
               <%= f.text_field :page_name, rows: 5, class: '',id: 'page_name_lbl', placeholder: I18n.t("registration.step9.placeholder"), :'maxLength' => 100 %>
             </div>
           </div>
+          <div class="survey-btn-row">
+              <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step8" data-percentage='20%' ><%= I18n.t("registration.btn_back") %></button>
+              <button type="button" class="btn btn-primary step-navigate main-btn pull-right next" data-percentage='60%' data-target="#step10"><%= I18n.t("registration.btn_next") %></button>
+          </div>
         </div>
       </div>
     </fieldset>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
-    <div class="survey-btn-row">
-        <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step8" data-percentage='20%' ><%= I18n.t("registration.btn_back") %></button>
-        <button type="button" class="btn btn-primary step-navigate main-btn pull-right next" data-percentage='60%' data-target="#step10"><%= I18n.t("registration.btn_next") %></button>
-    </div>
   </div>
 </div>
