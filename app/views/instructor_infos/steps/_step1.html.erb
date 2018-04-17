@@ -1,33 +1,39 @@
 <div class="row">
+  <div class="col-md-8">
+    <div class="head-sec">
+      <h2 class="main-heading"><%= I18n.t("registration.step1.title_dear") %> <%= current_user.user_info.first_name%>, <%= I18n.t("registration.step1.title") %></h2>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <!-- <div class="col-md-1"></div> -->
   <div class="col-md-6 left-panel">
     <fieldset class="">
-      <div class="row">
-        <div class="col-md-10">
-          <div class="head-sec">
-            <h2 class="main-heading"><%= I18n.t("registration.step1.title_dear") %> <%= current_user.user_info.first_name%>, <%= I18n.t("registration.step1.title") %></h2>
-          </div>
-        </div>
-      </div>
       <div class="row">
         <div class="col-md-10">
           <div class="question-block">
             <p class="survey-question"> <%= I18n.t("registration.step1.question_title")%> </p>
             <%= render partial: 'instructor_infos/steps/shared/which_school', locals: {f: f, lang: lang} %>
           </div>
-          <div class="survey-btn-row">
-            <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step0" data-percentage='1%' ><%= I18n.t("registration.btn_back")%> </button>
-            <button type="button" class="btn btn-primary step-navigate next main-btn pull-right next"  data-percentage='30%' data-target="#step2" data-percentage="30"><%= I18n.t("registration.btn_next")%> </button>
-          </div>
         </div>
       </div>
     </fieldset>
   </div>
-
   <div class="col-md-4 right-panel">
     <div class="green-box elepahnt step1">
       <p><%= I18n.t("registration.step1.elephant_text")%> </p>
       <!-- <p class="bold-text">¥ 688 / hr</p> -->
       <%= image_tag "registration/step7-elephent.png"%>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+<div class="row">
+  <!-- <div class="col-md-2"></div> -->
+  <div class="col-md-6">
+    <div class="survey-btn-row">
+      <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step0" data-percentage='1%' ><%= I18n.t("registration.btn_back")%> </button>
+      <button type="button" class="btn btn-primary step-navigate next main-btn pull-right next"  data-percentage='30%' data-target="#step2" data-percentage="30"><%= I18n.t("registration.btn_next")%> </button>
     </div>
   </div>
 </div>
