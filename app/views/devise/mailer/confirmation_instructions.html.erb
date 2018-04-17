@@ -1,47 +1,5 @@
-<div style="background-color: #e9e9e9; color: #696969; padding: 80px 120px 50px 120px">
-  <div style="margin-right: auto; margin-left: auto; padding-right: 15px; padding-left: 15px; width: 100%;">
-    <div style="text-align: center; padding: 20px 0;">
-      <%=image_tag "reskin/email_logo.png", style: 'margin-bottom: 2px; display: inline-block'%>
-    </div>
+<p>Welcome <%= @email %>!</p>
 
-    <div style="background: white; padding: 50px; border-radius: 10px; font-size: 16px; box-shadow: 2px 2px 20px #ccc;">
-      <p style="color: black; font-size: 25px; font-weight: 900; color: black; margin-top: 0; margin-bottom: 1rem;">嗨 <%= @email %>, </p>
-      <p style="color: #808080; margin-top: 0; margin-bottom: 1rem;">感谢您注册飞灵教育的账号！飞灵教育非常欢迎您的到来。在正式开始之前，我们需要确认您的身份。请点击下方的按钮来验证电子邮件: </p>
-      <div style="text-align: center; margin: 0; padding: 10px 0 40px 0; border-bottom: 1px solid #D3D3D3;">
-        <p style="margin-top: 0; margin-bottom: 1rem; text-align: center;"><%= link_to '验证电子邮箱', confirmation_url(@resource, confirmation_token: @token),
-                :style=> "border-radius: 5px; background: #31c89d; color: #fff; border: 2px solid #31c89d;
-                          cursor: pointer; font-family: 'helvatica-r-bd';
-                          font-size: 16px; outline: none; display: inline-block; font-weight: normal;
-                          white-space: nowrap; vertical-align: middle; user-select: none; padding: 0.5rem 0.75rem;
-                          line-height: 1.25; text-decoration: none; touch-action: manipulation;"%></p>
-      </div>
+<p>You can confirm your account email through the link below:</p>
 
-      <div style="padding-top: 40px; font-size: 14px;">
-        <p style="color: #808080; margin-top: 0; margin-bottom: 1rem;">
-           需要帮助吗？请联系我们的团队
-           <span><%= mail_to "support@feelingyt.com", "support@feelingyt.com", style: 'color: #31c89d;'%></span>
-           或在微信上联系我们 <span style="color: #31c89d;">@飞灵教育</span>。
-           您想给予些建议吗？请通过我们的反馈信箱
-           <span><%= mail_to "feedback@feelingyt.com", "feedback@feelingyt.com", style: 'color: #31c89d;'%></span>
-           让我们知道您的想法。
-        </p>
-      </div>
-    </div>
-
-    <div style="margin-top: 20px; background: white; padding: 50px; border-radius: 10px; box-shadow: 2px 2px 20px #ccc; text-align: center;">
-      <p style="color: #31c89d; font-size: 30px; margin: 0 1.5rem 1.5rem 1.5rem;">有趣的事实</p>
-      <p style="color: #808080; text-align: center; margin-top: 0; margin-bottom: 1rem;">
-         大约44%身价过10亿万富豪，55.9%福布斯最有影响力的女性和85.2%最有影响力的男性均出自名校。
-      </p>
-    </div>
-
-    <div style="padding-top: 3rem; padding-bottom: 2rem;">
-      <div style="color: #808080; text-align: center; margin-bottom: 0.5rem;">
-        由飞灵教育发送 &#x25CF; <span style="color: #31c89d;">@请查看我们的微信公众号</span> &#x25CF; <span style="color: #31c89d;">@飞灵教育</span>
-      </div>
-      <div style="text-align: center; color: #31c89d;">
-        深圳市罗湖区景贝南16栋704
-      </div>
-    </div>
-  </div>
-</div>
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
