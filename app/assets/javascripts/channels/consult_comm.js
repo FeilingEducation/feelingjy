@@ -37,10 +37,10 @@ $(document).on('turbolinks:load', function () {
           if (comm) {
             console.log("comm:::", comm)
             if(user_id == comm.user_id){
-              var $chat_line = $('<div class="msg-by-user msg"><div class="img" style="background-image: url('+ comm.current_user_image_url +');"></div> <span class="msg">' + sanitize(comm.content) + '</span>  </div>')
+              var $chat_line = $('<div class="reply-by-user msg"> <span class="msg">' + sanitize(comm.content) + '</span> <div class="img" style="background-image: url('+ comm.current_user_image_url +');"></div> </div>')
             }
             else{
-              var $chat_line = $('<div class="reply-by-user msg"> <span class="msg">' + sanitize(comm.content) + '</span> <div class="img" style="background-image: url('+ comm.current_user_image_url +');"></div> </div>')
+              var $chat_line = $('<div class="msg-by-user msg"><div class="img" style="background-image: url('+ comm.current_user_image_url +');"></div> <span class="msg">' + sanitize(comm.content) + '</span>  </div>')
             }
             // put the chat-line to the right if it is a self post.
             // if (user_id == comm.user_id) $chat_line.addClass('chat-line-right');
