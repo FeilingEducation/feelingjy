@@ -128,7 +128,7 @@ en:
 
     carousel:
       title: "Feeling Education"
-      description: "Enter into dream school and impressive experience with talent"
+      description: "Let's have your dream come true!"
 
     four_steps:
       title: "Four Easy Steps"
@@ -147,11 +147,11 @@ en:
 
     tutor_background:
       title: "Tutor Background"
-      description: "Star tutors recommended to you by platform due to their high ratings"
+      description: "highly rated tutors are here to help you!"
 
     tutor_reviews:
       title: "Tutor Reviews"
-      description: "What students would like to say about their tutors"
+      description: "What students have to say about their tutors"
       sec1:
         title: "Finance Program Consultation"
         to_mentor: "To Mentor: Yuting"
@@ -176,20 +176,23 @@ en:
 
     advantages:
       title: "Advantage"
-      description: "This is why you need to choose Feeling Education"
+      description: "Why you should choose Feeling Education"
       sec1:
         title: "Why Freelancer"
-        text: "We are a platform for connecting students with tutors, providing each side with the best service possible. Students receive quality lessons, while tutors can gain success on the platform."
+        text: "We strive for creating a transparent and direct platform where experienced tutors have the flexibility in choosing not only when they are available to serve, but also what they really excel at.
+               The students, on the other hand, only pay for what and who they really need instead of being imposed with a lump-sum for a from-begin-to-end type of service."
       sec2:
         title: "Lowest Price"
-        text: "Low prices are made possible because we are a shared platform where tutors and students can interact. We are confident that we can provide the greatest value for the lowest price."
+        text: "Low price is because of the direct connection between the tutors and students without any additional layers of services and charges, except for our small commission fee per transaction."
+
       sec3:
         title: "Best Quality"
-        text: "Quality is ensured through the benchmarks built into our platform. Rating is one way of evaluating a tutor’s performance. We also have a team of dedicated professionals for quality checking."
+        text: "Best quality is ensured because that we have a rating system to allow students who are served to evaluate their tutors. Further more, our dedicated professional team will always be at the last step to
+               to ensure quality."
 
     expert:
-      title: "Share Economy Study Abroad Platform"
-      description: "Change the way it was and open up a new door for sharing knowledge"
+      title: "Sharing-Economy Platform for Studying Abroad"
+      description: "Opening a new door for knowledge sharing"
 
     video:
       close_button: "Close"
@@ -201,16 +204,16 @@ en:
     btn_back: "Back"
 
     step0:
-      title: "Before Becoming a Tutor on Feeling"
+      title: "Before Becoming a Tutor on Feeling Education"
       p1: "Feeling's founders are Chinese students studying in the U.S. We strive to help Chinese students study abroad. We hope you can join us to help make the application process simpler, clearer, and cheaper."
-      p2: "Making tasteful product is the core principle to develop this platform and the main reason to make it work is to make you, my dear tutors to succeed on the platform. The more successful you are, the more meaningful it is for us."
-      p3: "We would do our best to give you the best user experience and make money in the easiest way!"
+      p2: "Making tasteful product is the core principle of our platform, and the main reason for making it work is to make you, my dear tutors to succeed on the platform. The more successful you are, the more meaningful it is for us."
+      p3: "We would do our best to give you the best user experience and create profit in the easiest way!"
 
     step1:
       title_dear: "Dear"
       title: "let's get started on your profile page."
       question_title: "Which school are you from?"
-      elephant_text: "Sorry friends, we currently only support tutors from schools on the list because of our specific targeted customers. Thank you for your understanding and support"
+      elephant_text: "Sorry friends, we currently only support tutors from schools listed. Thank you for your understanding and support"
       select_specialization: "Please select your specialization(s)"
 
     step2:
@@ -221,13 +224,13 @@ en:
       label3: "Become a proofreading tutor?"
       label4: "Become a visa consulting tutor?"
       radio_question: "Have you helped others before?"
-      yes_label: "Yes, I have helped others before "
-      no_label: "No, this is my first time helping others"
+      yes_label: "Yes, I have."
+      no_label: "No, this is my first time."
 
     step3:
       title: "Step 1: Basic Information"
-      q1: "How many schools have you applied before?"
-      q2: "How many schools have you been accepted from the list below?"
+      q1: "How many schools did you apply for before?"
+      q2: "How many schools were you accepted to from the list below?"
 
     step4:
       title: "Step 1: Basic Information"
@@ -238,7 +241,7 @@ en:
 
     step5:
       title: "Step 1: Basic Information"
-      q: "What informatin could you share to students?"
+      q: "What informatin would you like to share to students?"
       checkbox1: "Personal CV"
       checkbox2: "Application Letter"
       checkbox3: "Offer Letter"
@@ -249,7 +252,7 @@ en:
 
     step6:
       title: "We are almost done!"
-      sub_title: "Let's review your information before creating your page"
+      sub_title: "Let's review your information before creating your homepage"
       tick1: "Modify your tutor options and contact information"
       modify: "Modify"
       sub_title2: "Now start decorating your profile"
@@ -261,17 +264,17 @@ en:
       hr: "hr"
 
     step7:
-      title: "Step 2: Decorate your profile page"
-      q: "Pick a picture of your school to be on your tutor page!"
+      title: "Step 2: Decorate your homepage"
+      q: "Pick a picture of your school to be shown on your homepage!"
       label: "Upload..."
 
     step8:
-      title: "Step 2: Decorate your profile page"
-      description: "Add attracting description"
-      label: "Simply describe yourself please"
+      title: "Step 2: Decorate your homepage"
+      description: "Add an attracting description"
+      label: "Simply describe yourself please!"
       placeholder: "You can share what you are good at and what your suggestions are for university application! (optional)"
       error: "Please add at least 400 characters"
-      q: "I am good at applying for"
+      q: "I am confident to help student apply for"
 
     step9:
       title: "Step 2: Decorate your profile page"
@@ -280,16 +283,16 @@ en:
       placeholder: "e.g. My life in America (max 100 characters)"
 
     step10:
-      title: "Step 2: Decorate your profile page"
+      title: "Step 2: Decorate your homepage"
       q: "Please add a picture of yourself!"
       upload: "Upload"
-      elephant_text1: "Every user (tutors and students) on the platform has a profile picture of her/himself. The purpose is to improve the sense of trust and security."
+      elephant_text1: "Every user (a tutor or a student) needs to have a profile picture of her/himself. The purpose is to improve the sense of trust and security."
       elephant_text2: "Please make sure we can clearly see your face in the picture."
       done: "Done"
 
     step11:
       title: "We are almost done!"
-      heading1: "Let's review your information before creating your page"
+      heading1: "Let's review your information before creating your homepage"
       desc1: "Modify your tutor options and contact information"
       modify: "Modify"
       heading2: "Start decorating your profile"
@@ -299,81 +302,81 @@ en:
       continue: "Continue"
 
     step12:
-      title: "Step 3: Prepare for students now"
+      title: "Step 3: Prepare for the students now"
       sub_title: "Our requirments for students"
-      q1: "Before selecting tutors, we require students to meet the following requirements"
+      q1: "Before choosing a tutor, we require the students to meet the following requirements:"
       r1: "Profile picture"
       r2: "Authenticated e-mail address"
       r3: "Authenticated phone number"
       r4: "Payment information"
-      r5: "Agree with our privacy term"
-      r6: "Send you information for questions"
+      r5: "Agreement with our privacy term"
+      r6: "Sending you their information for questions"
       q2: "For new students:"
       n1: "Every tutor tries their best to help you"
-      n2: "Please respect all tutors, they are why we exist"
-      n3: "Please keep in contact with tutors"
-      elephant_text: "Your information is safe with us! These are the requirment for students before they contact you."
+      n2: "Please respect your tutors"
+      n3: "Please keep in contact with your tutors"
+      elephant_text: "Your information is safe with us! These are the requirments for students before they contact you."
 
     step13:
       q1: "Privacy terms for students"
-      t1: "Allow to share edited files"
-      t2: "Allow to share my information"
-      t3: "Allow to meet in person"
-      t4: "Allow to answer questions for free"
-      t5: "Allow to ask personal questions"
+      t1: "Allow my edited files to be shared"
+      t2: "Allow my information to be shared"
+      t3: "Can meet in person"
+      t4: "Can answer questions for free"
+      t5: "Can ask personal questions"
       q2: "What do you want the students to know about you?"
       k1: "For a sense of accomplishment"
-      k2: "To capitalize on myfree time"
+      k2: "To capitalize on leisure"
       k3: "I am not good at writing"
       k4: "I am more nervous than you when I help you apply"
-      k5: "I care about your cooperation very much"
+      k5: "I care about your cooperation"
       elephant_text1: "Besides agreeing with our terms, students also need to agree with your terms."
-      elephant_text2: "If you feel upset of insecure about the interaction with student, you cancel before setting a time to avoid penalty."
+      elephant_text2: "If you feel upset of insecurity upon interacting with student, you can cancel the service before setting a time to avoid penalty."
 
     step14:
       sub_title: "Your requirments for students"
       q1: "Our privacy terms"
-      t1: "Allow to share edited files"
-      t2: "Allow to share my information"
-      t3: "Allow to meet in person"
-      t4: "Allow to answer questions for free"
-      t5: "Allow to ask personal questions"
+      t1: "Allow my edited files to be shared"
+      t2: "Allow my information to be shared"
+      t3: "Can meet in person"
+      t4: "Can answer questions for free"
+      t5: "Can ask personal questions"
       q2: "Your privacy terms"
       k1: "For a sense of accomplishment"
       k2: "I want to utilize my free time"
       k3: "I don't know how to write actually"
       k4: "I am more nervous than you when I help you apply"
-      k5: "I care about your cooperation very much"
+      k5: "I care about your cooperation"
       elephant_text: "Your information is safe with us! These are the requirments for students before they contact you."
 
     step15:
-      sub_title: "Students can request your help in following way"
+      sub_title: "Students can request your help in the following way"
       box1:
-        p1: "1. Only students who meet all terms and requirements can contact you"
-        p2: "Any students who want to work with you need to confirm their contact info, payment info, and clarify the help they need."
+        p1: "1. Only students who meet all the terms and requirements can contact you"
+        p2: "Any student who wants to work with you need to confirm their contact and payment information, and clarify the help they need."
       box2:
-        p1: "2. You decide whom to work with"
-        p2: "You can set all the time you are available. Students who work with you needs to obey all your privacy terms."
+        p1: "2. You decide who to work with"
+        p2: "You can set up your availability. Students who work with you must comply with your privacy terms."
       box3:
         p1: "3. Only you will be notified when an order is confirmed."
-        p2: "You will receive confirmation emails with including the order detail, including order type, personal requirement, etc."
+        p2: "You will receive a confirmation email including the order detail, personal requirement, and so on."
 
     step16:
-      sub_title: "Your first business starts from setting available time!"
-      p1: "You can set the time you are available to help students"
-      label1: "Students can only choose time you are available, so please update your time availability timely."
-      label2: "You will be responsible for any cancellation or conflict due to incorrect time availability."
+      sub_title: "Your first business starts with setting up availability!"
+      p1: "Set when you can provide help"
+      label1: "Students can only request a service within your availability. Please keep your availability updated regularly."
+      label2: "You will be responsible for any cancellation or conflict due to incorrect availability."
       label3: "I'll keep my availability accurate!"
 
     step17:
       sub_title: "Just a couple more questions for you"
       p1: "These questions can help you better manage your service and time"
       label1: "Have you ever been a tutor before? "
-      label2: "How many students do you wish to help at one time?"
+      label2: "How many students do you wish to help at once?"
 
     step18:
-      sub_title: "Set a length of time a student can work with you"
-      p1: "How long you are willing to work with one student is important. Students will use this to adjust their progress and communication with you."
+      sub_title: "Set a length of period to work with a student"
+      p1: "How long you are willing to work with one student is important, because students will adjust their plan and communication with you."
       label1: "Minimum work days?"
       label2: "Maximum work days?"
       error: "It should be greater than min days."
@@ -383,26 +386,26 @@ en:
       cal2: "between 2 and 30 days"
 
     step19:
-      sub_title: "How many days in advance do you need the student to notify you?"
-      p1: "How long you are willing to work with one student is important. Students will use this to adjust their progress and communication with you."
+      sub_title: "How many days in advance do you require for the student to notify you?"
+      p1: "This is also important because students can also adjust their plan and communication with you."
       label: "Select the number of days in advance"
 
     step20:
-      sub_title: "How many days could students reserve your time in advance?"
-      p1: "You could choose to open your time for a while"
+      sub_title: "How many days can a student reserve your time in advance?"
+      p1: "You can choose to open your availability for a while"
 
     step22:
-      sub_title: "How do you want to set the price?"
+      sub_title: "How do you like to set your prices?"
       p1: "You can set the time you are available to help students"
       label1: "According to the market value"
       desc1: "You can use smart price setter to set your price. The price will be within your range."
       recommended: "Recommended"
       label2: "Set a fixed price"
-      desc2: "You can set an expected price first. Feeling platform will give you a suggestion, and it's up to you which one to go with."
+      desc2: "You can set an expected price first. Feeling platform will give you a suggestion, but it is up to you to choose."
       elephant_text: "These two methods are meant for facilitating the match process. However you choose, we will help you set a reasonable price in the later steps."
 
     step23:
-      elephant_text: "You are the one who decides the price, we only make suggestions. Price will influence the amount of students you get and students' reviews."
+      elephant_text: "You are the one who decides the price. We only provide a suggestion. Price may affect the amount of students who would like to request a service from you."
       fix:
         title: "Smart price setter"
         p: "Students will be charged this price for your service, if you turn off the smart price setter"
@@ -436,13 +439,13 @@ en:
       elephant_text2: "​According to survey, this will help attract students in the beginning. According to statistics, this will help you get review quickly and attract more students."
 
     step26:
-      sub_title1: "Congrats"
-      sub_title2: "You have completed your mentor info!"
-      desc: "You can start receiving orders from now! You can edit your calendar or privacy  in your personal page anytime."
+      sub_title1: "Congratulations"
+      sub_title2: "You have completed your tutor info!"
+      desc: "You can start receiving orders from now! You can edit your calendar and privacy in your homepage anytime."
       edit_btn: "Edit"
       finish_btn: "Finish and Start"
       hello: "Hello"
-      visit_home: "Let's visit your home page"
+      visit_home: "Let's visit your homepage"
 
   mentors:
     heading: "Select your Mentor"
