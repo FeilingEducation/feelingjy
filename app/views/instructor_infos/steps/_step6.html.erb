@@ -1,10 +1,11 @@
-<div class="row review-step">
+<div class="row review-step ml-5">
   <div class="col-md-12">
     <div class="head-sec">
       <h2 class="main-heading"><%= current_user.user_info.first_name%>,<br/> <%= I18n.t("registration.step6.title") %> </h2>
       <h6 class="sub-heading"> <%= I18n.t("registration.step6.sub_title") %> </h6>
     </div>
   </div>
+  <!-- <div class="col-md-1"></div> -->
   <div class="col-md-5 left-panel">
     <div class="row">
       <div class="col-md-6">
@@ -15,7 +16,11 @@
         <%= image_tag "registration/tick-success.png", class: 'img-responsive'%>
       </div>
     </div>
-    <hr/>
+    <div class="row">
+      <div class="col-md-10">
+        <hr/>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-12 disable-block">
         <div class="head-sec">
@@ -27,7 +32,11 @@
         <button type="button" class="btn btn-primary step-navigate main-btn pull-left initialize-section" data-section="sec2" data-target="#step7"><%= I18n.t("registration.step6.continue") %></button>
       </div>
     </div>
-    <hr/>
+    <div class="row">
+      <div class="col-md-10">
+        <hr/>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-12 disable-block">
         <p class="sub-heading first"><%= I18n.t("registration.step6.sub_title3") %></p>

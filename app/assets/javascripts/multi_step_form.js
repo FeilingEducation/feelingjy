@@ -11,6 +11,7 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
   var $target_form = $($this.data('target'));
   var isValid = true;
   var $targetHref = $($this).data('target')
+  var isUpload = false;
   if(!$this.is('.submit')) {
 
     // Implement validations
@@ -71,6 +72,7 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
         $.map($(question_block).find('input[type=file]'), function(file_field, index){
           if($(file_field).val().length == 0){
             isValid = false;
+            isUpload = true;
             console.log('file field validation fails...')
           }
         })
@@ -85,14 +87,15 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
             console.log('textarea validation fails...')
           }
           if($(textarea).attr('id') == "description"){
-            $('#description-char-count span').text($(textarea).val().length)
-            if($(textarea).val().length < 400){
-              isValid = false;
-              $(textarea).next('span.error').removeClass('hidden')
-            }
-            else{
-              $(textarea).next('span.error').addClass('hidden')
-            }
+            // $('#description-char-count span').text($(textarea).val().length)
+            // if($(textarea).val().length < 400){
+            //   isValid = false;
+            //   $(textarea).next('span.error').removeClass('hidden')
+            // }
+            // else{
+            //   $(textarea).next('span.error').addClass('hidden')
+            // }
+            isValid = true;  // lei added this to skip 400 words description at registration step 8
           }
         })
       }
@@ -207,8 +210,9 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
     console.log("isValid112", isValid)
     if($targetHref == '#step11'){
       isValid = !($("#avatar-preview").val() == '')
+      isUpload = true;
     }
-
+    console.log("isValid113", isValid)
     if(isValid || $this.hasClass('btn-default')){
       $curr_form.toggleClass('current-step');
       $target_form.toggleClass('current-step');
@@ -218,11 +222,21 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
       $(window).scrollTop(0)
     }
     else{
-      $('.snack-bar-error').addClass('show')
-      setTimeout(function(){
-        $('.snack-bar-error').removeClass('show')
-      },3000)
-      // alert('Please fill in all fields...')
+      if(isUpload){
+        $('.snack-bar-error-upload').addClass('show')
+        setTimeout(function(){
+          $('.snack-bar-error-upload').removeClass('show')
+        },3000)
+        // alert('Please fill in all fields...')
+      }
+      else{
+        console.log("in here")
+        $('.snack-bar-error').addClass('show')
+        setTimeout(function(){
+          $('.snack-bar-error').removeClass('show')
+        },3000)
+        // alert('Please fill in all fields...')
+      }
     }
   }
 });

@@ -661,6 +661,7 @@ cn:
   errors:
     fill_all: "请填写所有信息"
     payment_amount_invalid: "输入金额不能为空"
+    upload: "请上传一张头像照片并点击确认键"
 
   price_range:
     label1: "咨询每小时价格"

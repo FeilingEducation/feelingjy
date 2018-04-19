@@ -269,7 +269,7 @@ en:
       title: "Step 2: Decorate your profile page"
       description: "Add attracting description"
       label: "Simply describe yourself please"
-      placeholder: "Please share what you are good and what your suggestions are about applying for a schools. At least 400 characters."
+      placeholder: "You can share what you are good at and what your suggestions are for university application! (optional)"
       error: "Please add at least 400 characters"
       q: "I am good at applying for"
 
@@ -321,7 +321,7 @@ en:
       t3: "Allow to meet in person"
       t4: "Allow to answer questions for free"
       t5: "Allow to ask personal questions"
-      q2: "What would you want your students to know about you?"
+      q2: "What do you want the students to know about you?"
       k1: "For a sense of accomplishment"
       k2: "To capitalize on myfree time"
       k3: "I am not good at writing"
@@ -363,7 +363,7 @@ en:
       p1: "You can set the time you are available to help students"
       label1: "Students can only choose time you are available, so please update your time availability timely."
       label2: "You will be responsible for any cancellation or conflict due to incorrect time availability."
-      label3: "Will do! I'll keep my availability accurate!"
+      label3: "I'll keep my availability accurate!"
 
     step17:
       sub_title: "Just a couple more questions for you"
@@ -659,7 +659,8 @@ en:
 
   errors:
     fill_all: "Please fill in all the information"
-    payment_amount_invalid: Amount entered cannot be empty;
+    payment_amount_invalid: "Amount entered cannot be empty;"
+    upload: "Please upload a picture and press Done button to proceed."
 
   price_range:
     label1: "Price for consulting service"
