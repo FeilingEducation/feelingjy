@@ -188,7 +188,7 @@ en:
       sec3:
         title: "Best Quality"
         text: "Best quality is ensured because that we have a rating system to allow students who are served to evaluate their tutors. Further more, our dedicated professional team will always be at the last step to
-               to ensure quality."
+               ensure quality."
 
     expert:
       title: "Sharing-Economy Platform for Studying Abroad"
@@ -451,7 +451,7 @@ en:
     heading: "Select your Mentor"
     desc: "Star tutors recommended to you by platform due to their high ratings"
     no_heading: "No Matching results"
-    no_desc: "Opps!! No mentors matching your selection. Let's go back to to previous screen to select some different filters"
+    no_desc: "Opps!! No mentors matching your selection. Let's go back to previous screen to select some different filters"
     back_btn: "Back"
 
   signup:
