@@ -66,7 +66,7 @@ $(document).on('turbolinks:load', function () {
     $('.left-msg-nav-item').removeClass('active')
     $(this).addClass('active');
     $('.right-message-content').addClass('hidden');
-    $('.right-message-content').removeClass('valid-right-message-content');
+    $('.right-message-content').removeClass('valid-right-message-content'); // lei added: add a class to identify which chat box is active
     var $target = $(this).data('target')
     var $scrollHeight = $($target).removeClass('hidden').prop('scrollHeight')
     $($target).addClass('valid-right-message-content')
@@ -100,19 +100,32 @@ $(document).on('turbolinks:load', function () {
   //     }
   // });
 
+  // lei added: if send-btn is click, scroll to the bottom. also, prevent clicking
+  // if the textarea is empty
+  $(".send-msg-btn").on('click', function (e) {
+    var $textarea = $(".valid-right-message-content form.message-form textarea")
+    if(!$textarea.val()) {
+      e.preventDefault();
+    }
+    // // scroll to the bottom if a message is sent
+    else{
+      $('.valid-right-message-content .message-history').scrollTop(500000000)
+      $('.valid-right-message-content .body').scrollTop(500000000)
+    }
+  })
 })
 
 
-window.msg_press_enter = 'send_msg'
-// Detecting enter key during message sending.
-$(document).on('keypress', 'form.message-form textarea', function (e) {
-  if (e.keyCode == 13 && !e.shiftKey && window.msg_press_enter === 'send_msg') {
-    e.preventDefault();
-    // $(this).closest('form').submit();
-    $(this).parent().find(".send-msg-btn").click()
-    return false;
-  }
-});
+// window.msg_press_enter = 'send_msg'
+// // Detecting enter key during message sending.
+// $(document).on('keypress', 'form.message-form textarea', function (e) {
+//   if (e.keyCode == 13 && !e.shiftKey && window.msg_press_enter === 'send_msg') {
+//     e.preventDefault();
+//     // $(this).closest('form').submit();
+//     $(this).parent().find(".send-msg-btn").click()
+//     return false;
+//   }
+// });
 
 
 // add this so that the chatbox contacts can scroll all the way up even thought its parent

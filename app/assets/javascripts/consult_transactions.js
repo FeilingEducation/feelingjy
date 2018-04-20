@@ -167,6 +167,7 @@ $(document).on('keypress', 'form.message-form textarea', function (e) {
     e.preventDefault();
     // $(this).closest('form').submit();
     $(this).parent().find('.msg-send-btn').click();
+    $(this).parent().find('.send-msg-btn').click();
     console.log("$(this).closest('.msg-send-btn')", $(this).closest('.msg-send-btn'))
     return false;
   }
