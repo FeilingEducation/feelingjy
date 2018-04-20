@@ -92,20 +92,17 @@ $(document).on('turbolinks:load', function () {
     }
   })
 
-  $("#message-page").on('keypress', 'form.message-form textarea', function(event) {
-      if (event.keyCode === 13 && !event.shiftKey) {
-        // $("#send-msg-btn").click();
-        console.log($(this).val())
+  $("#message-page").on('keypress', 'form.message-form textarea', function(e) {
+      if (e.keyCode === 13 && !e.shiftKey) {
+        e.preventDefault();
         $(this).parent().find(".send-msg-btn").click()
+        return false;
       }
   });
 
   $(".send-msg-btn").on('click', function (e) {
-
     var $textarea = $(".valid-right-message-content form.message-form textarea")
-
     if(!$textarea.val()) {
-      console.log("in here")
       e.preventDefault();
     }
     // // scroll to the bottom if a message is sent
