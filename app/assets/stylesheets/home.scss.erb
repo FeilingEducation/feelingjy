@@ -756,7 +756,7 @@ select.form-control {
 	background: #fff;
 	border-radius: 6px;
 	cursor: pointer;
-	min-height: 313px;
+	min-height: 450px;
 
 	.header {
 		text-align: left;
@@ -954,6 +954,7 @@ select.form-control {
 			 font-size: 15px;
 			 margin-right: 10px;
 			 padding-top: 20px;
+			 font-weight: bolder;
 
 			 &:last-child {
 				 margin-right: 0px;
@@ -1645,7 +1646,8 @@ select.form-control {
 	padding: 20px 20px 100px 20px;
 	border-bottom: 1px solid #d9d9d9;
 	height: 350px;
-	overflow: scroll;
+	overflow-y: auto;
+	overflow-x: hidden;
 	background: #f5f5f5;
 
 	&.chat-box{
@@ -1719,6 +1721,7 @@ select.form-control {
 
 	> .msg{
 		background: #e6e6e6;
+		min-height: 34px;
 	}
 }
 
@@ -1735,6 +1738,7 @@ select.form-control {
 	background: $theme-green;
 	color: #fff;
 	margin-right: 10px;
+	min-height: 34px;
 }
 
 .chat-con .body .reply-by-user > .msg:before {

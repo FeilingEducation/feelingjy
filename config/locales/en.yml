@@ -128,7 +128,7 @@ en:
 
     carousel:
       title: "Feeling Education"
-      description: "Let's have your dream come true!"
+      description: "Your journey starts here!"
 
     four_steps:
       title: "Four Easy Steps"
@@ -179,11 +179,10 @@ en:
       description: "Why you should choose Feeling Education"
       sec1:
         title: "Why Freelancer"
-        text: "We strive for creating a transparent and direct platform where experienced tutors have the flexibility in choosing not only when they are available to serve, but also what they really excel at.
-               The students, on the other hand, only pay for what and who they really need instead of being imposed with a lump-sum for a from-begin-to-end type of service."
+        text: "We strive for creating a transparent and direct platform where experienced tutors have the flexibility in choosing when they are available to serve, what type of service are they really excel at, and how much they want to be paid for."
       sec2:
         title: "Lowest Price"
-        text: "Low price is because of the direct connection between the tutors and students without any additional layers of services and charges, except for our small commission fee per transaction."
+        text: "Low price is achieved because of the direct connection between the tutors and students without any extra layers of services and charges, except for our small commission fee per transaction. The students only pay for what they really need instead of being imposed with a lump-sum for a from-begin-to-end type of service."
 
       sec3:
         title: "Best Quality"

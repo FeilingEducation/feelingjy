@@ -66,8 +66,10 @@ $(document).on('turbolinks:load', function () {
     $('.left-msg-nav-item').removeClass('active')
     $(this).addClass('active');
     $('.right-message-content').addClass('hidden');
+    $('.right-message-content').removeClass('valid-right-message-content');
     var $target = $(this).data('target')
     var $scrollHeight = $($target).removeClass('hidden').prop('scrollHeight')
+    $($target).addClass('valid-right-message-content')
     // console.log('$scrollHeight', $scrollHeight)
     $('.right-message-content .message-history').scrollTop(500000000)
     $('.right-message-content .body').scrollTop(500000000)
@@ -92,24 +94,24 @@ $(document).on('turbolinks:load', function () {
 
   $("#message-page").on('keypress', 'form.message-form textarea', function(event) {
       if (event.keyCode === 13 && !event.shiftKey) {
-          $("#send-msg-btn").click();
+        // $("#send-msg-btn").click();
+        console.log($(this).val())
+        $(this).parent().find(".send-msg-btn").click()
       }
   });
 
-  $("#send-msg-btn").on('click', function (e) {
-    // if the send-msg-btn is triggered by click() function, then
-    // all of the contact's button will be triggered. But other chatboxes
-    // are empty. so prevent these empty messages from sending by adding this.
-    console.log($('form.message-form textarea').val())
-    if(!$('form.message-form textarea').val()) {
+  $(".send-msg-btn").on('click', function (e) {
+
+    var $textarea = $(".valid-right-message-content form.message-form textarea")
+
+    if(!$textarea.val()) {
       console.log("in here")
-      // e.preventDefault();
+      e.preventDefault();
     }
-    // scroll to the bottom if a message is sent
+    // // scroll to the bottom if a message is sent
     else{
-      $('.right-message-content .message-history').scrollTop(objDiv.scrollHeight)
-      $('.right-message-content .body').scrollTop(objDiv.scrollHeight)
-      console.log(objDiv.scrollHeight)
+      $('.valid-right-message-content .message-history').scrollTop(500000000)
+      $('.valid-right-message-content .body').scrollTop(500000000)
     }
   })
 })

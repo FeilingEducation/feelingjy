@@ -48,7 +48,7 @@
           <% @contacts.each_with_index do |contact, index| %>
           <% message = @grouped_msgs[contact].last%>
           <% message_history =  @grouped_msgs[contact] %>
-            <div class="chat-con right-message-content <%= index == 0 ? '': ' hidden'%>" id="message-history-wrapper<%= contact.id%>">
+            <div class="chat-con right-message-content <%= index == 0 ? 'valid-right-message-content': ' hidden'%>" id="message-history-wrapper<%= contact.id%>">
               <div class="msg-right-header"><%=contact.full_name%></div>
               <div class="body">
                 <div class="message-history <%="box-#{contact.id}"%>" id="message-history">
