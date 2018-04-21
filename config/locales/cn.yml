@@ -414,10 +414,12 @@ cn:
         title: "只能定价"
         p1: "请设置价格范围。您的服务价格会根据您设定的范围进行调整。"
         p2: "请设置一个固定价格."
-        label1: "最少"
-        label2: "最多"
+        label1: "最小值"
+        label2: "最大值"
         label3: "您想与学生合作的频率"
-        error: "最多应该大于最少"
+        error: "最大值应该大于或等于最小值"
+        error_min: "最小值需在 ¥ 100以上"
+        error_max: "最大值需在 ¥ 6000以下"
         consult_placeholder1: "建议: ¥ 600/小时"
         consult_placeholder2: "建议: ¥ 800/小时"
         brainstorm_placeholder1: "建议: ¥ 600/小时"
@@ -659,7 +661,7 @@ cn:
     btn: "确认更改"
 
   errors:
-    fill_all: "请填写所有信息"
+    fill_all: "有重要信息未填写或填写信息有错误"
     payment_amount_invalid: "输入金额不能为空"
     upload: "请上传一张头像照片并点击确认键"
 

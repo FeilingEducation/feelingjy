@@ -14,8 +14,9 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
   <div class="container personal-center">
-
-  <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn default-btn red', id: "place-order-resp" %>
+  <% if current_user.present? && current_user.id != @instructor_info.id %>
+    <%= scoped !in_scope, :submit_tag, I18n.t("instructor_profile.place_order"), class: 'btn default-btn red', id: "place-order-resp" %>
+  <% end %>
   <div id="request-overlay"></div>
 
     <div class="with-leftbar row">

@@ -118,6 +118,23 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
           else{
             $("input[name='instructor_info[consulting_max_price]']").next('span.error').addClass('hidden')
           }
+
+          if($("input[name='instructor_info[consult_min_price]']").val() < 100){
+            isValid = false
+            $(".consult_error_min").removeClass('hidden')
+          }
+          else{
+            $(".consult_error_min").addClass('hidden')
+          }
+
+          if($("input[name='instructor_info[consult_max_price]']").val() > 6000){
+            isValid = false
+            $(".consult_error_max").removeClass('hidden')
+          }
+          else{
+            $(".consult_error_max").addClass('hidden')
+          }
+
         }
 
         if($("select[name='instructor_info[brainstorming_tutor]']").val() == "1"){
@@ -130,6 +147,22 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
           }
           else{
             $("input[name='instructor_info[brainstorm_max_price]']").next('span.error').addClass('hidden')
+          }
+
+          if($("input[name='instructor_info[brainstorm_min_price]']").val() < 100){
+            isValid = false
+            $(".brainstorm_error_min").removeClass('hidden')
+          }
+          else{
+            $(".brainstorm_error_min").addClass('hidden')
+          }
+
+          if($("input[name='instructor_info[brainstorm_max_price]']").val() > 6000){
+            isValid = false
+            $(".brainstorm_error_max").removeClass('hidden')
+          }
+          else{
+            $(".brainstorm_error_max").addClass('hidden')
           }
         }
 
@@ -144,6 +177,22 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
           else{
             $("input[name='instructor_info[essay_max_price]']").next('span.error').addClass('hidden')
           }
+
+          if($("input[name='instructor_info[essay_min_price]']").val() < 100){
+            isValid = false
+            $(".essay_error_min").removeClass('hidden')
+          }
+          else{
+            $(".essay_error_min").addClass('hidden')
+          }
+
+          if($("input[name='instructor_info[essay_max_price]']").val() > 6000){
+            isValid = false
+            $(".essay_error_max").removeClass('hidden')
+          }
+          else{
+            $(".essay_error_max").addClass('hidden')
+          }
         }
 
         if($("select[name='instructor_info[visa_consultant]']").val() == "1"){
@@ -156,6 +205,22 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
           }
           else{
             $("input[name='instructor_info[visa_max_price]']").next('span.error').addClass('hidden')
+          }
+
+          if($("input[name='instructor_info[visa_min_price]']").val() < 100){
+            isValid = false
+            $(".visa_error_min").removeClass('hidden')
+          }
+          else{
+            $(".visa_error_min").addClass('hidden')
+          }
+
+          if($("input[name='instructor_info[visa_max_price]']").val() > 6000){
+            isValid = false
+            $(".visa_error_max").removeClass('hidden')
+          }
+          else{
+            $(".visa_error_max").addClass('hidden')
           }
         }
       }

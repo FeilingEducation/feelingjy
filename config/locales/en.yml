@@ -378,7 +378,7 @@ en:
       p1: "How long you are willing to work with one student is important, because students will adjust their plan and communication with you."
       label1: "Minimum work days?"
       label2: "Maximum work days?"
-      error: "It should be greater than min days."
+      error: "It should be greater than or equal to min days."
       placeholder1: "Select minimum work days"
       placeholder2: "Select maximum work days"
       cal1: "You can choose"
@@ -418,6 +418,8 @@ en:
         label2: "At most"
         label3: "How often do you want to work with students"
         error: "It should be greater than min value."
+        error_min: "min must be greater than ¥ 100"
+        error_max: "min must be less than ¥ 6000"
         consult_placeholder1: "Suggest: ¥ 600/hr"
         consult_placeholder2: "Suggest: ¥ 800/hr"
         brainstorm_placeholder1: "Suggest: ¥ 600/hr"
@@ -660,7 +662,7 @@ en:
     btn: "Confirm Change"
 
   errors:
-    fill_all: "Please fill in all the information"
+    fill_all: "Please fill in all the information and clear all the errors"
     payment_amount_invalid: "Amount entered cannot be empty;"
     upload: "Please upload a picture and press Done button to proceed."
 
