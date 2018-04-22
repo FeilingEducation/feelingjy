@@ -1,3 +1,4 @@
+<% local = session[:locale] || "en" %>
 <% in_scope = "#{controller_name}/#{action_name}" == 'instructor_infos/edit' %>
 <% lang = I18n.locale %>
 <div class="container">
@@ -18,8 +19,12 @@
       </div>
 
       <div class="text-center hatcher-center">
-        <h2 class="user-name"><%= @instructor_info.specialization_name %></h2>
-        <!-- <div class="user-skill">Brainstorm Writing rewrite</div> -->
+        <% spec_list = @instructor_info.specialization_name local%>
+        <% i = 0 %>
+        <% spec_list.each do |spec| %>
+            <h4 id="spec-<%=i%>" class="mt-0 mb-1 user-name"><%=spec%> </h4>
+          <% i = i + 1 %>
+        <% end %>
       </div>
     </div>
 
