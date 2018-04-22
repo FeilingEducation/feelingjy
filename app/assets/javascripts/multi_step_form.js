@@ -306,6 +306,21 @@ $(document).on('click', '.multi-step-form .step-navigate', function () {
   }
 });
 function initFileCrop() {
+
+  // because every time we click "go back" and then "go forth", or simply refresh the page,
+  // the turbolinks will load. this function will trigger twice. So this is the sequence (manually) to
+  // reset before intialization
+  $('#pic-placeholder').removeClass('croppie-container')
+  $('#pic-placeholder .cr-boundary').remove()
+  $('#pic-placeholder .cr-slider-wrap').remove()
+  $('#pic-placeholder').removeClass('image-laoded')
+  $('#pic-placeholder').removeClass('image-done')
+  $(".set-image").addClass('hidden')
+  $("#upload-btn").removeClass('hidden')
+  $("#avatar-preview").val('')
+  $("#avatar-image").val('')
+  $('.cr-image').attr('src','')
+
   var $uploadCrop;
   function readFile(input) {
     if (input.files && input.files[0]) {
@@ -401,8 +416,42 @@ function managePrices(id){
   }
 }
 
+
+// to destroy all the extra select2 prior to turbolinks reload
+$(document).on("turbolinks:before-cache", function() {
+    $('.select2-hidden-accessible').select2('destroy');
+});
+
 $(document).on('turbolinks:load', function () {
+// $('.become-mentor').on('click', function () {
   initFileCrop()
+
+  $('#step0').addClass('current-step')
+  $('#step1').removeClass('current-step')
+  $('#step2').removeClass('current-step')
+  $('#step3').removeClass('current-step')
+  $('#step4').removeClass('current-step')
+  $('#step5').removeClass('current-step')
+  $('#step6').removeClass('current-step')
+  $('#step7').removeClass('current-step')
+  $('#step8').removeClass('current-step')
+  $('#step9').removeClass('current-step')
+  $('#step10').removeClass('current-step')
+  $('#step11').removeClass('current-step')
+  $('#step12').removeClass('current-step')
+  $('#step13').removeClass('current-step')
+  $('#step14').removeClass('current-step')
+  $('#step15').removeClass('current-step')
+  $('#step16').removeClass('current-step')
+  $('#step17').removeClass('current-step')
+  $('#step18').removeClass('current-step')
+  $('#step19').removeClass('current-step')
+  $('#step20').removeClass('current-step')
+  $('#step21').removeClass('current-step')
+  $('#step22').removeClass('current-step')
+  $('#step23').removeClass('current-step')
+  $('#step26').removeClass('current-step')
+
   managePrices("price-range-fields")
   managePrices("fixed-price-fields")
   $('input[type=radio][name="instructor_info[recommended_price]"]').change(function() {
