@@ -52,9 +52,39 @@ module InstructorInfosHelper
   def specialization_as_collection
     # the dropdown items are chinese when cn is selected
     if(session[:locale]=='en' || session[:locale]==nil)
-      ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "Literature", "Law", "Management", "Mathematics", "Physics", "Language", "Chemistry", "Neurobiology"].each_with_index.map {|m,i| [m,i]}
+      ["Arts & Humanities",
+       "Biological Sciences",
+       "Business",
+       "Chemistry",
+       "Civil Engineering",
+       "Computer Science",
+       "Electrical Engineering",
+       "Engineering",
+       "Literature",
+       "Language",
+       "Law",
+       "Neurobiology",
+       "Mechanical Engineering",
+       "Management",
+       "Mathematics",
+       "Physics"].each_with_index.map {|m,i| [m,i]}
     else
-      ["艺术与人文领域", "生命科学", "商科", "计算机科学", "工程", "文学", "法律", "管理", "数学", "物理", "语言", "化学", "神经学"].each_with_index.map {|m,i| [m,i]}
+      ["艺术与人文领域",
+       "生命科学",
+       "商科",
+       "化学",
+       "土木工程",
+       "计算机科学",
+       "电气工程",
+       "工程",
+       "文学",
+       "语言",
+       "神经学",
+       "机械工程",       
+       "法律",
+       "管理",
+       "数学",
+       "物理"].each_with_index.map {|m,i| [m,i]}
     end
   end
 

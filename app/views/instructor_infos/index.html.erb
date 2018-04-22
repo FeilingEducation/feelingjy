@@ -46,13 +46,16 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $(".sort_by, .order_by").change(function(){
+      service="<%=@service%>;"
+      specialization="<%=@specialization%>";
       sort_by = $(".sort_by").find("option:selected")[0].value
       order_by = $(".order_by").find("option:selected")[0].value
       $.ajax({
         type: "get",
         url: "/mentors",
-        data: "sort_by="+sort_by+"&order_by="+order_by,
+        data: "sort_by="+sort_by+"&order_by="+order_by+"&service="+service+"&specialization="+specialization,
         success: function(res){
+          // console.log(res)
           $(".mentors").html($(res).find(".mentors").html())
         }
       })

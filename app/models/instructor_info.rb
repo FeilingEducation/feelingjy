@@ -177,8 +177,39 @@ class InstructorInfo < ApplicationRecord
                          ]
 
 
-  SPECIALIZATIONS_ENGLISH = ["Arts & Humanities", "Biological Sciences", "Business", "Computer Science", "Engineering", "Literature", "Law", "Management", "Mathematics", "Physics", "Language", "Chemistry", "Neurobiology"]
-  SPECIALIZATIONS_CHINESE = ["艺术与人文领域", "生命科学", "商科", "计算机科学", "工程", "文学", "法律", "管理", "数学", "物理", "语言", "化学", "神经学"]
+  SPECIALIZATIONS_ENGLISH = ["Arts & Humanities",
+                             "Biological Sciences",
+                             "Business",
+                             "Chemistry",
+                             "Civil Engineering",
+                             "Computer Science",
+                             "Electrical Engineering",
+                             "Engineering",
+                             "Literature",
+                             "Language",
+                             "Law",
+                             "Neurobiology",
+                             "Mechanical Engineering",
+                             "Management",
+                             "Mathematics",
+                             "Physics"]
+
+  SPECIALIZATIONS_CHINESE = ["艺术与人文领域",
+                             "生命科学",
+                             "商科",
+                             "化学",
+                             "土木工程",
+                             "计算机科学",
+                             "电气工程",
+                             "工程",
+                             "文学",
+                             "语言",
+                             "法律",
+                             "神经学",
+                             "机械工程",
+                             "管理",
+                             "数学",
+                             "物理"]
 
   DEGREE_COMPLETED_ENGLISH = ["Bachelor (junior)", "Bachelor (senior)", "First year graduate student", "Second year graduate student", "PhD","Bachelor (graduated)","Master (graduated)", "PhD (graduated)"]
   DEGREE_COMPLETED_CHINESE = ['在读本科第三年','在读本科第四年', '在读研究生第一年', '在读研究生第二年', '在读博士','本科（已毕业）','研究生（已毕业）','博士（已毕业）']

@@ -10,7 +10,7 @@ class InstructorInfosController < AuthenticatedResourcesController
 
   def index
     if request.xhr?
-      @data = InstructorInfo.limit(20)
+      @data = InstructorInfo.search(params)
       sort_by = params[:sort_by]
       order_by = params[:order_by]
 
@@ -29,6 +29,8 @@ class InstructorInfosController < AuthenticatedResourcesController
     else
       if params[:service].present? || params[:specialization].present?
         @results = InstructorInfo.search(params)
+        @service = params[:service] #pass in service to view, and ajax will be able to send back for order-by
+        @specialization = params[:specialization] #pass in specialization to view, and ajax will be able to send back for order-by
       else
         @results = InstructorInfo.limit(20)
       end
