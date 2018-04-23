@@ -775,6 +775,7 @@
 <!-- </div> -->
 <!--  -->
 <script type="text/javascript">
+  $('.rating').raty('destroy')
   $('.rating').raty({readOnly: true, number: 5})
 </script>
 <% modal = render partial: 'messages/send_a_message', locals: { other: @instructor_info.user_info, box_id: '' } %>
