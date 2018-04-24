@@ -6,10 +6,12 @@ en:
         status:
           initiated: "Initiated"
           payment_pending: "Payment Pending"
+          payment_completed: "Payment Completed"
           confirmed: "Confirmed"
           canceled: "Canceled"
           completed: "Completed"
           aborted: "Aborted"
+          reviewed: "Reviewed"
 
       instructor_info:
         degree:
@@ -635,8 +637,12 @@ en:
     send_btn: "Send"
     stop: "Stop"
     decline: "Decline"
+    payment_successful: "Payment Successful"
     request_aborted_instructor: "Declined"
     request_aborted_student: "Declined"
+    request_completed: "Review & Close Order"
+    complete_request: "Done"
+    order_closed: "Order Completed"
     city: "Current City"
     gender: "Gender"
 
@@ -682,10 +688,13 @@ en:
   service_status:
     initiated: "Waiting For Confirmation"
     payment_pending: "Payment Pending"
+    payment_completed: "Payment Completed"
     confirmed: "Order Confirmed"
     canceled: "Cancelled"
     completed: "Completed"
     aborted: "Aborted"
+    reviewed: "Review Completed!"
+
 
   show_tutors:
     all_tutors: "All Tutors"
@@ -725,3 +734,9 @@ en:
       pay_invalid_role: "Invalid role"
       cannot_pay: "Cannot pay at current status"
       payment_create_failed: "Cannot create payment. Please try again later."
+      payment_create_succeeded: "Payment successful."
+      transaction_completed: "Transaction completed."
+      transaction_completed_failed: "Transaction complete failed."
+      review_denied: "You are not allowed to review this instructor."
+      transaction_review_failed: "review failed."
+      transaction_reviewed: "review successful."

@@ -69,9 +69,9 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     if @self == @transaction.instructor
       if @transaction.status == "initiated"
         if @transaction.update(status: :payment_pending)
-          flash[:notice] = I18n.t("flash_notice.transaction.transaction_confirmed")
+          flash[:notice] = I18n.t("flash_notice.transaction.transaction_completed")
         else
-          flash[:notice] = I18n.t("flash_notice.transaction.transaction_confirm_failed")
+          flash[:notice] = I18n.t("flash_notice.transaction.transaction_completed_failed")
         end
       elsif params.permit(:cancel)
         if @transaction.update(status: :initiated)
@@ -113,6 +113,41 @@ class ConsultTransactionsController < AuthenticatedResourcesController
     end
     redirect_to @transaction
   end
+
+
+  def payment_complete
+    set_transaction_and_role
+    if @self != @transaction.student
+      flash[:notice] = "I am not a student"
+      redirect_to @transaction
+      return
+    end
+
+    if @transaction.update(status: :payment_completed)
+      flash[:notice] = I18n.t("flash_notice.transaction.payment_create_succeeded")
+    else
+      flash[:notice] = I18n.t("flash_notice.transaction.payment_create_failed")
+    end
+    redirect_to @transaction
+  end
+
+
+  def complete
+    set_transaction_and_role
+    if @self != @transaction.instructor
+      flash[:notice] = "im not an instructor"
+      redirect_to @transaction
+      return
+    end
+
+    if @transaction.update(status: :completed)
+      flash[:notice] = I18n.t("flash_notice.transaction.transaction_completed")
+    else
+      flash[:notice] = I18n.t("flash_notice.transaction.transaction_completed_failed")
+    end
+    redirect_to @transaction
+  end
+
 
   # Pay for a transaction when current user if the student and the transaction
   # state is "payment_pending"

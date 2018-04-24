@@ -6,10 +6,12 @@ cn:
         status:
           initiated: "已发送"
           payment_pending: "等待付款"
+          payment_completed: "付款完成"
           confirmed: "付款已确认"
           canceled: "取消"
           completed: "完成"
           aborted: "服务终止"
+          reviewed: "已被评价"
 
       instructor_info:
         degree:
@@ -634,8 +636,12 @@ cn:
     send_btn: "发送"
     stop: "停止"
     decline: "拒绝"
+    payment_successful: "支付成功"
     request_aborted_instructor: "已拒绝"
     request_aborted_student: "申请已被拒绝"
+    request_completed: "验收并结束服务"
+    complete_request: "完成任务"
+    order_closed: "任务圆满完成"
     city: "所在城市"
     gender: "性别"
 
@@ -681,10 +687,12 @@ cn:
   service_status:
     initiated: "等待导师确认"
     payment_pending: "待付款"
+    payment_completed: "付款完成"
     confirmed: "已付款"
     canceled: "已取消"
     completed: "已完成"
     aborted: "已终止"
+    reviewed: "评价完成!"
 
   show_tutors:
     all_tutors: "所有导师"
@@ -724,3 +732,9 @@ cn:
       pay_invalid_role: "支付角色错误。"
       cannot_pay: "当前状态下不可支付。"
       payment_create_failed: "支付失败，请稍后尝试。"
+      payment_create_succeeded: "支付成功。"
+      transaction_completed: "服务确认完成。"
+      transaction_completed_failed: "服务确认失败。"
+      review_denied: "你不能对这个导师进行评评价。"
+      transaction_review_failed: "评价失败。"
+      transaction_reviewed: "评价成功。"

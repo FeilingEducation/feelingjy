@@ -22,7 +22,10 @@
   min-height: 600px;
   color: $main-text-color;
   padding: 30px;
-
+  .back_to_homepage:hover{
+     color: $theme-green;
+  }
+  
   .section-header h3{
     color: $main-text-color;
     font-size: 24px;
