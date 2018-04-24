@@ -1,8 +1,10 @@
 <div class="mt-4 mx-3">
-	<% if !@transaction.blank? && @transaction.payment.try(:status) %>
+
+	<% if !@transaction.blank?%>
 		<h3>Add Review</h3>
 		<hr>
 		<%= form_for @tutor_review, url: user_reviews_path(params[:user_id]) do |f| %>
+		  <%= f.hidden_field :transaction_id, value: @transaction.id %>
 			<%= f.hidden_field :reviewer_id, value: current_user.id %>
 			<%= f.hidden_field :consult_transaction_id, value: current_user.id %>
 			<div class="row">
@@ -64,7 +66,7 @@
 						<center><%= f.submit "Submit", class: "btn btn-primary" %></center>
 					</div>
 				</div>
-			<% end %>	
+			<% end %>
 		<% end %>
 	<%end%>
 	<h3>List Reviews</h3>

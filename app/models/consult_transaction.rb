@@ -3,7 +3,7 @@ class ConsultTransaction < ApplicationRecord
   after_create :build_chat, :create_open_tok_session
   after_destroy :destroy_chat
 
-  enum status: [:initiated, :payment_pending, :confirmed, :canceled, :completed, :aborted]
+  enum status: [:initiated, :confirmed, :payment_pending, :payment_completed, :canceled, :completed, :aborted, :reviewed]
 
   belongs_to :instructor, class_name: 'InstructorInfo'
   belongs_to :student, class_name: 'UserInfo'

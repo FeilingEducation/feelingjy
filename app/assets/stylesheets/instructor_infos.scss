@@ -22,7 +22,10 @@
   min-height: 600px;
   color: $main-text-color;
   padding: 30px;
-
+  .back_to_homepage:hover{
+     color: $theme-green;
+  }
+  
   .section-header h3{
     color: $main-text-color;
     font-size: 24px;
@@ -177,10 +180,6 @@
           p{
             margin-top: 20px;
           }
-
-          // img{
-          //   bottom: 10px;
-          // }
         }
 
         &.requirments{
@@ -683,6 +682,141 @@
     font-size: 15px;
   }
 }
+
+
+
+#loading{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 2;
+  .ring{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background: transparent;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 150px;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: $theme-green;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px $theme-green;
+    // box-shadow: 0 0 20px #fff000;
+  }
+
+  .ring:before{
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 104%;
+    height: 104%;
+    border: 3px solid transparent;
+    border-top: 3px solid $theme-green;
+    border-right: 3px solid $theme-green;
+    border-radius: 50%;
+    animation: animateCircle 2s linear infinite;
+  }
+
+  span{
+    display: block;
+    position: absolute;
+    top: calc(50% - 2px);
+    left: 50%;
+    width: 50%;
+    height: 4px;
+    background: transparent;
+    transform-origin: left;
+    animation: animate 2s linear infinite;
+  }
+
+  span:before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: $theme-green;
+    top: -8px;
+    right: -8px;
+    box-shadow: 0 0 20px $theme-green;
+
+  }
+
+  @keyframes animate{
+    0%{
+      transform: rotate(45deg);
+    }
+    100%{
+      transform: rotate(405deg);
+    }
+  }
+
+  @-moz-keyframes animate {
+    0% {
+      transform: rotate(45deg);
+    }
+
+    100% {
+      transform: rotate(405deg);
+    }
+  }
+
+  @-webkit-keyframes animate {
+    0% {
+      transform: rotate(45deg);
+    }
+
+    100% {
+      transform: rotate(405deg);
+    }
+  }
+
+
+  @keyframes animateCircle{
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+
+  @-moz-keyframes animateCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @-webkit-keyframes animateCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
+
+
 
 @media (max-width:768px){
 

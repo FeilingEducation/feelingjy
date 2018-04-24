@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   # post 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
   get 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
   get 'transactions/:id/decline', to: 'consult_transactions#decline', as: 'decline_consult_transaction'
+  get 'transactions/:id/payment_complete', to: 'consult_transactions#payment_complete', as: 'payment_complete_consult_transaction'
+  get 'transactions/:id/complete', to: 'consult_transactions#complete', as: 'complete_consult_transaction'
+
 
   post 'transactions/:id/pay', to: 'consult_transactions#pay', as: 'pay_consult_transaction'
   post '/alipay', to: 'consult_transactions#alipay'

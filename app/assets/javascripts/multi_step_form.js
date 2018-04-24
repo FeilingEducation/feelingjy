@@ -1,5 +1,9 @@
 'use strict';
 
+$(document).on('click', '#regi-complete', function () {
+  $("#loading").removeClass("d-none")
+});
+
 // navigate through multi-step-form
 $(document).on('click', '.multi-step-form .step-navigate', function () {
   var $this = $(this);
@@ -424,6 +428,8 @@ $(document).on("turbolinks:before-cache", function() {
 
 $(document).on('turbolinks:load', function () {
 // $('.become-mentor').on('click', function () {
+  $("#loading").addClass("d-none")
+  
   initFileCrop()
 
   $('#step0').addClass('current-step')
