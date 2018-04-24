@@ -9,7 +9,7 @@
         </div>
         <div class="survey-btn-row">
           <button type="button" class="btn btn-default step-navigate pull-left" data-target="#step23" data-percentage="80%"><%= I18n.t("registration.step26.edit_btn") %></button>
-          <button type="submit" class="btn btn-primary step-navigate main-btn pull-right submit"><%= I18n.t("registration.step26.finish_btn") %></button>
+          <button type="submit" class="btn btn-primary step-navigate main-btn pull-right submit" id="regi-complete"><%= I18n.t("registration.step26.finish_btn") %></button>
         </div>
       </div>
     </div>
@@ -32,6 +32,8 @@
     </fieldset>
   </div>
 </div>
+
+<%= render partial: 'application/loading', locals: {f: f, lang: lang} %>
 
 <script type="javascript">
   $document.on('turbolinks:click', function() {
