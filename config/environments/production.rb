@@ -45,7 +45,8 @@ Rails.application.configure do
   config.action_cable.allowed_request_origins = [ 'https://www.feelingyt.com/cable']
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true # { port: 443}
+  # https://github.com/websocket-rails/websocket-rails/issues/333
+  config.force_ssl = false # true # { port: 443}
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.

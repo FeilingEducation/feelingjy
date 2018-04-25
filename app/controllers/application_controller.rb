@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
 
+  force_ssl if: :ssl_configured?
+
   NotAuthorized = Class.new(StandardError)
 
   def not_found
@@ -62,6 +64,12 @@ class ApplicationController < ActionController::Base
       # puts '********'
       # puts "#{Rails.application.secrets}*********"
       I18n.locale = session[:locale] || I18n.default_locale
+    end
+
+    # rails-config given:
+    # config.secure_envs = %w(production staging for_my_girl_omfg_she_will_be_like_u_such_nasty_nerd_wtf)
+    def ssl_configured?
+      Rails.env.production ? && request.path != '/cable'
     end
 
 end
