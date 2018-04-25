@@ -69,7 +69,7 @@ class ApplicationController < ActionController::Base
     # rails-config given:
     # config.secure_envs = %w(production staging for_my_girl_omfg_she_will_be_like_u_such_nasty_nerd_wtf)
     def ssl_configured?
-      Rails.env.production ? && request.path != '/cable'
+      Rails.env.production? && request.path != '/cable'
     end
 
 end
