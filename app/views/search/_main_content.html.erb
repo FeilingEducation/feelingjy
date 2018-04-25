@@ -70,51 +70,55 @@
         <% @tutor_reviews.each do |r| %>
           <div class="col-md-4 col-sm-6">
             <div class="without-bg-con">
-              <div class="div-bg without-img-bg">
-                <h4><%= r.user.user_info.full_name %><%#= I18n.t "homepage.tutor_reviews.sec1.title" %></h4>
 
-                <div class="user-image-text user-right">
+                <div class="div-bg without-img-bg">
+                  <h4><%= r.user.user_info.full_name %><%#= I18n.t "homepage.tutor_reviews.sec1.title" %></h4>
+                  <%= link_to profile_path(r.consult_transaction.instructor), class: 'review_instructor_link' do %>
+
+
+                  <div class="user-image-text user-right">
+                    <div class="usr-img">
+                      <!-- <img src="images/dumy-user.jpg" alt=""> -->
+                      <%= image_tag profile_image_of(r.user), class: ''%>
+                    </div>
+
+                    <div class="usr-txt">
+                      <!-- <p><%= I18n.t "homepage.tutor_reviews.sec1.to_mentor" %><%=r.consult_transaction.instructor.full_name %></p> -->
+                      <ul>
+                        <li>
+                          <a href="#" class="edu-cap"><%= InstructorInfo.find_degree(r.consult_transaction.instructor.degree_completed_name) %></a>
+                        </li>
+                      </ul>
+
+                      <a class="usr-location"><span><%= InstructorInfo.find_university(r.consult_transaction.instructor.university_name) %></span></a>
+                    </div>
+                  </div>
+
+                  <p><%= r.review_text %><%#= I18n.t "homepage.tutor_reviews.sec1.text" %></p>
+
+                  <div class="review-comment text-right">
+                    <div class="reviews front-page-reviews">
+                      <!-- <img src="images/stars.png" alt=""> -->
+                      <span class="rating" data-score="<%= r.user.get_rating %>"></span>
+                      <%#= image_tag "reskin/stars.png", class: ''%>
+                      <span class="review-count"><%= r.user.reviews.count %></span>
+                      <%= I18n.t "homepage.tutor_reviews.sec1.reviews" %>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+                <div class="user-time">
                   <div class="usr-img">
                     <!-- <img src="images/dumy-user.jpg" alt=""> -->
-                    <%= image_tag profile_image_of(r.user), class: ''%>
+                    <%= image_tag r.reviewer_image.nil? ? "" : r.reviewer_image, class: ''%>
                   </div>
 
                   <div class="usr-txt">
-                    <p><%= I18n.t "homepage.tutor_reviews.sec1.to_mentor" %></p>
-                    <ul>
-                      <li>
-                        <a href="#" class="edu-cap"><%= I18n.t "homepage.tutor_reviews.sec1.degree" %></a>
-                      </li>
-                    </ul>
-
-                    <a class="usr-location"><span><%= I18n.t "homepage.tutor_reviews.sec1.uni" %></span></a>
+                    <div class="usr-name"><%= I18n.t "homepage.tutor_reviews.reviewer" %><%= r.reviewer_name %></div>
+                    <div class="date"><%= r.created_at.strftime("%Y-%m-%d %T") %></div>
                   </div>
                 </div>
 
-                <p><%= r.review_text %><%#= I18n.t "homepage.tutor_reviews.sec1.text" %></p>
-
-                <div class="review-comment text-right">
-                  <div class="reviews">
-                    <!-- <img src="images/stars.png" alt=""> -->
-                    <span class="rating" data-score="<%= r.user.get_rating %>"></span>
-                    <%#= image_tag "reskin/stars.png", class: ''%>
-                    <span class="review-count"><%= r.user.reviews.count %></span>
-                    <%= I18n.t "homepage.tutor_reviews.sec1.reviews" %>
-                  </div>
-                </div>
-              </div>
-
-              <div class="user-time">
-                <div class="usr-img">
-                  <!-- <img src="images/dumy-user.jpg" alt=""> -->
-                  <%= image_tag r.reviewer_image.nil? ? "" : r.reviewer_image, class: ''%>
-                </div>
-
-                <div class="usr-txt">
-                  <div class="usr-name"><%= r.reviewer_name %></div>
-                  <div class="date"><%= r.created_at.strftime("%Y-%m-%d %T") %></div>
-                </div>
-              </div>
             </div>
           </div>
         <%end%>
@@ -324,6 +328,7 @@
   </div>
 </div>
 <script type="text/javascript">
+  $('.rating').raty('destroy')
   $('.rating').raty({readOnly: true})
   $(function(){
   $('.close').click(function(){

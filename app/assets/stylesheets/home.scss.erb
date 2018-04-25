@@ -498,11 +498,12 @@ select.form-control {
 	// 	color: $theme-green;
 	// }
 	.usr-txt {
-		font-size: 13px;
+		font-size: 12px;
 		ul {
 			// padding-bottom: 10px;
 		}
 		li{
+
 			margin-bottom: 5px;
 
 			&.degree {
@@ -643,6 +644,7 @@ select.form-control {
 		background: $theme-green;
 		color: #fff;
 		cursor: pointer;
+
 		h4 {
 			color: #fff;
 		}
@@ -653,12 +655,21 @@ select.form-control {
 }
 
 .without-img-bg {
+	height: 300px;
+	position: relative;
 	p {
 		margin-bottom: 0px;
 		font-size: 13px;
+		max-height: 100px;
+		overflow-y: auto;
 	}
 	.usr-txt p {
 		margin-bottom: 10px;
+	}
+	.review-comment{
+    position: absolute;
+		bottom: 20px;
+		right: 20px;
 	}
 }
 
@@ -695,7 +706,7 @@ select.form-control {
 }
 
 .user-image-text.user-right {
-	padding: 5px 100px 50px 0px;
+	padding: 5px 20px 20px 0px;
 }
 
 .div-bg .user-image-text.user-right {
@@ -713,6 +724,13 @@ select.form-control {
 }
 
 .without-bg-con {
+	position: relative;
+  .review_instructor_link{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
 	&:hover .without-img-bg .review-comment, &.active .without-img-bg .review-comment, &:hover .without-img-bg .review-comment .review-count, &.active .without-img-bg .review-comment .review-count {
 		color: #fff;
 	}
@@ -756,6 +774,7 @@ select.form-control {
 	background: #fff;
 	border-radius: 6px;
 	cursor: pointer;
+	margin-bottom: 30px;
 
 	.header {
 		text-align: left;
@@ -1435,7 +1454,7 @@ select.form-control {
 .msg-left-wrapper{
   background: #3a3f45;
   padding: 0 0 10px 0;
-	height: 550px;
+	height: 665px;
 	overflow: hidden;
 	border-top-left-radius: 5px;
  border-bottom-left-radius: 5px;
@@ -1597,7 +1616,7 @@ select.form-control {
 	cursor: pointer;
 
 	&.unread{
-		min-height: 85px;
+		max-height: 85px;
 	}
 
 	&:hover{
@@ -1878,7 +1897,7 @@ select.form-control {
 
 .left-bar-con .left-bar:last-child {
 	margin-bottom: 0px;
-	// width: 255px;
+	width: 255px;
 }
 
 .left-bar .profile-info {
@@ -1904,7 +1923,7 @@ select.form-control {
 }
 
 .left-bar .profile-info h6 {
-	color: #ff6666;
+	color: $theme-green;
 }
 
 .left-bar .profile-info .skills {
@@ -2722,7 +2741,7 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 // responsiveness
 @media (max-width:1201px){
   .left-bar-con .left-bar:last-child{
-		// width: 210px;
+		width: 210px;
 	}
 }
 

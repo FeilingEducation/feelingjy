@@ -154,9 +154,10 @@ en:
     tutor_reviews:
       title: "Tutor Reviews"
       description: "What students have to say about their tutors"
+      reviewer: "Reviewer: "
       sec1:
         title: "Finance Program Consultation"
-        to_mentor: "To Mentor: Yuting"
+        to_mentor: "To Mentor: "
         degree: "Brainstroming"
         uni: "Stanford"
         text: "Yuting is really awesome! He is professional, authentic and passionate about the application process. He not only raises my personal statement level, but also advises me a lot on my future plan, I will keep in touch with him!"

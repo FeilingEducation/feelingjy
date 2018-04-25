@@ -13,7 +13,7 @@ class SearchController < ApplicationController
   def index
     @search = search_params
     @results = InstructorInfo.limit(3)
-    @tutor_reviews = Review.all
+    @tutor_reviews = Review.last(3).reverse
     unless @search[:min_rating].empty?
       @results = @results.where("avg_rating >= ?", @search[:min_rating])
     end

@@ -179,6 +179,7 @@ $(document).on('click', '.editable', function() {
 
 
 $(document).on('turbolinks:load', function () {
+  $("#fixed-left-bar").removeClass('fixed')
 
     // scroll to top feature in instructor profile page
   $(window).scroll(function() {
