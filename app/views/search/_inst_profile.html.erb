@@ -50,8 +50,7 @@
 
           <div class="review-comment">
             <div class="reviews">
-              <%= image_tag "reskin/stars.png", class: ''%>
-              <!-- <span class="rating" data-score=""<%=instructor.avg_rating%>""></span> -->
+              <span class="rating" data-score="<%=instructor.user_info.user.get_rating%>"></span>
               <span class="review-count"><%=instructor.user_info.user.reviews.count%></span>
               <%= I18n.t "rating.rate" %>
             </div>
@@ -64,6 +63,12 @@
   <%end%>
 </div>
 
-<!-- <script type="text/javascript">
-  $('.rating').raty({readOnly: true, number: 5})
-</script> -->
+<script type="text/javascript">
+  $('.rating').raty('destroy')
+  $('.rating').raty({readOnly: true})
+  $(function(){
+  $('.close').click(function(){
+    $('iframe').attr('src', $('iframe').attr('src'));
+  });
+});
+</script>
