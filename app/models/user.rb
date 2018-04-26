@@ -44,7 +44,11 @@ class User < ApplicationRecord
   		rating = (service + attitude + efficiency + authenticity + cost_effectiveness).to_f/5
       final_rating = final_rating + rating;
   	end
-    final_rating = final_rating/i;
+    if i == 0
+      final_rating = 0
+    else
+      final_rating = final_rating/i;
+    end
   	return final_rating
   end
 
@@ -59,7 +63,11 @@ class User < ApplicationRecord
       i = i + 1
       final_service_rating = final_service_rating + service
     end
-    final_service_rating = 20*final_service_rating/i;
+    if i == 0
+      final_service_rating = 0
+    else
+      final_service_rating = 20*final_service_rating/i;
+    end
     return final_service_rating.to_f
   end
 
@@ -74,7 +82,11 @@ class User < ApplicationRecord
       i = i + 1
       final_attitude_rating = final_attitude_rating + attitude
     end
-    final_attitude_rating = 20*final_attitude_rating/i;
+    if i == 0
+      final_attitude_rating = 0
+    else
+      final_attitude_rating = 20*final_attitude_rating/i;
+    end
     return final_attitude_rating.to_f
   end
 
@@ -89,7 +101,11 @@ class User < ApplicationRecord
       i = i + 1
       final_efficiency_rating = final_efficiency_rating + efficiency
     end
-    final_efficiency_rating = 20*final_efficiency_rating/i;
+    if i == 0
+      final_efficiency_rating = 0
+    else
+      final_efficiency_rating = 20*final_efficiency_rating/i;
+    end
     return final_efficiency_rating.to_f
   end
 
@@ -104,7 +120,11 @@ class User < ApplicationRecord
       i = i + 1
       final_authenticity_rating = final_authenticity_rating + authenticity
     end
-    final_authenticity_rating = 20*final_authenticity_rating/i;
+    if i == 0
+      final_authenticity_rating = 0
+    else
+      final_authenticity_rating = 20*final_authenticity_rating/i;
+    end
     return final_authenticity_rating.to_f
   end
 
@@ -119,7 +139,12 @@ class User < ApplicationRecord
       i = i + 1
       final_cost_effectiveness_rating = final_cost_effectiveness_rating + cost_effectiveness
     end
-    final_cost_effectiveness_rating = 20*final_cost_effectiveness_rating/i;
+
+    if i == 0
+      final_cost_effectiveness_rating = 0
+    else
+      final_cost_effectiveness_rating = 20*final_cost_effectiveness_rating/i;
+    end
     return final_cost_effectiveness_rating.to_f
   end
 end
