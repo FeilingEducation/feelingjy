@@ -30,6 +30,13 @@ h1,h2,h3,h4,h5,h6{
 		// background: #e6e6e6;
 		background: #f9f9f9;
 	}
+
+	#carouselExampleIndicators_instructor{
+		.div-bg {
+			width: 300px;
+			margin-bottom: 40px;
+		}
+	}
 }
 .personal-center{
 	// background: #e6e6e6;
@@ -2737,6 +2744,29 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
     top: 5px;
 }
 
+.carousel-control-prev{
+	.carousel-control-prev-icon{
+		position: absolute;
+		top: 150px;
+		left: -50px;
+		width: 40px;
+		height: 40px;
+		background-image: url("reskin/arrow-left")
+	}
+}
+.carousel-control-next{
+	.carousel-control-next-icon{
+		position: absolute;
+		top: 150px;
+		right: -20px;
+		width: 40px;
+		height: 40px;
+		background-image: url("reskin/arrow-right")
+	}
+}
+
+
+
 
 // responsiveness
 @media (max-width:1201px){
@@ -2746,6 +2776,13 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 }
 
 @media (max-width:992px){
+	.main-content{
+		#carouselExampleIndicators_instructor{
+			.div-bg {
+				width: 220px;
+			}
+		}
+	}
 	.footer-top {
 		.footer-overlay {
 			.overlay-txt {
@@ -2840,7 +2877,23 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 
 
 @media (max-width:767px){
-
+	.main-content{
+		#carouselExampleIndicators_instructor{
+			.div-bg {
+				width: 460px;
+			}
+		}
+		.carousel-control-prev{
+			.carousel-control-prev-icon{
+				left: 0;
+			}
+		}
+		.carousel-control-next{
+			.carousel-control-next-icon{
+				right: 0;
+			}
+		}
+	}
 	.profile-nav{
 		border-bottom-left-radius: 0px;
 		border-bottom-right-radius: 0px;
@@ -2990,7 +3043,23 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 } //media 768px
 
 @media (max-width:575px){
-
+	.main-content{
+		#carouselExampleIndicators_instructor{
+			.div-bg {
+				width: 300px;
+			}
+		}
+		.carousel-control-prev{
+			.carousel-control-prev-icon{
+				left: 0;
+			}
+		}
+		.carousel-control-next{
+			.carousel-control-next-icon{
+				right: 0;
+			}
+		}
+	}
 	.profile-nav{
 		border-bottom-left-radius: 0px;
 		border-bottom-right-radius: 0px;

@@ -16,15 +16,20 @@ class ReviewsController < ApplicationController
 	def create
 		@transaction = ConsultTransaction.find(params[:review][:transaction_id])
 		@tutor = User.find(params[:user_id])
-		@new_tutor_review = @tutor.reviews.create(review_params)
-		# redirect_to user_reviews_path(params[:user_id], transaction_id: params[:review][:consult_transaction_id]), notice: "Review posted successfully."
-		if @transaction.update(status: :reviewed)
-			flash[:notice] = I18n.t("flash_notice.transaction.transaction_reviewed")
-			redirect_to @transaction
+		if @transaction.status == "reviewed"
+			redirect_to root_url, alert: I18n.t("flash_notice.transaction.has_reviewed")
 		else
-			flash[:notice] = I18n.t("flash_notice.transaction.transaction_review_failed")
-			render 'index'
+			@new_tutor_review = @tutor.reviews.create(review_params)
+			if @transaction.update(status: :reviewed)
+				flash[:notice] = I18n.t("flash_notice.transaction.transaction_reviewed")
+				redirect_to @transaction
+			else
+				flash[:notice] = I18n.t("flash_notice.transaction.transaction_review_failed")
+				render 'index'
+			end
 		end
+		# redirect_to user_reviews_path(params[:user_id], transaction_id: params[:review][:consult_transaction_id]), notice: "Review posted successfully."
+
 	end
 
 	private

@@ -739,3 +739,4 @@ cn:
       review_denied: "你不能对这个导师进行评评价。"
       transaction_review_failed: "评价失败。"
       transaction_reviewed: "评价成功。"
+      has_reviewed: "此次服务已被评价。"
