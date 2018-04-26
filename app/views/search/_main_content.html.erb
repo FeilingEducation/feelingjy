@@ -46,7 +46,7 @@
         <h1><%= I18n.t "homepage.tutor_background.title" %></h1>
         <p><%= I18n.t "homepage.tutor_background.description" %></p>
       </div>
-      <div id="carouselExampleIndicators_instructor" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators_instructor" class="carousel slide" data-interval="false" data-ride="carousel">
         <div class="carousel-inner">
             <% if @results[0].present? %>
             <div class="carousel-item active">
@@ -155,7 +155,7 @@
         <h1><%= I18n.t "homepage.tutor_reviews.title" %></h1>
         <p><%= I18n.t "homepage.tutor_reviews.description" %></p>
       </div>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-ride="carousel">
         <div class="carousel-inner">
           <% if @tutor_reviews[0].present? %>
           <div class="carousel-item active">
