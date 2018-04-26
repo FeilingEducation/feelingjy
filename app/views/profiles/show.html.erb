@@ -564,22 +564,10 @@
 
                         <div class="progres-percent">
                           <div class="progres-bar">
-                            <div class="percent" style="width: 80%;"></div>
+                            <% service = @instructor_info.user_info.user.get_service_rating %>
+                            <div class="percent" style="width: <%=service%>%;"></div>
                           </div>
-
-                          80%
-                        </div>
-                      </div>
-
-                      <div class="inner">
-                        <div class="skill-name"><%= I18n.t "instructor_profile.comm" %></div>
-
-                        <div class="progres-percent">
-                          <div class="progres-bar">
-                            <div class="percent" style="width: 96%;"></div>
-                          </div>
-
-                          96%
+                          <%=service%>%
                         </div>
                       </div>
 
@@ -588,9 +576,10 @@
 
                         <div class="progres-percent">
                           <div class="progres-bar">
-                            <div class="percent" style="width: 50%;"></div>
+                            <% attitude = @instructor_info.user_info.user.get_attitude_rating %>
+                            <div class="percent" style="width: <%=attitude%>%;"></div>
                           </div>
-                          50%
+                          <%=attitude%>%
                         </div>
                       </div>
 
@@ -599,10 +588,10 @@
 
                         <div class="progres-percent">
                           <div class="progres-bar">
-                            <div class="percent" style="width: 68%;"></div>
+                            <% efficiency = @instructor_info.user_info.user.get_efficiency_rating %>
+                            <div class="percent" style="width: <%=efficiency%>%;"></div>
                           </div>
-
-                          68%
+                          <%=efficiency%>%
                         </div>
                       </div>
 
@@ -611,10 +600,10 @@
 
                         <div class="progres-percent">
                           <div class="progres-bar">
-                            <div class="percent" style="width: 50%;"></div>
+                            <% authenticity = @instructor_info.user_info.user.get_authenticity_rating %>
+                            <div class="percent" style="width: <%=authenticity%>%;"></div>
                           </div>
-
-                          50%
+                            <%=authenticity%>%
                         </div>
                       </div>
 
@@ -623,10 +612,10 @@
 
                         <div class="progres-percent">
                           <div class="progres-bar">
-                            <div class="percent" style="width: 100%;"></div>
+                            <% cost_effectiveness = @instructor_info.user_info.user.get_cost_effectiveness_rating %>
+                            <div class="percent" style="width: <%=cost_effectiveness%>%;"></div>
                           </div>
-
-                          100%
+                            <%=cost_effectiveness%>%
                         </div>
                       </div>
                     </div>
