@@ -3,7 +3,31 @@ class Review < ApplicationRecord
 	belongs_to :consult_transaction
 
 	def avg_rate
-		return (service_communication_rating+attitude_rating+efficiency_rating+authenticity_rating+cost_effectiveness_rating).to_f/5
+		service = 0
+		attitude = 0
+		efficiency = 0
+		authenticity = 0
+		cost_effectiveness = 0
+		if !service_communication_rating.nil?
+			service = service_communication_rating
+		end
+
+		if !attitude_rating.nil?
+			attitude = attitude_rating
+		end
+
+		if !efficiency_rating.nil?
+			efficiency = efficiency_rating
+		end
+
+		if !authenticity_rating.nil?
+			authenticity = authenticity_rating
+		end
+		if !cost_effectiveness_rating.nil?
+			cost_effectiveness = cost_effectiveness_rating
+		end
+
+		return rating = (service + attitude + efficiency + authenticity + cost_effectiveness).to_f/5
 	end
 
 	def reviewer_name

@@ -51,84 +51,60 @@
             <% if @results[0].present? %>
             <div class="carousel-item active">
               <div class="row w-100" alt="First slide">
-                <div class="col-md-4">
-                   <% if @results[0].present? %>
-                     <%= render partial: 'inst_profile', locals: { instructor: @results[0]} %>
-                   <% end %>
-                </div>
-                <div class="col-md-4">
+                  <% if @results[0].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[0]} %>
+                  <% end %>
                   <% if @results[1].present? %>
                     <%= render partial: 'inst_profile', locals: { instructor: @results[1]} %>
                   <% end %>
-                </div>
-                <div class="col-md-4">
                   <% if @results[2].present? %>
                     <%= render partial: 'inst_profile', locals: { instructor: @results[2]} %>
                   <% end %>
-                </div>
               </div>
             </div>
             <% end %>
             <% if @results[3].present? %>
             <div class="carousel-item">
               <div class="row w-100" alt="Second slide">
-                <div class="col-md-4">
-                   <% if @results[3].present? %>
-                     <%= render partial: 'inst_profile', locals: { instructor: @results[3]} %>
-                   <% end %>
-                </div>
-                <div class="col-md-4">
+                  <% if @results[3].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[3]} %>
+                  <% end %>
                   <% if @results[4].present? %>
                     <%= render partial: 'inst_profile', locals: { instructor: @results[4]} %>
                   <% end %>
-                </div>
-                <div class="col-md-4">
                   <% if @results[5].present? %>
                     <%= render partial: 'inst_profile', locals: { instructor: @results[5]} %>
                   <% end %>
-                </div>
               </div>
             </div>
             <% end %>
             <% if @results[6].present? %>
             <div class="carousel-item">
               <div class="row w-100" alt="Third slide">
-                <div class="col-md-4">
-                   <% if @results[6].present? %>
-                     <%= render partial: 'inst_profile', locals: { instructor: @results[6]} %>
-                   <% end %>
-                </div>
-                <div class="col-md-4">
+                  <% if @results[6].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[6]} %>
+                  <% end %>
                   <% if @results[7].present? %>
                     <%= render partial: 'inst_profile', locals: { instructor: @results[7]} %>
                   <% end %>
-                </div>
-                <div class="col-md-4">
                   <% if @results[8].present? %>
                     <%= render partial: 'inst_profile', locals: { instructor: @results[8]} %>
                   <% end %>
-                </div>
               </div>
             </div>
             <% end %>
             <% if @results[9].present? %>
             <div class="carousel-item">
               <div class="row w-100" alt="Fourth slide">
-                <div class="col-md-4">
-                   <% if @results[9].present? %>
-                     <%= render partial: 'inst_profile', locals: { instructor: @results[9]} %>
-                   <% end %>
-                </div>
-                <div class="col-md-4">
+                  <% if @results[9].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[9]} %>
+                  <% end %>
                   <% if @results[10].present? %>
                     <%= render partial: 'inst_profile', locals: { instructor: @results[10]} %>
                   <% end %>
-                </div>
-                <div class="col-md-4">
                   <% if @results[11].present? %>
                     <%= render partial: 'inst_profile', locals: { instructor: @results[11]} %>
                   <% end %>
-                </div>
               </div>
             </div>
             <% end %>

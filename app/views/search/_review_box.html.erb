@@ -25,7 +25,7 @@
       <div class="review-comment text-right">
         <div class="reviews front-page-reviews">
           <!-- <img src="images/stars.png" alt=""> -->
-          <span class="rating" data-score="<%= r.user.get_rating %>"></span>
+          <span class="rating" data-score="<%= r.avg_rate %>"></span>
           <%#= image_tag "reskin/stars.png", class: ''%>
           <span class="review-count"><%= r.user.reviews.count %></span>
           <%= I18n.t "homepage.tutor_reviews.sec1.reviews" %>
