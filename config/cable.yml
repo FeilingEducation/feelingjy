@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: "127.0.0.1:6379"  #<%= ENV['REDIS_URL'] %>
+  url: "redis://localhost:6379"  #<%= ENV['REDIS_URL'] %>
   channel_prefix: feelingjy_production
