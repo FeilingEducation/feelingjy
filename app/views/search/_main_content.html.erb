@@ -46,11 +46,77 @@
         <h1><%= I18n.t "homepage.tutor_background.title" %></h1>
         <p><%= I18n.t "homepage.tutor_background.description" %></p>
       </div>
-
-      <div class="row">
-        <% @results.each do |instructor|%>
-          <%= render partial: 'inst_profile', locals: { instructor: instructor } %>
-        <%end%>
+      <div id="carouselExampleIndicators_instructor" class="carousel slide" data-interval="false" data-ride="carousel">
+        <div class="carousel-inner">
+            <% if @results[0].present? %>
+            <div class="carousel-item active">
+              <div class="row w-100" alt="First slide">
+                  <% if @results[0].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[0]} %>
+                  <% end %>
+                  <% if @results[1].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[1]} %>
+                  <% end %>
+                  <% if @results[2].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[2]} %>
+                  <% end %>
+              </div>
+            </div>
+            <% end %>
+            <% if @results[3].present? %>
+            <div class="carousel-item">
+              <div class="row w-100" alt="Second slide">
+                  <% if @results[3].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[3]} %>
+                  <% end %>
+                  <% if @results[4].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[4]} %>
+                  <% end %>
+                  <% if @results[5].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[5]} %>
+                  <% end %>
+              </div>
+            </div>
+            <% end %>
+            <% if @results[6].present? %>
+            <div class="carousel-item">
+              <div class="row w-100" alt="Third slide">
+                  <% if @results[6].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[6]} %>
+                  <% end %>
+                  <% if @results[7].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[7]} %>
+                  <% end %>
+                  <% if @results[8].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[8]} %>
+                  <% end %>
+              </div>
+            </div>
+            <% end %>
+            <% if @results[9].present? %>
+            <div class="carousel-item">
+              <div class="row w-100" alt="Fourth slide">
+                  <% if @results[9].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[9]} %>
+                  <% end %>
+                  <% if @results[10].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[10]} %>
+                  <% end %>
+                  <% if @results[11].present? %>
+                    <%= render partial: 'inst_profile', locals: { instructor: @results[11]} %>
+                  <% end %>
+              </div>
+            </div>
+            <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators_instructor" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators_instructor" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
 
       <!-- <div class="load-more text-center">
@@ -65,164 +131,101 @@
         <h1><%= I18n.t "homepage.tutor_reviews.title" %></h1>
         <p><%= I18n.t "homepage.tutor_reviews.description" %></p>
       </div>
-
-      <div class="row">
-        <% @tutor_reviews.each do |r| %>
-          <div class="col-md-4 col-sm-6">
-            <div class="without-bg-con">
-
-                <div class="div-bg without-img-bg">
-                  <h4><%= r.user.user_info.full_name %><%#= I18n.t "homepage.tutor_reviews.sec1.title" %></h4>
-                  <%= link_to profile_path(r.consult_transaction.instructor), class: 'review_instructor_link' do %>
-
-
-                  <div class="user-image-text user-right">
-                    <div class="usr-img">
-                      <!-- <img src="images/dumy-user.jpg" alt=""> -->
-                      <%= image_tag profile_image_of(r.user), class: ''%>
-                    </div>
-
-                    <div class="usr-txt">
-                      <!-- <p><%= I18n.t "homepage.tutor_reviews.sec1.to_mentor" %><%=r.consult_transaction.instructor.full_name %></p> -->
-                      <ul>
-                        <li>
-                          <a href="#" class="edu-cap"><%= InstructorInfo.find_degree(r.consult_transaction.instructor.degree_completed_name) %></a>
-                        </li>
-                      </ul>
-
-                      <a class="usr-location"><span><%= InstructorInfo.find_university(r.consult_transaction.instructor.university_name) %></span></a>
-                    </div>
-                  </div>
-
-                  <p><%= r.review_text %><%#= I18n.t "homepage.tutor_reviews.sec1.text" %></p>
-
-                  <div class="review-comment text-right">
-                    <div class="reviews front-page-reviews">
-                      <!-- <img src="images/stars.png" alt=""> -->
-                      <span class="rating" data-score="<%= r.user.get_rating %>"></span>
-                      <%#= image_tag "reskin/stars.png", class: ''%>
-                      <span class="review-count"><%= r.user.reviews.count %></span>
-                      <%= I18n.t "homepage.tutor_reviews.sec1.reviews" %>
-                    </div>
-                  </div>
-                </div>
+      <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-ride="carousel">
+        <div class="carousel-inner">
+          <% if @tutor_reviews[0].present? %>
+          <div class="carousel-item active">
+            <div class="row w-100" alt="First slide">
+              <div class="col-md-4">
+                 <% if @tutor_reviews[0].present? %>
+                   <%= render partial: 'review_box', locals: { r: @tutor_reviews[0] } %>
+                 <% end %>
+              </div>
+              <div class="col-md-4">
+                <% if @tutor_reviews[1].present? %>
+                  <%= render partial: 'review_box', locals: { r: @tutor_reviews[1] } %>
                 <% end %>
-                <div class="user-time">
-                  <div class="usr-img">
-                    <!-- <img src="images/dumy-user.jpg" alt=""> -->
-                    <%= image_tag r.reviewer_image.nil? ? "" : r.reviewer_image, class: ''%>
-                  </div>
-
-                  <div class="usr-txt">
-                    <div class="usr-name"><%= I18n.t "homepage.tutor_reviews.reviewer" %><%= r.reviewer_name %></div>
-                    <div class="date"><%= r.created_at.strftime("%Y-%m-%d %T") %></div>
-                  </div>
-                </div>
-
-            </div>
-          </div>
-        <%end%>
-<%
-=begin%>
-        <div class="col-md-4 col-sm-6">
-          <div class="without-bg-con">
-            <div class="div-bg without-img-bg">
-              <h4><%= I18n.t "homepage.tutor_reviews.sec2.title" %></h4>
-
-              <div class="user-image-text user-right">
-                <div class="usr-img">
-                  <!-- <img src="images/dumy-user.jpg" alt=""> -->
-                  <%= image_tag "reskin/dumy-user.jpg", class: ''%>
-                </div>
-
-                <div class="usr-txt">
-                  <p><%= I18n.t "homepage.tutor_reviews.sec2.to_mentor" %></p>
-                  <ul>
-                    <li>
-                      <a href="#" class="edu-cap"><%= I18n.t "homepage.tutor_reviews.sec2.degree" %></a>
-                    </li>
-                  </ul>
-
-                  <a class="usr-location"><span><%= I18n.t "homepage.tutor_reviews.sec2.uni" %></span></a>
-                </div>
               </div>
-
-              <p><%= I18n.t "homepage.tutor_reviews.sec2.text" %></p>
-
-              <div class="review-comment text-right">
-                <div class="reviews">
-                  <!-- <img src="images/stars.png" alt=""> -->
-                  <%= image_tag "reskin/stars.png", class: ''%>
-                  <span class="review-count">39</span>
-                  <%= I18n.t "homepage.tutor_reviews.sec2.reviews" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="user-time">
-              <div class="usr-img">
-                <!-- <img src="images/dumy-user.jpg" alt=""> -->
-                <%= image_tag "reskin/dumy-user.jpg", class: ''%>
-              </div>
-
-              <div class="usr-txt">
-                <div class="usr-name">Tina You</div>
-                <div class="date">2017-03-27 09:81:24</div>
+              <div class="col-md-4">
+                <% if @tutor_reviews[2].present? %>
+                  <%= render partial: 'review_box', locals: { r: @tutor_reviews[2] } %>
+                <% end %>
               </div>
             </div>
           </div>
+          <% end %>
+          <% if @tutor_reviews[3].present? %>
+          <div class="carousel-item">
+            <div class="row w-100" alt="Second slide">
+              <div class="col-md-4">
+                 <% if @tutor_reviews[3].present? %>
+                   <%= render partial: 'review_box', locals: { r: @tutor_reviews[3] } %>
+                 <% end %>
+              </div>
+              <div class="col-md-4">
+                <% if @tutor_reviews[4].present? %>
+                  <%= render partial: 'review_box', locals: { r: @tutor_reviews[4] } %>
+                <% end %>
+              </div>
+              <div class="col-md-4">
+                <% if @tutor_reviews[5].present? %>
+                  <%= render partial: 'review_box', locals: { r: @tutor_reviews[5] } %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% if @tutor_reviews[6].present? %>
+          <div class="carousel-item">
+            <div class="row w-100" alt="Third slide">
+              <div class="col-md-4">
+                 <% if @tutor_reviews[6].present? %>
+                   <%= render partial: 'review_box', locals: { r: @tutor_reviews[6] } %>
+                 <% end %>
+              </div>
+              <div class="col-md-4">
+                <% if @tutor_reviews[7].present? %>
+                  <%= render partial: 'review_box', locals: { r: @tutor_reviews[7] } %>
+                <% end %>
+              </div>
+              <div class="col-md-4">
+                <% if @tutor_reviews[8].present? %>
+                  <%= render partial: 'review_box', locals: { r: @tutor_reviews[8] } %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% if @tutor_reviews[9].present? %>
+          <div class="carousel-item">
+            <div class="row w-100" alt="Fourth slide">
+              <div class="col-md-4">
+                 <% if @tutor_reviews[9].present? %>
+                   <%= render partial: 'review_box', locals: { r: @tutor_reviews[9] } %>
+                 <% end %>
+              </div>
+              <div class="col-md-4">
+                <% if @tutor_reviews[10].present? %>
+                  <%= render partial: 'review_box', locals: { r: @tutor_reviews[10] } %>
+                <% end %>
+              </div>
+              <div class="col-md-4">
+                <% if @tutor_reviews[11].present? %>
+                  <%= render partial: 'review_box', locals: { r: @tutor_reviews[11] } %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
         </div>
-
-        <div class="col-md-4 col-sm-6">
-          <div class="without-bg-con">
-            <div class="div-bg without-img-bg">
-              <h4><%= I18n.t "homepage.tutor_reviews.sec3.title" %></h4>
-
-              <div class="user-image-text user-right">
-                <div class="usr-img">
-                  <!-- <img src="images/dumy-user.jpg" alt=""> -->
-                  <%= image_tag "reskin/dumy-user.jpg", class: ''%>
-                </div>
-
-                <div class="usr-txt">
-                  <p><%= I18n.t "homepage.tutor_reviews.sec3.to_mentor" %></p>
-                  <ul>
-                    <li>
-                      <a href="#" class="edu-cap"><%= I18n.t "homepage.tutor_reviews.sec3.degree" %></a>
-                    </li>
-                  </ul>
-
-                  <a class="usr-location"><span><%= I18n.t "homepage.tutor_reviews.sec3.uni" %></span></a>
-                </div>
-              </div>
-
-              <p><%= I18n.t "homepage.tutor_reviews.sec3.text" %></p>
-
-              <div class="review-comment text-right">
-                <div class="reviews">
-                  <!-- <img src="images/stars.png" alt=""> -->
-                  <%= image_tag "reskin/stars.png", class: ''%>
-                  <span class="review-count">39</span>
-                  <%= I18n.t "homepage.tutor_reviews.sec3.reviews" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="user-time">
-              <div class="usr-img">
-                <!-- <img src="images/dumy-user.jpg" alt=""> -->
-                <%= image_tag "reskin/dumy-user.jpg", class: ''%>
-              </div>
-
-              <div class="usr-txt">
-                <div class="usr-name">Tina You</div>
-                <div class="date">2017-03-27 09:81:24</div>
-              </div>
-            </div>
-          </div>
-        </div>
-<%
-=end%>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
 
       <!-- <div class="load-more text-center">
@@ -327,12 +330,3 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  $('.rating').raty('destroy')
-  $('.rating').raty({readOnly: true})
-  $(function(){
-  $('.close').click(function(){
-    $('iframe').attr('src', $('iframe').attr('src'));
-  });
-});
-</script>

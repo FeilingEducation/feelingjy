@@ -16,16 +16,16 @@
         <div class="row">
           <div class="form-group col-6">
             <%= f.label :last_name, '姓', class: "mb-0" %>
-            <%= f.text_field :last_name, class: 'form-control' %>
+            <%= f.text_field :last_name, :maxlength => 15, class: 'form-control' %>
           </div>
           <div class="form-group col-6">
             <%= f.label :first_name, '名', class: "mb-0" %>
-            <%= f.text_field :first_name, class: 'form-control' %>
+            <%= f.text_field :first_name, :maxlength => 15, class: 'form-control' %>
           </div>
         </div>
         <div class="form-group">
           <%= f.label :current_city, '所在城市', class: 'mb-0' %>
-          <%= f.text_field :current_city, class: 'form-control' %>
+          <%= f.text_field :current_city, :maxlength => 20, class: 'form-control' %>
         </div>
         <div>
           <%= f.text_area :statement, class: 'form-control', placeholder: '我的目标', rows: 5, style: 'resize:none;' %>
@@ -39,16 +39,16 @@
         <div class="form-group">
           <label class="mb-0">邮箱地址</label>
           <%= fields_for :email, current_user do |f| %>
-            <%= f.text_field :email, class: 'form-control', readonly: true %>
+            <%= f.text_field :email, :maxlength => 40, class: 'form-control', readonly: true %>
           <% end %>
         </div>
         <div class="form-group">
           <%= f.label :phone_number, '电话号码', class: 'mb-0' %>
-          <%= f.text_field :phone_number, class: 'form-control', placeholder: '手机/固话' %>
+          <%= f.text_field :phone_number, :maxlength => 20, class: 'form-control', placeholder: '手机/固话' %>
         </div>
         <div class="form-group">
           <%= f.label :wechat_id, '微信账号', class: 'mb-0' %>
-          <%= f.text_field :wechat_id, class: 'form-control', placeholder: '微信' %>
+          <%= f.text_field :wechat_id, :maxlength => 30, class: 'form-control', placeholder: '微信' %>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <% local = session[:locale] || "en" %>
-<div class="col-md-3 col-sm-6 instructor-profile-box">
+<div class="col-md-4 instructor-profile-box">
   <%= link_to profile_path(instructor) do %>
     <div class="div-bg">
       <div class="img" style="background-image: url('<%= instructor.page_background%>');">
@@ -28,7 +28,6 @@
           <div class="usr-img">
             <!-- <%#= image_tag "reskin/dumy-user.jpg", class: ''%> -->
             <%= image_tag profile_image_of(instructor) %>
-
             <div class="usr-name"><%= instructor.full_name %></div>
           </div>
 
@@ -62,6 +61,3 @@
     </div>
   <%end%>
 </div>
-<script type="text/javascript">
-  $('.rating').raty({readOnly: true, number: 5})
-</script>

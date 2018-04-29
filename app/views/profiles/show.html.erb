@@ -28,7 +28,14 @@
             <div class="profile-info">
               <div class="inner">
                 <div class="img" style="background-image: url('<%= profile_image_of(@instructor_info) %>');"></div>
-                <h2><%= @instructor_info.full_name %></h2>
+                <% if @instructor_info.full_name.count("a-zA-Z0-9") > 0 %>
+                  <h5 class="usr-name text-center px-3"><%= @instructor_info.last_name %></h5>
+                  <h5 class="usr-name text-center px-3"><%= @instructor_info.first_name %></h5>
+                <% else %>
+                  <h5 class="usr-name text-center px-3"><%= @instructor_info.full_name %></h5>
+                <% end %>
+
+                <!-- <h2><%= @instructor_info.full_name %></h2> -->
                 <% spec_list = @instructor_info.specialization_name local%>
                 <% spec_list.each do |spec| %>
                    <div class="skills"><%=spec%></div>
@@ -240,7 +247,7 @@
               <!-- </div> -->
             </div>
 
-            <div class="profile-data-con last">
+            <div class="profile-data-con">
               <div class="inner main-profile-info">
                 <div class="schools">
                   <p class="my-0" style="position:relative;">
@@ -564,22 +571,10 @@
 
                         <div class="progres-percent">
                           <div class="progres-bar">
-                            <div class="percent" style="width: 80%;"></div>
+                            <% service = @instructor_info.user_info.user.get_service_rating %>
+                            <div class="percent" style="width: <%=service%>%;"></div>
                           </div>
-
-                          80%
-                        </div>
-                      </div>
-
-                      <div class="inner">
-                        <div class="skill-name"><%= I18n.t "instructor_profile.comm" %></div>
-
-                        <div class="progres-percent">
-                          <div class="progres-bar">
-                            <div class="percent" style="width: 96%;"></div>
-                          </div>
-
-                          96%
+                          <%=service%>%
                         </div>
                       </div>
 
@@ -588,9 +583,10 @@
 
                         <div class="progres-percent">
                           <div class="progres-bar">
-                            <div class="percent" style="width: 50%;"></div>
+                            <% attitude = @instructor_info.user_info.user.get_attitude_rating %>
+                            <div class="percent" style="width: <%=attitude%>%;"></div>
                           </div>
-                          50%
+                          <%=attitude%>%
                         </div>
                       </div>
 
@@ -599,10 +595,10 @@
 
                         <div class="progres-percent">
                           <div class="progres-bar">
-                            <div class="percent" style="width: 68%;"></div>
+                            <% efficiency = @instructor_info.user_info.user.get_efficiency_rating %>
+                            <div class="percent" style="width: <%=efficiency%>%;"></div>
                           </div>
-
-                          68%
+                          <%=efficiency%>%
                         </div>
                       </div>
 
@@ -611,10 +607,10 @@
 
                         <div class="progres-percent">
                           <div class="progres-bar">
-                            <div class="percent" style="width: 50%;"></div>
+                            <% authenticity = @instructor_info.user_info.user.get_authenticity_rating %>
+                            <div class="percent" style="width: <%=authenticity%>%;"></div>
                           </div>
-
-                          50%
+                            <%=authenticity%>%
                         </div>
                       </div>
 
@@ -623,15 +619,51 @@
 
                         <div class="progres-percent">
                           <div class="progres-bar">
-                            <div class="percent" style="width: 100%;"></div>
+                            <% cost_effectiveness = @instructor_info.user_info.user.get_cost_effectiveness_rating %>
+                            <div class="percent" style="width: <%=cost_effectiveness%>%;"></div>
                           </div>
-
-                          100%
+                            <%=cost_effectiveness%>%
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div class="profile-data-con last">
+              <div class="inner comment-sect">
+                <div class="comment-sec-header d-flex justify-content-between">
+                  <h1 class="">Evaluation</h1>
+                  <p class="comment-count">(<%=@instructor_info.user_info.user.reviews.count%>)</p>
+                </div>
+                <% if @instructor_info.user_info.user.reviews.count == 0%>
+                  <p class="no-comment">You do not have a review yet.</p>
+                <% else %>
+                  <% @instructor_info.user_info.user.reviews.each do |review| %>
+                     <div class="row">
+                       <div class="col-md-3">
+                         <div class="reviewer-info">
+                            <div class="text-center mt-5 mb-3"><%= image_tag review.reviewer_image.nil? ? "" : review.reviewer_image, class: 'reviewer-img'%></div>
+                            <div class="reviewer-name text-center mb-2"><%= review.reviewer_name.nil? ? "" : review.reviewer_name%></div>
+                            <div class="reviewer-location text-center mb-2"><%= review.reviewer_location.nil? ? "" : review.reviewer_location%></div>
+                         </div>
+                       </div>
+                       <div class="col-md-9">
+                         <div class="review-content">
+                            <div class="review-text mt-5 mb-3"><%= review.review_text.nil? ? "" : review.review_text%></div>
+                            <div class="review-info d-flex justify-content-between">
+                              <div class="review-date mb-2"><%= review.created_at.nil? ? "" : review.created_at.strftime("%Y/%m/%d %T")%></div>
+                              <div class="rating" data-score="<%= review.avg_rate %>"></div>
+                            </div>
+                            <div class="reply-btn float-right">
+                              reply
+                            </div>
+                         </div>
+                       </div>
+                     </div>
+                  <% end %>
+
+                <% end %>
               </div>
             </div>
 
@@ -774,9 +806,9 @@
   </div>
 <!-- </div> -->
 <!--  -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $('.rating').raty('destroy')
   $('.rating').raty({readOnly: true, number: 5})
-</script>
+</script> -->
 <% modal = render partial: 'messages/send_a_message', locals: { other: @instructor_info.user_info, box_id: '' } %>
 <%= render partial: 'dialog', locals: { id: 'message-box', title: 'Send a Message', body: modal, size: 'lg' } %>

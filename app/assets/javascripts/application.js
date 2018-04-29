@@ -207,11 +207,11 @@ $(document).on('turbolinks:load', function () {
         stopScroll = $("#profile-row").height() - $("#main-footer").height() - 35;
       }
 
-      if($(window).scrollTop() <= left_bar_height+90){
+      if($(window).scrollTop() <= left_bar_height-40){
         $("#fixed-left-bar").removeClass('fixed')
         $("#fixed-left-bar-wrapper").css('position', 'absolute').css('top', left_bar_height)
       }
-      else if($(window).scrollTop() > left_bar_height+90 && scrollBottom > $(".main-footer").height()-80){
+      else if($(window).scrollTop() > left_bar_height-40 && scrollBottom > $(".main-footer").height()-80){
         $("#fixed-left-bar").addClass('fixed')
         $("#fixed-left-bar-wrapper").removeClass('left-bar-wrapper')
       }

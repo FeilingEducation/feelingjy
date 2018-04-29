@@ -30,6 +30,12 @@ h1,h2,h3,h4,h5,h6{
 		// background: #e6e6e6;
 		background: #f9f9f9;
 	}
+
+	#carouselExampleIndicators_instructor{
+		.div-bg {
+			margin-bottom: 40px;
+		}
+	}
 }
 .personal-center{
 	// background: #e6e6e6;
@@ -472,6 +478,7 @@ select.form-control {
 		position: absolute;
 		left: 0;
 		top: 0;
+		text-align: center;
 
 		img {
 			height: 50px;
@@ -481,12 +488,13 @@ select.form-control {
 			transition: all .5s ease;
 		}
 		.usr-name {
-			// width: 80px;
-			// text-overflow: ellipsis;
-			// overflow: hidden;
-			// white-space: nowrap;
+			width: 80px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
 			font-size: 15px;
 			color: #979999;
+
 			// text-align: center;
 			// padding-top: 5px;
 		}
@@ -673,6 +681,10 @@ select.form-control {
 	}
 }
 
+.without-img-bg .usr-txt .inst-name {
+	color: #979999;
+}
+
 .without-img-bg .usr-txt .edu-cap {
 	background: url(<%= asset_url "reskin/edu-cap.png" %>) no-repeat left;
 	padding-left: 30px;
@@ -687,6 +699,16 @@ select.form-control {
 	color: #979999;
 	background-size: contain;
 	margin-left: 3px;
+}
+
+.without-bg-con:hover .without-img-bg .usr-txt .inst-name,
+.without-bg-con.active .without-img-bg .usr-txt .inst-name {
+	color: #fff;
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
 }
 
 .without-bg-con:hover .without-img-bg .usr-txt .edu-cap,
@@ -724,9 +746,9 @@ select.form-control {
 }
 
 .without-bg-con {
-	position: relative;
+	// position: relative;
   .review_instructor_link{
-		position: absolute;
+		// position: absolute;
 		width: 100%;
 		height: 100%;
 	}
@@ -1423,7 +1445,7 @@ select.form-control {
 
 	&.fixed{
 		position: fixed;
-		top: 80px;
+		top: 123px;
 		width: 255px;
 		z-index: 9;
 	}
@@ -1922,6 +1944,11 @@ select.form-control {
 	margin-bottom: 15px;
 }
 
+.left-bar .profile-info h5 {
+	color: black;
+	font-size: 18px;
+}
+
 .left-bar .profile-info h6 {
 	color: $theme-green;
 }
@@ -2193,6 +2220,41 @@ select.form-control {
 
 .profile-data-con .more-padding {
 	padding-bottom: 28px;
+}
+
+.profile-data-con{
+	.comment-sec-header{
+		border-bottom: 1px solid #f2f5f4;
+	}
+	.comment-count{
+		font-size: 20px;
+	}
+	.no-comment{
+		font-size: 20px;
+		text-align: center;
+		padding-top: 30px;
+	}
+	.reviewer-img{
+		max-width: 5rem;
+    max-height: 5rem;
+	}
+	.reviewer-name{
+		width: 150px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		color: $theme-green;
+	}
+	.review-content{
+		min-height: 150px;
+		border-bottom: 1px solid #f2f5f4;
+		.review-text{
+			color: black;
+		}
+		.review-date{
+			color: #b3afaf;
+		}
+	}
 }
 
 .green {
@@ -2651,16 +2713,15 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 .select2-search--dropdown{
 	display: none!important;
 }
+//
+// #page-background-img-name{
+// 	position: absolute;
+//
+// 	padding-left: 20px;
+// }
 
-#page-background-img-name{
-	width: 90%;
-}
 
-#step7{
-	.custom-image-input{
-		width: 90%;
-	}
-}
+
 
 // slide out menu (only display > 768px)
 #sidebar{
@@ -2673,6 +2734,9 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	text-align: center;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
 
 	li:first-child{
 		border-bottom-left-radius: 3px;
@@ -2736,6 +2800,29 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
     color: #fff;
     top: 5px;
 }
+
+.carousel-control-prev{
+	.carousel-control-prev-icon{
+		position: absolute;
+		top: 150px;
+		left: -50px;
+		width: 40px;
+		height: 40px;
+		background-image: asset_url("reskin/arrow-left")
+	}
+}
+.carousel-control-next{
+	.carousel-control-next-icon{
+		position: absolute;
+		top: 150px;
+		right: -20px;
+		width: 40px;
+		height: 40px;
+		background-image: asset_url("reskin/arrow-right")
+	}
+}
+
+
 
 
 // responsiveness
@@ -2840,7 +2927,6 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 
 
 @media (max-width:767px){
-
 	.profile-nav{
 		border-bottom-left-radius: 0px;
 		border-bottom-right-radius: 0px;
@@ -2986,6 +3072,7 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 	.left-bar .profile-info h2 {
 		font-size: 14px;
 	}
+
 
 } //media 768px
 
