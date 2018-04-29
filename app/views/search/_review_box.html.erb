@@ -9,7 +9,11 @@
         </div>
 
         <div class="usr-txt">
-          <!-- <p><%= I18n.t "homepage.tutor_reviews.sec1.to_mentor" %><%=r.consult_transaction.instructor.full_name %></p> -->
+          <% if r.user.user_info.instructor_info.full_name.count("a-zA-Z0-9") > 0 %>
+            <p class="inst-name"><%= I18n.t "homepage.tutor_reviews.sec1.to_mentor" %><%=r.consult_transaction.instructor.last_name %></p>
+          <% else %>
+            <p class="inst-name"><%= I18n.t "homepage.tutor_reviews.sec1.to_mentor" %><%=r.consult_transaction.instructor.full_name %></p>
+          <% end %>
           <ul>
             <li>
               <a href="#" class="edu-cap"><%= InstructorInfo.find_degree(r.consult_transaction.instructor.degree_completed_name) %></a>

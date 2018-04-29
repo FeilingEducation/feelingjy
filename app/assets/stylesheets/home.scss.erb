@@ -478,6 +478,7 @@ select.form-control {
 		position: absolute;
 		left: 0;
 		top: 0;
+		text-align: center;
 
 		img {
 			height: 50px;
@@ -487,12 +488,13 @@ select.form-control {
 			transition: all .5s ease;
 		}
 		.usr-name {
-			// width: 80px;
-			// text-overflow: ellipsis;
-			// overflow: hidden;
-			// white-space: nowrap;
+			width: 80px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
 			font-size: 15px;
 			color: #979999;
+
 			// text-align: center;
 			// padding-top: 5px;
 		}
@@ -679,6 +681,10 @@ select.form-control {
 	}
 }
 
+.without-img-bg .usr-txt .inst-name {
+	color: #979999;
+}
+
 .without-img-bg .usr-txt .edu-cap {
 	background: url(<%= asset_url "reskin/edu-cap.png" %>) no-repeat left;
 	padding-left: 30px;
@@ -693,6 +699,16 @@ select.form-control {
 	color: #979999;
 	background-size: contain;
 	margin-left: 3px;
+}
+
+.without-bg-con:hover .without-img-bg .usr-txt .inst-name,
+.without-bg-con.active .without-img-bg .usr-txt .inst-name {
+	color: #fff;
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	transition: all 0.4s ease;
 }
 
 .without-bg-con:hover .without-img-bg .usr-txt .edu-cap,
@@ -730,9 +746,9 @@ select.form-control {
 }
 
 .without-bg-con {
-	position: relative;
+	// position: relative;
   .review_instructor_link{
-		position: absolute;
+		// position: absolute;
 		width: 100%;
 		height: 100%;
 	}
@@ -1928,6 +1944,11 @@ select.form-control {
 	margin-bottom: 15px;
 }
 
+.left-bar .profile-info h5 {
+	color: black;
+	font-size: 18px;
+}
+
 .left-bar .profile-info h6 {
 	color: $theme-green;
 }
@@ -2657,7 +2678,7 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 .select2-search--dropdown{
 	display: none!important;
 }
-// 
+//
 // #page-background-img-name{
 // 	position: absolute;
 //

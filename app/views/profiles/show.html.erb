@@ -28,7 +28,14 @@
             <div class="profile-info">
               <div class="inner">
                 <div class="img" style="background-image: url('<%= profile_image_of(@instructor_info) %>');"></div>
-                <h2><%= @instructor_info.full_name %></h2>
+                <% if @instructor_info.full_name.count("a-zA-Z0-9") > 0 %>
+                  <h5 class="usr-name text-center px-3"><%= @instructor_info.last_name %></h5>
+                  <h5 class="usr-name text-center px-3"><%= @instructor_info.first_name %></h5>
+                <% else %>
+                  <h5 class="usr-name text-center px-3"><%= @instructor_info.full_name %></h5>
+                <% end %>
+
+                <!-- <h2><%= @instructor_info.full_name %></h2> -->
                 <% spec_list = @instructor_info.specialization_name local%>
                 <% spec_list.each do |spec| %>
                    <div class="skills"><%=spec%></div>
