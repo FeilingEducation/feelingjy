@@ -37,4 +37,8 @@ class Review < ApplicationRecord
 	def reviewer_image
 		User.find(self.reviewer_id).user_info.avatar.url
 	end
+
+	def reviewer_location
+    User.find(self.reviewer_id).user_info.current_city
+	end
 end

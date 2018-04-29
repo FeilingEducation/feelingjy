@@ -247,7 +247,7 @@
               <!-- </div> -->
             </div>
 
-            <div class="profile-data-con last">
+            <div class="profile-data-con">
               <div class="inner main-profile-info">
                 <div class="schools">
                   <p class="my-0" style="position:relative;">
@@ -630,6 +630,42 @@
                 </div>
               </div>
             </div>
+            <div class="profile-data-con last">
+              <div class="inner comment-sect">
+                <div class="comment-sec-header d-flex justify-content-between">
+                  <h1 class="">Evaluation</h1>
+                  <p class="comment-count">(<%=@instructor_info.user_info.user.reviews.count%>)</p>
+                </div>
+                <% if @instructor_info.user_info.user.reviews.count == 0%>
+                  <p class="no-comment">You do not have a review yet.</p>
+                <% else %>
+                  <% @instructor_info.user_info.user.reviews.each do |review| %>
+                     <div class="row">
+                       <div class="col-md-3">
+                         <div class="reviewer-info">
+                            <div class="text-center mt-5 mb-3"><%= image_tag review.reviewer_image.nil? ? "" : review.reviewer_image, class: 'reviewer-img'%></div>
+                            <div class="reviewer-name text-center mb-2"><%= review.reviewer_name.nil? ? "" : review.reviewer_name%></div>
+                            <div class="reviewer-location text-center mb-2"><%= review.reviewer_location.nil? ? "" : review.reviewer_location%></div>
+                         </div>
+                       </div>
+                       <div class="col-md-9">
+                         <div class="review-content">
+                            <div class="review-text mt-5 mb-3"><%= review.review_text.nil? ? "" : review.review_text%></div>
+                            <div class="review-info d-flex justify-content-between">
+                              <div class="review-date mb-2"><%= review.created_at.nil? ? "" : review.created_at.strftime("%Y/%m/%d %T")%></div>
+                              <div class="rating" data-score="<%= review.avg_rate %>"></div>
+                            </div>
+                            <div class="reply-btn float-right">
+                              reply
+                            </div>
+                         </div>
+                       </div>
+                     </div>
+                  <% end %>
+
+                <% end %>
+              </div>
+            </div>
 
             <!-- <div class="profile-data-con">
               <div class="inner">
@@ -770,9 +806,9 @@
   </div>
 <!-- </div> -->
 <!--  -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $('.rating').raty('destroy')
   $('.rating').raty({readOnly: true, number: 5})
-</script>
+</script> -->
 <% modal = render partial: 'messages/send_a_message', locals: { other: @instructor_info.user_info, box_id: '' } %>
 <%= render partial: 'dialog', locals: { id: 'message-box', title: 'Send a Message', body: modal, size: 'lg' } %>
