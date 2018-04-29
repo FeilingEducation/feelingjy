@@ -129,10 +129,11 @@ namespace :rake do
   task :invoke do
     run("cd #{deploy_to}/current; /usr/bin/env rake #{ENV['task']} RAILS_ENV=production")
   end
-  
+
 end
 
 # sudo /etc/init.d/nginx restart
+# sudo systemctl start redis
 
 
 # ps aux | grep puma    # Get puma pid
