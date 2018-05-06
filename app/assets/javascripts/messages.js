@@ -55,6 +55,11 @@ $(document).on('ajax:beforeSend', '.message-form', function (e) {
     $("."+messageHistoryCls.toString()).addClass('active')
   }
 
+  setTimeout(function(){
+    console.log("clearing message box1...")
+    $('#message-box-area').val('')
+  },300)
+
 })
 
 // Doing some DOM manipulation
