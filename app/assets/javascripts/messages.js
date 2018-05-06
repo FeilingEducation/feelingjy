@@ -58,7 +58,7 @@ $(document).on('ajax:beforeSend', '.message-form', function (e) {
   setTimeout(function(){
     console.log("clearing message box1...")
     $('#message-box-area').val('')
-  },300)
+  },50)
 
 })
 
