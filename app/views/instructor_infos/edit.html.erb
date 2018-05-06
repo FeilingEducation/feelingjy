@@ -41,13 +41,8 @@
       </div>
       <hr/>
       <div class="profile-summary">
-        <%= scoped in_scope, :content_tag, :div, class: 'editable edit-icon', data: { model: 'instructor_info',
-          name: 'description', type: 'text', target: 'span', label: 'Change Description',
-          action: instructor_info_path, method: 'patch' } do %>
-          <!-- <span class="font-weight-bold h1"><%#= @instructor_info.page_title || '我的主页' %></span> -->
-          <span class="hidden"><%= @instructor_info.description %></span>
-          <%= image_tag "reskin/edit-green.png" %>
-        <% end %>
+
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#change-description"> <%= image_tag "reskin/edit-green.png" %> </a>
         <%= @instructor_info.description %>
       </div>
     <!-- </div> -->
@@ -366,3 +361,22 @@
     }).trigger('change')
   })
 </script>
+
+<div class="modal fade" id="change-description" role="dialog" tabindex="-1" aria-hidden="true" data-keyboard="true">
+  <div class="modal-dialog send-a-message-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> Change Description </h5>
+          <div class="close modal-cross" data-dismiss="modal" aria-label="Close">
+            <%= image_tag "multiply.png"%>
+          </div>
+      </div>
+      <div class="modal-body">
+        <%= form_with model: @instructor_info, url: instructor_info_path, method: 'patch', html: { role: 'form' } do |f| %>
+          <%= f.text_area :description, rows: 5, class: '',id: 'description', placeholder: I18n.t("registration.step8.placeholder") %>
+          <%= f.submit :update, class: 'btn btn-primary desc-change-btn'%>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
