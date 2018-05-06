@@ -51,8 +51,10 @@ $(document).on('submit', 'form.chat-input', function (e) {
   }
   // disable submit button in case multiple submission before hearing back from server
   $(this).find('input[type="submit"]').prop('disabled', true);
-  // send chat-line data to backend
+
+  console.log("clearing message box...")
   $('#message-box-area').val('')
+  // send chat-line data to backend
   App.consult_comm.create_chat_line(data);
   // select all text in chat-input for easy typing
   $(this).find('textarea').select();
