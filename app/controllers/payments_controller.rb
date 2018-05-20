@@ -23,8 +23,13 @@ class PaymentsController < ApplicationController
     payment = transaction.build_payment
     payment.status = 3
     puts payment.inspect
-    payment.alipay_response = params.to_json
+    alipay_response = params.to_json
+    payment.alipay_response = alipay_response
     payment.save!
+    UserWalletActivity.create(txn_type: :credit,
+      consult_transaction_id: transaction.id,
+      payment_id: payment.id,
+      amount: alipay_response["total_amount"].try(:to_f) || 0)
 
     # {"gmt_create"=>"2018-02-10 03:21:23",
     # "charset"=>"UTF-8",

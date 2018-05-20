@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  consult_transaction: one
+  payment: one
+  txn_type: MyString
+  txn_status: MyString
+  withdrawal_requested_at: 2018-05-20 10:04:02
+  withdrawal_processed_at: 2018-05-20 10:04:02
+  withdrawal_completed_at: 2018-05-20 10:04:02
+  withdrawal_information: MyText
+
+two:
+  user: two
+  consult_transaction: two
+  payment: two
+  txn_type: MyString
+  txn_status: MyString
+  withdrawal_requested_at: 2018-05-20 10:04:02
+  withdrawal_processed_at: 2018-05-20 10:04:02
+  withdrawal_completed_at: 2018-05-20 10:04:02
+  withdrawal_information: MyText

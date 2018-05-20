@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get "/terms_conditions", to: "search#terms"
   get "/set_local", to: "search#set_local"
 
+  resources :user_wallets
+  resources :user_wallet_activities
+
   mount ActionCable.server => '/cable'
 
   get 'search', to: 'search#index'

@@ -14,5 +14,6 @@
  *= require select2-bootstrap
  *= require croppie.min
  *= require home
- *= require custom-fonts 
+ *= require user_wallets
+ *= require custom-fonts
  */
