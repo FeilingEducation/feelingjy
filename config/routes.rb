@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_wallets
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
