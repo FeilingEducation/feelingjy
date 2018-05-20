@@ -5,7 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_one :user_info, foreign_key: "id"
+  has_one :user_wallet
   has_many :reviews
+
+  delegate :total_withdrawl, :total_earned, :total_pending, :total_balance, to: :user_wallet
+
+  after_create :create_user_wallet
+
+  def create_user_wallet
+    UserWallet.create(user_id: self.id)
+  end
 
   def name
     email

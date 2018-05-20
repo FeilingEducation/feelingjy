@@ -17,27 +17,33 @@
           <div class="row revenues">
             <div class="col-3 sub-sec">
               <p class="header">Earned</p>
-              <p><span>¥</span> 10000</p>
+              <p><span>¥</span> <%= current_user.total_earned %></p>
             </div>
             <div class="col-3 sub-sec">
               <p class="header">Withdrawls</p>
-              <p><span>¥</span> 5000</p>
+              <p><span>¥</span>  <%= current_user.total_withdrawl %></p>
             </div>
             <div class="col-3 sub-sec">
               <p class="header">Pending</p>
-              <p><span>¥</span> 1000</p>
+              <p><span>¥</span>  <%= current_user.total_pending %> </p>
             </div>
             <div class="col-3 sub-sec">
               <p class="header">Balance</p>
-              <p><span>¥</span> 4000</p>
+              <p><span>¥</span>  <%= current_user.total_balance %> </p>
             </div>
+          </div>
+
+          <div class="row btn-row">
+            <button type="button" class="btn btn-default" <%= current_user.total_balance == 0 ? "disabled=disabled": "" %>  data-toggle="modal" data-target="#withdrawl"> Request Withdrawal </button>
+            <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#withdrawl"> Request Withdrawl </button> -->
           </div>
         </div>
 
       <div id="pay-method" class="right-wrapper hidden">
         <div class="row">
           <div class="col-12">
-            <h4>Currently, all the money will be deposited to your account manually by us.</h4>
+            <i class="fa fa-money" aria-hidden="true"></i>
+            <p>Currently, all the money will be deposited to your account manually by us.</p>
           </div>
         </div>
       </div>
@@ -46,6 +52,39 @@
       </div>
 
       <div id="settings" class="right-wrapper hidden">
+      </div>
+    </div>
+  </div>
+</div>
+
+<% id = 'dialog' if local_assigns[:id].nil? %>
+<% title = 'Request Withdrawal' if local_assigns[:title].nil? %>
+<% size = 'xs' if local_assigns[:size].nil? %>
+
+<div class="modal fade"
+           id="withdrawl" role="dialog"
+           tabindex="-1"
+           aria-hidden="true"
+           data-keyboard="true">
+  <div class="modal-dialog modal-<%= size %> send-a-message-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= title %></h5>
+          <div class="close modal-cross" data-dismiss="modal" aria-label="Close">
+            <%= image_tag "multiply.png"%>
+          </div>
+      </div>
+      <div class="modal-body">
+        <p>You have <strong> <%= current_user.total_balance %></strong> balance available. You can request a withdrawal now.</p>
+          <%= form_for @user_wallet_activity do |f|%>
+          <div class="form-group">
+            <%= f.label :amount%>
+            <%= f.number_field :amount, min: 1, max: current_user.total_balance %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Request", class: "btn btn-primary"%>
+          </div>
+        <%end%>
       </div>
     </div>
   </div>

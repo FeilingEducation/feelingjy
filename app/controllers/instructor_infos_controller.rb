@@ -52,7 +52,7 @@ class InstructorInfosController < AuthenticatedResourcesController
       @instructor_info.user_info.update_attributes!(avatar: convert_data_uri_to_upload(params.require(:instructor_info)[:avatar_cache]))
       redirect_to(profile_path(@instructor_info))
     else
-      falsh[:notice] = 'Failed to create instructor info.'
+      flash[:notice] = 'Failed to create instructor info.'
       render('new')
     end
   end

@@ -27,7 +27,7 @@
 
   .right-nav{
     h2{
-      // color: rgba(0, 0, 0, 0.5);
+      color: rgba(0, 0, 0, 0.5);
       margin-bottom: 15px;
     }
 
@@ -64,6 +64,14 @@
   .right-wrapper{
     h4{
       color: rgba(0, 0, 0, 0.5);
+    }
+    i{
+      font-size: 100px;
+      color: rgba(0, 0, 0, 0.2);
+    }
+    .btn-row{
+      margin-top: 10px;
+      float: right;
     }
   }
 }
