@@ -45,7 +45,7 @@
                                   <%= link_to I18n.t("header.logged_in.view_my_info"), edit_user_info_path, class: 'dropdown-item dropdown-item0' %>
                                   <% if user_is_instructor? %>
                                     <%= link_to I18n.t("header.logged_in.view_my_instructor_info"), edit_instructor_info_path, class: 'dropdown-item dropdown-item1' %>
-                                    <%= link_to 'My Wallet1', user_wallets_path, class: 'dropdown-item' %>
+                                    <%= link_to 'My Wallet', user_wallets_path, class: 'dropdown-item' %>
                                   <% end %>
                                   <%= link_to I18n.t("header.logged_in.view_my_tutors"), show_instructor_user_info_path(current_user.id), class: 'dropdown-item dropdown-item2' %>
                                   <% if user_is_instructor? %>

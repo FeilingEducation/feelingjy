@@ -2,13 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$main-text-color: #979999;
+$question-text: #4A4A4A;
+$theme-green: #31c89d;
+$border-color: #E0DBDB;
+
 .revenues-wrapper{
   padding: 50px 0;
 
   .lef-nav{
     ul{
       li{
-        line-height: 30px;
+        line-height: 35px;
         font-size: 16px;
         // color: #666;
         color: rgba(0, 0, 0, 0.5);
@@ -72,6 +77,41 @@
     .btn-row{
       margin-top: 10px;
       float: right;
+    }
+
+    .title-row{
+      color: $main-text-color;
+      font-size: 16px;
+      font-weight: 900;
+      border-bottom: 1px solid $border-color;
+      padding: 0 0 30px 0;
+
+      &.data-row{
+        padding: 30px 0;
+        font-weight: normal;
+        font-size: 15px;
+
+        a{
+          font-size: 15px;
+          color: $main-text-color;
+        }
+
+        &:last-child{
+          border: 0;
+        }
+      }
+    }
+    &.txn-history{
+      h2{
+        margin-bottom: 50px;
+      }
+      h4{
+        margin-bottom: 20px;
+      }
+    }
+
+    .credit-activities{
+      margin-top: 50px;
     }
   }
 }

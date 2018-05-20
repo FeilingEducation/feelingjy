@@ -3,6 +3,10 @@ class UserWalletActivitiesController < ApplicationController
   def create
     @user_wallet_activity = UserWalletActivity.new user_wallet_activity_params
     @user_wallet_activity.user_wallet = current_user.user_wallet
+    @user_wallet_activity.withdrawal_requested_at = Time.now
+    @user_wallet_activity.txn_status = :withdrawal_requested
+    @user_wallet_activity.txn_type = :debit
+
     if @user_wallet_activity.save
       UserWalletMailer.notify_yuting @user_wallet_activity.id
       flash[:notice] = "Your withdrawal request has been submitted successfully"
