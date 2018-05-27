@@ -21,6 +21,9 @@ Rails.application.routes.draw do
       get 'show_student'
       get 'show_instructor'
     end
+    collection do
+      put "update_password"
+    end
   end
 
   resource :instructor_info, path: 'instructor', only: [:new, :create, :edit, :update, :destroy] do

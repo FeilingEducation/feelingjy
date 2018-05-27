@@ -1,167 +1,95 @@
-<%= form_for @user_info, url: user_info_path, method: 'patch', html: { multipart: true } do |f| %>
+<% local = session[:locale] || "en" %>
+<% in_scope = "#{controller_name}/#{action_name}" == 'user_infos/edit' %>
+<% lang = I18n.locale %>
+<div class="container">
+  <%#= form_for @user_info, url: user_info_path, method: 'patch', html: { multipart: true } do |f| %>
+
   <div class="row">
-    <div class="widget">
-      <div class="widget-body d-flex">
-        <%= content_tag :div, class: "editable m-auto",
-        data: { model: 'user_info', name: 'avatar', type: 'image', target: 'img', attr: 'src',
-          label: '背景图片', action: user_info_path, method: 'patch' } do %>
-          <%= image_tag profile_image_of, alt: 'Profile image', class: 'profile-image-full' %>
-        <% end %>
-      </div>
-    </div>
-    <div class="widget">
-      <div class="widget-body">
-        <h5>基本信息</h5>
-        <hr>
-        <div class="row">
-          <div class="form-group col-6">
-            <%= f.label :last_name, '姓', class: "mb-0" %>
-            <%= f.text_field :last_name, :maxlength => 15, class: 'form-control' %>
-          </div>
-          <div class="form-group col-6">
-            <%= f.label :first_name, '名', class: "mb-0" %>
-            <%= f.text_field :first_name, :maxlength => 15, class: 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <%= f.label :current_city, '所在城市', class: 'mb-0' %>
-          <%= f.text_field :current_city, :maxlength => 20, class: 'form-control' %>
-        </div>
-        <div>
-          <%= f.text_area :statement, class: 'form-control', placeholder: '我的目标', rows: 5, style: 'resize:none;' %>
-        </div>
-      </div>
-    </div>
-    <div class="widget">
-      <div class="widget-body">
-        <h5>联系方式</h5>
-        <hr>
-        <div class="form-group">
-          <label class="mb-0">邮箱地址</label>
-          <%= fields_for :email, current_user do |f| %>
-            <%= f.text_field :email, :maxlength => 40, class: 'form-control', readonly: true %>
-          <% end %>
-        </div>
-        <div class="form-group">
-          <%= f.label :phone_number, '电话号码', class: 'mb-0' %>
-          <%= f.text_field :phone_number, :maxlength => 20, class: 'form-control', placeholder: '手机/固话' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :wechat_id, '微信账号', class: 'mb-0' %>
-          <%= f.text_field :wechat_id, :maxlength => 30, class: 'form-control', placeholder: '微信' %>
-        </div>
-      </div>
-    </div>
-    <% if user_is_instructor? %>
-      <div class="widget">
-        <div class="widget-body">
-          <h5>外部链接</h5>
-          <hr>
-          <%= fields_for :instructor_info, @instructor_info do |f| %>
-            <div class="form-group">
-              <%= f.label :url_linked_in, '领英主页', class: 'mb-0' %>
-              <%= f.text_field :url_linked_in, class: 'form-control' %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="widget">
-        <div class="widget-body">
-          <h5>我的文档</h5>
-          <hr>
-          <h6 class="d-inline-block">个人简历</h6>
-          <%= content_tag :div, class: 'editable d-inline-block', data: { model: 'attachment',
-            name: 'file', type: 'attachment', file_type: 'resume', label: '个人简历' },
-            style: 'border:5px dash;border-radius:5px;' do %>
-            <i class="fa fa-plus"></i>
-          <% end %>
-          <% for resume in @instructor_info.resumes do %>
-            <div>
-              <%= link_to File.basename(resume.file.url), resume.file.url, target: '_blank' %>
-              <%= link_to resume, method: 'delete', class: 'float-right', data: { confirm: '确定删除简历吗?' } do %>
-                <i class="fa fa-times"></i>
+    <div class="col-12">
+
+      <div class="profile-main">
+        <div class="header" style="">
+          <div class="img" style="background-image: url('<%= profile_image_of %>');">
+            <%= scoped in_scope, :content_tag, :div, class: "editable background user-profile",
+            data: { model: 'user_info', name: 'avatar', type: 'image', target: 'img', attr: 'src',
+              label: 'Change Profile Image', action: user_info_path, method: 'patch' } do %>
+              <%= image_tag "reskin/camera-ic.png" %>
               <% end %>
             </div>
-          <% end %>
-        </div>
-      </div>
-    <% else %>
-      <div class="widget">
-        <div class="widget-body">
-          <h5>服务需求</h5>
-          <hr>
-          <div class="form-group">
-            <label class="mb-0">申请类型</label>
-            <div>
-              <%= select_tag :application_country, options_for_select(["美国", "英国", "澳大利亚", "加拿大"]), class: 'custom-select' %>
-              <%= select_tag :application_degree, options_for_select(["高中", "本科", "硕士", "博士"]), class: 'custom-select' %>
+          </div>
+
+          <div class="row contact-info">
+            <div class="col-sm-4">
+              <div class="inner">
+                <div class="img-txt">
+                  <span>Email</span>
+                </div>
+                <h5><%= @user_info.email %></h5>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-12">
-              <label>我可能需要的帮助有</span>
+
+          <div class="row tow-col">
+            <div class="col-sm-6 first-half">
+              <div class="inner">
+                <div class="header">
+                  Basic Info
+                </div>
+
+                <div class="upload-files  check_boxes custom-checkbox-radios">
+                  <div class="inner">
+                    <%= form_for @user_info, url: user_info_path, method: 'patch', html: { multipart: true } do |f| %>
+                    <div class="row">
+                      <div class="col-6">
+                        <%= f.label :first_name, "First Name" %>
+                        <%= f.text_field :first_name, :maxlength => 15, class: 'form-control' %>
+                      </div>
+                      <div class="col-6">
+                        <%= f.label :last_name, "Last Name" %>
+                        <%= f.text_field :last_name, :maxlength => 15, class: 'form-control' %>
+                      </div>
+                      <div class="col-6 mt-15">
+                        <%= f.submit "Update", class: 'btn btn-default' %>
+                      </div>
+                    </div>
+                    <%end%>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-6">
-              <%= f.check_box :need_early_consult %><%= f.label :need_early_consult, "早期咨询" %>
-            </div>
-            <div class="col-6">
-              <%= f.check_box :need_essay_consult %><%= f.label :need_essay_consult, "文书改写" %>
-            </div>
-            <div class="col-6">
-              <%= f.check_box :need_brainstorm_consult %><%= f.label :need_brainstorm_consult, "头脑风暴" %>
-            </div>
-            <div class="col-6">
-              <%= f.check_box :need_visa_consult %><%= f.label :need_visa_consult, "签证咨询" %>
+
+            <div class="col-sm-6">
+              <div class="inner">
+                <div class="header">
+                  Basic Info
+                </div>
+
+                <div class="upload-files  check_boxes custom-checkbox-radios">
+                  <div class="inner">
+                    <%= form_for @user_info, url: update_password_user_info_path, method: 'put', html: { multipart: true } do |f| %>
+                      <div class="row">
+                        <div class="col-12 mb-15">
+                          <%= f.password_field :current_password, class: 'form-control', placeholder: "Current Password" %>
+                        </div>
+                        <div class="col-12 mb-15">
+                          <%= f.password_field :password, class: 'form-control', placeholder: "New Password" %>
+                        </div>
+                        <div class="col-12 mb-15">
+                          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirmation New Password" %>
+                        </div>
+                        <div class="col-12 mb-15 mt-15">
+                          <%= f.submit "Update", class: 'btn btn-default' %>
+                        </div>
+                      </div>
+                    <%end%>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
-      </div>
-    <% end %>
-    <div class="widget">
-      <div class="widget-body">
-        <h5>学校信息</h5>
-        <hr>
-        <div class="form-group">
-          <%= label_tag :high_school, '高中', class: 'mb-0' %>
-          <%= text_field_tag :high_school, nil, class: 'form-control', placeholder: '高中学校' %>
-        </div>
-        <div class="form-group">
-          <%= label_tag :undergrad_school, '本科', class: 'mb-0' %>
-          <%= text_field_tag :undergrad_school, nil, class: 'form-control', placeholder: '本科学校' %>
-        </div>
-        <div class="form-group">
-          <%= label_tag :grad_school, '研究生', class: 'mb-0' %>
-          <%= text_field_tag :grad_school, nil, class: 'form-control', placeholder: '研究生学校' %>
-        </div>
-      </div>
-    </div>
-    <div class="widget">
-      <div class="widget-body">
-        <h5>我喜爱的</h5>
-        <hr>
-        <div class="form-group">
-          <%= label_tag :high_school, '音乐', class: 'mb-0' %>
-          <%= text_field_tag :high_school, nil, class: 'form-control', placeholder: '风格/歌曲/...' %>
-        </div>
-        <div class="form-group">
-          <%= label_tag :undergrad_school, '运动', class: 'mb-0' %>
-          <%= text_field_tag :undergrad_school, nil, class: 'form-control', placeholder: '参加的/观看的/...' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :grad_school, '电影', class: 'mb-0' %>
-          <%= text_field_tag :grad_school, nil, class: 'form-control', placeholder: '风格/导演/...' %>
-        </div>
+        <%# end %>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <% if user_is_instructor? %>
-        <%= link_to "我的导师页面", profile_path(current_user.id), class: 'btn btn-lg btn-primary' %>
-      <% else %>
-        <%= link_to "申请成为导师", new_instructor_info_path, class: 'btn btn-lg btn-warning' %>
-      <% end %>
-      <%= f.submit "保存", class: 'btn-lg btn-outline-success float-right' %>
-    </div>
-  </div>
-<% end %>
