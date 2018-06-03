@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180527175128) do
+ActiveRecord::Schema.define(version: 20180603065537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -208,6 +208,14 @@ ActiveRecord::Schema.define(version: 20180527175128) do
     t.index ["payable_type", "payable_id"], name: "index_payments_on_payable_type_and_payable_id"
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.string "pictureable_type"
+    t.bigint "pictureable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pictureable_type", "pictureable_id"], name: "index_pictures_on_pictureable_type_and_pictureable_id"
+  end
+
   create_table "private_policies", force: :cascade do |t|
     t.integer "instructor_id", null: false
     t.text "content"
@@ -235,9 +243,14 @@ ActiveRecord::Schema.define(version: 20180527175128) do
     t.string "name_en"
     t.string "name_cn"
     t.string "logo_name"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description_en"
+    t.text "description_cn"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "user_infos", force: :cascade do |t|

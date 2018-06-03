@@ -33,6 +33,8 @@ gem "fog-aws"
 
 gem 'activeadmin', github: 'activeadmin'
 
+gem "paperclip", "~> 6.0.0"
+gem 'aws-sdk-s3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

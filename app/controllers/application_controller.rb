@@ -24,12 +24,12 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource_or_scope)
     # TODO: better way to detect sign up request; override maybe?
-    if request.env['PATH_INFO'] == user_registration_path && request.method_symbol == :post
-      # jump to account path when first registered
-      user_info_path
-    else
+    # if request.env['PATH_INFO'] == new_user_registration_path && request.method_symbol == :post
+    #   # jump to account path when first registered
+    #   user_info_path
+    # else
       stored_location_for(resource_or_scope) || signed_in_root_path(resource_or_scope)
-    end
+    # end
   end
 
   # no longer used as user_info will always created at registration.

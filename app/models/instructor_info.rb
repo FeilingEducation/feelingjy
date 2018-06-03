@@ -255,14 +255,6 @@ end
 #
 
 
-
-
-
-
-
-
-
-
   def resumes
     self.attachments.where(file_type: 'resume')
   end
