@@ -1,9 +1,10 @@
 class University < ApplicationRecord
 
-  has_one :cover_photo, class_name: 'Picture', foreign_key: 'pictureable_id'
+  # has_one :cover_photo, class_name: 'Picture', foreign_key: 'pictureable_id'
+  belongs_to :picture, class_name: 'Picture', optional: true #, foreign_key: "pictureable_id"
   has_many :gallery_images, class_name: 'Picture', foreign_key: 'pictureable_id'
 
-  accepts_nested_attributes_for :cover_photo
+  # accepts_nested_attributes_for :cover_photo
   accepts_nested_attributes_for :gallery_images
 
   has_attached_file :logo,
@@ -20,9 +21,6 @@ class University < ApplicationRecord
   do_not_validate_attachment_file_type :logo
 
 
-
-
-
   def s3_credentials
     {:bucket => Rails.application.secrets.s3_bucket_name,
     :access_key_id => Rails.application.secrets.aws_access_key_id ,
@@ -31,6 +29,10 @@ class University < ApplicationRecord
 
   def name local='en'
     local == 'en' ? name_en : name_cn
+  end
+
+  def cover_photo
+    picture
   end
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180603065537) do
+ActiveRecord::Schema.define(version: 20180603192403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -213,6 +213,10 @@ ActiveRecord::Schema.define(version: 20180603065537) do
     t.bigint "pictureable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["pictureable_type", "pictureable_id"], name: "index_pictures_on_pictureable_type_and_pictureable_id"
   end
 
@@ -251,6 +255,8 @@ ActiveRecord::Schema.define(version: 20180603065537) do
     t.string "logo_content_type"
     t.integer "logo_file_size"
     t.datetime "logo_updated_at"
+    t.bigint "picture_id"
+    t.index ["picture_id"], name: "index_universities_on_picture_id"
   end
 
   create_table "user_infos", force: :cascade do |t|
@@ -326,6 +332,7 @@ ActiveRecord::Schema.define(version: 20180603065537) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "universities", "pictures"
   add_foreign_key "user_wallet_activities", "consult_transactions"
   add_foreign_key "user_wallet_activities", "payments"
   add_foreign_key "user_wallet_activities", "user_wallets"

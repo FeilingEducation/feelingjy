@@ -12,4 +12,6 @@ ActiveAdmin.register Picture do
 #   permitted
 # end
 
+# belongs_to :pictureable, polymorphic: true
+
 end
