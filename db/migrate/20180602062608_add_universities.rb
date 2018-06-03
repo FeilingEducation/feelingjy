@@ -89,7 +89,5 @@ class AddUniversities < ActiveRecord::Migration[5.1]
     University.where(name_en: "Washington University in St.Louis", name_cn: "圣路易斯华盛顿大学").first_or_create
     University.where(name_en: "Yale University", name_cn: "耶鲁大学").first_or_create
 
-    AdminUser.create!(email: 'admin@feelingjy.com', password: '!32AdCDEep$$%#AADfij0909034ASSSCd#@@ASss!!!!casfasdfpjjjnnCCCSSSCDDD', password_confirmation: '!32AdCDEep$$%#AADfij0909034ASSSCd#@@ASss!!!!casfasdfpjjjnnCCCSSSCDDD') if Rails.env.development?
-
   end
 end
