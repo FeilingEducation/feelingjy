@@ -3,7 +3,7 @@ en:
     confirmations:
       confirmed: "您的电子邮箱地址已被成功确认。"
       send_instructions: "您将会在几分钟内收到确认账户的邮件。"
-      send_paranoid_instructions: "如果您的邮箱存在于我们的数据库中，您将会在几分钟之内收到确认邮件。"
+      send_paranoid_instructions: "如果您的邮箱存在于我们的数据库中,您将会在几分钟之内收到确认邮件。"
     failure:
       already_authenticated: "您已登录"
       inactive: "您的账户还未激活"
@@ -29,9 +29,9 @@ en:
       failure: "不能证明%{kind}是真实的因为\"%{reason}\"。"
       success: "成功证明%{kind}是真实的账户。"
     passwords:
-      no_token: "在没有进入重置密码邮件前，您是不可以进入此页面的。如果您进入重置密码邮件，请确保您使用提供的完整链接"
+      no_token: "在没有进入重置密码邮件前,您是不可以进入此页面的。如果您进入重置密码邮件,请确保您使用提供的完整链接"
       send_instructions: "您将会在几分钟内收到如何重置密码的邮件。"
-      send_paranoid_instructions: "如果您的邮箱地址存在于我们的数据库中，您将会在几分钟之内收到恢复密码的邮件。"
+      send_paranoid_instructions: "如果您的邮箱地址存在于我们的数据库中,您将会在几分钟之内收到恢复密码的邮件。"
       updated: "您的密码已更改成功。您已登录"
       updated_not_active: "您的密码已更改成功"
     registrations:
@@ -48,11 +48,11 @@ en:
       already_signed_out: "注销成功"
     unlocks:
       send_instructions: "您将会在几分钟之内收到如何解锁您账户的邮件。"
-      send_paranoid_instructions: "如果您的账户依旧存在，您将会在几分钟之内收到如何解锁您账户的邮件。"
+      send_paranoid_instructions: "如果您的账户依旧存在,您将会在几分钟之内收到如何解锁您账户的邮件。"
       unlocked: "您的账户已成功被解锁。请登录继续。"
   errors:
     messages:
-      already_confirmed: "已被确认，请尝试重新登录"
+      already_confirmed: "已被确认,请尝试重新登录"
       confirmation_period_expired: "需要在%{period}内确认, 请重新获取。"
       expired: "已过期, 请重新获取。"
       not_found: "未找到"
