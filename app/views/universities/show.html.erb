@@ -11,6 +11,7 @@
         </div>
 
         <div class="row contact-info">
+          <div class="col-12"><h3 class="title green">Introduction</h3></div>
           <div class="col-sm-12">
             <div class="inner">
               <h5><%= @university.description local %></h5>
@@ -18,14 +19,16 @@
           </div>
         </div>
 
+        <div class="row mentors">
+          <div class="col-12"><h3 class="title green">Departments</h3></div>
+          <% @university.departments.each do |department|%>
+            <%= render partial: 'department', locals: { department: department } %>
+          <%end%>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="row mentors">
-    <% @university.departments.each do |department|%>
-      <%= render partial: 'department', locals: { department: department } %>
-    <%end%>
-  </div>
+
 
 </div>
