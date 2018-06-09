@@ -8,7 +8,7 @@ ActiveAdmin.register University do
   #
 
   permit_params do
-    permitted = [:uuid, :name_en, :name_cn, :description_cn, :description_en, :logo, :picture_id, :gallery_images_attributes => [:id, :image, :pictureable_id, :pictureable_type, :uuid]]
+    permitted = [:uuid, :name_en, :name_cn, :description_cn, :description_en, :logo, :picture_id, :gallery_images_attributes => [:id, :image, :pictureable_id, :pictureable_type, :uuid, :_destroy]]
     permitted
   end
 

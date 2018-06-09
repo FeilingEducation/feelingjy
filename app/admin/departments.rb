@@ -1,7 +1,7 @@
 ActiveAdmin.register Department do
 
   permit_params do
-    [:uuid, :ranking, :submission_deadline, :picturable_class, :university_id, :name_en, :name_cn, :details_cn, :details_en, :gallery_images_attributes => [:id, :image, :pictureable_id, :pictureable_type, :uuid, :picturable_class]]
+    [:uuid, :ranking, :submission_deadline, :picturable_class, :university_id, :name_en, :name_cn, :details_cn, :details_en, :gallery_images_attributes => [:id, :image, :pictureable_id, :pictureable_type, :uuid, :picturable_class, :_destroy]]
   end
 
   show do
