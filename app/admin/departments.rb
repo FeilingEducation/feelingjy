@@ -71,6 +71,14 @@ ActiveAdmin.register Department do
       @department = Department.new uuid: SecureRandom.uuid
     end
 
+    def edit
+      @department = Department.friendly.find(params[:id])
+    end
+
+    def show
+      @university = University.friendly.find(params[:id])
+    end
+
   end
 
 end

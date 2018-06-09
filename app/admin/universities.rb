@@ -62,6 +62,10 @@ controller do
     @university = University.new uuid: SecureRandom.uuid
   end
 
+  def show
+    @university = University.friendly.find(params[:id])
+  end
+
 end
 
 form do |f|
