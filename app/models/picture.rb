@@ -1,7 +1,9 @@
 class Picture < ApplicationRecord
+
   before_validation :assign_picturable
 
-  belongs_to :pictureable, class_name: "University" #, polymorphic: true
+  # belongs_to :pictureable, class_name: "University" #, polymorphic: true
+  belongs_to :pictureable, polymorphic: true
 
   has_attached_file :image,
       :storage => :s3,
@@ -16,6 +18,8 @@ class Picture < ApplicationRecord
 
   do_not_validate_attachment_file_type :image
 
+  attr_accessor :picturable_class
+
   def s3_credentials
     {:bucket => Rails.application.secrets.s3_bucket_name,
     :access_key_id => Rails.application.secrets.aws_access_key_id ,
@@ -23,7 +27,10 @@ class Picture < ApplicationRecord
   end
 
   def assign_picturable
-
+    puts '***************'
+    self.pictureable  = University.first if self.pictureable.nil?
+    puts self.inspect
+    puts '***************'
   end
 
   # def name local='en'

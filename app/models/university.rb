@@ -20,6 +20,8 @@ class University < ApplicationRecord
 
   do_not_validate_attachment_file_type :logo
 
+  after_create :set_pictureable
+  after_save :set_pictureable
 
   def s3_credentials
     {:bucket => Rails.application.secrets.s3_bucket_name,
@@ -35,5 +37,10 @@ class University < ApplicationRecord
     picture
   end
 
-
+  def set_pictureable
+    Picture.where(uuid: self.uuid).find_each do |picture|
+      picture.pictureable = self
+      picture.save
+    end
+  end
 end

@@ -8,10 +8,7 @@ ActiveAdmin.register University do
   #
 
   permit_params do
-    permitted = [:name_en, :name_cn, :description_cn, :description_en, :logo, :picture_id, :gallery_images_attributes => [:id, :image, :pictureable_id, :pictureable_type]]
-    # gallery_images_attributes: [:id, :image]
-    # permitted << :other if params[:action] == 'create' && current_user.admin?
-    # permitted << :cover_photo_attributes
+    permitted = [:uuid, :name_en, :name_cn, :description_cn, :description_en, :logo, :picture_id, :gallery_images_attributes => [:id, :image, :pictureable_id, :pictureable_type, :uuid]]
     permitted
   end
 
@@ -56,26 +53,14 @@ end
 
 controller do
 
-  # def new
-  #   @university = University.new
-  # end
-
   def edit
     @university = University.find(params[:id])
     # @university.cover_photo = Picture.new(pictureable: @university) if @university.cover_photo.nil?
   end
 
-  # def create
-  #   puts '====(((())))'
-  #   byebug
-  #   puts '====='
-  # end
-  #
-  # def update
-  #   puts '====(((())))'
-  #   byebug
-  #   puts '====='
-  # end
+  def new
+    @university = University.new uuid: SecureRandom.uuid
+  end
 
 end
 
@@ -83,6 +68,7 @@ form do |f|
   f.semantic_errors *f.object.errors.keys
   inputs do
     f.input :name_en
+    f.input :uuid, input_html: {value: "#{f.object.uuid}"}, as: :hidden
     f.input :name_cn
     f.input :description_en
     f.input :description_cn
@@ -120,7 +106,7 @@ form do |f|
   f.inputs "Gallary" do
     f.has_many :gallery_images, :allow_destroy => true do |cf|
       cf.input :image
-      # cf.input :pictureable_id, input_html: {value: "University-#{f}"}
+      cf.input :uuid, input_html: {value: "#{f.object.uuid}"}, as: :hidden
     end
   end
 

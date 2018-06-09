@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180603192403) do
+ActiveRecord::Schema.define(version: 20180609074644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,20 @@ ActiveRecord::Schema.define(version: 20180603192403) do
     t.string "open_tok_session_id"
     t.index ["instructor_id"], name: "index_consult_transactions_on_instructor_id"
     t.index ["student_id"], name: "index_consult_transactions_on_student_id"
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name_en"
+    t.string "name_cn"
+    t.text "details_en"
+    t.text "details_cn"
+    t.datetime "submission_deadline"
+    t.integer "ranking"
+    t.bigint "university_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "uuid"
+    t.index ["university_id"], name: "index_departments_on_university_id"
   end
 
   create_table "instructor_infos", force: :cascade do |t|
@@ -217,6 +231,7 @@ ActiveRecord::Schema.define(version: 20180603192403) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.string "uuid"
     t.index ["pictureable_type", "pictureable_id"], name: "index_pictures_on_pictureable_type_and_pictureable_id"
   end
 
@@ -256,6 +271,7 @@ ActiveRecord::Schema.define(version: 20180603192403) do
     t.integer "logo_file_size"
     t.datetime "logo_updated_at"
     t.bigint "picture_id"
+    t.string "uuid"
     t.index ["picture_id"], name: "index_universities_on_picture_id"
   end
 
@@ -332,6 +348,7 @@ ActiveRecord::Schema.define(version: 20180603192403) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "departments", "universities"
   add_foreign_key "universities", "pictures"
   add_foreign_key "user_wallet_activities", "consult_transactions"
   add_foreign_key "user_wallet_activities", "payments"

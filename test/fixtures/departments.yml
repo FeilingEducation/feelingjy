@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  details: MyText
+  submission_deadline: 2018-06-09 11:23:48
+  ranking: 1
+  university: one
+
+two:
+  name: MyString
+  details: MyText
+  submission_deadline: 2018-06-09 11:23:48
+  ranking: 1
+  university: two
