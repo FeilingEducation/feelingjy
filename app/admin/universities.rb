@@ -66,6 +66,11 @@ controller do
     @university = University.friendly.find(params[:id])
   end
 
+  def update
+    @university = University.friendly.find(params[:id])
+    super
+  end
+
 end
 
 form do |f|

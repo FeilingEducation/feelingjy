@@ -79,6 +79,11 @@ ActiveAdmin.register Department do
       @department = Department.friendly.find(params[:id])
     end
 
+    def update
+      @department = Department.friendly.find(params[:id])
+      super
+    end
+
   end
 
 end
