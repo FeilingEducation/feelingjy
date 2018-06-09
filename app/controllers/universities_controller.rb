@@ -1,7 +1,7 @@
 class UniversitiesController < ApplicationController
 
   def index
-    @universities = University.order("name_en")
+    @universities = University.includes(:departments).order("name_en")
   end
 
   def show

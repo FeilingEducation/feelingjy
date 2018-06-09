@@ -4,7 +4,8 @@
     <div class="div-bg">
       <div class="img" style="background-image: url('<%= university.cover_photo.try(:image).try(:url)%>');">
         <div class="location-new">
-          <%= spec_list = university.name local %>
+          <h5 class="name"><%= university.name local %></h5>
+          <span class="departments"> <strong ><%= "#{university.departments.size}" %> </strong><%= "Departments" %> </span>
         </div>
       </div>
     </div>
