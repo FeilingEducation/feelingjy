@@ -1,7 +1,7 @@
 ActiveAdmin.register Department do
 
   permit_params do
-    [:uuid, :ranking, :submission_deadline, :picturable_class, :university_id, :name_en, :name_cn, :details_cn, :details_en, :gallery_images_attributes => [:id, :image, :pictureable_id, :pictureable_type, :uuid, :picturable_class, :_destroy]]
+    [:phone, :fax, :email, :web_link, :city, :state, :zipcode, :documents_required, :address1, :address2, :uuid, :ranking, :submission_deadline, :picturable_class, :university_id, :name_en, :name_cn, :details_cn, :details_en, :gallery_images_attributes => [:id, :image, :pictureable_id, :pictureable_type, :uuid, :picturable_class, :_destroy]]
   end
 
   show do
@@ -15,6 +15,7 @@ ActiveAdmin.register Department do
     attributes_table do
       row :submission_deadline
       row :ranking
+      row :documents_required
     end
 
     attributes_table heading: "Gallery Images" do
@@ -51,9 +52,22 @@ ActiveAdmin.register Department do
       f.input :details_cn
     end
 
-    inputs do
+    inputs "Application details" do
       f.input :ranking
       f.input :submission_deadline
+      f.input :documents_required
+    end
+
+    inputs "Contact details" do
+      f.input :phone
+      f.input :fax
+      f.input :email
+      f.input :web_link
+      f.input :address1
+      f.input :address2
+      f.input :city
+      f.input :state
+      f.input :zipcode
     end
 
     f.inputs "Gallary" do

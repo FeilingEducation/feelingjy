@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180609120011) do
+ActiveRecord::Schema.define(version: 20180609135312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,16 @@ ActiveRecord::Schema.define(version: 20180609120011) do
     t.datetime "updated_at", null: false
     t.string "uuid"
     t.string "slug"
+    t.string "phone"
+    t.string "fax"
+    t.string "email"
+    t.string "web_link"
+    t.string "address1"
+    t.string "address2"
+    t.string "zipcode"
+    t.string "city"
+    t.string "state"
+    t.text "documents_required"
     t.index ["university_id"], name: "index_departments_on_university_id"
   end
 
@@ -286,6 +296,16 @@ ActiveRecord::Schema.define(version: 20180609120011) do
     t.bigint "picture_id"
     t.string "uuid"
     t.string "slug"
+    t.text "documents_required"
+    t.string "phone"
+    t.string "fax"
+    t.string "email"
+    t.string "web_link"
+    t.string "address1"
+    t.string "address2"
+    t.string "zipcode"
+    t.string "city"
+    t.string "state"
     t.index ["picture_id"], name: "index_universities_on_picture_id"
   end
 
