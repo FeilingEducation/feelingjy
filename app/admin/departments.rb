@@ -76,7 +76,7 @@ ActiveAdmin.register Department do
     end
 
     def show
-      @university = University.friendly.find(params[:id])
+      @department = Department.friendly.find(params[:id])
     end
 
   end
