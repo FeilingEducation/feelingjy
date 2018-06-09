@@ -742,3 +742,10 @@ en:
       transaction_review_failed: "Review failed."
       transaction_reviewed: "Review successful."
       has_reviewed: "This service has been already reviewed. You cannot review it again."
+
+  universities:
+    heading: "All Universties"
+    desc: "You can scroll through and see the details about each of the university."
+    no_heading: "Oops!"
+    no_desc: "No matching results. Let's go back and modify search."
+    back_btn: "Back"

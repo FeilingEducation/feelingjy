@@ -1,0 +1,22 @@
+<section class="section mentors-wrapper <%= @universities.size > 0 ? " grey-section" : ""%>">
+  <div class="container">
+    <div class="header">
+      <% if @universities.size > 0%>
+        <h1><%= I18n.t("universities.heading") %></h1>
+        <p><%= I18n.t("universities.desc") %></p>
+      <%else%>
+        <h1><%= I18n.t("universities.no_heading") %></h1>
+        <p><%= I18n.t("universities.no_desc") %></p>
+        <br/>
+        <%= link_to I18n.t("universities.back_btn"), root_path, class: 'btn btn-default'%>
+      <%end%>
+    </div>
+
+    <div class="row mentors">
+      <% @universities.each do |university|%>
+        <%= render partial: 'university', locals: { university: university } %>
+      <%end%>
+    </div>
+
+  </div>
+</section>

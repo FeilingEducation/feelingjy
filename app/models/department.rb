@@ -12,7 +12,7 @@ class Department < ApplicationRecord
     local == 'en' ? name_en : name_cn
   end
 
-  def details local='en'
+  def description local='en'
     local == 'en' ? details_en : details_cn
   end
 

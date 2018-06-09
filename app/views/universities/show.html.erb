@@ -1,0 +1,31 @@
+<% local = session[:locale] || "en" %>
+<% lang = I18n.locale %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= @university.name %>
+      <div class="profile-main">
+        <div class="header" style="">
+          <div class="img" style="background-image: url('<%= @university.cover_photo.try(:image).try(:url) %>');">
+          </div>
+        </div>
+
+        <div class="row contact-info">
+          <div class="col-sm-12">
+            <div class="inner">
+              <h5><%= @university.description local %></h5>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row mentors">
+    <% @university.departments.each do |department|%>
+      <%= render partial: 'department', locals: { department: department } %>
+    <%end%>
+  </div>
+
+</div>

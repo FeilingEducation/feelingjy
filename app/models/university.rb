@@ -4,6 +4,8 @@ class University < ApplicationRecord
   belongs_to :picture, class_name: 'Picture', optional: true #, foreign_key: "pictureable_id"
   has_many :gallery_images, class_name: 'Picture', foreign_key: 'pictureable_id'
 
+  has_many :departments
+
   # accepts_nested_attributes_for :cover_photo
   accepts_nested_attributes_for :gallery_images
 
@@ -31,6 +33,10 @@ class University < ApplicationRecord
 
   def name local='en'
     local == 'en' ? name_en : name_cn
+  end
+
+  def description local='en'
+    local == 'en' ? description_en : description_cn
   end
 
   def cover_photo

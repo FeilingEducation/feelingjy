@@ -1,0 +1,26 @@
+<% local = session[:locale] || "en" %>
+<% lang = I18n.locale %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= @department.name %>
+      <div class="profile-main">
+        <div class="header" style="">
+          <div class="img" style="background-image: url('<%= @department.gallery_images.first.try(:image).try(:url) %>');">
+          </div>
+        </div>
+
+        <div class="row contact-info">
+          <div class="col-sm-12">
+            <div class="inner">
+              <h5><%= @department.description local %></h5>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
