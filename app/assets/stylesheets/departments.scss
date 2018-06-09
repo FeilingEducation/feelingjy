@@ -1,3 +1,28 @@
 // Place all the styles related to the Departments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.departments{
+  .profile-main{
+    .header{
+      padding: 0px;
+
+      .img{
+        height: 400px;
+        width: 100%;
+        border-radius: 0;
+      }
+
+      .title{
+        position: absolute;
+        bottom: 20px;
+        left: 50px;
+        font-size: 45px;
+        z-index: 9;
+        color: #fff;
+        font-weight: bolder;
+        background-color: rgba(155,155,155,0.8);
+        padding: 10px;
+      }
+    }
+  }
+}
