@@ -9,6 +9,9 @@ class University < ApplicationRecord
   # accepts_nested_attributes_for :cover_photo
   accepts_nested_attributes_for :gallery_images
 
+  extend FriendlyId
+  friendly_id :name_en, use: :slugged
+
   has_attached_file :logo,
       :storage => :s3,
       s3_region: 'us-west-1',
@@ -48,5 +51,9 @@ class University < ApplicationRecord
       picture.pictureable = self
       picture.save
     end
+  end
+
+  def should_generate_new_friendly_id?
+    new_record? || slug.blank?
   end
 end

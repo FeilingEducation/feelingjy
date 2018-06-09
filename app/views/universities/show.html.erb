@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <%= @university.name %>
+      <h2><%= @university.name %></h2>
       <div class="profile-main">
         <div class="header" style="">
           <div class="img" style="background-image: url('<%= @university.cover_photo.try(:image).try(:url) %>');">

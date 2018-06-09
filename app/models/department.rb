@@ -8,6 +8,9 @@ class Department < ApplicationRecord
   after_create :set_pictureable
   after_save :set_pictureable
 
+  extend FriendlyId
+  friendly_id :name_en, use: :slugged
+
   def name local='en'
     local == 'en' ? name_en : name_cn
   end
@@ -22,4 +25,9 @@ class Department < ApplicationRecord
       picture.save
     end
   end
+
+  def should_generate_new_friendly_id?
+    new_record? || slug.blank?
+  end
+  
 end

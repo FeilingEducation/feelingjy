@@ -85,3 +85,5 @@ gem 'alipay', '~> 0.15.0'
 # gem 'image_optim'
 # gem 'image_optim_pack'
 gem 'sitemap_generator'
+
+gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
