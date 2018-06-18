@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180609135312) do
+ActiveRecord::Schema.define(version: 20180618171551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,13 @@ ActiveRecord::Schema.define(version: 20180609135312) do
     t.string "city"
     t.string "state"
     t.text "documents_required"
+    t.string "website"
+    t.text "address"
+    t.text "contact"
+    t.string "program_list"
+    t.string "tofel_code"
+    t.string "gre_code"
+    t.string "gmat_code"
     t.index ["university_id"], name: "index_departments_on_university_id"
   end
 
@@ -267,6 +274,27 @@ ActiveRecord::Schema.define(version: 20180609135312) do
     t.index ["instructor_id"], name: "index_private_policies_on_instructor_id"
   end
 
+  create_table "programs", force: :cascade do |t|
+    t.bigint "department_id"
+    t.string "name_en"
+    t.string "name_cn"
+    t.string "degree"
+    t.string "website"
+    t.string "adminssion"
+    t.string "fall_deadline"
+    t.string "fall_deadline_round1"
+    t.string "fall_deadline_round2"
+    t.string "spring_deadline"
+    t.text "addmission_requirements"
+    t.text "contact"
+    t.string "tution"
+    t.text "note_en"
+    t.text "note_cn"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_programs_on_department_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "service_communication_rating"
     t.integer "attitude_rating"
@@ -306,6 +334,15 @@ ActiveRecord::Schema.define(version: 20180609135312) do
     t.string "zipcode"
     t.string "city"
     t.string "state"
+    t.text "contact"
+    t.text "address"
+    t.string "grad_website"
+    t.string "grad_contact"
+    t.string "grad_address"
+    t.string "program_list"
+    t.string "overview"
+    t.text "news_18"
+    t.text "news_17"
     t.index ["picture_id"], name: "index_universities_on_picture_id"
   end
 
@@ -383,6 +420,7 @@ ActiveRecord::Schema.define(version: 20180609135312) do
   end
 
   add_foreign_key "departments", "universities"
+  add_foreign_key "programs", "departments"
   add_foreign_key "universities", "pictures"
   add_foreign_key "user_wallet_activities", "consult_transactions"
   add_foreign_key "user_wallet_activities", "payments"

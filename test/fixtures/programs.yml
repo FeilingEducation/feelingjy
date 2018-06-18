@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  degree: MyString
+  website: MyString
+  adminssion: MyString
+  fall_deadline: MyString
+  fall_deadline_round1: MyString
+  fall_deadline_round2: MyString
+  spring_deadline: MyString
+  addmission_requirements: MyText
+  contact: MyText
+  tution: MyString
+  note: MyText
+
+two:
+  degree: MyString
+  website: MyString
+  adminssion: MyString
+  fall_deadline: MyString
+  fall_deadline_round1: MyString
+  fall_deadline_round2: MyString
+  spring_deadline: MyString
+  addmission_requirements: MyText
+  contact: MyText
+  tution: MyString
+  note: MyText
