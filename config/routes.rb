@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :departments
   end
 
+
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   get "/confirmation_success", to: "search#confirmation"
   get "/terms_conditions", to: "search#terms"
   get "/set_local", to: "search#set_local"
+
+  get "/seeds", to: "application#data"
 
   resources :user_wallets
   resources :user_wallet_activities
