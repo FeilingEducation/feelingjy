@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :departments
   end
 
+  post 'results', to: 'universities#results'
+
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -23,6 +25,8 @@ Rails.application.routes.draw do
 
   get 'search', to: 'search#index'
   post 'search', to: 'search#search'
+
+  get 'efficiency-tool', to: "search#efficiency_tool"
 
   resource :user_info, path: 'account', except: [:destroy] do
     member do

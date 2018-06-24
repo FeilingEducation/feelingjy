@@ -1,0 +1,58 @@
+<div class="row efficiency-wrapper" style="background-image: url('<%=asset_url("Low_Ploy_Landscape.jpg") %>');">
+  <div class="col-12 background">
+
+    <h2 class="main-heading"><%= I18n.t "efficiency.main_heading"%></h2>
+    <h4 class="sub-heading"><%= I18n.t "efficiency.sub_heading" %></h4>
+
+    <%= form_tag "/results", method: "POST" do %>
+    <%= text_field_tag "university", "", placeholder: I18n.t("efficiency.label1") %>
+
+
+    <div class="row content">
+      <div class="col-2 box-transparent">
+        <span><%= I18n.t "efficiency.degree"%></span>
+      </div>
+      <div class="col-10 degree" id="degree">
+        <label class="rad box">
+          <input class="hidden" type="radio" name="degree" value="bachelor" />
+           <%= I18n.t "efficiency.bachelor"%>
+        </label>
+        <label class="rad box">
+          <input class="hidden" type="radio" name="degree" value="master" />
+           <%= I18n.t "efficiency.master"%>
+        </label>
+        <label class="rad box">
+          <input class="hidden" type="radio" name="degree" value="phd" />
+           <%= I18n.t "efficiency.phd"%>
+        </label>
+
+      </div>
+    </div>
+
+    <div class="row content">
+      <div class="col-2 box-transparent">
+        <span><%= I18n.t "efficiency.semester"%></span>
+      </div>
+      <div class="col-10 degree" id="semester">
+        <label class="rad box">
+          <input class="hidden" type="radio" name="semester" value="spring" />
+          2019 - 2020 <%= I18n.t "efficiency.spring"%>
+        </label>
+        <label class="rad box">
+          <input class="hidden" type="radio" name="semester" value="fall" />
+           2018 - 2019 <%= I18n.t "efficiency.fall"%>
+        </label>
+      </div>
+    </div>
+
+    <div class="row content">
+      <div class="col-12 btn-row">
+        <%= submit_tag I18n.t("efficiency.enter_my_application"), class: "btn btn-primary"%>
+
+    </div>
+    </div>
+
+    <%end%>
+
+  </div>
+</div>

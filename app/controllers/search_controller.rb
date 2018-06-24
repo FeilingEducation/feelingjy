@@ -9,6 +9,9 @@ class SearchController < ApplicationController
   def terms
   end
 
+  def efficiency_tool
+  end
+
   # TODO: better field design and searching queries
   def index
     @search = search_params

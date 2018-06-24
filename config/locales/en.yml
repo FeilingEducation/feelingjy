@@ -749,3 +749,16 @@ en:
     no_heading: "Oops!"
     no_desc: "No matching results. Let's go back and modify search."
     back_btn: "Back"
+
+  efficiency:
+    main_heading: "Welcome to Feeling Education Management Center"
+    sub_heading: "Please select the degree and semester of your Application"
+    label1: "Please selecct your University"
+    degree: "Degree"
+    bachelor: "Bachelor"
+    master: "Master"
+    phd: "P.H.D."
+    semester: "Semester"
+    spring: "Spring"
+    fall: "Fall"
+    enter_my_application: "Enter My Application"

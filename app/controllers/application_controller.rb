@@ -77,7 +77,7 @@ class ApplicationController < ActionController::Base
       Rails.env.production? && request.path != '/cable'
     end
 
-
+    # TODO Move it somewhere else. 
     def seeds
       # Create Universities. !!!!
       puts "\n\n\n\n\nCreating Universities!!!\n\n\n\n"
