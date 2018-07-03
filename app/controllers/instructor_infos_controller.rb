@@ -68,6 +68,8 @@ class InstructorInfosController < AuthenticatedResourcesController
   def update
     @instructor_info = InstructorInfo.find(current_user.id)
     if @instructor_info.update_attributes(instructor_info_params)
+      @instructor_info.uni_accepted = [instructor_info_params[:uni_accepted]]
+      @instructor_info.save!
       flash[:notice] = 'Instructor profile updated successfully'
     end
     redirect_to request.referer || edit_instructor_info_path
@@ -255,6 +257,7 @@ end
       :visa_max_price,
       :visa_fix_price,
       :avatar_cache,
+      :uni_accepted,
       :uni_accepted =>  [],
       :specialization =>  []
       # :avatar
