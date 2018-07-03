@@ -2742,20 +2742,27 @@ input,.btn,.modal-content,select,.btn-danger,.btn-default,.btn-primary,textarea,
 }
 
 .profile-nav{
-	background: $theme-green;
+
 	font-size: 20px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	// border-bottom-left-radius: 5px;
+	// border-bottom-right-radius: 5px;
 	text-align: center;
-	position: fixed;
-	width: 100%;
 	z-index: 2;
+	-webkit-padding-start: 0px;
+	padding: 0 15px;
+	margin: 15px -15px;
+
+	li{
+		background: $theme-green;
+	}
 
 	li:first-child{
-		border-bottom-left-radius: 3px;
+		border-bottom-left-radius: 5px;
+		border-top-left-radius: 5px;
 	}
 	li:last-child{
-		border-bottom-right-radius: 3px;
+		border-bottom-right-radius: 5px;
+		border-top-right-radius: 5px;
 	}
 	a.profile-nav-item{
 		color: white;
