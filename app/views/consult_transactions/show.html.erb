@@ -90,8 +90,9 @@
                     <%= button_to I18n.t("chat.student_initiated"), '', disabled: true, class: 'btn default-btn btn-block btn-initiated' %>
                   <% when "payment_pending" %>
 
-                    <%= link_to I18n.t("chat.pending") +  " #{@payment_amount}", payment_complete_consult_transaction_path , class: 'btn default-btn btn-block red' %>
-                    <%= link_to I18n.t("chat.decline"), decline_consult_transaction_path, class: 'btn default-btn btn-block'%>
+                    <%#= link_to I18n.t("chat.pending") +  " #{@payment_amount}", payment_complete_consult_transaction_path , class: 'btn default-btn btn-block red' %>
+                    <%= link_to I18n.t("chat.pending") +  " #{@payment_amount}", @alipay_url , class: 'btn default-btn btn-block', id: "std-pay" %>
+                    <%= link_to I18n.t("chat.decline"), decline_consult_transaction_path, class: 'btn default-btn btn-block red'%>
                     <!-- <%= button_to I18n.t("chat.decline"), '', class: 'btn default-btn btn-block' %> -->
                   <% when "aborted" %>
                     <h6><%=I18n.t("chat.request_aborted_student")%></h6>

@@ -40,7 +40,7 @@ class ConsultTransaction < ApplicationRecord
     #TODO update the logic to calculate the price.
     # transaction.instructor.fix_price? ? transaction.instructor.max_price : transaction.instructor.max_price
     instructor = self.instructor
-    case self.service
+    price = case self.service
       when "early_consult"
         instructor.consult_fix_price? ? instructor.consult_fix_price : instructor.consult_min_price
       when "brainstorm_consultant"
@@ -56,6 +56,7 @@ class ConsultTransaction < ApplicationRecord
       when nil
         1
     end
+    self.hourly_price || price
   end
 
   private
