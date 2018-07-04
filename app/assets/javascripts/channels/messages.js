@@ -14,8 +14,10 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
     // Clear the message text area
     $('#message-box-area').val('')
     console.log("-0-0-0-0-0----0-0-0")
+
     if(window.location.pathname != "/messages"){
       $('.nav-message').addClass('message-notification')
+      this.perform('send_message_notification')
     }
 
   }

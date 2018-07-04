@@ -7,4 +7,12 @@ class MessagesChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
+
+  def send_message_notification
+    puts "******* send_message_notification ********"
+    TutorMailer.send_message_notification(current_user).deliver
+    return
+    # transmit type: 'success', comm_data: {content: 'Email Sent'}
+  end
+
 end
