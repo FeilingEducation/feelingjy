@@ -1,0 +1,7 @@
+<h4>Hello <%= @student.first_name%>,</h4>
+
+<p>Unfortunately your service request has been declined by <%= @instructor.user_info.first_name %>. You can choose another instructor from a list of other mentors.</p>
+<%= link_to "View other Instructors", mentors_path %>
+<br/>
+<br/>
+<p>Regards, <br/> Feeling Education</p>

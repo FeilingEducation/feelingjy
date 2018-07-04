@@ -49,8 +49,11 @@ class ConsultTransactionsController < AuthenticatedResourcesController
       if @transaction.update_attributes(transaction_params)
         flash[:notice] = I18n.t("flash_notice.transaction.update_successful")
         if request_aborted?
+          TutorMailer.order_decline(@transaction).deliver
           redirect_to(decline_consult_transaction_path)
         else
+          # Send Congrat email to student
+          TutorMailer.order_confirmation(@transaction, confirm_consult_transaction_path).deliver
           redirect_to(confirm_consult_transaction_path)
         end
       else

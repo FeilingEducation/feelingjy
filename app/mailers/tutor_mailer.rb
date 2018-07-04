@@ -12,4 +12,18 @@ class TutorMailer < ApplicationMailer
 		mail( :to => current_user.email, :subject => 'Hello!! You have received a new message' )
 	end
 
+	def order_confirmation transaction, txn_path
+		puts "transaction"
+		@txn_path = txn_path
+		@student = transaction.student
+		@tutor = transaction.instructor
+	end
+
+	def order_decline transaction
+		puts "transaction"
+		@txn_path = txn_path
+		@student = transaction.student
+		@tutor = transaction.instructor
+	end
+
 end
