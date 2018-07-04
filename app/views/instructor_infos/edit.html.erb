@@ -186,7 +186,8 @@
             <div class="header">
               <div class="row">
                 <div class="col-md-7">
-                  <%= f.select :uni_accepted, InstructorInfo.schoools_accepted(lang), {}, { class: 'select2 schools-applied multiple' } %>
+                  <%= f.select :uni_accepted, InstructorInfo.schoools_accepted(lang), {multiple: true, :size => 5}, { class: 'select2 schools-applied multiple', :multiple => true, :size => 5 } %>
+                  <%#= f.select :uni_accepted, InstructorInfo.schoools_accepted(lang), { :multiple => true, :size => 5 }, { class: 'select2 specialization-dd', :multiple => true, :size => 5  }%>
                 </div>
               </div>
             </div>
