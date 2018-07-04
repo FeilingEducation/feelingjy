@@ -15,10 +15,11 @@ $active-grey-background: #E0E0E0;
     font: normal normal normal 12px/1 FontAwesome;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-    position: absolute;
+    // position: absolute;
     z-index: 2;
     right: 0px;
-    margin-top: -22px;
+    margin-top: -28px;
+    margin-left: -12px;
   }
 }
 

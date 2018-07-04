@@ -69,8 +69,6 @@ class InstructorInfosController < AuthenticatedResourcesController
     @instructor_info = InstructorInfo.find(current_user.id)
     if @instructor_info.update_attributes(instructor_info_params)
       @instructor_info.uni_accepted = instructor_info_params[:uni_accepted].reject {|s| s.empty?}
-      # @instructor_info.uni_accepted = [instructor_info_params[:uni_accepted]]
-      # @instructor_info.uni_accepted = []
       @instructor_info.save!
       flash[:notice] = 'Instructor profile updated successfully'
     end
