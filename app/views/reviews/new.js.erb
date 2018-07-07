@@ -1,0 +1,5 @@
+$('#dialog .modal-title').html("帐号登录");
+$('#dialog .modal-dialog').addClass('custom-card');
+$('#dialog .modal-header').remove();
+$('#dialog .modal-body').html('<%= j render(partial: 'review', locals: { is_modal: true }) %>');
+show_or_update($('#dialog'));

@@ -49,7 +49,9 @@ Rails.application.routes.draw do
   get 'mentors', to: "instructor_infos#index"
 
   resources :profiles, only: [:show]
-  resources :consult_transactions, path: 'transactions', except: [:edit, :new]
+  resources :consult_transactions, path: 'transactions', except: [:edit, :new] do
+    resources :reviews
+  end
   # post 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
   get 'transactions/:id/confirm', to: 'consult_transactions#confirm', as: 'confirm_consult_transaction'
   get 'transactions/:id/decline', to: 'consult_transactions#decline', as: 'decline_consult_transaction'

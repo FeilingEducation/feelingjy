@@ -102,6 +102,14 @@ $border-color: #E0DBDB;
     &.modal-wrapper{
       // padding: 75px;
     }
+    label{
+      color: $main-text-color;
+      font-family: helvetica;
+      font-size: 12px;
+    }
+    textarea{
+      height: 80px;
+    }
   }
   .submit-btn{
     height: 43px;

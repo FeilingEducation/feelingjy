@@ -12,6 +12,8 @@ en:
           completed: "Completed"
           aborted: "Aborted"
           reviewed: "Reviewed"
+          instructor_reviewed: "Instructor Reviewed"
+          student_reviewed: "Student Reviewed"
 
       instructor_info:
         degree:
@@ -641,9 +643,10 @@ en:
     payment_successful: "Payment Successful"
     request_aborted_instructor: "Declined"
     request_aborted_student: "Declined"
-    request_completed: "Review & Close Order"
+    request_completed: "Review Instructor"
+    request_completed_student: "Review Student"
     complete_request: "Done"
-    order_closed: "Order Completed"
+    order_closed: "Reviewed and Order Completed"
     city: "Current City"
     gender: "Gender"
 
@@ -695,7 +698,12 @@ en:
     completed: "Completed"
     aborted: "Aborted"
     reviewed: "Review Completed!"
-
+    instructor_reviewed: "Instructor has Reviewed"
+    student_reviewed: "Student has Reviewed"
+    student:
+      review: "Review Instructor"
+    instructor:
+      review: "Review Student"
 
   show_tutors:
     all_tutors: "All Tutors"
@@ -740,7 +748,7 @@ en:
       transaction_completed_failed: "Transaction complete failed."
       review_denied: "You are not allowed to review this instructor."
       transaction_review_failed: "Review failed."
-      transaction_reviewed: "Review successful."
+      transaction_reviewed: "You have reviewed successfully"
       has_reviewed: "This service has been already reviewed. You cannot review it again."
 
   universities:
@@ -762,3 +770,14 @@ en:
     spring: "Spring"
     fall: "Fall"
     enter_my_application: "Enter My Application"
+
+  consult_txn:
+    add_review_heading: "Add Review"
+    p: "Hey! Please provide an honest feedback for your instructor regarding how was your experience"
+    com: "Service Communication"
+    attitude: "Attitude"
+    efficiency: "Efficiency"
+    authenticity: "Authenticity"
+    cost_effectiveness: "Cost Efftiveness"
+    enter_message: "Enter your message:"
+    submit: "Submit"

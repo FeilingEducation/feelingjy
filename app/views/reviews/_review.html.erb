@@ -1,0 +1,93 @@
+<% if @transaction.status == "reviewed"%>
+  <div> This service has been reviewed. You can not review this service again. </div>
+<% else %>
+	<div class="form-wrapper">
+		<% if !@transaction.blank?%>
+		<div class="head-sec">
+	    <h2 class="main-heading"><%= I18n.t "consult_txn.add_review_heading" %></h2>
+	    <h6 class="sub-heading"><%= I18n.t "consult_txn.p" %></h6>
+	   </div>
+			<hr>
+			<%= form_for @review, url: consult_transaction_reviews_path, class: "form-wrapper" do |f| %>
+			  <%#= f.hidden_field :transaction_id, value: @transaction.id %>
+				<%#= f.hidden_field :reviewer_id, value: current_user.id %>
+				<%#= f.hidden_field :consult_transaction_id, value: current_user.id %>
+				<div class="row">
+					<div class="col-md-5">
+						<label><%= I18n.t "consult_txn.com" %></label>
+					</div>
+					<div class="col-md-7">
+						<div id="service_communication" class="rating" data-score="<%=@review.service_communication_rating%>"></div>
+						<%= f.hidden_field :service_communication_rating %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<label><%= I18n.t "consult_txn.attitude" %></label>
+					</div>
+					<div class="col-md-7">
+						<div id="attitude" class="rating" data-score="<%=@review.attitude_rating%>"></div>
+						<%= f.hidden_field :attitude_rating %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<label><%= I18n.t "consult_txn.efficiency" %></label>
+					</div>
+					<div class="col-md-7">
+						<div id="efficiency" class="rating" data-score="<%=@review.efficiency_rating%>"></div>
+						<%= f.hidden_field :efficiency_rating %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<label><%= I18n.t "consult_txn.authenticity" %></label>
+					</div>
+					<div class="col-md-7">
+						<div id="authenticity" class="rating" data-score="<%=@review.authenticity_rating%>"></div>
+						<%= f.hidden_field :authenticity_rating %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<label><%= I18n.t "consult_txn.cost_effectiveness" %></label>
+					</div>
+					<div class="col-md-7">
+						<div id="cost_effectiveness" class="rating" data-score="<%=@review.cost_effectiveness_rating%>"></div>
+						<%= f.hidden_field :cost_effectiveness_rating %>
+					</div>
+				</div>
+				<%# if @transaction.review.nil? %>
+					<div class="row">
+						<div class="col-md-5">
+							<label><%= I18n.t "consult_txn.enter_message" %></label>
+						</div>
+						<div class="col-md-7">
+							<%= f.text_area :review_text %>
+						</div>
+					</div>
+					<div class="row mt-1">
+						<div class="col-md-5 text-right">
+						</div>
+						<div class="col-md-7 text-left">
+							<%= f.submit I18n.t("consult_txn.submit"), class: "btn btn-primary" %>
+						</div>
+					</div>
+				<%# end %>
+			<% end %>
+		<%end%>
+	</div>
+<% end %>
+
+
+
+<script type="text/javascript">
+  $('.rating').raty('destroy')
+	$('.rating').raty({
+		click: function(score, evt) {
+	    $(this).parent().find('input[type=hidden]').val(score)
+	    return false;
+	  }
+	});
+	$('.rating-readonly').raty({readOnly: true})
+</script>

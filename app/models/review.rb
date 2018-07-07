@@ -1,5 +1,7 @@
 class Review < ApplicationRecord
 	belongs_to :user
+	belongs_to :reviewer, class_name: "User"
+	
 	belongs_to :consult_transaction
 
 	def avg_rate

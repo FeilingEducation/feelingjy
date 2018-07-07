@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+
 	def index
 		@transaction = ConsultTransaction.find(params[:transaction_id])
 		if @transaction.student_id == current_user.id
@@ -13,23 +14,43 @@ class ReviewsController < ApplicationController
 		end
 	end
 
+	def new
+		@transaction = ConsultTransaction.find params[:consult_transaction_id]
+		@review = Review.new consult_transaction_id: @transaction.id
+	end
+
 	def create
-		@transaction = ConsultTransaction.find(params[:review][:transaction_id])
-		@tutor = User.find(params[:user_id])
+		@transaction = ConsultTransaction.find params[:consult_transaction_id]
 		if @transaction.status == "reviewed"
 			redirect_to root_url, alert: I18n.t("flash_notice.transaction.has_reviewed")
 		else
-			@new_tutor_review = @tutor.reviews.create(review_params)
-			if @transaction.update(status: :reviewed)
-				flash[:notice] = I18n.t("flash_notice.transaction.transaction_reviewed")
-				redirect_to @transaction
+			@tutor = @transaction.instructor.user_info.user
+			@reviewer = current_user
+			status = @transaction.status
+
+
+			# student reviewing tutor
+			unless current_user.id == @tutor.id
+				@tutor = @transaction.student.user
+				status = @transaction.status == "instructor_reviewed" ? :reviewed : :student_reviewed
 			else
-				flash[:notice] = I18n.t("flash_notice.transaction.transaction_review_failed")
-				render 'index'
+				# student reviewing instructor.
+				status = @transaction.status == "student_reviewed" ? :reviewed : :instructor_reviewed
 			end
+
+			@tutor_review = @tutor.reviews.new(review_params)
+			@tutor_review.reviewer = @reviewer
+			@tutor_review.consult_transaction = @transaction
+			@tutor_review.save
+			@transaction.update!(status: status)
+			flash[:notice] = I18n.t("flash_notice.transaction.transaction_reviewed")
+			redirect_to consult_transactions_path
+			# else
+			# 	flash[:notice] = I18n.t("flash_notice.transaction.transaction_review_failed")
+			# 	render 'index'
+			# end
 		end
 		# redirect_to user_reviews_path(params[:user_id], transaction_id: params[:review][:consult_transaction_id]), notice: "Review posted successfully."
-
 	end
 
 	private
