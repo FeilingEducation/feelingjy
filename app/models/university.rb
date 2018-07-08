@@ -5,6 +5,7 @@ class University < ApplicationRecord
   has_many :gallery_images, class_name: 'Picture', foreign_key: 'pictureable_id'
 
   has_many :departments
+  has_many :programs, through: :departments
 
   # accepts_nested_attributes_for :cover_photo
   accepts_nested_attributes_for :gallery_images

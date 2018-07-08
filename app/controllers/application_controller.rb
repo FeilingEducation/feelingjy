@@ -95,6 +95,7 @@ class ApplicationController < ActionController::Base
           uni_name = cells[0].try(:value)
           dept_name = cells[1].try(:value)
           prog_name = cells[2].try(:value)
+
           next unless uni_name.present?
           next unless dept_name.present?
           next unless prog_name.present?
@@ -102,6 +103,7 @@ class ApplicationController < ActionController::Base
           puts "Found university: #{uni_name}. Looking for its department #{dept_name}"
           dept = uni.departments.where(name_en: dept_name).first_or_create
           cells[3].value.split(",").each do |degree|
+            degree = "Master" if degree == 'M.A.'
             program = dept.programs.where(name_en: prog_name, degree: degree).first_or_create
             program.name_en = cells[2].try(:value)
             # program.degree = degree

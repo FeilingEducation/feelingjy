@@ -263,7 +263,7 @@ end
     puts "local::::::#{local}"
     puts "local.to_s == 'en':::::: #{local.to_s == 'en'}"
     puts "local.to_s == 'en':::: #{local.to_s == "en"}"
-    (local.to_s == "en" ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE).each_with_index.map {|m,i| [m,i]}
+    (local.to_s == "en" ? University.all : University.all).map {|u| [u.name_en,u.id]}
   end
 
   def self.spcializations_as_optons local='en'

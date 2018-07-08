@@ -1,5 +1,5 @@
 <% local = session[:locale] || "en" %>
-<div class="col-md-4 col-sm-6 instructor-profile-box">
+<div class="mt-4 col-md-4 col-sm-6 instructor-profile-box">
   <%= link_to university_department_path(university_id: department.university.slug, id: department.slug) do %>
     <div class="div-bg">
       <div class="img" style="background-image: url('<%= department.gallery_images.first.try(:image).try(:url)%>');">

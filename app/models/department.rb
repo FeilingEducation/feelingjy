@@ -1,6 +1,6 @@
 class Department < ApplicationRecord
 
-  belongs_to :university
+  belongs_to :university, dependent: :destroy
 
   has_many :gallery_images, class_name: 'Picture', foreign_key: 'pictureable_id'
   accepts_nested_attributes_for :gallery_images

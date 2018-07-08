@@ -5,10 +5,11 @@
     <h4 class="sub-heading"><%= I18n.t "efficiency.sub_heading" %></h4>
 
     <%= form_tag "/results", method: "POST" do %>
-    <%= text_field_tag "university", "", placeholder: I18n.t("efficiency.label1") %>
+    <%#= text_field_tag "university", "", placeholder: I18n.t("efficiency.label1") %>
+    <%= select_tag "university", options_for_select(InstructorInfo.universities_as_optons), class: "form-control select2"%>
 
 
-    <div class="row content">
+    <div class="row mt-4 content">
       <div class="col-2 box-transparent">
         <span><%= I18n.t "efficiency.degree"%></span>
       </div>
