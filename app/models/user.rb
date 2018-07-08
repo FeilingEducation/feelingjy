@@ -156,4 +156,6 @@ class User < ApplicationRecord
     end
     return final_cost_effectiveness_rating.to_f
   end
+
+  
 end
