@@ -79,6 +79,12 @@ en:
           University of Washington at Seattle: "University of Washington at Seattle"
           University of Maryland-College Park: "University of Maryland-College Park"
           University of Pittsburgh: "University of Pittsburgh"
+          Purdue University-West Lafayette: "Purdue University-West Lafayette"
+          University of Illinois Urbana Champaign: "University of Illinois Urbana Champaign"
+          Pennsylvania State University-University Park: "Pennsylvania State University-University Park"
+          University of Michigan-Ann Arbor: "University of Michigan-Ann Arbor"
+          Pepperdine University: "Pepperdine University"
+          Ohio State University-Columbus: "Ohio State University-Columbus"
 
 
         specialization:
@@ -96,6 +102,8 @@ en:
           Language: "Language"
           Chemistry: "Chemistry"
           Neurobiology: "Neurobiology"
+          Accounting: "Accounting"
+
 
   hello: "Hello world"
 
@@ -120,7 +128,7 @@ en:
     terms:
       title: "Terms & Conditions"
       address: "Venture Building 704 Huangbei Rd Luohu District Shenzhen"
-      phone: "400-123-4567"
+      phone: "130-2990-4334"
       email: "suggestion@feelingyt.com"
       office_time: "From Monday to Friday 9:00-18:00(SGT)"
 
@@ -188,7 +196,6 @@ en:
       sec2:
         title: "Lowest Price"
         text: "Direct connection between the tutors and students will cut off unnecessary fees. The students only pay for what they need instead of being imposed with a lump-sum for a from-begin-to-end type of service."
-
       sec3:
         title: "Best Quality"
         text: "Best quality is ensured because that we have a rating system to allow students who are served to evaluate their tutors. Further more, our dedicated professional team will always be at the last step to
@@ -764,7 +771,7 @@ en:
   efficiency:
     main_heading: "Welcome to Feeling Education Management Center"
     sub_heading: "Please select the degree and semester of your Application"
-    label1: "Please selecct your University"
+    label1: "Please select your University"
     degree: "Degree"
     bachelor: "Bachelor"
     master: "Master"
