@@ -29,11 +29,11 @@
       <div class="col-sm-2"><%= transaction.scheduled_date %></div>
       <div class="col-sm-2"><%= ConsultTransaction.status_enum_name(transaction.status) %></div>
       <%if other_role == "instructor" %>
-        <div class="col-sm-2 text-left"><%= render partial: 'review', locals: { r: transaction.student_review }%></div>
-        <div class="col-sm-2"><%= render partial: 'review', locals: { r: transaction.instructor_review }%></div>
+        <div class="col-sm-2 text-left"><%= render partial: 'review', locals: { show_text: false, r: transaction.student_review }%></div>
+        <div class="col-sm-2"><%= render partial: 'review', locals: { show_text: false, r: transaction.instructor_review }%></div>
       <%else%>
-        <div class="col-sm-2"><%= render partial: 'review', locals: { r: transaction.instructor_review }%></div>
-        <div class="col-sm-2 text-left"><%= render partial: 'review', locals: { r: transaction.student_review }%></div>
+        <div class="col-sm-2"><%= render partial: 'review', locals: { show_text: false, r: transaction.instructor_review }%></div>
+        <div class="col-sm-2 text-left"><%= render partial: 'review', locals: { show_text: false, r: transaction.student_review }%></div>
       <%end%>
       <div class="col-sm-1"><%= service transaction.service %></div>
       <div class="col-sm-1">

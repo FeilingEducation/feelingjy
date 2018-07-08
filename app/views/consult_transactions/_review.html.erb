@@ -1,5 +1,8 @@
 <% if r.present? %>
   <span class="rating" data-score="<%= r.avg_rate %>"></span>
+  <% if show_text %>
+    <p><i><%= r.review_text%></i></p>
+  <%end%>
 <%else%>
-  <span class="rating" data-score="<%= 0.0 %>"></span>
+  <span> - </span>
 <%end%>

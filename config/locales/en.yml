@@ -702,6 +702,7 @@ en:
     reviewed: "Review Completed!"
     instructor_reviewed: "Instructor has Reviewed"
     student_reviewed: "Student has Reviewed"
+    you_reviewd: "You reviewed"
     student:
       review: "Review Instructor"
     instructor:

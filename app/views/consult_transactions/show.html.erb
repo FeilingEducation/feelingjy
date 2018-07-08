@@ -103,18 +103,20 @@
                     <%= button_to I18n.t("chat.payment_successful"), '', disabled: true, class: 'btn default-btn btn-block red' %>
 
                   <% when "completed" %>
-
                     <%= link_to I18n.t("service_status.student.review"), new_consult_transaction_review_path(@transaction), remote: true, class: 'btn default-btn btn-block red'%>
-                    <%#= link_to I18n.t("header.signup"), new_user_registration_path, remote: true, class: "nav-link" %>
-                    <!-- <%= button_to I18n.t("chat.request_completed"), '', disabled: true, class: 'btn default-btn btn-block red' %> -->
 
                   <% when "reviewed" %>
-                    <h6><%=I18n.t("service_status.reviewed")%></h6>
+                    <h6><%=I18n.t("service_status.you_reviewd")%></h6>
+                    <%= render partial: 'review', locals: { show_text: true, r: @transaction.student_review }%>
+                    <h6><%=I18n.t("service_status.instructor_reviewed")%></h6>
+                    <%= render partial: 'review', locals: { show_text: true, r: @transaction.instructor_review }%>
                   <% when "instructor_reviewed" %>
                     <h6><%=I18n.t("service_status.instructor_reviewed")%></h6>
+                    <%= render partial: 'review', locals: { show_text: true, r: @transaction.instructor_review }%>
                     <%= link_to I18n.t("service_status.student.review"), new_consult_transaction_review_path(@transaction), remote: true, class: 'btn default-btn btn-block red'%>
                   <% when "student_reviewed" %>
-                    <h6><%=I18n.t("service_status.student_reviewed")%></h6>
+                    <h6><%=I18n.t("service_status.you_reviewd")%></h6>
+                    <%= render partial: 'review', locals: { show_text: true, r: @transaction.student_review }%>
                   <% end %>
 
 
@@ -138,15 +140,19 @@
                     <%= link_to I18n.t("chat.complete_request"), complete_consult_transaction_path, class: 'btn default-btn btn-block'%>
 
                   <% when "completed" %>
-                    <!-- <h6><%#=I18n.t("chat.order_closed")%></h6> -->
                     <%= link_to I18n.t("service_status.instructor.review"), new_consult_transaction_review_path(@transaction), remote: true, class: 'btn default-btn btn-block red'%>
 
                   <% when "reviewed" %>
-                    <h6><%=I18n.t("chat.order_closed")%></h6>
-                  <% when "instructor_reviewed" %>
-                    <h6><%=I18n.t("service_status.instructor_reviewed")%></h6>
-                  <% when "student_reviewed" %>
+                    <h6><%=I18n.t("service_status.you_reviewd")%></h6>
+                    <%= render partial: 'review', locals: { show_text: true, r: @transaction.instructor_review }%>
                     <h6><%=I18n.t("service_status.student_reviewed")%></h6>
+                    <%= render partial: 'review', locals: { show_text: true, r: @transaction.student_review }%>
+                  <% when "instructor_reviewed" %>
+                    <h6><%=I18n.t("service_status.you_reviewd")%></h6>
+                    <%= render partial: 'review', locals: { show_text: true, r: @transaction.instructor_review }%>
+                  <% when "student_reviewed" %>
+                    <h6><%=I18n.t("service_status.instructor_reviewed")%></h6>
+                    <%= render partial: 'review', locals: { show_text: true, r: @transaction.student_review }%>
                     <%= link_to I18n.t("service_status.instructor.review"), new_consult_transaction_review_path(@transaction), remote: true, class: 'btn default-btn btn-block red'%>
 
 
