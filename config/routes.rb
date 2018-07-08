@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get "/set_local", to: "search#set_local"
 
   get "/seeds", to: "application#data"
+  get "/seed_graduate_data", to: "application#seed_graduate_data"
+
 
   resources :user_wallets
   resources :user_wallet_activities
