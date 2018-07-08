@@ -503,6 +503,8 @@ en:
     no_orders: "No Orders"
     order_scheduled_at: "Started At"
     inst_name: "Instructor Name"
+    you_rated: "You Rated"
+    rating_received: "Rating Received"
     std_name: "Student Name"
     order_placed_at: "Order Placed At"
     order_status: "Order Status"

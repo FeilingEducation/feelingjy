@@ -10,7 +10,7 @@ class ConsultTransaction < ApplicationRecord
 
   has_one :chat
   has_one :payment, as: :payable
-  has_one :review
+  has_many :reviews
 
   validates_presence_of :instructor_id
   validates_presence_of :student_id
@@ -18,14 +18,26 @@ class ConsultTransaction < ApplicationRecord
     errors.add(:base, "Consulting yourself is not allowed") if instructor_id == student_id
   end
 
-
   # this function is to access .yml to get corresponding CHINESE/ENGLISH based on status enum
   def self.status_enum_name(enum_name)
      I18n.t("activerecord.attributes.consult_transaction.status.#{enum_name.to_s}")
   end
 
+  def student_review
+    self.reviews.where(reviewer_id: self.student_id).first
+  end
 
+  def instructor_review
+    self.reviews.where(reviewer_id: self.instructor_id).first
+  end
 
+  def student_review_rating
+    self.reviews.where(reviewer_id: self.student_id).first.try(:avg_rate)
+  end
+
+  def instructor_review_rating
+    self.reviews.where(reviewer_id: self.instructor_id).first.try(:avg_rate)
+  end
 
   def payment_completed!
     self.confirmed!
