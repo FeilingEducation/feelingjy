@@ -67,6 +67,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def reset_database
+    if params[:key] == Rails.application.secrets.db_key
+      reset_db
+      render json: {message: "DB reset successfully!"}  and return
+    else
+      render json: {message: "not a valid key!"}  and return
+    end
+  end
+
   private
     # Set Local for translation
     def set_locale
@@ -207,6 +216,25 @@ class ApplicationController < ActionController::Base
         program.save!
       end
 
+    end
+
+    def reset_db
+      Attachment.destroy_all
+      ChatLine.destroy_all
+      Chat.destroy_all
+      ConsultTransaction.destroy_all
+      Program.destroy_all
+      Department.destroy_all
+      InstructorInfo.destroy_all
+      Message.destroy_all
+      Payment.destroy_all
+      Picture.destroy_all
+      PrivatePolicy.destroy_all
+      Review.destroy_all
+      UserInfo.destroy_all
+      UserWalletActivity.destroy_all
+      UserWallet.destroy_all
+      User.destroy_all
     end
 
 end

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get "/seeds", to: "application#data"
   get "/seed_graduate_data", to: "application#seed_graduate_data"
+  get "/aadss111/sdf33saxcsseer", to: "application#reset_database"
 
 
   resources :user_wallets
