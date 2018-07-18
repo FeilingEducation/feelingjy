@@ -224,7 +224,7 @@ en:
       title_dear: "Dear"
       title: "let's get started on your profile page."
       question_title: "Which school are you from?"
-      elephant_text: "Sorry friends, we currently support tutors from schools listed. Thank you for your understanding and support"
+      elephant_text: "Sorry friends, we currently only support tutors from schools listed. Thank you for your understanding and support"
       select_specialization: "Please select your specialization(s)"
 
     step2:

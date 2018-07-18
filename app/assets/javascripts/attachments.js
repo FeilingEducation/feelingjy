@@ -23,11 +23,14 @@ $(document).on('turbolinks:load', function () {
     // data is returned from the backend. See attachments_controller#create when it
     // responds to JSON format
     done: function done(e, data) {
-      var $attachment = $("#attachment-" + data.id);
+      console.log("data::::", data)
+      // var $attachment = $("#attachment-" + data.id);
+      var $attachment = $("#send-a-msg-form");
       $attachment.data('result', data.result.files[0]);
       // used to tell the backend what attachments are associated with a message.
       // See messages_controller#create
       $attachment.append($('<input type="hidden" name="attachment_ids[]" value="' + data.result.files[0].id + '">'));
+      $("#attachments-container").append('<div class="attachment">' + ' <a href="' + data.result.files[0].url + '" target="_blank">' + data.result.files[0].name + '</a>' + '</div><br/>')
       $attachment.find('.attachment-progress').remove();
     }
   }).bind('fileuploadadd', function (e, data) {
