@@ -219,22 +219,22 @@ class ApplicationController < ActionController::Base
     end
 
     def reset_db
-      Attachment.destroy_all
-      ChatLine.destroy_all
-      Chat.destroy_all
-      ConsultTransaction.destroy_all
-      Program.destroy_all
-      Department.destroy_all
-      InstructorInfo.destroy_all
-      Message.destroy_all
-      Payment.destroy_all
-      Picture.destroy_all
-      PrivatePolicy.destroy_all
-      Review.destroy_all
-      UserInfo.destroy_all
-      UserWalletActivity.destroy_all
-      UserWallet.destroy_all
-      User.destroy_all
+      Attachment.delete_all
+      ChatLine.delete_all
+      Chat.delete_all
+      ConsultTransaction.delete_all
+      Program.delete_all
+      Department.delete_all
+      InstructorInfo.delete_all
+      Message.delete_all
+      Payment.delete_all
+      Picture.delete_all
+      PrivatePolicy.delete_all
+      Review.delete_all
+      UserInfo.delete_all
+      UserWalletActivity.delete_all
+      UserWallet.delete_all
+      User.delete_all
     end
 
 end
