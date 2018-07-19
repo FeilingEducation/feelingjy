@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
 
-  has_many :attachments, as: 'attachable'
+  has_many :attachments, as: 'attachable', dependent: :destroy
   belongs_to :sender, class_name: :UserInfo
   belongs_to :receiver, class_name: :UserInfo
 

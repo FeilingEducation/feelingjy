@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_one :user_info, foreign_key: "id"
   has_one :user_wallet
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   delegate :total_withdrawl, :total_earned, :total_pending, :total_balance, to: :user_wallet
 
@@ -157,5 +157,5 @@ class User < ApplicationRecord
     return final_cost_effectiveness_rating.to_f
   end
 
-  
+
 end

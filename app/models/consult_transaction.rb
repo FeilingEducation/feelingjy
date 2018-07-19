@@ -10,7 +10,7 @@ class ConsultTransaction < ApplicationRecord
 
   has_one :chat
   has_one :payment, as: :payable
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   validates_presence_of :instructor_id
   validates_presence_of :student_id

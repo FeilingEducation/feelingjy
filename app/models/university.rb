@@ -2,10 +2,10 @@ class University < ApplicationRecord
 
   # has_one :cover_photo, class_name: 'Picture', foreign_key: 'pictureable_id'
   belongs_to :picture, class_name: 'Picture', optional: true #, foreign_key: "pictureable_id"
-  has_many :gallery_images, class_name: 'Picture', foreign_key: 'pictureable_id'
+  has_many :gallery_images, class_name: 'Picture', foreign_key: 'pictureable_id',dependent: :destroy
 
-  has_many :departments
-  has_many :programs, through: :departments
+  has_many :departments, dependent: :destroy
+  has_many :programs, through: :departments, dependent: :destroy
 
   # accepts_nested_attributes_for :cover_photo
   accepts_nested_attributes_for :gallery_images

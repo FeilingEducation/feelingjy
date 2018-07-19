@@ -1,6 +1,6 @@
 class Chat < ApplicationRecord
   belongs_to :consult_transaction
-  has_many :chat_lines
+  has_many :chat_lines, dependent: :destroy
 
   after_destroy :destroy_chat_lines
 

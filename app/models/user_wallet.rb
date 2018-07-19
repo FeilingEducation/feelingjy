@@ -5,7 +5,7 @@ class UserWallet < ApplicationRecord
   # - amount
 
   belongs_to :user
-  has_many :user_wallet_activities
+  has_many :user_wallet_activities, dependent: :destroy
 
   accepts_nested_attributes_for :user_wallet_activities
 

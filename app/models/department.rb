@@ -5,7 +5,7 @@ class Department < ApplicationRecord
   has_many :gallery_images, class_name: 'Picture', foreign_key: 'pictureable_id'
   accepts_nested_attributes_for :gallery_images
 
-  has_many :programs
+  has_many :programs, dependent: :destroy
 
   after_create :set_pictureable
   after_save :set_pictureable

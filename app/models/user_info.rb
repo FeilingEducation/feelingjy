@@ -16,11 +16,11 @@ class UserInfo < ApplicationRecord
   belongs_to :user, foreign_key: 'id'
   has_one :instructor_info, foreign_key: 'id'
 
-  has_many :consult_transactions, foreign_key: 'student_id'
-  has_many :instructors, through: 'consult_transactions'
-  has_many :attachments, as: :attachable
-  has_many :sent_messages, class_name: :Message, foreign_key: :sender_id
-  has_many :received_messages, class_name: :Message, foreign_key: :receiver_id
+  has_many :consult_transactions, foreign_key: 'student_id', dependent: :destroy
+  has_many :instructors, through: 'consult_transactions', dependent: :destroy
+  has_many :attachments, as: :attachable, dependent: :destroy
+  has_many :sent_messages, class_name: :Message, foreign_key: :sender_id, dependent: :destroy
+  has_many :received_messages, class_name: :Message, foreign_key: :receiver_id, dependent: :destroy
 
   delegate :email, to: :user
 
