@@ -228,7 +228,7 @@ class ApplicationController < ActionController::Base
       InstructorInfo.destroy_all
       Message.destroy_all
       Payment.destroy_all
-      Picture.destroy_all
+      # Picture.destroy_all
       PrivatePolicy.destroy_all
       Review.destroy_all
       UserInfo.destroy_all
