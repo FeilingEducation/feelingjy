@@ -39,7 +39,8 @@
       </div>
     </div>
   </section>
-
+  
+<% if @results.size > 0%>
   <section class="section grey-section">
     <div class="container">
       <div class="header">
@@ -124,7 +125,9 @@
       </div> -->
     </div>
   </section>
+<%end%>
 
+<% if @tutor_reviews.size > 0%>
   <section class="section white-section">
     <div class="container">
       <div class="header">
@@ -233,6 +236,7 @@
       </div> -->
     </div>
   </section>
+<%end%>
 
   <section class="section grey-section">
     <div class="container">

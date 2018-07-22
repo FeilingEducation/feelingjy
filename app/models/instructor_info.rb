@@ -246,7 +246,8 @@ def self.find_degree(degree_name)
 end
 
 def self.find_university(university_name)
-   I18n.t("activerecord.attributes.instructor_info.university.#{university_name.to_s}")
+  # puts "activerecord.attributes.instructor_info.university.#{university_name.to_s}"
+  I18n.t("activerecord.attributes.instructor_info.university.#{university_name.to_s}")
 end
 
 # def self.find_specialization(specialization_name)
@@ -261,9 +262,7 @@ end
 
   def self.universities_as_optons local='en'
     puts "local::::::#{local}"
-    puts "local.to_s == 'en':::::: #{local.to_s == 'en'}"
-    puts "local.to_s == 'en':::: #{local.to_s == "en"}"
-    (local.to_s == "en" ? University.all : University.all).map {|u| [u.name_en,u.id]}
+    (local.to_s == "en" ? University.order("name_en DESC") : University.order("name_en DESC")).map {|u| [u.name_en,u.id]}
   end
 
   def self.spcializations_as_optons local='en'
@@ -284,7 +283,8 @@ end
   end
 
   def self.schoools_accepted local='en'
-    (local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE).each_with_index.map {|m,i| [m,i]}
+    # (local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE).each_with_index.map {|m,i| [m,i]}
+    University.order("name_en DESC").map {|u| [u.name_en,u.id]}
   end
 
   def self.tutor_before_options local='en'
@@ -325,13 +325,15 @@ end
   end
 
   def universities_accepted local='en'
-    unis = []
-    self.uni_accepted.map {|uni| unis.push((local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[uni.to_i])}
-    unis
+    # unis = []
+    # self.uni_accepted.map {|uni| unis.push((local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[uni.to_i])}
+    # unis
+    Univesity.where(id: self.uni_accepted).all.collect(&:name_en)
   end
 
   def university_name local='en'
-    (local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[self.university.to_i]
+    # (local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[self.university.to_i]
+    University.where(id: self.university.to_i).first.try(:name_en)
   end
 
   def specialization_name local='en'
