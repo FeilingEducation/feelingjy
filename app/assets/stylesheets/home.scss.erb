@@ -20,10 +20,15 @@ body {
 h1,h2,h3,h4,h5,h6{
 	font-family: 'HelveticaNeueProBold', 'Tahoma','sans-serif';
 }
+.body{
+	position: relative;
+	padding-bottom: 250px;
+}
 
 .main-content{
 	// background: #e6e6e6;
-	min-height: calc(100vh - 360px);
+	min-height: calc(100vh - 250px);
+	// padding-bottom: 250px;
 	height: auto;
 
 	&.dark{
@@ -917,43 +922,48 @@ select.form-control {
 		}
 	}
 }
+.footer-wrapper{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 
-.main-footer {
-	padding: 55px 0 45px;
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
-	background: #f9f9f9;
-  p{
-		margin: 15px;
-	}
-	h5 {
-		font-size: 30px;
-		a {
-			color: $theme-green;
+	.main-footer {
+		padding: 55px 0 45px;
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+		background: #f9f9f9;
+	  p{
+			margin: 15px;
 		}
-	}
-	.body {
-		padding-top: 20px;
-		color: #979999;
-	}
-	p img {
-		margin-right: 20px;
-		width: 20px;
-	}
-	.email-date {
-		p {
+		h5 {
+			font-size: 30px;
+			a {
+				color: $theme-green;
+			}
+		}
+		.footer-body-cell {
+			padding-top: 20px;
 			color: #979999;
 		}
-		.dropdown {
-			display: inline-block;
-			padding-top: 20px;
-			> a {
+		p img {
+			margin-right: 20px;
+			width: 20px;
+		}
+		.email-date {
+			p {
 				color: #979999;
-				img {
-					margin-right: 5px;
-				}
-				i {
-					margin-left: 15px;
-					font-size: 18px;
+			}
+			.dropdown {
+				display: inline-block;
+				padding-top: 20px;
+				> a {
+					color: #979999;
+					img {
+						margin-right: 5px;
+					}
+					i {
+						margin-left: 15px;
+						font-size: 18px;
+					}
 				}
 			}
 		}
