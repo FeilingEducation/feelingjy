@@ -59,4 +59,8 @@ module ApplicationHelper
     (params["controller"] == "messages" && params["action"] == "index"))
   end
 
+  def instructor_class
+    "instructor_registration" if (params["controller"] == "instructor_infos" && params["action"] == "new")
+  end
+
 end

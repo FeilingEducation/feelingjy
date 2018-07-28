@@ -18,7 +18,7 @@
 
 <% modals = {} %>
 <body>
-  <div class="body">
+  <div class="body <%= instructor_class%>">
     <%= render partial: 'top_header' %>
     <%#= render partial: 'header' %>
     <div id="flash">
@@ -32,9 +32,9 @@
       <%#= content_for?(:application) ? yield(:application) : yield %>
     <!-- </section> -->
     <%#= render partial: 'footer' %>
-    <% if show_footer?%>
+    <%# if show_footer?%>
       <%= render partial: 'footer_new' %>
-    <% end %>
+    <%# end %>
   </div>
   <%= render partial: 'dialog' %>
   <%= form_tag '', method: 'post', id: 'template-form', style: 'display:hidden' %>
