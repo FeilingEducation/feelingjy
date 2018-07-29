@@ -138,27 +138,29 @@ class ApplicationController < ActionController::Base
       # Create Universities. !!!!
       puts "\n\n\n\n\nCreating Universities!!!\n\n\n\n"
       workbook = RubyXL::Parser.parse(Rails.root.join('public', 'data', 'Universities.xlsx'))
-      worksheet = workbook[1]
+      worksheet = workbook[0]
+
       worksheet.each_with_index do |row, index|
-        next if index == 0
+        next if index == 0 || row.blank? || row.cells.blank?
         cells = row.cells
         uni_name = cells[0].value
         next unless uni_name.present?
         uni = University.where(name_en: uni_name).first_or_create
+        puts "**************uni_name:::#{uni_name}"
         uni.name_en = cells[0].value
-        uni.name_cn = cells[1].value
-        uni.web_link = cells[2].value
-        uni.contact = cells[3].value
-        uni.address = cells[4].value
-        uni.grad_website = cells[5].value
-        uni.grad_contact = cells[6].value
-        uni.grad_address = cells[7].value
-        uni.program_list = cells[8].value
-        uni.overview = cells[11].value
-        uni.news_18 = cells[12].value
-        uni.news_17 = cells[13].value
-        uni.description_en = cells[15].value
-        uni.description_cn = cells[16].value
+        uni.name_cn = cells[1].try(:value)
+        uni.web_link = cells[2].try(:value)
+        uni.contact = cells[3].try(:value)
+        uni.address = cells[4].try(:value)
+        uni.grad_website = cells[5].try(:value)
+        uni.grad_contact = cells[6].try(:value)
+        uni.grad_address = cells[7].try(:value)
+        uni.program_list = cells[8].try(:value)
+        uni.overview = cells[11].try(:value)
+        uni.news_18 = cells[12].try(:value)
+        uni.news_17 = cells[13].try(:value)
+        uni.description_en = cells[15].try(:value)
+        uni.description_cn = cells[16].try(:value)
         uni.save
       end
 
