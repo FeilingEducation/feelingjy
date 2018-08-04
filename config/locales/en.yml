@@ -223,7 +223,7 @@ en:
       title_dear: "Hi,"
       title: "let's get started on your profile page."
       question_title: "Which school are you from?"
-      elephant  _text: "We currently only support mentors from the schools listed. Thank you for understanding. You can send us suggestions to suggestions@feelingyt.com"
+      elephant_text: "We currently only support mentors from the schools listed. Thank you for understanding. You can send us suggestions to suggestions@feelingyt.com"
       select_specialization: "Please select your field(s) of study."
 
     step2:
