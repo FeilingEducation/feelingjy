@@ -1,12 +1,14 @@
 <div class="row review-step ml-5">
-  <div class="col-md-12">
-    <div class="head-sec">
-      <h2 class="main-heading"><%= current_user.user_info.first_name%>,<br/> <%= I18n.t("registration.step6.title") %> </h2>
-      <h6 class="sub-heading"> <%= I18n.t("registration.step6.sub_title") %> </h6>
-    </div>
-  </div>
   <!-- <div class="col-md-1"></div> -->
-  <div class="col-md-5 left-panel">
+  <div class="col-md-7 left-panel">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="head-sec">
+          <h2 class="main-heading"><%= current_user.user_info.first_name%>,<br/> <%= I18n.t("registration.step6.title") %> </h2>
+          <h6 class="sub-heading"> <%= I18n.t("registration.step6.sub_title") %> </h6>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-6">
         <p class="sub-heading"> <%= I18n.t("registration.step6.tick1") %> </p>
@@ -45,7 +47,7 @@
     </div>
   </div>
 
-  <div class="col-md-6 right-panel">
+  <div class="col-md-5 right-panel">
     <fieldset>
       <div class="row">
         <div class="col-md-12">

@@ -253,12 +253,13 @@
                   </p>
                   <div class="row">
                     <% @instructor_info.universities_accepted(local).each do |uni|%>
-                      <div class="col-sm-3">
+                    <% next if uni.nil? %>
+                      <div class="col-sm-4">
                         <div class="school-logo">
                           <div class="logo">
-                            <%= image_tag "reskin/universities/#{uni_logo uni, local}.jpg"%>
+                            <%= image_tag uni.logo.url.match(/missing/) ? "logos/original/missing.png" : uni.logo.url %>
                           </div>
-                          <div class="school-name"><%= uni %></div>
+                          <div class="school-name"><%= uni.name local %></div>
                         </div>
                       </div>
                     <%end%>

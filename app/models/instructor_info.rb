@@ -284,7 +284,7 @@ end
 
   def self.schoools_accepted local='en'
     # (local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE).each_with_index.map {|m,i| [m,i]}
-    University.order("name_en DESC").map {|u| [u.name_en,u.id]}
+    local.to_s == "en" ? University.order("name_en DESC").map {|u| [u.name_en,u.id]} : University.order("name_cn DESC").map {|u| [u.name_cn,u.id]}
   end
 
   def self.tutor_before_options local='en'
@@ -328,12 +328,17 @@ end
     # unis = []
     # self.uni_accepted.map {|uni| unis.push((local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[uni.to_i])}
     # unis
-    Univesity.where(id: self.uni_accepted).all.collect(&:name_en)
+    University.where(id: self.uni_accepted)
   end
 
   def university_name local='en'
     # (local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[self.university.to_i]
     University.where(id: self.university.to_i).first.try(:name_en)
+  end
+
+  def name local='en'
+    # (local.to_s == 'en' ? UNIVERSITIES_ENGLISH : UNIVERSITIES_CHINESE)[self.university.to_i]
+    University.where(id: self.university.to_i).first.try( local.to_s == "en" ? :name_en : :name_cn)
   end
 
   def specialization_name local='en'

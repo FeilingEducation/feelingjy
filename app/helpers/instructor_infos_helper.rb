@@ -80,7 +80,7 @@ module InstructorInfosHelper
        "文学",
        "语言",
        "神经学",
-       "机械工程",       
+       "机械工程",
        "法律",
        "管理",
        "数学",
@@ -89,6 +89,7 @@ module InstructorInfosHelper
   end
 
   def uni_logo uni, local='en'
+    return "" if uni.nil?
     uni_english = ["Brown University","California Institute of Technology (Caltech)","Columbia University",
                    "Cornell University","Dartmouth College","Duke University","Emory University",
                    "Georgetown University","Harvard University","Johns Hopkins University",
@@ -185,6 +186,7 @@ module InstructorInfosHelper
                   ]
 
 
-    local.to_s == 'en'? uni : uni_english[uni_chinese.index(uni)]
+    # local.to_s == 'en'? uni : uni_english[uni_chinese.index(uni)]
+    uni
   end
 end
