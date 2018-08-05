@@ -1,3 +1,4 @@
+<% local = I18n.locale %>
 <div class="row efficiency-wrapper" style="background-image: url('<%=asset_url("Low_Ploy_Landscape.jpg") %>');">
   <div class="col-12 background">
 
@@ -6,7 +7,7 @@
 
     <%= form_tag "/results", method: "POST" do %>
     <%#= text_field_tag "university", "", placeholder: I18n.t("efficiency.label1") %>
-    <%= select_tag "university", options_for_select(InstructorInfo.universities_as_optons), class: "form-control select2"%>
+    <%= select_tag "university", options_for_select(InstructorInfo.universities_as_optons local), class: "form-control select2"%>
 
 
     <div class="row mt-4 content">

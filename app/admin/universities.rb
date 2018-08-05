@@ -8,7 +8,7 @@ ActiveAdmin.register University do
   #
 
   permit_params do
-    permitted = [:uuid, :name_en, :name_cn, :description_cn, :description_en, :logo, :picture_id, :gallery_images_attributes => [:id, :image, :pictureable_id, :pictureable_type, :uuid, :_destroy]]
+    permitted = [:uuid, :name_en, :name_cn, :is_hidden, :description_cn, :description_en, :logo, :picture_id, :gallery_images_attributes => [:id, :image, :pictureable_id, :pictureable_type, :uuid, :_destroy]]
     permitted
   end
 
@@ -16,6 +16,7 @@ ActiveAdmin.register University do
     attributes_table do
       row :name_en
       row :name_cn
+      row :is_hidden
       row :image do |university|
         image_tag university.logo.url
       end
@@ -45,6 +46,7 @@ index do
   id_column
   column :name_en
   column :name_cn
+  column :is_hidden
   column :logo do |university|
     image_tag university.logo.url(:thumb)
   end
@@ -79,6 +81,7 @@ form do |f|
     f.input :name_en
     f.input :uuid, input_html: {value: "#{f.object.uuid}"}, as: :hidden
     f.input :name_cn
+    f.input :is_hidden
     f.input :description_en
     f.input :description_cn
 

@@ -262,7 +262,8 @@ end
 
   def self.universities_as_optons local='en'
     puts "local::::::#{local}"
-    (local.to_s == "en" ? University.order("name_en DESC") : University.order("name_cn DESC")).map {|u| [u.name_cn,u.id]}
+    name = (local.to_s == "en") ? :name_en : :name_cn
+    University.order("name_en DESC").map {|u| [u.send(name),u.id]}
   end
 
   def self.spcializations_as_optons local='en'

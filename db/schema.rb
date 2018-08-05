@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180729134521) do
+ActiveRecord::Schema.define(version: 20180805054719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -345,6 +345,7 @@ ActiveRecord::Schema.define(version: 20180729134521) do
     t.string "overview"
     t.text "news_18"
     t.text "news_17"
+    t.boolean "is_hidden", default: false
     t.index ["picture_id"], name: "index_universities_on_picture_id"
   end
 
