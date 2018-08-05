@@ -1,5 +1,7 @@
 class University < ApplicationRecord
 
+  default_scope { where(is_hidden: false) }
+
   # has_one :cover_photo, class_name: 'Picture', foreign_key: 'pictureable_id'
   belongs_to :picture, class_name: 'Picture', optional: true #, foreign_key: "pictureable_id"
   has_many :gallery_images, class_name: 'Picture', foreign_key: 'pictureable_id',dependent: :destroy

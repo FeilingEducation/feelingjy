@@ -73,6 +73,10 @@ controller do
     super
   end
 
+  def scoped_collection
+    University.unscoped
+  end
+
 end
 
 form do |f|
