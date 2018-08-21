@@ -56,7 +56,7 @@ end
 controller do
 
   def edit
-    @university = University.friendly.find(params[:id])
+    @university = University.unscoped.friendly.find(params[:id])
     # @university.cover_photo = Picture.new(pictureable: @university) if @university.cover_photo.nil?
   end
 
@@ -65,11 +65,11 @@ controller do
   end
 
   def show
-    @university = University.friendly.find(params[:id])
+    @university = University.unscoped.friendly.find(params[:id])
   end
 
   def update
-    @university = University.friendly.find(params[:id])
+    @university = University.unscoped.friendly.find(params[:id])
     super
   end
 
