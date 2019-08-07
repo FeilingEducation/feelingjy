@@ -65,7 +65,7 @@ on each of those methods by polymorphism.
 similar that we could consider unifying them. There is no `chat` analogy for
 `message`, but we can definitely have one. Currently the idea is that, a student
 starts contacting the instructor with message, and throughout the whole instruction.
-Chat is used only when they are communication in a timed period, and chat comes
+Chat is used only when they have communication in a timed period, and chat comes
 with voice chat.
 - `belongs_to sender`
 - `belongs_to receiver`
